@@ -1,0 +1,23 @@
+{
+  "name": "regular-ui",
+  "description": "UI Components Powered By Regular",
+  "author": "Sensen <rainforest92@126.com> (http://rainfore.me)",
+  "version": "1.0.0",
+  "repository": "git://github.com/rainfore/regular-ui.git",
+  "homepage": "https://github.com/rainfore/regular-ui",
+  "bugs": {
+    "url": "http://github.com/rainfore/regular-ui/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "regular",
+    "ui"
+  ],
+  "tags": [
+    "regular",
+    "ui"
+  ],
+  "dependencies": {
+    "regularjs": "regularjs/regular"
+  }
+}
