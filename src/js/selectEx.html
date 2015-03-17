@@ -1,0 +1,11 @@
+<div class="u-droplist" r-class={ {'disabled' : disabled} }>
+	<div class="up" on-click={this.onShowDownList()}>
+		{name || '请选择内容'}
+		{#if !disabled}<div class="f-icon f-fr"></div>{/if}
+	</div>
+	<div class="down" r-class={ {'f-dn' : hideDown} }>
+		{#list options as option}
+			<div class="opt t-thide" on-click={this.onSelect(option_index, $event)}>{option.name}</div>
+		{/list}
+	</div>
+</div>

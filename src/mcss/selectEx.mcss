@@ -1,0 +1,47 @@
+/* 下拉选框 样式 */
+.u-selectex {
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    min-width: 200px;
+
+    .up, .down {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    .up{
+        cursor: pointer;
+        height: 20px;
+        line-height: 20px;
+        padding: 0 5px 0 10px;
+    }
+    
+    .down{
+        z-index: 1;
+        margin-top: 2px;
+        padding: 10px 0;
+        line-height: 24px;
+        position: absolute;
+        top:22px;
+        width:100%;
+    }
+
+    .opt{
+        cursor: pointer;
+        padding: 0 10px;
+    }
+
+    .opt:hover{
+        background-color: #eee;
+        color: #00afc9;
+    }
+
+    &.disabled{
+        .up{
+          cursor: default;
+        }
+        background-color:#fafafa;
+    }
+}
