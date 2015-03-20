@@ -1,0 +1,2 @@
+button => btn
+active => act

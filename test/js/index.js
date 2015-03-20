@@ -1,17 +1,26 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var BaseComponent = require('./baseComponent.js');
+var BaseComponent = require('../src/js/core/base.js');
 var template = require('./app.html');
+var SelectEx = require('../src/js/core/selectEx.js');
 
 var App = BaseComponent.extend({
 	name: 'app',
 	template: template,
+	data: {
+		selectExOptions: [
+			{id: 1, name: '111'},
+			{id: 2, name: '222'},
+			{id: 3, name: '333'}
+		],
+		selectExValue: 2
+	},
 	config: function() {
-
+   
 	}
 });
 
 var app = new App().$inject('#app');
-},{"./app.html":27,"./baseComponent.js":28}],2:[function(require,module,exports){
+},{"../src/js/core/base.js":27,"../src/js/core/selectEx.js":29,"./app.html":31}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -4817,8 +4826,6 @@ walkers.attribute = function(ast ,options){
 
 
 },{"./dom.js":8,"./group.js":10,"./helper/animate.js":11,"./helper/combine.js":12,"./parser/node.js":24,"./util":25}],27:[function(require,module,exports){
-module.exports="abc"
-},{}],28:[function(require,module,exports){
 var Regular = require("regularjs");
 // var filter = require("../help/filter.js");
 
@@ -4856,4 +4863,108 @@ var BaseComponent = Regular.extend({
 })
 
 module.exports = BaseComponent;
-},{"regularjs":20}]},{},[1]);
+},{"regularjs":20}],28:[function(require,module,exports){
+module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\">	<div class=\"toggle\" on-click={this.toggle(true)}>		<span>{selected.name}</span>		<i class=\"f-icon\"></i>	</div>	<div class=\"menu\" r-hide={!show}>		{#if defaultOption}<div class=\"option\" on-click={this.select(-1)}>{defaultOption}</div>{/if}		{#list options as option}			<div class=\"option\" on-click={this.select(option.id)}>{option.name}</div>		{/list}	</div></div>"
+},{}],29:[function(require,module,exports){
+/*
+ * --------------------------------------------
+ * 下拉列表UI
+ * @version  1.0
+ * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * --------------------------------------------
+ * @class SelectEx
+ * @extend BaseComponent
+ * @param {Object} options
+ *     options.value             
+ *              
+ */
+
+var BaseComponent = require('./base.js');
+var template = require('./selectEx.html');
+var _ = require('./util.js');
+
+var SelectEx = BaseComponent.extend({
+	name: 'selectEx',
+	template: template,
+	data: {
+		selected: null,
+		value: -1,
+		defaultOption: '请选择',
+		options: [],
+		disabled: false,
+		show: false,
+		input: false,
+		multiple: false
+	},
+	config: function() {
+		this.$watch(['value'], function(value) {
+			if(value < 0)
+				this.data.selected = {id: -1, name: this.data.defaultOption}
+			else {
+				for(var i = 0; i < this.data.options.length; i++)
+					if(this.data.options[i].id == value) {
+						this.data.selected = this.data.options[i];
+						break;
+					}
+			}
+			this.$emit('onChange', this.data.selected);
+		});
+	},
+	select: function(id) {
+		//this.data.selected = option;
+		this.data.value = id;
+		this.toggle(false);
+	},
+	toggle: function(show) {
+		if(this.data.disabled)
+			return;
+
+		this.data.show = show;
+
+		var index = SelectEx.selectExsShown.indexOf(this);
+		if(show && index < 0)
+			SelectEx.selectExsShown.push(this);
+		else if(!show && index >= 0)
+			SelectEx.selectExsShown.splice(index, 1);
+	}
+});
+
+SelectEx.selectExsShown = [];
+
+_.addEvent(window.document, 'click', function(e) {
+	SelectEx.selectExsShown.forEach(function(selectEx) {
+		var element = selectEx.$refs.element;
+		var element2 = e.target;
+		while(element2) {
+			if(element == element2)
+				return;
+			element2 = element2.parentElement;
+		}
+		selectEx.toggle(false);
+		selectEx.$update();
+	});
+});
+
+module.exports = SelectEx;
+},{"./base.js":27,"./selectEx.html":28,"./util.js":30}],30:[function(require,module,exports){
+var _ = {
+	extend: function(obj) {
+		for (var i = 1; i < arguments.length; i++) {
+			var target = arguments[i];
+			for (var key in target) {
+				if (Object.prototype.hasOwnProperty.call(target, key)) {
+					obj[key] = target[key];
+				}
+			}
+		}
+		return obj;
+	},
+	addEvent: function(element, event, callback) {
+		element.addEventListener(event, callback);
+	}
+}
+
+module.exports = _;
+},{}],31:[function(require,module,exports){
+module.exports="<div>	<a class=\"u-btn\">按钮</a>	<a class=\"u-btn\" href=\"\">Button</a>	<a class=\"u-btn\" href=\"#\">a.u-btn</a>	<button class=\"u-btn\">button.u-btn</button></div><div>	<a class=\"u-btn u-btn-primary\">主要按钮</a>	<a class=\"u-btn u-btn-primary\">Primary Button</a>	<a class=\"u-btn u-btn-primary\">.u-btn.u-btn-primary</a></div><selectEx options={selectExOptions} value={selectExValue} /><selectEx options={selectExOptions} defaultOption=\"全部\" value={selectExValue} />"
+},{}]},{},[1]);

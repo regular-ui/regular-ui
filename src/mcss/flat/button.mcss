@@ -1,0 +1,22 @@
+// ========================================================================
+//   Variables
+// ========================================================================
+
+// Dimension
+// $u-btn_height =                       30px;
+// $u-btn_padding-horizontal =           12px;
+
+// Font
+// $u-btn_font-size =                    1rem;
+
+// Color
+$u-btn_color =                           white;
+$u-btn_background =                      #34495e;
+// $u-btn-hover_background =             #f5f5f5;
+// $u-btn-hover_color =                  #444;
+// $u-btn-active_background =            #ddd;
+// $u-btn-active_color =                 #444;
+
+// Other Features
+$u-btn_border-radius =                   4px;
+// $u-btn_box-shadow =                   null;
