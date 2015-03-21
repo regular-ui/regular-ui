@@ -51,13 +51,14 @@
 
     /* Public */
     padding: 0 $u-btn_padding-horizontal;
-    background: $u-btn_background;
-    color: $u-btn_color;
     // - `line-height` is used to create a height.
     line-height: $u-btn_height;
     // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
     min-height: $u-btn_height;
-    font-size: $u-btn_font-size;
+    background: $u-btn_background;
+    color: $u-btn_color;
+    @if $u-btn_font-size {font-size: $u-btn_font-size;}
+    @if $u-btn_border {border: $u-btn_border;}
     @if $u-btn_border-radius {$border-radius: $u-btn_border-radius;}
     @if $u-btn_box-shadow {$box-shadow: $u-btn_box-shadow;}
 }
@@ -86,10 +87,40 @@
 
 
 
-// Modifier:       `u-btn-primary`
+// Size Modifiers:       `u-btn-mini`, `u-btn-small`, `u-btn-large`
+// ========================================================================
+
+.u-btn-mini {
+    /* Public */
+    padding: 0 $u-btn-mini_padding-horizontal;
+    line-height: $u-btn-mini_height;
+    min-height: $u-btn-mini_height;
+    font-size: $u-btn-mini_font-size;
+}
+
+.u-btn-small {
+    /* Public */
+    padding: 0 $u-btn-small_padding-horizontal;
+    line-height: $u-btn-small_height;
+    min-height: $u-btn-small_height;
+    font-size: $u-btn-small_font-size;
+}
+
+.u-btn-large {
+    /* Public */
+    padding: 0 $u-btn-large_padding-horizontal;
+    line-height: $u-btn-large_height;
+    min-height: $u-btn-large_height;
+    font-size: $u-btn-large_font-size;
+}
+
+
+
+// Color Modifier:       `u-btn-primary`
 // ========================================================================
 
 .u-btn-primary {
+    /* Public */
     background-color: $u-btn-primary_background;
     color: $u-btn-primary_color;
 }
@@ -97,13 +128,69 @@
 /* Hover */
 .u-btn-primary:hover,
 .u-btn-primary:focus {
+    /* Public */
     background-color: $u-btn-primary-hover_background;
     color: $u-btn-primary-hover_color;
 }
 
 /* Active */
 .u-btn-primary:active,
-.u-btn-primary.z-act {
+.u-btn-primary.z-active {
+    /* Public */
     background-color: $u-btn-primary-active_background;
     color: $u-btn-primary-active_color;
+}
+
+
+
+// Modifier:       `u-btn-success`
+// ========================================================================
+
+.u-btn-success {
+    /* Public */
+    background-color: $u-btn-success_background;
+    color: $u-btn-success_color;
+}
+
+/* Hover */
+.u-btn-success:hover,
+.u-btn-success:focus {
+    /* Public */
+    background-color: $u-btn-success-hover_background;
+    color: $u-btn-success-hover_color;
+}
+
+/* Active */
+.u-btn-success:active,
+.u-btn-success.z-active {
+    /* Public */
+    background-color: $u-btn-success-active_background;
+    color: $u-btn-success-active_color;
+}
+
+
+
+// Modifier:       `u-btn-danger`
+// ========================================================================
+
+.u-btn-danger {
+    /* Public */
+    background-color: $u-btn-danger_background;
+    color: $u-btn-danger_color;
+}
+
+/* Hover */
+.u-btn-danger:hover,
+.u-btn-danger:focus {
+    /* Public */
+    background-color: $u-btn-danger-hover_background;
+    color: $u-btn-danger-hover_color;
+}
+
+/* Active */
+.u-btn-danger:active,
+.u-btn-danger.z-active {
+    /* Public */
+    background-color: $u-btn-danger-active_background;
+    color: $u-btn-danger-active_color;
 }

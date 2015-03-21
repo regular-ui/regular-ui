@@ -341,11 +341,11 @@ ul{
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 	padding:0 12px;
-	background:#eee;
-	color:#444;
 	line-height:30px;
 	min-height:30px;
-	font-size:1rem;
+	background:#eee;
+	color:#444;
+	font-size:14px;
 }
 .u-btn:hover,.u-btn:focus{
 	outline:none;
@@ -357,16 +357,58 @@ ul{
 	background-color:#ddd;
 	color:#444;
 }
+.u-btn-mini{
+	padding:0 6px;
+	line-height:20px;
+	min-height:20px;
+	font-size:12px;
+}
+.u-btn-small{
+	padding:0 10px;
+	line-height:25px;
+	min-height:25px;
+	font-size:12px;
+}
+.u-btn-large{
+	padding:0 15px;
+	line-height:40px;
+	min-height:40px;
+	font-size:16px;
+}
 .u-btn-primary{
 	background-color:#00a8e6;
 	color:#fff;
 }
 .u-btn-primary:hover,.u-btn-primary:focus{
-	background-color:#00a8e6;
+	background-color:#35b3ee;
 	color:#fff;
 }
-.u-btn-primary:active,.u-btn-primary.z-act{
+.u-btn-primary:active,.u-btn-primary.z-active{
 	background-color:#0091ca;
+	color:#fff;
+}
+.u-btn-success{
+	background-color:#8cc14c;
+	color:#fff;
+}
+.u-btn-success:hover,.u-btn-success:focus{
+	background-color:#8ec73b;
+	color:#fff;
+}
+.u-btn-success:active,.u-btn-success.z-active{
+	background-color:#72ae41;
+	color:#fff;
+}
+.u-btn-danger{
+	background-color:#da314b;
+	color:#fff;
+}
+.u-btn-danger:hover,.u-btn-danger:focus{
+	background-color:#e4354f;
+	color:#fff;
+}
+.u-btn-danger:active,.u-btn-danger.z-active{
+	background-color:#c91032;
 	color:#fff;
 }
 .u-selectex{
