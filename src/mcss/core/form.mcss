@@ -31,21 +31,21 @@
     padding: $u-input_padding;
     border: $u-input_border;
     color: $u-input_color;
-    background: $u-input_background;
+    background: $u-input_background-color;
     
     // -webkit-transition: all linear 0.2s;
     // transition: all linear 0.2s;
 
     &:focus {
         outline: 0;
-        border-color: $u-input-focus_border;
-        background: $u-input-focus_background;
+        border-color: $u-input-focus_border-color;
+        background: $u-input-focus_background-color;
         color: $u-input-focus_color;
     }
 
     &:disabled {
-        border-color: $u-input-disabled_border;
-        background-color: $u-input-disabled_background;
+        border-color: $u-input-disabled_border-color;
+        background-color: $u-input-disabled_background-color;
         color: $u-input-disabled_color;
 
         cursor: not-allowed;
@@ -61,7 +61,7 @@
 
 .u-select {
     height: $u-input_height;
-    min-width: 100px;
+    min-width: $u-select_min-width;
     // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox
     text-transform: none;
 
@@ -80,8 +80,8 @@
     // - Improve readability and alignment in all browsers.
     vertical-align: top;
 
-    min-width: 300px;
-    min-height: 100px;
+    min-width: $u-textarea_min-width;
+    min-height: $u-textarea_min-height;
 }
 
 input.u-check,

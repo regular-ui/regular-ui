@@ -11,7 +11,7 @@
 @import "core/_form.mcss";
 @import "core/form.mcss";
 
-@import "core/selectEx.mcss";
+@import "core/selectex.mcss";
 
 @import "core/_modal.mcss";
 @import "core/modal.mcss";

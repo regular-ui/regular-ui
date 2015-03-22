@@ -1,25 +1,25 @@
-// Size Extends:       `u-btn-mini`, `u-btn-small`, `u-btn-large`
+// Size Extends:       `u-btn-xs`, `u-btn-sm`, `u-btn-lg`
 // ========================================================================
 
 $u-btn-extend_size(
-    mini,
-    $u-btn-mini_padding-horizontal,
-    $u-btn-mini_height,
-    $u-btn-mini_font-size
+    xs,
+    $u-btn-xs_padding-horizontal,
+    $u-btn-xs_height,
+    $u-btn-xs_font-size
 );
 
 $u-btn-extend_size(
-    small,
-    $u-btn-small_padding-horizontal,
-    $u-btn-small_height,
-    $u-btn-small_font-size
+    sm,
+    $u-btn-sm_padding-horizontal,
+    $u-btn-sm_height,
+    $u-btn-sm_font-size
 );
 
 $u-btn-extend_size(
-    large,
-    $u-btn-large_padding-horizontal,
-    $u-btn-large_height,
-    $u-btn-large_font-size
+    lg,
+    $u-btn-lg_padding-horizontal,
+    $u-btn-lg_height,
+    $u-btn-lg_font-size
 );
 
 

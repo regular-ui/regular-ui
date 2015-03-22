@@ -401,7 +401,7 @@ ul{
 }
 .u-select{
 	height:30px;
-	min-width:100px;
+	min-width:120px;
 	text-transform:none;
 }
 .u-select optgroup{
@@ -410,8 +410,8 @@ ul{
 }
 .u-textarea{
 	vertical-align:top;
-	min-width:300px;
-	min-height:100px;
+	min-width:320px;
+	min-height:120px;
 }
 input.u-check,input.u-radio{
 	cursor:pointer;
@@ -425,48 +425,53 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-selectex{
 	display:inline-block;
 	position:relative;
-	font-size:14px;
+	vertical-align:middle;
 	min-width:120px;
-	color:#000;
+	color:#444;
 }
-.u-selectex .toggle,.u-selectex .menu{
-	background-color:#f8f8f8;
+.u-selectex .selectex-hd,.u-selectex .selectex-bd{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	background:#fff;
 	border:1px solid #ddd;
-	border-radius:10px;
 }
-.u-selectex .toggle{
+.u-selectex .selectex-hd{
 	cursor:pointer;
-	height:20px;
-	line-height:20px;
-	padding:0 5px 0 10px;
+	height:30px;
+	padding:4px 6px;
 }
-.u-selectex .toggle .f-icon:before{
-	content:"\e60c";
+.u-selectex .selectex-hd:after{
+	content:" ";
+	display:block;
 	float:right;
+	border-width:6px 4px 0 4px;
+	border-color:#444 transparent;
+	border-style:solid;
+	margin-top:7px;
 }
-.u-selectex .menu{
+.u-selectex .selectex-bd{
 	position:absolute;
-	top:22px;
+	top:30px;
 	z-index:1;
-	margin-top:2px;
-	padding:10px 0;
-	line-height:24px;
 	width:100%;
+	margin-top:-1px;
 }
-.u-selectex .option{
+.u-selectex .selectex-option{
 	cursor:pointer;
 	padding:0 10px;
 }
-.u-selectex .option:hover{
+.u-selectex .selectex-option:hover{
 	background-color:#eee;
-	color:#00afc9;
+	color:#444;
 }
 .u-selectex.z-dis{
 	color:#999;
 }
-.u-selectex.z-dis .toggle{
-	cursor:default;
-	background-color:#eee;
+.u-selectex.z-dis .selectex-hd{
+	cursor:not-allowed;
+	background-color:#f5f5f5;
+	border-color:#ddd;
 }
 .m-modal{
 	position:fixed;

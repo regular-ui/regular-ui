@@ -1,19 +1,19 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var BaseComponent = require('../src/js/core/base.js');
 var template = require('./app.html');
-var SelectEx = require('../src/js/core/selectEx.js');
+var Selectex = require('../src/js/core/selectex.js');
 var Modal = require('../src/js/core/modal.js');
 
 var App = BaseComponent.extend({
     name: 'app',
     template: template,
     data: {
-        selectExOptions: [
+        selectexOptions: [
             {id: 1, name: '111'},
             {id: 2, name: '222'},
             {id: 3, name: '333'}
         ],
-        selectExValue: 2
+        selectexValue: 2
     },
     config: function() {
 
@@ -27,7 +27,7 @@ var App = BaseComponent.extend({
 });
 
 var app = new App().$inject('#app');
-},{"../src/js/core/base.js":27,"../src/js/core/modal.js":29,"../src/js/core/selectEx.js":31,"./app.html":33}],2:[function(require,module,exports){
+},{"../src/js/core/base.js":27,"../src/js/core/modal.js":29,"../src/js/core/selectex.js":31,"./app.html":33}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -4945,7 +4945,7 @@ Modal.confirm = function(content, callback) {
 module.exports = Modal;
 
 },{"./base.js":27,"./modal.html":28,"./util.js":32}],30:[function(require,module,exports){
-module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\">	<div class=\"toggle\" on-click={this.toggle(true)}>		<span>{selected.name}</span>		<i class=\"f-icon\"></i>	</div>	<div class=\"menu\" r-hide={!show}>		{#if defaultOption}<div class=\"option\" on-click={this.select(-1)}>{defaultOption}</div>{/if}		{#list options as option}			<div class=\"option\" on-click={this.select(option.id)}>{option.name}</div>		{/list}	</div></div>"
+module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!show)}>        <span>{selected.name}</span>    </div>    <div class=\"selectex-bd\" r-hide={!show}>        {#if placeholder}<div class=\"selectex-option\" on-click={this.select(-1)}>{placeholder}</div>{/if}        {#list options as option}            <div class=\"selectex-option\" on-click={this.select(option.id)}>{option.name}</div>        {/list}    </div></div>"
 },{}],31:[function(require,module,exports){
 /*
  * --------------------------------------------
@@ -4953,7 +4953,7 @@ module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=
  * @version  1.0
  * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
  * --------------------------------------------
- * @class SelectEx
+ * @class Selectex
  * @extend BaseComponent
  * @param {Object} options
  *     options.value             
@@ -4961,73 +4961,76 @@ module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=
  */
 
 var BaseComponent = require('./base.js');
-var template = require('./selectEx.html');
+var template = require('./selectex.html');
 var _ = require('./util.js');
 
-var SelectEx = BaseComponent.extend({
-	name: 'selectEx',
-	template: template,
-	data: {
-		selected: null,
-		value: -1,
-		defaultOption: '请选择',
-		options: [],
-		disabled: false,
-		show: false,
-		input: false,
-		multiple: false
-	},
-	config: function() {
-		this.$watch(['value'], function(value) {
-			if(value < 0)
-				this.data.selected = {id: -1, name: this.data.defaultOption}
-			else {
-				for(var i = 0; i < this.data.options.length; i++)
-					if(this.data.options[i].id == value) {
-						this.data.selected = this.data.options[i];
-						break;
-					}
-			}
-			this.$emit('onChange', this.data.selected);
-		});
-	},
-	select: function(id) {
-		//this.data.selected = option;
-		this.data.value = id;
-		this.toggle(false);
-	},
-	toggle: function(show) {
-		if(this.data.disabled)
-			return;
+var Selectex = BaseComponent.extend({
+    name: 'selectex',
+    template: template,
+    data: {
+        selected: null,
+        value: -1,
+        placeholder: '请选择',
+        options: [],
+        disabled: false,
+        show: false,
+        input: false,
+        multiple: false
+    },
+    config: function() {
+        this.$watch(['value'], function(value) {
+            if(value < 0)
+                this.data.selected = {id: -1, name: this.data.placeholder}
+            else {
+                for(var i = 0; i < this.data.options.length; i++)
+                    if(this.data.options[i].id == value) {
+                        this.data.selected = this.data.options[i];
+                        break;
+                    }
+            }
+            this.$emit('onChange', this.data.selected);
+        });
+    },
+    select: function(id) {
+        //this.data.selected = option;
+        this.data.value = id;
+        this.toggle(false);
+    },
+    toggle: function(show) {
+        if(this.data.disabled)
+            return;
 
-		this.data.show = show;
+        this.data.show = show;
 
-		var index = SelectEx.selectExsShown.indexOf(this);
-		if(show && index < 0)
-			SelectEx.selectExsShown.push(this);
-		else if(!show && index >= 0)
-			SelectEx.selectExsShown.splice(index, 1);
-	}
+        var index = Selectex.selectexsShown.indexOf(this);
+        if(show && index < 0)
+            Selectex.selectexsShown.push(this);
+        else if(!show && index >= 0)
+            Selectex.selectexsShown.splice(index, 1);
+    },
+    dbl: function($event) {
+        $event.preventDefault(); console.log('test')
+    }
 });
 
-SelectEx.selectExsShown = [];
+Selectex.selectexsShown = [];
 
 _.addEvent(window.document, 'click', function(e) {
-	SelectEx.selectExsShown.forEach(function(selectEx) {
-		var element = selectEx.$refs.element;
-		var element2 = e.target;
-		while(element2) {
-			if(element == element2)
-				return;
-			element2 = element2.parentElement;
-		}
-		selectEx.toggle(false);
-		selectEx.$update();
-	});
+    Selectex.selectexsShown.forEach(function(selectex) {
+        var element = selectex.$refs.element;
+        var element2 = e.target;
+        while(element2) {
+            if(element == element2)
+                return;
+            element2 = element2.parentElement;
+        }
+        selectex.toggle(false);
+        selectex.$update();
+    });
 });
 
-module.exports = SelectEx;
-},{"./base.js":27,"./selectEx.html":30,"./util.js":32}],32:[function(require,module,exports){
+module.exports = Selectex;
+},{"./base.js":27,"./selectex.html":30,"./util.js":32}],32:[function(require,module,exports){
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)
@@ -5042,5 +5045,5 @@ var _ = {
 
 module.exports = _;
 },{}],33:[function(require,module,exports){
-module.exports="<div>    <input class=\"u-input\">    <button class=\"u-btn u-btn-primary\" on-click={this.test()}>按钮</button>    <select class=\"u-select\">        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectEx options={selectExOptions} value={selectExValue} />    <selectEx options={selectExOptions} defaultOption=\"全部\" value={selectExValue} />    <div>        <label><input class=\"u-check\" type=\"checkbox\"> C++</label>        <label><input class=\"u-check\" type=\"checkbox\"> Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\"> Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\"> C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\"> Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\"> Python</label>    </div>    <div>        <textarea class=\"u-textarea\">This is a Test.</textarea>    </div></div><div>    <input class=\"u-input\" disabled />    <button class=\"u-btn u-btn-primary\" disabled>按钮</button>    <select class=\"u-select\" disabled>        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectEx options={selectExOptions} value={selectExValue} disabled=true />    <selectEx options={selectExOptions} defaultOption=\"全部\" value={selectExValue} disabled=true />    <div>        <label><input class=\"u-check\" type=\"checkbox\" disabled> C++</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Python</label>    </div>    <div>        <textarea class=\"u-textarea\" disabled>This is a Test.</textarea>    </div></div>"
+module.exports="<div>    <input class=\"u-input\">    <button class=\"u-btn u-btn-primary\" on-click={this.test()}>按钮</button>    <select class=\"u-select\">        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectex options={selectexOptions} value={selectexValue} />    <selectex options={selectexOptions} defaultOption=\"全部\" value={selectexValue} />    <div>        <label><input class=\"u-check\" type=\"checkbox\">C++</label>        <label><input class=\"u-check\" type=\"checkbox\">Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\">Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">Python</label>    </div>    <div>        <textarea class=\"u-textarea\">This is a Test.</textarea>    </div></div><div>    <input class=\"u-input\" disabled />    <button class=\"u-btn u-btn-primary\" disabled>按钮</button>    <select class=\"u-select\" disabled>        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectex options={selectexOptions} value={selectexValue} disabled={true} />    <selectex options={selectexOptions} defaultOption=\"全部\" value={selectexValue} disabled={true} />    <div>        <label><input class=\"u-check\" type=\"checkbox\" disabled> C++</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Python</label>    </div>    <div>        <textarea class=\"u-textarea\" disabled>This is a Test.</textarea>    </div></div>"
 },{}]},{},[1]);

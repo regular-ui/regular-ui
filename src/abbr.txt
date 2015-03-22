@@ -5,3 +5,9 @@ disabled => dis
 head => hd
 body => bd
 foot => ft
+
+extra small => xs
+small => sm
+medium => md
+large => lg
+extra large => xl

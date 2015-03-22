@@ -1,5 +1,5 @@
 
-$media-mini-max-width =                           480px - 1;
-$media-small-max-width =                          768px - 1;
-$media-medium-max-width =                         960px - 1;
-$media-large-max-width =                          1220px - 1;
+$media-xs-max-width =                           480px - 1;
+$media-sm-max-width =                          768px - 1;
+$media-md-max-width =                         960px - 1;
+$media-lg-max-width =                          1220px - 1;

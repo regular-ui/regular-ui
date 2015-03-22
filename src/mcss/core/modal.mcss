@@ -91,7 +91,7 @@
     }
 
     // - Phone landscape and smaller
-    @media (max-width: $media-small-max-width) {
+    @media (max-width: $media-sm-max-width) {
         // - Fit in small screen
         .modal-dialog {
             width: auto;

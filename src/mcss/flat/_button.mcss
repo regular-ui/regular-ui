@@ -10,9 +10,9 @@
 //                  `u-btn-success`
 //                  `u-btn-danger`
 //                  `u-btn-link`
-//                  `u-btn-mini`
-//                  `u-btn-small`
-//                  `u-btn-large`
+//                  `u-btn-xs`
+//                  `u-btn-sm`
+//                  `u-btn-lg`
 //
 // States:          `z-active`
 //
@@ -51,25 +51,25 @@ $u-btn_border-radius =                  $border-radius-base;
 // ========================================================================
 
 /* Dimension */
-$u-btn-mini_height =                    13px + 12px;
-$u-btn-mini_padding-horizontal =        9px;
-$u-btn-mini_font-size =                 12px;
-$u-btn-mini_border-radius =             $border-radius-mini;
+$u-btn-xs_height =                    13px + 12px;
+$u-btn-xs_padding-horizontal =        9px;
+$u-btn-xs_font-size =                 12px;
+$u-btn-xs_border-radius =             $border-radius-xs;
 
-$u-btn-small_height =                   16px + 18px;
-$u-btn-small_padding-horizontal =       13px;
-$u-btn-small_font-size =                13px;
-$u-btn-small_border-radius =            $border-radius-small;
+$u-btn-sm_height =                   16px + 18px;
+$u-btn-sm_padding-horizontal =       13px;
+$u-btn-sm_font-size =                13px;
+$u-btn-sm_border-radius =            $border-radius-sm;
 
-$u-btn-large_height =                   25px + 20px;
-$u-btn-large_padding-horizontal =       19px;
-$u-btn-large_font-size =                17px;
-$u-btn-large_border-radius =            $border-radius-large;
+$u-btn-lg_height =                   25px + 20px;
+$u-btn-lg_padding-horizontal =       19px;
+$u-btn-lg_font-size =                17px;
+$u-btn-lg_border-radius =            $border-radius-lg;
 
-$u-btn-huge_height =                    27px + 26px;
-$u-btn-huge_padding-horizontal =        20px;
-$u-btn-huge_font-size =                 22px;
-$u-btn-huge_border-radius =             $border-radius-huge;
+$u-btn-xl_height =                    27px + 26px;
+$u-btn-xl_padding-horizontal =        20px;
+$u-btn-xl_font-size =                 22px;
+$u-btn-xl_border-radius =             $border-radius-xl;
 
 /* Color */
 $u-btn-primary_background =             $brand-secondary;

@@ -1,15 +1,27 @@
+
 $u-input_height = 30px;
 $u-input_padding = 4px 6px;
 $u-input_border = 1px solid #ddd;
 $u-input_color = #444;
-$u-input_background = white;
+$u-input_background-color = white;
 
-$u-input-focus_border = #99baca;
-$u-input-focus_background = #f5fbfe;
+$u-input-focus_border-color = #99baca;
+$u-input-focus_background-color = #f5fbfe;
 $u-input-focus_color = #444;
 
-$u-input-disabled_border = #ddd;
-$u-input-disabled_background = #f5f5f5;
+$u-input-disabled_border-color = #ddd;
+$u-input-disabled_background-color = #f5f5f5;
 $u-input-disabled_color = #999;
 
 $u-input_placeholder_color = #999;
+
+$u-textarea_min-width = 320px;
+$u-textarea_min-height = 120px;
+
+$u-select_min-width = 120px;
+
+$u-select_option_padding = 0 10px;
+
+$u-select_option-hover_border-color = null;
+$u-select_option-hover_background-color = #eee;
+$u-select_option-hover_color = #444;

@@ -10,9 +10,9 @@
 //                  `u-btn-success`
 //                  `u-btn-danger`
 //                  `u-btn-link`
-//                  `u-btn-mini`
-//                  `u-btn-small`
-//                  `u-btn-large`
+//                  `u-btn-xs`
+//                  `u-btn-sm`
+//                  `u-btn-lg`
 //
 // States:          `z-active`
 //
@@ -51,17 +51,17 @@
 // ========================================================================
 
 /* Dimension */
-$u-btn-mini_height =                    20px;
-$u-btn-mini_padding-horizontal =        6px;
-$u-btn-mini_font-size =                 12px;
+$u-btn-xs_height =                    20px;
+$u-btn-xs_padding-horizontal =        6px;
+$u-btn-xs_font-size =                 12px;
 
-$u-btn-small_height =                   25px;
-$u-btn-small_padding-horizontal =       10px;
-$u-btn-small_font-size =                12px;
+$u-btn-sm_height =                   25px;
+$u-btn-sm_padding-horizontal =       10px;
+$u-btn-sm_font-size =                12px;
 
-$u-btn-large_height =                   40px;
-$u-btn-large_padding-horizontal =       15px;
-$u-btn-large_font-size =                16px;
+$u-btn-lg_height =                   40px;
+$u-btn-lg_padding-horizontal =       15px;
+$u-btn-lg_font-size =                16px;
 
 /* Color */
 $u-btn-primary_background =             #00a8e6;
