@@ -1,9 +1,17 @@
 @import 'http://nec.netease.com/download/framework/mass/mass/index.mcss';
 
-@import "core/_base.mcss";
+@import "core/base.mcss";
 
-/*@import "core/button.mcss";
-@import "flat/button.mcss";
+@import "core/_global.mcss";
+@import "flat/_global.mcss";
+@import "core/global.mcss";
+
 @import "core/_button.mcss";
-*/
+@import "flat/_button.mcss";
+@import "core/button.mcss";
+@import "flat/button.mcss";
+
 @import "core/selectEx.mcss";
+
+@import "core/_modal.mcss";
+@import "core/modal.mcss";

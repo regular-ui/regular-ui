@@ -32,13 +32,9 @@ $u-btn-extend_color(
     $u-btn-primary_background,
     $u-btn-primary-hover_background,
     $u-btn-primary-active_background,
-);
-
-$u-btn-extend_color(
-    info,
-    $u-btn-info_background,
-    $u-btn-info-hover_background,
-    $u-btn-info-active_background,
+    $u-btn-primary_color,
+    $u-btn-primary-hover_color,
+    $u-btn-primary-active_color
 );
 
 $u-btn-extend_color(
@@ -46,6 +42,9 @@ $u-btn-extend_color(
     $u-btn-success_background,
     $u-btn-success-hover_background,
     $u-btn-success-active_background,
+    $u-btn-success_color,
+    $u-btn-success-hover_color,
+    $u-btn-success-active_color
 );
 
 $u-btn-extend_color(
@@ -53,26 +52,10 @@ $u-btn-extend_color(
     $u-btn-danger_background,
     $u-btn-danger-hover_background,
     $u-btn-danger-active_background,
-);
-
-$u-btn-extend_color(
-    warning,
-    $u-btn-warning_background,
-    $u-btn-warning-hover_background,
-    $u-btn-warning-active_background,
-);
-
-$u-btn-extend_color(
-    inverse,
-    $u-btn-inverse_background,
-    $u-btn-inverse-hover_background,
-    $u-btn-inverse-active_background,
+    $u-btn-danger_color,
+    $u-btn-danger-hover_color,
+    $u-btn-danger-active_color
 );
 
 $u-btn-disabled();
 $u-btn-block();
-
-.u-btn {
-	-webkit-font-smoothing: subpixel-antialiased;
-	transition: border .25s linear, color .25s linear, background-color .25s linear;
-}

@@ -5,17 +5,7 @@ var dom = Regular.dom;
 
 var BaseComponent = Regular.extend({
 	// request
-	$request: function(){},
-
-	// 考试相关， 懒得再弄个类了
-	$authority: function(authority){
-	var test = this.$state.test;
-	return test && ( (test.authority||0) & authority)
-	},
-	$canSubmit: function(){
-	var test = this.$state.test;
-	return test && test.remainTime !== 0 && this.$authority(2);
-	}
+	$request: function(){}
 })
 //.filter(filter)
 .directive({

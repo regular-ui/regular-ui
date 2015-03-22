@@ -28,6 +28,13 @@ gulp.task('mcss', function(done) {
 		}))
 		.pipe(gulp.dest('test/css'));
 
+	gulp.src('./src/mcss/default.mcss')
+		.pipe(mcss({
+			pathes: ["./node_modules"],
+			importCSS: true,
+		}))
+		.pipe(gulp.dest('test/css'));
+
 	gulp.src('./src/mcss/flat.mcss')
 		.pipe(mcss({
 			pathes: ["./node_modules"],

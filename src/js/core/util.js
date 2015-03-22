@@ -1,18 +1,13 @@
 var _ = {
-	extend: function(obj) {
-		for (var i = 1; i < arguments.length; i++) {
-			var target = arguments[i];
-			for (var key in target) {
-				if (Object.prototype.hasOwnProperty.call(target, key)) {
-					obj[key] = target[key];
-				}
-			}
-		}
-		return obj;
-	},
-	addEvent: function(element, event, callback) {
-		element.addEventListener(event, callback);
-	}
+    extend: function(o1, o2, override) {
+        for(var i in o2)
+            if(override || o1[i] === undefined)
+                o1[i] = o2[i]
+        return o1;
+    },
+    addEvent: function(element, event, callback) {
+        element.addEventListener(event, callback);
+    }
 }
 
 module.exports = _;

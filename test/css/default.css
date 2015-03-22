@@ -356,6 +356,68 @@ ul{
 	background-color:#ddd;
 	color:#444;
 }
+.u-btn-mini{
+	padding:0 6px;
+	line-height:20px;
+	min-height:20px;
+	font-size:12px;
+}
+.u-btn-small{
+	padding:0 10px;
+	line-height:25px;
+	min-height:25px;
+	font-size:12px;
+}
+.u-btn-large{
+	padding:0 15px;
+	line-height:40px;
+	min-height:40px;
+	font-size:16px;
+}
+.u-btn-primary{
+	background-color:#00a8e6;
+	color:#fff;
+}
+.u-btn-primary:hover,.u-btn-primary:focus{
+	background-color:#35b3ee;
+	color:#fff;
+}
+.u-btn-primary:active,.u-btn-primary.z-act{
+	background-color:#0091ca;
+	color:#fff;
+}
+.u-btn-success{
+	background-color:#8cc14c;
+	color:#fff;
+}
+.u-btn-success:hover,.u-btn-success:focus{
+	background-color:#8ec73b;
+	color:#fff;
+}
+.u-btn-success:active,.u-btn-success.z-act{
+	background-color:#72ae41;
+	color:#fff;
+}
+.u-btn-danger{
+	background-color:#da314b;
+	color:#fff;
+}
+.u-btn-danger:hover,.u-btn-danger:focus{
+	background-color:#e4354f;
+	color:#fff;
+}
+.u-btn-danger:active,.u-btn-danger.z-act{
+	background-color:#c91032;
+	color:#fff;
+}
+.u-btn:disabled,.u-btn.z-dis{
+	background-color:#f5f5f5;
+	color:#999;
+	cursor:not-allowed;
+}
+.u-btn-block{
+	display:block;
+}
 .u-selectex{
 	display:inline-block;
 	position:relative;

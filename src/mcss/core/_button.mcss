@@ -1,196 +1,31 @@
 // Name:            Button
+// Author:          zhaoyusen(hzzhaoyusen@corp.netease.com)
 // Description:     Defines styles for buttons
 //
 // Component:       `u-btn`
-//
-// Sub-objects:     `btn-hd`
-//                  `btn-bd`
-//
-// Modifiers:       `u-btn-primary`
-//                  `u-btn-success`
-//                  `u-btn-danger`
-//                  `u-btn-link`
-//                  `u-btn-mini`
-//                  `u-btn-small`
-//                  `u-btn-large`
-//
-// States:          `z-active`
-//
-// Example:
-//
-//
 // ========================================================================
 
 
 
-// Component:       `u-btn`
-// ========================================================================
-.u-btn {
-    /* Private */
-    // - Correct inability to style clickable `input` types in iOS.
-    -webkit-appearance: none;
-    // - Remove margins in Chrome, Safari and Opera.
-    margin: 0;
-    // - Remove borders for `button`.
-    border: none;
-    // - Address `overflow` set to `hidden` in IE 8/9/10/11.
-    overflow: visible;
-    // - Correct `font` properties not being inherited for `button`.
-    font: inherit;
-    // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox and IE.
-    text-transform: none;
-    // - Required for `a`.
-    text-decoration: none;
-    // - Use pointer cursor at any time.
-    cursor: pointer;
-    // - Others
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    $box-sizing: border-box;
-
-    /* Public */
-    padding: 0 $u-btn_padding-horizontal;
-    // - `line-height` is used to create a height.
-    line-height: $u-btn_height;
-    // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
-    min-height: $u-btn_height;
-    background: $u-btn_background;
-    color: $u-btn_color;
-    @if $u-btn_font-size {font-size: $u-btn_font-size;}
-    @if $u-btn_border {border: $u-btn_border;}
-    @if $u-btn_border-radius {$border-radius: $u-btn_border-radius;}
-    @if $u-btn_box-shadow {$box-shadow: $u-btn_box-shadow;}
-}
-
-/* Hover */
-.u-btn:hover,
-.u-btn:focus { // - Apply hover style also to focus state
-    /* Private */
-    // - Remove default focus style
-    outline: none;
-    // - Required for `a` elements
-    text-decoration: none;
-
-    /* Public */
-    background-color: $u-btn-hover_background;
-    color: $u-btn-hover_color;
-}
-
-/* Active */
-.u-btn:active,
-.u-btn.z-active {
-    /* Public */
-    background-color: $u-btn-active_background;
-    color: $u-btn-active_color;
-}
-
-
-
-// Size Modifiers:       `u-btn-mini`, `u-btn-small`, `u-btn-large`
+// Variables
 // ========================================================================
 
-.u-btn-mini {
-    /* Public */
-    padding: 0 $u-btn-mini_padding-horizontal;
-    line-height: $u-btn-mini_height;
-    min-height: $u-btn-mini_height;
-    font-size: $u-btn-mini_font-size;
-}
+/* Dimension */
+$u-btn_padding-horizontal =             12px;
+$u-btn_height =                         30px;
+$u-btn_font-size =                      14px;
 
-.u-btn-small {
-    /* Public */
-    padding: 0 $u-btn-small_padding-horizontal;
-    line-height: $u-btn-small_height;
-    min-height: $u-btn-small_height;
-    font-size: $u-btn-small_font-size;
-}
+/* Color */
+$u-btn_background =                     #eee;
+$u-btn-hover_background =               #f5f5f5;
+$u-btn-active_background =              #ddd;
+$u-btn-disabled_background =            #f5f5f5;
 
-.u-btn-large {
-    /* Public */
-    padding: 0 $u-btn-large_padding-horizontal;
-    line-height: $u-btn-large_height;
-    min-height: $u-btn-large_height;
-    font-size: $u-btn-large_font-size;
-}
+$u-btn_color =                          #444;
+$u-btn-hover_color =                    #444;
+$u-btn-active_color =                   #444;
+$u-btn-disabled_color =                 #999;
 
-
-
-// Color Modifier:       `u-btn-primary`
-// ========================================================================
-
-.u-btn-primary {
-    /* Public */
-    background-color: $u-btn-primary_background;
-    color: $u-btn-primary_color;
-}
-
-/* Hover */
-.u-btn-primary:hover,
-.u-btn-primary:focus {
-    /* Public */
-    background-color: $u-btn-primary-hover_background;
-    color: $u-btn-primary-hover_color;
-}
-
-/* Active */
-.u-btn-primary:active,
-.u-btn-primary.z-active {
-    /* Public */
-    background-color: $u-btn-primary-active_background;
-    color: $u-btn-primary-active_color;
-}
-
-
-
-// Modifier:       `u-btn-success`
-// ========================================================================
-
-.u-btn-success {
-    /* Public */
-    background-color: $u-btn-success_background;
-    color: $u-btn-success_color;
-}
-
-/* Hover */
-.u-btn-success:hover,
-.u-btn-success:focus {
-    /* Public */
-    background-color: $u-btn-success-hover_background;
-    color: $u-btn-success-hover_color;
-}
-
-/* Active */
-.u-btn-success:active,
-.u-btn-success.z-active {
-    /* Public */
-    background-color: $u-btn-success-active_background;
-    color: $u-btn-success-active_color;
-}
-
-
-
-// Modifier:       `u-btn-danger`
-// ========================================================================
-
-.u-btn-danger {
-    /* Public */
-    background-color: $u-btn-danger_background;
-    color: $u-btn-danger_color;
-}
-
-/* Hover */
-.u-btn-danger:hover,
-.u-btn-danger:focus {
-    /* Public */
-    background-color: $u-btn-danger-hover_background;
-    color: $u-btn-danger-hover_color;
-}
-
-/* Active */
-.u-btn-danger:active,
-.u-btn-danger.z-active {
-    /* Public */
-    background-color: $u-btn-danger-active_background;
-    color: $u-btn-danger-active_color;
-}
+/* Optional */
+$u-btn_border =                         null;
+$u-btn_border-radius =                  null;

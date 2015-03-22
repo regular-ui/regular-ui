@@ -1,2 +1,3 @@
 button => btn
 active => act
+disabled => dis

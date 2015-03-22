@@ -2,25 +2,29 @@
 var BaseComponent = require('../src/js/core/base.js');
 var template = require('./app.html');
 var SelectEx = require('../src/js/core/selectEx.js');
+var Modal = require('../src/js/core/modal.js');
 
 var App = BaseComponent.extend({
-	name: 'app',
-	template: template,
-	data: {
-		selectExOptions: [
-			{id: 1, name: '111'},
-			{id: 2, name: '222'},
-			{id: 3, name: '333'}
-		],
-		selectExValue: 2
-	},
-	config: function() {
-   
-	}
+    name: 'app',
+    template: template,
+    data: {
+        selectExOptions: [
+            {id: 1, name: '111'},
+            {id: 2, name: '222'},
+            {id: 3, name: '333'}
+        ],
+        selectExValue: 2
+    },
+    config: function() {
+
+    },
+    init: function() {
+        //Modal.confirm('模拟一个Alert');
+    }
 });
 
 var app = new App().$inject('#app');
-},{"../src/js/core/base.js":27,"../src/js/core/selectEx.js":29,"./app.html":31}],2:[function(require,module,exports){
+},{"../src/js/core/base.js":27,"../src/js/core/modal.js":29,"../src/js/core/selectEx.js":31,"./app.html":33}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -4833,17 +4837,7 @@ var dom = Regular.dom;
 
 var BaseComponent = Regular.extend({
 	// request
-	$request: function(){},
-
-	// 考试相关， 懒得再弄个类了
-	$authority: function(authority){
-	var test = this.$state.test;
-	return test && ( (test.authority||0) & authority)
-	},
-	$canSubmit: function(){
-	var test = this.$state.test;
-	return test && test.remainTime !== 0 && this.$authority(2);
-	}
+	$request: function(){}
 })
 //.filter(filter)
 .directive({
@@ -4864,8 +4858,92 @@ var BaseComponent = Regular.extend({
 
 module.exports = BaseComponent;
 },{"regularjs":20}],28:[function(require,module,exports){
-module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\">	<div class=\"toggle\" on-click={this.toggle(true)}>		<span>{selected.name}</span>		<i class=\"f-icon\"></i>	</div>	<div class=\"menu\" r-hide={!show}>		{#if defaultOption}<div class=\"option\" on-click={this.select(-1)}>{defaultOption}</div>{/if}		{#list options as option}			<div class=\"option\" on-click={this.select(option.id)}>{option.name}</div>		{/list}	</div></div>"
+module.exports="<div class=\"m-modal\">    <div class=\"modal-dialog\" {#if width}style=\"width: {width}px\"{/if}>        <div class=\"modal-hd\">            <a class=\"modal-close\" on-click={this.close(false)}></a>            <h3 class=\"modal-title\">{title}</h3>        </div>        <div class=\"modal-bd\">            {content}        </div>        <div class=\"modal-ft\">            {#if okButton}            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? \'确定\' : okButton}</button>            {/if}            {#if cancelButton}            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? \'取消\' : cancelButton}</button>            {/if}        </div>    </div></div>"
 },{}],29:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * 弹窗组件
+ * @version  1.0
+ * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * ------------------------------------------------------------
+ */
+
+var BaseComponent = require('./base.js');
+var template = require('./modal.html');
+var _ = require('./util.js');
+
+/**
+ * @class Modal
+ * @extend BaseComponent
+ * @param {Object}
+ *     options.data 可选参数
+ *         .title 弹窗标题
+ *         .content 弹窗内容
+ *         .okButton 确定按钮的文字，如果为空则不显示确定按钮
+ *         .cancelButton 取消按钮的文字，如果为空则不显示取消按钮
+ *         .width 弹窗宽度，默认为320px
+ * @Event close 当value改变时发生 {result} 确定result为true，取消result为false
+ */
+var Modal = BaseComponent.extend({
+    name: 'modal',
+    template: template,
+    config: function() {
+        _.extend(this.data, {
+            title: '提示',
+            content: '',
+            okButton: true,
+            cancelButton: false,
+            width: null
+        });
+    },
+    init: function() {
+        if(this.$root == this)
+            this.$inject(document.body);
+    },
+    close: function(result) {
+        var $event = {
+            data: {
+                result: result
+            }
+        }
+        this.$emit('close', $event);
+        this.destroy();
+    }
+});
+
+Modal.show = function(content, title) {
+    var modal = new Modal({
+        data: {
+            content: content,
+            title: title
+        }
+    });
+}
+
+Modal.alert = function(content, callback) {
+    var modal = new Modal({
+        data: {
+            content: content
+        }
+    });
+    callback && modal.$on('close', callback);
+}
+
+Modal.confirm = function(content, callback) {
+    var modal = new Modal({
+        data: {
+            content: content,
+            cancelButton: true
+        }
+    });
+    callback && modal.$on('close', callback);
+}
+
+module.exports = Modal;
+
+},{"./base.js":27,"./modal.html":28,"./util.js":32}],30:[function(require,module,exports){
+module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\">	<div class=\"toggle\" on-click={this.toggle(true)}>		<span>{selected.name}</span>		<i class=\"f-icon\"></i>	</div>	<div class=\"menu\" r-hide={!show}>		{#if defaultOption}<div class=\"option\" on-click={this.select(-1)}>{defaultOption}</div>{/if}		{#list options as option}			<div class=\"option\" on-click={this.select(option.id)}>{option.name}</div>		{/list}	</div></div>"
+},{}],31:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -4946,25 +5024,20 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = SelectEx;
-},{"./base.js":27,"./selectEx.html":28,"./util.js":30}],30:[function(require,module,exports){
+},{"./base.js":27,"./selectEx.html":30,"./util.js":32}],32:[function(require,module,exports){
 var _ = {
-	extend: function(obj) {
-		for (var i = 1; i < arguments.length; i++) {
-			var target = arguments[i];
-			for (var key in target) {
-				if (Object.prototype.hasOwnProperty.call(target, key)) {
-					obj[key] = target[key];
-				}
-			}
-		}
-		return obj;
-	},
-	addEvent: function(element, event, callback) {
-		element.addEventListener(event, callback);
-	}
+    extend: function(o1, o2, override) {
+        for(var i in o2)
+            if(override || o1[i] === undefined)
+                o1[i] = o2[i]
+        return o1;
+    },
+    addEvent: function(element, event, callback) {
+        element.addEventListener(event, callback);
+    }
 }
 
 module.exports = _;
-},{}],31:[function(require,module,exports){
-module.exports="<div>	<a class=\"u-btn\">按钮</a>	<a class=\"u-btn\" href=\"\">Button</a>	<a class=\"u-btn\" href=\"#\">a.u-btn</a>	<button class=\"u-btn\">button.u-btn</button></div><div>	<a class=\"u-btn u-btn-primary\">主要按钮</a>	<a class=\"u-btn u-btn-primary\">Primary Button</a>	<a class=\"u-btn u-btn-primary\">.u-btn.u-btn-primary</a></div><div>	<a class=\"u-btn u-btn-success\">成功按钮</a>	<a class=\"u-btn u-btn-success\">Primary Button</a>	<a class=\"u-btn u-btn-success\">.u-btn.u-btn-success</a></div><div>	<a class=\"u-btn u-btn-danger\">危险按钮</a>	<a class=\"u-btn u-btn-danger\">Primary Button</a>	<a class=\"u-btn u-btn-danger\">.u-btn.u-btn-danger</a></div><div>	<a class=\"u-btn u-btn-primary u-btn-mini\">主要按钮</a>	<a class=\"u-btn u-btn-primary u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-primary u-btn-large\">.u-btn.u-btn-primary</a></div><div>	<a class=\"u-btn u-btn-success u-btn-mini\">成功按钮</a>	<a class=\"u-btn u-btn-success u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-success u-btn-large\">.u-btn.u-btn-success</a></div><div>	<a class=\"u-btn u-btn-danger u-btn-mini\">危险按钮</a>	<a class=\"u-btn u-btn-danger u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-danger u-btn-large\">.u-btn.u-btn-danger</a></div><selectEx options={selectExOptions} value={selectExValue} /><selectEx options={selectExOptions} defaultOption=\"全部\" value={selectExValue} />"
+},{}],33:[function(require,module,exports){
+module.exports="<div>	<a class=\"u-btn\">按钮</a>	<a class=\"u-btn\" href=\"\">Button</a>	<a class=\"u-btn\" href=\"#\">a.u-btn</a>	<button class=\"u-btn\">button.u-btn</button></div><div>	<a class=\"u-btn u-btn-primary\">主要按钮</a>	<a class=\"u-btn u-btn-primary\">Primary Button</a>	<a class=\"u-btn u-btn-primary\">.u-btn.u-btn-primary</a></div><div>	<a class=\"u-btn u-btn-success\">成功按钮</a>	<a class=\"u-btn u-btn-success\">Primary Button</a>	<a class=\"u-btn u-btn-success\">.u-btn.u-btn-success</a></div><div>	<a class=\"u-btn u-btn-danger\">危险按钮</a>	<a class=\"u-btn u-btn-danger\">Primary Button</a>	<a class=\"u-btn u-btn-danger\">.u-btn.u-btn-danger</a></div><div>	<a class=\"u-btn u-btn-primary u-btn-mini\">主要按钮</a>	<a class=\"u-btn u-btn-primary u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-primary u-btn-large\">.u-btn.u-btn-primary</a></div><div>	<a class=\"u-btn u-btn-info u-btn-mini\">成功按钮</a>	<a class=\"u-btn u-btn-info u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-info u-btn-large\">.u-btn.u-btn-info</a></div><div>	<a class=\"u-btn u-btn-success u-btn-mini\">成功按钮</a>	<a class=\"u-btn u-btn-success u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-success u-btn-large\">.u-btn.u-btn-success</a></div><div>	<a class=\"u-btn u-btn-danger u-btn-mini\">危险按钮</a>	<a class=\"u-btn u-btn-danger u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-danger u-btn-large\">.u-btn.u-btn-danger</a></div><div>	<a class=\"u-btn u-btn-warning u-btn-mini\">成功按钮</a>	<a class=\"u-btn u-btn-warning u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-warning u-btn-large\">.u-btn.u-btn-warning</a></div><div>	<a class=\"u-btn u-btn-inverse u-btn-mini\">成功按钮</a>	<a class=\"u-btn u-btn-inverse u-btn-small\">Primary Button</a>	<a class=\"u-btn u-btn-inverse u-btn-large\">.u-btn.u-btn-inverse</a></div><div>	<a class=\"u-btn z-dis\" disabled>disabled</a>	<a class=\"u-btn z-dis u-btn-primary\" disabled>disabled Button</a>	<a class=\"u-btn z-dis u-btn-danger\" disabled>disabled</a></div><div>	<a class=\"u-btn u-btn-inverse u-btn-block\">Primary Button</a></div><selectEx options={selectExOptions} value={selectExValue} /><selectEx options={selectExOptions} defaultOption=\"全部\" value={selectExValue} />"
 },{}]},{},[1]);

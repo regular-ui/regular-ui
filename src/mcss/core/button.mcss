@@ -1,103 +1,153 @@
 // Name:            Button
+// Author:          zhaoyusen(hzzhaoyusen@corp.netease.com)
 // Description:     Defines styles for buttons
 //
 // Component:       `u-btn`
 //
-// Sub-objects:     `btn-hd`
-//                  `btn-bd`
+// Status:          `z-act`
+//                  `z-dis`
 //
-// Modifiers:       `u-btn-primary`
-//                  `u-btn-success`
-//                  `u-btn-danger`
-//                  `u-btn-link`
-//                  `u-btn-mini`
-//                  `u-btn-small`
-//                  `u-btn-large`
-//
-// States:          `z-active`
-//
-// Example:
-//
+// Example:         
+//     <a class="u-btn">按钮</a>
+//     <a href="#" class="u-btn u-btn-large">按钮</a>
+//     <button href="#" class="u-btn u-btn-primary">按钮</button>
 //
 // ========================================================================
 
 
 
-// Variables
+// Component:       `u-btn`
+// ========================================================================
+.u-btn {
+    // - Correct inability to style clickable `input` types in iOS.
+    -webkit-appearance: none;
+    // - 移除浏览器中的margin。
+    // - Remove margins in Chrome, Safari and Opera.
+    margin: 0;
+    // - 移除浏览器中的默认border。
+    // - Remove borders for `button`.
+    border: none;
+    // - Address `overflow` set to `hidden` in IE 8/9/10/11.
+    overflow: visible;
+    // - Correct `font` properties not being inherited for `button`.
+    font: inherit;
+    // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox and IE.
+    text-transform: none;
+    // - Required for `a`.
+    text-decoration: none;
+    // - Use pointer cursor at any time.
+    cursor: pointer;
+    // - Others
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    $box-sizing: border-box;
+
+    /* Public */
+    padding: 0 $u-btn_padding-horizontal;
+    // - `line-height` is used to create a height.
+    line-height: $u-btn_height;
+    // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
+    min-height: $u-btn_height;
+    background: $u-btn_background;
+    color: $u-btn_color;
+    @if($u-btn_border) {border: $u-btn_border;}
+    @if($u-btn_border-radius) {border-radius: $u-btn_border-radius;}
+}
+
+/* Hover */
+.u-btn:hover,
+.u-btn:focus { // - Apply hover style also to focus state
+    // - Remove default focus style
+    outline: none;
+    // - Required for `a` elements
+    text-decoration: none;
+
+    /* Public */
+    background-color: $u-btn-hover_background;
+    color: $u-btn-hover_color;
+}
+
+/* Active */
+.u-btn:active,
+.u-btn.z-act {
+    /* Public */
+    background-color: $u-btn-active_background;
+    color: $u-btn-active_color;
+}
+
+/* Disabled */
+$u-btn-disabled = {
+
+.u-btn:disabled,
+.u-btn.z-dis {
+    background-color: $u-btn-disabled_background;
+    color: $u-btn-disabled_color;
+    cursor: not-allowed;
+}
+
+}
+
+
+
+// Extends:         `u-btn-extend_size`, `u-btn-extend_color`
 // ========================================================================
 
-/* Dimension */
-$u-btn_height =                         30px;
-$u-btn_padding-horizontal =             12px;
-$u-btn_font-size =                      14px;
+$u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size) {
 
-$u-btn-mini_height =                    20px;
-$u-btn-mini_padding-horizontal =        6px;
-$u-btn-mini_font-size =                 12px;
+.u-btn-#{$name} {
+    /* Public */
+    padding: 0 $padding-horizontal;
+    line-height: $height;
+    min-height: $height;
+    font-size: $font-size;
+}
 
-$u-btn-small_height =                   25px;
-$u-btn-small_padding-horizontal =       10px;
-$u-btn-small_font-size =                12px;
+}
 
-$u-btn-large_height =                   40px;
-$u-btn-large_padding-horizontal =       15px;
-$u-btn-large_font-size =                16px;
+$u-btn-extend_color = (
+    $name,
+    $background-color, $hover_background-color, $active_background-color,
+    $color, $hover_color, $active_color,
+    $border-color, $hover_border-color, $active_border-color
+) {
 
-/* Color */
-$u-btn_background =                     #eee;
-$u-btn_color =                          #444;
-$u-btn_border-color =                   null;
-$u-btn-hover_background =               #f5f5f5;
-$u-btn-hover_color =                    #444;
-$u-btn-hover_border-color =             null;
-$u-btn-active_background =              #ddd;
-$u-btn-active_color =                   #444;
-$u-btn-active_border-color =            null;
+.u-btn-#{$name} {
+    /* Public */
+    background-color: $background-color;
+    @if($color) {color: $color;}
+    @if($border-color) {border-color: $border-color;}
+}
 
-$u-btn-primary =                        true;
-$u-btn-primary_background =             #00a8e6;
-$u-btn-primary_color =                  #fff;
-$u-btn-primary-hover_background =       #35b3ee;
-$u-btn-primary-hover_color =            #fff;
-$u-btn-primary-active_background =      #0091ca;
-$u-btn-primary-active_color =           #fff;
+/* Hover */
+.u-btn-#{$name}:hover,
+.u-btn-#{$name}:focus {
+    /* Public */
+    background-color: $hover_background-color;
+    @if($hover_color) {color: $hover_color;}
+    @if($hover_border-color) {border-color: $hover_border-color;}
+}
 
-$u-btn-success =                        true;
-$u-btn-success_background =             #8cc14c;
-$u-btn-success_color =                  #fff;
-$u-btn-success-hover_background =       #8ec73b;
-$u-btn-success-hover_color =            #fff;
-$u-btn-success-active_background =      #72ae41;
-$u-btn-success-active_color =           #fff;
+/* Active */
+.u-btn-#{$name}:active,
+.u-btn-#{$name}.z-act {
+    /* Public */
+    background-color: $active_background-color;
+    @if($active_color) {color: $active_color;}
+    @if($active_border-color) {border-color: $active_border-color;}
+}
 
-$u-btn-danger =                         true;
-$u-btn-danger_background =              #da314b;
-$u-btn-danger_color =                   #fff;
-$u-btn-danger-hover_background =        #e4354f;
-$u-btn-danger-hover_color =             #fff;
-$u-btn-danger-active_background =       #c91032;
-$u-btn-danger-active_color =            #fff;
+}
 
-// Other Effects
-$u-btn_border =                         null;
-$u-btn_border-radius =                  null;
-$u-btn_box-shadow =                     null;
 
-// $u-btn-extend =                        primary,    success,    danger;
-// $u-btn-extend_background =              #00a8e6,    #8cc14c,    #da314b;
-// $u-btn-extend_color =                   #fff,       #fff,       #fff;
-// $u-btn-extend-hover_background =        #35b3ee,    #8ec73b,    #e4354f;
-// $u-btn-extend-hover_color =             #fff,       #fff,       #fff;
-// $u-btn-extend-active_background =       #0091ca,    #72ae41,    #c91032;
-// $u-btn-extend-active_color =            #fff,       #fff,       #fff;
 
-// // $u-btn-extend = primary #00a8e6 #fff #35b3ee #fff #0091ca #fff,
-// $u-btn-extend =                         primary,    success,    danger;
-// $u-btn-primary_background =             #ccc;
+// Extends:         `u-btn-block`
+// ========================================================================
 
-// @for $item of $u-btn-extend {
-//     .u-btn-#{$item} {
-//         background: $u-btn-#{$item}_background;
-        
-//     }
-// }
+$u-btn-block = {
+
+.u-btn-block {
+    display: block;
+}
+
+}
