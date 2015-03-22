@@ -53,8 +53,6 @@ $m-modal_header-margin-bottom =                    15px;
 
 $m-modal_footer-margin-top =                       15px;
 
-$m-modal_caption-margin-bottom =                   -10px;
-$m-modal_caption-color =                           #fff;
 
 /* Optional */
 $m-modal_dialog_border = null;

@@ -19,6 +19,9 @@ var App = BaseComponent.extend({
     },
     init: function() {
         //Modal.confirm('模拟一个Alert');
+    },
+    test: function() {
+        Modal.alert('test');
     }
 });
 

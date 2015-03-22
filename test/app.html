@@ -1,61 +1,48 @@
 <div>
-	<a class="u-btn">按钮</a>
-	<a class="u-btn" href="">Button</a>
-	<a class="u-btn" href="#">a.u-btn</a>
-	<button class="u-btn">button.u-btn</button>
+    <input class="u-input">
+    <button class="u-btn u-btn-primary" on-click={this.test()}>按钮</button>
+    <select class="u-select">
+        <option>测试1</option>
+        <option>测试2</option>
+        <option>测试3</option>
+    </select>
+    <selectEx options={selectExOptions} value={selectExValue} />
+    <selectEx options={selectExOptions} defaultOption="全部" value={selectExValue} />
+    <div>
+        <label><input class="u-check" type="checkbox"> C++</label>
+        <label><input class="u-check" type="checkbox"> Javascript</label>
+        <label><input class="u-check" type="checkbox"> Python</label>
+    </div>
+    <div>
+        <label><input class="u-radio" type="radio" name="radio"> C++</label>
+        <label><input class="u-radio" type="radio" name="radio"> Javascript</label>
+        <label><input class="u-radio" type="radio" name="radio"> Python</label>
+    </div>
+    <div>
+        <textarea class="u-textarea">This is a Test.</textarea>
+    </div>
 </div>
 <div>
-	<a class="u-btn u-btn-primary">主要按钮</a>
-	<a class="u-btn u-btn-primary">Primary Button</a>
-	<a class="u-btn u-btn-primary">.u-btn.u-btn-primary</a>
+    <input class="u-input" disabled />
+    <button class="u-btn u-btn-primary" disabled>按钮</button>
+    <select class="u-select" disabled>
+        <option>测试1</option>
+        <option>测试2</option>
+        <option>测试3</option>
+    </select>
+    <selectEx options={selectExOptions} value={selectExValue} disabled=true />
+    <selectEx options={selectExOptions} defaultOption="全部" value={selectExValue} disabled=true />
+    <div>
+        <label><input class="u-check" type="checkbox" disabled> C++</label>
+        <label><input class="u-check" type="checkbox" disabled> Javascript</label>
+        <label><input class="u-check" type="checkbox" disabled> Python</label>
+    </div>
+    <div>
+        <label><input class="u-radio" type="radio" name="radio" disabled> C++</label>
+        <label><input class="u-radio" type="radio" name="radio" disabled> Javascript</label>
+        <label><input class="u-radio" type="radio" name="radio" disabled> Python</label>
+    </div>
+    <div>
+        <textarea class="u-textarea" disabled>This is a Test.</textarea>
+    </div>
 </div>
-<div>
-	<a class="u-btn u-btn-success">成功按钮</a>
-	<a class="u-btn u-btn-success">Primary Button</a>
-	<a class="u-btn u-btn-success">.u-btn.u-btn-success</a>
-</div>
-<div>
-	<a class="u-btn u-btn-danger">危险按钮</a>
-	<a class="u-btn u-btn-danger">Primary Button</a>
-	<a class="u-btn u-btn-danger">.u-btn.u-btn-danger</a>
-</div>
-<div>
-	<a class="u-btn u-btn-primary u-btn-mini">主要按钮</a>
-	<a class="u-btn u-btn-primary u-btn-small">Primary Button</a>
-	<a class="u-btn u-btn-primary u-btn-large">.u-btn.u-btn-primary</a>
-</div>
-<div>
-	<a class="u-btn u-btn-info u-btn-mini">成功按钮</a>
-	<a class="u-btn u-btn-info u-btn-small">Primary Button</a>
-	<a class="u-btn u-btn-info u-btn-large">.u-btn.u-btn-info</a>
-</div>
-<div>
-	<a class="u-btn u-btn-success u-btn-mini">成功按钮</a>
-	<a class="u-btn u-btn-success u-btn-small">Primary Button</a>
-	<a class="u-btn u-btn-success u-btn-large">.u-btn.u-btn-success</a>
-</div>
-<div>
-	<a class="u-btn u-btn-danger u-btn-mini">危险按钮</a>
-	<a class="u-btn u-btn-danger u-btn-small">Primary Button</a>
-	<a class="u-btn u-btn-danger u-btn-large">.u-btn.u-btn-danger</a>
-</div>
-<div>
-	<a class="u-btn u-btn-warning u-btn-mini">成功按钮</a>
-	<a class="u-btn u-btn-warning u-btn-small">Primary Button</a>
-	<a class="u-btn u-btn-warning u-btn-large">.u-btn.u-btn-warning</a>
-</div>
-<div>
-	<a class="u-btn u-btn-inverse u-btn-mini">成功按钮</a>
-	<a class="u-btn u-btn-inverse u-btn-small">Primary Button</a>
-	<a class="u-btn u-btn-inverse u-btn-large">.u-btn.u-btn-inverse</a>
-</div>
-<div>
-	<a class="u-btn z-dis" disabled>disabled</a>
-	<a class="u-btn z-dis u-btn-primary" disabled>disabled Button</a>
-	<a class="u-btn z-dis u-btn-danger" disabled>disabled</a>
-</div>
-<div>
-	<a class="u-btn u-btn-inverse u-btn-block">Primary Button</a>
-</div>
-<selectEx options={selectExOptions} value={selectExValue} />
-<selectEx options={selectExOptions} defaultOption="全部" value={selectExValue} />

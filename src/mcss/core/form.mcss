@@ -1,0 +1,101 @@
+// 一般认为input和textarea的样式是差不多的。
+
+// u-input用于input:not([type="radio"]), input:not([type="checkbox"])
+
+.u-input,
+.u-select,
+.u-textarea {
+    // - Default is `content-box` with following exceptions set to `border-box`.
+    $box-sizing: border-box;
+    // - Address margins set differently in Firefox/IE and Chrome/Safari/Opera.
+    margin: 0;
+    border: 0;
+    padding: 0;
+    // - Remove `border-radius` in iOS.
+    border-radius: 0;
+    // - Correct `font` properties and `color` not being inherited.
+    font: inherit;
+    color: inherit;
+    // - Remove default style in iOS.
+    //-webkit-appearance: none;
+    vertical-align: middle;
+
+    $placeholder({
+        color: $u-input_placeholder_color;
+        // - Removes placeholder transparency in Firefox.
+        // opacity: 1;
+    });
+
+    // - Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports.
+    // max-width: 100%;
+    padding: $u-input_padding;
+    border: $u-input_border;
+    color: $u-input_color;
+    background: $u-input_background;
+    
+    // -webkit-transition: all linear 0.2s;
+    // transition: all linear 0.2s;
+
+    &:focus {
+        outline: 0;
+        border-color: $u-input-focus_border;
+        background: $u-input-focus_background;
+        color: $u-input-focus_color;
+    }
+
+    &:disabled {
+        border-color: $u-input-disabled_border;
+        background-color: $u-input-disabled_background;
+        color: $u-input-disabled_color;
+
+        cursor: not-allowed;
+        // $placeholder({
+        //     color:$u-input-disabled_color;
+        // });
+    }
+}
+
+.u-input {
+    height: $u-input_height;
+}
+
+.u-select {
+    height: $u-input_height;
+    min-width: 100px;
+    // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox
+    text-transform: none;
+
+    optgroup {
+        // - Correct `font` properties not being inherited.
+        font: inherit;
+        // - Don't inherit the `font-weight` and use `bold` instead.
+        font-weight: bold;
+        // - NOTE: Both declarations don't work in Chrome, Safari and Opera.
+    }
+}
+
+.u-textarea {
+    // - (It has been realized in normalize.css) Remove default vertical scrollbar in IE 8/9/10/11.
+    // overflow: auto;
+    // - Improve readability and alignment in all browsers.
+    vertical-align: top;
+
+    min-width: 300px;
+    min-height: 100px;
+}
+
+input.u-check,
+input.u-radio {
+    // - (It has been realized in normalize.css) Removes excess padding in IE 8/9/10.
+    // padding: 0;
+    cursor: pointer;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+input.u-check:disabled,
+input.u-radio:disabled {
+    cursor: not-allowed;
+}

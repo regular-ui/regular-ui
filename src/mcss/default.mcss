@@ -12,6 +12,9 @@
 @import "core/button.mcss";
 @import "default/button.mcss";
 
+@import "core/_form.mcss";
+@import "core/form.mcss";
+
 @import "core/selectEx.mcss";
 
 @import "core/_modal.mcss";

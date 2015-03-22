@@ -1,5 +1,5 @@
 body{
-	font:14px/1 "Microsoft YaHei";
+	font:14px/1.6 "Microsoft YaHei";
 	background:#f0f0f0;
 	color:#333;
 	margin-bottom:100px;
@@ -355,6 +355,72 @@ ul{
 .u-btn:active,.u-btn.z-act{
 	background-color:#ddd;
 	color:#444;
+}
+.u-input,.u-select,.u-textarea{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin:0;
+	border:0;
+	padding:0;
+	border-radius:0;
+	font:inherit;
+	color:inherit;
+	vertical-align:middle;
+	padding:4px 6px;
+	border:1px solid #ddd;
+	color:#444;
+	background:#fff;
+}
+.u-input::-webkit-input-placeholder,.u-select::-webkit-input-placeholder,.u-textarea::-webkit-input-placeholder{
+	color:#999;
+}
+.u-input::-moz-placeholder,.u-select::-moz-placeholder,.u-textarea::-moz-placeholder{
+	color:#999;
+}
+.u-input:-moz-placeholder,.u-select:-moz-placeholder,.u-textarea:-moz-placeholder{
+	color:#999;
+}
+.u-input:-ms-placeholder,.u-select:-ms-placeholder,.u-textarea:-ms-placeholder{
+	color:#999;
+}
+.u-input:focus,.u-select:focus,.u-textarea:focus{
+	outline:0;
+	border-color:#99baca;
+	background:#f5fbfe;
+	color:#444;
+}
+.u-input:disabled,.u-select:disabled,.u-textarea:disabled{
+	border-color:#ddd;
+	background-color:#f5f5f5;
+	color:#999;
+	cursor:not-allowed;
+}
+.u-input{
+	height:30px;
+}
+.u-select{
+	height:30px;
+	min-width:100px;
+	text-transform:none;
+}
+.u-select optgroup{
+	font:inherit;
+	font-weight:bold;
+}
+.u-textarea{
+	vertical-align:top;
+	min-width:300px;
+	min-height:100px;
+}
+input.u-check,input.u-radio{
+	cursor:pointer;
+}
+input.u-check:focus,input.u-radio:focus{
+	outline:0;
+}
+input.u-check:disabled,input.u-radio:disabled{
+	cursor:not-allowed;
 }
 .u-selectex{
 	display:inline-block;

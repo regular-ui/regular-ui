@@ -1,0 +1,15 @@
+$u-input_height = 30px;
+$u-input_padding = 4px 6px;
+$u-input_border = 1px solid #ddd;
+$u-input_color = #444;
+$u-input_background = white;
+
+$u-input-focus_border = #99baca;
+$u-input-focus_background = #f5fbfe;
+$u-input-focus_color = #444;
+
+$u-input-disabled_border = #ddd;
+$u-input-disabled_background = #f5f5f5;
+$u-input-disabled_color = #999;
+
+$u-input_placeholder_color = #999;

@@ -1,5 +1,5 @@
 /* ======== Reset ======== */
-body {font: 14px/1 'Microsoft YaHei'; background: #f0f0f0; color: #333; margin-bottom: 100px;}
+body {font: 14px/1.6 'Microsoft YaHei'; background: #f0f0f0; color: #333; margin-bottom: 100px;}
 a {text-decoration: none; cursor: pointer; color: #3498db;}
 a:hover {text-decoration: underline;}
 h3 {font-size: 16px; margin: 1.5em 0 1em; color: #3498db;}
