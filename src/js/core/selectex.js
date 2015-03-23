@@ -18,17 +18,19 @@ var _ = require('./util.js');
 var Selectex = BaseComponent.extend({
     name: 'selectex',
     template: template,
-    data: {
-        selected: null,
-        value: -1,
-        placeholder: '请选择',
-        options: [],
-        disabled: false,
-        show: false,
-        input: false,
-        multiple: false
-    },
     config: function() {
+        _.extend(this.data, {
+            selected: null,
+            value: -1,
+            placeholder: '请选择',
+            options: [],
+            disabled: false,
+            show: false,
+            input: false,
+            multiple: false
+        });
+        this.supr();
+
         this.$watch(['value'], function(value) {
             if(value < 0)
                 this.data.selected = {id: -1, name: this.data.placeholder}

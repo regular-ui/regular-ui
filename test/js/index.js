@@ -2,6 +2,7 @@
 var BaseComponent = require('../src/js/core/base.js');
 var template = require('./app.html');
 var Selectex = require('../src/js/core/selectex.js');
+var Suggest = require('../src/js/core/suggest.js');
 var Modal = require('../src/js/core/modal.js');
 
 var App = BaseComponent.extend({
@@ -27,7 +28,7 @@ var App = BaseComponent.extend({
 });
 
 var app = new App().$inject('#app');
-},{"../src/js/core/base.js":27,"../src/js/core/modal.js":29,"../src/js/core/selectex.js":31,"./app.html":33}],2:[function(require,module,exports){
+},{"../src/js/core/base.js":27,"../src/js/core/modal.js":29,"../src/js/core/selectex.js":31,"../src/js/core/suggest.js":33,"./app.html":35}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -4898,6 +4899,7 @@ var Modal = BaseComponent.extend({
             cancelButton: false,
             width: null
         });
+        this.supr();
     },
     init: function() {
         if(this.$root == this)
@@ -4944,7 +4946,7 @@ Modal.confirm = function(content, callback) {
 
 module.exports = Modal;
 
-},{"./base.js":27,"./modal.html":28,"./util.js":32}],30:[function(require,module,exports){
+},{"./base.js":27,"./modal.html":28,"./util.js":34}],30:[function(require,module,exports){
 module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!show)}>        <span>{selected.name}</span>    </div>    <div class=\"selectex-bd\" r-hide={!show}>        {#if placeholder}<div class=\"selectex-option\" on-click={this.select(-1)}>{placeholder}</div>{/if}        {#list options as option}            <div class=\"selectex-option\" on-click={this.select(option.id)}>{option.name}</div>        {/list}    </div></div>"
 },{}],31:[function(require,module,exports){
 /*
@@ -4967,17 +4969,19 @@ var _ = require('./util.js');
 var Selectex = BaseComponent.extend({
     name: 'selectex',
     template: template,
-    data: {
-        selected: null,
-        value: -1,
-        placeholder: '请选择',
-        options: [],
-        disabled: false,
-        show: false,
-        input: false,
-        multiple: false
-    },
     config: function() {
+        _.extend(this.data, {
+            selected: null,
+            value: -1,
+            placeholder: '请选择',
+            options: [],
+            disabled: false,
+            show: false,
+            input: false,
+            multiple: false
+        });
+        this.supr();
+
         this.$watch(['value'], function(value) {
             if(value < 0)
                 this.data.selected = {id: -1, name: this.data.placeholder}
@@ -5030,7 +5034,167 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = Selectex;
-},{"./base.js":27,"./selectex.html":30,"./util.js":32}],32:[function(require,module,exports){
+},{"./base.js":27,"./selectex.html":30,"./util.js":34}],32:[function(require,module,exports){
+module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <input class=\"u-input\" {#if value < 0}placeholder={defaultOption}{/if} r-model={_inputValue} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    <div class=\"suggest-bd\" r-hide={!show}>        {#list options as option}            {#if this.filter(option)}                {#if _hasId}                <div class=\"suggest-option\" on-click={this.select(option.id)}>{option.name}</div>                {#else}                <div class=\"suggest-option\" on-click={this.select(option_index)}>{option}</div>                {/if}            {/if}        {/list}    </div></div>"
+},{}],33:[function(require,module,exports){
+var BaseComponent = require('./base.js');
+var template = require('./suggest.html');
+var _ = require('./util.js');
+
+/**
+ * @class Suggest
+ * @extend BaseComponent
+ * @param {Object}
+ *     options.data 可选参数
+ *         .selected 当前选中对象
+ *         .value 当前选中对象的id，默认项的id为-1
+ *         .defaultOption 默认项，如果为null则没有默认项
+ *         .options 下拉列表中的选项
+ *         .disabled 是否禁用
+ *         .show 下拉列表展开
+ *         .suggest 是否自动提示
+ *         .suggestStart 当输入长度>=此值时提示
+ *         .matchType 匹配方式，'all'表示全局匹配，'start'表示开头匹配，'end'表示结尾匹配
+ * @Event on-change 当value改变时发生 {selected}
+ */
+var Suggest = BaseComponent.extend({
+    name: 'suggest',
+    template: template,
+    config: function() {
+        _.extend(this.data, {
+            selected: {},
+            value: -1,
+            options: [],
+            defaultOption: '请选择',
+            disabled: false,
+            show: false,
+            suggestStart: 0,
+            matchType: 'all',
+            _hasId: false,
+            _inputValue: ''
+        });
+        this.supr();
+
+        this.$watch('options', function(value) {
+            this.data._hasId = (value && value[0].id !== undefined);
+        });
+
+        this.$watch('value', function(newValue, oldValue) {
+            if(this.data._hasId) {
+            if(!this.data.defaultOption && this.data.value == -1)
+                newValue = this.data.value = this.data.options[0].id;
+
+                if(newValue < 0) {
+                    this.data.selected = {id: -1, name: this.data.defaultOption};
+                    this.data._inputValue = '';
+                } else {
+                    for(var i = 0; i < this.data.options.length; i++)
+                        if(this.data.options[i].id == newValue) {
+                            this.data.selected = this.data.options[i];
+                            break;
+                        }
+                    this.data._inputValue = this.data.selected.name;
+                }
+            } else {
+                if(newValue < 0)
+                    this.data.selected = this.data.defaultOption;
+                else
+                    this.data.selected = this.data.options[newValue];
+            }
+            var $event = {
+                data: {
+                    newValue: newValue,
+                    oldValue: oldValue,
+                    selected: this.data.selected
+                }
+            }
+            this.$emit('change', this.data.selected);
+            this.$emit('change2', $event);
+        });
+    },
+    select: function(id) {
+        var $event = {
+            cancelChange: false,
+            data: {
+                newValue: id,
+                oldValue: this.data.value,
+            }
+        }
+        this.$emit('select', $event);
+        
+        this.toggle(false);
+        if($event.cancelChange)
+            return;
+
+        this.data.value = id;
+    },
+    toggle: function(show, _isInput) {
+        if(this.data.disabled)
+            return;
+
+        if(this.data.show == show)
+            return;
+
+
+        var index = Suggest.suggestsShow.indexOf(this);
+        if(show && index < 0)
+            Suggest.suggestsShow.push(this);
+        else if(!show && index >= 0) {
+            Suggest.suggestsShow.splice(index, 1);
+
+            if(!_isInput) {
+                if(this.data.value == -1)
+                    this.data._inputValue = '';
+                else
+                    this.data._inputValue = this.data.selected.name;
+            }
+        }
+        this.data.show = show;
+    },
+    input: function($event) {
+        var inputValue = this.data._inputValue;
+
+        if(inputValue.length >= this.data.suggestStart)
+            this.toggle(true);
+        else
+            this.toggle(false, true);
+    },
+    uninput: function() {
+
+    },
+    filter: function(option) {
+        var inputValue = this.data._inputValue;
+
+        if(!inputValue && this.data.suggestStart)
+            return false;
+
+        if(this.data.matchType == 'all')
+            return option.name.indexOf(inputValue) >= 0;
+        else if(this.data.matchType == 'start')
+            return option.name.slice(0, inputValue.length) == inputValue;
+        else if(this.data.matchType == 'end')
+            return option.name.slice(-inputValue.length) == inputValue;
+    }
+});
+
+Suggest.suggestsShow = [];
+
+_.addEvent(window.document, 'click', function(e) {
+    Suggest.suggestsShow.forEach(function(suggest) {
+        var element = suggest.$refs.element;
+        var element2 = e.target;
+        while(element2 != document.body) {
+            if(element == element2)
+                return;
+            element2 = element2.parentElement;
+        }
+        suggest.toggle(false);
+        suggest.$update();
+    });
+});
+
+module.exports = Suggest;
+},{"./base.js":27,"./suggest.html":32,"./util.js":34}],34:[function(require,module,exports){
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)
@@ -5044,6 +5208,6 @@ var _ = {
 }
 
 module.exports = _;
-},{}],33:[function(require,module,exports){
-module.exports="<div>    <input class=\"u-input\">    <button class=\"u-btn u-btn-primary\" on-click={this.test()}>按钮</button>    <select class=\"u-select\">        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectex options={selectexOptions} value={selectexValue} />    <selectex options={selectexOptions} defaultOption=\"全部\" value={selectexValue} />    <div>        <label><input class=\"u-check\" type=\"checkbox\">C++</label>        <label><input class=\"u-check\" type=\"checkbox\">Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\">Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">Python</label>    </div>    <div>        <textarea class=\"u-textarea\">This is a Test.</textarea>    </div></div><div>    <input class=\"u-input\" disabled />    <button class=\"u-btn u-btn-primary\" disabled>按钮</button>    <select class=\"u-select\" disabled>        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectex options={selectexOptions} value={selectexValue} disabled={true} />    <selectex options={selectexOptions} defaultOption=\"全部\" value={selectexValue} disabled={true} />    <div>        <label><input class=\"u-check\" type=\"checkbox\" disabled> C++</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Python</label>    </div>    <div>        <textarea class=\"u-textarea\" disabled>This is a Test.</textarea>    </div></div>"
+},{}],35:[function(require,module,exports){
+module.exports="<div>    <input class=\"u-input\">    <button class=\"u-btn u-btn-primary\" on-click={this.test()}>按钮</button>    <select class=\"u-select\">        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectex options={selectexOptions} value={selectexValue} />    <selectex options={selectexOptions} placeholder=\"全部\" value={selectexValue} />    <suggest options={selectexOptions} value={selectexValue} />    <suggest options={selectexOptions} placeholder=\"全部\" value={selectexValue} />    <div>        <label><input class=\"u-check\" type=\"checkbox\">C++</label>        <label><input class=\"u-check\" type=\"checkbox\">Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\">Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\">Python</label>    </div>    <div>        <textarea class=\"u-textarea\">This is a Test.</textarea>    </div></div><div>    <input class=\"u-input\" disabled />    <button class=\"u-btn u-btn-primary\" disabled>按钮</button>    <select class=\"u-select\" disabled>        <option>测试1</option>        <option>测试2</option>        <option>测试3</option>    </select>    <selectex options={selectexOptions} value={selectexValue} disabled={true} />    <selectex options={selectexOptions} placeholder=\"全部\" value={selectexValue} disabled={true} />    <div>        <label><input class=\"u-check\" type=\"checkbox\" disabled> C++</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Javascript</label>        <label><input class=\"u-check\" type=\"checkbox\" disabled> Python</label>    </div>    <div>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> C++</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Javascript</label>        <label><input class=\"u-radio\" type=\"radio\" name=\"radio\" disabled> Python</label>    </div>    <div>        <textarea class=\"u-textarea\" disabled>This is a Test.</textarea>    </div></div>"
 },{}]},{},[1]);

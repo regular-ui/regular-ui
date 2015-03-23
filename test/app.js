@@ -1,6 +1,7 @@
 var BaseComponent = require('../src/js/core/base.js');
 var template = require('./app.html');
 var Selectex = require('../src/js/core/selectex.js');
+var Suggest = require('../src/js/core/suggest.js');
 var Modal = require('../src/js/core/modal.js');
 
 var App = BaseComponent.extend({

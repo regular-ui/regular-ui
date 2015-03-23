@@ -33,6 +33,7 @@ var Modal = BaseComponent.extend({
             cancelButton: false,
             width: null
         });
+        this.supr();
     },
     init: function() {
         if(this.$root == this)

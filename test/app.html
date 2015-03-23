@@ -7,7 +7,9 @@
         <option>测试3</option>
     </select>
     <selectex options={selectexOptions} value={selectexValue} />
-    <selectex options={selectexOptions} defaultOption="全部" value={selectexValue} />
+    <selectex options={selectexOptions} placeholder="全部" value={selectexValue} />
+    <suggest options={selectexOptions} value={selectexValue} />
+    <suggest options={selectexOptions} placeholder="全部" value={selectexValue} />
     <div>
         <label><input class="u-check" type="checkbox">C++</label>
         <label><input class="u-check" type="checkbox">Javascript</label>
@@ -31,7 +33,7 @@
         <option>测试3</option>
     </select>
     <selectex options={selectexOptions} value={selectexValue} disabled={true} />
-    <selectex options={selectexOptions} defaultOption="全部" value={selectexValue} disabled={true} />
+    <selectex options={selectexOptions} placeholder="全部" value={selectexValue} disabled={true} />
     <div>
         <label><input class="u-check" type="checkbox" disabled> C++</label>
         <label><input class="u-check" type="checkbox" disabled> Javascript</label>
