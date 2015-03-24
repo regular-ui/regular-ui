@@ -1,0 +1,16 @@
+.f-icon {
+    font-size: 16px;
+}
+
+.f-icon-arrowdown {
+    width: 16px;
+    height: 16px;
+    &:after {
+        content: ' ';
+        display: inline-block;
+        border-width: 6px 4px 0 4px;
+        border-color: #444 transparent;
+        border-style: solid;
+        margin-top: 7px;
+    }
+}

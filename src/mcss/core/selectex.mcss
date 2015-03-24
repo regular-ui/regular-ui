@@ -3,34 +3,21 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    min-width: $u-select_min-width;
+    width: $u-select_min-width;
     color: $u-input_color;
 
-    .selectex-hd, .selectex-bd {
+    .selectex-hd {
         $box-sizing: border-box;
         background: $u-input_background-color;
         border: $u-input_border;
-        // border-radius: 10px;
-    }
 
-    .selectex-hd {
         cursor: pointer;
         height: $u-input_height;
         padding: $u-input_padding;
-        
-        &:after {
-            content: ' ';
-            display: block;
+
+        .f-icon {
             float: right;
-            border-width: 6px 4px 0 4px;
-            border-color: $u-input_color transparent;
-            border-style: solid;
-            margin-top: 7px;
         }
-        // .f-icon:before {
-        //     content: '\e60c';
-        //     float: right;
-        // }
     }
     
     .selectex-bd {
@@ -41,22 +28,27 @@
         margin-top: -1px;
     }
 
-    .selectex-option {
-        cursor: pointer;
-        padding: $u-select_option_padding;
-    }
+    // .selectex-item {
+    //     cursor: pointer;
+    //     padding: $u-select_item_padding;
+    // }
 
-    .selectex-option:hover {
-        background-color: $u-select_option-hover_background-color;
-        color: $u-select_option-hover_color;
-    }
+    // .selectex-item:hover {
+    //     background-color: $u-select_item-hover_background-color;
+    //     color: $u-select_item-hover_color;
+    // }
 
-    &.z-dis {
-        .selectex-hd {
-            cursor: not-allowed;
-            background-color: $u-input-disabled_background-color;
-            border-color: $u-input-disabled_border-color;
-        }
-        color: #999;
+    // .selectex-item.z-sel {
+    //     background-color: $u-select_item-selected_background-color;
+    //     color: $u-select_item-selected_color;
+    // }
+}
+
+.u-selectex.z-dis {
+    .selectex-hd {
+        cursor: not-allowed;
+        background-color: $u-input-disabled_background-color;
+        border-color: $u-input-disabled_border-color;
+        color: $u-input-disabled_color;
     }
 }

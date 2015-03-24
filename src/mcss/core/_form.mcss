@@ -1,4 +1,3 @@
-
 $u-input_height = 30px;
 $u-input_padding = 4px 6px;
 $u-input_border = 1px solid #ddd;
@@ -19,9 +18,3 @@ $u-textarea_min-width = 320px;
 $u-textarea_min-height = 120px;
 
 $u-select_min-width = 120px;
-
-$u-select_option_padding = 0 10px;
-
-$u-select_option-hover_border-color = null;
-$u-select_option-hover_background-color = #eee;
-$u-select_option-hover_color = #444;

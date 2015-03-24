@@ -20,37 +20,58 @@ var Selectex = BaseComponent.extend({
     template: template,
     config: function() {
         _.extend(this.data, {
-            source: [],
             selected: null,
+            value: -1,
             placeholder: '请选择',
-            shown: false,
+            options: [],
             disabled: false,
+            show: false,
+            input: false,
             multiple: false
         });
         this.supr();
+
+        this.$watch('value', function(value) {
+            if(value < 0)
+                this.data.selected = {id: -1, name: this.data.placeholder}
+            else {
+                for(var i = 0; i < this.data.options.length; i++)
+                    if(this.data.options[i].id == value) {
+                        this.data.selected = this.data.options[i];
+                        break;
+                    }
+            }
+            setTimeout(function() {
+                this.$emit('change');
+            }.bind(this), 0);
+        });
     },
-    select: function(item) {
-        this.data.selected = item;
+    select: function(id) {
+        //this.data.selected = option;
+        this.data.value = id;
         this.toggle(false);
     },
-    toggle: function(shown) {
+    toggle: function(show) {
         if(this.data.disabled)
             return;
 
-        this.data.shown = shown;
+        this.data.show = show;
 
-        var index = Selectex.selectexesShown.indexOf(this);
-        if(shown && index < 0)
-            Selectex.selectexesShown.push(this);
-        else if(!shown && index >= 0)
-            Selectex.selectexesShown.splice(index, 1);
+        var index = Selectex.selectexsShown.indexOf(this);
+        if(show && index < 0)
+            Selectex.selectexsShown.push(this);
+        else if(!show && index >= 0)
+            Selectex.selectexsShown.splice(index, 1);
+    },
+    dbl: function($event) {
+        $event.preventDefault(); console.log('test')
     }
 });
 
-Selectex.selectexesShown = [];
+Selectex.selectexsShown = [];
 
 _.addEvent(window.document, 'click', function(e) {
-    Selectex.selectexesShown.forEach(function(selectex) {
+    Selectex.selectexsShown.forEach(function(selectex) {
         var element = selectex.$refs.element;
         var element2 = e.target;
         while(element2) {

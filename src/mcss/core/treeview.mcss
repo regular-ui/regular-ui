@@ -1,0 +1,39 @@
+/* 下拉选框 样式 */
+.u-treeview {
+    color: $u-input_color;
+
+    $box-sizing: border-box;
+    background: $u-input_background-color;
+    border: $u-input_border;
+
+    .treeview-list {
+        list-style: none;
+        margin: 0;
+        margin-left: 1.6em;
+        padding: 0;
+        
+    }
+
+    .treeview-item {
+        cursor: pointer;
+        padding: $u-listbox_item_padding;
+    }
+
+    .treeview-item:hover {
+        background-color: $u-listbox_item-hover_background-color;
+        color: $u-listbox_item-hover_color;
+    }
+
+    .treeview-item.z-sel {
+        background-color: $u-listbox_item-selected_background-color;
+        color: $u-listbox_item-selected_color;
+    }
+}
+
+.u-treeview.z-dis {
+    > li {
+        cursor: not-allowed;
+        background-color: $u-input-disabled_background-color;
+        color: #999;
+    }
+}

@@ -1,0 +1,9 @@
+$u-treeview_item_padding = 0 10px;
+
+$u-treeview_item-hover_border-color = null;
+$u-treeview_item-hover_background-color = #eee;
+$u-treeview_item-hover_color = #444;
+
+$u-treeview_item-selected_border-color = null;
+$u-treeview_item-selected_background-color = #6EBAE8;  // ?
+$u-treeview_item-selected_color = #444;

@@ -16,5 +16,7 @@
 
 @import "core/selectex.mcss";
 
+@import "core/suggest.mcss";
+
 @import "core/_modal.mcss";
 @import "core/modal.mcss";

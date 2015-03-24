@@ -1,0 +1,9 @@
+$u-listbox_item_padding = 0 10px;
+
+$u-listbox_item-hover_border-color = null;
+$u-listbox_item-hover_background-color = #eee;
+$u-listbox_item-hover_color = #444;
+
+$u-listbox_item-selected_border-color = null;
+$u-listbox_item-selected_background-color = #6EBAE8;  // ?
+$u-listbox_item-selected_color = #444;

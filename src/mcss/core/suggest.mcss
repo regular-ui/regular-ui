@@ -3,7 +3,7 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    min-width: $u-select_min-width;
+    width: $u-select_min-width;
     color: $u-input_color;
 
     .suggest-hd, .suggest-bd {
@@ -38,22 +38,22 @@
         margin-top: -1px;
     }
 
-    .suggest-option {
-        cursor: pointer;
-        padding: $u-select_option_padding;
-    }
+    // .suggest-item {
+    //     cursor: pointer;
+    //     padding: $u-select_item_padding;
+    // }
 
-    .suggest-option:hover {
-        background-color: $u-select_option-hover_background-color;
-        color: $u-select_option-hover_color;
-    }
+    // .suggest-item:hover {
+    //     background-color: $u-select_item-hover_background-color;
+    //     color: $u-select_item-hover_color;
+    // }
 
-    &.z-dis {
-        .suggest-hd {
-            cursor: not-allowed;
-            background-color: $u-input-disabled_background-color;
-            border-color: $u-input-disabled_border-color;
-        }
-        color: #999;
-    }
+    // &.z-dis {
+    //     .suggest-hd {
+    //         cursor: not-allowed;
+    //         background-color: $u-input-disabled_background-color;
+    //         border-color: $u-input-disabled_border-color;
+    //     }
+    //     color: #999;
+    // }
 }

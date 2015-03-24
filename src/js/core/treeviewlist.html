@@ -1,0 +1,8 @@
+<ul class="treeview-list" r-class={ {'z-dis': disabled} }>
+    {#list source as item}
+    <li>
+        <div class="treeview-item" r-class={ {'z-sel': this.root.data.selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</div>
+        {#if item.children}<treeviewlist source={item.children} root={this} />{/if}
+    </li>
+    {/list}
+</ul>

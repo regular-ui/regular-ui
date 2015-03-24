@@ -4,11 +4,6 @@
         <i class="f-icon f-icon-arrowdown"></i>
     </div>
     <div class="selectex-bd" r-hide={!shown}>
-        <ul class="u-listbox">
-            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}
-            {#list source as item}
-                <li r-class={ {'z-sel': selected === item} } on-click={this.select(item)}>{item.name}</li>
-            {/list}
-        </ul>
+        <treeview source={source} on-select={this.select($event.selected)} />
     </div>
 </div>
