@@ -1,5 +1,5 @@
 var Regular = require("regularjs");
-// var filter = require("../help/filter.js");
+var filter = require("./filter.js");
 
 var dom = Regular.dom; 
 
@@ -7,7 +7,7 @@ var BaseComponent = Regular.extend({
 	// request
 	$request: function(){}
 })
-//.filter(filter)
+.filter(filter)
 .directive({
 	// if expression evaluated to true then addClass z-crt.
 	// otherwise, remove it

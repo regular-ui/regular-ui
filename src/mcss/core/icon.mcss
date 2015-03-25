@@ -1,4 +1,6 @@
-.f-icon {}
+.f-icon {
+    font-style: normal;
+}
 
 .f-icon-arrowdown {
     width: 1em;
@@ -21,5 +23,17 @@
         border-color: transparent #444;
         border-style: solid;
         margin: .2em .29em;
+    }
+}
+
+.f-icon-prev {
+    &:before {
+        content: '<';
+    }
+}
+
+.f-icon-next {
+    &:before {
+        content: '>';
     }
 }

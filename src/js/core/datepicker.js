@@ -12,12 +12,12 @@
  */
 
 var Selectex = require('./selectex.js');
-var template = require('./selectree.html');
-var Treeview = require('./treeview.js');
+var template = require('./datepicker.html');
 var _ = require('./util.js');
+var Calendar = require('./calendar.js');
 
-var Selectree = Selectex.extend({
-    name: 'selectree',
+var Datepicker = Selectex.extend({
+    name: 'datepicker',
     template: template,
     config: function() {
         _.extend(this.data, {
@@ -36,4 +36,4 @@ var Selectree = Selectex.extend({
     // }
 });
 
-module.exports = Selectree;
+module.exports = Datepicker;

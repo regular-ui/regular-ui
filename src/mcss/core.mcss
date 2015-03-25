@@ -26,5 +26,8 @@ $reset-normalize();
 @import "core/_treeview.mcss";
 @import "core/treeview.mcss";
 
+@import "core/_calendar.mcss";
+@import "core/calendar.mcss";
+
 @import "core/_modal.mcss";
 @import "core/modal.mcss";

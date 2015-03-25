@@ -1,0 +1,59 @@
+/* 下拉选框 样式 */
+.u-calendar {
+    width: 200px;
+    color: $u-calendar_color;
+    border: $u-calendar_border;
+    background: $u-calendar_background-color;
+    padding: $u-calendar_padding;
+
+    .calendar-hd {
+        .f-icon {
+            cursor: pointer;
+        }
+        .calendar-year {
+            display: inline-block;
+        }
+
+        .calendar-month {
+            display: inline-block;
+        }
+        .calendar-back {
+            float: right;
+        }
+    }
+    
+    .calendar-bd {
+        text-align: center;
+        .calendar-week {
+            font-weight: bold;
+            span {
+                display: inline-block;
+                width: 14%;
+            }
+        }
+
+        .calendar-day {
+            span {
+                display: inline-block;
+                width: 14%;
+                cursor: pointer;
+            }
+            span.z-sel {
+                background: $u-calendar_item-selected_background-color;
+            }
+            span.z-dis {
+                color: #999;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+// .u-calendar.z-dis {
+//     .calendar-hd {
+//         cursor: not-allowed;
+//         background-color: $u-calendar-disabled_background-color;
+//         border-color: $u-calendar-disabled_border-color;
+//         color: $u-calendar-disabled_color;
+//     }
+// }

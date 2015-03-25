@@ -568,6 +568,47 @@ input.u-check:disabled,input.u-radio:disabled{
 	width:100%;
 	margin-top:-1px;
 }
+.u-calendar{
+	width:200px;
+	color:#444;
+	border:1px solid #ddd;
+	background:#fff;
+	padding:8px;
+}
+.u-calendar .calendar-hd .f-icon{
+	cursor:pointer;
+}
+.u-calendar .calendar-hd .calendar-year{
+	display:inline-block;
+}
+.u-calendar .calendar-hd .calendar-month{
+	display:inline-block;
+}
+.u-calendar .calendar-hd .calendar-back{
+	float:right;
+}
+.u-calendar .calendar-bd{
+	text-align:center;
+}
+.u-calendar .calendar-bd .calendar-week{
+	font-weight:bold;
+}
+.u-calendar .calendar-bd .calendar-week span{
+	display:inline-block;
+	width:14%;
+}
+.u-calendar .calendar-bd .calendar-day span{
+	display:inline-block;
+	width:14%;
+	cursor:pointer;
+}
+.u-calendar .calendar-bd .calendar-day span.z-sel{
+	background:#6ebae8;
+}
+.u-calendar .calendar-bd .calendar-day span.z-dis{
+	color:#999;
+	cursor:not-allowed;
+}
 .m-modal{
 	position:fixed;
 	top:0;

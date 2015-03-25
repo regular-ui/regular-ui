@@ -9,34 +9,24 @@ var Listbox = require('../src/js/core/listbox.js');
 var Listview = require('../src/js/core/listview.js');
 var Treeview = require('../src/js/core/treeview.js');
 var Selectree = require('../src/js/core/selectree.js');
+var Calendar = require('../src/js/core/calendar.js');
+var Datepicker = require('../src/js/core/datepicker.js');
 
 var App = BaseComponent.extend({
     name: 'app',
     template: template,
     config: function() {
         _.extend(this.data, {
-            source: [
-                {id: 1, name: '111'},
-                {id: 2, name: '222'},
-                {id: 3, name: '333'}
-            ],
-            treeSource: [
-                {id: 1, name: '1', children: [{id: 11, name: '1--1'}, {id: 12, name: '1--2'}]},
-                {id: 2, name: '2'}
-            ]
+
         });
         this.supr();
     },
     init: function() {
-        //Modal.confirm('模拟一个Alert');
-    },
-    test: function() {
-        Modal.alert('test');
     }
 });
 
 var app = new App().$inject('#app');
-},{"../src/js/core/base.js":27,"../src/js/core/listbox.js":29,"../src/js/core/listview.js":31,"../src/js/core/modal.js":33,"../src/js/core/selectex.js":35,"../src/js/core/selectree.js":37,"../src/js/core/suggest.js":39,"../src/js/core/treeview.js":41,"../src/js/core/util.js":43,"./app.html":44}],2:[function(require,module,exports){
+},{"../src/js/core/base.js":27,"../src/js/core/calendar.js":29,"../src/js/core/datepicker.js":31,"../src/js/core/listbox.js":34,"../src/js/core/listview.js":36,"../src/js/core/modal.js":38,"../src/js/core/selectex.js":40,"../src/js/core/selectree.js":42,"../src/js/core/suggest.js":44,"../src/js/core/treeview.js":46,"../src/js/core/util.js":48,"./app.html":49}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -4843,7 +4833,7 @@ walkers.attribute = function(ast ,options){
 
 },{"./dom.js":8,"./group.js":10,"./helper/animate.js":11,"./helper/combine.js":12,"./parser/node.js":24,"./util":25}],27:[function(require,module,exports){
 var Regular = require("regularjs");
-// var filter = require("../help/filter.js");
+var filter = require("./filter.js");
 
 var dom = Regular.dom; 
 
@@ -4851,7 +4841,7 @@ var BaseComponent = Regular.extend({
 	// request
 	$request: function(){}
 })
-//.filter(filter)
+.filter(filter)
 .directive({
 	// if expression evaluated to true then addClass z-crt.
 	// otherwise, remove it
@@ -4869,9 +4859,178 @@ var BaseComponent = Regular.extend({
 })
 
 module.exports = BaseComponent;
-},{"regularjs":20}],28:[function(require,module,exports){
-module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
+},{"./filter.js":32,"regularjs":20}],28:[function(require,module,exports){
+module.exports="<div class=\"u-calendar\">    <div class=\"calendar-hd\">        <div class=\"calendar-year\">            <i class=\"f-icon f-icon-prev calendar-prev\" on-click={this.addYear(-1)}></i>            <span>{selected | format: \'yyyy\'}</span>            <i class=\"f-icon f-icon-next calendar-next\" on-click={this.addYear(1)}></i>        </div>        <div class=\"calendar-month\">            <i class=\"f-icon f-icon-prev calendar-prev\" on-click={this.addMonth(-1)}></i>            <span>{selected | format: \'MM\'}</span>            <i class=\"f-icon f-icon-next calendar-next\" on-click={this.addMonth(1)}></i>        </div>        <a class=\"calendar-back\" on-click={this.back()}>返回今天</a>    </div>    <div class=\"calendar-bd\">        <div class=\"calendar-week\"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>        <div class=\"calendar-day\">{#list days as day}<span r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
 },{}],29:[function(require,module,exports){
+/*
+ * --------------------------------------------
+ * 下拉列表UI
+ * @version  1.0
+ * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * --------------------------------------------
+ * @class Selectex
+ * @extend BaseComponent
+ * @param {Object} options
+ *     options.value             
+ *              
+ */
+
+var BaseComponent = require('./base.js');
+var template = require('./calendar.html');
+var _ = require('./util.js');
+
+var Calendar = BaseComponent.extend({
+    name: 'calendar',
+    template: template,
+    config: function() {
+        _.extend(this.data, {
+            selected: null,
+            disabled: false,
+            days: []
+        });
+        this.supr();
+
+        this.back();
+        //this.update();
+    },
+    addYear: function(year) {
+        this.data.selected.setFullYear(this.data.selected.getFullYear() + year);
+        this.update();
+    },
+    addMonth: function(month) {
+        this.data.selected.setMonth(this.data.selected.getMonth() + month);
+        this.update();
+    },
+    update: function() {
+        this.data.days = [];
+        
+        var selected = this.data.selected;
+        var month = selected.getMonth();
+        var mfirst = new Date(selected); mfirst.setDate(1);
+        var mfirstTime = mfirst.getTime();
+        var nfirst = new Date(selected); nfirst.setMonth(month + 1); nfirst.setDate(1);
+        var nfirstTime = nfirst.getTime();
+        var lastTime = nfirstTime + (6 - nfirst.getDay())*24*3600*1000;
+        var num = - mfirst.getDay();
+        var dateTime, date;
+        do {
+            dateTime = mfirstTime + (num++)*24*3600*1000;
+            date = new Date(dateTime);
+            this.data.days.push(date);
+        } while(dateTime < lastTime);
+    },
+    select: function(item) {
+        var month = this.data.selected.getMonth();
+        if(item.getMonth() != month)
+            return;
+
+        this.data.selected = item;
+        this.$emit('select', {
+            selected: item
+        })
+    },
+    back: function() {
+        this.data.selected = new Date(new Date().toLocaleDateString());
+        this.update();
+    }
+});
+
+module.exports = Calendar;
+},{"./base.js":27,"./calendar.html":28,"./util.js":48}],30:[function(require,module,exports){
+module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!open)}>        <span>{selected ? (selected | format: \'yyyy-MM-dd\') : \'\'}</span>        <i class=\"f-icon f-icon-arrowdown\"></i>    </div>    <div class=\"selectex-bd\" r-hide={!open}>        <calendar on-select={this.select($event.selected)} />    </div></div>"
+},{}],31:[function(require,module,exports){
+/*
+ * --------------------------------------------
+ * 下拉列表UI
+ * @version  1.0
+ * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * --------------------------------------------
+ * @class Selectex
+ * @extend BaseComponent
+ * @param {Object} options
+ *     options.value             
+ *              
+ */
+
+var Selectex = require('./selectex.js');
+var template = require('./datepicker.html');
+var _ = require('./util.js');
+var Calendar = require('./calendar.js');
+
+var Datepicker = Selectex.extend({
+    name: 'datepicker',
+    template: template,
+    config: function() {
+        _.extend(this.data, {
+            // @override source: [],
+            // @override selected: null,
+            // @override placeholder: '请选择',
+            // @override open: false,
+            // @override disabled: false,
+            // @override multiple: false
+        });
+        this.supr();
+    }
+    // select: function(item) {
+    //     this.data.selected = item;
+    //     this.toggle(false);
+    // }
+});
+
+module.exports = Datepicker;
+},{"./calendar.js":29,"./datepicker.html":30,"./selectex.js":40,"./util.js":48}],32:[function(require,module,exports){
+var filter = {};
+
+filter.format = function() {
+    function fix(str) {
+        str = '' + (String(str) || '');
+        return str.length <= 1? '0' + str : str;
+    }
+    var maps = {
+        'yyyy': function(date){return date.getFullYear()},
+        'MM': function(date){return fix(date.getMonth() + 1); },
+        'dd': function(date){ return fix(date.getDate()) },
+        'HH': function(date){return fix(date.getHours()) },
+        'mm': function(date){ return fix(date.getMinutes())},
+        'ss': function(date){ return fix(date.getSeconds())}
+    }
+
+    var trunk = new RegExp(Object.keys(maps).join('|'),'g');
+    return function(value, format){
+        if(!value){return '';}
+        format = format || 'yyyy-MM-dd HH:mm';
+        value = new Date(value);
+
+        return format.replace(trunk, function(capture){
+            return maps[capture]? maps[capture](value): '';
+        });
+    }
+}();
+
+filter.average = function(array, key) {
+    array = array || [];
+    return array.length? filter.total(array, key) / array.length : 0;
+}
+filter.total = function(array, key) {
+    var total = 0;
+    if(!array) return;
+    array.forEach(function( item ){
+        total += key? item[key] : item;
+    })
+    return total;
+}
+
+filter.filter = function(array, filterFn) {
+    if(!array || !array.length) return;
+    return array.filter(function(item, index){
+        return filterFn(item, index);
+    })
+}
+
+module.exports = filter;
+},{}],33:[function(require,module,exports){
+module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
+},{}],34:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -4908,9 +5067,9 @@ var Listbox = BaseComponent.extend({
 });
 
 module.exports = Listbox;
-},{"./base.js":27,"./listbox.html":28,"./util.js":43}],30:[function(require,module,exports){
+},{"./base.js":27,"./listbox.html":33,"./util.js":48}],35:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</li>    {/list}</ul>"
-},{}],31:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -4948,9 +5107,9 @@ var Listview = Listbox.extend({
 });
 
 module.exports = Listview;
-},{"./listbox.js":29,"./listview.html":30,"./util.js":43}],32:[function(require,module,exports){
+},{"./listbox.js":34,"./listview.html":35,"./util.js":48}],37:[function(require,module,exports){
 module.exports="<div class=\"m-modal\">    <div class=\"modal-dialog\" {#if width}style=\"width: {width}px\"{/if}>        <div class=\"modal-hd\">            <a class=\"modal-close\" on-click={this.close(false)}></a>            <h3 class=\"modal-title\">{title}</h3>        </div>        <div class=\"modal-bd\">            {content}        </div>        <div class=\"modal-ft\">            {#if okButton}            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? \'确定\' : okButton}</button>            {/if}            {#if cancelButton}            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? \'取消\' : cancelButton}</button>            {/if}        </div>    </div></div>"
-},{}],33:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * 弹窗组件
@@ -5033,9 +5192,9 @@ Modal.confirm = function(content, callback) {
 
 module.exports = Modal;
 
-},{"./base.js":27,"./modal.html":32,"./util.js":43}],34:[function(require,module,exports){
+},{"./base.js":27,"./modal.html":37,"./util.js":48}],39:[function(require,module,exports){
 module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-arrowdown\"></i>    </div>    <div class=\"selectex-bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],35:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -5102,9 +5261,9 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = Selectex;
-},{"./base.js":27,"./selectex.html":34,"./util.js":43}],36:[function(require,module,exports){
+},{"./base.js":27,"./selectex.html":39,"./util.js":48}],41:[function(require,module,exports){
 module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-arrowdown\"></i>    </div>    <div class=\"selectex-bd\" r-hide={!open}>        <treeview source={source} on-select={this.select($event.selected)} />    </div></div>"
-},{}],37:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -5118,9 +5277,9 @@ module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=
  *              
  */
 
-var BaseComponent = require('./base.js');
 var Selectex = require('./selectex.js');
 var template = require('./selectree.html');
+var Treeview = require('./treeview.js');
 var _ = require('./util.js');
 
 var Selectree = Selectex.extend({
@@ -5144,9 +5303,9 @@ var Selectree = Selectex.extend({
 });
 
 module.exports = Selectree;
-},{"./base.js":27,"./selectex.js":35,"./selectree.html":36,"./util.js":43}],38:[function(require,module,exports){
+},{"./selectex.js":40,"./selectree.html":41,"./treeview.js":46,"./util.js":48}],43:[function(require,module,exports){
 module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <input class=\"u-input\" {#if value < 0}placeholder={defaultOption}{/if} r-model={_inputValue} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    <div class=\"suggest-bd\" r-hide={!open}>        {#list options as option}            {#if this.filter(option)}                {#if _hasId}                <div class=\"suggest-option\" on-click={this.select(option.id)}>{option.name}</div>                {#else}                <div class=\"suggest-option\" on-click={this.select(option_index)}>{option}</div>                {/if}            {/if}        {/list}    </div></div>"
-},{}],39:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 var BaseComponent = require('./base.js');
 var template = require('./suggest.html');
 var _ = require('./util.js');
@@ -5298,9 +5457,9 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = Suggest;
-},{"./base.js":27,"./suggest.html":38,"./util.js":43}],40:[function(require,module,exports){
+},{"./base.js":27,"./suggest.html":43,"./util.js":48}],45:[function(require,module,exports){
 module.exports="<div class=\"u-treeview\" r-class={ {\'z-dis\': disabled} }>    <treeviewlist source={source} visible={true} /></div>"
-},{}],41:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -5362,9 +5521,9 @@ var Treeviewlist = BaseComponent.extend({
 })
 
 module.exports = Treeview;
-},{"./base.js":27,"./treeview.html":40,"./treeviewlist.html":42,"./util.js":43}],42:[function(require,module,exports){
+},{"./base.js":27,"./treeview.html":45,"./treeviewlist.html":47,"./util.js":48}],47:[function(require,module,exports){
 module.exports="<ul class=\"treeview-list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview-item\">            {#if item.children && item.children.length}            <i class=\"f-icon\" r-class={ {\'f-icon-arrowright\': !item.open, \'f-icon-arrowdown\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview-itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</div>        </div>        {#if item.children && item.children.length}<treeviewlist source={item.children} visible={item.open} />{/if}    </li>    {/list}</ul>"
-},{}],43:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)
@@ -5378,6 +5537,6 @@ var _ = {
 }
 
 module.exports = _;
-},{}],44:[function(require,module,exports){
-module.exports="<div><selectex source={source} /><selectex source={source} disabled={true} /><selectree source={treeSource} /></div><div>    <listbox source={source} />    <listbox source={source} disabled={true} />    <listview source={source} disabled={true} />    <listview source={source} disabled={true} />    <treeview source={treeSource} disabled={true} />    <treeview source={treeSource} disabled={true} /></div>"
+},{}],49:[function(require,module,exports){
+module.exports="<calendar /><datepicker />"
 },{}]},{},[1]);
