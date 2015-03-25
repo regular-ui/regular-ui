@@ -24,16 +24,16 @@ var Selectree = Selectex.extend({
             // @override source: [],
             // @override selected: null,
             // @override placeholder: '请选择',
-            // @override shown: false,
+            // @override open: false,
             // @override disabled: false,
             // @override multiple: false
         });
         this.supr();
-    },
-    select: function(item) {
-        this.data.selected = item;
-        this.toggle(false);
     }
+    // select: function(item) {
+    //     this.data.selected = item;
+    //     this.toggle(false);
+    // }
 });
 
 module.exports = Selectree;

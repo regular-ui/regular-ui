@@ -23,7 +23,7 @@ var Selectex = BaseComponent.extend({
             source: [],
             selected: null,
             placeholder: '请选择',
-            shown: false,
+            open: false,
             disabled: false,
             multiple: false
         });
@@ -33,24 +33,24 @@ var Selectex = BaseComponent.extend({
         this.data.selected = item;
         this.toggle(false);
     },
-    toggle: function(shown) {
+    toggle: function(open) {
         if(this.data.disabled)
             return;
+        
+        this.data.open = open;
 
-        this.data.shown = shown;
-
-        var index = Selectex.selectexesShown.indexOf(this);
-        if(shown && index < 0)
-            Selectex.selectexesShown.push(this);
-        else if(!shown && index >= 0)
-            Selectex.selectexesShown.splice(index, 1);
+        var index = Selectex.opens.indexOf(this);
+        if(open && index < 0)
+            Selectex.opens.push(this);
+        else if(!open && index >= 0)
+            Selectex.opens.splice(index, 1);
     }
 });
 
-Selectex.selectexesShown = [];
+Selectex.opens = [];
 
 _.addEvent(window.document, 'click', function(e) {
-    Selectex.selectexesShown.forEach(function(selectex) {
+    Selectex.opens.forEach(function(selectex) {
         var element = selectex.$refs.element;
         var element2 = e.target;
         while(element2) {

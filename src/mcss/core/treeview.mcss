@@ -1,10 +1,10 @@
 /* 下拉选框 样式 */
 .u-treeview {
-    color: $u-input_color;
+    color: $u-treeview_color;
 
     $box-sizing: border-box;
-    background: $u-input_background-color;
-    border: $u-input_border;
+    background: $u-treeview_background-color;
+    border: $u-treeview_border;
 
     .treeview-list {
         list-style: none;
@@ -15,25 +15,40 @@
     }
 
     .treeview-item {
+        position: relative;
+
+        > .f-icon {
+            position: absolute;
+            left: -16px;
+            cursor: pointer;
+        }
+
+        > .f-icon.f-icon-arrowdown:before {
+            margin: .2em .22em;
+        }
+    }
+
+    .treeview-itemname {
         cursor: pointer;
-        padding: $u-listbox_item_padding;
+        padding: $u-treeview_item_padding;
+        
     }
 
-    .treeview-item:hover {
-        background-color: $u-listbox_item-hover_background-color;
-        color: $u-listbox_item-hover_color;
+    .treeview-itemname:hover {
+        background-color: $u-treeview_item-hover_background-color;
+        color: $u-treeview_item-hover_color;
     }
 
-    .treeview-item.z-sel {
-        background-color: $u-listbox_item-selected_background-color;
-        color: $u-listbox_item-selected_color;
+    .treeview-itemname.z-sel {
+        background-color: $u-treeview_item-selected_background-color;
+        color: $u-treeview_item-selected_color;
     }
 }
 
 .u-treeview.z-dis {
     > li {
         cursor: not-allowed;
-        background-color: $u-input-disabled_background-color;
+        background-color: $u-treeview-disabled_background-color;
         color: #999;
     }
 }

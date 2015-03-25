@@ -1,9 +1,23 @@
-$u-listbox_item_padding = 0 10px;
+$u-listbox_border = $formctrl_border;
+$u-listbox_color = $formctrl_color;
+$u-listbox_background-color = $formctrl_background-color;
 
-$u-listbox_item-hover_border-color = null;
-$u-listbox_item-hover_background-color = #eee;
-$u-listbox_item-hover_color = #444;
+$u-listbox-focus_border-color = $formctrl-focus_border-color;
+$u-listbox-focus_background-color = $formctrl-focus_background-color;
+$u-listbox-focus_color = $formctrl-focus_color;
 
-$u-listbox_item-selected_border-color = null;
-$u-listbox_item-selected_background-color = #6EBAE8;  // ?
-$u-listbox_item-selected_color = #444;
+$u-listbox-disabled_border-color = $formctrl-disabled_border-color;
+$u-listbox-disabled_background-color = $formctrl-disabled_background-color;
+$u-listbox-disabled_color = $formctrl-disabled_color;
+
+
+
+$u-listbox_item_padding = $formctrl_item_padding;
+
+$u-listbox_item-hover_border-color = $formctrl_item-hover_border-color;
+$u-listbox_item-hover_background-color = $formctrl_item-hover_background-color;
+$u-listbox_item-hover_color = $formctrl_item-hover_color;
+
+$u-listbox_item-selected_border-color = $formctrl_item-selected_border-color;
+$u-listbox_item-selected_background-color = $formctrl_item-selected_background-color;  // ?
+$u-listbox_item-selected_color = $formctrl_item-selected_color;

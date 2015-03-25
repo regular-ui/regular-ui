@@ -27,13 +27,14 @@ var Treeview = BaseComponent.extend({
             multiple: false
         });
         this.supr();
+
+        this.treeroot = this;
     },
     select: function(item) {
         this.data.selected = item;
         this.$emit('select', {
             selected: item
         });
-        
     }
 });
 
@@ -44,20 +45,16 @@ var Treeviewlist = BaseComponent.extend({
         _.extend(this.data, {
             itemTemplate: null,
             // @override source: [],
+            visible: false
         });
         this.supr();
-
-        this.root = this.getRoot();
-    },
-    getRoot: function() {
-        var root = this;
-        while(root && root.name != 'treeview')
-            root = root.$parent;
-        return root;
+        this.treeroot = this.$parent.treeroot;
     },
     select: function(item) {
-        this.root.select(item);
-        // root && root.select(item);
+        this.treeroot.select(item);
+    },
+    toggle: function(item) {
+        item.open = !item.open;
     }
 })
 

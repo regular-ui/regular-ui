@@ -528,6 +528,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	border:1px solid #ddd;
 	cursor:pointer;
 	height:30px;
+	line-height:22px;
 	padding:4px 6px;
 }
 .u-selectex .selectex-hd .f-icon{

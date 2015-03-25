@@ -4,11 +4,11 @@
     margin: 0;
     padding: 0;
 
-    color: $u-input_color;
+    color: $u-listbox_color;
 
     $box-sizing: border-box;
-    background: $u-input_background-color;
-    border: $u-input_border;
+    background: $u-listbox_background-color;
+    border: $u-listbox_border;
 
     > li {
         cursor: pointer;
@@ -29,7 +29,7 @@
 .u-listbox.z-dis {
     > li {
         cursor: not-allowed;
-        background-color: $u-input-disabled_background-color;
+        background-color: $u-listbox-disabled_background-color;
         color: #999;
     }
 }

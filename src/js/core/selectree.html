@@ -1,9 +1,9 @@
 <div class="u-selectex" r-class={ {'z-dis': disabled} } ref="element" onselectstart="return false">
-    <div class="selectex-hd" on-click={this.toggle(!shown)}>
+    <div class="selectex-hd" on-click={this.toggle(!open)}>
         <span>{selected ? selected.name : placeholder}</span>
         <i class="f-icon f-icon-arrowdown"></i>
     </div>
-    <div class="selectex-bd" r-hide={!shown}>
+    <div class="selectex-bd" r-hide={!open}>
         <treeview source={source} on-select={this.select($event.selected)} />
     </div>
 </div>

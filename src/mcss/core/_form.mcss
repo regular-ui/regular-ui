@@ -1,20 +1,22 @@
-$u-input_height = 30px;
-$u-input_padding = 4px 6px;
-$u-input_border = 1px solid #ddd;
-$u-input_color = #444;
-$u-input_background-color = white;
+// Input
+//
+$u-input_height = $formctrl_height;
+$u-input_padding = $formctrl_padding;
+$u-input_border = $formctrl_border;
+$u-input_color = $formctrl_color;
+$u-input_background-color = $formctrl_background-color;
 
-$u-input-focus_border-color = #99baca;
-$u-input-focus_background-color = #f5fbfe;
-$u-input-focus_color = #444;
+$u-input-focus_border-color = $formctrl-focus_border-color;
+$u-input-focus_background-color = $formctrl-focus_background-color;
+$u-input-focus_color = $formctrl-focus_color;
 
-$u-input-disabled_border-color = #ddd;
-$u-input-disabled_background-color = #f5f5f5;
-$u-input-disabled_color = #999;
+$u-input-disabled_border-color = $formctrl-disabled_border-color;
+$u-input-disabled_background-color = $formctrl-disabled_background-color;
+$u-input-disabled_color = $formctrl-disabled_color;
 
-$u-input_placeholder_color = #999;
+$u-input_placeholder_color = $formctrl_placeholder_color;
+
+$u-select_min-width = $formctrl_min-width;
 
 $u-textarea_min-width = 320px;
 $u-textarea_min-height = 120px;
-
-$u-select_min-width = 120px;

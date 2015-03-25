@@ -1,9 +1,23 @@
-$u-treeview_item_padding = 0 10px;
+$u-treeview_border = $formctrl_border;
+$u-treeview_color = $formctrl_color;
+$u-treeview_background-color = $formctrl_background-color;
 
-$u-treeview_item-hover_border-color = null;
-$u-treeview_item-hover_background-color = #eee;
-$u-treeview_item-hover_color = #444;
+$u-treeview-focus_border-color = $formctrl-focus_border-color;
+$u-treeview-focus_background-color = $formctrl-focus_background-color;
+$u-treeview-focus_color = $formctrl-focus_color;
 
-$u-treeview_item-selected_border-color = null;
-$u-treeview_item-selected_background-color = #6EBAE8;  // ?
-$u-treeview_item-selected_color = #444;
+$u-treeview-disabled_border-color = $formctrl-disabled_border-color;
+$u-treeview-disabled_background-color = $formctrl-disabled_background-color;
+$u-treeview-disabled_color = $formctrl-disabled_color;
+
+
+
+$u-treeview_item_padding = 0 8px;
+
+$u-treeview_item-hover_border-color = $formctrl_item-hover_border-color;
+$u-treeview_item-hover_background-color = $formctrl_item-hover_background-color;
+$u-treeview_item-hover_color = $formctrl_item-hover_color;
+
+$u-treeview_item-selected_border-color = $formctrl_item-selected_border-color;
+$u-treeview_item-selected_background-color = $formctrl_item-selected_background-color;  // ?
+$u-treeview_item-selected_color = $formctrl_item-selected_color;

@@ -1,9 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var BaseComponent = require('../src/js/core/base.js');
-var template = require('./app-button.html');
+var template = require('./app.html');
 var _ = require('../src/js/core/util.js');
-//var Selectex = require('../src/js/core/selectex.js');
-var Selectex2 = require('../src/js/core/selectex.js');
+var Selectex = require('../src/js/core/selectex.js');
 var Suggest = require('../src/js/core/suggest.js');
 var Modal = require('../src/js/core/modal.js');
 var Listbox = require('../src/js/core/listbox.js');
@@ -37,7 +36,7 @@ var App = BaseComponent.extend({
 });
 
 var app = new App().$inject('#app');
-},{"../src/js/core/base.js":27,"../src/js/core/listbox.js":29,"../src/js/core/listview.js":31,"../src/js/core/modal.js":33,"../src/js/core/selectex.js":35,"../src/js/core/selectree.js":37,"../src/js/core/suggest.js":39,"../src/js/core/treeview.js":41,"../src/js/core/util.js":43,"./app-button.html":44}],2:[function(require,module,exports){
+},{"../src/js/core/base.js":27,"../src/js/core/listbox.js":29,"../src/js/core/listview.js":31,"../src/js/core/modal.js":33,"../src/js/core/selectex.js":35,"../src/js/core/selectree.js":37,"../src/js/core/suggest.js":39,"../src/js/core/treeview.js":41,"../src/js/core/util.js":43,"./app.html":44}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -5035,7 +5034,7 @@ Modal.confirm = function(content, callback) {
 module.exports = Modal;
 
 },{"./base.js":27,"./modal.html":32,"./util.js":43}],34:[function(require,module,exports){
-module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!shown)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-arrowdown\"></i>    </div>    <div class=\"selectex-bd\" r-hide={!shown}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
+module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-arrowdown\"></i>    </div>    <div class=\"selectex-bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
 },{}],35:[function(require,module,exports){
 /*
  * --------------------------------------------
@@ -5062,7 +5061,7 @@ var Selectex = BaseComponent.extend({
             source: [],
             selected: null,
             placeholder: '请选择',
-            shown: false,
+            open: false,
             disabled: false,
             multiple: false
         });
@@ -5072,24 +5071,24 @@ var Selectex = BaseComponent.extend({
         this.data.selected = item;
         this.toggle(false);
     },
-    toggle: function(shown) {
+    toggle: function(open) {
         if(this.data.disabled)
             return;
+        
+        this.data.open = open;
 
-        this.data.shown = shown;
-
-        var index = Selectex.selectexesShown.indexOf(this);
-        if(shown && index < 0)
-            Selectex.selectexesShown.push(this);
-        else if(!shown && index >= 0)
-            Selectex.selectexesShown.splice(index, 1);
+        var index = Selectex.opens.indexOf(this);
+        if(open && index < 0)
+            Selectex.opens.push(this);
+        else if(!open && index >= 0)
+            Selectex.opens.splice(index, 1);
     }
 });
 
-Selectex.selectexesShown = [];
+Selectex.opens = [];
 
 _.addEvent(window.document, 'click', function(e) {
-    Selectex.selectexesShown.forEach(function(selectex) {
+    Selectex.opens.forEach(function(selectex) {
         var element = selectex.$refs.element;
         var element2 = e.target;
         while(element2) {
@@ -5104,7 +5103,7 @@ _.addEvent(window.document, 'click', function(e) {
 
 module.exports = Selectex;
 },{"./base.js":27,"./selectex.html":34,"./util.js":43}],36:[function(require,module,exports){
-module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!shown)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-arrowdown\"></i>    </div>    <div class=\"selectex-bd\" r-hide={!shown}>        <treeview source={source} on-select={this.select($event.selected)} />    </div></div>"
+module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex-hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-arrowdown\"></i>    </div>    <div class=\"selectex-bd\" r-hide={!open}>        <treeview source={source} on-select={this.select($event.selected)} />    </div></div>"
 },{}],37:[function(require,module,exports){
 /*
  * --------------------------------------------
@@ -5132,21 +5131,21 @@ var Selectree = Selectex.extend({
             // @override source: [],
             // @override selected: null,
             // @override placeholder: '请选择',
-            // @override shown: false,
+            // @override open: false,
             // @override disabled: false,
             // @override multiple: false
         });
         this.supr();
-    },
-    select: function(item) {
-        this.data.selected = item;
-        this.toggle(false);
     }
+    // select: function(item) {
+    //     this.data.selected = item;
+    //     this.toggle(false);
+    // }
 });
 
 module.exports = Selectree;
 },{"./base.js":27,"./selectex.js":35,"./selectree.html":36,"./util.js":43}],38:[function(require,module,exports){
-module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <input class=\"u-input\" {#if value < 0}placeholder={defaultOption}{/if} r-model={_inputValue} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    <div class=\"suggest-bd\" r-hide={!show}>        {#list options as option}            {#if this.filter(option)}                {#if _hasId}                <div class=\"suggest-option\" on-click={this.select(option.id)}>{option.name}</div>                {#else}                <div class=\"suggest-option\" on-click={this.select(option_index)}>{option}</div>                {/if}            {/if}        {/list}    </div></div>"
+module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <input class=\"u-input\" {#if value < 0}placeholder={defaultOption}{/if} r-model={_inputValue} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    <div class=\"suggest-bd\" r-hide={!open}>        {#list options as option}            {#if this.filter(option)}                {#if _hasId}                <div class=\"suggest-option\" on-click={this.select(option.id)}>{option.name}</div>                {#else}                <div class=\"suggest-option\" on-click={this.select(option_index)}>{option}</div>                {/if}            {/if}        {/list}    </div></div>"
 },{}],39:[function(require,module,exports){
 var BaseComponent = require('./base.js');
 var template = require('./suggest.html');
@@ -5162,7 +5161,7 @@ var _ = require('./util.js');
  *         .defaultOption 默认项，如果为null则没有默认项
  *         .options 下拉列表中的选项
  *         .disabled 是否禁用
- *         .show 下拉列表展开
+ *         .open 下拉列表展开
  *         .suggest 是否自动提示
  *         .suggestStart 当输入长度>=此值时提示
  *         .matchType 匹配方式，'all'表示全局匹配，'start'表示开头匹配，'end'表示结尾匹配
@@ -5178,7 +5177,7 @@ var Suggest = BaseComponent.extend({
             options: [],
             defaultOption: '请选择',
             disabled: false,
-            show: false,
+            open: false,
             suggestStart: 0,
             matchType: 'all',
             _hasId: false,
@@ -5191,7 +5190,6 @@ var Suggest = BaseComponent.extend({
         });
 
         this.$watch('value', function(newValue, oldValue) {
-            if(this.data._hasId) {
             if(!this.data.defaultOption && this.data.value == -1)
                 newValue = this.data.value = this.data.options[0].id;
 
@@ -5206,12 +5204,7 @@ var Suggest = BaseComponent.extend({
                         }
                     this.data._inputValue = this.data.selected.name;
                 }
-            } else {
-                if(newValue < 0)
-                    this.data.selected = this.data.defaultOption;
-                else
-                    this.data.selected = this.data.options[newValue];
-            }
+
             var $event = {
                 data: {
                     newValue: newValue,
@@ -5239,18 +5232,18 @@ var Suggest = BaseComponent.extend({
 
         this.data.value = id;
     },
-    toggle: function(show, _isInput) {
+    toggle: function(open, _isInput) {
         if(this.data.disabled)
             return;
 
-        if(this.data.show == show)
+        if(this.data.open == open)
             return;
 
 
         var index = Suggest.suggestsShow.indexOf(this);
-        if(show && index < 0)
+        if(open && index < 0)
             Suggest.suggestsShow.push(this);
-        else if(!show && index >= 0) {
+        else if(!open && index >= 0) {
             Suggest.suggestsShow.splice(index, 1);
 
             if(!_isInput) {
@@ -5260,7 +5253,7 @@ var Suggest = BaseComponent.extend({
                     this.data._inputValue = this.data.selected.name;
             }
         }
-        this.data.show = show;
+        this.data.open = open;
     },
     input: function($event) {
         var inputValue = this.data._inputValue;
@@ -5306,7 +5299,7 @@ _.addEvent(window.document, 'click', function(e) {
 
 module.exports = Suggest;
 },{"./base.js":27,"./suggest.html":38,"./util.js":43}],40:[function(require,module,exports){
-module.exports="<div class=\"u-treeview\" r-class={ {\'z-dis\': disabled} }>    <treeviewlist source={source} root={root} /></div>"
+module.exports="<div class=\"u-treeview\" r-class={ {\'z-dis\': disabled} }>    <treeviewlist source={source} visible={true} /></div>"
 },{}],41:[function(require,module,exports){
 /*
  * --------------------------------------------
@@ -5337,13 +5330,14 @@ var Treeview = BaseComponent.extend({
             multiple: false
         });
         this.supr();
+
+        this.treeroot = this;
     },
     select: function(item) {
         this.data.selected = item;
         this.$emit('select', {
             selected: item
         });
-        
     }
 });
 
@@ -5354,26 +5348,22 @@ var Treeviewlist = BaseComponent.extend({
         _.extend(this.data, {
             itemTemplate: null,
             // @override source: [],
+            visible: false
         });
         this.supr();
-
-        this.root = this.getRoot();
-    },
-    getRoot: function() {
-        var root = this;
-        while(root && root.name != 'treeview')
-            root = root.$parent;
-        return root;
+        this.treeroot = this.$parent.treeroot;
     },
     select: function(item) {
-        this.root.select(item);
-        // root && root.select(item);
+        this.treeroot.select(item);
+    },
+    toggle: function(item) {
+        item.open = !item.open;
     }
 })
 
 module.exports = Treeview;
 },{"./base.js":27,"./treeview.html":40,"./treeviewlist.html":42,"./util.js":43}],42:[function(require,module,exports){
-module.exports="<ul class=\"treeview-list\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li>        <div class=\"treeview-item\" r-class={ {\'z-sel\': this.root.data.selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</div>        {#if item.children}<treeviewlist source={item.children} root={this} />{/if}    </li>    {/list}</ul>"
+module.exports="<ul class=\"treeview-list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview-item\">            {#if item.children && item.children.length}            <i class=\"f-icon\" r-class={ {\'f-icon-arrowright\': !item.open, \'f-icon-arrowdown\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview-itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</div>        </div>        {#if item.children && item.children.length}<treeviewlist source={item.children} visible={item.open} />{/if}    </li>    {/list}</ul>"
 },{}],43:[function(require,module,exports){
 var _ = {
     extend: function(o1, o2, override) {
@@ -5389,5 +5379,5 @@ var _ = {
 
 module.exports = _;
 },{}],44:[function(require,module,exports){
-module.exports="<div>	<a class=\"u-btn\">按钮</a>	<a class=\"u-btn\" href=\"\">Button</a>	<a class=\"u-btn\" href=\"#\">a.u-btn</a>	<button class=\"u-btn\">button.u-btn</button></div><div>	<a class=\"u-btn u-btn-primary\">主要按钮</a>	<a class=\"u-btn u-btn-primary\">Primary Button</a>	<a class=\"u-btn u-btn-primary\">.u-btn.u-btn-primary</a></div><div>	<a class=\"u-btn u-btn-success\">成功按钮</a>	<a class=\"u-btn u-btn-success\">Primary Button</a>	<a class=\"u-btn u-btn-success\">.u-btn.u-btn-success</a></div><div>	<a class=\"u-btn u-btn-danger\">危险按钮</a>	<a class=\"u-btn u-btn-danger\">Primary Button</a>	<a class=\"u-btn u-btn-danger\">.u-btn.u-btn-danger</a></div><div>	<a class=\"u-btn u-btn-primary u-btn-xs\">主要按钮</a>	<a class=\"u-btn u-btn-primary u-btn-sm\">Primary Button</a>	<a class=\"u-btn u-btn-primary u-btn-lg\">.u-btn.u-btn-primary</a>	<a class=\"u-btn u-btn-primary u-btn-xl\">.u-btn.u-btn-primary</a></div><div>	<a class=\"u-btn u-btn-info u-btn-xs\">成功按钮</a>	<a class=\"u-btn u-btn-info u-btn-sm\">Primary Button</a>	<a class=\"u-btn u-btn-info u-btn-lg\">.u-btn.u-btn-info</a>	<a class=\"u-btn u-btn-info u-btn-xl\">.u-btn.u-btn-info</a></div><div>	<a class=\"u-btn u-btn-success u-btn-xs\">成功按钮</a>	<a class=\"u-btn u-btn-success u-btn-sm\">Primary Button</a>	<a class=\"u-btn u-btn-success u-btn-lg\">.u-btn.u-btn-success</a>	<a class=\"u-btn u-btn-success u-btn-xl\">.u-btn.u-btn-success</a></div><div>	<a class=\"u-btn u-btn-danger u-btn-xs\">危险按钮</a>	<a class=\"u-btn u-btn-danger u-btn-sm\">Primary Button</a>	<a class=\"u-btn u-btn-danger u-btn-lg\">.u-btn.u-btn-danger</a>	<a class=\"u-btn u-btn-danger u-btn-xl\">.u-btn.u-btn-danger</a></div><div>	<a class=\"u-btn u-btn-warning u-btn-xs\">成功按钮</a>	<a class=\"u-btn u-btn-warning u-btn-sm\">Primary Button</a>	<a class=\"u-btn u-btn-warning u-btn-lg\">.u-btn.u-btn-warning</a>	<a class=\"u-btn u-btn-warning u-btn-xl\">.u-btn.u-btn-warning</a></div><div>	<a class=\"u-btn u-btn-inverse u-btn-xs\">成功按钮</a>	<a class=\"u-btn u-btn-inverse u-btn-sm\">Primary Button</a>	<a class=\"u-btn u-btn-inverse u-btn-lg\">.u-btn.u-btn-inverse</a>	<a class=\"u-btn u-btn-inverse u-btn-xl\">.u-btn.u-btn-inverse</a></div><div>	<a class=\"u-btn z-dis\" disabled>disabled</a>	<a class=\"u-btn z-dis u-btn-primary\" disabled>disabled Button</a>	<a class=\"u-btn z-dis u-btn-danger\" disabled>disabled</a></div><div>	<a class=\"u-btn u-btn-inverse u-btn-block\">Primary Button</a></div><selectEx options={selectExOptions} value={selectExValue} /><selectEx options={selectExOptions} defaultOption=\"全部\" value={selectExValue} />"
+module.exports="<div><selectex source={source} /><selectex source={source} disabled={true} /><selectree source={treeSource} /></div><div>    <listbox source={source} />    <listbox source={source} disabled={true} />    <listview source={source} disabled={true} />    <listview source={source} disabled={true} />    <treeview source={treeSource} disabled={true} />    <treeview source={treeSource} disabled={true} /></div>"
 },{}]},{},[1]);

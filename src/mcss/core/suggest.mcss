@@ -3,13 +3,13 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    width: $u-select_min-width;
-    color: $u-input_color;
+    width: $u-suggest_min-width;
+    color: $u-suggest_color;
 
     .suggest-hd, .suggest-bd {
         $box-sizing: border-box;
-        background: $u-input_background-color;
-        border: $u-input_border;
+        background: $u-suggest_background-color;
+        border: $u-suggest_border;
         // border-radius: 10px;
     }
 
@@ -32,7 +32,7 @@
     
     .suggest-bd {
         position: absolute;
-        top: $u-input_height;
+        top: $u-suggest_height;
         z-index: 1;
         width: 100%;
         margin-top: -1px;

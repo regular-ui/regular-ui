@@ -1,16 +1,25 @@
-.f-icon {
-    font-size: 16px;
-}
+.f-icon {}
 
 .f-icon-arrowdown {
-    width: 16px;
-    height: 16px;
-    &:after {
+    width: 1em;
+    &:before {
         content: ' ';
         display: inline-block;
-        border-width: 6px 4px 0 4px;
+        border-width: .42em .3em 0 .3em;
         border-color: #444 transparent;
         border-style: solid;
-        margin-top: 7px;
+        margin: .3em .22em;
+    }
+}
+
+.f-icon-arrowright {
+    width: 1em;
+    &:before {
+        content: ' ';
+        display: inline-block;
+        border-width: .3em 0 .3em .42em;
+        border-color: transparent #444;
+        border-style: solid;
+        margin: .2em .29em;
     }
 }

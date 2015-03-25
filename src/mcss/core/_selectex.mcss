@@ -1,1 +1,26 @@
-$u-selectex_min-width = 120px;
+$u-selectex_height = $formctrl_height;
+$u-selectex_padding = $formctrl_padding;
+$u-selectex_border = $formctrl_border;
+$u-selectex_color = $formctrl_color;
+$u-selectex_background-color = $formctrl_background-color;
+
+$u-selectex-focus_border-color = $formctrl-focus_border-color;
+$u-selectex-focus_background-color = $formctrl-focus_background-color;
+$u-selectex-focus_color = $formctrl-focus_color;
+
+$u-selectex-disabled_border-color = $formctrl-disabled_border-color;
+$u-selectex-disabled_background-color = $formctrl-disabled_background-color;
+$u-selectex-disabled_color = $formctrl-disabled_color;
+
+
+$u-selectex_item_padding = $formctrl_item_padding;
+
+$u-selectex_item-hover_border-color = $formctrl_item-hover_border-color;
+$u-selectex_item-hover_background-color = $formctrl_item-hover_background-color;
+$u-selectex_item-hover_color = $formctrl_item-hover_color;
+
+$u-selectex_item-selected_border-color = $formctrl_item-selected_border-color;
+$u-selectex_item-selected_background-color = $formctrl_item-selected_background-color;  // ?
+$u-selectex_item-selected_color = $formctrl_item-selected_color;
+
+$u-selectex_min-width = $formctrl_min-width;

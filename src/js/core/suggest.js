@@ -12,7 +12,7 @@ var _ = require('./util.js');
  *         .defaultOption 默认项，如果为null则没有默认项
  *         .options 下拉列表中的选项
  *         .disabled 是否禁用
- *         .show 下拉列表展开
+ *         .open 下拉列表展开
  *         .suggest 是否自动提示
  *         .suggestStart 当输入长度>=此值时提示
  *         .matchType 匹配方式，'all'表示全局匹配，'start'表示开头匹配，'end'表示结尾匹配
@@ -28,7 +28,7 @@ var Suggest = BaseComponent.extend({
             options: [],
             defaultOption: '请选择',
             disabled: false,
-            show: false,
+            open: false,
             suggestStart: 0,
             matchType: 'all',
             _hasId: false,
@@ -41,7 +41,6 @@ var Suggest = BaseComponent.extend({
         });
 
         this.$watch('value', function(newValue, oldValue) {
-            if(this.data._hasId) {
             if(!this.data.defaultOption && this.data.value == -1)
                 newValue = this.data.value = this.data.options[0].id;
 
@@ -56,12 +55,7 @@ var Suggest = BaseComponent.extend({
                         }
                     this.data._inputValue = this.data.selected.name;
                 }
-            } else {
-                if(newValue < 0)
-                    this.data.selected = this.data.defaultOption;
-                else
-                    this.data.selected = this.data.options[newValue];
-            }
+
             var $event = {
                 data: {
                     newValue: newValue,
@@ -89,18 +83,18 @@ var Suggest = BaseComponent.extend({
 
         this.data.value = id;
     },
-    toggle: function(show, _isInput) {
+    toggle: function(open, _isInput) {
         if(this.data.disabled)
             return;
 
-        if(this.data.show == show)
+        if(this.data.open == open)
             return;
 
 
         var index = Suggest.suggestsShow.indexOf(this);
-        if(show && index < 0)
+        if(open && index < 0)
             Suggest.suggestsShow.push(this);
-        else if(!show && index >= 0) {
+        else if(!open && index >= 0) {
             Suggest.suggestsShow.splice(index, 1);
 
             if(!_isInput) {
@@ -110,7 +104,7 @@ var Suggest = BaseComponent.extend({
                     this.data._inputValue = this.data.selected.name;
             }
         }
-        this.data.show = show;
+        this.data.open = open;
     },
     input: function($event) {
         var inputValue = this.data._inputValue;
