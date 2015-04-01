@@ -2,7 +2,7 @@
   "name": "regular-ui",
   "description": "UI Components Powered By Regular",
   "author": "Sensen <rainforest92@126.com> (http://rainfore.me)",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "repository": "git://github.com/rainfore/regular-ui.git",
   "homepage": "https://github.com/rainfore/regular-ui",
   "bugs": {
@@ -19,14 +19,19 @@
   ],
   "dependencies": {
     "browserify": "^9.0.3",
+    "browserify-html2string": "^1.0.9",
     "mcss": "^0.5.0",
+    "regular-state": "git://github.com/regularjs/regular-state",
     "regularjs": "regularjs/regular"
   },
   "devDependencies": {
-    "browserify-html2string": "^1.0.9",
+    "codemirror-highlight": "^1.1.1",
+    "ejs": "^2.3.1",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.2",
     "gulp-util": "^3.0.4",
+    "jsdoc": "^3.3.0-beta3",
+    "markextend": "0.0.2",
     "through2": "^0.6.3",
     "vinyl-source-stream": "^1.1.0"
   }

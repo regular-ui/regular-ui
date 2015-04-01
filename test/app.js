@@ -1,4 +1,4 @@
-var BaseComponent = require('../src/js/core/base.js');
+var Component = require('../src/js/core/component.js');
 var template = require('./app.html');
 var _ = require('../src/js/core/util.js');
 var Selectex = require('../src/js/core/selectex.js');
@@ -11,7 +11,7 @@ var Selectree = require('../src/js/core/selectree.js');
 var Calendar = require('../src/js/core/calendar.js');
 var Datepicker = require('../src/js/core/datepicker.js');
 
-var App = BaseComponent.extend({
+var App = Component.extend({
     name: 'app',
     template: template,
     config: function() {

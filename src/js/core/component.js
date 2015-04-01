@@ -3,7 +3,7 @@ var filter = require("./filter.js");
 
 var dom = Regular.dom; 
 
-var BaseComponent = Regular.extend({
+var Component = Regular.extend({
 	// request
 	$request: function(){}
 })
@@ -24,4 +24,4 @@ var BaseComponent = Regular.extend({
 	}
 })
 
-module.exports = BaseComponent;
+module.exports = Component;

@@ -5,7 +5,7 @@
  * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
  * --------------------------------------------
  * @class Selectex
- * @extend BaseComponent
+ * @extend Component
  * @param {Object} options
  *     options.value             
  *              

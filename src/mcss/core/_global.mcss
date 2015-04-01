@@ -1,4 +1,4 @@
-
+// Dimension
 $media-xs-max-width =                           480px - 1;
 $media-sm-max-width =                          768px - 1;
 $media-md-max-width =                         960px - 1;
@@ -32,3 +32,6 @@ $formctrl_item-hover_color = #444;
 $formctrl_item-selected_border-color = null;
 $formctrl_item-selected_background-color = #6EBAE8;  // ?
 $formctrl_item-selected_color = #444;
+
+// Color
+$primary-color = #3498db;

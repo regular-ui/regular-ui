@@ -1,10 +1,10 @@
-var BaseComponent = require('./base.js');
+var Component = require('./component.js');
 var template = require('./suggest.html');
 var _ = require('./util.js');
 
 /**
  * @class Suggest
- * @extend BaseComponent
+ * @extend Component
  * @param {Object}
  *     options.data 可选参数
  *         .selected 当前选中对象
@@ -18,7 +18,7 @@ var _ = require('./util.js');
  *         .matchType 匹配方式，'all'表示全局匹配，'start'表示开头匹配，'end'表示结尾匹配
  * @Event on-change 当value改变时发生 {selected}
  */
-var Suggest = BaseComponent.extend({
+var Suggest = Component.extend({
     name: 'suggest',
     template: template,
     config: function() {

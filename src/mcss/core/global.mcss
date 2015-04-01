@@ -1,0 +1,25 @@
+body {
+    font: 14px/1.6 'Microsoft YaHei';
+    background: white;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: $primary-color;
+}
+
+// h3 {font-size: 16px; margin: 1.5em 0 1em; color: $primary-color;}
+// h4 {font-size: 14px; margin: 1em 0 .5em;}
+// h5 {font-size: 14px; margin: 1em 0 .5em; text-indent: 2em;}
+// h6 {font-size: 12px; margin: .3em 0;}
+// p {margin: .5em 0;}
+// pre {margin: .5em 0;}
+// img {vertical-align: text-bottom;}
+// ul {padding-left: 2em; margin: .5em 0;}
+
+*::selection, *::-moz-selection, *::-webkit-selection {
+    color:#fff;
+    background:$primary-color;
+}

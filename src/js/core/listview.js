@@ -1,20 +1,30 @@
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
- * --------------------------------------------
- * @class List
- * @extend BaseComponent
- * @param {Object} options
- *     options.value             
- *              
+/**
+ * ------------------------------------------------------------
+ * Listbox   列表框
+ * @version  0.0.1
+ * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * ------------------------------------------------------------
  */
 
 var Listbox = require('./listbox.js');
 var template = require('./listview.html');
 var _ = require('./util.js');
 
+/**
+ * @example
+ * var modal = new Modal();
+ * @class Modal
+ * @extend Component
+ * @param {object=}                      options.data 可选参数
+ *        {string='提示'}                options.data.title 对话框标题
+ *        {string=}                      options.data.content 对话框内容
+ *        {string|boolean=true}          options.data.okButton 确定按钮的文字，如果为false则不显示确定按钮
+ *        {string|boolean=false}         options.data.cancelButton 取消按钮的文字，如果为false则不显示取消按钮
+ *        {number=320}                   options.data.width 对话框宽度
+ *        {function=}                    options.ok 当点击确定的时候执行
+ *        {function=}                    options.cancel 当点击取消的时候执行
+ * @Event close 当value改变时发生 {result} 确定result为true，取消result为false
+ */
 var Listview = Listbox.extend({
     name: 'listview',
     template: template,

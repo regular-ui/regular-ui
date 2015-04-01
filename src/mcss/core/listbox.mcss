@@ -9,6 +9,7 @@
     $box-sizing: border-box;
     background: $u-listbox_background-color;
     border: $u-listbox_border;
+    overflow: hidden;
 
     > li {
         cursor: pointer;

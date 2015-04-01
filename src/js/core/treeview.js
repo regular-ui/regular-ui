@@ -5,18 +5,18 @@
  * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
  * --------------------------------------------
  * @class List
- * @extend BaseComponent
+ * @extend Component
  * @param {Object} options
  *     options.value             
  *              
  */
 
-var BaseComponent = require('./base.js');
+var Component = require('./component.js');
 var template = require('./treeview.html');
 var recursiveTempate = require('./treeviewlist.html');
 var _ = require('./util.js');
 
-var Treeview = BaseComponent.extend({
+var Treeview = Component.extend({
     name: 'treeview',
     template: template,
     config: function() {
@@ -38,7 +38,7 @@ var Treeview = BaseComponent.extend({
     }
 });
 
-var Treeviewlist = BaseComponent.extend({
+var Treeviewlist = Component.extend({
     name: 'treeviewlist',
     template: recursiveTempate,
     config: function() {

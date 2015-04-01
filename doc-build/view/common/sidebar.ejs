@@ -1,0 +1,7 @@
+<div class="g-sd">
+    <ul class="m-sidebar">
+        <% sidenavs.forEach(function(item) { %>
+        <li<% if(sidenav === item.name) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %><small> <%= item.upperName %></small></a></li>
+        <% }); %>
+    </ul>
+</div>

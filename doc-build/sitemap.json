@@ -1,0 +1,43 @@
+{
+    "name": "index",
+    "children": [
+        {
+            "name": "start",
+            "alias": "开始使用",
+            "children": [
+                {"name": "start", "alias": "开始"}
+            ]
+        },
+        {
+            "name": "unit",
+            "alias": "CSS组件",
+            "children": [
+                {"name": "button", "alias": "按钮"}
+            ]
+        },
+        {
+            "name": "module",
+            "alias": "CSS模块",
+            "children": [
+                {"name": "nav", "alias": "导航"}
+            ]
+        },
+        {
+            "name": "component",
+            "alias": "JS组件",
+            "children": [
+                {"name": "modal", "alias": "模态对话框"},
+                {"name": "listbox", "alias": "列表框"},
+                {"name": "listview", "alias": "列表视图"},
+                {"name": "treeview", "alias": "树型列表"},
+                {"name": "selectex", "alias": "选择扩展"},
+                {"name": "selectree", "alias": "树型选择"},
+                {"name": "suggest", "alias": "自动提示"},
+                {"name": "calendar", "alias": "日历"},
+                {"name": "datepicker", "alias": "日期选择"},
+                {"name": "timepicker", "alias": "时间选择"},
+                {"name": "datetimepicker", "alias": "日期时间选择"}
+            ]
+        }
+    ]
+}

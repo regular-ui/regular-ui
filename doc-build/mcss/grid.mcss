@@ -1,0 +1,49 @@
+// Grid
+.g-top {
+    height: $m-nav_height;
+    background: $m-nav_background-color;
+}
+
+.g-topc {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.g-hd {
+    height: 200px;
+    background: #f4f4f4;
+}
+
+.g-hdc {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.g-bd {
+    margin-top: 40px;
+}
+
+.g-bdc {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.g-sd {
+    width: 229px;
+    float: left;
+    min-height: 400px;
+    border-right: 1px solid #eee;
+}
+
+.g-mn {
+    margin-left: 40px;
+    margin-bottom: 60px;
+    width: 960px - 230px - 40px;
+    float: right;
+}
+
+.g-ft {
+    clear: both;
+    height: 200px;
+    background: $m-nav_background-color;
+}

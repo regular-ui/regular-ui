@@ -5,17 +5,17 @@
  * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
  * --------------------------------------------
  * @class Selectex
- * @extend BaseComponent
+ * @extend Component
  * @param {Object} options
  *     options.value             
  *              
  */
 
-var BaseComponent = require('./base.js');
+var Component = require('./component.js');
 var template = require('./selectex.html');
 var _ = require('./util.js');
 
-var Selectex = BaseComponent.extend({
+var Selectex = Component.extend({
     name: 'selectex',
     template: template,
     config: function() {
