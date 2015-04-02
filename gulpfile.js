@@ -103,7 +103,7 @@ gulp.task('watch', function() {
     gulp.watch(['src/mcss/**', 'doc-build/mcss/**'], ['mcss-doc']);
     gulp.watch(['src/js/**', 'test/app.*'], ['browserify-test']);
     gulp.watch(['src/js/**'], ['browserify-js']);
-    gulp.watch(['doc-build/**'], ['doc-build']);
+    gulp.watch(['doc-build/**', 'src/js/**'], ['doc-build']);
 });
 
 gulp.task('default', ['mcss-doc', 'browserify-test', 'browserify-js', 'doc-build', 'watch']);

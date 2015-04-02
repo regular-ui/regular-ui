@@ -200,6 +200,10 @@ table{
 .f-fr{
 	float:right;
 }
+.f-wsn{
+	word-wrap:normal;
+	white-space:nowrap;
+}
 body{
 	font:14px/1.6 "Microsoft YaHei";
 	background:#fff;
@@ -514,6 +518,48 @@ input.u-check:disabled,input.u-radio:disabled{
 	width:100%;
 	margin-top:-1px;
 }
+.u-treeview{
+	color:#444;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	background:#fff;
+	border:1px solid #ddd;
+}
+.u-treeview .treeview-list{
+	list-style:none;
+	margin:0;
+	margin-left:1.6em;
+	padding:0;
+}
+.u-treeview .treeview-item{
+	position:relative;
+}
+.u-treeview .treeview-item >.f-icon{
+	position:absolute;
+	left:-16px;
+	cursor:pointer;
+}
+.u-treeview .treeview-item >.f-icon.f-icon-arrowdown:before{
+	margin:0.2em 0.22em;
+}
+.u-treeview .treeview-itemname{
+	cursor:pointer;
+	padding:0 8px;
+}
+.u-treeview .treeview-itemname:hover{
+	background-color:#eee;
+	color:#444;
+}
+.u-treeview .treeview-itemname.z-sel{
+	background-color:#6ebae8;
+	color:#444;
+}
+.u-treeview.z-dis >li{
+	cursor:not-allowed;
+	background-color:#f5f5f5;
+	color:#999;
+}
 .u-calendar{
 	width:200px;
 	color:#444;
@@ -627,7 +673,7 @@ html.z-modal,html.z-modal body{
 .m-article li p{
 	text-indent:0;
 }
-.m-article ul{
+.m-article >ul{
 	padding-left:2em;
 	margin:0.5em 0;
 }
@@ -721,13 +767,13 @@ html.z-modal,html.z-modal body{
 	text-indent:2em;
 	color:#e74c3c;
 }
-.m-article table{
+.m-article >table{
 	margin:0 auto;
 	width:100%;
 }
-.m-article table th,.m-article table td{
+.m-article >table th,.m-article table td{
 	border:1px solid #ddd;
-	padding:2px 4px;
+	padding:2px 6px;
 	font-size:12px;
 }
 .g-top{

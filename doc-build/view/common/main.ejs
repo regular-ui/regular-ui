@@ -1,1 +1,9 @@
-<div class="g-mn"><article class="m-article"><%- article %></article></div>
+<div class="g-mn">
+    <article class="m-article">
+        <% if(current) { %>
+        <h2><%= current.alias %><small> <%= current.upperName %></small></h2>
+        <% } %>
+        <%- article %>
+        <%- api %>
+    </article>
+</div>

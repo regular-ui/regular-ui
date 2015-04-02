@@ -200,6 +200,10 @@ table{
 .f-fr{
 	float:right;
 }
+.f-wsn{
+	word-wrap:normal;
+	white-space:nowrap;
+}
 .f-icon{
 	font-style:normal;
 }
@@ -572,7 +576,7 @@ html.z-modal,html.z-modal body{
 .m-article li p{
 	text-indent:0;
 }
-.m-article ul{
+.m-article >ul{
 	padding-left:2em;
 	margin:0.5em 0;
 }
@@ -666,13 +670,13 @@ html.z-modal,html.z-modal body{
 	text-indent:2em;
 	color:#e74c3c;
 }
-.m-article table{
+.m-article >table{
 	margin:0 auto;
 	width:100%;
 }
-.m-article table th,.m-article table td{
+.m-article >table th,.m-article table td{
 	border:1px solid #ddd;
-	padding:2px 4px;
+	padding:2px 6px;
 	font-size:12px;
 }
 .g-top{

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-cn"><head>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-build自动生成 -->
 <meta charset="utf-8">
 <title>Regular UI</title>
 <meta name="author" content="森森">
@@ -58,8 +60,12 @@
         <li><a href="../component/datetimepicker.html">日期时间选择<small> Datetimepicker</small></a></li>
         
     </ul>
-</div><div class="g-mn"><article class="m-article"><h2 id="-small-modal-small-">模态对话框 <small>Modal</small></h2>
-<p>含有遮罩层的对话框，用于模拟浏览器的<code>alert</code>、<code>confirm</code>和<code>prompt</code>。</p>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>模态对话框<small> Modal</small></h2>
+        
+        <p>含有遮罩层的对话框，用于模拟浏览器的<code>alert</code>、<code>confirm</code>和<code>prompt</code>。</p>
 <p>模态对话框通过遮罩层来阻止用户的其他行为。</p>
 <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
@@ -82,115 +88,140 @@
 
 <pre class="lang-javascript"><code><span class="cm-variable">Modal</span>.<span class="cm-property">confirm</span>(<span class="cm-string">&#39;Confirm内容&#39;</span>);
 </code></pre>
-<h3 id="-">参考</h3>
-<h4 id="options">Options</h4>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Modal</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Modal({options})</h5>
 <table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>默认值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>data</code></td>
-<td>object</td>
-<td></td>
-<td>绑定数据</td>
-</tr>
-<tr>
-<td><code>data.title</code></td>
-<td>string</td>
-<td><code>&#39;提示&#39;</code></td>
-<td>对话框标题</td>
-</tr>
-<tr>
-<td><code>data.content</code></td>
-<td>string</td>
-<td></td>
-<td>对话框内容</td>
-</tr>
-<tr>
-<td><code>data.okButton</code></td>
-<td>string &#124; boolean</td>
-<td><code>true</code></td>
-<td>确定按钮的文字，如果为false则不显示确定按钮</td>
-</tr>
-<tr>
-<td><code>data.cancelButton</code></td>
-<td>string &#124; boolean</td>
-<td><code>false</code></td>
-<td>取消按钮的文字，如果为false则不显示取消按钮</td>
-</tr>
-<tr>
-<td><code>data.width</code></td>
-<td>number</td>
-<td><code>null</code></td>
-<td>对话框宽度，默认为320px</td>
-</tr>
-<tr>
-<td><code>ok</code></td>
-<td>function</td>
-<td></td>
-<td>当点击确定的时候执行</td>
-</tr>
-<tr>
-<td><code>cancel</code></td>
-<td>function</td>
-<td></td>
-<td>当点击取消的时候执行</td>
-</tr>
-</tbody>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.okButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>确定按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“确定”，值为否定时不显示确定按钮。</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.cancelButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>false</code></td><td>取消按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“取消”，值为否定时不显示确定按钮。</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.width</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>null</code></td><td>对话框宽度。值为否定时宽度为CSS设置的宽度。</td></tr>
+        
+        <tr><td class="f-wsn"><code>ok</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击确定的时候执行</td></tr>
+        
+        <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击取消的时候执行</td></tr>
+        
+    </tbody>
 </table>
-<h4 id="methods">Methods</h4>
-<h5 id="close">close</h5>
-<p>关闭对话框。</p>
+<div id="j-options"></div>
+
+
+<h4>Methods</h4>
+
+<h5>modal.close(result)</h5>
+<p>关闭模态对话框</p>
 <table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>默认值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>result</code></td>
-<td>boolean</td>
-<td><code>false</code></td>
-<td>关闭的结果是确定还是取消   　　</td>
-</tr>
-</tbody>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>点击确定还是取消</td></tr>
+        
+    </tbody>
 </table>
-<h4 id="events">Events</h4>
-<h5 id="on-close">on-close</h5>
-<p>当对话框关闭时触发。</p>
+
+
+<div id="j-methods"></div>
+
+
+<h4>Static Methods</h4>
+
+<h5>Modal.alert([content][, title])</h5>
+<p>弹出一个alert对话框。关闭时始终触发确定事件。</p>
 <table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>默认值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>result</code></td>
-<td>boolean</td>
-<td><code>false</code></td>
-<td>关闭的结果是确定还是取消   　　</td>
-</tr>
-</tbody>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
+        
+        <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
+        
+    </tbody>
 </table>
-<h5 id="on-ok">on-ok</h5>
-<p>当对话框结果是确定时触发。</p>
-<h5 id="on-cancel">on-cancel</h5>
-<p>当对话框结果是取消时触发。</p>
-</article></div>    </div>
+
+<h5>Modal.confirm([content][, title])</h5>
+<p>弹出一个confirm对话框</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
+        
+        <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-staticMethods"></div>
+
+
+<h4>Events</h4>
+
+<h5>modal.$on('close', function($event))</h5>
+<p>关闭对话框时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">boolean</td><td class="f-wsn">点击了确定还是取消</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>modal.$on('ok', function($event))</h5>
+<p>确定对话框时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+<h5>modal.$on('close', function($event))</h5>
+<p>取消对话框时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+
+<div id="j-events"></div>
+    </article>
+</div>    </div>
 </div>
 <footer class="g-ft">
 </footer>
@@ -200,8 +231,8 @@
 var relativePath = '../';
 var Modal = RU.Modal;
 
-var button1 = document.getElementById('j-example1').children[0];
-RU._.addEvent(button1, 'click', function() {
+var button = document.getElementById('j-example1').children[0];
+RU._.addEvent(button, 'click', function() {
     var modal = new Modal({
         data: {
             title: 'Modal标题',
@@ -210,13 +241,13 @@ RU._.addEvent(button1, 'click', function() {
     });
 });
 
-var button2 = document.getElementById('j-example2').children[0];
-RU._.addEvent(button2, 'click', function() {
+var button = document.getElementById('j-example2').children[0];
+RU._.addEvent(button, 'click', function() {
     Modal.alert('Alert内容');
 });
 
-var button3 = document.getElementById('j-example3').children[0];
-RU._.addEvent(button3, 'click', function() {
+var button = document.getElementById('j-example3').children[0];
+RU._.addEvent(button, 'click', function() {
     Modal.confirm('Confirm内容');
 });
 </script>

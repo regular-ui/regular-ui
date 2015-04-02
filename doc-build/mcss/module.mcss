@@ -13,7 +13,7 @@
         text-indent: 0;
     }
 
-    ul {
+    >ul {
         padding-left: 2em;
         margin: .5em 0;
     }
@@ -126,14 +126,14 @@
         color: #E74C3C;
     }
 
-    table {
+    >table {
         margin: 0 auto;
         width: 100%;
     }
 
-    table th, table td {
+    >table th, table td {
         border: 1px solid #ddd;
-        padding: 2px 4px;
+        padding: 2px 6px;
         font-size: 12px;
     }
 

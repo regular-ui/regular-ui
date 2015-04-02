@@ -1,2 +1,3 @@
 .f-fl{float:left;}
 .f-fr{float:right;}
+.f-wsn{word-wrap:normal;white-space:nowrap;}

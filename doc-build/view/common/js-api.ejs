@@ -1,0 +1,78 @@
+<h3>API</h3>
+
+<h4>Class</h4>
+<h5><%= class_.name %></h5>
+<p>继承自<strong><%= class_.extend %></strong>。</p>
+<p><%= class_.description %></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new <%= class_.name %>({options})</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        <% class_.params.forEach(function(param) { %>
+        <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+        <% }); %>
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+<% if(methods.length) { %>
+<h4>Methods</h4>
+<% methods.forEach(function(method) { %>
+<h5><%= class_.name.toLowerCase() %>.<%= method.name %></h5>
+<p><%= method.description %></p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        <% method.params.forEach(function(param) { %>
+        <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+        <% }); %>
+    </tbody>
+</table>
+<% }); %>
+<% } %>
+<div id="j-methods"></div>
+
+<% if(staticMethods.length) { %>
+<h4>Static Methods</h4>
+<% staticMethods.forEach(function(method) { %>
+<h5><%= class_.name %>.<%= method.name %></h5>
+<p><%= method.description %></p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        <% method.params.forEach(function(param) { %>
+        <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+        <% }); %>
+    </tbody>
+</table>
+<% }); %>
+<% } %>
+<div id="j-staticMethods"></div>
+
+<% if(events.length) { %>
+<h4>Events</h4>
+<% events.forEach(function(event) { %>
+<h5><%= class_.name.toLowerCase() %>.$on('<%= event.name %>', function($event))</h5>
+<p><%= event.description %></p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        <% event.properties.forEach(function(property) { %>
+        <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
+        <% }); %>
+    </tbody>
+</table>
+<% }); %>
+<% } %>
+<div id="j-events"></div>

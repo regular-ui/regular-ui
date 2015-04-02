@@ -1,22 +1,32 @@
 #!/usr/bin/env node
 
+var fs = require('fs');
 var build = require('./build.js');
 var sitemap = require('./sitemap.json');
-// var jsdoc = require('../node_modules/jsdoc/jsdoc.js');
-// console.log(jsdoc);
-// process.exit(0);
 
+/**
+ * @function buildAll 生成全部文档
+ * @return {void}
+ */
 function buildAll() {
-    var level0 = sitemap;
-    build('index');
-    for(var i = 0; i < level0.children.length; i++) {
-        var level1 = level0.children[i];
-        build(level1.name + '/index');
-        for(var j = 0; j < level1.children.length; j++) {
-            var level2 = level1.children[j];
-            build(level1.name + '/' + level2.name);
-        }
+    // 加载common中的模板
+    var template = {
+        head: fs.readFileSync(__dirname + '/view/common/head.ejs', {encoding: 'utf8'}),
+        sidebar: fs.readFileSync(__dirname + '/view/common/sidebar.ejs', {encoding: 'utf8'}),
+        main: fs.readFileSync(__dirname + '/view/common/main.ejs', {encoding: 'utf8'}),
+        foot: fs.readFileSync(__dirname + '/view/common/foot.ejs', {encoding: 'utf8'}),
+        jsApi: fs.readFileSync(__dirname + '/view/common/js-api.ejs', {encoding: 'utf8'}),
     }
+
+    // 遍历sitemap生成所有文档
+    var level0 = sitemap;
+    build('index', template);
+    level0.children.forEach(function(level1) {
+        build(level1.name + '/index', template);
+        level1.children.forEach(function(level2) {
+            build(level1.name + '/' + level2.name, template);
+        });        
+    });
 }
 
 if(!module.parent)

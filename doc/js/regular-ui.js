@@ -5032,22 +5032,25 @@ var template = require('./listbox.html');
 var _ = require('./util.js');
 
 /**
- * @example
- * var listbox = new Listbox().inject('#container');
- * @example
- * <listbox source={dataSource} />
  * @class Listbox
  * @extend Component
- * @param {object}                      options.data 可选参数
- *        {object[]=[]}                 options.data.source 数据源
- *        {number}                      options.data.source[].id 每项的id
- *        {string}                      options.data.source[].name 每项的内容
- *        {object=null}                 options.data.selected 选择项
- *        {boolean=false}               options.data.disabled 是否禁用该组件
+ * @param {object}                      options.data 绑定属性
+ * @param {object[]=[]}                 options.data.source 数据源
+ * @param {number}                      options.data.source[].id 每项的id
+ * @param {string}                      options.data.source[].name 每项的内容
+ * @param {object=null}                 options.data.selected 选择项
+ * @param {boolean=false}               options.data.disabled 是否禁用该组件
+ * @example
+ *     var listbox = new Listbox().inject('#container');
+ * @example
+ *     <listbox source={dataSource} />
  */
 var Listbox = Component.extend({
     name: 'listbox',
     template: template,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
             source: [],
@@ -5057,11 +5060,17 @@ var Listbox = Component.extend({
         });
         this.supr();
     },
+    /**
+     * @method select(item) 选择某一项
+     * @public
+     * @param  {object} item 选择项
+     * @return {void}
+     */
     select: function(item) {
         this.data.selected = item;
         /**
-         * @event close 选择某一项时触发
-         * @property {object} selected 选择项
+         * @event select 选择某一项时触发
+         * @property {object} selected 选中项
          */
         this.$emit('select', {
             selected: item
@@ -5131,23 +5140,23 @@ module.exports="<div class=\"m-modal\">    <div class=\"modal-dialog\" {#if widt
  * ------------------------------------------------------------
  */
 
+'use strict';
+
 var Component = require('./component.js');
 var template = require('./modal.html');
 var _ = require('./util.js');
 
 /**
- * @example
- * var modal = new Modal();
  * @class Modal
  * @extend Component
- * @param {object}                      options.data 绑定数据
- *        {string='提示'}               options.data.title 对话框标题
- *        {string}                      options.data.content 对话框内容
- *        {string|boolean=true}         options.data.okButton 确定按钮的文字，如果为false则不显示确定按钮
- *        {string|boolean=false}        options.data.cancelButton 取消按钮的文字，如果为false则不显示取消按钮
- *        {number}                      options.data.width 对话框宽度，默认为320px。
- *        {function}                    options.ok 当点击确定的时候执行
- *        {function}                    options.cancel 当点击取消的时候执行
+ * @param {object}                      options.data 绑定属性
+ * @param {string='提示'}               options.data.title 对话框标题
+ * @param {string=''}                   options.data.content 对话框内容
+ * @param {string|boolean=true}         options.data.okButton 确定按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“确定”，值为否定时不显示确定按钮。
+ * @param {string|boolean=false}        options.data.cancelButton 取消按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“取消”，值为否定时不显示确定按钮。
+ * @param {number=null}                 options.data.width 对话框宽度。值为否定时宽度为CSS设置的宽度。
+ * @param {function}                    options.ok 当点击确定的时候执行
+ * @param {function}                    options.cancel 当点击取消的时候执行
  */
 var Modal = Component.extend({
     name: 'modal',
@@ -5173,11 +5182,9 @@ var Modal = Component.extend({
             this.$inject(document.body);
     },
     /**
-     * @example
-     * modal.close(true);
-     * @method close 关闭模态对话框
+     * @method close(result) 关闭模态对话框
      * @public
-     * @param  {boolean} result 点击了确定还是取消
+     * @param  {boolean} result 点击确定还是取消
      * @return {void}
      */
     close: function(result) {
@@ -5195,19 +5202,27 @@ var Modal = Component.extend({
      * @override
      */
     ok: function() {
+        /**
+         * @event ok 确定对话框时触发
+         */
         this.$emit('ok');
     },
     /**
      * @override
      */
     cancel: function() {
+        /**
+         * @event close 取消对话框时触发
+         */
         this.$emit('cancel');
     }
 });
 
 /**
- * 弹出一个alert对话框
- * @param  {string} content 对话框内容
+ * @method alert([content][,title]) 弹出一个alert对话框。关闭时始终触发确定事件。
+ * @static
+ * @param  {string=''} content 对话框内容
+ * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
 Modal.alert = function(content, title) {
@@ -5221,8 +5236,10 @@ Modal.alert = function(content, title) {
 }
 
 /**
- * 弹出一个confirm对话框
- * @param  {string} content 对话框内容
+ * @method confirm([content][,title]) 弹出一个confirm对话框
+ * @static
+ * @param  {string=''} content 对话框内容
+ * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
 Modal.confirm = function(content, title) {
