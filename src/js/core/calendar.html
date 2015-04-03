@@ -14,6 +14,6 @@
     </div>
     <div class="calendar-bd">
         <div class="calendar-week"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
-        <div class="calendar-day">{#list days as day}<span r-class={ {'z-sel': day - selected === 0, 'z-dis': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
+        <div class="calendar-day">{#list _days as day}<span r-class={ {'z-sel': day - selected === 0, 'z-dis': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
     </div>
 </div>

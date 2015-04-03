@@ -4820,33 +4820,39 @@ walkers.attribute = function(ast ,options){
 
 
 },{"./dom.js":8,"./group.js":10,"./helper/animate.js":11,"./helper/combine.js":12,"./parser/node.js":24,"./util":25}],27:[function(require,module,exports){
-module.exports="<div class=\"u-calendar\">    <div class=\"calendar-hd\">        <div class=\"calendar-year\">            <i class=\"f-icon f-icon-prev calendar-prev\" on-click={this.addYear(-1)}></i>            <span>{selected | format: \'yyyy\'}</span>            <i class=\"f-icon f-icon-next calendar-next\" on-click={this.addYear(1)}></i>        </div>        <div class=\"calendar-month\">            <i class=\"f-icon f-icon-prev calendar-prev\" on-click={this.addMonth(-1)}></i>            <span>{selected | format: \'MM\'}</span>            <i class=\"f-icon f-icon-next calendar-next\" on-click={this.addMonth(1)}></i>        </div>        <a class=\"calendar-back\" on-click={this.back()}>返回今天</a>    </div>    <div class=\"calendar-bd\">        <div class=\"calendar-week\"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>        <div class=\"calendar-day\">{#list days as day}<span r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
+module.exports="<div class=\"u-calendar\">    <div class=\"calendar-hd\">        <div class=\"calendar-year\">            <i class=\"f-icon f-icon-prev calendar-prev\" on-click={this.addYear(-1)}></i>            <span>{selected | format: \'yyyy\'}</span>            <i class=\"f-icon f-icon-next calendar-next\" on-click={this.addYear(1)}></i>        </div>        <div class=\"calendar-month\">            <i class=\"f-icon f-icon-prev calendar-prev\" on-click={this.addMonth(-1)}></i>            <span>{selected | format: \'MM\'}</span>            <i class=\"f-icon f-icon-next calendar-next\" on-click={this.addMonth(1)}></i>        </div>        <a class=\"calendar-back\" on-click={this.back()}>返回今天</a>    </div>    <div class=\"calendar-bd\">        <div class=\"calendar-week\"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>        <div class=\"calendar-day\">{#list _days as day}<span r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
 },{}],28:[function(require,module,exports){
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
- * --------------------------------------------
- * @class Selectex
- * @extend Component
- * @param {Object} options
- *     options.value             
- *              
+/**
+ * ------------------------------------------------------------
+ * Calendar  日历
+ * @version  0.0.1
+ * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * ------------------------------------------------------------
  */
+
+'use strict';
 
 var Component = require('./component.js');
 var template = require('./calendar.html');
 var _ = require('./util.js');
 
+/**
+ * @class Calendar
+ * @extend Component
+ * @param {object}                      options.data 绑定属性
+ * @param {Date=null}                   options.data.selected 当前选择的日期
+ */
 var Calendar = Component.extend({
     name: 'calendar',
     template: template,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
             selected: null,
             disabled: false,
-            days: []
+            _days: []
         });
         this.supr();
 
@@ -4862,7 +4868,7 @@ var Calendar = Component.extend({
         this.update();
     },
     update: function() {
-        this.data.days = [];
+        this.data._days = [];
         
         var selected = this.data.selected;
         var month = selected.getMonth();
@@ -4876,7 +4882,7 @@ var Calendar = Component.extend({
         do {
             dateTime = mfirstTime + (num++)*24*3600*1000;
             date = new Date(dateTime);
-            this.data.days.push(date);
+            this.data._days.push(date);
         } while(dateTime < lastTime);
     },
     select: function(item) {
@@ -5038,7 +5044,7 @@ var _ = require('./util.js');
  * @param {object[]=[]}                 options.data.source 数据源
  * @param {number}                      options.data.source[].id 每项的id
  * @param {string}                      options.data.source[].name 每项的内容
- * @param {object=null}                 options.data.selected 选择项
+ * @param {object=null}                 options.data.selected 当前选择项
  * @param {boolean=false}               options.data.disabled 是否禁用该组件
  * @example
  *     var listbox = new Listbox().inject('#container');
@@ -5070,7 +5076,7 @@ var Listbox = Component.extend({
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
-         * @property {object} selected 选中项
+         * @property {object} selected 当前选择项
          */
         this.$emit('select', {
             selected: item

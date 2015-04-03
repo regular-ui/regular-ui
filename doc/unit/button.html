@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<!-- 该文档由doc-build自动生成 -->
+<!-- 该文档由doc-src自动生成 -->
 <meta charset="utf-8">
 <title>Regular UI</title>
 <meta name="author" content="森森">
@@ -45,71 +45,83 @@
         
         <h2>按钮<small> Button</small></h2>
         
-        <div>
-    <a class="u-btn">按钮</a>
-    <a class="u-btn" href="">Button</a>
-    <a class="u-btn" href="#">a.u-btn</a>
-    <button class="u-btn">button.u-btn</button>
-</div>
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<p>在<code>&lt;button&gt;</code>或<code>&lt;a&gt;</code>标签上使用<code>u-btn</code>，样式完全一致。</p>
 <div>
-    <a class="u-btn u-btn-primary">主要按钮</a>
-    <a class="u-btn u-btn-primary">Primary Button</a>
-    <a class="u-btn u-btn-primary">.u-btn.u-btn-primary</a>
+    <button class="u-btn">Button</button>
+    <a class="u-btn">aButton</a>
+    <a class="u-btn" href="#">aButton#</a>
 </div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>aButton<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;#&quot;</span><span class="cm-tagcm-bracket">&gt;</span>aButton#<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">颜色扩展</h4>
 <div>
-    <a class="u-btn u-btn-success">成功按钮</a>
-    <a class="u-btn u-btn-success">Primary Button</a>
-    <a class="u-btn u-btn-success">.u-btn.u-btn-success</a>
+    <button class="u-btn">Default</button>
+    <button class="u-btn u-btn-primary">Primary</button>
+    <button class="u-btn u-btn-secondary">Secondary</button>
+    <button class="u-btn u-btn-info">Info</button>
+    <button class="u-btn u-btn-success">Success</button>
+    <button class="u-btn u-btn-warning">Warning</button>
+    <button class="u-btn u-btn-danger">Danger</button>
+    <button class="u-btn u-btn-inverse">Inverse</button>
 </div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Default<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Primary<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-secondary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Secondary<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-info&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-danger&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Danger<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-inverse&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Inverse<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">尺寸扩展</h4>
 <div>
-    <a class="u-btn u-btn-danger">危险按钮</a>
-    <a class="u-btn u-btn-danger">Primary Button</a>
-    <a class="u-btn u-btn-danger">.u-btn.u-btn-danger</a>
+    <button class="u-btn u-btn-xs">Extra Small</button>
+    <button class="u-btn u-btn-sm">Small</button>
+    <button class="u-btn">Normal</button>
+    <button class="u-btn u-btn-lg">Large</button>
+    <button class="u-btn u-btn-xl">Extra Large</button>
 </div>
+
+<p></p>
+
 <div>
-    <a class="u-btn u-btn-primary u-btn-xs">主要按钮</a>
-    <a class="u-btn u-btn-primary u-btn-sm">Primary Button</a>
-    <a class="u-btn u-btn-primary u-btn-lg">.u-btn.u-btn-primary</a>
-    <a class="u-btn u-btn-primary u-btn-xl">.u-btn.u-btn-primary</a>
+    <button class="u-btn u-btn-primary u-btn-xs">Extra Small</button>
+    <button class="u-btn u-btn-primary u-btn-sm">Small</button>
+    <button class="u-btn u-btn-primary">Normal</button>
+    <button class="u-btn u-btn-primary u-btn-lg">Large</button>
+    <button class="u-btn u-btn-primary u-btn-xl">Extra Large</button>
 </div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-xs&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Extra Small<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-sm&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Small<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Normal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-lg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Large<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-xl&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Extra Large<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary u-btn-xs&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Extra Small<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary u-btn-sm&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Small<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Normal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary u-btn-lg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Large<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary u-btn-xl&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Extra Large<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">禁用</h4>
 <div>
-    <a class="u-btn u-btn-info u-btn-xs">成功按钮</a>
-    <a class="u-btn u-btn-info u-btn-sm">Primary Button</a>
-    <a class="u-btn u-btn-info u-btn-lg">.u-btn.u-btn-info</a>
-    <a class="u-btn u-btn-info u-btn-xl">.u-btn.u-btn-info</a>
+    <button class="u-btn z-dis">Disabled</button>
+    <button class="u-btn u-btn-primary" disabled>Disabled</button>
+    <a class="u-btn z-dis">Disabled</a>
 </div>
-<div>
-    <a class="u-btn u-btn-success u-btn-xs">成功按钮</a>
-    <a class="u-btn u-btn-success u-btn-sm">Primary Button</a>
-    <a class="u-btn u-btn-success u-btn-lg">.u-btn.u-btn-success</a>
-    <a class="u-btn u-btn-success u-btn-xl">.u-btn.u-btn-success</a>
-</div>
-<div>
-    <a class="u-btn u-btn-danger u-btn-xs">危险按钮</a>
-    <a class="u-btn u-btn-danger u-btn-sm">Primary Button</a>
-    <a class="u-btn u-btn-danger u-btn-lg">.u-btn.u-btn-danger</a>
-    <a class="u-btn u-btn-danger u-btn-xl">.u-btn.u-btn-danger</a>
-</div>
-<div>
-    <a class="u-btn u-btn-warning u-btn-xs">成功按钮</a>
-    <a class="u-btn u-btn-warning u-btn-sm">Primary Button</a>
-    <a class="u-btn u-btn-warning u-btn-lg">.u-btn.u-btn-warning</a>
-    <a class="u-btn u-btn-warning u-btn-xl">.u-btn.u-btn-warning</a>
-</div>
-<div>
-    <a class="u-btn u-btn-inverse u-btn-xs">成功按钮</a>
-    <a class="u-btn u-btn-inverse u-btn-sm">Primary Button</a>
-    <a class="u-btn u-btn-inverse u-btn-lg">.u-btn.u-btn-inverse</a>
-    <a class="u-btn u-btn-inverse u-btn-xl">.u-btn.u-btn-inverse</a>
-</div>
-<div>
-    <a class="u-btn z-dis" disabled>disabled</a>
-    <a class="u-btn z-dis u-btn-primary" disabled>disabled Button</a>
-    <a class="u-btn z-dis u-btn-danger" disabled>disabled</a>
-</div>
-<div>
-    <a class="u-btn u-btn-inverse u-btn-block">Primary Button</a>
-</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn z-dis&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn z-dis&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+
         
     </article>
 </div>    </div>

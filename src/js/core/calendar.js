@@ -1,28 +1,34 @@
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
- * --------------------------------------------
- * @class Selectex
- * @extend Component
- * @param {Object} options
- *     options.value             
- *              
+/**
+ * ------------------------------------------------------------
+ * Calendar  日历
+ * @version  0.0.1
+ * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * ------------------------------------------------------------
  */
+
+'use strict';
 
 var Component = require('./component.js');
 var template = require('./calendar.html');
 var _ = require('./util.js');
 
+/**
+ * @class Calendar
+ * @extend Component
+ * @param {object}                      options.data 绑定属性
+ * @param {Date=null}                   options.data.selected 当前选择的日期
+ */
 var Calendar = Component.extend({
     name: 'calendar',
     template: template,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
             selected: null,
             disabled: false,
-            days: []
+            _days: []
         });
         this.supr();
 
@@ -38,7 +44,7 @@ var Calendar = Component.extend({
         this.update();
     },
     update: function() {
-        this.data.days = [];
+        this.data._days = [];
         
         var selected = this.data.selected;
         var month = selected.getMonth();
@@ -52,7 +58,7 @@ var Calendar = Component.extend({
         do {
             dateTime = mfirstTime + (num++)*24*3600*1000;
             date = new Date(dateTime);
-            this.data.days.push(date);
+            this.data._days.push(date);
         } while(dateTime < lastTime);
     },
     select: function(item) {

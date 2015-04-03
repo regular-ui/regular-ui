@@ -17,7 +17,7 @@ var _ = require('./util.js');
  * @param {object[]=[]}                 options.data.source 数据源
  * @param {number}                      options.data.source[].id 每项的id
  * @param {string}                      options.data.source[].name 每项的内容
- * @param {object=null}                 options.data.selected 选择项
+ * @param {object=null}                 options.data.selected 当前选择项
  * @param {boolean=false}               options.data.disabled 是否禁用该组件
  * @example
  *     var listbox = new Listbox().inject('#container');
@@ -49,7 +49,7 @@ var Listbox = Component.extend({
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
-         * @property {object} selected 选中项
+         * @property {object} selected 当前选择项
          */
         this.$emit('select', {
             selected: item

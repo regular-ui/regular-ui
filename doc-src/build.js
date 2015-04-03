@@ -11,6 +11,7 @@ markextend.setOptions({
         if(lang && !codemirror.modes[lang]) {
             if(lang === 'coffee') lang = 'coffeescript';
             if(lang === 'json') lang = 'javascript';
+            if(lang === 'html') lang = 'xml';
             if(lang === 'console') return code;
 
             try {

@@ -4,7 +4,7 @@ var html2string = require('browserify-html2string');
 var source = require('vinyl-source-stream');
 var mcss = require('./lib/gulp-mcss.js');
 var jshint = require('gulp-jshint');
-var buildAll = require('./doc-build/buildAll.js');
+var buildAll = require('./doc-src/buildAll.js');
 
 // src/mcss => css -> test/ & doc/
 // gulp.task('mcss-test', function(done) {
@@ -32,23 +32,23 @@ var buildAll = require('./doc-build/buildAll.js');
 //     done();
 // });
 
-// src/mcss/ + doc-build/mcss/ => css -> doc/
+// src/mcss/ + doc-src/mcss/ => css -> doc/
 gulp.task('mcss-doc', function(done) {
-    gulp.src('./doc-build/mcss/core.mcss')
+    gulp.src('./doc-src/mcss/core.mcss')
         .pipe(mcss({
             pathes: ["./node_modules"],
             importCSS: true,
         }))
         .pipe(gulp.dest('doc/css'));
 
-    gulp.src('./doc-build/mcss/default.mcss')
+    gulp.src('./doc-src/mcss/default.mcss')
         .pipe(mcss({
             pathes: ["./node_modules"],
             importCSS: true,
         }))
         .pipe(gulp.dest('doc/css'));
 
-    gulp.src('./doc-build/mcss/flat.mcss')
+    gulp.src('./doc-src/mcss/flat.mcss')
         .pipe(mcss({
             pathes: ["./node_modules"],
             importCSS: true,
@@ -90,8 +90,8 @@ gulp.task('browserify-js', function(done) {
     done();
 });
 
-// doc-build/* => * -> doc/
-gulp.task('doc-build', function(done) {
+// doc-src/* => * -> doc/
+gulp.task('doc-src', function(done) {
     buildAll();
     done();
 });
@@ -100,10 +100,10 @@ gulp.task('doc-build', function(done) {
 
 gulp.task('watch', function() {
     //gulp.watch(['src/mcss/**'], ['mcss-test']);
-    gulp.watch(['src/mcss/**', 'doc-build/mcss/**'], ['mcss-doc']);
+    gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['mcss-doc']);
     gulp.watch(['src/js/**', 'test/app.*'], ['browserify-test']);
     gulp.watch(['src/js/**'], ['browserify-js']);
-    gulp.watch(['doc-build/**', 'src/js/**'], ['doc-build']);
+    gulp.watch(['doc-src/**', 'src/js/**'], ['doc-src']);
 });
 
-gulp.task('default', ['mcss-doc', 'browserify-test', 'browserify-js', 'doc-build', 'watch']);
+gulp.task('default', ['mcss-doc', 'browserify-test', 'browserify-js', 'doc-src', 'watch']);
