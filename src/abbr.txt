@@ -1,4 +1,6 @@
 button => btn
+thumbnail => thumb
+
 active => act
 disabled => dis
 

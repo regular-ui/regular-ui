@@ -204,6 +204,40 @@ table{
 	word-wrap:normal;
 	white-space:nowrap;
 }
+.f-icon{
+	font-style:normal;
+}
+.f-icon-arrowdown{
+	width:1em;
+}
+.f-icon-arrowdown:before{
+	content:"";
+	display:inline-block;
+	border-width:0.42em 0.3em 0 0.3em;
+	border-color:#444 transparent;
+	border-style:solid;
+	margin:0.3em 0.22em;
+}
+.f-icon-arrowright{
+	width:1em;
+}
+.f-icon-arrowright:before{
+	content:"";
+	display:inline-block;
+	border-width:0.3em 0 0.3em 0.42em;
+	border-color:transparent #444;
+	border-style:solid;
+	margin:0.2em 0.29em;
+}
+.f-icon-prev:before{
+	content:"<";
+}
+.f-icon-next:before{
+	content:">";
+}
+.f-icon-close:before{
+	content:"×";
+}
 body{
 	font:14px/1.6 "Microsoft YaHei";
 	background:#fff;
@@ -212,11 +246,11 @@ body{
 a{
 	text-decoration:none;
 	cursor:pointer;
-	color:#3498db;
+	color:#34495e;
 }
 *::selection,*::-moz-selection,*::-webkit-selection{
 	color:#fff;
-	background:#3498db;
+	background:#34495e;
 }
 .u-btn{
 	-webkit-appearance:none;
@@ -227,12 +261,12 @@ a{
 	text-transform:none;
 	text-decoration:none;
 	cursor:pointer;
-	display:inline-block;
-	vertical-align:middle;
-	text-align:center;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
+	display:inline-block;
+	vertical-align:middle;
+	text-align:center;
 	padding:0 15px;
 	line-height:30px;
 	min-height:30px;
@@ -275,12 +309,21 @@ a{
 	font-size:22px;
 }
 .u-btn-primary{
-	background-color:#1abc9c;
+	background-color:#34495e;
 }
 .u-btn-primary:hover,.u-btn-primary:focus{
-	background-color:#48c9b0;
+	background-color:#5d6d7e;
 }
 .u-btn-primary:active,.u-btn-primary.z-act{
+	background-color:#2c3e50;
+}
+.u-btn-secondary{
+	background-color:#1abc9c;
+}
+.u-btn-secondary:hover,.u-btn-secondary:focus{
+	background-color:#48c9b0;
+}
+.u-btn-secondary:active,.u-btn-secondary.z-act{
 	background-color:#16a085;
 }
 .u-btn-info{
@@ -407,7 +450,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	cursor:not-allowed;
 }
 .m-nav{
-	background:#102e42;
+	background:#10161c;
 	*zoom:1;
 }
 .m-nav:before,.m-nav:after{
@@ -438,19 +481,21 @@ input.u-check:disabled,input.u-radio:disabled{
 	text-decoration:none;
 }
 .m-nav >ul >li:hover >a{
-	background:#344d5e;
+	background:#34393e;
 }
 .m-nav >ul >li.z-crt>a{
-	background:#3498db;
+	background:#34495e;
 }
 .m-sidebar{
 	list-style:none;
 	padding:0;
 }
+.m-sidebar li{
+	padding:2px 12px;
+}
 .m-sidebar li a{
 	display:block;
 	text-decoration:none;
-	padding:2px 12px;
 	color:#555;
 }
 .m-sidebar li a small{
@@ -462,6 +507,115 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .m-sidebar li.z-crt{
 	background:#f0f0f0;
+}
+.m-sidebar li.sidebar-group{
+	background:transparent;
+	font-weight:bold;
+	font-size:13px;
+}
+.m-notify .notify_message{
+	margin-bottom:10px;
+	padding:10px 15px;
+	background:#eee;
+	*zoom:1;
+}
+.m-notify .notify_message:before,.m-notify .notify_message:after{
+	display:table;
+	content:"";
+	line-height:0;
+}
+.m-notify .notify_message:after{
+	clear:both;
+}
+.m-notify .notify_message .notify_close{
+	float:right;
+	text-decoration:none;
+	line-height:20px;
+	font-family:monospace;
+	font-size:20px;
+	vertical-align:middle;
+	color:#bbb;
+}
+.m-notify .notify_message .notify_close:hover{
+	color:#888;
+}
+.m-notify-fixed{
+	position:fixed;
+	top:10px;
+	left:10px;
+	z-index:1050;
+	width:320px;
+}
+.u-listbox{
+	list-style:none;
+	margin:0;
+	padding:0;
+	color:#444;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	background:#fff;
+	border:1px solid #ddd;
+	overflow:hidden;
+}
+.u-listbox >li{
+	cursor:pointer;
+	padding:0 10px;
+}
+.u-listbox >li:hover{
+	background-color:#eee;
+	color:#444;
+}
+.u-listbox >li.z-sel{
+	background-color:#6ebae8;
+	color:#444;
+}
+.u-listbox.z-dis >li{
+	cursor:not-allowed;
+	background-color:#f5f5f5;
+	color:#999;
+}
+.u-treeview{
+	color:#444;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	background:#fff;
+	border:1px solid #ddd;
+}
+.u-treeview .treeview-list{
+	list-style:none;
+	margin:0;
+	margin-left:1.6em;
+	padding:0;
+}
+.u-treeview .treeview-item{
+	position:relative;
+}
+.u-treeview .treeview-item >.f-icon{
+	position:absolute;
+	left:-16px;
+	cursor:pointer;
+}
+.u-treeview .treeview-item >.f-icon.f-icon-arrowdown:before{
+	margin:0.2em 0.22em;
+}
+.u-treeview .treeview-itemname{
+	cursor:pointer;
+	padding:0 8px;
+}
+.u-treeview .treeview-itemname:hover{
+	background-color:#eee;
+	color:#444;
+}
+.u-treeview .treeview-itemname.z-sel{
+	background-color:#6ebae8;
+	color:#444;
+}
+.u-treeview.z-dis >li{
+	cursor:not-allowed;
+	background-color:#f5f5f5;
+	color:#999;
 }
 .u-selectex{
 	display:inline-block;
@@ -478,7 +632,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	border:1px solid #ddd;
 	cursor:pointer;
 	height:30px;
-	line-height:22px;
+	line-height:20px;
 	padding:4px 6px;
 }
 .u-selectex .selectex-hd .f-icon{
@@ -517,35 +671,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	z-index:1;
 	width:100%;
 	margin-top:-1px;
-}
-.u-listbox{
-	list-style:none;
-	margin:0;
-	padding:0;
-	color:#444;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
-	background:#fff;
-	border:1px solid #ddd;
-	overflow:hidden;
-}
-.u-listbox >li{
-	cursor:pointer;
-	padding:0 10px;
-}
-.u-listbox >li:hover{
-	background-color:#eee;
-	color:#444;
-}
-.u-listbox >li.z-sel{
-	background-color:#6ebae8;
-	color:#444;
-}
-.u-listbox.z-dis >li{
-	cursor:not-allowed;
-	background-color:#f5f5f5;
-	color:#999;
 }
 .u-calendar{
 	width:200px;
@@ -623,9 +748,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	vertical-align:middle;
 	color:#bbb;
 }
-.m-modal .modal-dialog .modal-hd .modal-close:after{
-	content:"×";
-}
 .m-modal .modal-dialog .modal-hd .modal-close:hover{
 	color:#888;
 }
@@ -654,45 +776,45 @@ html.z-modal,html.z-modal body{
 .m-article{
 	overflow:auto;
 }
-.m-article p{
+.m-article >p{
 	text-indent:2em;
 }
-.m-article li p{
+.m-article >li>p{
 	text-indent:0;
 }
 .m-article >ul{
 	padding-left:2em;
 	margin:0.5em 0;
 }
-.m-article h3{
+.m-article >h3{
 	font-size:16px;
 	margin:1.5em 0 1em;
-	color:#3498db;
+	color:#34495e;
 }
-.m-article h4{
+.m-article >h4{
 	font-size:14px;
 	margin:1.33em 0 0.5em;
 	border-top:1px solid #ddd;
 	padding-top:30px;
 }
-.m-article h4:before{
+.m-article >h4:before{
 	content:"";
-	border-left:3px solid #3498db;
+	border-left:3px solid #34495e;
 	margin-right:8px;
 }
-.m-article h3 + h4{
+.m-article >h3 + h4{
 	margin-top:-10px;
 }
-.m-article h5{
+.m-article >h5{
 	font-size:14px;
 	margin:1.33em 0 0.5em;
 	text-indent:2em;
 }
-.m-article h6{
+.m-article >h6{
 	font-size:12px;
 	margin:0.3em 0;
 }
-.m-article p{
+.m-article >p{
 	margin:0.5em 0;
 }
 .m-article img{
@@ -708,7 +830,7 @@ html.z-modal,html.z-modal body{
 	margin:0 2px;
 	font-family:"YaHei consolas Hybrid","Consolas";
 }
-.m-article pre{
+.m-article >pre{
 	margin:0.5em 0;
 	padding:6px 12px;
 	background:#f7f7f7;
@@ -716,18 +838,18 @@ html.z-modal,html.z-modal body{
 	border-radius:3px;
 	word-break:break-word;
 }
-.m-article pre code{
+.m-article >pre code{
 	background:none;
 	border:none;
 	color:#333;
 	padding:0;
 	margin:0;
 }
-.m-article pre.lang-console{
+.m-article >pre.lang-console{
 	background:#2e74ac;
 	border:none;
 }
-.m-article pre.lang-console code{
+.m-article >pre.lang-console code{
 	color:#fff;
 }
 .m-article key{
@@ -742,14 +864,14 @@ html.z-modal,html.z-modal body{
 	border:none;
 	border-top:1px solid #ccc;
 }
-.m-article blockquote{
+.m-article >blockquote{
 	margin:0.5em 0;
 	padding:2px;
 	font-size:12px;
 	background:#f4f4f4;
 	border-left:4px solid #ddd;
 }
-.m-article blockquote h6{
+.m-article >blockquote h6{
 	margin:0.5em 0 0.3em;
 	text-indent:2em;
 	color:#e74c3c;
@@ -765,7 +887,7 @@ html.z-modal,html.z-modal body{
 }
 .g-top{
 	height:50px;
-	background:#102e42;
+	background:#10161c;
 }
 .g-topc{
 	width:960px;
@@ -791,6 +913,7 @@ html.z-modal,html.z-modal body{
 	float:left;
 	min-height:400px;
 	border-right:1px solid #eee;
+	margin-bottom:60px;
 }
 .g-mn{
 	margin-left:40px;
@@ -801,7 +924,7 @@ html.z-modal,html.z-modal body{
 .g-ft{
 	clear:both;
 	height:200px;
-	background:#102e42;
+	background:#10161c;
 }
 .cm-keyword{
 	color:#37b44a;

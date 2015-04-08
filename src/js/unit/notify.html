@@ -1,0 +1,9 @@
+<div class="m-notify m-notify-{position}">
+    {#list messages as message}
+    <div class="notify_message notify_message-{message.type || 'info'}" r-animation='on: enter; class: animated fadeInX; on: leave; class: animated bounceOut fast;'>
+        {! <div class="glyphicon glyphicon-{this.iconMap[message.type]}"></div> !}
+        <a class="notify_close" on-click={this.close(message)}><i class="f-icon f-icon-close"></i></a>
+        <div>{message.text}</div>
+    </div>
+    {/list}
+</div>

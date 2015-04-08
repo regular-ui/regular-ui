@@ -1,0 +1,24 @@
+.m-sidebar {
+    list-style: none;
+    padding: 0;
+    li {
+        padding: 2px 12px;
+        a {
+            display: block;
+            text-decoration: none;
+            color: #555;
+            small {font-size: 60%; color: #999;}
+        }
+    }
+    li:hover {
+        background: #e8e8e8;
+    }
+    li.z-crt {
+        background: #f0f0f0;
+    }
+    li.sidebar-group {
+        background: transparent;
+        font-weight: bold;
+        font-size: 13px;
+    }
+}

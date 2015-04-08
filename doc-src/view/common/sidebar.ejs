@@ -1,7 +1,13 @@
 <div class="g-sd">
     <ul class="m-sidebar">
+        <% var group; %>
         <% sidenavs.forEach(function(item) { %>
-        <li<% if(sidenav === item.name) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %><small> <%= item.upperName %></small></a></li>
+        <% if(item.hidden) return; %>
+        <% if(item.group != group) {
+            group = item.group; %>
+        <li class="sidebar-group"><%= item.group %></li>
+        <% } %>
+        <li<% if(sidenav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %><small> <%= item.name %></small></a></li>
         <% }); %>
     </ul>
 </div>

@@ -5,11 +5,11 @@
 .m-article {
     overflow: auto;
 
-    p {
+    >p {
         text-indent: 2em;
     }
     
-    li p {
+    >li>p {
         text-indent: 0;
     }
 
@@ -18,13 +18,13 @@
         margin: .5em 0;
     }
 
-    h3 {
+    >h3 {
         font-size: 16px;
         margin: 1.5em 0 1em;
-        color: $primary-color;
+        color: $brand-primary;
     }
 
-    h4 {
+    >h4 {
         font-size: 14px;
         margin: 1.33em 0 0.5em;
         border-top: 1px solid #ddd;
@@ -33,27 +33,27 @@
         &:before {
             //display: inline-block;
             content: '';
-            border-left: 3px solid $primary-color;
+            border-left: 3px solid $brand-primary;
             margin-right: 8px;
         }
     }
 
-    h3 + h4 {
+    >h3 + h4 {
         margin-top: -10px;
     }
 
-    h5 {
+    >h5 {
         font-size: 14px;
         margin: 1.33em 0 .5em;
         text-indent: 2em;
     }
 
-    h6 {
+    >h6 {
         font-size: 12px;
         margin: .3em 0;
     }
 
-    p {
+    >p {
         margin: .5em 0;
     }
 
@@ -72,7 +72,7 @@
         font-family: 'YaHei consolas Hybrid', 'Consolas';
     }
 
-    pre {
+    >pre {
         margin: .5em 0;
         padding: 6px 12px;
         background: #f7f7f7;
@@ -81,7 +81,7 @@
         word-break: break-word;
     }
 
-    pre code {
+    >pre code {
         background: none;
         border: none;
         color: #333;
@@ -89,12 +89,12 @@
         margin: 0;
     }
 
-    pre.lang-console {
+    >pre.lang-console {
         background: #2e74ac;
         border: none;
     }
 
-    pre.lang-console code {
+    >pre.lang-console code {
         color: white;
     }
 
@@ -112,7 +112,7 @@
         border-top: 1px solid #ccc;
     }
 
-    blockquote {
+    >blockquote {
         margin: .5em 0;
         padding: 2px;
         font-size: 12px;
@@ -120,7 +120,7 @@
         border-left: 4px solid #ddd;
     }
 
-    blockquote h6 {
+    >blockquote h6 {
         margin: .5em 0 .3em;
         text-indent: 2em;
         color: #E74C3C;

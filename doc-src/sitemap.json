@@ -1,42 +1,110 @@
 {
-    "name": "index",
+    "name": "Index",
     "children": [
         {
-            "name": "start",
+            "name": "Start",
+            "lowerName": "start",
             "alias": "开始使用",
             "children": [
-                {"name": "start", "alias": "开始"}
+                {"name": "Start", "lowerName": "start", "alias": "开始"},
+                {"name": "Rule", "lowerName": "rule", "alias": "规范"}
             ]
         },
         {
-            "name": "unit",
+            "name": "CSSUnit",
+            "lowerName": "cssUnit",
             "alias": "CSS组件",
             "children": [
-                {"name": "button", "alias": "按钮"}
+                {"name": "Base", "lowerName": "base", "alias": "基础"},
+
+                {"name": "Button", "lowerName": "button", "alias": "按钮"},
+                {"name": "ButtonGroup", "lowerName": "buttonGroup", "alias": "按钮组"},
+                {"name": "Icon", "lowerName": "icon", "alias": "图标"},
+                {"name": "Badge", "lowerName": "badge", "alias": "徽章"},
+                {"name": "Thumbnail", "lowerName": "thumbnail", "alias": "缩略图"},
+                {"name": "Text", "lowerName": "text", "alias": "文本"},
+                {"name": "FormControl", "lowerName": "formCtrl", "alias": "表单元素"}
             ]
         },
         {
-            "name": "module",
+            "name": "CSSModule",
+            "lowerName": "cssModule",
             "alias": "CSS模块",
             "children": [
-                {"name": "nav", "alias": "导航"}
+                {"name": "Nav", "lowerName": "nav", "alias": "导航", "group": "导航类"},
+                {"name": "Sidebar", "lowerName": "sidebar", "alias": "侧边栏", "group": "导航类"},
+                {"name": "Crumb", "lowerName": "crumb", "alias": "面包屑", "group": "导航类"},
+
+                {"name": "Article", "lowerName": "article", "alias": "文章", "group": "文章类"},
+                {"name": "Comment", "lowerName": "comment", "alias": "评论", "group": "文章类"},
+                {"name": "Avatar", "lowerName": "avatar", "alias": "头像", "group": "文章类"},
+
+                {"name": "List", "lowerName": "list", "alias": "列表", "group": "布局类"},
+                {"name": "Table", "lowerName": "table", "alias": "表格", "group": "布局类"},
+                {"name": "Form", "lowerName": "form", "alias": "表单", "group": "布局类"},
+                {"name": "Grid", "lowerName": "grid", "alias": "网格", "group": "布局类"}
             ]
         },
         {
-            "name": "component",
+            "name": "JSUnit",
+            "lowerName": "jsUnit",
             "alias": "JS组件",
             "children": [
-                {"name": "modal", "alias": "模态对话框"},
-                {"name": "listbox", "alias": "列表框"},
-                {"name": "listview", "alias": "列表视图"},
-                {"name": "treeview", "alias": "树型列表"},
-                {"name": "selectex", "alias": "选择扩展"},
-                {"name": "selectree", "alias": "树型选择"},
-                {"name": "suggest", "alias": "自动提示"},
-                {"name": "calendar", "alias": "日历"},
-                {"name": "datepicker", "alias": "日期选择"},
-                {"name": "timepicker", "alias": "时间选择"},
-                {"name": "datetimepicker", "alias": "日期时间选择"}
+                {"name": "Tooltip", "lowerName": "tooltip", "alias": "工具提示", "group": "消息类", "hidden": true},
+                {"name": "Notify", "lowerName": "notify", "alias": "通知", "group": "消息类"},
+                {"name": "Progress", "lowerName": "progress", "alias": "进度条", "group": "消息类"},
+
+                {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类"},
+                {"name": "TreeBox", "lowerName": "treeBox", "alias": "树型列表框", "group": "数据类"},
+                {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类"},
+                {"name": "GridView", "lowerName": "gridView", "alias": "网格视图", "group": "数据类"},
+                {"name": "TreeView", "lowerName": "treeView", "alias": "树型视图", "group": "数据类"},
+                {"name": "TableView", "lowerName": "tableView", "alias": "表格视图", "group": "数据类"},
+
+                {"name": "InputEx", "lowerName": "inputEx", "alias": "输入扩展", "group": "表单类"},
+                {"name": "Radio", "lowerName": "radio", "alias": "单选按钮", "group": "表单类"},
+                {"name": "RadioGroup", "lowerName": "radioGroup", "alias": "单选组", "group": "表单类"},
+                {"name": "Check", "lowerName": "check", "alias": "多选按钮", "group": "表单类"},
+                {"name": "CheckGroup", "lowerName": "checkGroup", "alias": "多选组", "group": "表单类"},
+                {"name": "SelectEx", "lowerName": "selectEx", "alias": "选择扩展", "group": "表单类"},
+                {"name": "TreeSelect", "lowerName": "treeSelect", "alias": "树型选择", "group": "表单类"},
+                {"name": "Suggest", "lowerName": "suggest", "alias": "自动提示", "group": "表单类"},
+                {"name": "Picker", "lowerName": "picker", "alias": "采集器", "group": "表单类"},
+                {"name": "ColorPicker", "lowerName": "colorPicker", "alias": "颜色采集器", "group": "表单类"},
+                {"name": "Slider", "lowerName": "slider", "alias": "滑动器", "group": "表单类"},
+                {"name": "Uploader", "lowerName": "uploader", "alias": "文件上传", "group": "表单类"},
+
+                {"name": "Calendar", "lowerName": "calendar", "alias": "日历", "group": "日期类"},
+                {"name": "DatePicker", "lowerName": "datePicker", "alias": "日期选择", "group": "日期类"},
+                {"name": "TimePicker", "lowerName": "timePicker", "alias": "时间选择", "group": "日期类"},
+                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "alias": "日期时间选择", "group": "日期类"},
+
+                {"name": "SmoothScroll", "lowerName": "smoothScroll", "alias": "滚动", "group": "其他"},
+                {"name": "GoTop", "lowerName": "goTop", "alias": "去顶部", "group": "其他"}
+            ]
+        },
+        {
+            "name": "JSModule",
+            "lowerName": "jsModule",
+            "alias": "JS模块",
+            "children": [
+                {"name": "Menu", "lowerName": "menu", "alias": "菜单", "group": "导航类"},
+                {"name": "Tab", "lowerName": "tab", "alias": "选项卡", "group": "导航类"},
+                {"name": "Pager", "lowerName": "pager", "alias": "分页器", "group": "导航类"},
+                {"name": "Accordion", "lowerName": "accordion", "alias": "手风琴", "group": "导航类"},
+
+                {"name": "Modal", "lowerName": "modal", "alias": "模态对话框", "group": "窗口类"},
+                {"name": "Window", "lowerName": "window", "alias": "窗口", "group": "窗口类"},
+                {"name": "OffCanvas", "lowerName": "offCanvas", "alias": "弹出式画布", "group": "窗口类"},
+                {"name": "SlideShow", "lowerName": "slideShow", "alias": "幻灯片", "group": "窗口类"},
+                {"name": "Album", "lowerName": "album", "alias": "相册", "group": "窗口类"},
+
+                {"name": "MarkdownEditor", "lowerName": "markdownEditor", "alias": "Markdown编辑器", "group": "编辑器类"},
+                {"name": "HTMLEditor", "lowerName": "htmlEditor", "alias": "HTML编辑器", "group": "编辑器类"},
+                {"name": "RickTextEditor", "lowerName": "rickTextEditor", "alias": "富文本编辑器", "group": "编辑器类"},
+
+                {"name": "AudioPlayer", "lowerName": "audioPlayer", "alias": "音频播放器", "group": "播放器类"},
+                {"name": "VideoPlayer", "lowerName": "videoPlayer", "alias": "视频播放器", "group": "播放器类"}
             ]
         }
     ]

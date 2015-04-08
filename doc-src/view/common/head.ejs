@@ -20,9 +20,10 @@
         <nav class="m-nav">
             <ul class="f-fr">
                 <% mainnavs.forEach(function(item) { %>
-                <li<% if(mainnav === item.name) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %></a></li>
+                <% if(item.hidden) return; %>
+                <li<% if(mainnav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %></a></li>
                 <% }); %>
-                <li id="j-themeSelectex"></li>
+                <li id="j-themeSelectEx"></li>
             </ul>
         </nav>
     </div>

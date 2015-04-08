@@ -1,0 +1,76 @@
+// Name:            Notify
+// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// Description:     Notify
+//
+// Component:       `u-btn`
+//
+// Status:          `z-act`
+//                  `z-dis`
+//
+// Example:         
+//
+// ========================================================================
+
+.m-notify {
+    .notify_message {
+        margin-bottom: $m-notify_message_margin-bottom;
+        padding: $m-notify_message_padding;
+        background: $m-notify_message_background;
+        $clearfix();
+
+        .notify_close {
+            float: right;
+            text-decoration: none;
+            line-height: 20px;
+            font-family: monospace;
+            font-size: 20px;
+            vertical-align: middle;
+            color: #bbb;
+            &:hover {
+                color: #888;
+            }
+        }
+        // .glyphicon{
+        //     position: absolute;
+        //     $gsize = 32px;
+        //     $lh: $gsize;
+        //     top: 50%;
+        //     left: 12px;
+        //     margin-top: - ($gsize / 2);
+        //     font-size: 20px;
+        //     margin-right: 4px;
+        // }
+
+        // &-error{
+        //   $m-notify-theme: $brand-danger;
+        // }
+        // &-info{
+        //   $m-notify-theme: $brand-info;
+        // }
+        // &-success{
+        //   $m-notify-theme: $brand-success;
+        // }
+        // &-warning{
+        //   $m-notify-theme: $brand-warning;
+        // }
+
+    }
+}
+
+.m-notify-fixed {
+    position: fixed;
+    top: $m-notify-fixed_position;
+    left: $m-notify-fixed_position;
+    z-index: $m-notify-fixed_z-index;
+    width: $m-notify-fixed_width;
+    // $box-sizing: border-box;
+}
+
+// .m-notify-left{
+//     left: 12px;
+//     right: auto;
+// }
+// .m-notify-middle{
+//     left: 50%;
+//     margin-left: -40px;
+// }

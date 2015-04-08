@@ -1,0 +1,49 @@
+.m-tab {
+    .tab-hd {
+        height: 40px;
+        ul {
+            margin-left: 50px;
+            li {
+
+            }
+
+            li.z-crt {
+
+            }
+        }
+
+        .tab-prev {
+            float: left;
+        }
+
+        .tab-next {
+            float: right;
+        }
+
+        .tab-prev, .tab-next {
+            font-size: 22px;
+            line-height: 40px;
+            height: 40px;
+            margin: 0 5px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .tab-prev:hover, .tab-next:hover {
+            color: #56c1d1;
+        }
+
+        .tab-prev.z-dis, .tab-next.z-dis {
+            color: #ccc;
+            cursor: default;
+        }
+    }
+
+    .tab-bd {
+        clear: both;
+        background: white;
+        border: 2px solid #56c1d1;
+        border-radius: 10px;
+        padding: 30px;
+    }
+}

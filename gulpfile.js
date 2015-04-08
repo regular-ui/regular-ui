@@ -59,24 +59,24 @@ gulp.task('mcss-doc', function(done) {
 });
 
 // test/app.js => index.js -> test/
-gulp.task('browserify-test', function(done) {
-    browserify(['./test/app.js'], {})
-        .transform(html2string)
-        .bundle()
-        .on('error', function(err) {
-            console.log('!!!!!!!!!!!! ' + err)
-            done(null)
-            this.end();
-        })
-        .pipe(source('index.js'))
-        .pipe(gulp.dest('test/js'));
+// gulp.task('browserify-test', function(done) {
+//     browserify(['./test/app.js'], {})
+//         .transform(html2string)
+//         .bundle()
+//         .on('error', function(err) {
+//             console.log('!!!!!!!!!!!! ' + err)
+//             done(null)
+//             this.end();
+//         })
+//         .pipe(source('index.js'))
+//         .pipe(gulp.dest('test/js'));
 
-    done();
-});
+//     done();
+// });
 
 // src/core.js => regular-ui.js -> doc/js/
 gulp.task('browserify-js', function(done) {
-    browserify(['./src/js/core.js'], {})
+    browserify(['./src/js/index.js'], {})
         .transform(html2string)
         .bundle()
         .on('error', function(err) {
@@ -100,10 +100,10 @@ gulp.task('doc-src', function(done) {
 
 gulp.task('watch', function() {
     //gulp.watch(['src/mcss/**'], ['mcss-test']);
-    gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['mcss-doc']);
-    gulp.watch(['src/js/**', 'test/app.*'], ['browserify-test']);
+    // gulp.watch(['src/js/**', 'test/app.*'], ['browserify-test']);
     gulp.watch(['src/js/**'], ['browserify-js']);
-    gulp.watch(['doc-src/**', 'src/js/**'], ['doc-src']);
+    gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['mcss-doc']);
+    gulp.watch(['src/js/**', 'doc-src/view/**'], ['doc-src']);
 });
 
-gulp.task('default', ['mcss-doc', 'browserify-test', 'browserify-js', 'doc-src', 'watch']);
+gulp.task('default', ['mcss-doc', 'browserify-js', 'doc-src', 'watch']);

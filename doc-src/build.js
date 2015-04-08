@@ -64,19 +64,18 @@ function build(path, template) {
 
     // 组织主导航数据
     sitemap.children.forEach(function(level1) {
-        level1.path = level1.name + '/index.html';
+        level1.path = (level1.name + '/index.html').toLowerCase();
         data.mainnavs.push(level1);
     });
 
     // 组织侧边栏数据
     for(var i = 0; i < sitemap.children.length; i++)
-        if(sitemap.children[i].name === level[0]) {
+        if(sitemap.children[i].lowerName === level[0]) {
             data.sidenavs = sitemap.children[i].children;
             data.sidenavs.forEach(function(item) {
-                if(item.name === level[1])
+                if(item.lowerName === level[1])
                     data.current = item;
-                item.upperName = item.name[0].toUpperCase() + item.name.slice(1);
-                item.path = level[0] + '/' + item.name + '.html';
+                item.path = (level[0] + '/' + item.name + '.html').toLowerCase();
             });
             break;
         }
@@ -87,9 +86,15 @@ function build(path, template) {
         data.article = markextend(fs.readFileSync(md) + '');
 
     // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API
-    var jscode = __dirname + '/../src/js/core/' + level[1] + '.js';
-    if(level[0] === 'component' && fs.existsSync(jscode))
-        data.api = jsdoc.render(jscode, template.jsApi);
+    if(level[0] === 'jsUnit') {
+        var jsUnit = __dirname + '/../src/js/unit/' + level[1] + '.js';
+        if(fs.existsSync(jsUnit))
+            data.api = jsdoc.render(jsUnit, template.jsApi);
+    } else if(level[0] === 'jsModule') {
+        var jsModule = __dirname + '/../src/js/module/' + level[1] + '.js';
+        if(fs.existsSync(jsModule))
+            data.api = jsdoc.render(jsModule, template.jsApi);
+    }
 
     // 将./view目录下的js脚本添加到HTML中用于生成示例
     var script = __dirname + '/view/' + path + '.js';
@@ -100,7 +105,7 @@ function build(path, template) {
     var tpl = template.head + template.sidebar + template.main + template.foot;
     var html = ejs.render(tpl, data);
 
-    fs.writeFileSync(__dirname + '/../doc/' + path + '.html', html, {encoding: 'utf8', mode: 0644});
+    fs.writeFileSync(__dirname + '/../doc/' + path.toLowerCase() + '.html', html, {encoding: 'utf8', mode: 0644});
     // console.log('[SUCCESS] build: ' + path);
 }
 

@@ -39,6 +39,7 @@ function parse(path) {
             if(cap2 = rule.type.exec(line)) {
                 token.type = cap2[1];
                 token.name = cap2[2].replace(/,/g, ', ');
+                token.lowerName = token.name[0].toLowerCase() + token.name.slice(1);
                 token.description = cap2[3];
             }
 

@@ -1,0 +1,152 @@
+// Name:            Button
+// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// Description:     Defines styles for buttons
+//
+// Component:       `u-btn`
+//
+// Status:          `z-act`
+//                  `z-dis`
+//
+// Example:         
+//     <a class="u-btn">按钮</a>
+//     <a href="#" class="u-btn u-btn-large">按钮</a>
+//     <button href="#" class="u-btn u-btn-primary">按钮</button>
+//
+// ========================================================================
+
+
+
+// Component:       `u-btn`
+// ========================================================================
+.u-btn {
+    // - Correct inability to style clickable `input` types in iOS.
+    -webkit-appearance: none;
+    // - 移除浏览器中的margin。| Remove margins in Chrome, Safari and Opera.
+    margin: 0;
+    // - 移除浏览器中的默认border。| Remove borders for `button`.
+    border: none;
+    // - Address `overflow` set to `hidden` in IE+.
+    overflow: visible;
+    // - Correct `font` properties not being inherited for `button`.
+    font: inherit;
+    // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox and IE.
+    text-transform: none;
+    // - 为了`a`标签。| Required for `a`.
+    text-decoration: none;
+    // - Use pointer cursor at any time.
+    cursor: pointer;
+    // - Others
+    // - 统一box-sizing，a标签默认的box-sizing是content-box，而button标签默认的box-sizing是border-box。
+    $box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+
+    /* Public */
+    padding: 0 $u-btn_padding-horizontal;
+    // - `line-height` is used to create a height.
+    line-height: $u-btn_height;
+    // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
+    min-height: $u-btn_height;
+    background: $u-btn_background;
+    color: $u-btn_color;
+    @if($u-btn_border) {border: $u-btn_border;}
+    @if($u-btn_border-radius) {border-radius: $u-btn_border-radius;}
+}
+
+/* Hover */
+.u-btn:hover,
+.u-btn:focus { // - Apply hover style also to focus state
+    // - Remove default focus style
+    outline: none;
+    // - Required for `a` elements
+    text-decoration: none;
+
+    /* Public */
+    background-color: $u-btn-hover_background;
+    color: $u-btn-hover_color;
+}
+
+/* Active */
+.u-btn:active,
+.u-btn.z-act {
+    /* Public */
+    background-color: $u-btn-active_background;
+    color: $u-btn-active_color;
+}
+
+/* Disabled */
+$u-btn-disabled = {
+
+.u-btn:disabled,
+.u-btn.z-dis {
+    background-color: $u-btn-disabled_background;
+    color: $u-btn-disabled_color;
+    cursor: not-allowed;
+}
+
+}
+
+
+
+// Extends:         `u-btn-extend_size`, `u-btn-extend_color`
+// ========================================================================
+
+$u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size) {
+
+.u-btn-#{$name} {
+    /* Public */
+    padding: 0 $padding-horizontal;
+    line-height: $height;
+    min-height: $height;
+    font-size: $font-size;
+}
+
+}
+
+$u-btn-extend_color = (
+    $name,
+    $background-color, $hover_background-color, $active_background-color,
+    $color, $hover_color, $active_color,
+    $border-color, $hover_border-color, $active_border-color
+) {
+
+.u-btn-#{$name} {
+    /* Public */
+    background-color: $background-color;
+    @if($color) {color: $color;}
+    @if($border-color) {border-color: $border-color;}
+}
+
+/* Hover */
+.u-btn-#{$name}:hover,
+.u-btn-#{$name}:focus {
+    /* Public */
+    background-color: $hover_background-color;
+    @if($hover_color) {color: $hover_color;}
+    @if($hover_border-color) {border-color: $hover_border-color;}
+}
+
+/* Active */
+.u-btn-#{$name}:active,
+.u-btn-#{$name}.z-act {
+    /* Public */
+    background-color: $active_background-color;
+    @if($active_color) {color: $active_color;}
+    @if($active_border-color) {border-color: $active_border-color;}
+}
+
+}
+
+
+
+// Extends:         `u-btn-block`
+// ========================================================================
+
+$u-btn-block = {
+
+.u-btn-block {
+    display: block;
+}
+
+}

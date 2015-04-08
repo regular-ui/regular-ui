@@ -22,9 +22,9 @@ function buildAll() {
     var level0 = sitemap;
     build('index', template);
     level0.children.forEach(function(level1) {
-        build(level1.name + '/index', template);
+        build(level1.lowerName + '/index', template);
         level1.children.forEach(function(level2) {
-            build(level1.name + '/' + level2.name, template);
+            build(level1.lowerName + '/' + level2.lowerName, template);
         });        
     });
 }

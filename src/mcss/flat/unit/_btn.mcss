@@ -1,0 +1,102 @@
+// Name:            Button
+// Description:     Defines styles for buttons
+//
+// Component:       `u-btn`
+//
+// Sub-objects:     `btn-hd`
+//                  `btn-bd`
+//
+// Modifiers:       `u-btn-primary`
+//                  `u-btn-success`
+//                  `u-btn-danger`
+//                  `u-btn-link`
+//                  `u-btn-xs`
+//                  `u-btn-sm`
+//                  `u-btn-lg`
+//
+// States:          `z-active`
+//
+// Example:
+//
+//
+// ========================================================================
+
+
+
+// Override Variables
+// ========================================================================
+
+/* Dimension */
+$u-btn_padding-horizontal =             15px;
+$u-btn_height =                         30px;
+$u-btn_font-size =                      $font-size-base;
+
+/* Color */
+$u-btn_background =                     $gray-light;
+$u-btn-hover_background =               mix($gray-light, white, 80%);
+$u-btn-active_background =              mix($gray-light, black, 85%);
+$u-btn-disabled_background =            fade($gray-light, 0.75, true);
+
+$u-btn_color =                          $inverse;
+$u-btn-hover_color =                    $inverse;
+$u-btn-active_color =                   fade($inverse, 0.75, true);
+$u-btn-disabled_color =                 fade($inverse, 0.75, true);
+
+/* Optional */
+$u-btn_border =                         null;
+$u-btn_border-radius =                  $border-radius-base;
+
+
+// Extend Variables
+// ========================================================================
+
+/* Dimension */
+$u-btn-xs_height =                    13px + 12px;
+$u-btn-xs_padding-horizontal =        9px;
+$u-btn-xs_font-size =                 12px;
+$u-btn-xs_border-radius =             $border-radius-xs;
+
+$u-btn-sm_height =                   16px + 18px;
+$u-btn-sm_padding-horizontal =       13px;
+$u-btn-sm_font-size =                13px;
+$u-btn-sm_border-radius =            $border-radius-sm;
+
+$u-btn-lg_height =                   25px + 20px;
+$u-btn-lg_padding-horizontal =       19px;
+$u-btn-lg_font-size =                17px;
+$u-btn-lg_border-radius =            $border-radius-lg;
+
+$u-btn-xl_height =                    27px + 26px;
+$u-btn-xl_padding-horizontal =        20px;
+$u-btn-xl_font-size =                 22px;
+$u-btn-xl_border-radius =             $border-radius-xl;
+
+/* Color */
+$u-btn-primary_background =             $brand-primary;
+$u-btn-primary-hover_background =       mix($brand-primary, white, 80%);
+$u-btn-primary-active_background =      mix($brand-primary, black, 85%);
+
+$u-btn-secondary_background =           $brand-secondary;
+$u-btn-secondary-hover_background =     mix($brand-secondary, white, 80%);
+$u-btn-secondary-active_background =    mix($brand-secondary, black, 85%);
+
+$u-btn-info_background =                $brand-info;
+$u-btn-info-hover_background =          mix($brand-info, white, 80%);
+$u-btn-info-active_background =         mix($brand-info, black, 85%);
+
+$u-btn-success_background =             $brand-success;
+$u-btn-success-hover_background =       mix($brand-success, white, 80%);
+$u-btn-success-active_background =      mix($brand-success, black, 85%);
+
+$u-btn-danger_background =              $brand-danger;
+$u-btn-danger-hover_background =        mix($brand-danger, white, 80%);
+$u-btn-danger-active_background =       mix($brand-danger, black, 85%);
+
+$u-btn-warning_background =             $brand-warning;
+$u-btn-warning-hover_background =       mix($brand-warning, white, 80%);
+$u-btn-warning-active_background =      mix($brand-warning, black, 85%);
+
+$u-btn-inverse_background =             $brand-primary;
+$u-btn-inverse-hover_background =       mix($brand-primary, white, 80%);
+$u-btn-inverse-active_background =      mix($brand-primary, black, 85%);
+

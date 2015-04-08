@@ -1,0 +1,19 @@
+<div class="m-page m-page-rt" r-hide="total < 2">
+    <a href='#'  on-click={ this.nav(current-1)} class='pageprv {current==1? "z-dis": ""}'>上一页</a>
+    {#if total - 5 > show * 2}
+    <a  on-click={ this.nav(1)} class={current==1? 'z-crt': ''}>1</a>
+    {#if begin > 2}<a>...</a>{/if}
+    {#list begin..end as i}
+    <a on-click={ this.nav(i)} class={current==i? 'z-crt': ''}>{i}</a>
+    {/list}
+    {#if (end < total-1)}
+    <a>...</a>
+    {/if}
+    <a on-click={ this.nav(total)} class={current==total? 'z-crt': ''}>{total}</a>
+    {#else}
+    {#list 1..total as i}
+    <a on-click={ this.nav(i)} class={current==i? 'z-crt': ''}>{i}</a>
+    {/list}
+    {/if}
+    <a href="#" on-click={ this.nav(current + 1)} class='pagenxt {current==total? "z-dis": ""}'>下一页</a>
+</div>

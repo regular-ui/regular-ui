@@ -1,0 +1,39 @@
+// Dimension
+$media-xs-max-width =                           480px - 1;
+$media-sm-max-width =                          768px - 1;
+$media-md-max-width =                         960px - 1;
+$media-lg-max-width =                          1220px - 1;
+
+
+// Brand Colors
+$brand-primary = #3498db;
+
+
+
+$formctrl_height = 30px;
+$formctrl_padding = 4px 6px;
+$formctrl_min-width = 120px;
+
+$formctrl_border = 1px solid #ddd;
+$formctrl_color = #444;
+$formctrl_background-color = white;
+
+$formctrl-focus_border-color = #99baca;
+$formctrl-focus_background-color = #f5fbfe;
+$formctrl-focus_color = #444;
+
+$formctrl-disabled_border-color = #ddd;
+$formctrl-disabled_background-color = #f5f5f5;
+$formctrl-disabled_color = #999;
+
+$formctrl_placeholder_color = #999;
+
+
+$formctrl_item_padding = 0 10px;
+$formctrl_item-hover_border-color = null;
+$formctrl_item-hover_background-color = #eee;
+$formctrl_item-hover_color = #444;
+
+$formctrl_item-selected_border-color = null;
+$formctrl_item-selected_background-color = #6ebae8;  // ?
+$formctrl_item-selected_color = #444;

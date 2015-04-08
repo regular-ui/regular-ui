@@ -1,0 +1,43 @@
+// Name:            Notify
+// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// Description:     Notify
+//
+// Component:       `u-btn`
+// ========================================================================
+
+
+
+// Variables
+// ========================================================================
+
+$m-notify-theme = ($color) {
+    color: #fff;
+    border: l-adjust($color, -5%);
+    background-color: l-adjust($color, +12%);
+}
+
+
+$m-notify-fixed_position =                               10px;
+$m-notify-fixed_z-index =                                1050;
+$m-notify-fixed_width =                                  320px;
+
+$m-notify_message_background =                             #eee;
+$m-notify_message_margin-bottom =                  10px;
+$m-notify_message_padding =                        10px 15px;
+
+
+$m-notify_message-color =                          #fff;
+$m-notify_message-font-size =                      16px;
+$m-notify_message-line-height =                    22px;
+
+$m-notify_message-primary-background =             #ebf7fd;
+$m-notify_message-primary-color =                  #2d7091;
+
+$m-notify_message-success-background =             #f2fae3;
+$m-notify_message-success-color =                  #659f13;
+
+$m-notify_message-warning-background =             #fffceb;
+$m-notify_message-warning-color =                  #e28327;
+
+$m-notify_message-danger-background =              #fff1f0;
+$m-notify_message-danger-color =                   #d85030;

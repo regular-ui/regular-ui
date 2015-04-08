@@ -23,7 +23,7 @@
 <% if(methods.length) { %>
 <h4>Methods</h4>
 <% methods.forEach(function(method) { %>
-<h5><%= class_.name.toLowerCase() %>.<%= method.name %></h5>
+<h5><%= class_.lowerName %>.<%= method.name %></h5>
 <p><%= method.description %></p>
 <table>
     <thead>
@@ -61,7 +61,7 @@
 <% if(events.length) { %>
 <h4>Events</h4>
 <% events.forEach(function(event) { %>
-<h5><%= class_.name.toLowerCase() %>.$on('<%= event.name %>', function($event))</h5>
+<h5><%= class_.lowerName %>.$on('<%= event.name %>', function($event))</h5>
 <p><%= event.description %></p>
 <table>
     <thead>
