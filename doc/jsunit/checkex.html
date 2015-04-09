@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+var relativePath = '../';
+var themes = [
+    {id: 0, name: 'core'},
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'}
+];
+
+var selectedTheme;
+var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
+if(cookie) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === cookie[1]) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[1];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <nav class="m-nav">
+            <ul class="f-fr">
+                
+                
+                <li><a href="../start/index.html">开始使用</a></li>
+                
+                
+                <li><a href="../cssunit/index.html">CSS组件</a></li>
+                
+                
+                <li><a href="../cssmodule/index.html">CSS模块</a></li>
+                
+                
+                <li class="z-crt"><a href="../jsunit/index.html">JS组件</a></li>
+                
+                
+                <li><a href="../jsmodule/index.html">JS模块</a></li>
+                
+                <li id="j-themeSelectEx"></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        
+        <li class="sidebar-group">消息类</li>
+        
+        <li><a href="../jsunit/notify.html">通知<small> Notify</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/progress.html">进度条<small> Progress</small></a></li>
+        
+        
+        
+        <li class="sidebar-group">数据类</li>
+        
+        <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small></a></li>
+        
+        
+        
+        
+        <li><a href="../jsunit/listview.html">列表视图<small> ListView</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small></a></li>
+        
+        
+        
+        <li class="sidebar-group">表单类</li>
+        
+        <li><a href="../jsunit/inputex.html">输入扩展<small> InputEx</small></a></li>
+        
+        
+        
+        <li class="z-crt"><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/picker.html">采集器<small> Picker</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/colorpicker.html">颜色采集器<small> ColorPicker</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/slider.html">滑动器<small> Slider</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/uploader.html">文件上传<small> Uploader</small></a></li>
+        
+        
+        
+        <li class="sidebar-group">日期类</li>
+        
+        <li><a href="../jsunit/calendar.html">日历<small> Calendar</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small></a></li>
+        
+        
+        
+        <li class="sidebar-group">其他</li>
+        
+        <li><a href="../jsunit/smoothscroll.html">滚动<small> SmoothScroll</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/gotop.html">去顶部<small> GoTop</small></a></li>
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>多选按钮<small> CheckEx</small></h2>
+        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div id="j-example1"></div>
+
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>CheckEx</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new CheckEx({options})</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.name</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>当前选择项</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.checked</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<h4>Methods</h4>
+
+<h5>checkEx.select(item)</h5>
+<p>选择某一项</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<h4>Events</h4>
+
+<h5>checkEx.$on('select', function($event))</h5>
+<p>选择某一项时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-events"></div>
+    </article>
+</div>    </div>
+</div>
+<footer class="g-ft">
+</footer>
+<a href="#" class="m-gotop"></a>
+<script src="../js/regular-ui.js"></script>
+<script>
+var CheckEx = RGUI.CheckEx;
+
+var checkEx = new CheckEx({
+    data: {
+        name: 'CheckEx'
+    }
+}).$inject('#j-example1');
+</script>
+<script>
+var themeSelectEx = new RGUI.SelectEx({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null
+    }
+}).$inject('#j-themeSelectEx')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    document.cookie = 'theme=' + $event.selected.name;
+});
+</script>
+</body>
+</html>

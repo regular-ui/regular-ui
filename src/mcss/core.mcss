@@ -12,7 +12,7 @@
 $reset-normalize();
 
 @import 'core/base/function.mcss';
-@import 'core/base/icon.mcss';
+@import 'core/base/font-awesome.css';
 
 @import 'core/base/_global.mcss';
 @import 'core/base/global.mcss';
@@ -46,6 +46,9 @@ $reset-normalize();
 @import 'core/unit/_notify.mcss';
 @import 'core/unit/notify.mcss';
 
+@import 'core/unit/_progress.mcss';
+@import 'core/unit/progress.mcss';
+
 /* 列表类 */
 @import 'core/unit/_listbox.mcss';
 @import 'core/unit/listbox.mcss';
@@ -56,6 +59,18 @@ $reset-normalize();
 /* 表单类 */
 @import 'core/unit/_inputex.mcss';
 @import 'core/unit/inputex.mcss';
+
+@import 'core/unit/_checkex.mcss';
+@import 'core/unit/checkex.mcss';
+
+@import 'core/unit/_checkgroup.mcss';
+@import 'core/unit/checkgroup.mcss';
+
+@import 'core/unit/_radioex.mcss';
+@import 'core/unit/radioex.mcss';
+
+@import 'core/unit/_radiogroup.mcss';
+@import 'core/unit/radiogroup.mcss';
 
 @import 'core/unit/_selectex.mcss';
 @import 'core/unit/selectex.mcss';

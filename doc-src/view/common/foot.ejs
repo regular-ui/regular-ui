@@ -5,9 +5,20 @@
 <a href="#" class="m-gotop"></a>
 <script src="<%= relativePath %>js/regular-ui.js"></script>
 <script>
-var relativePath = '<%= relativePath %>';
 <%- script %>
 </script>
-<script src="<%= relativePath %>js/public.js"></script>
+<script>
+var themeSelectEx = new RGUI.SelectEx({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null
+    }
+}).$inject('#j-themeSelectEx')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    document.cookie = 'theme=' + $event.selected.name;
+});
+</script>
 </body>
 </html>

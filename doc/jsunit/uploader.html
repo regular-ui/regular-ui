@@ -10,7 +10,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="../css/default.css" id="j-themeCSS">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+var relativePath = '../';
+var themes = [
+    {id: 0, name: 'core'},
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'}
+];
+
+var selectedTheme;
+var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
+if(cookie) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === cookie[1]) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[1];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+</script>
 <body>
 <div class="g-top">
     <div class="g-topc">
@@ -64,9 +88,6 @@
         
         
         
-        <li><a href="../jsunit/treebox.html">树型列表框<small> TreeBox</small></a></li>
-        
-        
         
         <li><a href="../jsunit/listview.html">列表视图<small> ListView</small></a></li>
         
@@ -90,19 +111,15 @@
         
         
         
-        <li><a href="../jsunit/radio.html">单选按钮<small> Radio</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/check.html">多选按钮<small> Check</small></a></li>
+        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small></a></li>
         
         
         
         <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
         
         
         
@@ -176,9 +193,20 @@
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
-var relativePath = '../';
 
 </script>
-<script src="../js/public.js"></script>
+<script>
+var themeSelectEx = new RGUI.SelectEx({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null
+    }
+}).$inject('#j-themeSelectEx')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    document.cookie = 'theme=' + $event.selected.name;
+});
+</script>
 </body>
 </html>

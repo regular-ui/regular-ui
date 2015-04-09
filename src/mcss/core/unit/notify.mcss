@@ -20,11 +20,6 @@
 
         .notify_close {
             float: right;
-            text-decoration: none;
-            line-height: 20px;
-            font-family: monospace;
-            font-size: 20px;
-            vertical-align: middle;
             color: #bbb;
             &:hover {
                 color: #888;
@@ -74,3 +69,24 @@
 //     left: 50%;
 //     margin-left: -40px;
 // }
+
+$m-notify_message-extend_color = (
+    $name,
+    $background-color,
+    $color
+) {
+    .m-notify {
+        .notify_message-#{$name} {
+            background-color: $background-color;
+            color: $color;
+            border: 1px solid $color;
+
+            .notify_close {
+                color: fade($color, 0.75, true);
+                &:hover {
+                    color: $color;
+                }
+            }
+        }
+    }
+}

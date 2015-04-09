@@ -1,0 +1,33 @@
+.u-radioex {
+    cursor: pointer;
+    .radioex_box {
+        display: inline-block;
+        width: $u-radioex_span_size;
+        height: $u-radioex_span_size;
+        background: white;
+        border: 1px solid #666;
+        border-radius: $u-radioex_span_size;
+        position: relative;
+        margin-bottom: -3px;
+        overflow: hidden;
+        line-height: 1;
+        text-align: center;
+        .f-icon-radio {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -4px;
+            margin-left: -4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background: #333;
+        }
+    }
+}
+
+.u-radioex-block {
+    display: block;
+}

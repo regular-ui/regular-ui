@@ -27,7 +27,7 @@
     // - Mask the background page
     background: $m-modal_background;
 
-    .modal-dialog {
+    .modal_dialog {
         // - Create position context for caption, spinner and close button
         position: relative;
         // - Set box sizing
@@ -47,19 +47,20 @@
         // -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
         // transition: opacity 0.3s linear, transform 0.3s ease-out;
 
-        .modal-hd {
-            .modal-title {
+        .modal_hd {
+            .modal_title {
                 margin: 0;
             }
 
-            .modal-close {
+            .modal_close {
                 float: right;
-                text-decoration: none;
                 margin: -6px -4px 0 0;
-                line-height: 20px;
-                font-family: monospace;
-                font-size: 20px;
-                vertical-align: middle;
+                // text-decoration: none;
+                // margin: -6px -4px 0 0;
+                // line-height: 20px;
+                // font-family: monospace;
+                // font-size: 20px;
+                // vertical-align: middle;
                 color: #bbb;
                 &:hover {
                     color: #888;
@@ -67,12 +68,12 @@
             }
         }
 
-        .modal-bd {
+        .modal_bd {
             margin: $m-modal_bd_margin;
             min-height: $m-modal_bd_min-height;
         }
 
-        .modal-ft {
+        .modal_ft {
             text-align: $m-modal_ft_text-align;
 
             .u-btn {
@@ -84,7 +85,7 @@
     // - Phone landscape and smaller
     @media (max-width: $media-sm-max-width) {
         // - Fit in small screen
-        .modal-dialog {
+        .modal_dialog {
             width: auto;
             margin: 10px;
         }

@@ -1,0 +1,24 @@
+.u-checkex {
+    cursor: pointer;
+    .checkex_box {
+        display: inline-block;
+        width: $u-checkex_span_size;
+        height: $u-checkex_span_size;
+        background: white;
+        border: 1px solid #666;
+        position: relative;
+        margin-bottom: -2px;
+        overflow: hidden;
+        line-height: 1;
+        text-align: center;
+        .f-icon-check {
+            font-size: 12px;
+            margin-top: -2px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.u-checkex-block {
+    display: block;
+}

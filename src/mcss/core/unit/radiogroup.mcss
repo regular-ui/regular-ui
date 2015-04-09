@@ -1,0 +1,9 @@
+.u-radiogroup {
+    .u-radioex + .u-radioex {
+        margin-left: 20px;
+    }
+
+    .u-radioex-block + .u-radioex-block {
+        margin-left: 0;
+    }
+}

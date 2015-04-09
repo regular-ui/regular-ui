@@ -1,5 +1,6 @@
 .f-icon {
     font-style: normal;
+    font-size: 16px;
 }
 
 .f-icon-arrowdown {
@@ -42,5 +43,12 @@
     &:before {
         // 乘号那个叉叉
         content: '×';
+    }
+}
+
+.f-icon-check {
+    &:before {
+        // 乘号那个叉叉
+        content: 'v';
     }
 }

@@ -6,25 +6,25 @@
     background: $u-calendar_background-color;
     padding: $u-calendar_padding;
 
-    .calendar-hd {
+    .calendar_hd {
         .f-icon {
             cursor: pointer;
         }
-        .calendar-year {
+        .calendar_year {
             display: inline-block;
         }
 
-        .calendar-month {
+        .calendar_month {
             display: inline-block;
         }
-        .calendar-back {
+        .calendar_back {
             float: right;
         }
     }
     
-    .calendar-bd {
+    .calendar_bd {
         text-align: center;
-        .calendar-week {
+        .calendar_week {
             font-weight: bold;
             span {
                 display: inline-block;
@@ -32,7 +32,7 @@
             }
         }
 
-        .calendar-day {
+        .calendar_day {
             span {
                 display: inline-block;
                 width: 14%;
@@ -50,7 +50,7 @@
 }
 
 // .u-calendar.z-dis {
-//     .calendar-hd {
+//     .calendar_hd {
 //         cursor: not-allowed;
 //         background-color: $u-calendar-disabled_background-color;
 //         border-color: $u-calendar-disabled_border-color;

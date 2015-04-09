@@ -1,11 +1,11 @@
 <div class="u-selectex" r-class={ {'z-dis': disabled} } ref="element" onselectstart="return false">
-    <div class="selectex-hd" on-click={this.toggle(!show)}>
+    <div class="selectex_hd" on-click={this.toggle(!show)}>
         <span>{selected.name}</span>
     </div>
-    <div class="selectex-bd" r-hide={!show}>
-        {#if placeholder}<div class="selectex-option" on-click={this.select(-1)}>{placeholder}</div>{/if}
+    <div class="selectex_bd" r-hide={!show}>
+        {#if placeholder}<div class="selectex_option" on-click={this.select(-1)}>{placeholder}</div>{/if}
         {#list options as option}
-            <div class="selectex-option" on-click={this.select(option.id)}>{option.name}</div>
+            <div class="selectex_option" on-click={this.select(option.id)}>{option.name}</div>
         {/list}
     </div>
 </div>

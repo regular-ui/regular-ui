@@ -1,19 +1,19 @@
 <div class="u-calendar">
-    <div class="calendar-hd">
-        <div class="calendar-year">
-            <i class="f-icon f-icon-prev calendar-prev" on-click={this.addYear(-1)}></i>
+    <div class="calendar_hd">
+        <div class="calendar_year">
+            <i class="f-icon f-icon-prev calendar_prev" on-click={this.addYear(-1)}></i>
             <span>{selected | format: 'yyyy'}</span>
-            <i class="f-icon f-icon-next calendar-next" on-click={this.addYear(1)}></i>
+            <i class="f-icon f-icon-next calendar_next" on-click={this.addYear(1)}></i>
         </div>
-        <div class="calendar-month">
-            <i class="f-icon f-icon-prev calendar-prev" on-click={this.addMonth(-1)}></i>
+        <div class="calendar_month">
+            <i class="f-icon f-icon-prev calendar_prev" on-click={this.addMonth(-1)}></i>
             <span>{selected | format: 'MM'}</span>
-            <i class="f-icon f-icon-next calendar-next" on-click={this.addMonth(1)}></i>
+            <i class="f-icon f-icon-next calendar_next" on-click={this.addMonth(1)}></i>
         </div>
-        <a class="calendar-back" on-click={this.back()}>返回今天</a>
+        <a class="calendar_back" on-click={this.back()}>返回今天</a>
     </div>
-    <div class="calendar-bd">
-        <div class="calendar-week"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
-        <div class="calendar-day">{#list _days as day}<span r-class={ {'z-sel': day - selected === 0, 'z-dis': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
+    <div class="calendar_bd">
+        <div class="calendar_week"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
+        <div class="calendar_day">{#list _days as day}<span r-class={ {'z-sel': day - selected === 0, 'z-dis': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
     </div>
 </div>

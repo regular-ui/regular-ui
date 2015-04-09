@@ -1,12 +1,12 @@
 <div class="u-suggest" r-class={ {'z-dis': disabled} } ref="element" onselectstart="return false">
     <input class="u-input" {#if value < 0}placeholder={defaultOption}{/if} r-model={_inputValue} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref="input" {#if disabled}disabled{/if}>
-    <div class="suggest-bd" r-hide={!open}>
+    <div class="suggest_bd" r-hide={!open}>
         {#list options as option}
             {#if this.filter(option)}
                 {#if _hasId}
-                <div class="suggest-option" on-click={this.select(option.id)}>{option.name}</div>
+                <div class="suggest_option" on-click={this.select(option.id)}>{option.name}</div>
                 {#else}
-                <div class="suggest-option" on-click={this.select(option_index)}>{option}</div>
+                <div class="suggest_option" on-click={this.select(option_index)}>{option}</div>
                 {/if}
             {/if}
         {/list}

@@ -1,0 +1,26 @@
+// Color Extends:       `u-btn-primary`, `u-btn-success`, `u-btn-danger`
+// ========================================================================
+
+$m-notify_message-extend_color(
+    info,
+    $m-notify_message-primary_background,
+    $m-notify_message-primary_color
+);
+
+$m-notify_message-extend_color(
+    success,
+    $m-notify_message-success_background,
+    $m-notify_message-success_color
+);
+
+$m-notify_message-extend_color(
+    warning,
+    $m-notify_message-warning_background,
+    $m-notify_message-warning_color
+);
+
+$m-notify_message-extend_color(
+    error,
+    $m-notify_message-danger_background,
+    $m-notify_message-danger_color
+);

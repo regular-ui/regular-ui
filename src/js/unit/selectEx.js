@@ -46,7 +46,8 @@ var SelectEx = Component.extend({
      * @return {void}
      */
     select: function(item) {
-        this.data.selected = item;
+        this.$update('selected', item);
+        //this.data.selected = item;
         /**
          * @event select 选择某一项时触发
          * @property {object} selected 当前选择项

@@ -55,12 +55,12 @@ var Notify = Component.extend({
         if(this.$root == this)
             this.$inject(document.body);
     },
-    show: function(text, options) {
-        var message = _.extend(options || {}, {
+    show: function(text, type, duration) {
+        var message = {
             text: text,
-            type: 'info',
-            duration: this.duration
-        });
+            type: type || 'info',
+            duration: duration || this.duration
+        };
         this.data.messages.unshift(message);
         this.$update();
     },

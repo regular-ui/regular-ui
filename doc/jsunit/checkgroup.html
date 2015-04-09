@@ -10,7 +10,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="../css/default.css" id="j-themeCSS">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+var relativePath = '../';
+var themes = [
+    {id: 0, name: 'core'},
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'}
+];
+
+var selectedTheme;
+var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
+if(cookie) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === cookie[1]) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[1];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+</script>
 <body>
 <div class="g-top">
     <div class="g-topc">
@@ -64,9 +88,6 @@
         
         
         
-        <li><a href="../jsunit/treebox.html">树型列表框<small> TreeBox</small></a></li>
-        
-        
         
         <li><a href="../jsunit/listview.html">列表视图<small> ListView</small></a></li>
         
@@ -90,19 +111,15 @@
         
         
         
-        <li><a href="../jsunit/radio.html">单选按钮<small> Radio</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/check.html">多选按钮<small> Check</small></a></li>
+        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small></a></li>
         
         
         
         <li class="z-crt"><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small></a></li>
+        
+        
+        
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
         
         
         
@@ -166,8 +183,78 @@
         
         <h2>多选组<small> CheckGroup</small></h2>
         
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div id="j-example1"></div>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>CheckGroup</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new CheckGroup({options})</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
         
+        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
         
+        <tr><td class="f-wsn"><code>data.name</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>当前选择项</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.checked</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<h4>Methods</h4>
+
+<h5>checkGroup.select(item)</h5>
+<p>选择某一项</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<h4>Events</h4>
+
+<h5>checkGroup.$on('select', function($event))</h5>
+<p>选择某一项时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-events"></div>
     </article>
 </div>    </div>
 </div>
@@ -176,9 +263,39 @@
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
-var relativePath = '../';
+var CheckGroup = RGUI.CheckGroup;
 
+var source = [
+    {id: 0, name: '选项1'},
+    {id: 1, name: '选项2'},
+    {id: 2, name: '选项3'},
+    {id: 3, name: '选项4'},
+    {id: 4, name: '选项5'},
+    {id: 5, name: '选项6'}
+];
+
+(function() {
+    var checkEx = new CheckGroup({
+        data: {
+            source: source,
+            block: true
+        }
+    }).$inject('#j-example1');
+
+})();
 </script>
-<script src="../js/public.js"></script>
+<script>
+var themeSelectEx = new RGUI.SelectEx({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null
+    }
+}).$inject('#j-themeSelectEx')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    document.cookie = 'theme=' + $event.selected.name;
+});
+</script>
 </body>
 </html>

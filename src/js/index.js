@@ -21,8 +21,13 @@ RGUI._ = require('./base/util.js');
  */
 // 消息类
 RGUI.Notify = require('./unit/notify.js');
+RGUI.Progress = require('./unit/progress.js');
+
 // 表单类
 RGUI.InputEx = require('./unit/inputEx.js');
+RGUI.CheckEx = require('./unit/checkEx.js');
+RGUI.CheckGroup = require('./unit/checkGroup.js');
+RGUI.RadioGroup = require('./unit/radioGroup.js');
 RGUI.SelectEx = require('./unit/selectEx.js');
 RGUI.Suggest = require('./unit/suggest.js');
 

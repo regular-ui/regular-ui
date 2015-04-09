@@ -45,8 +45,8 @@ $gray-light =                $silver;
 $inverse =                   white;
 
 // Brand Colors
-$brand-primary =             $wet-asphalt;
-$brand-secondary =           $turquoise;
+$brand-primary =             $turquoise;
+$brand-secondary =           $wet-asphalt;
 $brand-success =             $emerald;
 $brand-warning =             $sun-flower;
 $brand-danger =              $alizarin;

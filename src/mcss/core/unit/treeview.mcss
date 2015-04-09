@@ -6,7 +6,7 @@
     background: $u-treeview_background-color;
     border: $u-treeview_border;
 
-    .treeview-list {
+    .treeview_list {
         list-style: none;
         margin: 0;
         margin-left: 1.6em;
@@ -14,32 +14,29 @@
         
     }
 
-    .treeview-item {
+    .treeview_item {
         position: relative;
 
         > .f-icon {
             position: absolute;
             left: -16px;
+            line-height: inherit;
             cursor: pointer;
-        }
-
-        > .f-icon.f-icon-arrowdown:before {
-            margin: .2em .22em;
         }
     }
 
-    .treeview-itemname {
+    .treeview_itemname {
         cursor: pointer;
         padding: $u-treeview_item_padding;
         
     }
 
-    .treeview-itemname:hover {
+    .treeview_itemname:hover {
         background-color: $u-treeview_item-hover_background-color;
         color: $u-treeview_item-hover_color;
     }
 
-    .treeview-itemname.z-sel {
+    .treeview_itemname.z-sel {
         background-color: $u-treeview_item-selected_background-color;
         color: $u-treeview_item-selected_color;
     }

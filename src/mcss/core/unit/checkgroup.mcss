@@ -1,0 +1,9 @@
+.u-checkgroup {
+    .u-checkex + .u-checkex {
+        margin-left: 20px;
+    }
+
+    .u-checkex-block + .u-checkex-block {
+        margin-left: 0;
+    }
+}
