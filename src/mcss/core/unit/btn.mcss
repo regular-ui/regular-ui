@@ -1,23 +1,18 @@
 // Name:            Button
+// Description:     按钮
+// Version:         0.0.1
 // Author:          sensen(hzzhaoyusen@corp.netease.com)
-// Description:     Defines styles for buttons
-//
-// Component:       `u-btn`
-//
-// Status:          `z-act`
-//                  `z-dis`
-//
 // Example:         
-//     <a class="u-btn">按钮</a>
-//     <a href="#" class="u-btn u-btn-large">按钮</a>
-//     <button href="#" class="u-btn u-btn-primary">按钮</button>
-//
+// <button class="u-btn">Button</button>
+// <a class="u-btn">aButton</a>
+// <a class="u-btn" href="#">aButton#</a>
 // ========================================================================
 
 
 
 // Component:       `u-btn`
 // ========================================================================
+
 .u-btn {
     // - Correct inability to style clickable `input` types in iOS.
     -webkit-appearance: none;
@@ -25,19 +20,19 @@
     margin: 0;
     // - 移除浏览器中的默认border。| Remove borders for `button`.
     border: none;
-    // - Address `overflow` set to `hidden` in IE+.
+    // - 统一overflow。| Address `overflow` set to `hidden` in IE+.
     overflow: visible;
-    // - Correct `font` properties not being inherited for `button`.
+    // - 让字体继承父节点的。| Correct `font` properties not being inherited for `button`.
     font: inherit;
     // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox and IE.
     text-transform: none;
     // - 为了`a`标签。| Required for `a`.
     text-decoration: none;
-    // - Use pointer cursor at any time.
+    // - 统一用`pointer`，在`a`标签没有`href`的时候鼠标指针不是pointer。 | Use pointer cursor at any time.
     cursor: pointer;
-    // - Others
     // - 统一box-sizing，a标签默认的box-sizing是content-box，而button标签默认的box-sizing是border-box。
     $box-sizing: border-box;
+    // - Others
     display: inline-block;
     vertical-align: middle;
     text-align: center;
@@ -76,20 +71,17 @@
 }
 
 /* Disabled */
-$u-btn-disabled = {
-
 .u-btn:disabled,
 .u-btn.z-dis {
-    background-color: $u-btn-disabled_background;
-    color: $u-btn-disabled_color;
-    cursor: not-allowed;
-}
-
+    background-color: $u-btn-disabled_background !important;
+    color: $u-btn-disabled_color !important;
+    cursor: not-allowed !important;
 }
 
 
 
 // Extends:         `u-btn-extend_size`, `u-btn-extend_color`
+// Description:     大小和颜色扩展函数
 // ========================================================================
 
 $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size) {
@@ -143,10 +135,6 @@ $u-btn-extend_color = (
 // Extends:         `u-btn-block`
 // ========================================================================
 
-$u-btn-block = {
-
 .u-btn-block {
     display: block;
-}
-
 }

@@ -1,14 +1,18 @@
-var Tab = RGUI.Tab;
+var Component = RGUI.Component;
+var _ = RGUI._;
 
-var tab = new Tab({
-    data: {
-        //source: source
-    }
+var example1 = new Component({
+    template: _.multiline(function(){/*
+<tab>
+    <tabPane title="test1">
+        test1
+    </tabPane>
+    <tabPane title="test2">
+        test2
+    </tabPane>
+    <tabPane title="test3">
+        test3
+    </tabPane>
+</tab>
+    */})
 }).$inject('#j-example1');
-
-// var tab = new Tab({
-//     data: {
-//         source: source,
-//         disabled: true
-//     }
-// }).$inject('#j-example2');

@@ -1,3 +1,5 @@
+轻松创建拥有不同样式的漂亮按钮。
+
 ### 示例
 #### 基本形式
 
@@ -24,7 +26,7 @@
     <button class="u-btn u-btn-info">Info</button>
     <button class="u-btn u-btn-success">Success</button>
     <button class="u-btn u-btn-warning">Warning</button>
-    <button class="u-btn u-btn-danger">Danger</button>
+    <button class="u-btn u-btn-error">Error</button>
     <button class="u-btn u-btn-inverse">Inverse</button>
 </div>
 
@@ -35,7 +37,7 @@
 <button class="u-btn u-btn-info">Info</button>
 <button class="u-btn u-btn-success">Success</button>
 <button class="u-btn u-btn-warning">Warning</button>
-<button class="u-btn u-btn-danger">Danger</button>
+<button class="u-btn u-btn-error">Error</button>
 <button class="u-btn u-btn-inverse">Inverse</button>
 ```
 

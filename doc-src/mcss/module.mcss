@@ -3,7 +3,6 @@
 }
 
 .m-article {
-    overflow: auto;
 
     >p {
         text-indent: 2em;

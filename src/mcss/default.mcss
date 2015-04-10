@@ -13,6 +13,7 @@ $reset-normalize();
 
 @import 'core/base/function.mcss';
 @import 'core/base/font-awesome.css';
+@import 'core/base/effect.mcss';
 
 @import 'core/base/_global.mcss';
 @import 'default/base/_global.mcss';
@@ -91,6 +92,13 @@ $reset-normalize();
 
 // JS Module
 // ========================================================================
+
+/* 导航类 */
+@import 'core/module/_tab.mcss';
+@import 'core/module/tab.mcss';
+
+@import 'core/module/_pager.mcss';
+@import 'core/module/pager.mcss';
 
 /* 窗口类 */
 @import 'core/module/_modal.mcss';

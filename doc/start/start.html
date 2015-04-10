@@ -12,7 +12,7 @@
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
-// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
@@ -21,10 +21,9 @@ var themes = [
 ];
 
 var selectedTheme;
-var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
-if(cookie) {
+if(localStorage['selectedTheme']) {
     for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === cookie[1]) {
+        if(themes[i].name === localStorage['selectedTheme']) {
             selectedTheme = themes[i];
             break;
         }
@@ -77,13 +76,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../start/rule.html">规范<small> Rule</small></a></li>
         
+        
+        
+        <li><a href="../start/todo.html">后续开发<small> Todo</small></a></li>
+        
     </ul>
 </div><div class="g-mn">
     <article class="m-article">
         
         <h2>开始<small> Start</small></h2>
         
-        
+        <p>Start</p>
+
         
     </article>
 </div>    </div>
@@ -92,9 +96,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </footer>
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
-<script>
-
-</script>
 <script>
 var themeSelectEx = new RGUI.SelectEx({
     data: {
@@ -105,8 +106,11 @@ var themeSelectEx = new RGUI.SelectEx({
 }).$inject('#j-themeSelectEx')
   .$on('select', function($event) {
     themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
-    document.cookie = 'theme=' + $event.selected.name;
+    localStorage['selectedTheme'] = $event.selected.name;
 });
+</script>
+<script>
+
 </script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
-// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
@@ -21,10 +21,9 @@ var themes = [
 ];
 
 var selectedTheme;
-var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
-if(cookie) {
+if(localStorage['selectedTheme']) {
     for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === cookie[1]) {
+        if(themes[i].name === localStorage['selectedTheme']) {
             selectedTheme = themes[i];
             break;
         }
@@ -71,9 +70,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
+        
         <li class="sidebar-group">导航类</li>
         
-        <li><a href="../jsmodule/menu.html">菜单<small> Menu</small></a></li>
+        <li><a href="../jsmodule/tabhead.html">选项卡头<small> TabHead</small></a></li>
         
         
         
@@ -85,9 +85,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small></a></li>
-        
-        
         
         <li class="sidebar-group">窗口类</li>
         
@@ -95,43 +92,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/window.html">窗口<small> Window</small></a></li>
         
         
         
-        <li><a href="../jsmodule/offcanvas.html">弹出式画布<small> OffCanvas</small></a></li>
         
         
         
-        <li><a href="../jsmodule/slideshow.html">幻灯片<small> SlideShow</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/album.html">相册<small> Album</small></a></li>
-        
-        
-        
-        <li class="sidebar-group">编辑器类</li>
-        
-        <li><a href="../jsmodule/markdowneditor.html">Markdown编辑器<small> MarkdownEditor</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/htmleditor.html">HTML编辑器<small> HTMLEditor</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/ricktexteditor.html">富文本编辑器<small> RickTextEditor</small></a></li>
-        
-        
-        
-        <li class="sidebar-group">播放器类</li>
-        
-        <li class="z-crt"><a href="../jsmodule/audioplayer.html">音频播放器<small> AudioPlayer</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/videoplayer.html">视频播放器<small> VideoPlayer</small></a></li>
         
     </ul>
 </div><div class="g-mn">
@@ -149,9 +115,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
-
-</script>
-<script>
 var themeSelectEx = new RGUI.SelectEx({
     data: {
         source: themes,
@@ -161,8 +124,11 @@ var themeSelectEx = new RGUI.SelectEx({
 }).$inject('#j-themeSelectEx')
   .$on('select', function($event) {
     themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
-    document.cookie = 'theme=' + $event.selected.name;
+    localStorage['selectedTheme'] = $event.selected.name;
 });
+</script>
+<script>
+
 </script>
 </body>
 </html>

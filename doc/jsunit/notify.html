@@ -12,7 +12,7 @@
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
-// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
@@ -21,10 +21,9 @@ var themes = [
 ];
 
 var selectedTheme;
-var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
-if(cookie) {
+if(localStorage['selectedTheme']) {
     for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === cookie[1]) {
+        if(themes[i].name === localStorage['selectedTheme']) {
             selectedTheme = themes[i];
             break;
         }
@@ -135,19 +134,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsunit/picker.html">采集器<small> Picker</small></a></li>
         
-        
-        
-        <li><a href="../jsunit/colorpicker.html">颜色采集器<small> ColorPicker</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/slider.html">滑动器<small> Slider</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/uploader.html">文件上传<small> Uploader</small></a></li>
         
         
         
@@ -169,33 +156,90 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li class="sidebar-group">其他</li>
-        
-        <li><a href="../jsunit/smoothscroll.html">滚动<small> SmoothScroll</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/gotop.html">去顶部<small> GoTop</small></a></li>
-        
     </ul>
 </div><div class="g-mn">
     <article class="m-article">
         
         <h2>通知<small> Notify</small></h2>
         
-        <h3 id="-">示例</h3>
+        <p>创建显示消息的通知，并且能自动淡出。类似Android中的Toast。</p>
+<h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div id="j-example1"><button class="u-btn u-btn-primary">Notify</button></div>
 
-<h4 id="-">状态</h4>
+<pre class="lang-javascript"><code><span class="cm-meta">...</span>
+    <span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;This is a message.&#39;</span>);
+<span class="cm-meta">...</span>
+</code></pre>
+<h4 id="-">状态扩展</h4>
 <div id="j-example2">
     <button class="u-btn u-btn-info">Info</button>
     <button class="u-btn u-btn-success">Success</button>
     <button class="u-btn u-btn-warning">Warning</button>
-    <button class="u-btn u-btn-danger">Danger</button>
+    <button class="u-btn u-btn-error">Error</button>
 </div>
 
-<h4 id="fixed">Fixed</h4>
+<pre class="lang-javascript"><code><span class="cm-meta">...</span>
+    <span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Info message.&#39;</span>, <span class="cm-string">&#39;info&#39;</span>);
+    <span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Success message.&#39;</span>, <span class="cm-string">&#39;success&#39;</span>);
+    <span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Warning message.&#39;</span>, <span class="cm-string">&#39;warning&#39;</span>);
+    <span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Error message.&#39;</span>, <span class="cm-string">&#39;error&#39;</span>);
+<span class="cm-meta">...</span>
+</code></pre>
+<h4 id="-">位置扩展</h4>
+<div id="j-example3">
+    <button class="u-btn">Top Center</button>
+    <button class="u-btn">Top Left</button>
+    <button class="u-btn">Top Right</button>
+    <button class="u-btn">Bottom Center</button>
+    <button class="u-btn">Bottom Left</button>
+    <button class="u-btn">Bottom Right</button>
+</div>
+
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">notify0</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topcenter&#39;</span>} });
+<span class="cm-keyword">var</span> <span class="cm-variable">notify1</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topleft&#39;</span>} });
+<span class="cm-keyword">var</span> <span class="cm-variable">notify2</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topright&#39;</span>} });
+<span class="cm-keyword">var</span> <span class="cm-variable">notify3</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomcenter&#39;</span>} });
+<span class="cm-keyword">var</span> <span class="cm-variable">notify4</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomleft&#39;</span>} });
+<span class="cm-keyword">var</span> <span class="cm-variable">notify5</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomright&#39;</span>} });
+
+<span class="cm-variable">notify0</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Top Center notify.&#39;</span>);
+<span class="cm-variable">notify1</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Top Left notify.&#39;</span>);
+<span class="cm-variable">notify2</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Top Right notify.&#39;</span>);
+<span class="cm-variable">notify3</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Bottom Center notify.&#39;</span>);
+<span class="cm-variable">notify4</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Bottom Left notify.&#39;</span>);
+<span class="cm-variable">notify5</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Bottom Right notify.&#39;</span>);
+</code></pre>
+<h4 id="-">嵌入文档流</h4>
+<div id="j-example4"><button class="u-btn u-btn-primary">Static</button></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">notify</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;notify&quot;</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-meta">...</span>
+    <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Static notify.&#39;</span>);
+<span class="cm-meta">...</span>
+</code></pre>
+<p>或</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">notify</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">position</span>: <span class="cm-string">&#39;static&#39;</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example4&#39;</span>, <span class="cm-string">&#39;top&#39;</span>);
+<span class="cm-variable">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Static notify.&#39;</span>);
+</code></pre>
+<h4 id="-">消息停留时间</h4>
+<div id="j-example5">
+    <button class="u-btn">0.5s</button>
+    <button class="u-btn">1s</button>
+    <button class="u-btn">2s</button>
+    <button class="u-btn">常驻</button>
+</div>
+
+<pre class="lang-javascript"><code><span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;0.5 seconds.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">500</span>);
+<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;1 second.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">1000</span>);
+<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;2 seconds.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">2000</span>);
+<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Stick here.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">0</span>);
+</code></pre>
 
         <h3>API</h3>
 
@@ -213,31 +257,138 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性 | Binding Properties</td></tr>
+        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
         
-        <tr><td class="f-wsn"><code>data.title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题 | Title of Dialog</td></tr>
+        <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;topcenter&#39;</code></td><td>通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`</td></tr>
         
-        <tr><td class="f-wsn"><code>data.content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.okButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>确定按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“确定”，值为否定时不显示确定按钮。</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.cancelButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>false</code></td><td>取消按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“取消”，值为否定时不显示确定按钮。</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.width</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>null</code></td><td>对话框宽度。值为否定时宽度为CSS设置的宽度。</td></tr>
-        
-        <tr><td class="f-wsn"><code>ok</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击确定的时候执行</td></tr>
-        
-        <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击取消的时候执行</td></tr>
+        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>2000</code></td><td>每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
         
     </tbody>
 </table>
 <div id="j-options"></div>
 
 
+<h4>Methods</h4>
+
+<h5>notify.show(text[, type][, duration])</h5>
+<p>弹出一个消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+        
+        <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+        
+        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>notify.close(message)</h5>
+<p>关闭某条消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>notify.closeAll()</h5>
+<p>关闭所有消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+
 <div id="j-methods"></div>
 
 
+<h4>Static Methods</h4>
+
+<h5>Notify.show(text[, type][, duration])</h5>
+<p>弹出一个消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+        
+        <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+        
+        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>Notify.close(message)</h5>
+<p>关闭某条消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>Notify.closeAll()</h5>
+<p>关闭所有消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+
 <div id="j-staticMethods"></div>
+
+
+<h4>Events</h4>
+
+<h5>on-show={$event}</h5>
+<p>弹出一个消息时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">弹出的消息对象</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>on-close={$event}</h5>
+<p>关闭某条消息时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">关闭了的消息对象</td></tr>
+        
+    </tbody>
+</table>
 
 
 <div id="j-events"></div>
@@ -249,38 +400,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
-var Notify = RGUI.Notify;
-
-(function() {
-    var button = document.getElementById('j-example1').children[0];
-    var notify = new Notify().$inject('#j-example1', 'top');
-    RGUI._.addEvent(button, 'click', function() {
-        notify.show('This is a message.');
-    });
-})();
-
-(function() {
-    var button0 = document.getElementById('j-example2').children[0];
-    var button1 = document.getElementById('j-example2').children[1];
-    var button2 = document.getElementById('j-example2').children[2];
-    var button3 = document.getElementById('j-example2').children[3];
-    var notify = new Notify().$inject('#j-example2', 'top');
-
-    RGUI._.addEvent(button0, 'click', function() {
-        notify.show('Info message.', 'info');
-    });
-    RGUI._.addEvent(button1, 'click', function() {
-        notify.show('Success message.', 'success');
-    });
-    RGUI._.addEvent(button2, 'click', function() {
-        notify.show('Warning message.', 'warning');
-    });
-    RGUI._.addEvent(button3, 'click', function() {
-        notify.show('Danger message.', 'error');
-    });
-})();
-</script>
-<script>
 var themeSelectEx = new RGUI.SelectEx({
     data: {
         source: themes,
@@ -290,8 +409,108 @@ var themeSelectEx = new RGUI.SelectEx({
 }).$inject('#j-themeSelectEx')
   .$on('select', function($event) {
     themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
-    document.cookie = 'theme=' + $event.selected.name;
+    localStorage['selectedTheme'] = $event.selected.name;
 });
+</script>
+<script>
+var Notify = RGUI.Notify;
+
+(function() {
+    var button = document.getElementById('j-example1').children[0];
+
+    RGUI._.addEvent(button, 'click', function() {
+        Notify.show('This is a message.');
+    });
+})();
+
+(function() {
+    var button0 = document.getElementById('j-example2').children[0];
+    var button1 = document.getElementById('j-example2').children[1];
+    var button2 = document.getElementById('j-example2').children[2];
+    var button3 = document.getElementById('j-example2').children[3];
+
+    RGUI._.addEvent(button0, 'click', function() {
+        Notify.show('Info message.', 'info');
+    });
+    RGUI._.addEvent(button1, 'click', function() {
+        Notify.show('Success message.', 'success');
+    });
+    RGUI._.addEvent(button2, 'click', function() {
+        Notify.show('Warning message.', 'warning');
+    });
+    RGUI._.addEvent(button3, 'click', function() {
+        Notify.show('Error message.', 'error');
+    });
+})();
+
+(function() {
+    var button0 = document.getElementById('j-example3').children[0];
+    var button1 = document.getElementById('j-example3').children[1];
+    var button2 = document.getElementById('j-example3').children[2];
+    var button3 = document.getElementById('j-example3').children[3];
+    var button4 = document.getElementById('j-example3').children[4];
+    var button5 = document.getElementById('j-example3').children[5];
+
+    var notify0 = new Notify({data: {position: 'topcenter'} });
+    var notify1 = new Notify({data: {position: 'topleft'} });
+    var notify2 = new Notify({data: {position: 'topright'} });
+    var notify3 = new Notify({data: {position: 'bottomcenter'} });
+    var notify4 = new Notify({data: {position: 'bottomleft'} });
+    var notify5 = new Notify({data: {position: 'bottomright'} });
+
+    RGUI._.addEvent(button0, 'click', function() {
+        notify0.show('Top Center notify.');
+    });
+    RGUI._.addEvent(button1, 'click', function() {
+        notify1.show('Top Left notify.');
+    });
+    RGUI._.addEvent(button2, 'click', function() {
+        notify2.show('Top Right notify.');
+    });
+    RGUI._.addEvent(button3, 'click', function() {
+        notify3.show('Bottom Center notify.');
+    });
+    RGUI._.addEvent(button4, 'click', function() {
+        notify4.show('Bottom Left notify.');
+    });
+    RGUI._.addEvent(button5, 'click', function() {
+        notify5.show('Bottom Right notify.');
+    });
+})();
+
+(function() {
+    var button = document.getElementById('j-example4').children[0];
+
+    var notify = new Notify({
+        data: {
+            position: 'static'
+        }
+    }).$inject('#j-example4', 'top');
+
+    RGUI._.addEvent(button, 'click', function() {
+        notify.show('Static notify.');
+    });
+})();
+
+(function() {
+    var button0 = document.getElementById('j-example5').children[0];
+    var button1 = document.getElementById('j-example5').children[1];
+    var button2 = document.getElementById('j-example5').children[2];
+    var button3 = document.getElementById('j-example5').children[3];
+
+    RGUI._.addEvent(button0, 'click', function() {
+        Notify.show('0.5 seconds.', null, 500);
+    });
+    RGUI._.addEvent(button1, 'click', function() {
+        Notify.show('1 second.', null, 1000);
+    });
+    RGUI._.addEvent(button2, 'click', function() {
+        Notify.show('2 seconds.', null, 2000);
+    });
+    RGUI._.addEvent(button3, 'click', function() {
+        Notify.show('Stick here.', null, 0);
+    });
+})();
 </script>
 </body>
 </html>

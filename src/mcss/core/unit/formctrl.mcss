@@ -59,6 +59,10 @@
     height: $u-input_height;
 }
 
+.u-input-full {
+    width: 100%;
+}
+
 .u-select {
     height: $u-input_height;
     min-width: $u-select_min-width;
@@ -72,6 +76,10 @@
         font-weight: bold;
         // - NOTE: Both declarations don't work in Chrome, Safari and Opera.
     }
+}
+
+.u-select-full {
+    width: 100%;
 }
 
 .u-textarea {
@@ -89,7 +97,7 @@ input.u-radio {
     // - (It has been realized in normalize.css) Removes excess padding in IE 8/9/10.
     // padding: 0;
     cursor: pointer;
-
+    vertical-align: middle;
     &:focus {
         outline: 0;
     }

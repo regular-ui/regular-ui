@@ -7,7 +7,8 @@
             "alias": "开始使用",
             "children": [
                 {"name": "Start", "lowerName": "start", "alias": "开始"},
-                {"name": "Rule", "lowerName": "rule", "alias": "规范"}
+                {"name": "Rule", "lowerName": "rule", "alias": "规范"},
+                {"name": "Todo", "lowerName": "todo", "alias": "后续开发"}
             ]
         },
         {
@@ -68,18 +69,18 @@
                 {"name": "SelectEx", "lowerName": "selectEx", "alias": "选择扩展", "group": "表单类"},
                 {"name": "TreeSelect", "lowerName": "treeSelect", "alias": "树型选择", "group": "表单类"},
                 {"name": "Suggest", "lowerName": "suggest", "alias": "自动提示", "group": "表单类"},
-                {"name": "Picker", "lowerName": "picker", "alias": "采集器", "group": "表单类"},
-                {"name": "ColorPicker", "lowerName": "colorPicker", "alias": "颜色采集器", "group": "表单类"},
-                {"name": "Slider", "lowerName": "slider", "alias": "滑动器", "group": "表单类"},
-                {"name": "Uploader", "lowerName": "uploader", "alias": "文件上传", "group": "表单类"},
+                {"name": "Picker", "lowerName": "picker", "alias": "采集器", "group": "表单类", "hidden": true},
+                {"name": "ColorPicker", "lowerName": "colorPicker", "alias": "颜色采集器", "group": "表单类", "hidden": true},
+                {"name": "Slider", "lowerName": "slider", "alias": "滑动器", "group": "表单类", "hidden": true},
+                {"name": "Uploader", "lowerName": "uploader", "alias": "文件上传", "group": "表单类", "hidden": true},
 
                 {"name": "Calendar", "lowerName": "calendar", "alias": "日历", "group": "日期类"},
                 {"name": "DatePicker", "lowerName": "datePicker", "alias": "日期选择", "group": "日期类"},
                 {"name": "TimePicker", "lowerName": "timePicker", "alias": "时间选择", "group": "日期类"},
                 {"name": "DateTimePicker", "lowerName": "dateTimePicker", "alias": "日期时间选择", "group": "日期类"},
 
-                {"name": "SmoothScroll", "lowerName": "smoothScroll", "alias": "滚动", "group": "其他"},
-                {"name": "GoTop", "lowerName": "goTop", "alias": "去顶部", "group": "其他"}
+                {"name": "SmoothScroll", "lowerName": "smoothScroll", "alias": "滚动", "group": "其他", "hidden": true},
+                {"name": "GoTop", "lowerName": "goTop", "alias": "去顶部", "group": "其他", "hidden": true}
             ]
         },
         {
@@ -87,23 +88,24 @@
             "lowerName": "jsModule",
             "alias": "JS模块",
             "children": [
-                {"name": "Menu", "lowerName": "menu", "alias": "菜单", "group": "导航类"},
+                {"name": "Menu", "lowerName": "menu", "alias": "菜单", "group": "导航类", "hidden": true},
+                {"name": "TabHead", "lowerName": "tabHead", "alias": "选项卡头", "group": "导航类"},
                 {"name": "Tab", "lowerName": "tab", "alias": "选项卡", "group": "导航类"},
                 {"name": "Pager", "lowerName": "pager", "alias": "分页器", "group": "导航类"},
-                {"name": "Accordion", "lowerName": "accordion", "alias": "手风琴", "group": "导航类"},
+                {"name": "Accordion", "lowerName": "accordion", "alias": "手风琴", "group": "导航类", "hidden": true},
 
                 {"name": "Modal", "lowerName": "modal", "alias": "模态对话框", "group": "窗口类"},
-                {"name": "Window", "lowerName": "window", "alias": "窗口", "group": "窗口类"},
-                {"name": "OffCanvas", "lowerName": "offCanvas", "alias": "弹出式画布", "group": "窗口类"},
-                {"name": "SlideShow", "lowerName": "slideShow", "alias": "幻灯片", "group": "窗口类"},
-                {"name": "Album", "lowerName": "album", "alias": "相册", "group": "窗口类"},
+                {"name": "Window", "lowerName": "window", "alias": "窗口", "group": "窗口类", "hidden": true},
+                {"name": "OffCanvas", "lowerName": "offCanvas", "alias": "弹出式画布", "group": "窗口类", "hidden": true},
+                {"name": "SlideShow", "lowerName": "slideShow", "alias": "幻灯片", "group": "窗口类", "hidden": true},
+                {"name": "Album", "lowerName": "album", "alias": "相册", "group": "窗口类", "hidden": true},
 
-                {"name": "MarkdownEditor", "lowerName": "markdownEditor", "alias": "Markdown编辑器", "group": "编辑器类"},
-                {"name": "HTMLEditor", "lowerName": "htmlEditor", "alias": "HTML编辑器", "group": "编辑器类"},
-                {"name": "RickTextEditor", "lowerName": "rickTextEditor", "alias": "富文本编辑器", "group": "编辑器类"},
+                {"name": "MarkdownEditor", "lowerName": "markdownEditor", "alias": "Markdown编辑器", "group": "编辑器类", "hidden": true},
+                {"name": "HTMLEditor", "lowerName": "htmlEditor", "alias": "HTML编辑器", "group": "编辑器类", "hidden": true},
+                {"name": "RickTextEditor", "lowerName": "rickTextEditor", "alias": "富文本编辑器", "group": "编辑器类", "hidden": true},
 
-                {"name": "AudioPlayer", "lowerName": "audioPlayer", "alias": "音频播放器", "group": "播放器类"},
-                {"name": "VideoPlayer", "lowerName": "videoPlayer", "alias": "视频播放器", "group": "播放器类"}
+                {"name": "AudioPlayer", "lowerName": "audioPlayer", "alias": "音频播放器", "group": "播放器类", "hidden": true},
+                {"name": "VideoPlayer", "lowerName": "videoPlayer", "alias": "视频播放器", "group": "播放器类", "hidden": true}
             ]
         }
     ]

@@ -12,7 +12,7 @@
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
-// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
@@ -21,10 +21,9 @@ var themes = [
 ];
 
 var selectedTheme;
-var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
-if(cookie) {
+if(localStorage['selectedTheme']) {
     for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === cookie[1]) {
+        if(themes[i].name === localStorage['selectedTheme']) {
             selectedTheme = themes[i];
             break;
         }
@@ -107,7 +106,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h2>按钮<small> Button</small></h2>
         
-        <h3 id="-">示例</h3>
+        <p>轻松创建拥有不同样式的漂亮按钮。</p>
+<h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <p>在<code>&lt;button&gt;</code>或<code>&lt;a&gt;</code>标签上使用<code>class=&quot;u-btn&quot;</code>，两者样式完全一致。</p>
 <div>
@@ -128,7 +128,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <button class="u-btn u-btn-info">Info</button>
     <button class="u-btn u-btn-success">Success</button>
     <button class="u-btn u-btn-warning">Warning</button>
-    <button class="u-btn u-btn-danger">Danger</button>
+    <button class="u-btn u-btn-error">Error</button>
     <button class="u-btn u-btn-inverse">Inverse</button>
 </div>
 
@@ -138,7 +138,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-info&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-danger&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Danger<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Error<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-inverse&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Inverse<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">尺寸扩展</h4>
@@ -193,9 +193,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
-
-</script>
-<script>
 var themeSelectEx = new RGUI.SelectEx({
     data: {
         source: themes,
@@ -205,8 +202,11 @@ var themeSelectEx = new RGUI.SelectEx({
 }).$inject('#j-themeSelectEx')
   .$on('select', function($event) {
     themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
-    document.cookie = 'theme=' + $event.selected.name;
+    localStorage['selectedTheme'] = $event.selected.name;
 });
+</script>
+<script>
+
 </script>
 </body>
 </html>

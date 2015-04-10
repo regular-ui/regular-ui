@@ -61,7 +61,7 @@
 <% if(events.length) { %>
 <h4>Events</h4>
 <% events.forEach(function(event) { %>
-<h5><%= class_.lowerName %>.$on('<%= event.name %>', function($event))</h5>
+<h5>on-<%= event.name %>={$event}</h5>
 <p><%= event.description %></p>
 <table>
     <thead>

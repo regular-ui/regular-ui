@@ -12,7 +12,7 @@
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
-// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
@@ -21,10 +21,9 @@ var themes = [
 ];
 
 var selectedTheme;
-var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
-if(cookie) {
+if(localStorage['selectedTheme']) {
     for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === cookie[1]) {
+        if(themes[i].name === localStorage['selectedTheme']) {
             selectedTheme = themes[i];
             break;
         }
@@ -71,9 +70,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
+        
         <li class="sidebar-group">导航类</li>
         
-        <li><a href="../jsmodule/menu.html">菜单<small> Menu</small></a></li>
+        <li><a href="../jsmodule/tabhead.html">选项卡头<small> TabHead</small></a></li>
         
         
         
@@ -85,9 +85,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small></a></li>
-        
-        
         
         <li class="sidebar-group">窗口类</li>
         
@@ -95,43 +92,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/window.html">窗口<small> Window</small></a></li>
         
         
         
-        <li><a href="../jsmodule/offcanvas.html">弹出式画布<small> OffCanvas</small></a></li>
         
         
         
-        <li><a href="../jsmodule/slideshow.html">幻灯片<small> SlideShow</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/album.html">相册<small> Album</small></a></li>
-        
-        
-        
-        <li class="sidebar-group">编辑器类</li>
-        
-        <li><a href="../jsmodule/markdowneditor.html">Markdown编辑器<small> MarkdownEditor</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/htmleditor.html">HTML编辑器<small> HTMLEditor</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/ricktexteditor.html">富文本编辑器<small> RickTextEditor</small></a></li>
-        
-        
-        
-        <li class="sidebar-group">播放器类</li>
-        
-        <li><a href="../jsmodule/audioplayer.html">音频播放器<small> AudioPlayer</small></a></li>
-        
-        
-        
-        <li><a href="../jsmodule/videoplayer.html">视频播放器<small> VideoPlayer</small></a></li>
         
     </ul>
 </div><div class="g-mn">
@@ -153,7 +119,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 });
 </code></pre>
 <h4 id="alert">Alert</h4>
-<div id="j-example2"><button class="u-btn u-btn-danger">Alert</button></div>
+<div id="j-example2"><button class="u-btn u-btn-error">Alert</button></div>
 
 <pre class="lang-javascript"><code><span class="cm-variable">Modal</span>.<span class="cm-property">alert</span>(<span class="cm-string">&#39;Alert内容&#39;</span>);
 </code></pre>
@@ -185,9 +151,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data.content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
         
-        <tr><td class="f-wsn"><code>data.okButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>确定按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“确定”，值为否定时不显示确定按钮。</td></tr>
+        <tr><td class="f-wsn"><code>data.okButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示确定按钮。值为`string`时显示该段文字。</td></tr>
         
-        <tr><td class="f-wsn"><code>data.cancelButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>false</code></td><td>取消按钮的文字。值为字符串时显示文字为该字符串，值为`true`时显示文字为“取消”，值为否定时不显示确定按钮。</td></tr>
+        <tr><td class="f-wsn"><code>data.cancelButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>false</code></td><td>是否显示取消按钮。值为`string`时显示该段文字。</td></tr>
         
         <tr><td class="f-wsn"><code>data.width</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>null</code></td><td>对话框宽度。值为否定时宽度为CSS设置的宽度。</td></tr>
         
@@ -257,7 +223,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <h4>Events</h4>
 
-<h5>modal.$on('close', function($event))</h5>
+<h5>on-close={$event}</h5>
 <p>关闭对话框时触发</p>
 <table>
     <thead>
@@ -270,7 +236,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </tbody>
 </table>
 
-<h5>modal.$on('ok', function($event))</h5>
+<h5>on-ok={$event}</h5>
 <p>确定对话框时触发</p>
 <table>
     <thead>
@@ -281,7 +247,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </tbody>
 </table>
 
-<h5>modal.$on('close', function($event))</h5>
+<h5>on-close={$event}</h5>
 <p>取消对话框时触发</p>
 <table>
     <thead>
@@ -301,6 +267,19 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </footer>
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
+<script>
+var themeSelectEx = new RGUI.SelectEx({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null
+    }
+}).$inject('#j-themeSelectEx')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    localStorage['selectedTheme'] = $event.selected.name;
+});
+</script>
 <script>
 var Modal = RGUI.Modal;
 
@@ -322,19 +301,6 @@ RGUI._.addEvent(button, 'click', function() {
 var button = document.getElementById('j-example3').children[0];
 RGUI._.addEvent(button, 'click', function() {
     Modal.confirm('Confirm内容');
-});
-</script>
-<script>
-var themeSelectEx = new RGUI.SelectEx({
-    data: {
-        source: themes,
-        selected: selectedTheme,
-        placeholder: null
-    }
-}).$inject('#j-themeSelectEx')
-  .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
-    document.cookie = 'theme=' + $event.selected.name;
 });
 </script>
 </body>

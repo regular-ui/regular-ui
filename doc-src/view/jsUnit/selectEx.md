@@ -9,9 +9,21 @@
 
 ```javascript
 var source = [
-    {id: 0, name: '第一项'},
-    {id: 1, name: '第二项'},
-    {id: 2, name: '第三项'}
+    {id: 0, name: '选项1'},
+    {id: 1, name: '选项2'},
+    {id: 2, name: '选项3'}
+];
+
+...
+    this.data.source = source;
+...
+```
+
+```javascript
+var source = [
+    {id: 0, name: '选项1'},
+    {id: 1, name: '选项2'},
+    {id: 2, name: '选项3'}
 ];
 
 var selectEx = new SelectEx({

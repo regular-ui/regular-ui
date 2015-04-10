@@ -13,6 +13,7 @@ var RGUI = {}
 /**
  * base
  */
+RGUI.Regular = require('regularjs');
 RGUI.Component = require('./base/component.js');
 RGUI._ = require('./base/util.js');
 
@@ -40,10 +41,16 @@ RGUI.TreeSelect = require('./unit/treeSelect.js');
 // 日期类
 RGUI.Calendar = require('./unit/calendar.js');
 RGUI.DatePicker = require('./unit/datePicker.js');
+RGUI.TimePicker = require('./unit/timePicker.js');
 
 /**
  * jsModule
  */
+// 导航类
+RGUI.TabHead = require('./module/tabHead.js');
+RGUI.Tab = require('./module/tab.js');
+RGUI.Pager = require('./module/pager.js');
+
 // 窗口类
 RGUI.Modal = require('./module/modal.js');
 

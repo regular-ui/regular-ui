@@ -18,7 +18,7 @@ var modal = new Modal({
 
 #### Alert
 
-<div id="j-example2"><button class="u-btn u-btn-danger">Alert</button></div>
+<div id="j-example2"><button class="u-btn u-btn-error">Alert</button></div>
 
 ```javascript
 Modal.alert('Alert内容');

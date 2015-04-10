@@ -30,7 +30,7 @@ $u-btn-extend_size(
 );
 
 
-// Color Extends:       `u-btn-primary`, `u-btn-success`, `u-btn-danger`
+// Color Extends:       `u-btn-primary`, `u-btn-success`, `u-btn-error`
 // ========================================================================
 
 $u-btn-extend_color(
@@ -62,10 +62,10 @@ $u-btn-extend_color(
 );
 
 $u-btn-extend_color(
-    danger,
-    $u-btn-danger_background,
-    $u-btn-danger-hover_background,
-    $u-btn-danger-active_background,
+    error,
+    $u-btn-error_background,
+    $u-btn-error-hover_background,
+    $u-btn-error-active_background,
 );
 
 $u-btn-extend_color(
@@ -81,9 +81,6 @@ $u-btn-extend_color(
     $u-btn-inverse-hover_background,
     $u-btn-inverse-active_background,
 );
-
-$u-btn-disabled();
-$u-btn-block();
 
 .u-btn {
 	-webkit-font-smoothing: subpixel-antialiased;

@@ -41,7 +41,7 @@ var CheckGroup = Component.extend({
      * @param  {object} item 选择项
      * @return {void}
      */
-    check: function(checked) {
+    checkAll: function(checked) {
         this.data.checked = checked;
         /**
          * @event select 选择某一项时触发

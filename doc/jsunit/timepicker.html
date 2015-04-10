@@ -12,7 +12,7 @@
 <link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
-// 该段代码是选择主题用的，与渲染有关，所以必须放前面
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
@@ -21,10 +21,9 @@ var themes = [
 ];
 
 var selectedTheme;
-var cookie = /theme=(.*?)(?:;|$)/.exec(document.cookie);
-if(cookie) {
+if(localStorage['selectedTheme']) {
     for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === cookie[1]) {
+        if(themes[i].name === localStorage['selectedTheme']) {
             selectedTheme = themes[i];
             break;
         }
@@ -135,19 +134,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsunit/picker.html">采集器<small> Picker</small></a></li>
         
-        
-        
-        <li><a href="../jsunit/colorpicker.html">颜色采集器<small> ColorPicker</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/slider.html">滑动器<small> Slider</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/uploader.html">文件上传<small> Uploader</small></a></li>
         
         
         
@@ -169,21 +156,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li class="sidebar-group">其他</li>
-        
-        <li><a href="../jsunit/smoothscroll.html">滚动<small> SmoothScroll</small></a></li>
-        
-        
-        
-        <li><a href="../jsunit/gotop.html">去顶部<small> GoTop</small></a></li>
-        
     </ul>
 </div><div class="g-mn">
     <article class="m-article">
         
         <h2>时间选择<small> TimePicker</small></h2>
         
-        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div id="j-example1"></div>
         
     </article>
 </div>    </div>
@@ -192,9 +173,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </footer>
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
-<script>
-
-</script>
 <script>
 var themeSelectEx = new RGUI.SelectEx({
     data: {
@@ -205,8 +183,17 @@ var themeSelectEx = new RGUI.SelectEx({
 }).$inject('#j-themeSelectEx')
   .$on('select', function($event) {
     themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
-    document.cookie = 'theme=' + $event.selected.name;
+    localStorage['selectedTheme'] = $event.selected.name;
 });
+</script>
+<script>
+var TimePicker = RGUI.TimePicker;
+
+var timePicker = new TimePicker({
+    data: {
+        //source: source
+    }
+}).$inject('#j-example1');
 </script>
 </body>
 </html>

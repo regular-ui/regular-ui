@@ -77,7 +77,7 @@ var SelectEx = Component.extend({
     }
 });
 
-// 当点击selectEx之外的地方收起。
+// 处理点击selectEx之外的地方后的收起事件。
 SelectEx.opens = [];
 
 _.addEvent(window.document, 'click', function(e) {

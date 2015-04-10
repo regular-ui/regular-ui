@@ -1,9 +1,6 @@
-<div class="u-selectex" r-class={ {'z-dis': disabled} } ref="element" onselectstart="return false">
-    <div class="selectex_hd" on-click={this.toggle(!open)}>
-        <span>{selected ? (selected | format: 'yyyy-MM-dd') : ''}</span>
-        <i class="f-icon f-icon-arrowdown"></i>
-    </div>
-    <div class="selectex_bd" r-hide={!open}>
+<div class="u-suggest" r-class={ {'z-dis': disabled} } ref="element" onselectstart="return false">
+    <input class="u-input u-input-full" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref="input" {#if disabled}disabled{/if}>
+    <div class="suggest_bd" r-hide={!open}>
         <calendar on-select={this.select($event.selected)} />
     </div>
 </div>

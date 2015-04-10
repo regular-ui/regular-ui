@@ -1,5 +1,5 @@
 <div class="u-checkgroup">
     {#list source as item}
-    <checkEx name={item.name} checked={item.checked} block={block} />
+    <label class="u-checkex" r-class={ {'u-checkex-block': block} }><input type="checkbox" class="u-check" r-model={item.checked} > {item.name}</label>
     {/list}
 </div>

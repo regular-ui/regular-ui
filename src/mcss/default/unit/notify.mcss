@@ -1,4 +1,4 @@
-// Color Extends:       `u-btn-primary`, `u-btn-success`, `u-btn-danger`
+// Color Extends:       `m-notify_message-info`, `m-notify_message-success`, `m-notify_message-warning`, `m-notify_message-error`
 // ========================================================================
 
 $m-notify_message-extend_color(
@@ -21,6 +21,6 @@ $m-notify_message-extend_color(
 
 $m-notify_message-extend_color(
     error,
-    $m-notify_message-danger_background,
-    $m-notify_message-danger_color
+    $m-notify_message-error_background,
+    $m-notify_message-error_color
 );

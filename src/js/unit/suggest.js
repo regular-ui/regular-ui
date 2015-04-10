@@ -1,6 +1,7 @@
 var Component = require('../base/component.js');
 var template = require('./suggest.html');
 var _ = require('../base/util.js');
+var ListBox = require('./listBox.js');
 
 /**
  * @class Suggest
@@ -14,128 +15,92 @@ var _ = require('../base/util.js');
  *         .disabled 是否禁用
  *         .open 下拉列表展开
  *         .suggest 是否自动提示
- *         .suggestStart 当输入长度>=此值时提示
+ *         .minLength 当输入长度>=此值时提示
  *         .matchType 匹配方式，'all'表示全局匹配，'start'表示开头匹配，'end'表示结尾匹配
  * @Event on-change 当value改变时发生 {selected}
  */
 var Suggest = Component.extend({
     name: 'suggest',
     template: template,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
-            selected: {},
-            value: -1,
-            options: [],
-            defaultOption: '请选择',
-            disabled: false,
+            source: [],
+            selected: null,
+            placeholder: '请输入',
             open: false,
-            suggestStart: 0,
+            disabled: false,
+            minLength: 0,
+            delay: 300,
             matchType: 'all',
-            _hasId: false,
-            _inputValue: ''
+            value: '',
+            strict: false
         });
         this.supr();
-
-        this.$watch('options', function(value) {
-            this.data._hasId = (value && value[0].id !== undefined);
-        });
-
-        this.$watch('value', function(newValue, oldValue) {
-            if(!this.data.defaultOption && this.data.value == -1)
-                newValue = this.data.value = this.data.options[0].id;
-
-                if(newValue < 0) {
-                    this.data.selected = {id: -1, name: this.data.defaultOption};
-                    this.data._inputValue = '';
-                } else {
-                    for(var i = 0; i < this.data.options.length; i++)
-                        if(this.data.options[i].id == newValue) {
-                            this.data.selected = this.data.options[i];
-                            break;
-                        }
-                    this.data._inputValue = this.data.selected.name;
-                }
-
-            var $event = {
-                data: {
-                    newValue: newValue,
-                    oldValue: oldValue,
-                    selected: this.data.selected
-                }
-            }
-            this.$emit('change', this.data.selected);
-            this.$emit('change2', $event);
-        });
     },
-    select: function(id) {
-        var $event = {
-            cancelChange: false,
-            data: {
-                newValue: id,
-                oldValue: this.data.value,
-            }
-        }
-        this.$emit('select', $event);
-        
+    select: function(item) {
+        this.$update('selected', item);
+        this.data.value = item.name;
+        //this.data.selected = item;
+        /**
+         * @event select 选择某一项时触发
+         * @property {object} selected 当前选择项
+         */
+        this.$emit('select', {
+            selected: item
+        });
         this.toggle(false);
-        if($event.cancelChange)
-            return;
-
-        this.data.value = id;
     },
     toggle: function(open, _isInput) {
         if(this.data.disabled)
             return;
 
-        if(this.data.open == open)
-            return;
-
-
-        var index = Suggest.suggestsShow.indexOf(this);
-        if(open && index < 0)
-            Suggest.suggestsShow.push(this);
-        else if(!open && index >= 0) {
-            Suggest.suggestsShow.splice(index, 1);
-
-            if(!_isInput) {
-                if(this.data.value == -1)
-                    this.data._inputValue = '';
-                else
-                    this.data._inputValue = this.data.selected.name;
-            }
-        }
         this.data.open = open;
+
+
+        var index = Suggest.opens.indexOf(this);
+        if(open && index < 0)
+            Suggest.opens.push(this);
+        else if(!open && index >= 0) {
+            Suggest.opens.splice(index, 1);
+
+            if(!_isInput && this.data.strict)
+               this.data.value = this.data.selected ? this.data.selected.name : '';
+        }
     },
     input: function($event) {
-        var inputValue = this.data._inputValue;
+        var value = this.data.value;
 
-        if(inputValue.length >= this.data.suggestStart)
+        if(value.length >= this.data.minLength)
             this.toggle(true);
         else
             this.toggle(false, true);
     },
-    uninput: function() {
+    uninput: function($event) {
 
     },
-    filter: function(option) {
-        var inputValue = this.data._inputValue;
+    filter: function(item) {
+        var value = this.data.value;
 
-        if(!inputValue && this.data.suggestStart)
+        if(!value && this.data.minLength)
             return false;
 
         if(this.data.matchType == 'all')
-            return option.name.indexOf(inputValue) >= 0;
+            return item.name.indexOf(value) >= 0;
         else if(this.data.matchType == 'start')
-            return option.name.slice(0, inputValue.length) == inputValue;
+            return item.name.slice(0, value.length) == value;
         else if(this.data.matchType == 'end')
-            return option.name.slice(-inputValue.length) == inputValue;
+            return item.name.slice(-value.length) == value;
     }
 });
 
-Suggest.suggestsShow = [];
+// 处理点击suggest之外的地方后的收起事件。
+Suggest.opens = [];
 
 _.addEvent(window.document, 'click', function(e) {
-    Suggest.suggestsShow.forEach(function(suggest) {
+    Suggest.opens.forEach(function(suggest) {
         var element = suggest.$refs.element;
         var element2 = e.target;
         while(element2 != document.body) {

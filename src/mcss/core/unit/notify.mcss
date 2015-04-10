@@ -1,22 +1,26 @@
 // Name:            Notify
+// Description:     通知
 // Author:          sensen(hzzhaoyusen@corp.netease.com)
-// Description:     Notify
-//
-// Component:       `u-btn`
-//
-// Status:          `z-act`
-//                  `z-dis`
-//
-// Example:         
-//
+// ========================================================================
+
+
+
+// Component:       `m-notify`
 // ========================================================================
 
 .m-notify {
+    position: fixed;
+    top: $m-notify_position;
+    left: $m-notify_position;
+    z-index: $m-notify_z-index;
+    width: $m-notify_width;
+    $box-sizing: border-box;
+
     .notify_message {
         margin-bottom: $m-notify_message_margin-bottom;
         padding: $m-notify_message_padding;
         background: $m-notify_message_background;
-        $clearfix();
+        border: 1px solid #bbb;
 
         .notify_close {
             float: right;
@@ -24,51 +28,67 @@
             &:hover {
                 color: #888;
             }
+            .f-icon {
+                margin-top: -2px;
+            }
         }
-        // .glyphicon{
-        //     position: absolute;
-        //     $gsize = 32px;
-        //     $lh: $gsize;
-        //     top: 50%;
-        //     left: 12px;
-        //     margin-top: - ($gsize / 2);
-        //     font-size: 20px;
-        //     margin-right: 4px;
-        // }
 
-        // &-error{
-        //   $m-notify-theme: $brand-danger;
-        // }
-        // &-info{
-        //   $m-notify-theme: $brand-info;
-        // }
-        // &-success{
-        //   $m-notify-theme: $brand-success;
-        // }
-        // &-warning{
-        //   $m-notify-theme: $brand-warning;
-        // }
-
+        .notify_text {
+            .f-icon {
+                font-size: 20px;
+                margin-top: -2px;
+            }
+        }
     }
 }
 
-.m-notify-fixed {
-    position: fixed;
-    top: $m-notify-fixed_position;
-    left: $m-notify-fixed_position;
-    z-index: $m-notify-fixed_z-index;
-    width: $m-notify-fixed_width;
-    // $box-sizing: border-box;
+
+
+// Position Extend:
+// Description:     位置扩展
+// ========================================================================
+
+.m-notify-topright,
+.m-notify-bottomright  {
+    left: auto;
+    right: $m-notify_position;
 }
 
-// .m-notify-left{
-//     left: 12px;
-//     right: auto;
-// }
-// .m-notify-middle{
-//     left: 50%;
-//     margin-left: -40px;
-// }
+.m-notify-topcenter,
+.m-notify-bottomcenter {
+    left: 50%;
+    margin-left: ($m-notify_width / -2);
+}
+
+.m-notify-bottomleft,
+.m-notify-bottomright,
+.m-notify-bottomcenter {
+    top: auto;
+    bottom: $m-notify_position;
+}
+
+/* Responsive */
+@media (max-width: $media-sm-max-width) {
+    // - Fit in small screen
+    .m-notify {
+        left: 10px;
+        right: 10px;
+        width: auto;
+        margin: 0;
+    }
+}
+
+/* Static */
+.m-notify-static {
+    position: static;
+    width: auto;
+}
+
+
+
+// Color Extend:
+// Description:     颜色扩展
+// ========================================================================
 
 $m-notify_message-extend_color = (
     $name,
@@ -79,7 +99,7 @@ $m-notify_message-extend_color = (
         .notify_message-#{$name} {
             background-color: $background-color;
             color: $color;
-            border: 1px solid $color;
+            border: 1px solid fade($color, 0.6, true);
 
             .notify_close {
                 color: fade($color, 0.75, true);

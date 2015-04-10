@@ -1,0 +1,9 @@
+<div class="m-tab">
+    <div class="tab-hd">
+        <ul class="f-cb">
+            {#list source as item}
+            <li r-class={ {'z-crt': item == selected} } on-click={this.select(item)}>{item.name}</li>
+            {/list}
+        </ul>
+    </div>
+</div>

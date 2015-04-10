@@ -49,5 +49,5 @@ $brand-primary =             $turquoise;
 $brand-secondary =           $wet-asphalt;
 $brand-success =             $emerald;
 $brand-warning =             $sun-flower;
-$brand-danger =              $alizarin;
+$brand-error =              $alizarin;
 $brand-info =                $peter-river;

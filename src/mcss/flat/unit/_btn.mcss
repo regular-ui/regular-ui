@@ -1,28 +1,3 @@
-// Name:            Button
-// Description:     Defines styles for buttons
-//
-// Component:       `u-btn`
-//
-// Sub-objects:     `btn-hd`
-//                  `btn-bd`
-//
-// Modifiers:       `u-btn-primary`
-//                  `u-btn-success`
-//                  `u-btn-danger`
-//                  `u-btn-link`
-//                  `u-btn-xs`
-//                  `u-btn-sm`
-//                  `u-btn-lg`
-//
-// States:          `z-active`
-//
-// Example:
-//
-//
-// ========================================================================
-
-
-
 // Override Variables
 // ========================================================================
 
@@ -32,9 +7,9 @@ $u-btn_height =                         30px;
 $u-btn_font-size =                      $font-size-base;
 
 /* Color */
-$u-btn_background =                     $gray-light;
-$u-btn-hover_background =               mix($gray-light, white, 80%);
-$u-btn-active_background =              mix($gray-light, black, 85%);
+$u-btn_background =                     $gray;
+$u-btn-hover_background =               mix($gray, white, 80%);
+$u-btn-active_background =              mix($gray, black, 85%);
 $u-btn-disabled_background =            fade($gray-light, 0.75, true);
 
 $u-btn_color =                          $inverse;
@@ -51,13 +26,13 @@ $u-btn_border-radius =                  $border-radius-base;
 // ========================================================================
 
 /* Dimension */
-$u-btn-xs_height =                    13px + 12px;
-$u-btn-xs_padding-horizontal =        9px;
+$u-btn-xs_height =                    18px;
+$u-btn-xs_padding-horizontal =        6px;
 $u-btn-xs_font-size =                 12px;
 $u-btn-xs_border-radius =             $border-radius-xs;
 
-$u-btn-sm_height =                   16px + 18px;
-$u-btn-sm_padding-horizontal =       13px;
+$u-btn-sm_height =                   13px + 12px;
+$u-btn-sm_padding-horizontal =       9px;
 $u-btn-sm_font-size =                13px;
 $u-btn-sm_border-radius =            $border-radius-sm;
 
@@ -88,9 +63,9 @@ $u-btn-success_background =             $brand-success;
 $u-btn-success-hover_background =       mix($brand-success, white, 80%);
 $u-btn-success-active_background =      mix($brand-success, black, 85%);
 
-$u-btn-danger_background =              $brand-danger;
-$u-btn-danger-hover_background =        mix($brand-danger, white, 80%);
-$u-btn-danger-active_background =       mix($brand-danger, black, 85%);
+$u-btn-error_background =              $brand-error;
+$u-btn-error-hover_background =        mix($brand-error, white, 80%);
+$u-btn-error-active_background =       mix($brand-error, black, 85%);
 
 $u-btn-warning_background =             $brand-warning;
 $u-btn-warning-hover_background =       mix($brand-warning, white, 80%);

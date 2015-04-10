@@ -1,20 +1,13 @@
-// Name:            Notify
-// Author:          sensen(hzzhaoyusen@corp.netease.com)
-// Description:     Notify
-//
-// Component:       `u-btn`
-// ========================================================================
-
-
-
 // Variables
 // ========================================================================
 
-$m-notify-fixed_position =                               10px;
-$m-notify-fixed_z-index =                                1040;
-$m-notify-fixed_width =                                  320px;
-$m-notify_message_padding =                        10px 15px;
+/* Dimension */
+$m-notify_position =                    10px;
+$m-notify_z-index =                     1040;
+$m-notify_width =                       320px;
+$m-notify_message_padding =             10px 15px;
+$m-notify_message_margin-bottom =       10px;
 
-$m-notify_message_background =                             #eee;
-$m-notify_message_margin-bottom =                  10px;
-$m-notify_message_color =                          inherit;
+/* Color */
+$m-notify_message_background =          #f4f4f4;
+$m-notify_message_color =               #333;

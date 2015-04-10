@@ -21,6 +21,7 @@
   transform: translate(0, 0);
   width: 1em;
   text-align: center;
+  vertical-align: middle;
 }
 /* makes the font 33% larger relative to the icon container */
 .f-icon-lg {
@@ -427,7 +428,15 @@
 .f-icon-times-circle:before {
   content: "\f057";
 }
+/* alias */
+.f-icon-error-circle:before {
+  content: "\f057";
+}
 .f-icon-check-circle:before {
+  content: "\f058";
+}
+/* alias */
+.f-icon-success-circle:before {
   content: "\f058";
 }
 .f-icon-question-circle:before {
@@ -480,6 +489,9 @@
   content: "\f069";
 }
 .f-icon-exclamation-circle:before {
+  content: "\f06a";
+}
+.f-icon-warning-circle:before {
   content: "\f06a";
 }
 .f-icon-gift:before {

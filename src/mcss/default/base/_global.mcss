@@ -1,5 +1,6 @@
 
 // Brand Colors
 $brand-primary =                        #3498db;
+$brand-info   =                        #3498db;
 $brand-success =                        #8cc14c;
-$brand-danger =                         #da314b;
+$brand-error =                         #da314b;

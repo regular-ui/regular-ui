@@ -1,0 +1,5 @@
+<div class="u-radiogroup">
+    {#list source as item}
+    <label class="u-radioex" r-class={ {'u-radioex-block': block} } on-click={this.select(item)}><div class="radioex_box"><i class="f-icon f-icon-radio" r-hide={item != selected}></i></div> {item.name}</label>
+    {/list}
+</div>

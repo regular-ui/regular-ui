@@ -7,6 +7,9 @@ var _ = {
     },
     addEvent: function(element, event, callback) {
         element.addEventListener(event, callback);
+    },
+    multiline: function(func) {
+        return func.toString().replace(/^function\s*\(\)\s*\{\s*\/\*+/, '').replace(/\*+\/\s*\}$/, '').trim();
     }
 }
 

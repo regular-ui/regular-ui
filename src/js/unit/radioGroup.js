@@ -31,7 +31,8 @@ var RadioGroup = Component.extend({
     config: function() {
         _.extend(this.data, {
             source: [],
-            selected: null
+            selected: null,
+            _radioGroupId: new Date()
         });
         this.supr();
     },

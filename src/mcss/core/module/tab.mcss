@@ -3,12 +3,22 @@
         height: 40px;
         ul {
             margin-left: 50px;
+            list-style: none;
             li {
-
+                float: left;
+                background: #ddd;
+                border-radius: 8px 8px 0 0;
+                padding: 0 16px;
+                line-height: 35px;
+                margin: 5px 1px 0;
+                cursor: pointer;
             }
 
             li.z-crt {
-
+                background: #56c1d1;
+                line-height: 40px;
+                margin-top: 0;
+                color: white;
             }
         }
 
