@@ -5,7 +5,7 @@ $bounceOut();
 $fadeInX();
 $pulse();
 
-.f-animated {
+.animated {
   $animation-duration: 0.5s;
 }
 

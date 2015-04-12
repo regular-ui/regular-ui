@@ -7,7 +7,7 @@
     color: $u-listbox_color;
 
     $box-sizing: border-box;
-    background: $u-listbox_background-color;
+    background: $u-listbox_background;
     border: $u-listbox_border;
     overflow: hidden;
 
@@ -17,12 +17,12 @@
     }
 
     > li:hover {
-        background-color: $u-listbox_item-hover_background-color;
+        background: $u-listbox_item-hover_background;
         color: $u-listbox_item-hover_color;
     }
 
     > li.z-sel {
-        background-color: $u-listbox_item-selected_background-color;
+        background: $u-listbox_item-selected_background;
         color: $u-listbox_item-selected_color;
     }
 }
@@ -30,7 +30,7 @@
 .u-listbox.z-dis {
     > li {
         cursor: not-allowed;
-        background-color: $u-listbox-disabled_background-color;
+        background: $u-listbox-disabled_background;
         color: #999;
     }
 }

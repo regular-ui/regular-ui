@@ -168,10 +168,19 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listBox</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
+<pre class="lang-javascript"><code><span class="cm-meta">...</span>
+    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
+        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+    ];
+<span class="cm-meta">...</span>
+</code></pre>
+<p>或</p>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">source</span> <span class="cm-operator">=</span> [
-    {<span class="cm-property">id</span>: <span class="cm-number">0</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;第一项&#39;</span>},
-    {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;第二项&#39;</span>},
-    {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;第三项&#39;</span>}
+    {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
 ];
 
 <span class="cm-keyword">var</span> <span class="cm-variable">listBox</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListBox</span>({
@@ -185,10 +194,19 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listBox</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
+<pre class="lang-javascript"><code><span class="cm-meta">...</span>
+    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
+        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+    ];
+<span class="cm-meta">...</span>
+</code></pre>
+<p>或</p>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">source</span> <span class="cm-operator">=</span> [
-    {<span class="cm-property">id</span>: <span class="cm-number">0</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;第一项&#39;</span>},
-    {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;第二项&#39;</span>},
-    {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;第三项&#39;</span>}
+    {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
 ];
 
 <span class="cm-keyword">var</span> <span class="cm-variable">listBox</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListBox</span>({
@@ -198,12 +216,32 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     }
 }).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example1&#39;</span>);
 </code></pre>
+<h4 id="-">远程数据</h4>
+<div id="j-example3"></div>
+
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">service</span> <span class="cm-operator">=</span> {
+    <span class="cm-property">getList</span>: <span class="cm-keyword">function</span>(<span class="cm-def">options</span>, <span class="cm-def">callback</span>) {
+        <span class="cm-variable">ajax</span>.<span class="cm-property">request</span>({
+            <span class="cm-property">url</span>: <span class="cm-string">&#39;listbox.json&#39;</span>,
+            <span class="cm-property">method</span>: <span class="cm-string">&#39;get&#39;</span>,
+            <span class="cm-property">type</span>: <span class="cm-string">&#39;json&#39;</span>,
+            <span class="cm-property">success</span>: <span class="cm-keyword">function</span>(<span class="cm-def">data</span>) {
+                <span class="cm-variable-2">callback</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable-2">callback</span>(<span class="cm-variable-2">data</span>);
+            }
+        });
+    }
+};
+
+<span class="cm-keyword">var</span> <span class="cm-variable">listBox</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListBox</span>({
+    <span class="cm-property">service</span>: <span class="cm-variable">service</span>
+}).<span class="cm-property">$updateSource</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example3&#39;</span>);
+</code></pre>
 
         <h3>API</h3>
 
 <h4>Class</h4>
 <h5>ListBox</h5>
-<p>继承自<strong>Component</strong>。</p>
+<p>继承自<strong>SourceComponent</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -293,25 +331,52 @@ var themeSelectEx = new RGUI.SelectEx({
 </script>
 <script>
 var ListBox = RGUI.ListBox;
+var ajax = RGUI.request;
 
 var source = [
-    {id: 0, name: '第一项'},
-    {id: 1, name: '第二项'},
-    {id: 2, name: '第三项'}
+    {id: 1, name: '选项1'},
+    {id: 2, name: '选项2'},
+    {id: 3, name: '选项3'}
 ];
 
-var listBox = new ListBox({
-    data: {
-        source: source
-    }
-}).$inject('#j-example1');
+// 基本形式
+(function() {
+    var listBox = new ListBox({
+        data: {
+            source: source
+        }
+    }).$inject('#j-example1');
+})();
 
-var listBox = new ListBox({
-    data: {
-        source: source,
-        disabled: true
-    }
-}).$inject('#j-example2');
+// 禁用
+(function() {
+    var listBox = new ListBox({
+        data: {
+            source: source,
+            disabled: true
+        }
+    }).$inject('#j-example2');
+})();
+
+// 远程数据
+(function() {
+    var service = {
+        getList: function(options, callback) {
+            ajax.request({
+                url: 'listbox.json',
+                method: 'get',
+                type: 'json',
+                success: function(data) {
+                    callback && callback(data);
+                }
+            });
+        }
+    };
+
+    var listBox = new ListBox({
+        service: service
+    }).$updateSource().$inject('#j-example3');
+})();
 </script>
 </body>
 </html>

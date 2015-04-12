@@ -58,7 +58,7 @@
     text-decoration: none;
 
     /* Public */
-    background-color: $u-btn-hover_background;
+    background: $u-btn-hover_background;
     color: $u-btn-hover_color;
 }
 
@@ -66,14 +66,14 @@
 .u-btn:active,
 .u-btn.z-act {
     /* Public */
-    background-color: $u-btn-active_background;
+    background: $u-btn-active_background;
     color: $u-btn-active_color;
 }
 
 /* Disabled */
 .u-btn:disabled,
 .u-btn.z-dis {
-    background-color: $u-btn-disabled_background !important;
+    background: $u-btn-disabled_background !important;
     color: $u-btn-disabled_color !important;
     cursor: not-allowed !important;
 }
@@ -81,7 +81,7 @@
 
 
 // Extends:         `u-btn-extend_size`, `u-btn-extend_color`
-// Description:     大小和颜色扩展函数
+// Description:     尺寸和颜色扩展函数
 // ========================================================================
 
 $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size) {
@@ -98,14 +98,14 @@ $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size) {
 
 $u-btn-extend_color = (
     $name,
-    $background-color, $hover_background-color, $active_background-color,
+    $background, $hover_background, $active_background,
     $color, $hover_color, $active_color,
     $border-color, $hover_border-color, $active_border-color
 ) {
 
 .u-btn-#{$name} {
     /* Public */
-    background-color: $background-color;
+    background: $background;
     @if($color) {color: $color;}
     @if($border-color) {border-color: $border-color;}
 }
@@ -114,7 +114,7 @@ $u-btn-extend_color = (
 .u-btn-#{$name}:hover,
 .u-btn-#{$name}:focus {
     /* Public */
-    background-color: $hover_background-color;
+    background: $hover_background;
     @if($hover_color) {color: $hover_color;}
     @if($hover_border-color) {border-color: $hover_border-color;}
 }
@@ -123,7 +123,7 @@ $u-btn-extend_color = (
 .u-btn-#{$name}:active,
 .u-btn-#{$name}.z-act {
     /* Public */
-    background-color: $active_background-color;
+    background: $active_background;
     @if($active_color) {color: $active_color;}
     @if($active_border-color) {border-color: $active_border-color;}
 }

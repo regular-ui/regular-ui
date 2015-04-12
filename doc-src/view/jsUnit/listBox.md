@@ -8,10 +8,22 @@
 ```
 
 ```javascript
+...
+    this.data.source = [
+        {id: 1, name: '选项1'},
+        {id: 2, name: '选项2'},
+        {id: 3, name: '选项3'}
+    ];
+...
+```
+
+或
+
+```javascript
 var source = [
-    {id: 0, name: '第一项'},
-    {id: 1, name: '第二项'},
-    {id: 2, name: '第三项'}
+    {id: 1, name: '选项1'},
+    {id: 2, name: '选项2'},
+    {id: 3, name: '选项3'}
 ];
 
 var listBox = new ListBox({
@@ -30,10 +42,22 @@ var listBox = new ListBox({
 ```
 
 ```javascript
+...
+    this.data.source = [
+        {id: 1, name: '选项1'},
+        {id: 2, name: '选项2'},
+        {id: 3, name: '选项3'}
+    ];
+...
+```
+
+或
+
+```javascript
 var source = [
-    {id: 0, name: '第一项'},
-    {id: 1, name: '第二项'},
-    {id: 2, name: '第三项'}
+    {id: 1, name: '选项1'},
+    {id: 2, name: '选项2'},
+    {id: 3, name: '选项3'}
 ];
 
 var listBox = new ListBox({
@@ -42,4 +66,27 @@ var listBox = new ListBox({
         disabled: true
     }
 }).$inject('#j-example1');
+```
+
+#### 远程数据
+
+<div id="j-example3"></div>
+
+```javascript
+var service = {
+    getList: function(options, callback) {
+        ajax.request({
+            url: 'listbox.json',
+            method: 'get',
+            type: 'json',
+            success: function(data) {
+                callback && callback(data);
+            }
+        });
+    }
+};
+
+var listBox = new ListBox({
+    service: service
+}).$updateSource().$inject('#j-example3');
 ```

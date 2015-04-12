@@ -53,7 +53,9 @@ $reset-normalize();
 @import 'default/unit/notify.mcss';
 
 @import 'core/unit/_progress.mcss';
+@import 'default/unit/_progress.mcss';
 @import 'core/unit/progress.mcss';
+@import 'default/unit/progress.mcss';
 
 /* 列表类 */
 @import 'core/unit/_listbox.mcss';

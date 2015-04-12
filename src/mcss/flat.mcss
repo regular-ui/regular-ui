@@ -48,10 +48,14 @@ $reset-normalize();
 
 /* 消息类 */
 @import 'core/unit/_notify.mcss';
+@import 'flat/unit/_notify.mcss';
 @import 'core/unit/notify.mcss';
+@import 'flat/unit/notify.mcss';
 
 @import 'core/unit/_progress.mcss';
+@import 'flat/unit/_progress.mcss';
 @import 'core/unit/progress.mcss';
+@import 'flat/unit/progress.mcss';
 
 /* 列表类 */
 @import 'core/unit/_listbox.mcss';

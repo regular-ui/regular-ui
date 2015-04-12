@@ -6,4 +6,4 @@
 
 该目录下的css文件是由doc-src/mcss生成的。
 
-该目录下的js文件是由src/js生成的，除了js/public.js。
+该目录下的js文件是由src/js生成的，除了js/public.js、font。

@@ -17,6 +17,7 @@ var RGUI = {}
 RGUI.Regular = require('regularjs');
 RGUI.Component = require('./base/component.js');
 RGUI._ = require('./base/util.js');
+RGUI.request = require('./base/request.js');
 
 /**
  * jsUnit
@@ -56,7 +57,7 @@ RGUI.Pager = require('./module/pager.js');
 RGUI.Modal = require('./module/modal.js');
 
 module.exports = window.RGUI = RGUI;
-},{"./base/component.js":27,"./base/util.js":29,"./module/modal.js":31,"./module/pager.js":33,"./module/tab.js":35,"./module/tabHead.js":37,"./unit/calendar.js":39,"./unit/checkEx.js":41,"./unit/checkGroup.js":43,"./unit/datePicker.js":45,"./unit/inputEx.js":47,"./unit/listBox.js":49,"./unit/listView.js":51,"./unit/notify.js":53,"./unit/progress.js":55,"./unit/radioGroup.js":57,"./unit/selectEx.js":59,"./unit/suggest.js":61,"./unit/timePicker.js":62,"./unit/treeSelect.js":64,"./unit/treeView.js":66,"regularjs":20}],2:[function(require,module,exports){
+},{"./base/component.js":28,"./base/request.js":30,"./base/util.js":32,"./module/modal.js":34,"./module/pager.js":36,"./module/tab.js":38,"./module/tabHead.js":40,"./unit/calendar.js":42,"./unit/checkEx.js":44,"./unit/checkGroup.js":46,"./unit/datePicker.js":48,"./unit/inputEx.js":50,"./unit/listBox.js":52,"./unit/listView.js":54,"./unit/notify.js":56,"./unit/progress.js":58,"./unit/radioGroup.js":60,"./unit/selectEx.js":62,"./unit/suggest.js":64,"./unit/timePicker.js":65,"./unit/treeSelect.js":67,"./unit/treeView.js":69,"regularjs":20}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -4862,6 +4863,623 @@ walkers.attribute = function(ast ,options){
 
 
 },{"./dom.js":8,"./group.js":10,"./helper/animate.js":11,"./helper/combine.js":12,"./parser/node.js":24,"./util":25}],27:[function(require,module,exports){
+/*!
+  * Reqwest! A general purpose XHR connection manager
+  * license MIT (c) Dustin Diaz 2014
+  * https://github.com/ded/reqwest
+  */
+
+!function (name, context, definition) {
+  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+  else if (typeof define == 'function' && define.amd) define(definition)
+  else context[name] = definition()
+}('reqwest', this, function () {
+
+  var win = window
+    , doc = document
+    , httpsRe = /^http/
+    , protocolRe = /(^\w+):\/\//
+    , twoHundo = /^(20\d|1223)$/ //http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
+    , byTag = 'getElementsByTagName'
+    , readyState = 'readyState'
+    , contentType = 'Content-Type'
+    , requestedWith = 'X-Requested-With'
+    , head = doc[byTag]('head')[0]
+    , uniqid = 0
+    , callbackPrefix = 'reqwest_' + (+new Date())
+    , lastValue // data stored by the most recent JSONP callback
+    , xmlHttpRequest = 'XMLHttpRequest'
+    , xDomainRequest = 'XDomainRequest'
+    , noop = function () {}
+
+    , isArray = typeof Array.isArray == 'function'
+        ? Array.isArray
+        : function (a) {
+            return a instanceof Array
+          }
+
+    , defaultHeaders = {
+          'contentType': 'application/x-www-form-urlencoded'
+        , 'requestedWith': xmlHttpRequest
+        , 'accept': {
+              '*':  'text/javascript, text/html, application/xml, text/xml, */*'
+            , 'xml':  'application/xml, text/xml'
+            , 'html': 'text/html'
+            , 'text': 'text/plain'
+            , 'json': 'application/json, text/javascript'
+            , 'js':   'application/javascript, text/javascript'
+          }
+      }
+
+    , xhr = function(o) {
+        // is it x-domain
+        if (o['crossOrigin'] === true) {
+          var xhr = win[xmlHttpRequest] ? new XMLHttpRequest() : null
+          if (xhr && 'withCredentials' in xhr) {
+            return xhr
+          } else if (win[xDomainRequest]) {
+            return new XDomainRequest()
+          } else {
+            throw new Error('Browser does not support cross-origin requests')
+          }
+        } else if (win[xmlHttpRequest]) {
+          return new XMLHttpRequest()
+        } else {
+          return new ActiveXObject('Microsoft.XMLHTTP')
+        }
+      }
+    , globalSetupOptions = {
+        dataFilter: function (data) {
+          return data
+        }
+      }
+
+  function succeed(r) {
+    var protocol = protocolRe.exec(r.url);
+    protocol = (protocol && protocol[1]) || window.location.protocol;
+    return httpsRe.test(protocol) ? twoHundo.test(r.request.status) : !!r.request.response;
+  }
+
+  function handleReadyState(r, success, error) {
+    return function () {
+      // use _aborted to mitigate against IE err c00c023f
+      // (can't read props on aborted request objects)
+      if (r._aborted) return error(r.request)
+      if (r._timedOut) return error(r.request, 'Request is aborted: timeout')
+      if (r.request && r.request[readyState] == 4) {
+        r.request.onreadystatechange = noop
+        if (succeed(r)) success(r.request)
+        else
+          error(r.request)
+      }
+    }
+  }
+
+  function setHeaders(http, o) {
+    var headers = o['headers'] || {}
+      , h
+
+    headers['Accept'] = headers['Accept']
+      || defaultHeaders['accept'][o['type']]
+      || defaultHeaders['accept']['*']
+
+    var isAFormData = typeof FormData === 'function' && (o['data'] instanceof FormData);
+    // breaks cross-origin requests with legacy browsers
+    if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith']
+    if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType']
+    for (h in headers)
+      headers.hasOwnProperty(h) && 'setRequestHeader' in http && http.setRequestHeader(h, headers[h])
+  }
+
+  function setCredentials(http, o) {
+    if (typeof o['withCredentials'] !== 'undefined' && typeof http.withCredentials !== 'undefined') {
+      http.withCredentials = !!o['withCredentials']
+    }
+  }
+
+  function generalCallback(data) {
+    lastValue = data
+  }
+
+  function urlappend (url, s) {
+    return url + (/\?/.test(url) ? '&' : '?') + s
+  }
+
+  function handleJsonp(o, fn, err, url) {
+    var reqId = uniqid++
+      , cbkey = o['jsonpCallback'] || 'callback' // the 'callback' key
+      , cbval = o['jsonpCallbackName'] || reqwest.getcallbackPrefix(reqId)
+      , cbreg = new RegExp('((^|\\?|&)' + cbkey + ')=([^&]+)')
+      , match = url.match(cbreg)
+      , script = doc.createElement('script')
+      , loaded = 0
+      , isIE10 = navigator.userAgent.indexOf('MSIE 10.0') !== -1
+
+    if (match) {
+      if (match[3] === '?') {
+        url = url.replace(cbreg, '$1=' + cbval) // wildcard callback func name
+      } else {
+        cbval = match[3] // provided callback func name
+      }
+    } else {
+      url = urlappend(url, cbkey + '=' + cbval) // no callback details, add 'em
+    }
+
+    win[cbval] = generalCallback
+
+    script.type = 'text/javascript'
+    script.src = url
+    script.async = true
+    if (typeof script.onreadystatechange !== 'undefined' && !isIE10) {
+      // need this for IE due to out-of-order onreadystatechange(), binding script
+      // execution to an event listener gives us control over when the script
+      // is executed. See http://jaubourg.net/2010/07/loading-script-as-onclick-handler-of.html
+      script.htmlFor = script.id = '_reqwest_' + reqId
+    }
+
+    script.onload = script.onreadystatechange = function () {
+      if ((script[readyState] && script[readyState] !== 'complete' && script[readyState] !== 'loaded') || loaded) {
+        return false
+      }
+      script.onload = script.onreadystatechange = null
+      script.onclick && script.onclick()
+      // Call the user callback with the last value stored and clean up values and scripts.
+      fn(lastValue)
+      lastValue = undefined
+      head.removeChild(script)
+      loaded = 1
+    }
+
+    // Add the script to the DOM head
+    head.appendChild(script)
+
+    // Enable JSONP timeout
+    return {
+      abort: function () {
+        script.onload = script.onreadystatechange = null
+        err({}, 'Request is aborted: timeout', {})
+        lastValue = undefined
+        head.removeChild(script)
+        loaded = 1
+      }
+    }
+  }
+
+  function getRequest(fn, err) {
+    var o = this.o
+      , method = (o['method'] || 'GET').toUpperCase()
+      , url = typeof o === 'string' ? o : o['url']
+      // convert non-string objects to query-string form unless o['processData'] is false
+      , data = (o['processData'] !== false && o['data'] && typeof o['data'] !== 'string')
+        ? reqwest.toQueryString(o['data'])
+        : (o['data'] || null)
+      , http
+      , sendWait = false
+
+    // if we're working on a GET request and we have data then we should append
+    // query string to end of URL and not post data
+    if ((o['type'] == 'jsonp' || method == 'GET') && data) {
+      url = urlappend(url, data)
+      data = null
+    }
+
+    if (o['type'] == 'jsonp') return handleJsonp(o, fn, err, url)
+
+    // get the xhr from the factory if passed
+    // if the factory returns null, fall-back to ours
+    http = (o.xhr && o.xhr(o)) || xhr(o)
+
+    http.open(method, url, o['async'] === false ? false : true)
+    setHeaders(http, o)
+    setCredentials(http, o)
+    if (win[xDomainRequest] && http instanceof win[xDomainRequest]) {
+        http.onload = fn
+        http.onerror = err
+        // NOTE: see
+        // http://social.msdn.microsoft.com/Forums/en-US/iewebdevelopment/thread/30ef3add-767c-4436-b8a9-f1ca19b4812e
+        http.onprogress = function() {}
+        sendWait = true
+    } else {
+      http.onreadystatechange = handleReadyState(this, fn, err)
+    }
+    o['before'] && o['before'](http)
+    if (sendWait) {
+      setTimeout(function () {
+        http.send(data)
+      }, 200)
+    } else {
+      http.send(data)
+    }
+    return http
+  }
+
+  function Reqwest(o, fn) {
+    this.o = o
+    this.fn = fn
+
+    init.apply(this, arguments)
+  }
+
+  function setType(header) {
+    // json, javascript, text/plain, text/html, xml
+    if (header.match('json')) return 'json'
+    if (header.match('javascript')) return 'js'
+    if (header.match('text')) return 'html'
+    if (header.match('xml')) return 'xml'
+  }
+
+  function init(o, fn) {
+
+    this.url = typeof o == 'string' ? o : o['url']
+    this.timeout = null
+
+    // whether request has been fulfilled for purpose
+    // of tracking the Promises
+    this._fulfilled = false
+    // success handlers
+    this._successHandler = function(){}
+    this._fulfillmentHandlers = []
+    // error handlers
+    this._errorHandlers = []
+    // complete (both success and fail) handlers
+    this._completeHandlers = []
+    this._erred = false
+    this._responseArgs = {}
+
+    var self = this
+
+    fn = fn || function () {}
+
+    if (o['timeout']) {
+      this.timeout = setTimeout(function () {
+        timedOut()
+      }, o['timeout'])
+    }
+
+    if (o['success']) {
+      this._successHandler = function () {
+        o['success'].apply(o, arguments)
+      }
+    }
+
+    if (o['error']) {
+      this._errorHandlers.push(function () {
+        o['error'].apply(o, arguments)
+      })
+    }
+
+    if (o['complete']) {
+      this._completeHandlers.push(function () {
+        o['complete'].apply(o, arguments)
+      })
+    }
+
+    function complete (resp) {
+      o['timeout'] && clearTimeout(self.timeout)
+      self.timeout = null
+      while (self._completeHandlers.length > 0) {
+        self._completeHandlers.shift()(resp)
+      }
+    }
+
+    function success (resp) {
+      var type = o['type'] || resp && setType(resp.getResponseHeader('Content-Type')) // resp can be undefined in IE
+      resp = (type !== 'jsonp') ? self.request : resp
+      // use global data filter on response text
+      var filteredResponse = globalSetupOptions.dataFilter(resp.responseText, type)
+        , r = filteredResponse
+      try {
+        resp.responseText = r
+      } catch (e) {
+        // can't assign this in IE<=8, just ignore
+      }
+      if (r) {
+        switch (type) {
+        case 'json':
+          try {
+            resp = win.JSON ? win.JSON.parse(r) : eval('(' + r + ')')
+          } catch (err) {
+            return error(resp, 'Could not parse JSON in response', err)
+          }
+          break
+        case 'js':
+          resp = eval(r)
+          break
+        case 'html':
+          resp = r
+          break
+        case 'xml':
+          resp = resp.responseXML
+              && resp.responseXML.parseError // IE trololo
+              && resp.responseXML.parseError.errorCode
+              && resp.responseXML.parseError.reason
+            ? null
+            : resp.responseXML
+          break
+        }
+      }
+
+      self._responseArgs.resp = resp
+      self._fulfilled = true
+      fn(resp)
+      self._successHandler(resp)
+      while (self._fulfillmentHandlers.length > 0) {
+        resp = self._fulfillmentHandlers.shift()(resp)
+      }
+
+      complete(resp)
+    }
+
+    function timedOut() {
+      self._timedOut = true
+      self.request.abort()      
+    }
+
+    function error(resp, msg, t) {
+      resp = self.request
+      self._responseArgs.resp = resp
+      self._responseArgs.msg = msg
+      self._responseArgs.t = t
+      self._erred = true
+      while (self._errorHandlers.length > 0) {
+        self._errorHandlers.shift()(resp, msg, t)
+      }
+      complete(resp)
+    }
+
+    this.request = getRequest.call(this, success, error)
+  }
+
+  Reqwest.prototype = {
+    abort: function () {
+      this._aborted = true
+      this.request.abort()
+    }
+
+  , retry: function () {
+      init.call(this, this.o, this.fn)
+    }
+
+    /**
+     * Small deviation from the Promises A CommonJs specification
+     * http://wiki.commonjs.org/wiki/Promises/A
+     */
+
+    /**
+     * `then` will execute upon successful requests
+     */
+  , then: function (success, fail) {
+      success = success || function () {}
+      fail = fail || function () {}
+      if (this._fulfilled) {
+        this._responseArgs.resp = success(this._responseArgs.resp)
+      } else if (this._erred) {
+        fail(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+      } else {
+        this._fulfillmentHandlers.push(success)
+        this._errorHandlers.push(fail)
+      }
+      return this
+    }
+
+    /**
+     * `always` will execute whether the request succeeds or fails
+     */
+  , always: function (fn) {
+      if (this._fulfilled || this._erred) {
+        fn(this._responseArgs.resp)
+      } else {
+        this._completeHandlers.push(fn)
+      }
+      return this
+    }
+
+    /**
+     * `fail` will execute when the request fails
+     */
+  , fail: function (fn) {
+      if (this._erred) {
+        fn(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+      } else {
+        this._errorHandlers.push(fn)
+      }
+      return this
+    }
+  , 'catch': function (fn) {
+      return this.fail(fn)
+    }
+  }
+
+  function reqwest(o, fn) {
+    return new Reqwest(o, fn)
+  }
+
+  // normalize newline variants according to spec -> CRLF
+  function normalize(s) {
+    return s ? s.replace(/\r?\n/g, '\r\n') : ''
+  }
+
+  function serial(el, cb) {
+    var n = el.name
+      , t = el.tagName.toLowerCase()
+      , optCb = function (o) {
+          // IE gives value="" even where there is no value attribute
+          // 'specified' ref: http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-862529273
+          if (o && !o['disabled'])
+            cb(n, normalize(o['attributes']['value'] && o['attributes']['value']['specified'] ? o['value'] : o['text']))
+        }
+      , ch, ra, val, i
+
+    // don't serialize elements that are disabled or without a name
+    if (el.disabled || !n) return
+
+    switch (t) {
+    case 'input':
+      if (!/reset|button|image|file/i.test(el.type)) {
+        ch = /checkbox/i.test(el.type)
+        ra = /radio/i.test(el.type)
+        val = el.value
+        // WebKit gives us "" instead of "on" if a checkbox has no value, so correct it here
+        ;(!(ch || ra) || el.checked) && cb(n, normalize(ch && val === '' ? 'on' : val))
+      }
+      break
+    case 'textarea':
+      cb(n, normalize(el.value))
+      break
+    case 'select':
+      if (el.type.toLowerCase() === 'select-one') {
+        optCb(el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null)
+      } else {
+        for (i = 0; el.length && i < el.length; i++) {
+          el.options[i].selected && optCb(el.options[i])
+        }
+      }
+      break
+    }
+  }
+
+  // collect up all form elements found from the passed argument elements all
+  // the way down to child elements; pass a '<form>' or form fields.
+  // called with 'this'=callback to use for serial() on each element
+  function eachFormElement() {
+    var cb = this
+      , e, i
+      , serializeSubtags = function (e, tags) {
+          var i, j, fa
+          for (i = 0; i < tags.length; i++) {
+            fa = e[byTag](tags[i])
+            for (j = 0; j < fa.length; j++) serial(fa[j], cb)
+          }
+        }
+
+    for (i = 0; i < arguments.length; i++) {
+      e = arguments[i]
+      if (/input|select|textarea/i.test(e.tagName)) serial(e, cb)
+      serializeSubtags(e, [ 'input', 'select', 'textarea' ])
+    }
+  }
+
+  // standard query string style serialization
+  function serializeQueryString() {
+    return reqwest.toQueryString(reqwest.serializeArray.apply(null, arguments))
+  }
+
+  // { 'name': 'value', ... } style serialization
+  function serializeHash() {
+    var hash = {}
+    eachFormElement.apply(function (name, value) {
+      if (name in hash) {
+        hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]])
+        hash[name].push(value)
+      } else hash[name] = value
+    }, arguments)
+    return hash
+  }
+
+  // [ { name: 'name', value: 'value' }, ... ] style serialization
+  reqwest.serializeArray = function () {
+    var arr = []
+    eachFormElement.apply(function (name, value) {
+      arr.push({name: name, value: value})
+    }, arguments)
+    return arr
+  }
+
+  reqwest.serialize = function () {
+    if (arguments.length === 0) return ''
+    var opt, fn
+      , args = Array.prototype.slice.call(arguments, 0)
+
+    opt = args.pop()
+    opt && opt.nodeType && args.push(opt) && (opt = null)
+    opt && (opt = opt.type)
+
+    if (opt == 'map') fn = serializeHash
+    else if (opt == 'array') fn = reqwest.serializeArray
+    else fn = serializeQueryString
+
+    return fn.apply(null, args)
+  }
+
+  reqwest.toQueryString = function (o, trad) {
+    var prefix, i
+      , traditional = trad || false
+      , s = []
+      , enc = encodeURIComponent
+      , add = function (key, value) {
+          // If value is a function, invoke it and return its value
+          value = ('function' === typeof value) ? value() : (value == null ? '' : value)
+          s[s.length] = enc(key) + '=' + enc(value)
+        }
+    // If an array was passed in, assume that it is an array of form elements.
+    if (isArray(o)) {
+      for (i = 0; o && i < o.length; i++) add(o[i]['name'], o[i]['value'])
+    } else {
+      // If traditional, encode the "old" way (the way 1.3.2 or older
+      // did it), otherwise encode params recursively.
+      for (prefix in o) {
+        if (o.hasOwnProperty(prefix)) buildParams(prefix, o[prefix], traditional, add)
+      }
+    }
+
+    // spaces should be + according to spec
+    return s.join('&').replace(/%20/g, '+')
+  }
+
+  function buildParams(prefix, obj, traditional, add) {
+    var name, i, v
+      , rbracket = /\[\]$/
+
+    if (isArray(obj)) {
+      // Serialize array item.
+      for (i = 0; obj && i < obj.length; i++) {
+        v = obj[i]
+        if (traditional || rbracket.test(prefix)) {
+          // Treat each array item as a scalar.
+          add(prefix, v)
+        } else {
+          buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add)
+        }
+      }
+    } else if (obj && obj.toString() === '[object Object]') {
+      // Serialize object item.
+      for (name in obj) {
+        buildParams(prefix + '[' + name + ']', obj[name], traditional, add)
+      }
+
+    } else {
+      // Serialize scalar item.
+      add(prefix, obj)
+    }
+  }
+
+  reqwest.getcallbackPrefix = function () {
+    return callbackPrefix
+  }
+
+  // jQuery and Zepto compatibility, differences can be remapped here so you can call
+  // .ajax.compat(options, callback)
+  reqwest.compat = function (o, fn) {
+    if (o) {
+      o['type'] && (o['method'] = o['type']) && delete o['type']
+      o['dataType'] && (o['type'] = o['dataType'])
+      o['jsonpCallback'] && (o['jsonpCallbackName'] = o['jsonpCallback']) && delete o['jsonpCallback']
+      o['jsonp'] && (o['jsonpCallback'] = o['jsonp'])
+    }
+    return new Reqwest(o, fn)
+  }
+
+  reqwest.ajaxSetup = function (options) {
+    options = options || {}
+    for (var k in options) {
+      globalSetupOptions[k] = options[k]
+    }
+  }
+
+  return reqwest
+});
+
+},{}],28:[function(require,module,exports){
 var Regular = require("regularjs");
 var filter = require("./filter.js");
 
@@ -4889,7 +5507,7 @@ var Component = Regular.extend({
 })
 
 module.exports = Component;
-},{"./filter.js":28,"regularjs":20}],28:[function(require,module,exports){
+},{"./filter.js":29,"regularjs":20}],29:[function(require,module,exports){
 var filter = {};
 
 filter.format = function() {
@@ -4939,7 +5557,59 @@ filter.filter = function(array, filterFn) {
 }
 
 module.exports = filter;
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
+var reqwest = require("reqwest");
+var request = {};
+//var Progress = require("../component/progress/progress.rglc");
+//var progress = new Progress();
+request.request = function(opt) {
+  var noop = function(){};
+  var olderror = opt.error || noop,
+      oldsuccess = opt.success || noop;
+
+  if(opt.method && opt.method.toLowerCase() === "post"){
+    opt.contentType = 'application/json'
+  }
+
+  if(opt.contentType === 'application/json' || opt.headers && opt.headers.contentType === 'application/json'){
+    opt.data = JSON.stringify(opt.data);
+  }
+  if(!opt.method || opt.method === 'get') {
+    if(opt.data) opt.data.timestamp = +new Date;
+    else opt.data = {timestamp: +new Date}
+  }
+  //opt.progress && progress.start();
+  opt.success = function(json) {
+    //opt.progress && progress.end();
+    oldsuccess.apply(this, arguments);
+    //router.go('app.forbidden');
+  }
+  opt.error = function(json) {
+    //opt.progress && progress.end(true);
+    olderror.apply(this, arguments);
+  }
+  reqwest(opt);
+}
+
+module.exports = request;
+},{"reqwest":27}],31:[function(require,module,exports){
+var Component = require('./component.js');
+
+var SourceComponent = Component.extend({
+    service: null,
+    $updateSource: function() {
+        this.service.getList({}, function(data) {
+            if(!data.success)
+                return alert(data.message);
+
+            this.$update('source', data.result);
+        }.bind(this));
+        return this;
+    }
+});
+
+module.exports = SourceComponent;
+},{"./component.js":28}],32:[function(require,module,exports){
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)
@@ -4956,9 +5626,9 @@ var _ = {
 }
 
 module.exports = _;
-},{}],30:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 module.exports="<div class=\"m-modal\">    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>        <div class=\"modal_hd\">            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"f-icon f-icon-close\"></i></a>            <h3 class=\"modal_title\">{title}</h3>        </div>        <div class=\"modal_bd\">            {content}        </div>        <div class=\"modal_ft\">            {#if okButton}            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? \'确定\' : okButton}</button>            {/if}            {#if cancelButton}            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? \'取消\' : cancelButton}</button>            {/if}        </div>    </div></div>"
-},{}],31:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Modal     模态对话框
@@ -5084,9 +5754,9 @@ Modal.confirm = function(content, title) {
 
 module.exports = Modal;
 
-},{"../base/component.js":27,"../base/util.js":29,"./modal.html":30}],32:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./modal.html":33}],35:[function(require,module,exports){
 module.exports="<div class=\"m-page m-page-rt\" r-hide=\"total < 2\">    <a href=\'#\'  on-click={ this.nav(current-1)} class=\'pageprv {current==1? \"z-dis\": \"\"}\'>上一页</a>    {#if total - 5 > show * 2}    <a  on-click={ this.nav(1)} class={current==1? \'z-crt\': \'\'}>1</a>    {#if begin > 2}<a>...</a>{/if}    {#list begin..end as i}    <a on-click={ this.nav(i)} class={current==i? \'z-crt\': \'\'}>{i}</a>    {/list}    {#if (end < total-1)}    <a>...</a>    {/if}    <a on-click={ this.nav(total)} class={current==total? \'z-crt\': \'\'}>{total}</a>    {#else}    {#list 1..total as i}    <a on-click={ this.nav(i)} class={current==i? \'z-crt\': \'\'}>{i}</a>    {/list}    {/if}    <a href=\"#\" on-click={ this.nav(current + 1)} class=\'pagenxt {current==total? \"z-dis\": \"\"}\'>下一页</a></div>"
-},{}],33:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 var Component = require("../base/component.js");
 var template = require("./pager.html");
 
@@ -5121,9 +5791,9 @@ var Pager = Component.extend({
     }
 });
 module.exports = Pager;
-},{"../base/component.js":27,"./pager.html":32}],34:[function(require,module,exports){
+},{"../base/component.js":28,"./pager.html":35}],37:[function(require,module,exports){
 module.exports="<div class=\"m-tab\">    <tabHead source={tabs} selected={selected} />     <div class=\"tab-bd\">        <r-content />    </div></div>"
-},{}],35:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Tab  选择扩展
@@ -5195,9 +5865,9 @@ var TabPane = Component.extend({
 });
 
 module.exports = Tab;
-},{"../base/component.js":27,"../base/util.js":29,"./tab.html":34,"./tabHead.js":37}],36:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./tab.html":37,"./tabHead.js":40}],39:[function(require,module,exports){
 module.exports="<div class=\"m-tab\">    <div class=\"tab-hd\">        <ul class=\"f-cb\">            {#list source as item}            <li r-class={ {\'z-crt\': item == selected} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],37:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TabHead  选择扩展
@@ -5259,9 +5929,9 @@ var TabHead = Component.extend({
 });
 
 module.exports = TabHead;
-},{"../base/component.js":27,"../base/util.js":29,"./tabHead.html":36}],38:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./tabHead.html":39}],41:[function(require,module,exports){
 module.exports="<div class=\"u-calendar\">    <div class=\"calendar_hd\">        <div class=\"calendar_year\">            <i class=\"f-icon f-icon-prev calendar_prev\" on-click={this.addYear(-1)}></i>            <span>{selected | format: \'yyyy\'}</span>            <i class=\"f-icon f-icon-next calendar_next\" on-click={this.addYear(1)}></i>        </div>        <div class=\"calendar_month\">            <i class=\"f-icon f-icon-prev calendar_prev\" on-click={this.addMonth(-1)}></i>            <span>{selected | format: \'MM\'}</span>            <i class=\"f-icon f-icon-next calendar_next\" on-click={this.addMonth(1)}></i>        </div>        <a class=\"calendar_back\" on-click={this.back()}>返回今天</a>    </div>    <div class=\"calendar_bd\">        <div class=\"calendar_week\"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>        <div class=\"calendar_day\">{#list _days as day}<span r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
-},{}],39:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Calendar  日历
@@ -5342,9 +6012,9 @@ var Calendar = Component.extend({
 });
 
 module.exports = Calendar;
-},{"../base/component.js":27,"../base/util.js":29,"./calendar.html":38}],40:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./calendar.html":41}],43:[function(require,module,exports){
 module.exports="<label class=\"u-checkex\" r-class={ {\'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"f-icon f-icon-check\" r-hide={!checked}></i></div> {name}</label>"
-},{}],41:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * CheckEx   输入扩展
@@ -5401,9 +6071,9 @@ var CheckEx = Component.extend({
 });
 
 module.exports = CheckEx;
-},{"../base/component.js":27,"../base/util.js":29,"./checkEx.html":40}],42:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./checkEx.html":43}],45:[function(require,module,exports){
 module.exports="<div class=\"u-checkgroup\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} > {item.name}</label>    {/list}</div>"
-},{}],43:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * CheckGroup 输入扩展
@@ -5460,9 +6130,9 @@ var CheckGroup = Component.extend({
 });
 
 module.exports = CheckGroup;
-},{"../base/component.js":27,"../base/util.js":29,"./checkEx.js":41,"./checkGroup.html":42}],44:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./checkEx.js":44,"./checkGroup.html":45}],47:[function(require,module,exports){
 module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    <div class=\"suggest_bd\" r-hide={!open}>        <calendar on-select={this.select($event.selected)} />    </div></div>"
-},{}],45:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -5529,9 +6199,9 @@ var DatePicker = Suggest.extend({
 });
 
 module.exports = DatePicker;
-},{"../base/filter.js":28,"../base/util.js":29,"./calendar.js":39,"./datePicker.html":44,"./suggest.js":61}],46:[function(require,module,exports){
+},{"../base/filter.js":29,"../base/util.js":32,"./calendar.js":42,"./datePicker.html":47,"./suggest.js":64}],49:[function(require,module,exports){
 module.exports="<label class=\"u-inputex\">    <input class=\"u-input\">    <span class=\"u-unit\">{unit}</span></label>"
-},{}],47:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * InputEx   输入扩展
@@ -5592,9 +6262,9 @@ var InputEx = Component.extend({
 });
 
 module.exports = InputEx;
-},{"../base/component.js":27,"../base/util.js":29,"./inputEx.html":46}],48:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./inputEx.html":49}],51:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
-},{}],49:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListBox   列表框
@@ -5603,25 +6273,21 @@ module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#
  * ------------------------------------------------------------
  */
 
-var Component = require('../base/component.js');
+var SourceComponent = require('../base/sourceComponent.js');
 var template = require('./listBox.html');
 var _ = require('../base/util.js');
 
 /**
  * @class ListBox
- * @extend Component
+ * @extend SourceComponent
  * @param {object}                      options.data 绑定属性
  * @param {object[]=[]}                 options.data.source 数据源
  * @param {number}                      options.data.source[].id 每项的id
  * @param {string}                      options.data.source[].name 每项的内容
  * @param {object=null}                 options.data.selected 当前选择项
  * @param {boolean=false}               options.data.disabled 是否禁用该组件
- * @example
- *     var listbox = new ListBox().inject('#container');
- * @example
- *     <listbox source={dataSource} />
  */
-var ListBox = Component.extend({
+var ListBox = SourceComponent.extend({
     name: 'listBox',
     template: template,
     /**
@@ -5643,6 +6309,9 @@ var ListBox = Component.extend({
      * @return {void}
      */
     select: function(item) {
+        if(this.data.disabled)
+            return;
+
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
@@ -5655,9 +6324,9 @@ var ListBox = Component.extend({
 });
 
 module.exports = ListBox;
-},{"../base/component.js":27,"../base/util.js":29,"./listBox.html":48}],50:[function(require,module,exports){
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./listBox.html":51}],53:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</li>    {/list}</ul>"
-},{}],51:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Listbox   列表框
@@ -5705,9 +6374,9 @@ var ListView = ListBox.extend({
 });
 
 module.exports = ListView;
-},{"../base/util.js":29,"./listBox.js":49,"./listView.html":50}],52:[function(require,module,exports){
-module.exports="<div class=\"m-notify m-notify-{position}\">    {#list messages as message}    <div class=\"notify_message notify_message-{message.type} f-cb\" r-animation=\'on: enter; class: f-animated fadeIn fast; on: leave; class: f-animated fadeOut fast;\'>        <a class=\"notify_close\" on-click={this.close(message)}><i class=\"f-icon f-icon-close\"></i></a>        <div class=\"notify_text\"><i class=\"f-icon f-icon-{message.type}-circle\" r-hide={!message.type}></i> {message.text}</div>    </div>    {/list}</div>"
-},{}],53:[function(require,module,exports){
+},{"../base/util.js":32,"./listBox.js":52,"./listView.html":53}],55:[function(require,module,exports){
+module.exports="<div class=\"m-notify m-notify-{position}\">    {#list messages as message}    <div class=\"notify_message notify_message-{message.type} f-cb\" r-animation=\'on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\'>        <a class=\"notify_close\" on-click={this.close(message)}><i class=\"f-icon f-icon-close\"></i></a>        <div class=\"notify_text\"><i class=\"f-icon f-icon-{message.type}-circle\" r-hide={!message.type}></i> {message.text}</div>    </div>    {/list}</div>"
+},{}],56:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Notify    通知
@@ -5846,9 +6515,9 @@ Notify.closeAll = function() {
 }
 
 module.exports = Notify;
-},{"../base/component.js":27,"../base/util.js":29,"./notify.html":52}],54:[function(require,module,exports){
-module.exports="<div class=\"u-progress\">    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + \'%\' : text) : \'\'}</div></div>"
-},{}],55:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./notify.html":55}],57:[function(require,module,exports){
+module.exports="<div class=\"u-progress u-progress-{size} u-progress-{type}\" r-class={ {\'u-progress-striped\': striped, \'z-act\': active} }>    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + \'%\' : text) : \'\'}</div></div>"
+},{}],58:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Progress  进度条
@@ -5869,6 +6538,10 @@ var _ = require('../base/util.js');
  * @param {object}                  options.data                    绑定属性
  * @param {number=36}               options.data.percent            百分比
  * @param {string|boolean=true}     options.data.text               在进度条中是否显示百分比。值为`string`时显示该段文字。
+ * @param {string=null}             options.data.size               进度条的尺寸
+ * @param {string=null}             options.data.type               进度条的类型，改变显示颜色
+ * @param {boolean=false}           options.data.striped            是否显示条纹
+ * @param {boolean=false}           options.data.active             进度条是否为激活状态，当`striped`为`true`时，进度条显示动画
  */
 var Progress = Component.extend({
     name: 'progress',
@@ -5879,16 +6552,20 @@ var Progress = Component.extend({
     config: function() {
         _.extend(this.data, {
             percent: 36,
-            text: true
+            text: true,
+            size: null,
+            type: null,
+            striped: false,
+            active: false
         });
         this.supr();
     }
 });
 
 module.exports = Progress;
-},{"../base/component.js":27,"../base/util.js":29,"./progress.html":54}],56:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./progress.html":57}],59:[function(require,module,exports){
 module.exports="<div class=\"u-radiogroup\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} > {item.name}</label>    {/list}</div>"
-},{}],57:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioGroup 输入扩展
@@ -5939,9 +6616,9 @@ var RadioGroup = Component.extend({
 });
 
 module.exports = RadioGroup;
-},{"../base/component.js":27,"../base/util.js":29,"./radioGroup.html":56}],58:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./radioGroup.html":59}],61:[function(require,module,exports){
 module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],59:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * SelectEx  选择扩展
@@ -6039,9 +6716,9 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = SelectEx;
-},{"../base/component.js":27,"../base/util.js":29,"./selectEx.html":58}],60:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./selectEx.html":61}],63:[function(require,module,exports){
 module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    <div class=\"suggest_bd\" r-hide={!open}>        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
-},{}],61:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 var Component = require('../base/component.js');
 var template = require('./suggest.html');
 var _ = require('../base/util.js');
@@ -6158,7 +6835,7 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = Suggest;
-},{"../base/component.js":27,"../base/util.js":29,"./listBox.js":49,"./suggest.html":60}],62:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./listBox.js":52,"./suggest.html":63}],65:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -6202,9 +6879,9 @@ var TimePicker = Suggest.extend({
 });
 
 module.exports = TimePicker;
-},{"../base/util.js":29,"./suggest.js":61}],63:[function(require,module,exports){
+},{"../base/util.js":32,"./suggest.js":64}],66:[function(require,module,exports){
 module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
-},{}],64:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -6244,9 +6921,9 @@ var TreeSelect = SelectEx.extend({
 });
 
 module.exports = TreeSelect;
-},{"../base/util.js":29,"./selectEx.js":59,"./treeSelect.html":63,"./treeView.js":66}],65:[function(require,module,exports){
+},{"../base/util.js":32,"./selectEx.js":62,"./treeSelect.html":66,"./treeView.js":69}],68:[function(require,module,exports){
 module.exports="<div class=\"u-treeview\" r-class={ {\'z-dis\': disabled} }>    <treeViewList source={source} visible={true} /></div>"
-},{}],66:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -6308,6 +6985,6 @@ var TreeViewList = Component.extend({
 })
 
 module.exports = TreeView;
-},{"../base/component.js":27,"../base/util.js":29,"./treeView.html":65,"./treeViewList.html":67}],67:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./treeView.html":68,"./treeViewList.html":70}],70:[function(require,module,exports){
 module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.children && item.children.length}            <i class=\"f-icon\" r-class={ {\'f-icon-caret-right\': !item.open, \'f-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</div>        </div>        {#if item.children && item.children.length}<treeViewList source={item.children} visible={item.open} />{/if}    </li>    {/list}</ul>"
 },{}]},{},[1]);

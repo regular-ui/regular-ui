@@ -31,7 +31,7 @@
     padding: $u-input_padding;
     border: $u-input_border;
     color: $u-input_color;
-    background: $u-input_background-color;
+    background: $u-input_background;
     
     // -webkit-transition: all linear 0.2s;
     // transition: all linear 0.2s;
@@ -39,13 +39,13 @@
     &:focus {
         outline: 0;
         border-color: $u-input-focus_border-color;
-        background: $u-input-focus_background-color;
+        background: $u-input-focus_background;
         color: $u-input-focus_color;
     }
 
     &:disabled {
         border-color: $u-input-disabled_border-color;
-        background-color: $u-input-disabled_background-color;
+        background: $u-input-disabled_background;
         color: $u-input-disabled_color;
 
         cursor: not-allowed;

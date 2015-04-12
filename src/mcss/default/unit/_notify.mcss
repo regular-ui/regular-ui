@@ -4,12 +4,16 @@
 /* Color */
 $m-notify_message-primary_background =  #ebf7fd;
 $m-notify_message-primary_color =       #2d7091;
+$m-notify_message-primary_border =       fade($m-notify_message-primary_color, 0.6, true);
 
 $m-notify_message-success_background =  #f2fae3;
 $m-notify_message-success_color =       #659f13;
+$m-notify_message-success_border =       fade($m-notify_message-success_color, 0.6, true);
 
 $m-notify_message-warning_background =  #fffceb;
 $m-notify_message-warning_color =       #e28327;
+$m-notify_message-warning_border =       fade($m-notify_message-warning_color, 0.6, true);
 
 $m-notify_message-error_background =    #fff1f0;
 $m-notify_message-error_color =         #d85030;
+$m-notify_message-error_border =       fade($m-notify_message-error_color, 0.6, true);

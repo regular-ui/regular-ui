@@ -2172,7 +2172,7 @@ body{
 	-moz-animation-name:pulse;
 	animation-name:pulse;
 }
-.f-animated{
+.animated{
 	-webkit-animation-duration:0.5s;
 	-moz-animation-duration:0.5s;
 	animation-duration:0.5s;
@@ -2215,15 +2215,15 @@ a{
 .u-btn:hover,.u-btn:focus{
 	outline:none;
 	text-decoration:none;
-	background-color:#f5f5f5;
+	background:#f5f5f5;
 	color:#444;
 }
 .u-btn:active,.u-btn.z-act{
-	background-color:#ddd;
+	background:#ddd;
 	color:#444;
 }
 .u-btn:disabled,.u-btn.z-dis{
-	background-color:#f5f5f5 !important;
+	background:#f5f5f5 !important;
 	color:#999 !important;
 	cursor:not-allowed !important;
 }
@@ -2266,7 +2266,7 @@ a{
 }
 .u-input:disabled,.u-select:disabled,.u-textarea:disabled{
 	border-color:#ddd;
-	background-color:#f5f5f5;
+	background:#f5f5f5;
 	color:#999;
 	cursor:not-allowed;
 }
@@ -2381,14 +2381,15 @@ input.u-check:disabled,input.u-radio:disabled{
 	margin-bottom:10px;
 	padding:10px 15px;
 	background:#f4f4f4;
+	color:#333;
 	border:1px solid #bbb;
 }
 .m-notify .notify_message .notify_close{
 	float:right;
-	color:#bbb;
+	color:rgba(51,51,51,0.75);
 }
 .m-notify .notify_message .notify_close:hover{
-	color:#888;
+	color:#333;
 }
 .m-notify .notify_message .notify_close .f-icon{
 	margin-top:-2px;
@@ -2438,6 +2439,48 @@ input.u-check:disabled,input.u-radio:disabled{
 	color:#fff;
 	text-align:center;
 }
+.u-progress-striped .progress_bar{
+	background-image:-webkit-linear-gradient(-45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+	background-image:linear-gradient(-45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+	background-size:30px 30px;
+}
+.u-progress-striped.z-act .progress_bar{
+	-webkit-animation:u-progress-striped 2s linear infinite;
+	-moz-animation:u-progress-striped 2s linear infinite;
+	animation:u-progress-striped 2s linear infinite;
+}
+@-webkit-keyframes u-progress-striped{
+	0%{
+		background-position:0 0;
+	}
+	100%{
+		background-position:30px 0;
+	}
+}
+@-moz-keyframes u-progress-striped{
+	0%{
+		background-position:0 0;
+	}
+	100%{
+		background-position:30px 0;
+	}
+}
+@-o-keyframes u-progress-striped{
+	0%{
+		background-position:0 0;
+	}
+	100%{
+		background-position:30px 0;
+	}
+}
+@keyframes u-progress-striped{
+	0%{
+		background-position:0 0;
+	}
+	100%{
+		background-position:30px 0;
+	}
+}
 .u-listbox{
 	list-style:none;
 	margin:0;
@@ -2455,16 +2498,16 @@ input.u-check:disabled,input.u-radio:disabled{
 	padding:0 10px;
 }
 .u-listbox >li:hover{
-	background-color:#eee;
+	background:#eee;
 	color:#444;
 }
 .u-listbox >li.z-sel{
-	background-color:#6ebae8;
-	color:#444;
+	background:#3498db;
+	color:#fff;
 }
 .u-listbox.z-dis >li{
 	cursor:not-allowed;
-	background-color:#f5f5f5;
+	background:#f5f5f5;
 	color:#999;
 }
 .u-treeview{
@@ -2495,16 +2538,16 @@ input.u-check:disabled,input.u-radio:disabled{
 	padding:0 8px;
 }
 .u-treeview .treeview_itemname:hover{
-	background-color:#eee;
+	background:#eee;
 	color:#444;
 }
 .u-treeview .treeview_itemname.z-sel{
-	background-color:#6ebae8;
-	color:#444;
+	background:#3498db;
+	color:#fff;
 }
 .u-treeview.z-dis >li{
 	cursor:not-allowed;
-	background-color:#f5f5f5;
+	background:#f5f5f5;
 	color:#999;
 }
 .u-checkex{
@@ -2605,7 +2648,7 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-selectex.z-dis .selectex_hd{
 	cursor:not-allowed;
-	background-color:#f5f5f5;
+	background:#f5f5f5;
 	border-color:#ddd;
 	color:#999;
 }
@@ -2669,7 +2712,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	cursor:pointer;
 }
 .u-calendar .calendar_bd .calendar_day span.z-sel{
-	background:#6ebae8;
+	background:#3498db;
 }
 .u-calendar .calendar_bd .calendar_day span.z-dis{
 	color:#999;
@@ -2970,6 +3013,9 @@ html.z-modal,html.z-modal body{
 	border:1px solid #ddd;
 	padding:2px 6px;
 	font-size:12px;
+}
+.u-progress + .u-progress{
+	margin-top:10px;
 }
 .g-top{
 	height:50px;

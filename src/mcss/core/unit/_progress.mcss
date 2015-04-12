@@ -1,17 +1,17 @@
 // Variables
 // ========================================================================
 
+/* Dimension */
 $u-progress_height =                    20px;
-$u-progress-xs_height =                 6px;
-$u-progress-sm_height =                 12px;
-
 $u-progress_margin-vertical =           15px;
+$u-progress_border-radius =             null;
+
+/* Color */
 $u-progress_background =                #eee;
 
-$u-progress_bar_background =            #00a8e6;
+/* Dimension */
 $u-progress_bar_font-size =             12px;
-$u-progress_bar_color =                 #fff;
 
-$u-progress_bar-success_background =    #8cc14c;
-$u-progress_bar-warning_background =    #faa732;
-$u-progress_bar-error_background =      #da314b;
+/* Color */
+$u-progress_bar_background =            #00a8e6;
+$u-progress_bar_color =                 #fff;

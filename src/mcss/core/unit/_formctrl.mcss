@@ -4,14 +4,14 @@ $u-input_height = $formctrl_height;
 $u-input_padding = $formctrl_padding;
 $u-input_border = $formctrl_border;
 $u-input_color = $formctrl_color;
-$u-input_background-color = $formctrl_background-color;
+$u-input_background = $formctrl_background;
 
 $u-input-focus_border-color = $formctrl-focus_border-color;
-$u-input-focus_background-color = $formctrl-focus_background-color;
+$u-input-focus_background = $formctrl-focus_background;
 $u-input-focus_color = $formctrl-focus_color;
 
 $u-input-disabled_border-color = $formctrl-disabled_border-color;
-$u-input-disabled_background-color = $formctrl-disabled_background-color;
+$u-input-disabled_background = $formctrl-disabled_background;
 $u-input-disabled_color = $formctrl-disabled_color;
 
 $u-input_placeholder_color = $formctrl_placeholder_color;

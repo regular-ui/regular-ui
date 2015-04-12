@@ -137,3 +137,7 @@
     }
 
 }
+
+.u-progress + .u-progress {
+    margin-top: 10px;
+}

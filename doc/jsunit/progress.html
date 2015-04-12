@@ -168,6 +168,98 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
+<p>或</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">36</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example1&#39;</span>);
+</code></pre>
+<h4 id="-">颜色扩展</h4>
+<div id="j-example2"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;success&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;warning&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<p>或</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">25</span>,
+        <span class="cm-property">type</span>: <span class="cm-string">&#39;success&#39;</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example2&#39;</span>);
+<span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">50</span>,
+        <span class="cm-property">type</span>: <span class="cm-string">&#39;warning&#39;</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example2&#39;</span>);
+<span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">75</span>,
+        <span class="cm-property">type</span>: <span class="cm-string">&#39;error&#39;</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example2&#39;</span>);
+</code></pre>
+<h4 id="-">尺寸扩展</h4>
+<div id="j-example3"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;xs&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;sm&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<p>或</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">25</span>,
+        <span class="cm-property">text</span>: <span class="cm-atom">false</span>,
+        <span class="cm-property">size</span>: <span class="cm-string">&#39;xs&#39;</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example3&#39;</span>);
+<span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">50</span>,
+        <span class="cm-property">text</span>: <span class="cm-atom">false</span>,
+        <span class="cm-property">size</span>: <span class="cm-string">&#39;sm&#39;</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example3&#39;</span>);
+<span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">75</span>,
+        <span class="cm-property">text</span>: <span class="cm-atom">false</span>,
+        <span class="cm-property">size</span>: <span class="cm-atom">null</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example3&#39;</span>);
+</code></pre>
+<h4 id="-">条纹</h4>
+<div id="j-example4"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<p>或</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">36</span>,
+        <span class="cm-property">striped</span>: <span class="cm-atom">true</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example4&#39;</span>);
+</code></pre>
+<h4 id="-">条纹动画</h4>
+<div id="j-example5"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;72&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-attribute">active</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<p>或</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Progress</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">percent</span>: <span class="cm-number">72</span>,
+        <span class="cm-property">type</span>: <span class="cm-string">&#39;error&#39;</span>,
+        <span class="cm-property">striped</span>: <span class="cm-atom">true</span>,
+        <span class="cm-property">active</span>: <span class="cm-atom">true</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example5&#39;</span>);
+</code></pre>
 
         <h3>API</h3>
 
@@ -190,6 +282,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <tr><td class="f-wsn"><code>data.percent</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>36</code></td><td>百分比</td></tr>
         
         <tr><td class="f-wsn"><code>data.text</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>在进度条中是否显示百分比。值为`string`时显示该段文字。</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.size</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>进度条的尺寸</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>进度条的类型，改变显示颜色</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.striped</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否显示条纹</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.active</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>进度条是否为激活状态，当`striped`为`true`时，进度条显示动画</td></tr>
         
     </tbody>
 </table>
@@ -226,12 +326,82 @@ var themeSelectEx = new RGUI.SelectEx({
 <script>
 var Progress = RGUI.Progress;
 
+// 基本形式
 (function() {
     var progress = new Progress({
         data: {
             percent: 36
         }
     }).$inject('#j-example1');
+})();
+
+// 颜色扩展
+(function() {
+    var progress = new Progress({
+        data: {
+            percent: 25,
+            type: 'success'
+        }
+    }).$inject('#j-example2');
+    var progress = new Progress({
+        data: {
+            percent: 50,
+            type: 'warning'
+        }
+    }).$inject('#j-example2');
+    var progress = new Progress({
+        data: {
+            percent: 75,
+            type: 'error'
+        }
+    }).$inject('#j-example2');
+})();
+
+// 尺寸扩展
+(function() {
+    var progress = new Progress({
+        data: {
+            percent: 25,
+            text: false,
+            size: 'xs'
+        }
+    }).$inject('#j-example3');
+    var progress = new Progress({
+        data: {
+            percent: 50,
+            text: false,
+            size: 'sm'
+        }
+    }).$inject('#j-example3');
+    var progress = new Progress({
+        data: {
+            percent: 75,
+            text: false,
+            size: null
+        }
+    }).$inject('#j-example3');
+})();
+
+// 条纹
+(function() {
+    var progress = new Progress({
+        data: {
+            percent: 36,
+            striped: true
+        }
+    }).$inject('#j-example4');
+})();
+
+// 条纹动画
+(function() {
+    var progress = new Progress({
+        data: {
+            percent: 72,
+            type: 'error',
+            striped: true,
+            active: true
+        }
+    }).$inject('#j-example5');
 })();
 </script>
 </body>

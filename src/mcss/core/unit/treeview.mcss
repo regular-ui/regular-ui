@@ -3,7 +3,7 @@
     color: $u-treeview_color;
 
     $box-sizing: border-box;
-    background: $u-treeview_background-color;
+    background: $u-treeview_background;
     border: $u-treeview_border;
 
     .treeview_list {
@@ -32,12 +32,12 @@
     }
 
     .treeview_itemname:hover {
-        background-color: $u-treeview_item-hover_background-color;
+        background: $u-treeview_item-hover_background;
         color: $u-treeview_item-hover_color;
     }
 
     .treeview_itemname.z-sel {
-        background-color: $u-treeview_item-selected_background-color;
+        background: $u-treeview_item-selected_background;
         color: $u-treeview_item-selected_color;
     }
 }
@@ -45,7 +45,7 @@
 .u-treeview.z-dis {
     > li {
         cursor: not-allowed;
-        background-color: $u-treeview-disabled_background-color;
+        background: $u-treeview-disabled_background;
         color: #999;
     }
 }

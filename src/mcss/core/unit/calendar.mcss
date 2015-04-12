@@ -3,7 +3,7 @@
     width: 200px;
     color: $u-calendar_color;
     border: $u-calendar_border;
-    background: $u-calendar_background-color;
+    background: $u-calendar_background;
     padding: $u-calendar_padding;
 
     .calendar_hd {
@@ -39,7 +39,7 @@
                 cursor: pointer;
             }
             span.z-sel {
-                background: $u-calendar_item-selected_background-color;
+                background: $u-calendar_item-selected_background;
             }
             span.z-dis {
                 color: #999;
@@ -52,7 +52,7 @@
 // .u-calendar.z-dis {
 //     .calendar_hd {
 //         cursor: not-allowed;
-//         background-color: $u-calendar-disabled_background-color;
+//         background: $u-calendar-disabled_background;
 //         border-color: $u-calendar-disabled_border-color;
 //         color: $u-calendar-disabled_color;
 //     }

@@ -1,0 +1,22 @@
+// Color Extends:       `m-notify_message-info`, `m-notify_message-success`, `m-notify_message-warning`, `m-notify_message-error`
+// ========================================================================
+
+$m-notify_message-extend_color(
+    info,
+    $m-notify_message-primary_background
+);
+
+$m-notify_message-extend_color(
+    success,
+    $m-notify_message-success_background
+);
+
+$m-notify_message-extend_color(
+    warning,
+    $m-notify_message-warning_background
+);
+
+$m-notify_message-extend_color(
+    error,
+    $m-notify_message-error_background
+);

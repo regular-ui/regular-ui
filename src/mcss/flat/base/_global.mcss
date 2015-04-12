@@ -1,10 +1,10 @@
 /* Dimension */
-$font-size-base =              14px;
+$font-size-base =            14px;
 
-$border-radius-base =          4px;
+$border-radius-base =        4px;
 $border-radius-xs =          2px;
-$border-radius-sm =         3px;
-$border-radius-lg =         6px;
+$border-radius-sm =          3px;
+$border-radius-lg =          6px;
 $border-radius-xl =          6px;
 
 /* Color */

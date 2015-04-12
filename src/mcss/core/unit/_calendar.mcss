@@ -1,13 +1,13 @@
 $u-calendar_border = $formctrl_border;
 $u-calendar_color = $formctrl_color;
-$u-calendar_background-color = $formctrl_background-color;
+$u-calendar_background = $formctrl_background;
 
 $u-calendar-focus_border-color = $formctrl-focus_border-color;
-$u-calendar-focus_background-color = $formctrl-focus_background-color;
+$u-calendar-focus_background = $formctrl-focus_background;
 $u-calendar-focus_color = $formctrl-focus_color;
 
 $u-calendar-disabled_border-color = $formctrl-disabled_border-color;
-$u-calendar-disabled_background-color = $formctrl-disabled_background-color;
+$u-calendar-disabled_background = $formctrl-disabled_background;
 $u-calendar-disabled_color = $formctrl-disabled_color;
 
 $u-calendar_padding = 8px;
@@ -15,9 +15,9 @@ $u-calendar_padding = 8px;
 $u-calendar_item_padding = $formctrl_item_padding;
 
 $u-calendar_item-hover_border-color = $formctrl_item-hover_border-color;
-$u-calendar_item-hover_background-color = $formctrl_item-hover_background-color;
+$u-calendar_item-hover_background = $formctrl_item-hover_background;
 $u-calendar_item-hover_color = $formctrl_item-hover_color;
 
 $u-calendar_item-selected_border-color = $formctrl_item-selected_border-color;
-$u-calendar_item-selected_background-color = $formctrl_item-selected_background-color;  // ?
+$u-calendar_item-selected_background = $formctrl_item-selected_background;  // ?
 $u-calendar_item-selected_color = $formctrl_item-selected_color;

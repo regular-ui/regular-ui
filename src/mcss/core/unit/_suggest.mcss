@@ -2,6 +2,6 @@ $u-suggest_height = $formctrl_height;
 $u-suggest_padding = $formctrl_padding;
 $u-suggest_border = $formctrl_border;
 $u-suggest_color = $formctrl_color;
-$u-suggest_background-color = $formctrl_background-color;
+$u-suggest_background = $formctrl_background;
 
 $u-suggest_min-width = $formctrl_min-width;

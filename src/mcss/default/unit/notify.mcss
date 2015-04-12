@@ -4,23 +4,27 @@
 $m-notify_message-extend_color(
     info,
     $m-notify_message-primary_background,
-    $m-notify_message-primary_color
+    $m-notify_message-primary_color,
+    $m-notify_message-primary_border
 );
 
 $m-notify_message-extend_color(
     success,
     $m-notify_message-success_background,
-    $m-notify_message-success_color
+    $m-notify_message-success_color,
+    $m-notify_message-success_border
 );
 
 $m-notify_message-extend_color(
     warning,
     $m-notify_message-warning_background,
-    $m-notify_message-warning_color
+    $m-notify_message-warning_color,
+    $m-notify_message-warning_border
 );
 
 $m-notify_message-extend_color(
     error,
     $m-notify_message-error_background,
-    $m-notify_message-error_color
+    $m-notify_message-error_color,
+    $m-notify_message-error_border
 );

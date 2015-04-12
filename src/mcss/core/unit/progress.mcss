@@ -1,3 +1,13 @@
+// Name:            Progress
+// Description:     进度条
+// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// ========================================================================
+
+
+
+// Component:       `u-progress`
+// ========================================================================
+
 .u-progress {
     // $box-sizing
     height: $u-progress_height;
@@ -5,6 +15,8 @@
     background: $u-progress_background;
     /* 1 */
     overflow: hidden;
+
+    @if($u-progress_border-radius) {border-radius: $u-progress_border-radius;}
 
     .progress_bar {
         width: 0;
@@ -20,3 +32,50 @@
         text-align: center;
     }
 }
+
+
+
+// Extends:         `u-progress-extend_size`, `u-progress-extend_color`
+// Description:     尺寸和颜色扩展函数
+// ========================================================================
+
+$u-progress-extend_size = ($name, $height) {
+
+.u-progress-#{$name} {
+    /* Public */
+    height: $height;
+}
+
+}
+
+$u-progress_bar-extend_color = (
+    $name,
+    $background
+) {
+
+.u-progress-#{$name} .progress_bar {
+    /* Public */
+    background-color: $background;
+}
+
+}
+
+
+
+// Extends:         `u-progress-striped`
+// ========================================================================
+
+.u-progress-striped .progress_bar {
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 30px 30px;
+}
+
+.u-progress-striped.z-act .progress_bar {
+    $animation: u-progress-striped 2s linear infinite;
+}
+
+$keyframes(u-progress-striped, {
+    0% { background-position: 0 0;}
+    100% { background-position: 30px 0; }
+});
