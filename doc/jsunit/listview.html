@@ -17,7 +17,8 @@ var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
     {id: 1, name: 'default'},
-    {id: 2, name: 'flat'}
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
 ];
 
 var selectedTheme;
@@ -73,64 +74,104 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="sidebar-group">消息类</li>
         
-        <li><a href="../jsunit/notify.html">通知<small> Notify</small></a></li>
+        <li><a href="../jsunit/notify.html">通知<small> Notify</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/progress.html">进度条<small> Progress</small></a></li>
+        <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
         
         
         
         <li class="sidebar-group">数据类</li>
         
-        <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small></a></li>
+        <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
         
-        <li class="z-crt"><a href="../jsunit/listview.html">列表视图<small> ListView</small></a></li>
+        <li class="z-crt"><a href="../jsunit/listview.html">列表视图<small> ListView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small></a></li>
+        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small></a></li>
+        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small></a></li>
+        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small>
+        
+        </a></li>
         
         
         
         <li class="sidebar-group">表单类</li>
         
-        <li><a href="../jsunit/inputex.html">输入扩展<small> InputEx</small></a></li>
+        <li><a href="../jsunit/inputex.html">输入扩展<small> InputEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small></a></li>
+        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small></a></li>
+        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small></a></li>
+        <li><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small></a></li>
+        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small></a></li>
+        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small>
+        
+        </a></li>
         
         
         
@@ -140,19 +181,27 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="sidebar-group">日期类</li>
         
-        <li><a href="../jsunit/calendar.html">日历<small> Calendar</small></a></li>
+        <li><a href="../jsunit/calendar.html">日历<small> Calendar</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small></a></li>
+        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small></a></li>
+        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small></a></li>
+        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
+        
+        </a></li>
         
         
         
@@ -162,24 +211,57 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h2>列表视图<small> ListView</small></h2>
         
-        
+        <p><code>ListView</code>与<code>ListBox</code>不同的是：<code>ListView</code>可以单独配置每一项的模板。另外有些功能正在开发中...</p>
+<p>如果感觉<code>ListView</code>功能不强大，可以以<code>ListView</code>为参考，从<code>ListBox</code>继承并且自定义，进行功能上的扩充。</p>
+<h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div id="j-example1"></div>
+
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">source</span> <span class="cm-operator">=</span> [
+    {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;MySQL数据库&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;LAMP兄弟连&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">18089</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
+];
+
+<span class="cm-keyword">var</span> <span class="cm-variable">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">&lt;div&gt;</span>
+<span class="cm-comment">    &lt;span class=&quot;number&quot;&gt;{item_index + 1}&lt;/span&gt;</span>
+<span class="cm-comment">    &lt;span class=&quot;title&quot;&gt;{item.name}&lt;/span&gt;</span>
+<span class="cm-comment">    &lt;span class=&quot;hits f-fr&quot;&gt;{item.hits}&lt;/span&gt;</span>
+<span class="cm-comment">&lt;/div&gt;</span>
+<span class="cm-comment">*/</span>});
+
+<span class="cm-keyword">var</span> <span class="cm-variable">listView</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListView</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">itemTemplate</span>: <span class="cm-variable">itemTemplate</span>,
+        <span class="cm-property">source</span>: <span class="cm-variable">source</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example1&#39;</span>);
+</code></pre>
+<h4 id="-">禁用</h4>
+<p>同<a href="listbox.html">ListBox</a>。</p>
+<h4 id="-">远程数据</h4>
+<p>同<a href="listbox.html">ListBox</a>。</p>
+
         <h3>API</h3>
 
 <h4>Class</h4>
-<h5>Modal</h5>
-<p>继承自<strong>Component</strong>。</p>
+<h5>ListView</h5>
+<p>继承自<strong>ListBox</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Modal({options})</h5>
+<h5>new ListView({options})</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>可选参数</td></tr>
+        <tr><td class="f-wsn"><code>data.itemTemplate</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>每一项的模板</td></tr>
         
     </tbody>
 </table>
@@ -214,7 +296,35 @@ var themeSelectEx = new RGUI.SelectEx({
 });
 </script>
 <script>
+var ListView = RGUI.ListView;
+var _ = RGUI._;
+var ajax = RGUI.request;
 
+var source = [
+    {id: 3, name: '精通Javascript开发', org: '前端funs', hits: 42371},
+    {id: 2, name: 'Android深入浅出', org: 'Android学院', hits: 30645},
+    {id: 1, name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
+    {id: 4, name: 'MySQL数据库', org: 'LAMP兄弟连', hits: 18089},
+    {id: 5, name: 'Arduino初级教程', org: '硬件社', hits: 16361}
+];
+
+var itemTemplate = _.multiline(function(){/*
+<div>
+    <span class="number">{item_index + 1}</span>
+    <span class="title">{item.name}</span>
+    <span class="hits f-fr">{item.hits}</span>
+</div>
+*/});
+
+// 基本形式
+(function() {
+    var listView = new ListView({
+        data: {
+            itemTemplate: itemTemplate,
+            source: source
+        }
+    }).$inject('#j-example1');
+})();
 </script>
 </body>
 </html>

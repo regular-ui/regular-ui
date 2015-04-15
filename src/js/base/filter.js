@@ -1,3 +1,5 @@
+'use strict';
+
 var filter = {};
 
 filter.format = function() {

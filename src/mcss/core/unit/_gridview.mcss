@@ -1,0 +1,31 @@
+// Variables
+// ========================================================================
+
+/* Dimension */
+$u-gridview_border-radius =             null;
+$u-gridview_item_margin =               4px;
+$u-gridview_item_padding =              6px;
+$u-gridview_item_width =                30%;
+$u-gridview_item_border-radius =        null;
+$u-gridview_item_border =               #ccc;
+
+/* Color */
+$u-gridview_color =                     $formctrl_color;
+$u-gridview_background =                $formctrl_background;
+$u-gridview_border =                    $formctrl_border;
+
+$u-gridview-focus_background =          $formctrl-focus_background;
+$u-gridview-focus_color =               $formctrl-focus_color;
+$u-gridview-focus_border =              $formctrl-focus_border;
+
+$u-gridview-disabled_background =       $formctrl-disabled_background;
+$u-gridview-disabled_color =            $formctrl-disabled_color;
+$u-gridview-disabled_border =           $formctrl-disabled_border;
+
+$u-gridview_item-hover_background =     $formctrl_item-hover_background;
+$u-gridview_item-hover_color =          $formctrl_item-hover_color;
+$u-gridview_item-hover_border =         $formctrl_item-hover_border;
+
+$u-gridview_item-selected_backgroud =   $formctrl_item-selected_background;  // ?
+$u-gridview_item-selected_color =       $formctrl_item-selected_color;
+$u-gridview_item-selected_border =      $formctrl_item-selected_border;

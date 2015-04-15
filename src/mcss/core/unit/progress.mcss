@@ -1,6 +1,6 @@
 // Name:            Progress
 // Description:     进度条
-// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
 
@@ -10,26 +10,27 @@
 
 .u-progress {
     // $box-sizing
-    height: $u-progress_height;
-    line-height: $u-progress_height;
-    background: $u-progress_background;
     /* 1 */
     overflow: hidden;
 
+    /* Public */
+    height: $u-progress_height;
+    line-height: $u-progress_height;
+    background: $u-progress_background;
     @if($u-progress_border-radius) {border-radius: $u-progress_border-radius;}
 
     .progress_bar {
         width: 0;
         height: 100%;
-        background: $u-progress_bar_background;
         float: left;
+        text-align: center;
         /* 1 */
         -webkit-transition: width 0.6s ease;
         transition: width 0.6s ease;
         /* 2 */
+        background: $u-progress_bar_background;
         font-size: $u-progress_bar_font-size;
         color: $u-progress_bar_color;
-        text-align: center;
     }
 }
 

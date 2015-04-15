@@ -28,7 +28,7 @@ markextend.setOptions({
     }
 });
 
-var sitemap = require('./sitemap.json');
+// var sitemap = require('./sitemap.json');
 var jsdoc = require('./jsdoc.js');
 var cssdoc = require('./cssdoc.js');
 
@@ -37,7 +37,7 @@ var cssdoc = require('./cssdoc.js');
  * @param {string} path 路径，如`unit/button`、`component/modal`
  * @return {void}
  */
-function build(path, template) {
+function build(path, sitemap, template) {
     var level = path.split('/');
     if(path === 'index')
         level = ['start', 'index'];

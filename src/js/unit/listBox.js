@@ -2,9 +2,11 @@
  * ------------------------------------------------------------
  * ListBox   列表框
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
+
+'use strict';
 
 var SourceComponent = require('../base/sourceComponent.js');
 var template = require('./listBox.html');

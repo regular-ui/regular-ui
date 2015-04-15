@@ -1,5 +1,5 @@
 // Name:            Default Theme
-// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// Author:          sensen(rainforest92@126.com)
 // Description:     Default Theme
 // ========================================================================
 
@@ -7,8 +7,8 @@
 
 // Base
 // ========================================================================
+$theme_name = 'default';
 @import 'http://nec.netease.com/download/framework/mass/mass/index.mcss';
-
 $reset-normalize();
 
 @import 'core/base/function.mcss';
@@ -60,6 +60,9 @@ $reset-normalize();
 /* 列表类 */
 @import 'core/unit/_listbox.mcss';
 @import 'core/unit/listbox.mcss';
+
+@import 'core/unit/_gridview.mcss';
+@import 'core/unit/gridview.mcss';
 
 @import 'core/unit/_treeview.mcss';
 @import 'core/unit/treeview.mcss';

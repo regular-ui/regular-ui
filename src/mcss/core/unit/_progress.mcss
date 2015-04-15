@@ -13,5 +13,5 @@ $u-progress_background =                #eee;
 $u-progress_bar_font-size =             12px;
 
 /* Color */
-$u-progress_bar_background =            #00a8e6;
+$u-progress_bar_background =            $brand-primary; // #00a8e6;
 $u-progress_bar_color =                 #fff;

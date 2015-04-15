@@ -1,6 +1,6 @@
 // Name:            Notify
 // Description:     通知
-// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
 
@@ -9,12 +9,12 @@
 // ========================================================================
 
 .m-notify {
+    $box-sizing: border-box;
     position: fixed;
     top: $m-notify_position;
     left: $m-notify_position;
     z-index: $m-notify_z-index;
     width: $m-notify_width;
-    $box-sizing: border-box;
 
     .notify_message {
         margin-bottom: $m-notify_message_margin-bottom;
@@ -30,15 +30,11 @@
             &:hover {
                 color: $m-notify_message_color;
             }
-            .f-icon {
-                margin-top: -2px;
-            }
         }
 
         .notify_text {
             .f-icon {
                 font-size: 20px;
-                margin-top: -2px;
             }
         }
     }

@@ -58,6 +58,8 @@ notify5.show('Bottom Right notify.');
 
 #### 嵌入文档流
 
+上面的模式通知都是以`fixed`的形式固定在浏览器中，如果要将通知嵌入到文档流，先将`notify`注入到需要的位置，同时设置`notify`的`position="static"`。
+
 <div id="j-example4"><button class="u-btn u-btn-primary">Static</button></div>
 
 ```xml
@@ -82,6 +84,8 @@ notify.show('Static notify.');
 ```
 
 #### 消息停留时间
+
+可以通过设置`notify`的`duration`参数设置所有消息的停留时间，也可以在`show`的时候单独设置该条消息的停留时间，单位为毫秒。
 
 <div id="j-example5">
     <button class="u-btn">0.5s</button>

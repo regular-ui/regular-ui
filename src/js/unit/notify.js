@@ -2,7 +2,7 @@
  * ------------------------------------------------------------
  * Notify    通知
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -54,7 +54,7 @@ var Notify = Component.extend({
         var message = {
             text: text,
             type: type,
-            duration: duration || this.duration
+            duration: duration >= 0 ? duration : this.duration
         };
         this.data.messages.unshift(message);
         this.$update();

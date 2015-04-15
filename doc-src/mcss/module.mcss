@@ -141,3 +141,26 @@
 .u-progress + .u-progress {
     margin-top: 10px;
 }
+
+.u-courceitem {
+    img {
+        max-width: 100%;
+    }
+
+    .org, .hits {
+        color: #999;
+        .f-icon {
+            margin-top: -3px;
+        }
+    }
+}
+
+.m-sidebar {
+    li .f-icon-success-circle {
+        color: $brand-primary;
+    }
+
+    li .f-icon-info-circle {
+        @if($brand-warning) {color: $brand-warning;}
+    }
+}

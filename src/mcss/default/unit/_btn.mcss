@@ -19,6 +19,10 @@
 
 /* Optional */
 // $u-btn_border =                         null;
+// $u-btn-hover_border =                   null;
+// $u-btn-active_border =                  null;
+// $u-btn-disabled_border =                null;
+
 // $u-btn_border-radius =                  null;
 
 

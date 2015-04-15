@@ -66,3 +66,6 @@ $u-btn-extend_color(
     $u-btn-error-hover_color,
     $u-btn-error-active_color
 );
+
+$u-btn-disabled();
+$u-btn-block();

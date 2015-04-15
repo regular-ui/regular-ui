@@ -1,7 +1,7 @@
 // Name:            Button
 // Description:     按钮
 // Version:         0.0.1
-// Author:          sensen(hzzhaoyusen@corp.netease.com)
+// Author:          sensen(rainforest92@126.com)
 // Example:         
 // <button class="u-btn">Button</button>
 // <a class="u-btn">aButton</a>
@@ -32,6 +32,8 @@
     cursor: pointer;
     // - 统一box-sizing，a标签默认的box-sizing是content-box，而button标签默认的box-sizing是border-box。
     $box-sizing: border-box;
+    // - Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    background: none;
     // - Others
     display: inline-block;
     vertical-align: middle;
@@ -45,7 +47,7 @@
     min-height: $u-btn_height;
     background: $u-btn_background;
     color: $u-btn_color;
-    @if($u-btn_border) {border: $u-btn_border;}
+    @if($u-btn_border) {$border: $u-btn_border;}
     @if($u-btn_border-radius) {border-radius: $u-btn_border-radius;}
 }
 
@@ -60,6 +62,7 @@
     /* Public */
     background: $u-btn-hover_background;
     color: $u-btn-hover_color;
+    @if($u-btn-hover_border) {$border: $u-btn-hover_border;}
 }
 
 /* Active */
@@ -68,14 +71,20 @@
     /* Public */
     background: $u-btn-active_background;
     color: $u-btn-active_color;
+    @if($u-btn-active_border) {$border: $u-btn-active_border;}
 }
 
 /* Disabled */
+$u-btn-disabled = {
+
 .u-btn:disabled,
 .u-btn.z-dis {
     background: $u-btn-disabled_background !important;
     color: $u-btn-disabled_color !important;
     cursor: not-allowed !important;
+    @if($u-btn-disabled_border) {$border: $u-btn-disabled_border;}
+}
+
 }
 
 
@@ -100,32 +109,32 @@ $u-btn-extend_color = (
     $name,
     $background, $hover_background, $active_background,
     $color, $hover_color, $active_color,
-    $border-color, $hover_border-color, $active_border-color
+    $border_, $hover_border, $active_border
 ) {
 
 .u-btn-#{$name} {
     /* Public */
-    background: $background;
+    @if($background) {background: $background;}
     @if($color) {color: $color;}
-    @if($border-color) {border-color: $border-color;}
+    @if($border_) {$border: $border_;}
 }
 
 /* Hover */
 .u-btn-#{$name}:hover,
 .u-btn-#{$name}:focus {
     /* Public */
-    background: $hover_background;
+    @if($hover_background) {background: $hover_background;}
     @if($hover_color) {color: $hover_color;}
-    @if($hover_border-color) {border-color: $hover_border-color;}
+    @if($hover_border) {$border: $hover_border;}
 }
 
 /* Active */
 .u-btn-#{$name}:active,
 .u-btn-#{$name}.z-act {
     /* Public */
-    background: $active_background;
+    @if($active_background) {background: $active_background;}
     @if($active_color) {color: $active_color;}
-    @if($active_border-color) {border-color: $active_border-color;}
+    @if($active_border) {$border: $active_border;}
 }
 
 }
@@ -135,6 +144,10 @@ $u-btn-extend_color = (
 // Extends:         `u-btn-block`
 // ========================================================================
 
+$u-btn-block = {
+
 .u-btn-block {
     display: block;
+}
+
 }

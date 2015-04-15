@@ -1,3 +1,5 @@
+'use strict';
+
 var Regular = require("regularjs");
 var filter = require("./filter.js");
 

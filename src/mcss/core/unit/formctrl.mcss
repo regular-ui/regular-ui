@@ -38,13 +38,13 @@
 
     &:focus {
         outline: 0;
-        border-color: $u-input-focus_border-color;
+        $border: $u-input-focus_border;
         background: $u-input-focus_background;
         color: $u-input-focus_color;
     }
 
     &:disabled {
-        border-color: $u-input-disabled_border-color;
+        $border: $u-input-disabled_border;
         background: $u-input-disabled_background;
         color: $u-input-disabled_color;
 

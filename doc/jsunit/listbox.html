@@ -17,7 +17,8 @@ var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
     {id: 1, name: 'default'},
-    {id: 2, name: 'flat'}
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
 ];
 
 var selectedTheme;
@@ -73,64 +74,104 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="sidebar-group">消息类</li>
         
-        <li><a href="../jsunit/notify.html">通知<small> Notify</small></a></li>
+        <li><a href="../jsunit/notify.html">通知<small> Notify</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/progress.html">进度条<small> Progress</small></a></li>
+        <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
         
         
         
         <li class="sidebar-group">数据类</li>
         
-        <li class="z-crt"><a href="../jsunit/listbox.html">列表框<small> ListBox</small></a></li>
+        <li class="z-crt"><a href="../jsunit/listbox.html">列表框<small> ListBox</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
         
-        <li><a href="../jsunit/listview.html">列表视图<small> ListView</small></a></li>
+        <li><a href="../jsunit/listview.html">列表视图<small> ListView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small></a></li>
+        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small></a></li>
+        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small></a></li>
+        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small>
+        
+        </a></li>
         
         
         
         <li class="sidebar-group">表单类</li>
         
-        <li><a href="../jsunit/inputex.html">输入扩展<small> InputEx</small></a></li>
+        <li><a href="../jsunit/inputex.html">输入扩展<small> InputEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small></a></li>
+        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small></a></li>
+        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small></a></li>
+        <li><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small></a></li>
+        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small></a></li>
+        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small>
+        
+        </a></li>
         
         
         
@@ -140,19 +181,27 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="sidebar-group">日期类</li>
         
-        <li><a href="../jsunit/calendar.html">日历<small> Calendar</small></a></li>
+        <li><a href="../jsunit/calendar.html">日历<small> Calendar</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small></a></li>
+        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small></a></li>
+        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small></a></li>
+        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
+        
+        </a></li>
         
         
         
@@ -162,7 +211,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h2>列表框<small> ListBox</small></h2>
         
-        <h3 id="-">示例</h3>
+        <p><code>ListBox</code>以最简单的形式将列表样式、数据、选中功能和禁用功能封装成组件。</p>
+<p>另外，<code>ListBox</code>是<code>ListView</code>的基类，并且在<code>SelectEx</code>等组件中作为实例使用。</p>
+<p>Regular UI的哲学讲究灵活。如果在列表不使用选中和禁用等功能，不建议使用该组件，请直接使用Regular模板中的<code>{#list}</code>输出即可；如果需要自定义样式，可以直接重写CSS并覆盖模板；如果需要扩展功能可以直接继承该类，进行功能上的扩充。</p>
+<h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div id="j-example1"></div>
 

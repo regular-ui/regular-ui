@@ -2,7 +2,7 @@
  * ------------------------------------------------------------
  * RadioGroup 输入扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 

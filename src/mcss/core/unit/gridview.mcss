@@ -1,0 +1,43 @@
+// Name:            GridView
+// Description:     网格视图
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-gridview`
+// ========================================================================
+.u-gridview {
+    background: $u-gridview_background;
+    color: $u-gridview_color;
+    // text-align: center;
+    $clearfix();
+    .gridview_item {
+        float: left;
+        margin: $u-gridview_item_margin;
+        padding: $u-gridview_item_padding;
+        width: $u-gridview_item_width;
+        $border: $u-gridview_item_border;
+        @if($u-gridview_item_border-radius) {$border-radius: $u-gridview_item_border-radius;}
+    }
+
+    // .gridview_item:hover {
+    //     background: $u-gridview_item-hover_background;
+    //     color: $u-gridview_item-hover_color;
+    // }
+
+    // .gridview_item.z-sel {
+    //     background: $u-gridview_item-selected_background;
+    //     color: $u-gridview_item-selected_color;
+    // }
+}
+
+// .u-gridview.z-dis {
+//     // border: $u-listbox-disabled_border;
+//     background: $u-gridview-disabled_background;
+//     > li {
+//         cursor: not-allowed;
+//         background: none;
+//         color: $u-gridview-disabled_color;
+//     }
+// }

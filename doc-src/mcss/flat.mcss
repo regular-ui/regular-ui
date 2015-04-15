@@ -1,4 +1,5 @@
 @import '../../src/mcss/flat.mcss';
+@import 'base.mcss';
 @import 'module.mcss';
 @import 'grid.mcss';
 @import 'codemirror.mcss';

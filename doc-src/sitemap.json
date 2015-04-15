@@ -18,7 +18,7 @@
             "children": [
                 {"name": "Base", "lowerName": "base", "alias": "基础"},
 
-                {"name": "Button", "lowerName": "button", "alias": "按钮"},
+                {"name": "Button", "lowerName": "button", "alias": "按钮", "complete": true},
                 {"name": "ButtonGroup", "lowerName": "buttonGroup", "alias": "按钮组"},
                 {"name": "Icon", "lowerName": "icon", "alias": "图标"},
                 {"name": "Badge", "lowerName": "badge", "alias": "徽章"},
@@ -52,14 +52,14 @@
             "alias": "JS组件",
             "children": [
                 {"name": "Tooltip", "lowerName": "tooltip", "alias": "工具提示", "group": "消息类", "hidden": true},
-                {"name": "Notify", "lowerName": "notify", "alias": "通知", "group": "消息类"},
-                {"name": "Progress", "lowerName": "progress", "alias": "进度条", "group": "消息类"},
+                {"name": "Notify", "lowerName": "notify", "alias": "通知", "group": "消息类", "complete": true},
+                {"name": "Progress", "lowerName": "progress", "alias": "进度条", "group": "消息类", "complete": true},
 
-                {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类"},
+                {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类", "complete": false},
                 {"name": "TreeBox", "lowerName": "treeBox", "alias": "树型列表框", "group": "数据类", "hidden": true},
-                {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类"},
-                {"name": "GridView", "lowerName": "gridView", "alias": "网格视图", "group": "数据类"},
-                {"name": "TreeView", "lowerName": "treeView", "alias": "树型视图", "group": "数据类"},
+                {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类", "complete": false},
+                {"name": "GridView", "lowerName": "gridView", "alias": "网格视图", "group": "数据类", "complete": false},
+                {"name": "TreeView", "lowerName": "treeView", "alias": "树型视图", "group": "数据类", "complete": false},
                 {"name": "TableView", "lowerName": "tableView", "alias": "表格视图", "group": "数据类"},
 
                 {"name": "InputEx", "lowerName": "inputEx", "alias": "输入扩展", "group": "表单类"},
@@ -94,7 +94,7 @@
                 {"name": "Pager", "lowerName": "pager", "alias": "分页器", "group": "导航类"},
                 {"name": "Accordion", "lowerName": "accordion", "alias": "手风琴", "group": "导航类", "hidden": true},
 
-                {"name": "Modal", "lowerName": "modal", "alias": "模态对话框", "group": "窗口类"},
+                {"name": "Modal", "lowerName": "modal", "alias": "模态对话框", "group": "窗口类", "complete": true},
                 {"name": "Window", "lowerName": "window", "alias": "窗口", "group": "窗口类", "hidden": true},
                 {"name": "OffCanvas", "lowerName": "offCanvas", "alias": "弹出式画布", "group": "窗口类", "hidden": true},
                 {"name": "SlideShow", "lowerName": "slideShow", "alias": "幻灯片", "group": "窗口类", "hidden": true},

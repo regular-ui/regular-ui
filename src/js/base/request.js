@@ -1,3 +1,5 @@
+'use strict';
+
 var reqwest = require("reqwest");
 var request = {};
 //var Progress = require("../component/progress/progress.rglc");

@@ -17,7 +17,8 @@ var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
     {id: 1, name: 'default'},
-    {id: 2, name: 'flat'}
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
 ];
 
 var selectedTheme;
@@ -73,64 +74,104 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="sidebar-group">消息类</li>
         
-        <li class="z-crt"><a href="../jsunit/notify.html">通知<small> Notify</small></a></li>
+        <li class="z-crt"><a href="../jsunit/notify.html">通知<small> Notify</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/progress.html">进度条<small> Progress</small></a></li>
+        <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
         
         
         
         <li class="sidebar-group">数据类</li>
         
-        <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small></a></li>
+        <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
         
-        <li><a href="../jsunit/listview.html">列表视图<small> ListView</small></a></li>
+        <li><a href="../jsunit/listview.html">列表视图<small> ListView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small></a></li>
+        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small></a></li>
+        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small></a></li>
+        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small>
+        
+        </a></li>
         
         
         
         <li class="sidebar-group">表单类</li>
         
-        <li><a href="../jsunit/inputex.html">输入扩展<small> InputEx</small></a></li>
+        <li><a href="../jsunit/inputex.html">输入扩展<small> InputEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small></a></li>
+        <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small></a></li>
+        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small></a></li>
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small></a></li>
+        <li><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small></a></li>
+        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small></a></li>
+        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small>
+        
+        </a></li>
         
         
         
@@ -140,19 +181,27 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="sidebar-group">日期类</li>
         
-        <li><a href="../jsunit/calendar.html">日历<small> Calendar</small></a></li>
+        <li><a href="../jsunit/calendar.html">日历<small> Calendar</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small></a></li>
+        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small></a></li>
+        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small></a></li>
+        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
+        
+        </a></li>
         
         
         
@@ -211,6 +260,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-variable">notify5</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Bottom Right notify.&#39;</span>);
 </code></pre>
 <h4 id="-">嵌入文档流</h4>
+<p>上面的模式通知都是以<code>fixed</code>的形式固定在浏览器中，如果要将通知嵌入到文档流，先将<code>notify</code>注入到需要的位置，同时设置<code>notify</code>的<code>position=&quot;static&quot;</code>。</p>
 <div id="j-example4"><button class="u-btn u-btn-primary">Static</button></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">notify</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;notify&quot;</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
@@ -228,6 +278,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-variable">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Static notify.&#39;</span>);
 </code></pre>
 <h4 id="-">消息停留时间</h4>
+<p>可以通过设置<code>notify</code>的<code>duration</code>参数设置所有消息的停留时间，也可以在<code>show</code>的时候单独设置该条消息的停留时间，单位为毫秒。</p>
 <div id="j-example5">
     <button class="u-btn">0.5s</button>
     <button class="u-btn">1s</button>
@@ -313,50 +364,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 
 <div id="j-methods"></div>
-
-
-<h4>Static Methods</h4>
-
-<h5>Notify.show(text[, type][, duration])</h5>
-<p>弹出一个消息</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
-        
-        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
-        
-    </tbody>
-</table>
-
-<h5>Notify.close(message)</h5>
-<p>关闭某条消息</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
-        
-    </tbody>
-</table>
-
-<h5>Notify.closeAll()</h5>
-<p>关闭所有消息</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-    </tbody>
-</table>
 
 
 <div id="j-staticMethods"></div>

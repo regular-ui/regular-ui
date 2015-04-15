@@ -2,7 +2,7 @@
  * ------------------------------------------------------------
  * RGUI      Regular UI库
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -36,6 +36,7 @@ RGUI.Suggest = require('./unit/suggest.js');
 // 数据类
 RGUI.ListBox = require('./unit/listBox.js');
 RGUI.ListView = require('./unit/listView.js');
+RGUI.GridView = require('./unit/gridView.js');
 RGUI.TreeView = require('./unit/treeView.js');
 RGUI.TreeSelect = require('./unit/treeSelect.js');
 

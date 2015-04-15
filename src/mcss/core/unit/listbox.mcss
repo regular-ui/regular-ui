@@ -1,19 +1,29 @@
-/* 下拉选框 样式 */
+// Name:            ListBox
+// Description:     列表框
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-listbox`
+// ========================================================================
 .u-listbox {
     list-style: none;
     margin: 0;
     padding: 0;
 
-    color: $u-listbox_color;
-
+    //min-width: 220px;
     $box-sizing: border-box;
     background: $u-listbox_background;
+    color: $u-listbox_color;
     border: $u-listbox_border;
-    overflow: hidden;
+    @if($u-listbox_border-radius) {$border-radius: $u-listbox_border-radius;}
+    //overflow: hidden;
 
     > li {
         cursor: pointer;
         padding: $u-listbox_item_padding;
+        @if($u-listbox_item_border-radius) {$border-radius: $u-listbox_item_border-radius;}
     }
 
     > li:hover {
@@ -28,9 +38,11 @@
 }
 
 .u-listbox.z-dis {
+    // border: $u-listbox-disabled_border;
+    background: $u-listbox-disabled_background;
     > li {
         cursor: not-allowed;
-        background: $u-listbox-disabled_background;
-        color: #999;
+        background: none;
+        color: $u-listbox-disabled_color;
     }
 }

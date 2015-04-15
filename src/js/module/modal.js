@@ -2,7 +2,7 @@
  * ------------------------------------------------------------
  * Modal     模态对话框
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 

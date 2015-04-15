@@ -7,12 +7,12 @@
 // $m-notify_width =                       320px;
 // $m-notify_message_padding =             10px 15px;
 // $m-notify_message_margin-bottom =       10px;
-$m-notify_message_border =              none;
 $m-notify_message_border-radius =       $border-radius-base;
 
 /* Color */
 $m-notify_message_background =          $brand-secondary;
 $m-notify_message_color =               white;
+$m-notify_message_border =              none;
 
 
 // Extend Variables

@@ -1,0 +1,9 @@
+.u-listbox {
+    > li {
+        transition: border .25s linear, color .25s linear, background-color .25s linear;
+    }
+
+    > li + li {
+        margin-top: 3px;
+    }
+}

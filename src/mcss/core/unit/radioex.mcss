@@ -12,7 +12,7 @@
         overflow: hidden;
         line-height: 1;
         text-align: center;
-        .f-icon-radio {
+        .f-icon {
             content: '';
             display: inline-block;
             position: absolute;

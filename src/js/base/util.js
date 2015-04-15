@@ -1,3 +1,5 @@
+'use strict';
+
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)

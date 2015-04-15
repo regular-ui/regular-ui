@@ -2,7 +2,7 @@
 .u-calendar {
     width: 200px;
     color: $u-calendar_color;
-    border: $u-calendar_border;
+    $border: $u-calendar_border;
     background: $u-calendar_background;
     padding: $u-calendar_padding;
 

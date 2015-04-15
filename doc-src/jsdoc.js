@@ -89,9 +89,9 @@ function render(path, tpl) {
         var token = tokens[i];
         if(token.type === 'class' && !data.class_)
             data.class_ = token;
-        else if(token.type === 'method' && !token['static'])
+        else if(token.type === 'method' && token['public'] && !token['static'])
             data.methods.push(token);
-        else if(token.type === 'method' && token['static'])
+        else if(token.type === 'method' && token['public'] && token['static'])
             data.staticMethods.push(token);
         else if(token.type === 'event')
             data.events.push(token);

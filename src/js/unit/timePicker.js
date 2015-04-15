@@ -2,7 +2,7 @@
  * --------------------------------------------
  * 下拉列表UI
  * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * @author   zhaoyusen(rainforest92@126.com)
  * --------------------------------------------
  * @class Suggest
  * @extend Component

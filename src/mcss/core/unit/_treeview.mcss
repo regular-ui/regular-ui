@@ -1,23 +1,28 @@
-$u-treeview_border = $formctrl_border;
-$u-treeview_color = $formctrl_color;
-$u-treeview_background = $formctrl_background;
+// Variables
+// ========================================================================
 
-$u-treeview-focus_border-color = $formctrl-focus_border-color;
-$u-treeview-focus_background = $formctrl-focus_background;
-$u-treeview-focus_color = $formctrl-focus_color;
+/* Dimension */
+$u-treeview_border-radius =              null;
+$u-treeview_item_padding =               0 8px;
+$u-treeview_item_border-radius =         null;
 
-$u-treeview-disabled_border-color = $formctrl-disabled_border-color;
-$u-treeview-disabled_background = $formctrl-disabled_background;
-$u-treeview-disabled_color = $formctrl-disabled_color;
+/* Color */
+$u-treeview_color =                      $formctrl_color;
+$u-treeview_background =                 $formctrl_background;
+$u-treeview_border =                     $formctrl_border;
 
+$u-treeview-focus_background =           $formctrl-focus_background;
+$u-treeview-focus_color =                $formctrl-focus_color;
+$u-treeview-focus_border =               $formctrl-focus_border;
 
+$u-treeview-disabled_background =        $formctrl-disabled_background;
+$u-treeview-disabled_color =             $formctrl-disabled_color;
+$u-treeview-disabled_border =            $formctrl-disabled_border;
 
-$u-treeview_item_padding = 0 8px;
+$u-treeview_item-hover_background =      $formctrl_item-hover_background;
+$u-treeview_item-hover_color =           $formctrl_item-hover_color;
+$u-treeview_item-hover_border =          $formctrl_item-hover_border;
 
-$u-treeview_item-hover_border-color = $formctrl_item-hover_border-color;
-$u-treeview_item-hover_background = $formctrl_item-hover_background;
-$u-treeview_item-hover_color = $formctrl_item-hover_color;
-
-$u-treeview_item-selected_border-color = $formctrl_item-selected_border-color;
-$u-treeview_item-selected_background = $formctrl_item-selected_background;  // ?
-$u-treeview_item-selected_color = $formctrl_item-selected_color;
+$u-treeview_item-selected_background =   $formctrl_item-selected_background;  // ?
+$u-treeview_item-selected_color =        $formctrl_item-selected_color;
+$u-treeview_item-selected_border =       $formctrl_item-selected_border;

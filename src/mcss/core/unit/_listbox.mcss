@@ -2,25 +2,27 @@
 // ========================================================================
 
 /* Dimension */
-$u-listbox_item_padding = $formctrl_item_padding;
+$u-listbox_border-radius =              null;
+$u-listbox_item_padding =               $formctrl_item_padding;
+$u-listbox_item_border-radius =         null;
 
 /* Color */
-$u-listbox_border = $formctrl_border;
-$u-listbox_color = $formctrl_color;
-$u-listbox_background = $formctrl_background;
+$u-listbox_color =                      $formctrl_color;
+$u-listbox_background =                 $formctrl_background;
+$u-listbox_border =                     $formctrl_border;
 
-$u-listbox-focus_border-color = $formctrl-focus_border-color;
-$u-listbox-focus_background = $formctrl-focus_background;
-$u-listbox-focus_color = $formctrl-focus_color;
+$u-listbox-focus_background =           $formctrl-focus_background;
+$u-listbox-focus_color =                $formctrl-focus_color;
+$u-listbox-focus_border =               $formctrl-focus_border;
 
-$u-listbox-disabled_border-color = $formctrl-disabled_border-color;
-$u-listbox-disabled_background = $formctrl-disabled_background;
-$u-listbox-disabled_color = $formctrl-disabled_color;
+$u-listbox-disabled_background =        $formctrl-disabled_background;
+$u-listbox-disabled_color =             $formctrl-disabled_color;
+$u-listbox-disabled_border =            $formctrl-disabled_border;
 
-$u-listbox_item-hover_border-color = $formctrl_item-hover_border-color;
-$u-listbox_item-hover_background = $formctrl_item-hover_background;
-$u-listbox_item-hover_color = $formctrl_item-hover_color;
+$u-listbox_item-hover_background =      $formctrl_item-hover_background;
+$u-listbox_item-hover_color =           $formctrl_item-hover_color;
+$u-listbox_item-hover_border =          $formctrl_item-hover_border;
 
-$u-listbox_item-selected_border-color = $formctrl_item-selected_border-color;
-$u-listbox_item-selected_background = $formctrl_item-selected_background;  // ?
-$u-listbox_item-selected_color = $formctrl_item-selected_color;
+$u-listbox_item-selected_background =   $formctrl_item-selected_background;  // ?
+$u-listbox_item-selected_color =        $formctrl_item-selected_color;
+$u-listbox_item-selected_border =       $formctrl_item-selected_border;

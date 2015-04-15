@@ -55,6 +55,13 @@ gulp.task('mcss-doc', function(done) {
         }))
         .pipe(gulp.dest('doc/css'));
 
+    gulp.src('./doc-src/mcss/bootstrap.mcss')
+        .pipe(mcss({
+            pathes: ["./node_modules"],
+            importCSS: true,
+        }))
+        .pipe(gulp.dest('doc/css'));
+
     done();
 });
 
@@ -103,7 +110,7 @@ gulp.task('watch', function() {
     // gulp.watch(['src/js/**', 'test/app.*'], ['browserify-test']);
     gulp.watch(['src/js/**'], ['browserify-js']);
     gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['mcss-doc']);
-    gulp.watch(['src/js/**', 'doc-src/view/**'], ['doc-src']);
+    gulp.watch(['src/js/**', 'doc-src/view/**', 'doc-src/sitemap.json'], ['doc-src']);
 });
 
 gulp.task('default', ['mcss-doc', 'browserify-js', 'doc-src', 'watch']);

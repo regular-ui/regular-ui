@@ -3,7 +3,7 @@
  * ------------------------------------------------------------
  * RGUI      Regular UI库
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -37,6 +37,7 @@ RGUI.Suggest = require('./unit/suggest.js');
 // 数据类
 RGUI.ListBox = require('./unit/listBox.js');
 RGUI.ListView = require('./unit/listView.js');
+RGUI.GridView = require('./unit/gridView.js');
 RGUI.TreeView = require('./unit/treeView.js');
 RGUI.TreeSelect = require('./unit/treeSelect.js');
 
@@ -57,7 +58,7 @@ RGUI.Pager = require('./module/pager.js');
 RGUI.Modal = require('./module/modal.js');
 
 module.exports = window.RGUI = RGUI;
-},{"./base/component.js":28,"./base/request.js":30,"./base/util.js":32,"./module/modal.js":34,"./module/pager.js":36,"./module/tab.js":38,"./module/tabHead.js":40,"./unit/calendar.js":42,"./unit/checkEx.js":44,"./unit/checkGroup.js":46,"./unit/datePicker.js":48,"./unit/inputEx.js":50,"./unit/listBox.js":52,"./unit/listView.js":54,"./unit/notify.js":56,"./unit/progress.js":58,"./unit/radioGroup.js":60,"./unit/selectEx.js":62,"./unit/suggest.js":64,"./unit/timePicker.js":65,"./unit/treeSelect.js":67,"./unit/treeView.js":69,"regularjs":20}],2:[function(require,module,exports){
+},{"./base/component.js":28,"./base/request.js":30,"./base/util.js":32,"./module/modal.js":34,"./module/pager.js":36,"./module/tab.js":38,"./module/tabHead.js":40,"./unit/calendar.js":42,"./unit/checkEx.js":44,"./unit/checkGroup.js":46,"./unit/datePicker.js":48,"./unit/gridView.js":50,"./unit/inputEx.js":52,"./unit/listBox.js":54,"./unit/listView.js":56,"./unit/notify.js":58,"./unit/progress.js":60,"./unit/radioGroup.js":62,"./unit/selectEx.js":64,"./unit/suggest.js":66,"./unit/timePicker.js":67,"./unit/treeSelect.js":69,"./unit/treeView.js":71,"regularjs":20}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -5480,6 +5481,8 @@ walkers.attribute = function(ast ,options){
 });
 
 },{}],28:[function(require,module,exports){
+'use strict';
+
 var Regular = require("regularjs");
 var filter = require("./filter.js");
 
@@ -5508,6 +5511,8 @@ var Component = Regular.extend({
 
 module.exports = Component;
 },{"./filter.js":29,"regularjs":20}],29:[function(require,module,exports){
+'use strict';
+
 var filter = {};
 
 filter.format = function() {
@@ -5558,6 +5563,8 @@ filter.filter = function(array, filterFn) {
 
 module.exports = filter;
 },{}],30:[function(require,module,exports){
+'use strict';
+
 var reqwest = require("reqwest");
 var request = {};
 //var Progress = require("../component/progress/progress.rglc");
@@ -5593,8 +5600,15 @@ request.request = function(opt) {
 
 module.exports = request;
 },{"reqwest":27}],31:[function(require,module,exports){
+'use strict';
+
 var Component = require('./component.js');
 
+/**
+ * @class SourceComponent
+ * @extend Component
+ * @param {object}                      service 数据服务
+ */
 var SourceComponent = Component.extend({
     service: null,
     $updateSource: function() {
@@ -5610,6 +5624,8 @@ var SourceComponent = Component.extend({
 
 module.exports = SourceComponent;
 },{"./component.js":28}],32:[function(require,module,exports){
+'use strict';
+
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)
@@ -5633,7 +5649,7 @@ module.exports="<div class=\"m-modal\">    <div class=\"modal_dialog\" {#if widt
  * ------------------------------------------------------------
  * Modal     模态对话框
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -5798,7 +5814,7 @@ module.exports="<div class=\"m-tab\">    <tabHead source={tabs} selected={select
  * ------------------------------------------------------------
  * Tab  选择扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -5872,7 +5888,7 @@ module.exports="<div class=\"m-tab\">    <div class=\"tab-hd\">        <ul class
  * ------------------------------------------------------------
  * TabHead  选择扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -5936,7 +5952,7 @@ module.exports="<div class=\"u-calendar\">    <div class=\"calendar_hd\">       
  * ------------------------------------------------------------
  * Calendar  日历
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6019,7 +6035,7 @@ module.exports="<label class=\"u-checkex\" r-class={ {\'u-checkex-block\': block
  * ------------------------------------------------------------
  * CheckEx   输入扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6078,7 +6094,7 @@ module.exports="<div class=\"u-checkgroup\">    {#list source as item}    <label
  * ------------------------------------------------------------
  * CheckGroup 输入扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6137,7 +6153,7 @@ module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\
  * --------------------------------------------
  * 下拉列表UI
  * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * @author   zhaoyusen(rainforest92@126.com)
  * --------------------------------------------
  * @class Suggest
  * @extend Component
@@ -6199,14 +6215,58 @@ var DatePicker = Suggest.extend({
 });
 
 module.exports = DatePicker;
-},{"../base/filter.js":29,"../base/util.js":32,"./calendar.js":42,"./datePicker.html":47,"./suggest.js":64}],49:[function(require,module,exports){
-module.exports="<label class=\"u-inputex\">    <input class=\"u-input\">    <span class=\"u-unit\">{unit}</span></label>"
+},{"../base/filter.js":29,"../base/util.js":32,"./calendar.js":42,"./datePicker.html":47,"./suggest.js":66}],49:[function(require,module,exports){
+module.exports="<div class=\"u-gridview\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <div class=\"gridview_item\" r-class={ {\'z-sel\': selected === item} }>{#include itemTemplate || item.name}</div>    {/list}</div>"
 },{}],50:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * GridView  网格视图
+ * @version  0.0.1
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
+
+'use strict';
+
+var SourceComponent = require('../base/sourceComponent.js');
+var template = require('./gridView.html');
+var _ = require('../base/util.js');
+
+/**
+ * @class GridView
+ * @extend SourceComponent
+ * @param {object}                      options.data 绑定属性
+ * @param {object[]=[]}                 options.data.source 数据源
+ * @param {number}                      options.data.source[].id 每项的id
+ * @param {string}                      options.data.source[].name 每项的内容
+ * @param {boolean=false}               options.data.disabled 是否禁用该组件
+ */
+var GridView = SourceComponent.extend({
+    name: 'gridView',
+    template: template,
+    /**
+     * @protected
+     */
+    config: function() {
+        _.extend(this.data, {
+            source: [],
+            selected: null,
+            disabled: false,
+            multiple: false
+        });
+        this.supr();
+    }
+});
+
+module.exports = GridView;
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./gridView.html":49}],51:[function(require,module,exports){
+module.exports="<label class=\"u-inputex\">    <input class=\"u-input\">    <span class=\"u-unit\">{unit}</span></label>"
+},{}],52:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * InputEx   输入扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6262,16 +6322,18 @@ var InputEx = Component.extend({
 });
 
 module.exports = InputEx;
-},{"../base/component.js":28,"../base/util.js":32,"./inputEx.html":49}],51:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./inputEx.html":51}],53:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
-},{}],52:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListBox   列表框
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
+
+'use strict';
 
 var SourceComponent = require('../base/sourceComponent.js');
 var template = require('./listBox.html');
@@ -6324,64 +6386,52 @@ var ListBox = SourceComponent.extend({
 });
 
 module.exports = ListBox;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./listBox.html":51}],53:[function(require,module,exports){
-module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</li>    {/list}</ul>"
-},{}],54:[function(require,module,exports){
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./listBox.html":53}],55:[function(require,module,exports){
+module.exports="<ul class=\"u-listbox\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#if itemTemplate}{#include itemTemplate}{#else}{item.name}{/if}</li>    {/list}</ul>"
+},{}],56:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
- * Listbox   列表框
+ * ListView  列表视图
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
+
+'use strict';
 
 var ListBox = require('./listBox.js');
 var template = require('./listView.html');
 var _ = require('../base/util.js');
 
 /**
- * @example
- * var modal = new Modal();
- * @class Modal
- * @extend Component
- * @param {object=}                      options.data 可选参数
- *        {string='提示'}                options.data.title 对话框标题
- *        {string=}                      options.data.content 对话框内容
- *        {string|boolean=true}          options.data.okButton 确定按钮的文字，如果为false则不显示确定按钮
- *        {string|boolean=false}         options.data.cancelButton 取消按钮的文字，如果为false则不显示取消按钮
- *        {number=320}                   options.data.width 对话框宽度
- *        {function=}                    options.ok 当点击确定的时候执行
- *        {function=}                    options.cancel 当点击取消的时候执行
- * @Event close 当value改变时发生 {result} 确定result为true，取消result为false
+ * @class ListView
+ * @extend ListBox
+ * @param {string=null}                 options.data.itemTemplate 每一项的模板
  */
 var ListView = ListBox.extend({
     name: 'listView',
     template: template,
     config: function() {
         _.extend(this.data, {
-            itemTemplate: null //'{item.id}'
-            // @override source: [],
-            // @override selected: null,
-            // @override disabled: false,
-            // @override multiple: false
+            itemTemplate: null
+            // @inherited source: [],
+            // @inherited selected: null,
+            // @inherited disabled: false,
+            // @inherited multiple: false
         });
         this.supr();
-    },
-    select: function(item) {
-        this.data.selected = item;
-        
     }
 });
 
 module.exports = ListView;
-},{"../base/util.js":32,"./listBox.js":52,"./listView.html":53}],55:[function(require,module,exports){
+},{"../base/util.js":32,"./listBox.js":54,"./listView.html":55}],57:[function(require,module,exports){
 module.exports="<div class=\"m-notify m-notify-{position}\">    {#list messages as message}    <div class=\"notify_message notify_message-{message.type} f-cb\" r-animation=\'on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\'>        <a class=\"notify_close\" on-click={this.close(message)}><i class=\"f-icon f-icon-close\"></i></a>        <div class=\"notify_text\"><i class=\"f-icon f-icon-{message.type}-circle\" r-hide={!message.type}></i> {message.text}</div>    </div>    {/list}</div>"
-},{}],56:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Notify    通知
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6433,7 +6483,7 @@ var Notify = Component.extend({
         var message = {
             text: text,
             type: type,
-            duration: duration || this.duration
+            duration: duration >= 0 ? duration : this.duration
         };
         this.data.messages.unshift(message);
         this.$update();
@@ -6515,14 +6565,14 @@ Notify.closeAll = function() {
 }
 
 module.exports = Notify;
-},{"../base/component.js":28,"../base/util.js":32,"./notify.html":55}],57:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./notify.html":57}],59:[function(require,module,exports){
 module.exports="<div class=\"u-progress u-progress-{size} u-progress-{type}\" r-class={ {\'u-progress-striped\': striped, \'z-act\': active} }>    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + \'%\' : text) : \'\'}</div></div>"
-},{}],58:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Progress  进度条
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6563,14 +6613,14 @@ var Progress = Component.extend({
 });
 
 module.exports = Progress;
-},{"../base/component.js":28,"../base/util.js":32,"./progress.html":57}],59:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./progress.html":59}],61:[function(require,module,exports){
 module.exports="<div class=\"u-radiogroup\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} > {item.name}</label>    {/list}</div>"
-},{}],60:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioGroup 输入扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6616,14 +6666,14 @@ var RadioGroup = Component.extend({
 });
 
 module.exports = RadioGroup;
-},{"../base/component.js":28,"../base/util.js":32,"./radioGroup.html":59}],61:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./radioGroup.html":61}],63:[function(require,module,exports){
 module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],62:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * SelectEx  选择扩展
  * @version  0.0.1
- * @author   sensen(hzzhaoyusen@corp.netease.com)
+ * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
@@ -6716,9 +6766,9 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = SelectEx;
-},{"../base/component.js":28,"../base/util.js":32,"./selectEx.html":61}],63:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./selectEx.html":63}],65:[function(require,module,exports){
 module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    <div class=\"suggest_bd\" r-hide={!open}>        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
-},{}],64:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 var Component = require('../base/component.js');
 var template = require('./suggest.html');
 var _ = require('../base/util.js');
@@ -6835,12 +6885,12 @@ _.addEvent(window.document, 'click', function(e) {
 });
 
 module.exports = Suggest;
-},{"../base/component.js":28,"../base/util.js":32,"./listBox.js":52,"./suggest.html":63}],65:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./listBox.js":54,"./suggest.html":65}],67:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
  * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * @author   zhaoyusen(rainforest92@126.com)
  * --------------------------------------------
  * @class Suggest
  * @extend Component
@@ -6879,14 +6929,14 @@ var TimePicker = Suggest.extend({
 });
 
 module.exports = TimePicker;
-},{"../base/util.js":32,"./suggest.js":64}],66:[function(require,module,exports){
+},{"../base/util.js":32,"./suggest.js":66}],68:[function(require,module,exports){
 module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
-},{}],67:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
  * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
+ * @author   zhaoyusen(rainforest92@126.com)
  * --------------------------------------------
  * @class SelectEx
  * @extend Component
@@ -6921,30 +6971,40 @@ var TreeSelect = SelectEx.extend({
 });
 
 module.exports = TreeSelect;
-},{"../base/util.js":32,"./selectEx.js":62,"./treeSelect.html":66,"./treeView.js":69}],68:[function(require,module,exports){
+},{"../base/util.js":32,"./selectEx.js":64,"./treeSelect.html":68,"./treeView.js":71}],70:[function(require,module,exports){
 module.exports="<div class=\"u-treeview\" r-class={ {\'z-dis\': disabled} }>    <treeViewList source={source} visible={true} /></div>"
-},{}],69:[function(require,module,exports){
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @version  1.0
- * @author   zhaoyusen(hzzhaoyusen@corp.netease.com)
- * --------------------------------------------
- * @class List
- * @extend Component
- * @param {Object} options
- *     options.value             
- *              
+},{}],71:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * TreeView  树型视图
+ * @version  0.0.1
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
  */
 
-var Component = require('../base/component.js');
+'use strict';
+
+var SourceComponent = require('../base/sourceComponent.js');
 var template = require('./treeView.html');
 var recursiveTempate = require('./treeViewList.html');
 var _ = require('../base/util.js');
 
-var TreeView = Component.extend({
+/**
+ * @class TreeView
+ * @extend SourceComponent
+ * @param {object}                      options.data 绑定属性
+ * @param {object[]=[]}                 options.data.source 数据源
+ * @param {number}                      options.data.source[].id 每项的id
+ * @param {string}                      options.data.source[].name 每项的内容
+ * @param {object=null}                 options.data.selected 当前选择项
+ * @param {boolean=false}               options.data.disabled 是否禁用该组件
+ */
+var TreeView = SourceComponent.extend({
     name: 'treeView',
     template: template,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
             source: [],
@@ -6956,35 +7016,65 @@ var TreeView = Component.extend({
 
         this.treeroot = this;
     },
+    /**
+     * @method select(item) 选择某一项
+     * @public
+     * @param  {object} item 选择项
+     * @return {void}
+     */
     select: function(item) {
+        if(this.data.disabled)
+            return;
+
         this.data.selected = item;
+        /**
+         * @event select 选择某一项时触发
+         * @property {object} selected 当前选择项
+         */
         this.$emit('select', {
             selected: item
         });
     }
 });
 
-var TreeViewList = Component.extend({
+var TreeViewList = SourceComponent.extend({
     name: 'treeViewList',
     template: recursiveTempate,
     config: function() {
         _.extend(this.data, {
             itemTemplate: null,
-            // @override source: [],
             visible: false
         });
         this.supr();
         this.treeroot = this.$parent.treeroot;
     },
+    /**
+     * @method select(item) 选择某一项
+     * @private
+     * @param  {object} item 选择项
+     * @return {void}
+     */
     select: function(item) {
+        if(this.$parent.data.disabled)
+            return;
+
         this.treeroot.select(item);
     },
+    /**
+     * @method toggle(item) 展开或收起某一项
+     * @private
+     * @param  {object} item 展开收起项
+     * @return {void}
+     */
     toggle: function(item) {
+        if(this.$parent.data.disabled)
+            return;
+        
         item.open = !item.open;
     }
 })
 
 module.exports = TreeView;
-},{"../base/component.js":28,"../base/util.js":32,"./treeView.html":68,"./treeViewList.html":70}],70:[function(require,module,exports){
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./treeView.html":70,"./treeViewList.html":72}],72:[function(require,module,exports){
 module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.children && item.children.length}            <i class=\"f-icon\" r-class={ {\'f-icon-caret-right\': !item.open, \'f-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</div>        </div>        {#if item.children && item.children.length}<treeViewList source={item.children} visible={item.open} />{/if}    </li>    {/list}</ul>"
 },{}]},{},[1]);

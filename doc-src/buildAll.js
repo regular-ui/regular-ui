@@ -9,6 +9,9 @@ var sitemap = require('./sitemap.json');
  * @return {void}
  */
 function buildAll() {
+    // 动态加载，require有缓存
+    var sitemap = fs.readFileSync(__dirname + '/sitemap.json', {encoding: 'utf8'});
+    sitemap = JSON.parse(sitemap);
     // 加载common中的模板
     var template = {
         head: fs.readFileSync(__dirname + '/view/common/head.ejs', {encoding: 'utf8'}),
@@ -20,11 +23,11 @@ function buildAll() {
 
     // 遍历sitemap生成所有文档
     var level0 = sitemap;
-    build('index', template);
+    build('index', sitemap, template);
     level0.children.forEach(function(level1) {
-        build(level1.lowerName + '/index', template);
+        build(level1.lowerName + '/index', sitemap, template);
         level1.children.forEach(function(level2) {
-            build(level1.lowerName + '/' + level2.lowerName, template);
+            build(level1.lowerName + '/' + level2.lowerName, sitemap, template);
         });        
     });
 }

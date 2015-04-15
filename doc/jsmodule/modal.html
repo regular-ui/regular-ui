@@ -17,7 +17,8 @@ var relativePath = '../';
 var themes = [
     {id: 0, name: 'core'},
     {id: 1, name: 'default'},
-    {id: 2, name: 'flat'}
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
 ];
 
 var selectedTheme;
@@ -73,22 +74,32 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="sidebar-group">导航类</li>
         
-        <li><a href="../jsmodule/tabhead.html">选项卡头<small> TabHead</small></a></li>
+        <li><a href="../jsmodule/tabhead.html">选项卡头<small> TabHead</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsmodule/tab.html">选项卡<small> Tab</small></a></li>
+        <li><a href="../jsmodule/tab.html">选项卡<small> Tab</small>
+        
+        </a></li>
         
         
         
-        <li><a href="../jsmodule/pager.html">分页器<small> Pager</small></a></li>
+        <li><a href="../jsmodule/pager.html">分页器<small> Pager</small>
+        
+        </a></li>
         
         
         
         
         <li class="sidebar-group">窗口类</li>
         
-        <li class="z-crt"><a href="../jsmodule/modal.html">模态对话框<small> Modal</small></a></li>
+        <li class="z-crt"><a href="../jsmodule/modal.html">模态对话框<small> Modal</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
         
         
         
@@ -183,39 +194,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 
 <div id="j-methods"></div>
-
-
-<h4>Static Methods</h4>
-
-<h5>Modal.alert([content][, title])</h5>
-<p>弹出一个alert对话框。关闭时始终触发确定事件。</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
-        
-    </tbody>
-</table>
-
-<h5>Modal.confirm([content][, title])</h5>
-<p>弹出一个confirm对话框</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
-        
-    </tbody>
-</table>
 
 
 <div id="j-staticMethods"></div>

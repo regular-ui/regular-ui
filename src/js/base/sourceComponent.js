@@ -1,5 +1,12 @@
+'use strict';
+
 var Component = require('./component.js');
 
+/**
+ * @class SourceComponent
+ * @extend Component
+ * @param {object}                      service 数据服务
+ */
 var SourceComponent = Component.extend({
     service: null,
     $updateSource: function() {
