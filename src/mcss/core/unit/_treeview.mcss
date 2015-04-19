@@ -3,7 +3,7 @@
 
 /* Dimension */
 $u-treeview_border-radius =              null;
-$u-treeview_item_padding =               0 8px;
+$u-treeview_item_padding =               0 4px;
 $u-treeview_item_border-radius =         null;
 
 /* Color */

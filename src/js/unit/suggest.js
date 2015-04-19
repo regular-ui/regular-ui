@@ -1,25 +1,34 @@
-var Component = require('../base/component.js');
+/**
+ * ------------------------------------------------------------
+ * Suggest   自动提示
+ * @version  0.0.1
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
+
+'use strict';
+
+var SourceComponent = require('../base/sourceComponent.js');
 var template = require('./suggest.html');
 var _ = require('../base/util.js');
 var ListBox = require('./listBox.js');
 
 /**
  * @class Suggest
- * @extend Component
- * @param {Object}
- *     options.data 可选参数
- *         .selected 当前选中对象
- *         .value 当前选中对象的id，默认项的id为-1
- *         .defaultOption 默认项，如果为null则没有默认项
- *         .options 下拉列表中的选项
- *         .disabled 是否禁用
- *         .open 下拉列表展开
- *         .suggest 是否自动提示
- *         .minLength 当输入长度>=此值时提示
- *         .matchType 匹配方式，'all'表示全局匹配，'start'表示开头匹配，'end'表示结尾匹配
- * @Event on-change 当value改变时发生 {selected}
+ * @extend SourceComponent
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.selected           当前选择项
+ * @param {string=''}               options.data.value              文本框中的值
+ * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {number=0}                options.data.minLength          最小提示长度。当输入长度>=该值后开始提示
+ * @param {string='all'}            options.data.matchType          匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
+ * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
  */
-var Suggest = Component.extend({
+var Suggest = SourceComponent.extend({
     name: 'suggest',
     template: template,
     /**
@@ -29,17 +38,23 @@ var Suggest = Component.extend({
         _.extend(this.data, {
             source: [],
             selected: null,
+            value: '',
             placeholder: '请输入',
             open: false,
             disabled: false,
             minLength: 0,
             delay: 300,
             matchType: 'all',
-            value: '',
             strict: false
         });
         this.supr();
     },
+    /**
+     * @method select(item) 选择某一项
+     * @public
+     * @param  {object} item 选择项
+     * @return {void}
+     */
     select: function(item) {
         this.$update('selected', item);
         this.data.value = item.name;
@@ -53,12 +68,25 @@ var Suggest = Component.extend({
         });
         this.toggle(false);
     },
+    /**
+     * @method toggle(open)  在展开状态和收起状态之间切换
+     * @public
+     * @param  {boolean} open 展开还是收起
+     * @return {void}
+     */
     toggle: function(open, _isInput) {
         if(this.data.disabled)
             return;
 
         this.data.open = open;
 
+        /**
+         * @event toggle 展开或收起状态改变时触发
+         * @property {boolean} open 展开还是收起
+         */
+        this.$emit('toggle', {
+            open: open
+        });
 
         var index = Suggest.opens.indexOf(this);
         if(open && index < 0)
@@ -70,6 +98,7 @@ var Suggest = Component.extend({
                this.data.value = this.data.selected ? this.data.selected.name : '';
         }
     },
+    // 输入时
     input: function($event) {
         var value = this.data.value;
 
@@ -99,7 +128,7 @@ var Suggest = Component.extend({
 // 处理点击suggest之外的地方后的收起事件。
 Suggest.opens = [];
 
-_.addEvent(window.document, 'click', function(e) {
+_.dom.on(window.document, 'click', function(e) {
     Suggest.opens.forEach(function(suggest) {
         var element = suggest.$refs.element;
         var element2 = e.target;

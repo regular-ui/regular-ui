@@ -41,6 +41,9 @@ $reset-normalize();
 @import 'core/module/_sidebar.mcss';
 @import 'core/module/sidebar.mcss';
 
+@import 'core/module/_table.mcss';
+@import 'core/module/table.mcss';
+
 
 
 // JS Unit
@@ -66,6 +69,9 @@ $reset-normalize();
 
 @import 'core/unit/_treeview.mcss';
 @import 'core/unit/treeview.mcss';
+
+@import 'core/unit/_tableview.mcss';
+@import 'core/unit/tableview.mcss';
 
 /* 表单类 */
 @import 'core/unit/_inputex.mcss';

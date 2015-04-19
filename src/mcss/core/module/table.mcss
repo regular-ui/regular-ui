@@ -1,0 +1,40 @@
+// Name:            Table
+// Description:     表格
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-table`
+// ========================================================================
+
+.m-table {
+    // - (It has been realized in normalize.css) Remove most spacing between table cells.
+    // border-collapse: collapse;
+    // border-spacing: 0;
+    // - Block element behavior.
+    width: 100%;
+
+    caption {
+        color: $m-table_caption_color;
+        font-size: $m-table_caption_font-size;
+    }
+
+    th, td {
+        padding: $m-table_tx_padding;
+        $border: $m-table_tx_border;
+    }
+}
+
+// Extends:         `m-table-striped`, `m-table-hover`
+// Description:     尺寸和颜色扩展函数
+// ========================================================================
+// 
+.m-table-striped {
+    tbody tr:nth-of-type(odd) {background: $m-table-striped_tr-background;}
+}
+
+.m-table-hover {
+    tbody tr:hover {background: $m-table_tr_hover-background;}
+}

@@ -29,7 +29,9 @@ RGUI.Progress = require('./unit/progress.js');
 RGUI.InputEx = require('./unit/inputEx.js');
 RGUI.CheckEx = require('./unit/checkEx.js');
 RGUI.CheckGroup = require('./unit/checkGroup.js');
+RGUI.CheckExGroup = require('./unit/checkExGroup.js');
 RGUI.RadioGroup = require('./unit/radioGroup.js');
+RGUI.RadioExGroup = require('./unit/radioExGroup.js');
 RGUI.SelectEx = require('./unit/selectEx.js');
 RGUI.Suggest = require('./unit/suggest.js');
 
@@ -38,6 +40,7 @@ RGUI.ListBox = require('./unit/listBox.js');
 RGUI.ListView = require('./unit/listView.js');
 RGUI.GridView = require('./unit/gridView.js');
 RGUI.TreeView = require('./unit/treeView.js');
+RGUI.TableView = require('./unit/tableView.js');
 RGUI.TreeSelect = require('./unit/treeSelect.js');
 
 // 日期类

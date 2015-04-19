@@ -18,7 +18,7 @@
     color: $u-listbox_color;
     border: $u-listbox_border;
     @if($u-listbox_border-radius) {$border-radius: $u-listbox_border-radius;}
-    //overflow: hidden;
+    $user-select: none;
 
     > li {
         cursor: pointer;

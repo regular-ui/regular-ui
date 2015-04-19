@@ -14,6 +14,7 @@
     color: $u-treeview_color;
     $border: $u-treeview_border;
     @if($u-treeview_border-radius) {$border-radius: $u-treeview_border-radius;}
+    $user-select: none;
 
     .treeview_list {
         list-style: none;

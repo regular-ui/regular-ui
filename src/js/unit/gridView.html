@@ -1,4 +1,4 @@
-<div class="u-gridview" r-class={ {'z-dis': disabled} }>
+<div class="u-gridview {@(class)}" r-class={ {'z-dis': disabled} }>
     {#list source as item}
     <div class="gridview_item" r-class={ {'z-sel': selected === item} }>{#include itemTemplate || item.name}</div>
     {/list}

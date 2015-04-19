@@ -8,7 +8,7 @@
 
 Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com/standard/css-sort.html)。
 
-#### 补充
+##### 补充
 
 - 为了防止组件内部类名的污染，并且为了好识别，使用`_`来做连字符。
 
@@ -22,7 +22,7 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com
 
 ### JS规范
 
-Regular UI中所有组件的JS代码都遵循。。。呃，在网易内网里面。。。
+Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面。。。
 
 代码的注释遵循jsDoc的规范。
 
@@ -44,11 +44,11 @@ Regular UI中所有组件的JS代码都遵循。。。呃，在网易内网里�
 | `DatePicker`        | `datePicker`       | `<datePicker>`       | `u-datepicker`       | `datePicker.js` | `datepicker.mcss` |
 | `DateTimePicker`    | `dateTimePicker`   | `<dateTimePicker>`   | `u-datetimepicker`   | `dateTimePicker.js` | `datetimepicker.mcss` |
 
-#### 补充
+##### 补充
 
 为什么不用有些框架中流行的`datepicker`、`autocomplete`、`dropdown`这种全小写？
 
-那我碰到具体开发中的`knowledgeautocomplete`、`questiondropdown`怎么办？
+那我碰到实际开发中的`knowledgeautocomplete`、`questiondropdown`怎么办？
 
 不想纠结，就统一用小驼峰吧！
 

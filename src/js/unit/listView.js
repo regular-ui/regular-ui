@@ -15,7 +15,7 @@ var _ = require('../base/util.js');
 /**
  * @class ListView
  * @extend ListBox
- * @param {string=null}                 options.data.itemTemplate 每一项的模板
+ * @param {string=null}             options.data.itemTemplate       每一项的模板
  */
 var ListView = ListBox.extend({
     name: 'listView',

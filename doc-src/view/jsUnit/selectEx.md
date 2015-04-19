@@ -7,17 +7,7 @@
 <selectEx source={source} />
 ```
 
-```javascript
-var source = [
-    {id: 1, name: '选项1'},
-    {id: 2, name: '选项2'},
-    {id: 3, name: '选项3'}
-];
-
-...
-    this.data.source = source;
-...
-```
+或
 
 ```javascript
 var source = [
@@ -41,6 +31,8 @@ var selectEx = new SelectEx({
 <selectEx source={source} disabled={true} />
 ```
 
+或
+
 ```javascript
 var source = [
     {id: 1, name: '选项1'},
@@ -53,5 +45,42 @@ var selectEx = new SelectEx({
         source: source,
         disabled: true
     }
-}).$inject('#j-example1');
+}).$inject('#j-example2');
+```
+
+#### 远程数据
+
+同[ListBox](listbox.html)。
+
+#### 设置或取消默认项
+
+<div id="j-example3"></div>
+
+```xml
+<selectEx source={source} placeholder="全部" />
+<selectEx source={source} placeholder="" />
+```
+
+或
+
+```javascript
+var source = [
+    {id: 1, name: '选项1'},
+    {id: 2, name: '选项2'},
+    {id: 3, name: '选项3'}
+];
+
+var selectEx1 = new SelectEx({
+    data: {
+        source: source,
+        placeholder: '全部'
+    }
+}).$inject('#j-example3');
+
+var selectEx2 = new SelectEx({
+    data: {
+        source: source,
+        placeholder: null
+    }
+}).$inject('#j-example3');
 ```

@@ -1,4 +1,14 @@
-/* 下拉选框 样式 */
+// Name:            Suggest
+// Description:     自动提示
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-suggest`
+// ========================================================================
+
 .u-suggest {
     display: inline-block;
     position: relative;

@@ -1,19 +1,19 @@
 'use strict';
 
-var reqwest = require("reqwest");
+var reqwest = require('reqwest');
 var request = {};
-//var Progress = require("../component/progress/progress.rglc");
+//var Progress = require('../component/progress/progress.rglc');
 //var progress = new Progress();
 request.request = function(opt) {
   var noop = function(){};
   var olderror = opt.error || noop,
       oldsuccess = opt.success || noop;
 
-  if(opt.method && opt.method.toLowerCase() === "post"){
+  if(opt.method && opt.method.toLowerCase() === 'post'){
     opt.contentType = 'application/json'
   }
 
-  if(opt.contentType === 'application/json' || opt.headers && opt.headers.contentType === 'application/json'){
+  if(opt.contentType === 'application/json' || opt.headers && opt.headers.contentType === 'application/json') {
     opt.data = JSON.stringify(opt.data);
   }
   if(!opt.method || opt.method === 'get') {

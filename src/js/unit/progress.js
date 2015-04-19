@@ -22,6 +22,7 @@ var _ = require('../base/util.js');
  * @param {string=null}             options.data.type               进度条的类型，改变显示颜色
  * @param {boolean=false}           options.data.striped            是否显示条纹
  * @param {boolean=false}           options.data.active             进度条是否为激活状态，当`striped`为`true`时，进度条显示动画
+ * @param {string=''}               options.data.class              补充class
  */
 var Progress = Component.extend({
     name: 'progress',

@@ -1,5 +1,18 @@
+// Name:            RadioEx
+// Description:     单选按钮
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-radioex`
+// ========================================================================
+
 .u-radioex {
     cursor: pointer;
+    $user-select: none;
+
     .radioex_box {
         display: inline-block;
         width: $u-radioex_span_size;
@@ -12,6 +25,7 @@
         overflow: hidden;
         line-height: 1;
         text-align: center;
+
         .f-icon {
             content: '';
             display: inline-block;
@@ -27,6 +41,22 @@
         }
     }
 }
+
+/* Disabled */
+.u-radioex.z-dis {
+    cursor: not-allowed;
+
+    .radioex_box {
+        background: $u-radioex-disabled_background;
+        color: $u-radioex-disabled_color;
+        @if($u-radioex-disabled_border) {$border: $u-radioex-disabled_border;}
+    }
+}
+
+
+
+// Extends:         `u-radioex-block`
+// ========================================================================
 
 .u-radioex-block {
     display: block;

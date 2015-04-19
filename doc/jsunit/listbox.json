@@ -2,10 +2,10 @@
     "code": 200,
     "success": true,
     "result": [
-        {"id": 1, "name": "Remote Data 1"},
-        {"id": 2, "name": "Remote Data 2"},
-        {"id": 3, "name": "Remote Data 3"},
-        {"id": 4, "name": "Remote Data 4"},
-        {"id": 5, "name": "Remote Data 5"}
+        {"id": 1, "name": "Remote 选项1"},
+        {"id": 2, "name": "Remote 选项2"},
+        {"id": 3, "name": "Remote 选项3"},
+        {"id": 4, "name": "Remote 选项4"},
+        {"id": 5, "name": "Remote 选项5"}
     ]
 }

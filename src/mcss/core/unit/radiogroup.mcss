@@ -1,9 +1,16 @@
-.u-radiogroup {
-    .u-radioex + .u-radioex {
-        margin-left: 20px;
-    }
+// Name:            RadioGroup
+// Description:     单选组
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
 
-    .u-radioex-block + .u-radioex-block {
-        margin-left: 0;
+
+
+// Component:       `u-radiogroup`
+// ========================================================================
+
+.u-radiogroup {
+    .u-radioex {
+        margin-right: 20px;
     }
 }

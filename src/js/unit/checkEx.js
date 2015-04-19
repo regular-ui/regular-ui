@@ -1,10 +1,12 @@
 /**
  * ------------------------------------------------------------
- * CheckEx   输入扩展
+ * CheckEx   多选按钮
  * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
+
+'use strict';
 
 var Component = require('../base/component.js');
 var template = require('./checkEx.html');
@@ -13,14 +15,12 @@ var _ = require('../base/util.js');
 /**
  * @class CheckEx
  * @extend Component
- * @param {object}                      options.data 绑定属性
- * @param {string=''}                   options.data.name 当前选择项
- * @param {object=null}                 options.data.checked 当前选择项
- * @param {boolean=false}               options.data.disabled 是否禁用该组件
- * @example
- *     var listbox = new CheckEx().inject('#container');
- * @example
- *     <listbox source={dataSource} />
+ * @param {object}                  options.data                    绑定属性
+ * @param {string=''}               options.data.name               多选按钮的文字
+ * @param {object=null}             options.data.checked            多选按钮的选择状态
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {boolean=false}           options.data.block              是否以block方式显示
+ * @param {string=''}               options.data.class              补充class
  */
 var CheckEx = Component.extend({
     name: 'checkEx',
@@ -31,21 +31,25 @@ var CheckEx = Component.extend({
     config: function() {
         _.extend(this.data, {
             name: '',
-            checked: false
+            checked: false,
+            disabled: false
         });
         this.supr();
     },
     /**
-     * @method select(item) 选择某一项
+     * @method check(checked) 改变选中状态
      * @public
-     * @param  {object} item 选择项
+     * @param  {boolean} checked 选中状态
      * @return {void}
      */
     check: function(checked) {
+        if(this.data.disabled)
+            return;
+
         this.data.checked = checked;
         /**
-         * @event select 选择某一项时触发
-         * @property {object} selected 当前选择项
+         * @event check 改变选中状态时触发
+         * @property {boolean} checked 选中状态
          */
         this.$emit('check', {
             checked: checked

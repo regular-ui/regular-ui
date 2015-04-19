@@ -17,6 +17,7 @@ var _ = require('../base/util.js');
  * @extend Component
  * @param {object}                  options.data                    监听数据
  * @param {string='topcenter'}      options.data.position           通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
+ * @param {string=''}               options.data.class              补充class
  * @param {number=2000}             options.duration                每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
  */
 var Notify = Component.extend({

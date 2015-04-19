@@ -1,5 +1,18 @@
+// Name:            CheckEx
+// Description:     多选按钮
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-checkex`
+// ========================================================================
+
 .u-checkex {
     cursor: pointer;
+    $user-select: none;
+
     .checkex_box {
         display: inline-block;
         width: $u-checkex_span_size;
@@ -16,6 +29,22 @@
         }
     }
 }
+
+/* Disabled */
+.u-checkex.z-dis {
+    cursor: not-allowed;
+
+    .checkex_box {
+        background: $u-checkex-disabled_background;
+        color: $u-checkex-disabled_color;
+        @if($u-checkex-disabled_border) {$border: $u-checkex-disabled_border;}
+    }
+}
+
+
+
+// Extends:         `u-checkex-block`
+// ========================================================================
 
 .u-checkex-block {
     display: block;

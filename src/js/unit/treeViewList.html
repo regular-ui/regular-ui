@@ -2,12 +2,12 @@
     {#list source as item}
     <li>
         <div class="treeview_item">
-            {#if item.children && item.children.length}
+            {#if item.childrenCount || (item.children && item.children.length)}
             <i class="f-icon" r-class={ {'f-icon-caret-right': !item.open, 'f-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>
             {/if}
-            <div class="treeview_itemname" r-class={ {'z-sel': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#include itemTemplate || item.name}</div>
+            <div class="treeview_itemname" r-class={ {'z-sel': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if itemTemplate}{#include itemTemplate}{#else}{item.name}{/if}</div>
         </div>
-        {#if item.children && item.children.length}<treeViewList source={item.children} visible={item.open} />{/if}
+        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}
     </li>
     {/list}
 </ul>

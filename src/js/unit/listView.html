@@ -1,4 +1,4 @@
-<ul class="u-listbox" r-class={ {'z-dis': disabled} }>
+<ul class="u-listbox {@(class)}" r-class={ {'z-dis': disabled} }>
     {#list source as item}
     <li r-class={ {'z-sel': selected === item} } on-click={this.select(item)}>{#if itemTemplate}{#include itemTemplate}{#else}{item.name}{/if}</li>
     {/list}

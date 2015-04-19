@@ -6,9 +6,7 @@
 <div id="j-example1"><button class="u-btn u-btn-primary">Notify</button></div>
 
 ```javascript
-...
-    Notify.show('This is a message.');
-...
+Notify.show('This is a message.');
 ```
 
 #### 状态扩展
@@ -21,12 +19,10 @@
 </div>
 
 ```javascript
-...
-    Notify.show('Info message.', 'info');
-    Notify.show('Success message.', 'success');
-    Notify.show('Warning message.', 'warning');
-    Notify.show('Error message.', 'error');
-...
+Notify.show('Info message.', 'info');
+Notify.show('Success message.', 'success');
+Notify.show('Warning message.', 'warning');
+Notify.show('Error message.', 'error');
 ```
 
 #### 位置扩展

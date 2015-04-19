@@ -6,23 +6,24 @@
  * ------------------------------------------------------------
  */
 
-var Component = require('../base/component.js');
+'use strict';
+
+var SourceComponent = require('../base/sourceComponent.js');
 var template = require('./selectEx.html');
 var _ = require('../base/util.js');
 
 /**
  * @class SelectEx
- * @extend Component
- * @param {object}                      options.data 绑定属性
- * @param {object[]=[]}                 options.data.source 数据源
- * @param {number}                      options.data.source[].id 每项的id
- * @param {string}                      options.data.source[].name 每项的内容
- * @param {object=null}                 options.data.selected 当前选择项
- * @param {string='请选择'}             options.data.placeholder 默认项
- * @param {boolean=false}               options.data.open 当前为展开状态还是收起状态
- * @param {boolean=false}               options.data.disabled 是否禁用该组件
+ * @extend SourceComponent
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.selected           当前选择项
+ * @param {string='请选择'}         options.data.placeholder        默认项的文字
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
  */
-var SelectEx = Component.extend({
+var SelectEx = SourceComponent.extend({
     name: 'selectEx',
     template: template,
     /**
@@ -33,9 +34,8 @@ var SelectEx = Component.extend({
             source: [],
             selected: null,
             placeholder: '请选择',
-            open: false,
             disabled: false,
-            multiple: false
+            open: false
         });
         this.supr();
     },
@@ -60,7 +60,7 @@ var SelectEx = Component.extend({
     /**
      * @method toggle(open)  在展开状态和收起状态之间切换
      * @public
-     * @param  {[type]} open 展开还是收起
+     * @param  {boolean} open 展开还是收起
      * @return {void}
      */
     toggle: function(open) {
@@ -68,6 +68,14 @@ var SelectEx = Component.extend({
             return;
         
         this.data.open = open;
+
+        /**
+         * @event toggle 展开或收起状态改变时触发
+         * @property {boolean} open 展开还是收起
+         */
+        this.$emit('toggle', {
+            open: open
+        });
 
         var index = SelectEx.opens.indexOf(this);
         if(open && index < 0)
@@ -80,7 +88,7 @@ var SelectEx = Component.extend({
 // 处理点击selectEx之外的地方后的收起事件。
 SelectEx.opens = [];
 
-_.addEvent(window.document, 'click', function(e) {
+_.dom.on(document.body, 'click', function(e) {
     SelectEx.opens.forEach(function(selectEx) {
         var element = selectEx.$refs.element;
         var element2 = e.target;

@@ -1,5 +1,7 @@
 'use strict';
 
+var Regular = require('regularjs');
+
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)
@@ -7,11 +9,10 @@ var _ = {
                 o1[i] = o2[i]
         return o1;
     },
-    addEvent: function(element, event, callback) {
-        element.addEventListener(event, callback);
-    },
+    dom: Regular.dom,
     multiline: function(func) {
-        return func.toString().replace(/^function\s*\(\)\s*\{\s*\/\*+/, '').replace(/\*+\/\s*\}$/, '').trim();
+        var reg = /^function\s*\(\)\s*\{\s*\/\*+\s*([\s\S]*)\s*\*+\/\s*\}$/;
+        return reg.exec(func)[1];
     }
 }
 

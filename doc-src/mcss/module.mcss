@@ -130,7 +130,7 @@
         width: 100%;
     }
 
-    >table th, table td {
+    >table th, >table td {
         border: 1px solid #ddd;
         padding: 2px 6px;
         font-size: 12px;
@@ -140,6 +140,10 @@
 
 .u-progress + .u-progress {
     margin-top: 10px;
+}
+
+.u-selectex + .u-selectex, .u-suggest + .u-suggest {
+    margin-left: 20px;
 }
 
 .u-courceitem {
@@ -162,5 +166,19 @@
 
     li .f-icon-info-circle {
         @if($brand-warning) {color: $brand-warning;}
+    }
+}
+
+.treeview_itemname {
+    .f-icon {
+        font-size: 14px;
+    }
+
+    .f-icon-folder, .f-icon-folder-open {
+        color: $brand-warning;
+    }
+
+    .f-icon-file-text {
+        color: #bbb;
     }
 }

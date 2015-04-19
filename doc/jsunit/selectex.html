@@ -127,6 +127,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small>
         
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
         </a></li>
         
         
@@ -141,11 +143,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/checkex.html">多选按钮<small> CheckEx</small>
         
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
         </a></li>
         
         
         
         <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -153,11 +159,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small>
         
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
         </a></li>
         
         
         
         <li class="z-crt"><a href="../jsunit/selectex.html">选择扩展<small> SelectEx</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -165,11 +175,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
         
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
         </a></li>
         
         
         
         <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -217,16 +231,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectEx</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">source</span> <span class="cm-operator">=</span> [
-    {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-    {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-    {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
-];
-
-<span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> <span class="cm-variable">source</span>;
-<span class="cm-meta">...</span>
-</code></pre>
+<p>或</p>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">source</span> <span class="cm-operator">=</span> [
     {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
     {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
@@ -244,6 +249,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectEx</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
+<p>或</p>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">source</span> <span class="cm-operator">=</span> [
     {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
     {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
@@ -255,14 +261,43 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <span class="cm-property">source</span>: <span class="cm-variable">source</span>,
         <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>
     }
-}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example1&#39;</span>);
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example2&#39;</span>);
+</code></pre>
+<h4 id="-">远程数据</h4>
+<p>同<a href="listbox.html">ListBox</a>。</p>
+<h4 id="-">设置或取消默认项</h4>
+<div id="j-example3"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectEx</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;全部&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectEx</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<p>或</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">source</span> <span class="cm-operator">=</span> [
+    {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+    {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+];
+
+<span class="cm-keyword">var</span> <span class="cm-variable">selectEx1</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">SelectEx</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: <span class="cm-variable">source</span>,
+        <span class="cm-property">placeholder</span>: <span class="cm-string">&#39;全部&#39;</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example3&#39;</span>);
+
+<span class="cm-keyword">var</span> <span class="cm-variable">selectEx2</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">SelectEx</span>({
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: <span class="cm-variable">source</span>,
+        <span class="cm-property">placeholder</span>: <span class="cm-atom">null</span>
+    }
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example3&#39;</span>);
 </code></pre>
 
         <h3>API</h3>
 
 <h4>Class</h4>
 <h5>SelectEx</h5>
-<p>继承自<strong>Component</strong>。</p>
+<p>继承自<strong>SourceComponent</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -284,9 +319,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
         
-        <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请选择&#39;</code></td><td>默认项</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>当前为展开状态还是收起状态</td></tr>
+        <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请选择&#39;</code></td><td>默认项的文字</td></tr>
         
         <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
         
@@ -318,7 +351,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">[type]</td><td class="f-wsn"></td><td>展开还是收起</td></tr>
+        <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开还是收起</td></tr>
         
     </tbody>
 </table>
@@ -341,6 +374,19 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <tbody>
         
         <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>on-toggle={$event}</h5>
+<p>展开或收起状态改变时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
         
     </tbody>
 </table>
@@ -371,23 +417,46 @@ var themeSelectEx = new RGUI.SelectEx({
 var SelectEx = RGUI.SelectEx;
 
 var source = [
-    {id: 0, name: '选项1'},
-    {id: 1, name: '选项2'},
-    {id: 2, name: '选项3'}
+    {id: 1, name: '选项1'},
+    {id: 2, name: '选项2'},
+    {id: 3, name: '选项3'}
 ];
 
-var selectEx = new SelectEx({
-    data: {
-        source: source
-    }
-}).$inject('#j-example1');
+// 基本形式
+(function() {
+    var selectEx = new SelectEx({
+        data: {
+            source: source
+        }
+    }).$inject('#j-example1');
+})();
 
-var selectEx = new SelectEx({
-    data: {
-        source: source,
-        disabled: true
-    }
-}).$inject('#j-example2');
+// 禁用
+(function() {
+    var selectEx = new SelectEx({
+        data: {
+            source: source,
+            disabled: true
+        }
+    }).$inject('#j-example2');
+})();
+
+// 设置或取消默认项
+(function() {
+    var selectEx1 = new SelectEx({
+        data: {
+            source: source,
+            placeholder: '全部'
+        }
+    }).$inject('#j-example3');
+
+    var selectEx2 = new SelectEx({
+        data: {
+            source: source,
+            placeholder: null
+        }
+    }).$inject('#j-example3');
+})();
 </script>
 </body>
 </html>

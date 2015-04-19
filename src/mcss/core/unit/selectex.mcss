@@ -1,10 +1,21 @@
-/* 下拉选框 样式 */
+// Name:            SelectEx
+// Description:     选择扩展
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-selectex`
+// ========================================================================
+
 .u-selectex {
     display: inline-block;
     position: relative;
     vertical-align: middle;
     width: $u-selectex_min-width;
     color: $u-selectex_color;
+    $user-select: none;
 
     .selectex_hd {
         $box-sizing: border-box;
@@ -47,6 +58,7 @@
     // }
 }
 
+/* Disabled */
 .u-selectex.z-dis {
     .selectex_hd {
         cursor: not-allowed;

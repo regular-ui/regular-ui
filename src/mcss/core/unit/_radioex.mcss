@@ -1,1 +1,8 @@
+// Variables
+// ========================================================================
+
 $u-radioex_span_size =               12px;
+
+$u-radioex-disabled_background =            #f5f5f5;
+$u-radioex-disabled_color =                 #999;
+$u-radioex-disabled_border =                #999;

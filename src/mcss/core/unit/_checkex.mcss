@@ -1,1 +1,8 @@
-$u-checkex_span_size =               13px;
+// Variables
+// ========================================================================
+
+$u-checkex_span_size =                  13px;
+
+$u-checkex-disabled_background =            #f5f5f5;
+$u-checkex-disabled_color =                 #999;
+$u-checkex-disabled_border =                #999;

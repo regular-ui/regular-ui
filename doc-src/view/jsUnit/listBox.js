@@ -29,7 +29,7 @@ var source = [
 // 远程数据
 (function() {
     var service = {
-        getList: function(options, callback) {
+        getList: function(params, callback) {
             ajax.request({
                 url: 'listbox.json',
                 method: 'get',
@@ -43,5 +43,5 @@ var source = [
 
     var listBox = new ListBox({
         service: service
-    }).$updateSource().$inject('#j-example3');
+    }).$inject('#j-example3');
 })();

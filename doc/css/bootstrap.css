@@ -2476,6 +2476,23 @@ input.u-check:disabled,input.u-radio:disabled{
 	font-weight:bold;
 	font-size:13px;
 }
+.m-table{
+	width:100%;
+}
+.m-table caption{
+	color:#999;
+	font-size:12px;
+}
+.m-table th,.m-table td{
+	padding:4px 8px;
+	border:1px solid #ddd;
+}
+.m-table-striped tbody tr:nth-of-type(odd){
+	background:#f5f5f5;
+}
+.m-table-hover tbody tr:hover{
+	background:#eee;
+}
 .m-notify{
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
@@ -2655,6 +2672,10 @@ input.u-check:disabled,input.u-radio:disabled{
 	background:#fff;
 	color:#444;
 	border:1px solid #ddd;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
 }
 .u-listbox >li{
 	cursor:pointer;
@@ -2703,6 +2724,10 @@ input.u-check:disabled,input.u-radio:disabled{
 	background:#fff;
 	color:#444;
 	border:1px solid #ddd;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
 }
 .u-treeview .treeview_list{
 	list-style:none;
@@ -2723,7 +2748,7 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-treeview .treeview_itemname{
 	cursor:pointer;
-	padding:0 8px;
+	padding:0 4px;
 }
 .u-treeview .treeview_itemname:hover{
 	background:#eee;
@@ -2744,8 +2769,34 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-treeview.z-dis .treeview_item .f-icon{
 	cursor:not-allowed;
 }
+.m-tableview .tableview_sortable{
+	cursor:pointer;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+}
+.m-tableview .tableview_sortable .f-icon-sort-asc,.m-tableview .tableview_sortable .f-icon-sort-desc{
+	position:relative;
+	color:#888;
+}
+.m-tableview .tableview_sortable .f-icon-sort-asc:after,.m-tableview .tableview_sortable .f-icon-sort-desc:after{
+	content:"\f0dc";
+	position:absolute;
+	z-index:-1;
+	left:0;
+	width:100%;
+	color:#ddd;
+}
+.m-tableview .tableview_sortable .f-icon-sort{
+	color:#ccc;
+}
 .u-checkex{
 	cursor:pointer;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
 }
 .u-checkex .checkex_box{
 	display:inline-block;
@@ -2762,17 +2813,26 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-checkex .checkex_box .f-icon{
 	font-size:12px;
 }
+.u-checkex.z-dis{
+	cursor:not-allowed;
+}
+.u-checkex.z-dis .checkex_box{
+	background:#f5f5f5;
+	color:#999;
+	border:1px solid #999;
+}
 .u-checkex-block{
 	display:block;
 }
-.u-checkgroup .u-checkex + .u-checkex{
-	margin-left:20px;
-}
-.u-checkgroup .u-checkex-block + .u-checkex-block{
-	margin-left:0;
+.u-checkgroup .u-checkex{
+	margin-right:20px;
 }
 .u-radioex{
 	cursor:pointer;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
 }
 .u-radioex .radioex_box{
 	display:inline-block;
@@ -2800,14 +2860,19 @@ input.u-check:disabled,input.u-radio:disabled{
 	border-radius:8px;
 	background:#333;
 }
+.u-radioex.z-dis{
+	cursor:not-allowed;
+}
+.u-radioex.z-dis .radioex_box{
+	background:#f5f5f5;
+	color:#999;
+	border:1px solid #999;
+}
 .u-radioex-block{
 	display:block;
 }
-.u-radiogroup .u-radioex + .u-radioex{
-	margin-left:20px;
-}
-.u-radiogroup .u-radioex-block + .u-radioex-block{
-	margin-left:0;
+.u-radiogroup .u-radioex{
+	margin-right:20px;
 }
 .u-selectex{
 	display:inline-block;
@@ -2815,6 +2880,10 @@ input.u-check:disabled,input.u-radio:disabled{
 	vertical-align:middle;
 	width:120px;
 	color:#444;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
 }
 .u-selectex .selectex_hd{
 	-webkit-box-sizing:border-box;
@@ -3205,13 +3274,16 @@ a:hover{
 	margin:0 auto;
 	width:100%;
 }
-.m-article >table th,.m-article table td{
+.m-article >table th,.m-article >table td{
 	border:1px solid #ddd;
 	padding:2px 6px;
 	font-size:12px;
 }
 .u-progress + .u-progress{
 	margin-top:10px;
+}
+.u-selectex + .u-selectex,.u-suggest + .u-suggest{
+	margin-left:20px;
 }
 .u-courceitem img{
 	max-width:100%;
@@ -3227,6 +3299,15 @@ a:hover{
 }
 .m-sidebar li .f-icon-info-circle{
 	color:#f0ad4e;
+}
+.treeview_itemname .f-icon{
+	font-size:14px;
+}
+.treeview_itemname .f-icon-folder,.treeview_itemname .f-icon-folder-open{
+	color:#f0ad4e;
+}
+.treeview_itemname .f-icon-file-text{
+	color:#bbb;
 }
 .g-top{
 	height:50px;

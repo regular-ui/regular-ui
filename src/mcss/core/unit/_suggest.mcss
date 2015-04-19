@@ -1,3 +1,6 @@
+// Variables
+// ========================================================================
+
 $u-suggest_height = $formctrl_height;
 $u-suggest_padding = $formctrl_padding;
 $u-suggest_border = $formctrl_border;
