@@ -11,6 +11,6 @@
 
 .u-checkgroup {
     .u-checkex {
-        margin-right: 20px;
+        margin-right: 2em;
     }
 }

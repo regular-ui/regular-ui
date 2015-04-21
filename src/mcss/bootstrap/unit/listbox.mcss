@@ -1,0 +1,16 @@
+.u-listbox {
+    border: none;
+
+    > li {
+        margin-top: -1px;
+        border: $u-listbox_border;
+    }
+
+    > li:first-child {
+        $border-radius: $u-listbox_border-radius $u-listbox_border-radius 0 0;
+    }
+
+    > li:last-child {
+        $border-radius: 0 0 $u-listbox_border-radius $u-listbox_border-radius;
+    }
+}

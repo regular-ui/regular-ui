@@ -1,0 +1,11 @@
+// Variables
+// ========================================================================
+
+$m-crumb_padding =                      0;
+$m-crumb_background =                   null;
+$m-crumb_color =                        null;
+$m-crumb_border-radius =                null;
+
+$m-crumb_divider =                      '/';
+$m-crumb_divider_margin =               8px;
+$m-crumb_divider_color =                null;

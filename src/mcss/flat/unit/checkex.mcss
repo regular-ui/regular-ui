@@ -1,0 +1,15 @@
+.u-checkex {
+    transition: color .25s linear;
+
+    .checkex_box {
+        transition: background .25s linear, color .25s linear, border .25s linear;
+    }
+}
+
+.u-checkex:hover {
+    color: $brand-primary;
+}
+
+.u-checkex.z-dis {
+    color: mix($gray-light, white, 38%);
+}

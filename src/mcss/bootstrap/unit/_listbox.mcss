@@ -1,0 +1,28 @@
+// Override Variables
+// ========================================================================
+
+/* Dimension */
+$u-listbox_border-radius =              $border-radius-base;
+$u-listbox_item_padding =               10px 15px;
+$u-listbox_item_border-radius =         null;
+
+/* Color */
+$u-listbox_color =                      $formctrl_color;
+$u-listbox_background =                 $formctrl_background;
+$u-listbox_border =                     $formctrl_border;
+
+$u-listbox-focus_background =           #f5f5f5;
+$u-listbox-focus_color =                $formctrl-focus_color;
+$u-listbox-focus_border =               $formctrl-focus_border;
+
+$u-listbox-disabled_background =        $gray-lighter;
+$u-listbox-disabled_color =             $gray-light;
+$u-listbox-disabled_border =            null;
+
+$u-listbox_item-hover_background =      $formctrl_item-hover_background;
+$u-listbox_item-hover_color =           $formctrl_item-hover_color;
+$u-listbox_item-hover_border =          $formctrl_item-hover_border;
+
+$u-listbox_item-selected_background =   $formctrl_item-selected_background;  // ?
+$u-listbox_item-selected_color =        $formctrl_item-selected_color;
+$u-listbox_item-selected_border =       $formctrl_item-selected_border;

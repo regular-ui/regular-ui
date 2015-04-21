@@ -38,6 +38,8 @@
 
     .treeview_itemname {
         cursor: pointer;
+        white-space: nowrap;
+
         padding: $u-treeview_item_padding;
         @if($u-listbox_item_border-radius) {$border-radius: $u-listbox_item_border-radius;}
         

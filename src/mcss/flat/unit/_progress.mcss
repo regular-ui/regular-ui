@@ -3,18 +3,22 @@
 
 /* Dimension */
 $u-progress_height =                       14px;
-// $u-progress_margin-vertical =           15px;
 $u-progress_border-radius =                $u-progress_height;
 
 /* Color */
 $u-progress_background =                   mix($brand-secondary, white, 10%);
+// $u-progress_box-shadow =                null;
 
 /* Dimension */
 // $u-progress_bar_font-size =             12px;
+// $u-progress-striped_bar_background-size = 30px;
 
 /* Color */
 $u-progress_bar_background =               $brand-primary;
 $u-progress_bar_color =                    #fff;
+// $u-progress_bar_box-shadow =            null;
+
+
 
 // Extend Variables
 // ========================================================================

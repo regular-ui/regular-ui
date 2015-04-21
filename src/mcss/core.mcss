@@ -35,6 +35,9 @@ $reset-normalize();
 @import 'core/module/_nav.mcss';
 @import 'core/module/nav.mcss';
 
+@import 'core/module/_crumb.mcss';
+@import 'core/module/crumb.mcss';
+
 @import 'core/module/_sidebar.mcss';
 @import 'core/module/sidebar.mcss';
 

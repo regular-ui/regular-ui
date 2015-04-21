@@ -34,7 +34,7 @@
             "children": [
                 {"name": "Nav", "lowerName": "nav", "alias": "导航", "group": "导航类"},
                 {"name": "Sidebar", "lowerName": "sidebar", "alias": "侧边栏", "group": "导航类"},
-                {"name": "Crumb", "lowerName": "crumb", "alias": "面包屑", "group": "导航类"},
+                {"name": "Crumb", "lowerName": "crumb", "alias": "面包屑", "group": "导航类", "complete": true},
 
                 {"name": "Article", "lowerName": "article", "alias": "文章", "group": "文章类"},
                 {"name": "Comment", "lowerName": "comment", "alias": "评论", "group": "文章类"},
@@ -55,17 +55,17 @@
                 {"name": "Notify", "lowerName": "notify", "alias": "通知", "group": "消息类", "complete": true},
                 {"name": "Progress", "lowerName": "progress", "alias": "进度条", "group": "消息类", "complete": true},
 
-                {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类", "complete": false},
+                {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类", "complete": true},
                 {"name": "TreeBox", "lowerName": "treeBox", "alias": "树型列表框", "group": "数据类", "hidden": true},
-                {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类", "complete": false},
+                {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类", "complete": true},
                 {"name": "GridView", "lowerName": "gridView", "alias": "网格视图", "group": "数据类", "complete": false},
-                {"name": "TreeView", "lowerName": "treeView", "alias": "树型视图", "group": "数据类", "complete": false},
+                {"name": "TreeView", "lowerName": "treeView", "alias": "树型视图", "group": "数据类", "complete": true},
                 {"name": "TableView", "lowerName": "tableView", "alias": "表格视图", "group": "数据类", "complete": false},
 
                 {"name": "InputEx", "lowerName": "inputEx", "alias": "输入扩展", "group": "表单类"},
-                {"name": "CheckEx", "lowerName": "checkEx", "alias": "多选按钮", "group": "表单类", "complete": false},
-                {"name": "CheckGroup", "lowerName": "checkGroup", "alias": "多选组", "group": "表单类", "complete": false},
-                {"name": "RadioGroup", "lowerName": "radioGroup", "alias": "单选组", "group": "表单类", "complete": false},
+                {"name": "CheckEx", "lowerName": "checkEx", "alias": "多选按钮", "group": "表单类", "complete": true},
+                {"name": "CheckGroup", "lowerName": "checkGroup", "alias": "多选组", "group": "表单类", "complete": true},
+                {"name": "RadioGroup", "lowerName": "radioGroup", "alias": "单选组", "group": "表单类", "complete": true},
                 {"name": "SelectEx", "lowerName": "selectEx", "alias": "选择扩展", "group": "表单类", "complete": false},
                 {"name": "TreeSelect", "lowerName": "treeSelect", "alias": "树型选择", "group": "表单类", "complete": false},
                 {"name": "Suggest", "lowerName": "suggest", "alias": "自动提示", "group": "表单类", "complete": false},

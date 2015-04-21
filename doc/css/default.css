@@ -215,14 +215,13 @@ table{
 	display:inline-block;
 	font:normal normal normal 14px/1 FontAwesome;
 	font-size:inherit;
+	line-height:inherit;
 	text-rendering:auto;
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 	transform:translate(0,0);
 	width:1em;
 	text-align:center;
-	vertical-align:middle;
-	margin-top:-2px;
 }
 .f-icon-lg{
 	font-size:1.333333em;
@@ -2408,6 +2407,28 @@ input.u-check:disabled,input.u-radio:disabled{
 .m-nav >ul >li.z-crt>a{
 	background:#3498db;
 }
+.m-crumb{
+	list-style:none;
+	margin:0;
+	padding:0;
+	*zoom:1;
+	padding:0;
+}
+.m-crumb:before,.m-crumb:after{
+	display:table;
+	content:"";
+	line-height:0;
+}
+.m-crumb:after{
+	clear:both;
+}
+.m-crumb >li{
+	float:left;
+}
+.m-crumb >li + li:before{
+	content:"/";
+	margin:0 8px;
+}
 .m-sidebar{
 	list-style:none;
 	padding:0;
@@ -2707,6 +2728,7 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-treeview .treeview_itemname{
 	cursor:pointer;
+	white-space:nowrap;
 	padding:0 4px;
 }
 .u-treeview .treeview_itemname:hover{
@@ -2759,24 +2781,30 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-checkex .checkex_box{
 	display:inline-block;
+	position:relative;
+	overflow:hidden;
+	text-align:center;
+	vertical-align:middle;
+	margin-bottom:2px;
+	line-height:13px;
 	width:13px;
 	height:13px;
 	background:#fff;
-	border:1px solid #666;
-	position:relative;
-	margin-bottom:-2px;
-	overflow:hidden;
-	line-height:1;
-	text-align:center;
+	color:#3498db;
+	border:1px solid #aaa;
 }
 .u-checkex .checkex_box .f-icon{
-	font-size:12px;
+	display:none;
+	font-size:13px;
+}
+.u-checkex.z-chk .checkex_box .f-icon{
+	display:inline-block;
 }
 .u-checkex.z-dis{
 	cursor:not-allowed;
 }
 .u-checkex.z-dis .checkex_box{
-	background:#f5f5f5;
+	background:#eee;
 	color:#999;
 	border:1px solid #999;
 }
@@ -2784,7 +2812,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	display:block;
 }
 .u-checkgroup .u-checkex{
-	margin-right:20px;
+	margin-right:2em;
 }
 .u-radioex{
 	cursor:pointer;
@@ -2795,20 +2823,22 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-radioex .radioex_box{
 	display:inline-block;
+	position:relative;
+	overflow:hidden;
+	text-align:center;
+	vertical-align:middle;
+	margin-bottom:2px;
+	line-height:12px;
 	width:12px;
 	height:12px;
 	background:#fff;
-	border:1px solid #666;
+	color:#3498db;
+	border:1px solid #aaa;
 	border-radius:12px;
-	position:relative;
-	margin-bottom:-3px;
-	overflow:hidden;
-	line-height:1;
-	text-align:center;
 }
 .u-radioex .radioex_box .f-icon{
 	content:"";
-	display:inline-block;
+	display:none;
 	position:absolute;
 	top:50%;
 	left:50%;
@@ -2817,13 +2847,16 @@ input.u-check:disabled,input.u-radio:disabled{
 	width:8px;
 	height:8px;
 	border-radius:8px;
-	background:#333;
+	background:#3498db;
+}
+.u-radioex.z-sel .radioex_box .f-icon{
+	display:inline-block;
 }
 .u-radioex.z-dis{
 	cursor:not-allowed;
 }
 .u-radioex.z-dis .radioex_box{
-	background:#f5f5f5;
+	background:#eee;
 	color:#999;
 	border:1px solid #999;
 }
@@ -2831,7 +2864,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	display:block;
 }
 .u-radiogroup .u-radioex{
-	margin-right:20px;
+	margin-right:2em;
 }
 .u-selectex{
 	display:inline-block;
@@ -2848,17 +2881,15 @@ input.u-check:disabled,input.u-radio:disabled{
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
-	background:#fff;
-	border:1px solid #ddd;
 	cursor:pointer;
 	height:30px;
 	line-height:20px;
 	padding:4px 6px;
+	background:#fff;
+	border:1px solid #ddd;
 }
 .u-selectex .selectex_hd .f-icon{
 	float:right;
-	line-height:inherit;
-	margin:0;
 }
 .u-selectex .selectex_bd{
 	position:absolute;
@@ -3134,10 +3165,6 @@ a:hover{
 }
 .m-article >li>p{
 	text-indent:0;
-}
-.m-article >ul{
-	padding-left:2em;
-	margin:0.5em 0;
 }
 .m-article >h3{
 	font-size:16px;

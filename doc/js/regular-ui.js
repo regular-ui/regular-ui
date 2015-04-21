@@ -6054,7 +6054,7 @@ var Calendar = Component.extend({
 
 module.exports = Calendar;
 },{"../base/component.js":28,"../base/util.js":32,"./calendar.html":41}],43:[function(require,module,exports){
-module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"f-icon f-icon-check\" r-hide={!checked}></i></div> {name}</label>"
+module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'z-chk\': checked, \'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"f-icon f-icon-check\"></i></div> {name}</label>"
 },{}],44:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6676,7 +6676,7 @@ var Progress = Component.extend({
 
 module.exports = Progress;
 },{"../base/component.js":28,"../base/util.js":32,"./progress.html":61}],63:[function(require,module,exports){
-module.exports="<div class=\"u-radiogroup\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\" r-hide={item != selected}></i></div> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-radiogroup\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
 },{}],64:[function(require,module,exports){
 /**
  * ------------------------------------------------------------

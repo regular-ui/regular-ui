@@ -19,18 +19,18 @@
 
     .selectex_hd {
         $box-sizing: border-box;
-        background: $u-selectex_background;
-        $border: $u-selectex_border;
-
         cursor: pointer;
+        
         height: $u-selectex_height;
         line-height: $u-selectex_height - index($u-selectex_padding, 0) * 2 - index($u-selectex_border, 0) * 2;
         padding: $u-selectex_padding;
 
+        background: $u-selectex_background;
+        $border: $u-selectex_border;
+        @if($u-selectex_border-radius) {$border-radius: $u-selectex_border-radius;}
+
         .f-icon {
             float: right;
-            line-height: inherit;
-            margin: 0;
         }
     }
     

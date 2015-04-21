@@ -15,17 +15,36 @@
 
     .checkex_box {
         display: inline-block;
-        width: $u-checkex_span_size;
-        height: $u-checkex_span_size;
-        background: white;
-        border: 1px solid #666;
         position: relative;
-        margin-bottom: -2px;
         overflow: hidden;
-        line-height: 1;
         text-align: center;
+        vertical-align: middle;
+        margin-bottom: 2px;
+
+        line-height: $u-checkex_box_size;
+        width: $u-checkex_box_size;
+        height: $u-checkex_box_size;
+        background: $u-checkex_box_background;
+        color: $u-checkex_box_color;
+        $border: $u-checkex_box_border;
+        @if($u-checkex_box_border-radius) {$border-radius: $u-checkex_box_border-radius;}
+
         .f-icon {
-            font-size: 12px;
+            display: none;
+            font-size: $u-checkex_f-icon_font-size;
+        }
+    }
+}
+
+/* Checked */
+.u-checkex.z-chk {
+    .checkex_box {
+        @if($u-checkex-checked_box_background) {background: $u-checkex-checked_box_background;}
+        @if($u-checkex-checked_box_color) {color: $u-checkex-checked_box_color;}
+        @if($u-checkex-checked_box_border) {border: $u-checkex-checked_box_border;}
+
+        .f-icon {
+            display: inline-block;
         }
     }
 }
@@ -35,9 +54,9 @@
     cursor: not-allowed;
 
     .checkex_box {
-        background: $u-checkex-disabled_background;
-        color: $u-checkex-disabled_color;
-        @if($u-checkex-disabled_border) {$border: $u-checkex-disabled_border;}
+        background: $u-checkex-disabled_box_background;
+        color: $u-checkex-disabled_box_color;
+        @if($u-checkex-disabled_box_border) {$border: $u-checkex-disabled_box_border;}
     }
 }
 

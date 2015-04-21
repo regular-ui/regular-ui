@@ -11,6 +11,6 @@
 
 .u-radiogroup {
     .u-radioex {
-        margin-right: 20px;
+        margin-right: 2em;
     }
 }

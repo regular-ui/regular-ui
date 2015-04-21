@@ -1,0 +1,20 @@
+// Variables
+// ========================================================================
+
+/* Dimension */
+$u-checkex_box_size =                   20px;
+$u-checkex_box_border-radius =          $border-radius-base;
+$u-checkex_f-icon_font-size =           14px;
+
+/* Color */
+$u-checkex_box_background =             #d7dce0;
+$u-checkex_box_color =                  white;
+$u-checkex_box_border =                 none;
+
+$u-checkex-checked_box_background =     $brand-primary;
+// $u-checkex-checked_box_color =          null;
+// $u-checkex-checked_box_border =         null;
+
+$u-checkex-disabled_box_background =    #d7dce0;
+// $u-checkex-disabled_box_color =         #999;
+$u-checkex-disabled_box_border =        none;

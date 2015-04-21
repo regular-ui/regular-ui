@@ -17,7 +17,8 @@
     height: $u-progress_height;
     line-height: $u-progress_height;
     background: $u-progress_background;
-    @if($u-progress_border-radius) {border-radius: $u-progress_border-radius;}
+    @if($u-progress_border-radius) {$border-radius: $u-progress_border-radius;}
+    @if($u-progress_box-shadow) {$box-shadow: $u-progress_box-shadow;}
 
     .progress_bar {
         width: 0;
@@ -31,6 +32,7 @@
         background: $u-progress_bar_background;
         font-size: $u-progress_bar_font-size;
         color: $u-progress_bar_color;
+        @if($u-progress_bar_box-shadow) {$box-shadow: $u-progress_bar_box-shadow;}
     }
 }
 
@@ -69,7 +71,7 @@ $u-progress_bar-extend_color = (
 .u-progress-striped .progress_bar {
     background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-size: 30px 30px;
+    background-size: $u-progress-striped_bar_background-size $u-progress-striped_bar_background-size;
 }
 
 .u-progress-striped.z-act .progress_bar {
@@ -78,5 +80,5 @@ $u-progress_bar-extend_color = (
 
 $keyframes(u-progress-striped, {
     0% { background-position: 0 0;}
-    100% { background-position: 30px 0; }
+    100% { background-position: $u-progress-striped_bar_background-size 0; }
 });

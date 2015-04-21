@@ -88,8 +88,7 @@ gulp.task('browserify-js', function(done) {
         .bundle()
         .on('error', function(err) {
             console.log('!!!!!!!!!!!! ' + err)
-            done(null)
-            this.end();
+            done(null);
         })
         .pipe(source('regular-ui.js'))
         .pipe(gulp.dest('doc/js/'));

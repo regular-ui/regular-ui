@@ -1,0 +1,32 @@
+// Name:            Crumb
+// Description:     面包屑
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-crumb`
+// ========================================================================
+
+.m-crumb {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    $clearfix();
+
+    padding: $m-crumb_padding;
+    @if($m-crumb_background) {background: $m-crumb_background;}
+    @if($m-crumb_color) {color: $m-crumb_color;}
+    @if($m-crumb_border-radius) {$border-radius: $m-crumb_border-radius;}
+
+    > li {
+        float: left;
+    }
+
+    > li + li:before {
+        content: $m-crumb_divider;
+        margin: 0 $m-crumb_divider_margin;
+        @if($m-crumb_divider_color) {color: $m-crumb_divider_color;}
+    }
+}

@@ -1,0 +1,19 @@
+// Variables
+// ========================================================================
+
+$u-selectex_height = $formctrl_height;
+$u-selectex_padding = $formctrl_padding;
+$u-selectex_min-width = $formctrl_min-width;
+$u-selectex_border-radius = $border-radius-base;
+
+$u-selectex_border = $formctrl_border;
+$u-selectex_color = $formctrl_color;
+$u-selectex_background = $formctrl_background;
+
+$u-selectex-focus_border = $formctrl-focus_border;
+$u-selectex-focus_background = $formctrl-focus_background;
+$u-selectex-focus_color = $formctrl-focus_color;
+
+$u-selectex-disabled_border = $formctrl-disabled_border;
+$u-selectex-disabled_background = $formctrl-disabled_background;
+$u-selectex-disabled_color = $formctrl-disabled_color;

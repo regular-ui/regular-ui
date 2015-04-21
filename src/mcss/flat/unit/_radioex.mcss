@@ -1,0 +1,20 @@
+// Variables
+// ========================================================================
+
+/* Dimension */
+$u-radioex_box_size =                   12px;
+$u-radioex_box_border-radius =          $border-radius-base;
+$u-radioex_f-icon_font-size =           6px;
+
+/* Color */
+$u-radioex_box_background =             white;
+$u-radioex_box_color =                  $brand-primary;
+$u-radioex_box_border =                 4px solid #d7dce0;
+
+// $u-radioex-checked_box_background =     null;
+// $u-radioex-checked_box_color =          null;
+$u-radioex-checked_box_border =         4px solid $brand-primary;
+
+$u-radioex-disabled_box_background =    white;
+// $u-radioex-disabled_box_color =         #999;
+$u-radioex-disabled_box_border =        4px solid #d7dce0;

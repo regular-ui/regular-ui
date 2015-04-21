@@ -1,0 +1,40 @@
+// Size Extends:       `u-progress-xs`, `u-progress-sm`
+// ========================================================================
+
+$u-progress-extend_size(
+    xs,
+    $u-progress-xs_height
+);
+
+$u-progress-extend_size(
+    sm,
+    $u-progress-sm_height
+);
+
+
+
+// Color Extends:       `u-progress-success`, `u-progress-warning`, `u-progress-error`
+// ========================================================================
+
+$u-progress_bar-extend_color(
+    success,
+    $u-progress_bar-success_background
+);
+
+$u-progress_bar-extend_color(
+    warning,
+    $u-progress_bar-warning_background
+);
+
+$u-progress_bar-extend_color(
+    error,
+    $u-progress_bar-error_background
+);
+
+
+
+.u-progress {
+    .progress_bar {
+        $transition: width .6s ease;
+    }
+}

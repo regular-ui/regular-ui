@@ -3,6 +3,9 @@
 
 $u-selectex_height = $formctrl_height;
 $u-selectex_padding = $formctrl_padding;
+$u-selectex_min-width = $formctrl_min-width;
+$u-selectex_border-radius = null;
+
 $u-selectex_border = $formctrl_border;
 $u-selectex_color = $formctrl_color;
 $u-selectex_background = $formctrl_background;
@@ -14,5 +17,3 @@ $u-selectex-focus_color = $formctrl-focus_color;
 $u-selectex-disabled_border = $formctrl-disabled_border;
 $u-selectex-disabled_background = $formctrl-disabled_background;
 $u-selectex-disabled_color = $formctrl-disabled_color;
-
-$u-selectex_min-width = $formctrl_min-width;

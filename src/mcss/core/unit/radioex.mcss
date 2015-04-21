@@ -15,29 +15,45 @@
 
     .radioex_box {
         display: inline-block;
-        width: $u-radioex_span_size;
-        height: $u-radioex_span_size;
-        background: white;
-        border: 1px solid #666;
-        border-radius: $u-radioex_span_size;
         position: relative;
-        margin-bottom: -3px;
         overflow: hidden;
-        line-height: 1;
         text-align: center;
+        vertical-align: middle;
+        margin-bottom: 2px;
+        
+        line-height: $u-radioex_box_size;
+        width: $u-radioex_box_size;
+        height: $u-radioex_box_size;
+        background: $u-radioex_box_background;
+        color: $u-radioex_box_color;
+        $border: $u-radioex_box_border;
+        border-radius: $u-radioex_box_size;
 
         .f-icon {
             content: '';
-            display: inline-block;
+            display: none;
             position: absolute;
             top: 50%;
             left: 50%;
-            margin-top: -4px;
-            margin-left: -4px;
-            width: 8px;
-            height: 8px;
-            border-radius: 8px;
-            background: #333;
+            margin-top: - $u-radioex_f-icon_font-size / 2;
+            margin-left: - $u-radioex_f-icon_font-size / 2;
+            width: $u-radioex_f-icon_font-size;
+            height: $u-radioex_f-icon_font-size;
+            border-radius: $u-radioex_f-icon_font-size;
+            background: $u-radioex_box_color;
+        }
+    }
+}
+
+/* Checked */
+.u-radioex.z-sel {
+    .radioex_box {
+        @if($u-radioex-checked_box_background) {background: $u-radioex-checked_box_background;}
+        @if($u-radioex-checked_box_color) {color: $u-radioex-checked_box_color;}
+        @if($u-radioex-checked_box_border) {border: $u-radioex-checked_box_border;}
+
+        .f-icon {
+            display: inline-block;
         }
     }
 }
@@ -47,9 +63,9 @@
     cursor: not-allowed;
 
     .radioex_box {
-        background: $u-radioex-disabled_background;
-        color: $u-radioex-disabled_color;
-        @if($u-radioex-disabled_border) {$border: $u-radioex-disabled_border;}
+        background: $u-radioex-disabled_box_background;
+        color: $u-radioex-disabled_box_color;
+        @if($u-radioex-disabled_box_border) {$border: $u-radioex-disabled_box_border;}
     }
 }
 
