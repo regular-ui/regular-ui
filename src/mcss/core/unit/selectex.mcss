@@ -22,24 +22,32 @@
         cursor: pointer;
         
         height: $u-selectex_height;
-        line-height: $u-selectex_height - index($u-selectex_padding, 0) * 2 - index($u-selectex_border, 0) * 2;
+        line-height: $u-selectex_line-height;
         padding: $u-selectex_padding;
+        min-width: $u-selectex_min-width;
 
         background: $u-selectex_background;
+        color: $u-selectex_color;
         $border: $u-selectex_border;
         @if($u-selectex_border-radius) {$border-radius: $u-selectex_border-radius;}
 
         .f-icon {
             float: right;
+            @if($u-selectex_f-icon_font-size) {font-size: $u-selectex_f-icon_font-size;}
         }
+    }
+
+    .selectex_hd:hover {
+        @if($u-selectex-focus_background) {background: $u-selectex-focus_background;}
+        @if($u-selectex-focus_color) {color: $u-selectex-focus_color;}
+        @if($u-selectex-focus_border) {color: $u-selectex-focus_border;}
     }
     
     .selectex_bd {
         position: absolute;
-        top: $u-selectex_height;
+        top: $u-selectex_bd_top;
         z-index: 1;
         width: 100%;
-        margin-top: -1px;
     }
 
     // .selectex_item {

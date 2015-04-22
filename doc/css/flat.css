@@ -2935,8 +2935,8 @@ input.u-check:disabled,input.u-radio:disabled{
 	display:inline-block;
 	position:relative;
 	vertical-align:middle;
-	width:120px;
-	color:#444;
+	width:220px;
+	color:#fff;
 	-webkit-user-select:none;
 	-moz-user-select:none;
 	-ms-user-select:none;
@@ -2947,29 +2947,57 @@ input.u-check:disabled,input.u-radio:disabled{
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 	cursor:pointer;
-	height:30px;
-	line-height:20px;
-	padding:4px 6px;
-	background:#fff;
-	border:1px solid #ddd;
+	height:40px;
+	line-height:40px;
+	padding:0 12px 0 15px;
+	min-width:220px;
+	background:#1abc9c;
+	color:#fff;
+	border:none;
 	-moz-border-radius:4px;
 	border-radius:4px;
 }
 .u-selectex .selectex_hd .f-icon{
 	float:right;
+	font-size:20px;
+}
+.u-selectex .selectex_hd:hover{
+	background:#48c9b0;
+	color:#fff;
+	color:none;
 }
 .u-selectex .selectex_bd{
 	position:absolute;
-	top:30px;
+	top:52px;
 	z-index:1;
 	width:100%;
-	margin-top:-1px;
 }
 .u-selectex.z-dis .selectex_hd{
 	cursor:not-allowed;
-	background:#f5f5f5;
-	border:1px solid #ddd;
-	color:#999;
+	background:rgba(189,195,199,0.75);
+	border:none;
+	color:rgba(255,255,255,0.75);
+}
+.u-selectex .selectex_hd{
+	-webkit-font-smoothing:subpixel-antialiased;
+	transition:border 0.25s linear,color 0.25s linear,background-color 0.25s linear;
+}
+.u-selectex .selectex_bd:before{
+	content:"";
+	border-style:solid;
+	border-width:0 9px 9px 9px;
+	border-color:transparent transparent #34495e transparent;
+	height:0px;
+	position:absolute;
+	right:13px;
+	top:-9px;
+	width:0px;
+	-webkit-transform:rotate(360deg);
+}
+.u-selectex .selectex_hd:disabled,.u-selectex .selectex_hd.z-dis{
+	opacity:0.7;
+	-webkit-box-shadow:none;
+	box-shadow:none;
 }
 .u-suggest{
 	display:inline-block;

@@ -2737,7 +2737,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	display:inline-block;
 	position:relative;
 	vertical-align:middle;
-	width:120px;
+	width:160px;
 	color:#444;
 	-webkit-user-select:none;
 	-moz-user-select:none;
@@ -2752,7 +2752,9 @@ input.u-check:disabled,input.u-radio:disabled{
 	height:30px;
 	line-height:20px;
 	padding:4px 6px;
+	min-width:160px;
 	background:#fff;
+	color:#444;
 	border:1px solid #ddd;
 }
 .u-selectex .selectex_hd .f-icon{
@@ -2760,10 +2762,9 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-selectex .selectex_bd{
 	position:absolute;
-	top:30px;
+	top:29px;
 	z-index:1;
 	width:100%;
-	margin-top:-1px;
 }
 .u-selectex.z-dis .selectex_hd{
 	cursor:not-allowed;

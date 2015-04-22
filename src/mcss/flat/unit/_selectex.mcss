@@ -1,19 +1,22 @@
 // Variables
 // ========================================================================
 
-$u-selectex_height = $formctrl_height;
-$u-selectex_padding = $formctrl_padding;
-$u-selectex_min-width = $formctrl_min-width;
+$u-selectex_padding = 0 12px 0 15px;
+$u-selectex_height = 40px;
+$u-selectex_line-height = 40px;
+$u-selectex_min-width = 220px;
+$u-selectex_bd_top = $u-selectex_height + 12;
 $u-selectex_border-radius = $border-radius-base;
+$u-selectex_f-icon_font-size = 20px;
 
-$u-selectex_border = $formctrl_border;
-$u-selectex_color = $formctrl_color;
-$u-selectex_background = $formctrl_background;
+$u-selectex_background = $brand-primary;
+$u-selectex_color = white;
+$u-selectex_border = none;
 
-$u-selectex-focus_border = $formctrl-focus_border;
-$u-selectex-focus_background = $formctrl-focus_background;
-$u-selectex-focus_color = $formctrl-focus_color;
+$u-selectex-focus_background = mix($brand-primary, white, 80%);
+$u-selectex-focus_color = white;
+$u-selectex-focus_border = none;
 
-$u-selectex-disabled_border = $formctrl-disabled_border;
-$u-selectex-disabled_background = $formctrl-disabled_background;
-$u-selectex-disabled_color = $formctrl-disabled_color;
+$u-selectex-disabled_background = fade($gray-light, 0.75, true);
+$u-selectex-disabled_color = fade($inverse, 0.75, true);
+$u-selectex-disabled_border = none;

@@ -104,6 +104,7 @@ $reset-normalize();
 @import 'core/unit/_selectex.mcss';
 @import 'flat/unit/_selectex.mcss';
 @import 'core/unit/selectex.mcss';
+@import 'flat/unit/selectex.mcss';
 
 @import 'core/unit/_suggest.mcss';
 @import 'core/unit/suggest.mcss';
