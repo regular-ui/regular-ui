@@ -239,7 +239,8 @@ var themeSelectEx = new RGUI.SelectEx({
     data: {
         source: themes,
         selected: selectedTheme,
-        placeholder: null
+        placeholder: null,
+        'class': 'u-selectex-nav'
     }
 }).$inject('#j-themeSelectEx')
   .$on('select', function($event) {

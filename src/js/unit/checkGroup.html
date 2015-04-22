@@ -1,4 +1,4 @@
-<div class="u-checkgroup">
+<div class="u-checkgroup {@(class)}">
     {#list source as item}
     <label class="u-checkex" r-class={ {'z-dis': disabled, 'u-checkex-block': block} }><input type="checkbox" class="u-check" r-model={item.checked} disabled={disabled}> {item.name}</label>
     {/list}

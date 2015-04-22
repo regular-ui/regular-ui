@@ -22,6 +22,7 @@ var _ = require('../base/util.js');
  * @param {object=null}             options.data.selected           当前选择项
  * @param {string='请选择'}         options.data.placeholder        默认项的文字
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
  */
 var SelectEx = SourceComponent.extend({
     name: 'selectEx',

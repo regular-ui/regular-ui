@@ -345,6 +345,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data.block</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>多行显示</td></tr>
         
+        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+        
     </tbody>
 </table>
 <div id="j-options"></div>
@@ -401,7 +403,8 @@ var themeSelectEx = new RGUI.SelectEx({
     data: {
         source: themes,
         selected: selectedTheme,
-        placeholder: null
+        placeholder: null,
+        'class': 'u-selectex-nav'
     }
 }).$inject('#j-themeSelectEx')
   .$on('select', function($event) {

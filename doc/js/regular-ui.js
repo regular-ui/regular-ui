@@ -6054,7 +6054,7 @@ var Calendar = Component.extend({
 
 module.exports = Calendar;
 },{"../base/component.js":28,"../base/util.js":32,"./calendar.html":41}],43:[function(require,module,exports){
-module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'z-chk\': checked, \'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"f-icon f-icon-check\"></i></div> {name}</label>"
+module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'z-chk\': checked, \'z-part\': checked === null, \'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"f-icon f-icon-check\"></i></div> {name}</label>"
 },{}],44:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6117,7 +6117,7 @@ var CheckEx = Component.extend({
 
 module.exports = CheckEx;
 },{"../base/component.js":28,"../base/util.js":32,"./checkEx.html":43}],45:[function(require,module,exports){
-module.exports="<div class=\"u-checkgroup\">    {#list source as item}    <checkEx name={item.name} checked={item.checked} disabled={disabled} block={block} />    {/list}</div>"
+module.exports="<div class=\"u-checkgroup {@(class)}\">    {#list source as item}    <checkEx name={item.name} checked={item.checked} disabled={disabled} block={block} />    {/list}</div>"
 },{}],46:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6145,7 +6145,7 @@ var CheckExGroup = CheckGroup.extend({
 
 module.exports = CheckExGroup;
 },{"../base/util.js":32,"./checkEx.js":44,"./checkExGroup.html":45,"./checkGroup.js":48}],47:[function(require,module,exports){
-module.exports="<div class=\"u-checkgroup\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-checkgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],48:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6171,6 +6171,7 @@ var CheckEx = require('./checkEx.js');
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.block              多行显示
+ * @param {string=''}               options.data.class              补充class
  */
 var CheckGroup = SourceComponent.extend({
     name: 'checkGroup',
@@ -6508,6 +6509,7 @@ var _ = require('../base/util.js');
  * @param {string='topcenter'}      options.data.position           通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
  * @param {string=''}               options.data.class              补充class
  * @param {number=2000}             options.duration                每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+ * @param {string=''}               options.data.class              补充class
  */
 var Notify = Component.extend({
     name: 'notify',
@@ -6676,7 +6678,7 @@ var Progress = Component.extend({
 
 module.exports = Progress;
 },{"../base/component.js":28,"../base/util.js":32,"./progress.html":61}],63:[function(require,module,exports){
-module.exports="<div class=\"u-radiogroup\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-radiogroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
 },{}],64:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6703,7 +6705,7 @@ var RadioExGroup = RadioGroup.extend({
 
 module.exports = RadioExGroup;
 },{"../base/util.js":32,"./radioExGroup.html":63,"./radioGroup.js":66}],65:[function(require,module,exports){
-module.exports="<div class=\"u-radiogroup\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-radiogroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],66:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6729,6 +6731,7 @@ var _ = require('../base/util.js');
  * @param {object=null}             options.data.seleced            当前选择项
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.block              多行显示
+ * @param {string=''}               options.data.class              补充class
  */
 var RadioGroup = SourceComponent.extend({
     name: 'radioGroup',
@@ -6767,7 +6770,7 @@ var RadioGroup = SourceComponent.extend({
 
 module.exports = RadioGroup;
 },{"../base/sourceComponent.js":31,"../base/util.js":32,"./radioGroup.html":65}],67:[function(require,module,exports){
-module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
+module.exports="<div class=\"u-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
 },{}],68:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6793,6 +6796,7 @@ var _ = require('../base/util.js');
  * @param {object=null}             options.data.selected           当前选择项
  * @param {string='请选择'}         options.data.placeholder        默认项的文字
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
  */
 var SelectEx = SourceComponent.extend({
     name: 'selectEx',
@@ -6875,7 +6879,7 @@ _.dom.on(document.body, 'click', function(e) {
 
 module.exports = SelectEx;
 },{"../base/sourceComponent.js":31,"../base/util.js":32,"./selectEx.html":67}],69:[function(require,module,exports){
-module.exports="<div class=\"u-suggest\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    <div class=\"suggest_bd\" r-hide={!open}>        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
+module.exports="<div class=\"u-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    <div class=\"suggest_bd\" r-hide={!open}>        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
 },{}],70:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6906,6 +6910,7 @@ var ListBox = require('./listBox.js');
  * @param {number=0}                options.data.minLength          最小提示长度。当输入长度>=该值后开始提示
  * @param {string='all'}            options.data.matchType          匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
+ * @param {string=''}               options.data.class              补充class
  */
 var Suggest = SourceComponent.extend({
     name: 'suggest',

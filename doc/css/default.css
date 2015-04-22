@@ -2386,9 +2386,10 @@ input.u-check:disabled,input.u-radio:disabled{
 	list-style:none;
 	margin:0;
 	padding:0;
+	color:#fff;
 }
 .m-nav >ul >li{
-	width:100px;
+	min-width:100px;
 	float:left;
 }
 .m-nav >ul >li >a{
@@ -2786,7 +2787,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	text-align:center;
 	vertical-align:middle;
 	margin-bottom:2px;
-	line-height:13px;
+	line-height:12px;
 	width:13px;
 	height:13px;
 	background:#fff;
@@ -2799,6 +2800,12 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-checkex.z-chk .checkex_box .f-icon{
 	display:inline-block;
+}
+.u-checkex.z-part .checkex_box .f-icon{
+	display:inline-block;
+}
+.u-checkex.z-part .checkex_box .f-icon:before{
+	content:"\f0c8";
 }
 .u-checkex.z-dis{
 	cursor:not-allowed;
@@ -3295,6 +3302,70 @@ a:hover{
 }
 .treeview_itemname .f-icon-file-text{
 	color:#bbb;
+}
+.u-selectex-nav{
+	width:160px;
+}
+.u-selectex-nav .selectex_hd{
+	height:50px;
+	line-height:50px;
+	padding:0 10px;
+	min-width:160px;
+	background:#102e42;
+	color:#fff;
+	border:none;
+	-moz-border-radius:0;
+	border-radius:0;
+}
+.u-selectex-nav .selectex_hd:hover{
+	background:#344d5e;
+}
+.u-selectex-nav .selectex_bd{
+	top:50px;
+}
+.u-selectex-nav .selectex_bd:before{
+	display:none;
+}
+.u-selectex-nav .selectex_bd .u-listbox{
+	background:#102e42;
+	color:#fff;
+	border:none;
+	-moz-border-radius:0;
+	border-radius:0;
+}
+.u-selectex-nav .selectex_bd .u-listbox >li{
+	padding:0 10px;
+	height:36px;
+	line-height:36px;
+	border:none;
+	-moz-border-radius:0;
+	border-radius:0;
+}
+.u-selectex-nav .selectex_bd .u-listbox >li:hover{
+	background:#344d5e;
+	color:#fff;
+}
+.u-selectex-nav .selectex_bd .u-listbox >li.z-sel{
+	background:#3498db;
+	color:#fff;
+}
+#j-themeSelectEx{
+	width:192px;
+	margin-left:20px;
+}
+#j-themeSelectEx .f-icon{
+	font-size:inherit;
+	color:#3498db;
+	width:24px;
+	height:24px;
+	line-height:24px;
+	-moz-border-radius:24px;
+	border-radius:24px;
+	margin-top:13px;
+	background:#fff;
+}
+#j-themeSelectEx .f-icon:before{
+	content:"\f1fc";
 }
 .g-top{
 	height:50px;

@@ -6,9 +6,10 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        color: white;
 
         >li {
-            width: 100px;
+            min-width: 100px;
             float: left;
             >a {
                 display: block;

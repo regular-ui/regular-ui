@@ -21,7 +21,7 @@
         vertical-align: middle;
         margin-bottom: 2px;
 
-        line-height: $u-checkex_box_size;
+        line-height: $u-checkex_box_size - 1;
         width: $u-checkex_box_size;
         height: $u-checkex_box_size;
         background: $u-checkex_box_background;
@@ -45,6 +45,18 @@
 
         .f-icon {
             display: inline-block;
+        }
+    }
+}
+
+/* Indetermined */
+.u-checkex.z-part {
+    .checkex_box {
+        .f-icon {
+            display: inline-block;
+            &:before {
+                content: "\f0c8";
+            }
         }
     }
 }

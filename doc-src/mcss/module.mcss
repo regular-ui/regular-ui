@@ -182,3 +182,84 @@
         color: #bbb;
     }
 }
+
+
+
+
+// Extends:         `u-selectex-nav`
+// Description:     在导航条中的SelectEx
+// ========================================================================
+
+.u-selectex-nav {
+    width: 160px;
+
+    .selectex_hd {
+        height: $m-nav_height;
+        line-height: $m-nav_height;
+        padding: 0 10px;
+        min-width: 160px;
+
+        background: $m-nav_background-color;
+        color: white;
+        border: none;
+        $border-radius: 0;
+    }
+
+    .selectex_hd:hover {
+        background: $m-nav-hover_background-color;
+    }
+
+    .selectex_bd {
+        top: $m-nav_height;
+
+        &:before {
+            display: none;
+        }
+
+        .u-listbox {
+            background: $m-nav_background-color;
+            color: white;
+            border: none;
+            $border-radius: 0;
+
+            > li {
+                padding: 0 10px;
+                height: 36px;
+                line-height: 36px;
+                border: none;
+                $border-radius: 0;
+            }
+
+            > li:hover {
+                background: $m-nav-hover_background-color;
+                color: white;
+            }
+
+            > li.z-sel {
+                background: $u-listbox_item-selected_background;
+                color: $u-listbox_item-selected_color;
+            }
+        }
+    }
+}
+
+#j-themeSelectEx {
+    width: 192px;
+    margin-left: 20px;
+
+
+    .f-icon {
+        font-size: inherit;
+        color: $brand-primary;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        $border-radius: 24px;
+        margin-top: (50px - 24px) / 2;
+        background: white;
+
+        &:before {
+            content: "\f1fc";
+        }
+    }
+}

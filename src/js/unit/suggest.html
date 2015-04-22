@@ -1,4 +1,4 @@
-<div class="u-suggest" r-class={ {'z-dis': disabled} } ref="element">
+<div class="u-suggest {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
     <input class="u-input u-input-full" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref="input" disabled={disabled}>
     <div class="suggest_bd" r-hide={!open}>
         <ul class="u-listbox">
