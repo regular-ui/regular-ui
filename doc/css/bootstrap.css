@@ -2207,25 +2207,10 @@ a{
 	display:inline-block;
 	vertical-align:middle;
 	text-align:center;
-	padding:0 12px;
-	line-height:28px;
-	min-height:28px;
-	background:#fff;
-	color:#333;
-	border:1px solid #ccc;
-	border-radius:4px;
 }
 .u-btn:hover,.u-btn:focus{
 	outline:none;
 	text-decoration:none;
-	background:#e6e6e6;
-	color:#333;
-	border:1px solid #adadad;
-}
-.u-btn:active,.u-btn.z-act{
-	background:#e6e6e6;
-	color:#333;
-	border:1px solid #8c8c8c;
 }
 .u-btn-xs{
 	padding:0 5px;
@@ -2321,9 +2306,9 @@ a{
 	border:1px solid #761c19;
 }
 .u-btn:disabled,.u-btn.z-dis{
+	cursor:not-allowed;
 	background:#fff !important;
 	color:#333 !important;
-	cursor:not-allowed !important;
 	border:1px solid #ccc;
 }
 .u-btn-block{

@@ -38,17 +38,6 @@
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-
-    /* Public */
-    padding: 0 $u-btn_padding-horizontal;
-    // - `line-height` is used to create a height.
-    line-height: $u-btn_height;
-    // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
-    min-height: $u-btn_height;
-    background: $u-btn_background;
-    color: $u-btn_color;
-    @if($u-btn_border) {$border: $u-btn_border;}
-    @if($u-btn_border-radius) {border-radius: $u-btn_border-radius;}
 }
 
 /* Hover */
@@ -58,20 +47,11 @@
     outline: none;
     // - Required for `a` elements
     text-decoration: none;
-
-    /* Public */
-    background: $u-btn-hover_background;
-    color: $u-btn-hover_color;
-    @if($u-btn-hover_border) {$border: $u-btn-hover_border;}
 }
 
 /* Active */
 .u-btn:active,
 .u-btn.z-act {
-    /* Public */
-    background: $u-btn-active_background;
-    color: $u-btn-active_color;
-    @if($u-btn-active_border) {$border: $u-btn-active_border;}
 }
 
 /* Disabled */
@@ -79,9 +59,9 @@ $u-btn-disabled = {
 
 .u-btn:disabled,
 .u-btn.z-dis {
+    cursor: not-allowed;
     background: $u-btn-disabled_background !important;
     color: $u-btn-disabled_color !important;
-    cursor: not-allowed !important;
     @if($u-btn-disabled_border) {$border: $u-btn-disabled_border;}
 }
 

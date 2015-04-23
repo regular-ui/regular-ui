@@ -2207,22 +2207,10 @@ a{
 	display:inline-block;
 	vertical-align:middle;
 	text-align:center;
-	padding:0 15px;
-	line-height:30px;
-	min-height:30px;
-	background:#95a5a6;
-	color:#fff;
-	border-radius:4px;
 }
 .u-btn:hover,.u-btn:focus{
 	outline:none;
 	text-decoration:none;
-	background:#aab7b8;
-	color:#fff;
-}
-.u-btn:active,.u-btn.z-act{
-	background:#7f8c8d;
-	color:rgba(255,255,255,0.75);
 }
 .u-btn-xs{
 	padding:0 6px;
@@ -2312,9 +2300,9 @@ a{
 	background:#16a085;
 }
 .u-btn:disabled,.u-btn.z-dis{
+	cursor:not-allowed;
 	background:rgba(189,195,199,0.75) !important;
 	color:rgba(255,255,255,0.75) !important;
-	cursor:not-allowed !important;
 }
 .u-btn-block{
 	display:block;

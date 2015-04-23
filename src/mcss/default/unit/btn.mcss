@@ -1,71 +1,89 @@
-// Size Extends:       `u-btn-xs`, `u-btn-sm`, `u-btn-lg`
+// Name:            Button
+// Description:     按钮
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// Example:         
+// <button class="u-btn">Button</button>
+// <a class="u-btn">aButton</a>
+// <a class="u-btn" href="#">aButton#</a>
 // ========================================================================
 
-$u-btn-extend_size(
-    xs,
-    $u-btn-xs_padding-horizontal,
-    $u-btn-xs_height,
-    $u-btn-xs_font-size
-);
-
-$u-btn-extend_size(
-    sm,
-    $u-btn-sm_padding-horizontal,
-    $u-btn-sm_height,
-    $u-btn-sm_font-size
-);
-
-$u-btn-extend_size(
-    lg,
-    $u-btn-lg_padding-horizontal,
-    $u-btn-lg_height,
-    $u-btn-lg_font-size
-);
 
 
+@import "../../core/unit/btn.mcss";
 
-// Color Extends:       `u-btn-primary`, `u-btn-info`, `u-btn-success`, `u-btn-error`
+// Variables
 // ========================================================================
 
-$u-btn-extend_color(
-    primary,
-    $u-btn-primary_background,
-    $u-btn-primary-hover_background,
-    $u-btn-primary-active_background,
-    $u-btn-primary_color,
-    $u-btn-primary-hover_color,
-    $u-btn-primary-active_color
-);
+/* Dimension */
+$u-btn_padding-horizontal =             12px;
+$u-btn_height =                         30px;
+$u-btn_font-size =                      14px;
 
-$u-btn-extend_color(
-    info,
-    $u-btn-info_background,
-    $u-btn-info-hover_background,
-    $u-btn-info-active_background,
-    $u-btn-info_color,
-    $u-btn-info-hover_color,
-    $u-btn-info-active_color
-);
+/* Color */
+$u-btn_background =                     #eee;
+$u-btn-hover_background =               #f5f5f5;
+$u-btn-active_background =              #ddd;
+$u-btn-disabled_background =            #f5f5f5;
 
-$u-btn-extend_color(
-    success,
-    $u-btn-success_background,
-    $u-btn-success-hover_background,
-    $u-btn-success-active_background,
-    $u-btn-success_color,
-    $u-btn-success-hover_color,
-    $u-btn-success-active_color
-);
+$u-btn_color =                          #444;
+$u-btn-hover_color =                    #444;
+$u-btn-active_color =                   #444;
+$u-btn-disabled_color =                 #999;
 
-$u-btn-extend_color(
-    error,
-    $u-btn-error_background,
-    $u-btn-error-hover_background,
-    $u-btn-error-active_background,
-    $u-btn-error_color,
-    $u-btn-error-hover_color,
-    $u-btn-error-active_color
-);
+/* Optional */
+$u-btn_border =                         null;
+$u-btn-hover_border =                   null;
+$u-btn-active_border =                  null;
+$u-btn-disabled_border =                null;
 
-$u-btn-disabled();
-$u-btn-block();
+$u-btn_border-radius =                  null;
+
+
+
+
+
+
+// Component:       `u-btn`
+// ========================================================================
+
+.u-btn {
+    padding: 0 12px;
+    // - `line-height` is used to create a height.
+    line-height: 30px;
+    // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
+    min-height: 30px;
+    background: #eee;
+    color: $u-btn_color;
+    @if($u-btn_border) {$border: $u-btn_border;}
+    @if($u-btn_border-radius) {border-radius: $u-btn_border-radius;}
+}
+
+/* Hover */
+.u-btn:hover,
+.u-btn:focus {
+    background: $u-btn-hover_background;
+    color: $u-btn-hover_color;
+    @if($u-btn-hover_border) {$border: $u-btn-hover_border;}
+}
+
+/* Active */
+.u-btn:active,
+.u-btn.z-act {
+    background: $u-btn-active_background;
+    color: $u-btn-active_color;
+    @if($u-btn-active_border) {$border: $u-btn-active_border;}
+}
+
+/* Disabled */
+$u-btn-disabled = {
+
+.u-btn:disabled,
+.u-btn.z-dis {
+    background: $u-btn-disabled_background !important;
+    color: $u-btn-disabled_color !important;
+    cursor: not-allowed !important;
+    @if($u-btn-disabled_border) {$border: $u-btn-disabled_border;}
+}
+
+}
