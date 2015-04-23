@@ -2,22 +2,19 @@
 // Description:     面包屑
 // Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
+// Require:         core/module/crumb
 // ========================================================================
 
 
+
+@import "../../core/module/crumb.mcss";
 
 // Component:       `m-crumb`
 // ========================================================================
 
 .m-crumb {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    $clearfix();
-
-    > li {
-        float: left;
+    > li + li:before {
+        content: '/';
+        margin: 0 8px;
     }
-
-    > li + li:before {}
 }

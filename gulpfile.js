@@ -34,12 +34,12 @@ var buildAll = require('./doc-src/buildAll.js');
 
 // src/mcss/ + doc-src/mcss/ => css -> doc/
 gulp.task('mcss-doc', function(done) {
-    gulp.src('./doc-src/mcss/core.mcss')
-        .pipe(mcss({
-            pathes: ["./node_modules"],
-            importCSS: true,
-        }))
-        .pipe(gulp.dest('doc/css'));
+    // gulp.src('./doc-src/mcss/core.mcss')
+    //     .pipe(mcss({
+    //         pathes: ["./node_modules"],
+    //         importCSS: true,
+    //     }))
+    //     .pipe(gulp.dest('doc/css'));
 
     gulp.src('./doc-src/mcss/default.mcss')
         .pipe(mcss({

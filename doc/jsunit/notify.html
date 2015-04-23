@@ -15,7 +15,6 @@
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
 var themes = [
-    {id: 0, name: 'core'},
     {id: 1, name: 'default'},
     {id: 2, name: 'flat'},
     {id: 3, name: 'bootstrap'}
@@ -29,7 +28,7 @@ if(localStorage['selectedTheme']) {
             break;
         }
 } else {
-    selectedTheme = themes[1];
+    selectedTheme = themes[0];
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
@@ -85,49 +84,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
         
             <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
-        
-        </a></li>
-        
-        
-        
-        <li class="sidebar-group">数据类</li>
-        
-        <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small>
-        
-            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
-        
-        </a></li>
-        
-        
-        
-        
-        <li><a href="../jsunit/listview.html">列表视图<small> ListView</small>
-        
-            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small>
-        
-            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -214,6 +170,49 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar-group">数据类</li>
+        
+        <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li><a href="../jsunit/listview.html">列表视图<small> ListView</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/gridview.html">网格视图<small> GridView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/treeview.html">树型视图<small> TreeView</small>
+        
+            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/tableview.html">表格视图<small> TableView</small>
+        
+            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -322,9 +321,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;topcenter&#39;</code></td><td>通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`</td></tr>
         
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+        <tr><td class="f-wsn"><code>data.duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>2000</code></td><td>每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
         
-        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>2000</code></td><td>每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
         
         <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
         
@@ -509,12 +508,13 @@ var Notify = RGUI.Notify;
 
     var notify = new Notify({
         data: {
-            position: 'static'
-        }
+            position: 'static',
+            duration: 0
+        },
     }).$inject('#j-example4', 'top');
 
     RGUI._.dom.on(button, 'click', function() {
-        notify.show('Static notify.');
+        notify.show('Static notify.', 'info');
     });
 })();
 

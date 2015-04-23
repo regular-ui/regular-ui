@@ -2,45 +2,19 @@
 // Description:     按钮
 // Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
-// Example:         
-// <button class="u-btn">Button</button>
-// <a class="u-btn">aButton</a>
-// <a class="u-btn" href="#">aButton#</a>
+// Require:         core/unit/btn
 // ========================================================================
 
 
 
 @import "../../core/unit/btn.mcss";
 
+
+
 // Variables
 // ========================================================================
 
-/* Dimension */
-$u-btn_padding-horizontal =             12px;
-$u-btn_height =                         30px;
-$u-btn_font-size =                      14px;
-
-/* Color */
-$u-btn_background =                     #eee;
-$u-btn-hover_background =               #f5f5f5;
-$u-btn-active_background =              #ddd;
-$u-btn-disabled_background =            #f5f5f5;
-
-$u-btn_color =                          #444;
-$u-btn-hover_color =                    #444;
-$u-btn-active_color =                   #444;
-$u-btn-disabled_color =                 #999;
-
-/* Optional */
-$u-btn_border =                         null;
-$u-btn-hover_border =                   null;
-$u-btn-active_border =                  null;
-$u-btn-disabled_border =                null;
-
-$u-btn_border-radius =                  null;
-
-
-
+$u-btn_color = #444;
 
 
 
@@ -49,41 +23,49 @@ $u-btn_border-radius =                  null;
 
 .u-btn {
     padding: 0 12px;
-    // - `line-height` is used to create a height.
-    line-height: 30px;
-    // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
-    min-height: 30px;
+    $line-height: 30px;
     background: #eee;
     color: $u-btn_color;
-    @if($u-btn_border) {$border: $u-btn_border;}
-    @if($u-btn_border-radius) {border-radius: $u-btn_border-radius;}
 }
 
 /* Hover */
 .u-btn:hover,
 .u-btn:focus {
-    background: $u-btn-hover_background;
-    color: $u-btn-hover_color;
-    @if($u-btn-hover_border) {$border: $u-btn-hover_border;}
+    background: #f5f5f5;
+    color: $u-btn_color;
 }
 
 /* Active */
 .u-btn:active,
 .u-btn.z-act {
-    background: $u-btn-active_background;
-    color: $u-btn-active_color;
-    @if($u-btn-active_border) {$border: $u-btn-active_border;}
+    background: #ddd;
+    color: $u-btn_color;
 }
+
+
+
+// Size Extends:       `u-btn-xs`, `u-btn-sm`, `u-btn-lg`
+// ========================================================================
+
+$u-btn-extend_size(xs, 6px, 20px, 12px);
+$u-btn-extend_size(sm, 10px, 25px, 12px);
+$u-btn-extend_size(lg, 15px, 40px, 16px);
+
+
+
+// Color Extends:       `u-btn-primary`, `u-btn-info`, `u-btn-success`, `u-btn-error`
+// ========================================================================
+
+$u-btn-extend_color(primary, $brand-primary, mix($brand-primary, white, 90%), mix($brand-primary, black, 90%), white);
+$u-btn-extend_color(info, $brand-info, mix($brand-info, white, 90%), mix($brand-info, black, 90%), white);
+$u-btn-extend_color(success, $brand-success, #8ec73b, #72ae41, white);
+$u-btn-extend_color(error, $brand-error, #e4354f, #c91032, white);
+
+
 
 /* Disabled */
-$u-btn-disabled = {
-
 .u-btn:disabled,
 .u-btn.z-dis {
-    background: $u-btn-disabled_background !important;
-    color: $u-btn-disabled_color !important;
-    cursor: not-allowed !important;
-    @if($u-btn-disabled_border) {$border: $u-btn-disabled_border;}
-}
-
+    background: #f5f5f5;
+    color: #999;
 }

@@ -2212,6 +2212,12 @@ a{
 	outline:none;
 	text-decoration:none;
 }
+.u-btn:disabled,.u-btn.z-dis{
+	cursor:not-allowed;
+}
+.u-btn-block{
+	display:block;
+}
 .u-input,.u-select,.u-textarea{
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
@@ -2328,7 +2334,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	margin:0;
 	padding:0;
 	*zoom:1;
-	padding:0;
 }
 .m-crumb:before,.m-crumb:after{
 	display:table;
@@ -2340,10 +2345,6 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .m-crumb >li{
 	float:left;
-}
-.m-crumb >li + li:before{
-	content:"/";
-	margin:0 8px;
 }
 .m-sidebar{
 	list-style:none;

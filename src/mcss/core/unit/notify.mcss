@@ -1,7 +1,17 @@
 // Name:            Notify
 // Description:     通知
+// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
+
+
+
+// Variables
+// ========================================================================
+
+$m-notify_z-index = 1040;
+$m-notify_position = 10px;
+$m-notify_width = 320px;
 
 
 
@@ -11,30 +21,24 @@
 .m-notify {
     $box-sizing: border-box;
     position: fixed;
+
+    z-index: $m-notify_z-index;
     top: $m-notify_position;
     left: $m-notify_position;
-    z-index: $m-notify_z-index;
     width: $m-notify_width;
 
     .notify_message {
-        margin-bottom: $m-notify_message_margin-bottom;
-        padding: $m-notify_message_padding;
-        background: $m-notify_message_background;
-        color: $m-notify_message_color;
-        @if($m-notify_message_border) {$border: $m-notify_message_border;}
-        @if($m-notify_message_border-radius) {border-radius: $m-notify_message_border-radius;}
-
         .notify_close {
             float: right;
-            color: fade($m-notify_message_color, 0.75, true);
-            &:hover {
-                color: $m-notify_message_color;
-            }
+            &:hover {}
         }
 
         .notify_text {
             .f-icon {
                 font-size: 20px;
+                vertical-align: middle;
+                margin-top: -2px;
+                line-height: 1;
             }
         }
     }
@@ -69,8 +73,8 @@
 @media (max-width: $media-sm-max-width) {
     // - Fit in small screen
     .m-notify {
-        left: 10px;
-        right: 10px;
+        left: $m-notify_position;
+        right: $m-notify_position;
         width: auto;
         margin: 0;
     }
@@ -88,17 +92,10 @@
 // Description:     颜色扩展
 // ========================================================================
 
-$m-notify_message-extend_color = (
-    $name,
-    $background,
-    $color,
-    $border_
-) {
+$m-notify_message-extend_color = ($name, $background, $color, $border_) {
     .m-notify {
         .notify_message-#{$name} {
             background: $background;
-            @if($border_) {$border: $border_;}
-
             @if($color) {
                 color: $color;
                 .notify_close {
@@ -108,6 +105,7 @@ $m-notify_message-extend_color = (
                     }
                 }
             }
+            $border: l-adjust($background, -40%);
         }
     }
 }

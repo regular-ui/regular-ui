@@ -72,12 +72,13 @@ var Notify = RGUI.Notify;
 
     var notify = new Notify({
         data: {
-            position: 'static'
-        }
+            position: 'static',
+            duration: 0
+        },
     }).$inject('#j-example4', 'top');
 
     RGUI._.dom.on(button, 'click', function() {
-        notify.show('Static notify.');
+        notify.show('Static notify.', 'info');
     });
 })();
 
