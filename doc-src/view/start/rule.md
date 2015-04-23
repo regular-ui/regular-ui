@@ -44,15 +44,6 @@ Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面�
 | `DatePicker`        | `datePicker`       | `<datePicker>`       | `u-datepicker`       | `datePicker.js` | `datepicker.mcss` |
 | `DateTimePicker`    | `dateTimePicker`   | `<dateTimePicker>`   | `u-datetimepicker`   | `dateTimePicker.js` | `datetimepicker.mcss` |
 
-##### 补充
-
-为什么不用有些框架中流行的`datepicker`、`autocomplete`、`dropdown`这种全小写？
-
-那我碰到实际开发中的`knowledgeautocomplete`、`questiondropdown`怎么办？
-
-不想纠结，就统一用小驼峰吧！
-
-
 ### 缩写
 
 button => btn
