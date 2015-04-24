@@ -236,8 +236,8 @@
             }
 
             > li.z-sel {
-                background: $u-listbox_item-selected_background;
-                color: $u-listbox_item-selected_color;
+                background: $formctrl_item-selected_background;
+                color: $formctrl_item-selected_color;
             }
         }
     }

@@ -6117,7 +6117,7 @@ var CheckEx = Component.extend({
 
 module.exports = CheckEx;
 },{"../base/component.js":28,"../base/util.js":32,"./checkEx.html":43}],45:[function(require,module,exports){
-module.exports="<div class=\"u-checkgroup {@(class)}\">    {#list source as item}    <checkEx name={item.name} checked={item.checked} disabled={disabled} block={block} />    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <checkEx name={item.name} checked={item.checked} disabled={disabled} block={block} />    {/list}</div>"
 },{}],46:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6145,7 +6145,7 @@ var CheckExGroup = CheckGroup.extend({
 
 module.exports = CheckExGroup;
 },{"../base/util.js":32,"./checkEx.js":44,"./checkExGroup.html":45,"./checkGroup.js":48}],47:[function(require,module,exports){
-module.exports="<div class=\"u-checkgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],48:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6678,7 +6678,7 @@ var Progress = Component.extend({
 
 module.exports = Progress;
 },{"../base/component.js":28,"../base/util.js":32,"./progress.html":61}],63:[function(require,module,exports){
-module.exports="<div class=\"u-radiogroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
 },{}],64:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6705,7 +6705,7 @@ var RadioExGroup = RadioGroup.extend({
 
 module.exports = RadioExGroup;
 },{"../base/util.js":32,"./radioExGroup.html":63,"./radioGroup.js":66}],65:[function(require,module,exports){
-module.exports="<div class=\"u-radiogroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],66:[function(require,module,exports){
 /**
  * ------------------------------------------------------------

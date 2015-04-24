@@ -92,7 +92,7 @@ $m-notify_width = 320px;
 // Description:     颜色扩展
 // ========================================================================
 
-$m-notify_message-extend_color = ($name, $background, $color, $border_) {
+$m-notify_message-extend_color = ($name, $background, $color) {
     .m-notify {
         .notify_message-#{$name} {
             background: $background;
@@ -105,7 +105,7 @@ $m-notify_message-extend_color = ($name, $background, $color, $border_) {
                     }
                 }
             }
-            $border: l-adjust($background, -40%);
+            $border: l-adjust($color, 10%);
         }
     }
 }

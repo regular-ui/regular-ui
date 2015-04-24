@@ -16,19 +16,10 @@
 .u-listbox {
     background: $formctrl_background;
     color: $formctrl_color;
+    border: $formctrl_border;
 
     > li {
-        padding: 10px 15px;
-        border: $formctrl_border;
-        margin-top: -1px;
-    }
-
-    > li:first-child {
-        $border-radius: $border-radius-base $border-radius-base 0 0;
-    }
-
-    > li:last-child {
-        $border-radius: 0 0 $border-radius-base $border-radius-base;
+        padding: $formctrl_item_padding;
     }
 
     > li:hover {
@@ -43,10 +34,10 @@
 }
 
 .u-listbox.z-dis {
-    background: $gray-lighter;
+    background: $formctrl-disabled_background;
 
     > li {
-        background: $gray-lighter;
-        color: $gray-light;
+        background: $formctrl-disabled_background;
+        color: $formctrl-disabled_color;
     }
 }

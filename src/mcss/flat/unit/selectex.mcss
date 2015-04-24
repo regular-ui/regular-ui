@@ -1,26 +1,65 @@
-.u-selectex .selectex_hd {
-    -webkit-font-smoothing: subpixel-antialiased;
-    transition: border .25s linear, color .25s linear, background-color .25s linear;
-}
+// Name:            SelectEx
+// Description:     选择扩展
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/unit/selectex
+// ========================================================================
 
-.u-selectex .selectex_bd {
-    &:before {
-        content: '';
-        border-style: solid;
-        border-width: 0 9px 9px 9px;
-        border-color: transparent transparent #34495e transparent;
-        height: 0px;
-        position: absolute;
-        right: 13px;
-        top: -9px;
-        width: 0px;
-        -webkit-transform: rotate(360deg);
+
+
+@import "../../core/unit/selectex.mcss";
+
+
+
+// Component:       `u-selectex`
+// ========================================================================
+
+.u-selectex {
+    width: 220px;
+
+    .selectex_hd {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 12px 0 15px;
+        background: $brand-primary;
+        color: white;
+        $border-radius: $border-radius-base;
+        -webkit-font-smoothing: subpixel-antialiased;
+        transition: border .25s linear, color .25s linear, background-color .25s linear;
+
+        .f-icon {
+            font-size: 20px;
+        }
+    }
+
+    .selectex_hd:hover {
+        background: mix($brand-primary, white, 80%);
+    }
+    
+    .selectex_bd {
+        top: 40px + 12px;
+
+        &:before {
+            content: '';
+            border-style: solid;
+            border-width: 0 9px 9px 9px;
+            border-color: transparent transparent #34495e transparent;
+            height: 0px;
+            position: absolute;
+            right: 13px;
+            top: -9px;
+            width: 0px;
+            -webkit-transform: rotate(360deg);
+        }
     }
 }
 
 /* Disabled */
-.u-selectex .selectex_hd:disabled,
-.u-selectex .selectex_hd.z-dis {
-    opacity: .7;
-    $box-shadow: none;
+.u-selectex.z-dis {
+    .selectex_hd {
+        background: fade($gray-light, 0.75, true);
+        color: fade($inverse, 0.75, true);
+        opacity: .7;
+        $box-shadow: none;
+    }
 }

@@ -55,6 +55,13 @@
                 {"name": "Notify", "lowerName": "notify", "alias": "通知", "group": "消息类", "complete": true},
                 {"name": "Progress", "lowerName": "progress", "alias": "进度条", "group": "消息类", "complete": true},
 
+                {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类", "complete": true},
+                {"name": "TreeBox", "lowerName": "treeBox", "alias": "树型列表框", "group": "数据类", "hidden": true},
+                {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类", "complete": true},
+                {"name": "GridView", "lowerName": "gridView", "alias": "网格视图", "group": "数据类", "complete": false},
+                {"name": "TreeView", "lowerName": "treeView", "alias": "树型视图", "group": "数据类", "complete": true},
+                {"name": "TableView", "lowerName": "tableView", "alias": "表格视图", "group": "数据类", "complete": false},
+
                 {"name": "InputEx", "lowerName": "inputEx", "alias": "输入扩展", "group": "表单类"},
                 {"name": "CheckEx", "lowerName": "checkEx", "alias": "多选按钮", "group": "表单类", "complete": true},
                 {"name": "CheckGroup", "lowerName": "checkGroup", "alias": "多选组", "group": "表单类", "complete": true},
@@ -71,13 +78,6 @@
                 {"name": "DatePicker", "lowerName": "datePicker", "alias": "日期选择", "group": "日期类"},
                 {"name": "TimePicker", "lowerName": "timePicker", "alias": "时间选择", "group": "日期类"},
                 {"name": "DateTimePicker", "lowerName": "dateTimePicker", "alias": "日期时间选择", "group": "日期类"},
-
-                {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类", "complete": true},
-                {"name": "TreeBox", "lowerName": "treeBox", "alias": "树型列表框", "group": "数据类", "hidden": true},
-                {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类", "complete": true},
-                {"name": "GridView", "lowerName": "gridView", "alias": "网格视图", "group": "数据类", "complete": false},
-                {"name": "TreeView", "lowerName": "treeView", "alias": "树型视图", "group": "数据类", "complete": true},
-                {"name": "TableView", "lowerName": "tableView", "alias": "表格视图", "group": "数据类", "complete": false},
 
                 {"name": "SmoothScroll", "lowerName": "smoothScroll", "alias": "滚动", "group": "其他", "hidden": true},
                 {"name": "GoTop", "lowerName": "goTop", "alias": "去顶部", "group": "其他", "hidden": true}

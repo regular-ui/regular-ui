@@ -11,38 +11,21 @@
     list-style: none;
     margin: 0;
     padding: 0;
-
-    //min-width: 220px;
     $box-sizing: border-box;
-    background: $u-listbox_background;
-    color: $u-listbox_color;
-    border: $u-listbox_border;
-    @if($u-listbox_border-radius) {$border-radius: $u-listbox_border-radius;}
     $user-select: none;
 
     > li {
         cursor: pointer;
-        padding: $u-listbox_item_padding;
-        @if($u-listbox_item_border-radius) {$border-radius: $u-listbox_item_border-radius;}
     }
 
-    > li:hover {
-        background: $u-listbox_item-hover_background;
-        color: $u-listbox_item-hover_color;
-    }
+    > li:hover {}
 
-    > li.z-sel {
-        background: $u-listbox_item-selected_background;
-        color: $u-listbox_item-selected_color;
-    }
+    > li.z-sel {}
 }
 
 .u-listbox.z-dis {
-    // border: $u-listbox-disabled_border;
-    background: $u-listbox-disabled_background;
     > li {
         cursor: not-allowed;
         background: none;
-        color: $u-listbox-disabled_color;
     }
 }

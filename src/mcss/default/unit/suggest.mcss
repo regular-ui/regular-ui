@@ -2,7 +2,12 @@
 // Description:     自动提示
 // Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
+// Require:         core/unit/suggest
 // ========================================================================
+
+
+
+@import "../../core/unit/suggest.mcss";
 
 
 
@@ -10,17 +15,11 @@
 // ========================================================================
 
 .u-suggest {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
+    width: 160px;
 
-    .sugggest_hd {
-        $box-sizing: border-box;
-        cursor: pointer;
-    }
-    
     .suggest_bd {
         position: absolute;
+        top: $formctrl_height - 1;
         z-index: 1;
         width: 100%;
     }

@@ -1,16 +1,16 @@
-// Name:            CheckGroup
-// Description:     多选组
+// Name:            UnitGroup
+// Description:     单元组
 // Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
 
 
-// Component:       `u-checkgroup`
+// Component:       `u-unitgroup`
 // ========================================================================
 
-.u-checkgroup {
-    .u-checkex {
+.u-unitgroup {
+    .u-checkex, .u-radioex {
         margin-right: 2em;
     }
 }
