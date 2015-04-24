@@ -1,0 +1,30 @@
+// Name:            TableView
+// Description:     表格视图
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/unit/tableview
+// ========================================================================
+
+
+
+@import "../../core/unit/tableview.mcss";
+
+
+
+// Component:       `m-tableview`
+// ========================================================================
+
+.m-tableview {
+    .tableview_sortable {
+        .f-icon-sort-asc, .f-icon-sort-desc {
+            color: #888;
+        }
+
+        .f-icon-sort-asc:after, .f-icon-sort-desc:after {
+            color: #ddd;
+        }
+      
+        .f-icon-sort {
+            color: #ccc;
+        }
+    }
+}

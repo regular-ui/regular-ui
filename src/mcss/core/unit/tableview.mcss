@@ -15,7 +15,6 @@
 
         .f-icon-sort-asc, .f-icon-sort-desc {
             position: relative;
-            color: #888;
         }
 
         .f-icon-sort-asc:after, .f-icon-sort-desc:after {
@@ -24,13 +23,8 @@
             z-index: -1;
             left: 0;
             width: 100%;
-            color: #ddd;
         }
       
-        .f-icon-sort {
-            color: #ccc;
-        }
+        .f-icon-sort {}
     }
-
-
 }

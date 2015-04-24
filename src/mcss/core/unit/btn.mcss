@@ -2,10 +2,6 @@
 // Description:     按钮
 // Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
-// Example:         
-// <button class="u-btn">Button</button>
-// <a class="u-btn">aButton</a>
-// <a class="u-btn" href="#">aButton#</a>
 // ========================================================================
 
 
@@ -38,17 +34,6 @@
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-
-    /* Public */
-    padding: 0 $u-btn_padding-horizontal;
-    // - `line-height` is used to create a height.
-    line-height: $u-btn_height;
-    // - `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
-    min-height: $u-btn_height;
-    background: $u-btn_background;
-    color: $u-btn_color;
-    @if($u-btn_border) {$border: $u-btn_border;}
-    @if($u-btn_border-radius) {border-radius: $u-btn_border-radius;}
 }
 
 /* Hover */
@@ -58,34 +43,11 @@
     outline: none;
     // - Required for `a` elements
     text-decoration: none;
-
-    /* Public */
-    background: $u-btn-hover_background;
-    color: $u-btn-hover_color;
-    @if($u-btn-hover_border) {$border: $u-btn-hover_border;}
 }
 
 /* Active */
 .u-btn:active,
-.u-btn.z-act {
-    /* Public */
-    background: $u-btn-active_background;
-    color: $u-btn-active_color;
-    @if($u-btn-active_border) {$border: $u-btn-active_border;}
-}
-
-/* Disabled */
-$u-btn-disabled = {
-
-.u-btn:disabled,
-.u-btn.z-dis {
-    background: $u-btn-disabled_background !important;
-    color: $u-btn-disabled_color !important;
-    cursor: not-allowed !important;
-    @if($u-btn-disabled_border) {$border: $u-btn-disabled_border;}
-}
-
-}
+.u-btn.z-act {}
 
 
 
@@ -93,50 +55,44 @@ $u-btn-disabled = {
 // Description:     尺寸和颜色扩展函数
 // ========================================================================
 
-$u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size) {
+$u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size, $border-radius_) {
 
 .u-btn-#{$name} {
-    /* Public */
     padding: 0 $padding-horizontal;
-    line-height: $height;
-    min-height: $height;
-    font-size: $font-size;
+    $line-height: $height;
+    @if($font-size) {font-size: $font-size;}
+    @if($border-radius_) {$border-radius: $border-radius_;}
 }
 
 }
 
-$u-btn-extend_color = (
-    $name,
-    $background, $hover_background, $active_background,
-    $color, $hover_color, $active_color,
-    $border_, $hover_border, $active_border
-) {
+$u-btn-extend_color = ($name, $background, $hover_background, $active_background, $color) {
 
 .u-btn-#{$name} {
-    /* Public */
-    @if($background) {background: $background;}
+    background: $background;
     @if($color) {color: $color;}
-    @if($border_) {$border: $border_;}
 }
 
 /* Hover */
 .u-btn-#{$name}:hover,
 .u-btn-#{$name}:focus {
-    /* Public */
-    @if($hover_background) {background: $hover_background;}
-    @if($hover_color) {color: $hover_color;}
-    @if($hover_border) {$border: $hover_border;}
+    background: $hover_background;
+    @if($color) {color: $color;}
 }
 
 /* Active */
 .u-btn-#{$name}:active,
 .u-btn-#{$name}.z-act {
-    /* Public */
-    @if($active_background) {background: $active_background;}
-    @if($active_color) {color: $active_color;}
-    @if($active_border) {$border: $active_border;}
+    background: $active_background;
+    @if($color) {color: $color;}
 }
 
+}
+
+/* Disabled */
+.u-btn:disabled,
+.u-btn.z-dis {
+    cursor: not-allowed;
 }
 
 
@@ -144,10 +100,6 @@ $u-btn-extend_color = (
 // Extends:         `u-btn-block`
 // ========================================================================
 
-$u-btn-block = {
-
 .u-btn-block {
     display: block;
-}
-
 }

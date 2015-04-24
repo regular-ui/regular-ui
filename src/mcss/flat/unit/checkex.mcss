@@ -1,15 +1,61 @@
+// Name:            CheckEx
+// Description:     多选按钮
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/unit/checkex
+// ========================================================================
+
+
+
+@import "../../core/unit/checkex.mcss";
+
+
+
+// Variables
+// ========================================================================
+
+$u-checkex_box_size = 20px;
+
+
+
+// Component:       `u-checkex`
+// ========================================================================
+
 .u-checkex {
-    transition: color .25s linear;
+    $transition: color .25s linear;
 
     .checkex_box {
-        transition: background .25s linear, color .25s linear, border .25s linear;
+        $size: $u-checkex_box_size;
+        line-height: $u-checkex_box_size - 1;
+        background: #d7dce0;
+        color: white;
+        $border-radius: $border-radius-base;
+        $transition: background .25s linear, color .25s linear, border .25s linear;
+
+        .f-icon {
+            font-size: 14px;
+        }
     }
 }
 
+/* Hover */
 .u-checkex:hover {
     color: $brand-primary;
 }
 
+/* Checked */
+.u-checkex.z-chk {
+    .checkex_box {
+        background: $brand-primary;
+    }
+}
+
+/* Disabled */
 .u-checkex.z-dis {
     color: mix($gray-light, white, 38%);
+    
+    .checkex_box {
+        background: #d7dce0;
+        $border: none;
+    }
 }

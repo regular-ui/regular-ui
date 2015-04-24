@@ -13,44 +13,15 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    width: $u-suggest_min-width;
-    color: $u-suggest_color;
 
     .sugggest_hd {
         $box-sizing: border-box;
-        background: $u-suggest_background;
-        border: $u-suggest_border;
-
         cursor: pointer;
-        height: $u-suggest_height;
-        line-height: $u-suggest_height - index($u-suggest_padding, 0) * 2 - index($u-suggest_border, 0) * 2;
-        padding: $u-suggest_padding;
     }
     
     .suggest_bd {
         position: absolute;
-        top: $u-suggest_height;
         z-index: 1;
         width: 100%;
-        margin-top: -1px;
     }
-
-    // .suggest_item {
-    //     cursor: pointer;
-    //     padding: $u-select_item_padding;
-    // }
-
-    // .suggest_item:hover {
-    //     background: $u-select_item-hover_background;
-    //     color: $u-select_item-hover_color;
-    // }
-
-    // &.z-dis {
-    //     .suggest_hd {
-    //         cursor: not-allowed;
-    //         background: $u-input-disabled_background;
-    //         border-color: $u-input-disabled_border-color;
-    //     }
-    //     color: #999;
-    // }
 }

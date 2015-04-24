@@ -15,7 +15,6 @@
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '<%= relativePath %>';
 var themes = [
-    {id: 0, name: 'core'},
     {id: 1, name: 'default'},
     {id: 2, name: 'flat'},
     {id: 3, name: 'bootstrap'}
@@ -29,7 +28,7 @@ if(localStorage['selectedTheme']) {
             break;
         }
 } else {
-    selectedTheme = themes[1];
+    selectedTheme = themes[0];
 }
 
 var themeCSS = document.getElementById('j-themeCSS');

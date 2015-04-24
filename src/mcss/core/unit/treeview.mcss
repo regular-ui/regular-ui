@@ -7,13 +7,9 @@
 
 // Component:       `u-treeview`
 // ========================================================================
+
 .u-treeview {
     $box-sizing: border-box;
-
-    background: $u-treeview_background;
-    color: $u-treeview_color;
-    $border: $u-treeview_border;
-    @if($u-treeview_border-radius) {$border-radius: $u-treeview_border-radius;}
     $user-select: none;
 
     .treeview_list {
@@ -28,9 +24,8 @@
 
         > .f-icon {
             position: absolute;
-            left: -16px;
+            left: -1.2em;
             line-height: inherit;
-            padding: index($u-treeview_item_padding, 0) 0;
             margin: 0;
             cursor: pointer;
         }
@@ -39,29 +34,16 @@
     .treeview_itemname {
         cursor: pointer;
         white-space: nowrap;
-
-        padding: $u-treeview_item_padding;
-        @if($u-listbox_item_border-radius) {$border-radius: $u-listbox_item_border-radius;}
-        
     }
 
-    .treeview_itemname:hover {
-        background: $u-treeview_item-hover_background;
-        color: $u-treeview_item-hover_color;
-    }
+    .treeview_itemname:hover {}
 
-    .treeview_itemname.z-sel {
-        background: $u-treeview_item-selected_background;
-        color: $u-treeview_item-selected_color;
-    }
+    .treeview_itemname.z-sel {}
 }
 
 .u-treeview.z-dis {
-    background: $u-treeview-disabled_background;
     .treeview_itemname {
         cursor: not-allowed;
-        background: none;
-        color: $u-treeview-disabled_color;
     }
 
     .treeview_item .f-icon {

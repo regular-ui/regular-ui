@@ -21,17 +21,8 @@
         vertical-align: middle;
         margin-bottom: 2px;
 
-        line-height: $u-checkex_box_size - 1;
-        width: $u-checkex_box_size;
-        height: $u-checkex_box_size;
-        background: $u-checkex_box_background;
-        color: $u-checkex_box_color;
-        $border: $u-checkex_box_border;
-        @if($u-checkex_box_border-radius) {$border-radius: $u-checkex_box_border-radius;}
-
         .f-icon {
             display: none;
-            font-size: $u-checkex_f-icon_font-size;
         }
     }
 }
@@ -39,10 +30,6 @@
 /* Checked */
 .u-checkex.z-chk {
     .checkex_box {
-        @if($u-checkex-checked_box_background) {background: $u-checkex-checked_box_background;}
-        @if($u-checkex-checked_box_color) {color: $u-checkex-checked_box_color;}
-        @if($u-checkex-checked_box_border) {border: $u-checkex-checked_box_border;}
-
         .f-icon {
             display: inline-block;
         }
@@ -65,11 +52,7 @@
 .u-checkex.z-dis {
     cursor: not-allowed;
 
-    .checkex_box {
-        background: $u-checkex-disabled_box_background;
-        color: $u-checkex-disabled_box_color;
-        @if($u-checkex-disabled_box_border) {$border: $u-checkex-disabled_box_border;}
-    }
+    .checkex_box {}
 }
 
 

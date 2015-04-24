@@ -6117,7 +6117,7 @@ var CheckEx = Component.extend({
 
 module.exports = CheckEx;
 },{"../base/component.js":28,"../base/util.js":32,"./checkEx.html":43}],45:[function(require,module,exports){
-module.exports="<div class=\"u-checkgroup {@(class)}\">    {#list source as item}    <checkEx name={item.name} checked={item.checked} disabled={disabled} block={block} />    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <checkEx name={item.name} checked={item.checked} disabled={disabled} block={block} />    {/list}</div>"
 },{}],46:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6145,7 +6145,7 @@ var CheckExGroup = CheckGroup.extend({
 
 module.exports = CheckExGroup;
 },{"../base/util.js":32,"./checkEx.js":44,"./checkExGroup.html":45,"./checkGroup.js":48}],47:[function(require,module,exports){
-module.exports="<div class=\"u-checkgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],48:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6507,21 +6507,21 @@ var _ = require('../base/util.js');
  * @extend Component
  * @param {object}                  options.data                    监听数据
  * @param {string='topcenter'}      options.data.position           通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
+ * @param {number=2000}             options.data.duration           每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
  * @param {string=''}               options.data.class              补充class
- * @param {number=2000}             options.duration                每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
  * @param {string=''}               options.data.class              补充class
  */
 var Notify = Component.extend({
     name: 'notify',
     template: template,
-    duration: 2000,
     /**
      * @protected
      */
     config: function() {
         _.extend(this.data, {
             messages: [],
-            position: 'topcenter'
+            position: 'topcenter',
+            duration: 2000
         });
         this.supr();
     },
@@ -6546,7 +6546,7 @@ var Notify = Component.extend({
         var message = {
             text: text,
             type: type,
-            duration: duration >= 0 ? duration : this.duration
+            duration: duration >= 0 ? duration : this.data.duration
         };
         this.data.messages.unshift(message);
         this.$update();
@@ -6678,7 +6678,7 @@ var Progress = Component.extend({
 
 module.exports = Progress;
 },{"../base/component.js":28,"../base/util.js":32,"./progress.html":61}],63:[function(require,module,exports){
-module.exports="<div class=\"u-radiogroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
 },{}],64:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6705,7 +6705,7 @@ var RadioExGroup = RadioGroup.extend({
 
 module.exports = RadioExGroup;
 },{"../base/util.js":32,"./radioExGroup.html":63,"./radioGroup.js":66}],65:[function(require,module,exports){
-module.exports="<div class=\"u-radiogroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],66:[function(require,module,exports){
 /**
  * ------------------------------------------------------------

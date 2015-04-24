@@ -1,98 +1,87 @@
+// Name:            Button
+// Description:     按钮
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/unit/btn
+// ========================================================================
+
+
+
+@import "../../core/unit/btn.mcss";
+
+// Component:       `u-btn`
+// ========================================================================
+
+.u-btn {
+    padding: 0 15px;
+    $line-height: 30px;
+    background: $gray;
+    color: $inverse;
+    $border-radius: $border-radius-base;
+}
+
+/* Hover */
+.u-btn:hover,
+.u-btn:focus {
+    background: mix($gray, white, 80%);
+    color: $inverse;
+}
+
+/* Active */
+.u-btn:active,
+.u-btn.z-act {
+    background: mix($gray, black, 85%);
+    color: fade($inverse, 0.75, true);
+}
+
+
+
 // Size Extends:       `u-btn-xs`, `u-btn-sm`, `u-btn-lg`
 // ========================================================================
 
-$u-btn-extend_size(
-    xs,
-    $u-btn-xs_padding-horizontal,
-    $u-btn-xs_height,
-    $u-btn-xs_font-size
-);
-
-$u-btn-extend_size(
-    sm,
-    $u-btn-sm_padding-horizontal,
-    $u-btn-sm_height,
-    $u-btn-sm_font-size
-);
-
-$u-btn-extend_size(
-    lg,
-    $u-btn-lg_padding-horizontal,
-    $u-btn-lg_height,
-    $u-btn-lg_font-size
-);
-
-$u-btn-extend_size(
-    xl,
-    $u-btn-xl_padding-horizontal,
-    $u-btn-xl_height,
-    $u-btn-xl_font-size
-);
+$u-btn-extend_size(xs, 6px, 18px, 12px, $border-radius-xs);
+$u-btn-extend_size(sm, 9px, 25px, 13px, $border-radius-sm);
+$u-btn-extend_size(lg, 19px, 45px, 17px, $border-radius-lg);
+$u-btn-extend_size(xl, 20px, 53px, 22px, $border-radius-xl);
 
 
-// Color Extends:       `u-btn-primary`, `u-btn-success`, `u-btn-error`
+
+// Color Extends:       `u-btn-primary`, `u-btn-info`, `u-btn-success`, `u-btn-error`
 // ========================================================================
 
-$u-btn-extend_color(
-    primary,
-    $u-btn-primary_background,
-    $u-btn-primary-hover_background,
-    $u-btn-primary-active_background,
-);
+$u-btn-extend_color = ($name, $background) {
 
-$u-btn-extend_color(
-    secondary,
-    $u-btn-secondary_background,
-    $u-btn-secondary-hover_background,
-    $u-btn-secondary-active_background,
-);
-
-$u-btn-extend_color(
-    info,
-    $u-btn-info_background,
-    $u-btn-info-hover_background,
-    $u-btn-info-active_background,
-);
-
-$u-btn-extend_color(
-    success,
-    $u-btn-success_background,
-    $u-btn-success-hover_background,
-    $u-btn-success-active_background,
-);
-
-$u-btn-extend_color(
-    warning,
-    $u-btn-warning_background,
-    $u-btn-warning-hover_background,
-    $u-btn-warning-active_background,
-);
-
-$u-btn-extend_color(
-    error,
-    $u-btn-error_background,
-    $u-btn-error-hover_background,
-    $u-btn-error-active_background,
-);
-
-$u-btn-extend_color(
-    inverse,
-    $u-btn-inverse_background,
-    $u-btn-inverse-hover_background,
-    $u-btn-inverse-active_background,
-);
-
-$u-btn-disabled();
-$u-btn-block();
-
-.u-btn {
-    -webkit-font-smoothing: subpixel-antialiased;
-    transition: border .25s linear, color .25s linear, background-color .25s linear;
+.u-btn-#{$name} {
+    background: $background;
 }
+
+/* Hover */
+.u-btn-#{$name}:hover,
+.u-btn-#{$name}:focus {
+    background: mix($background, white, 80%);
+}
+
+/* Active */
+.u-btn-#{$name}:active,
+.u-btn-#{$name}.z-act {
+    background: mix($background, black, 85%);
+}
+
+}
+
+$u-btn-extend_color(primary, $brand-primary);
+$u-btn-extend_color(secondary, $brand-secondary);
+$u-btn-extend_color(info, $brand-info);
+$u-btn-extend_color(success, $brand-success);
+$u-btn-extend_color(warning, $brand-warning);
+$u-btn-extend_color(error, $brand-error);
+$u-btn-extend_color(inverse, $inverse);
+
 
 /* Disabled */
 .u-btn:disabled,
 .u-btn.z-dis {
+    background: fade($gray-light, 0.75, true);
+    color: fade($inverse, 0.75, true);
     opacity: .7;
-    $box-shadow: none;
 }
