@@ -14,7 +14,7 @@
 
 $u-btn_background = white;
 $u-btn_color = #333;
-$u-btn_border = #333;
+$u-btn_border = #ccc;
 
 
 
