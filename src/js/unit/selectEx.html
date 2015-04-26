@@ -3,7 +3,7 @@
         <span>{selected ? selected.name : placeholder}</span>
         <i class="f-icon f-icon-caret-down f-fr"></i>
     </div>
-    <div class="dropdown_bd" r-hide={!open}>
+    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <ul class="u-listbox">
             {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}
             {#list source as item}

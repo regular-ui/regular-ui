@@ -142,7 +142,7 @@
     margin-top: 10px;
 }
 
-.u-selectex + .u-selectex, .u-suggest + .u-suggest {
+.u-dropdown + .u-dropdown {
     margin-left: 20px;
 }
 
@@ -193,7 +193,7 @@
 .u-selectex-nav {
     width: 160px;
 
-    .selectex_hd {
+    .dropdown_hd {
         height: $m-nav_height;
         line-height: $m-nav_height;
         padding: 0 10px;
@@ -205,11 +205,11 @@
         $border-radius: 0;
     }
 
-    .selectex_hd:hover {
+    .dropdown_hd:hover {
         background: $m-nav-hover_background-color;
     }
 
-    .selectex_bd {
+    .dropdown_bd {
         top: $m-nav_height;
 
         &:before {

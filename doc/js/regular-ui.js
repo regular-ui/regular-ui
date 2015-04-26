@@ -6290,7 +6290,7 @@ var DatePicker = Suggest.extend({
 
 module.exports = DatePicker;
 },{"../base/filter.js":29,"../base/util.js":32,"./calendar.js":42,"./datePicker.html":49,"./suggest.js":72}],51:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <a class=\"u-btn u-btn-primary\" on-click={this.toggle(!open)}>下拉 <i class=\"f-icon f-icon-caret-down\"></i></a>    <div class=\"dropdown_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#list source as item}                <li on-click={this.toggle(!open)}><a href=\"#\">{item.name}</a></li>            {/list}        </ul>    </div></div>"
+module.exports="<div class=\"u-dropdown {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <a class=\"u-btn u-btn-primary\" on-click={this.toggle(!open)}>下拉菜单 <i class=\"f-icon f-icon-caret-down\"></i></a>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#list source as item}                <li on-click={this.toggle(!open)}><a href=\"#\">{item.name}</a></li>            {/list}        </ul>    </div></div>"
 },{}],52:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6862,7 +6862,7 @@ var RadioGroup = SourceComponent.extend({
 
 module.exports = RadioGroup;
 },{"../base/sourceComponent.js":31,"../base/util.js":32,"./radioGroup.html":67}],69:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>    </div>    <div class=\"dropdown_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
 },{}],70:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -6929,7 +6929,7 @@ var SelectEx = DropDown.extend({
 
 module.exports = SelectEx;
 },{"../base/util.js":32,"./dropDown.js":52,"./selectEx.html":69}],71:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    <div class=\"dropdown_bd\" r-hide={!open}>        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
+module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
 },{}],72:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -7211,7 +7211,7 @@ var TimePicker = Suggest.extend({
 
 module.exports = TimePicker;
 },{"../base/util.js":32,"./suggest.js":72}],76:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>        <span>{selected ? selected.name : placeholder}</span>    </div>    <div class=\"dropdown_bd\" r-hide={!open}>        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>        <span>{selected ? selected.name : placeholder}</span>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
 },{}],77:[function(require,module,exports){
 /**
  * ------------------------------------------------------------

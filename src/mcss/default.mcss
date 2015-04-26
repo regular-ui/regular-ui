@@ -13,7 +13,7 @@ $reset-normalize();
 
 @import 'core/base/function.mcss';
 @import 'core/base/font-awesome.css';
-@import 'core/base/effect.mcss';
+@import 'default/base/effect.mcss';
 @import 'core/base/helpers.mcss';
 
 @import 'core/base/_global.mcss';

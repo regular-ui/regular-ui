@@ -15,10 +15,9 @@
 // ========================================================================
 
 .u-dropdown {
-    //width: 160px;
-    
     .dropdown_bd {
-        top: 40px + 12px;
+        // min-width: $formctrl_min-width;
+        margin-top: 12px;
 
         &:before {
             content: '';

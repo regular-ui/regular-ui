@@ -15,7 +15,7 @@
 // ========================================================================
 
 .u-dropdown-selectex {
-    width: 160px;
+    min-width: 160px;
 
     .dropdown_hd {
         height: $formctrl_height;

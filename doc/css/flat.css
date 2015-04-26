@@ -2242,6 +2242,96 @@ body{
 	-moz-animation-name:fadeInX;
 	animation-name:fadeInX;
 }
+@-webkit-keyframes fadeInY{
+	0%{
+		opacity:0;
+		-webkit-transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:translateY(0);
+	}
+}
+@-moz-keyframes fadeInY{
+	0%{
+		opacity:0;
+		-moz-transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		-moz-transform:translateY(0);
+	}
+}
+@-o-keyframes fadeInY{
+	0%{
+		opacity:0;
+		-o-transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		-o-transform:translateY(0);
+	}
+}
+@keyframes fadeInY{
+	0%{
+		opacity:0;
+		transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		transform:translateY(0);
+	}
+}
+.animated.fadeInY{
+	-webkit-animation-name:fadeInY;
+	-moz-animation-name:fadeInY;
+	animation-name:fadeInY;
+}
+@-webkit-keyframes fadeOutY{
+	0%{
+		opacity:1;
+		-webkit-transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		-webkit-transform:translateY(-10px);
+	}
+}
+@-moz-keyframes fadeOutY{
+	0%{
+		opacity:1;
+		-moz-transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		-moz-transform:translateY(-10px);
+	}
+}
+@-o-keyframes fadeOutY{
+	0%{
+		opacity:1;
+		-o-transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		-o-transform:translateY(-10px);
+	}
+}
+@keyframes fadeOutY{
+	0%{
+		opacity:1;
+		transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		transform:translateY(-10px);
+	}
+}
+.animated.fadeOutY{
+	-webkit-animation-name:fadeOutY;
+	-moz-animation-name:fadeOutY;
+	animation-name:fadeOutY;
+}
 @-webkit-keyframes pulse{
 	0%{
 		-webkit-transform:scale(1);
@@ -2345,6 +2435,10 @@ a{
 	color:#fff;
 	-moz-border-radius:4px;
 	border-radius:4px;
+	-webkit-font-smoothing:subpixel-antialiased;
+	-webkit-transition:border 0.25s linear,color 0.25s linear,background-color 0.25s linear;
+	-moz-transition:border 0.25s linear,color 0.25s linear,background-color 0.25s linear;
+	transition:border 0.25s linear,color 0.25s linear,background-color 0.25s linear;
 }
 .u-btn:hover,.u-btn:focus{
 	background:#aab7b8;
@@ -2829,9 +2923,10 @@ input.u-check:disabled,input.u-radio:disabled{
 	position:absolute;
 	z-index:1;
 	width:100%;
+	top:100%;
 }
 .u-dropdown .dropdown_bd{
-	top:52px;
+	margin-top:12px;
 }
 .u-dropdown .dropdown_bd:before{
 	content:"";
@@ -3175,12 +3270,12 @@ input.u-check:disabled,input.u-radio:disabled{
 	cursor:not-allowed;
 }
 .u-dropdown-selectex{
-	width:220px;
+	min-width:220px;
 }
 .u-dropdown-selectex .dropdown_hd{
+	padding:0 0 0 15px;
 	height:40px;
 	line-height:40px;
-	padding:0 12px 0 15px;
 	background:#1abc9c;
 	color:#fff;
 	-moz-border-radius:4px;
@@ -3190,6 +3285,8 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-dropdown-selectex .dropdown_hd .f-icon{
 	font-size:20px;
+	width:44px;
+	border-left:2px solid rgba(52,73,94,0.15);
 }
 .u-dropdown-selectex .dropdown_hd:hover{
 	background:#48c9b0;
@@ -3198,8 +3295,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	background:rgba(189,195,199,0.75);
 	color:rgba(255,255,255,0.75);
 	opacity:0.7;
-	-webkit-box-shadow:none;
-	box-shadow:none;
 }
 .u-calendar{
 	width:200px;
@@ -3537,7 +3632,7 @@ a:hover{
 .u-progress + .u-progress{
 	margin-top:10px;
 }
-.u-selectex + .u-selectex,.u-suggest + .u-suggest{
+.u-dropdown + .u-dropdown{
 	margin-left:20px;
 }
 .u-courceitem img{
@@ -3567,7 +3662,7 @@ a:hover{
 .u-selectex-nav{
 	width:160px;
 }
-.u-selectex-nav .selectex_hd{
+.u-selectex-nav .dropdown_hd{
 	height:50px;
 	line-height:50px;
 	padding:0 10px;
@@ -3578,23 +3673,23 @@ a:hover{
 	-moz-border-radius:0;
 	border-radius:0;
 }
-.u-selectex-nav .selectex_hd:hover{
+.u-selectex-nav .dropdown_hd:hover{
 	background:#2d564e;
 }
-.u-selectex-nav .selectex_bd{
+.u-selectex-nav .dropdown_bd{
 	top:50px;
 }
-.u-selectex-nav .selectex_bd:before{
+.u-selectex-nav .dropdown_bd:before{
 	display:none;
 }
-.u-selectex-nav .selectex_bd .u-listbox{
+.u-selectex-nav .dropdown_bd .u-listbox{
 	background:#08382f;
 	color:#fff;
 	border:none;
 	-moz-border-radius:0;
 	border-radius:0;
 }
-.u-selectex-nav .selectex_bd .u-listbox >li{
+.u-selectex-nav .dropdown_bd .u-listbox >li{
 	padding:0 10px;
 	height:36px;
 	line-height:36px;
@@ -3602,11 +3697,11 @@ a:hover{
 	-moz-border-radius:0;
 	border-radius:0;
 }
-.u-selectex-nav .selectex_bd .u-listbox >li:hover{
+.u-selectex-nav .dropdown_bd .u-listbox >li:hover{
 	background:#2d564e;
 	color:#fff;
 }
-.u-selectex-nav .selectex_bd .u-listbox >li.z-sel{
+.u-selectex-nav .dropdown_bd .u-listbox >li.z-sel{
 	background:#1abc9c;
 	color:#fff;
 }
