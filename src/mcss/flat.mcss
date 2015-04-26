@@ -26,6 +26,7 @@ $reset-normalize();
 // ========================================================================
 
 @import 'flat/unit/btn.mcss';
+@import 'default/unit/badge.mcss';
 
 @import 'core/unit/_formctrl.mcss';
 @import 'core/unit/formctrl.mcss';
@@ -54,6 +55,9 @@ $reset-normalize();
 @import 'flat/unit/notify.mcss';
 @import 'flat/unit/progress.mcss';
 
+/* 导航类 */
+@import 'flat/unit/dropdown.mcss';
+
 /* 列表类 */
 @import 'flat/unit/listbox.mcss';
 @import 'default/unit/gridview.mcss';
@@ -66,7 +70,7 @@ $reset-normalize();
 @import 'flat/unit/radioex.mcss';
 @import 'core/unit/unitgroup.mcss';
 @import 'flat/unit/selectex.mcss';
-@import 'default/unit/suggest.mcss';
+// @import 'default/unit/suggest.mcss';
 
 /* 日期类 */
 @import 'core/unit/_calendar.mcss';

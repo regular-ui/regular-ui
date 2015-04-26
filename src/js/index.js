@@ -25,6 +25,9 @@ RGUI.request = require('./base/request.js');
 RGUI.Notify = require('./unit/notify.js');
 RGUI.Progress = require('./unit/progress.js');
 
+// 效果类
+RGUI.DropDown = require('./unit/dropDown.js');
+
 // 表单类
 RGUI.InputEx = require('./unit/inputEx.js');
 RGUI.CheckEx = require('./unit/checkEx.js');

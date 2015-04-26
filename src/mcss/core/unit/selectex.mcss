@@ -6,27 +6,21 @@
 
 
 
-// Component:       `u-selectex`
+// Extends:
 // ========================================================================
 
-.u-selectex {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
+.u-dropdown-selectex {
     $user-select: none;
 
-    .selectex_hd {
+    .dropdown_hd {
         $box-sizing: border-box;
         cursor: pointer;
-        
-        .f-icon {
-            float: right;
-        }
     }
-    
-    .selectex_bd {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
+}
+
+/* Disabled */
+.u-dropdown-selectex.z-dis {
+    .dropdown_hd {
+        cursor: not-allowed;
     }
 }

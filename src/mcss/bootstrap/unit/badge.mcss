@@ -1,0 +1,41 @@
+// Name:            Badge
+// Description:     徽章
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/unit/badge
+// ========================================================================
+
+
+
+@import "../../core/unit/badge.mcss";
+
+
+
+// Component:       `u-badge`
+// ========================================================================
+
+.u-badge {
+    padding: 3px 7px;
+    min-width: 10px;
+    line-height: 1;
+    background: $gray-light;    
+    color: white;
+    font-size: $font-size-sm;
+    font-weight: bold;
+    text-align: center;
+    $border-radius: 10px;
+}
+
+/* Hover */
+a.u-badge:hover {
+    color: white;
+}
+
+
+
+// Color Extends:
+// ========================================================================
+
+$u-badge-extend_color(info, $brand-info);
+$u-badge-extend_color(success, $brand-success);
+$u-badge-extend_color(warning, $brand-warning);
+$u-badge-extend_color(error, $brand-error);

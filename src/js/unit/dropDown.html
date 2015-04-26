@@ -1,0 +1,10 @@
+<div class="u-dropdown {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
+    <a class="u-btn u-btn-primary" on-click={this.toggle(!open)}>下拉 <i class="f-icon f-icon-caret-down"></i></a>
+    <div class="dropdown_bd" r-hide={!open}>
+        <ul class="u-listbox">
+            {#list source as item}
+                <li on-click={this.toggle(!open)}><a href="#">{item.name}</a></li>
+            {/list}
+        </ul>
+    </div>
+</div>

@@ -16,6 +16,7 @@ $brand-error =              #d9534f;
 
 /* Dimension */
 $font-size-base =            14px;
+$font-size-sm =              14px;
 
 $border-radius-base =        4px;
 $border-radius-xs =          2px;

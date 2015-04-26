@@ -1,0 +1,23 @@
+// Name:            DropDown
+// Description:     下拉菜单
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/unit/dropdown
+// ========================================================================
+
+
+
+@import "../../core/unit/dropdown.mcss";
+
+
+
+// Component:       `u-dropdown`
+// ========================================================================
+
+.u-dropdown {
+    //width: 160px;
+    
+    .dropdown_bd {
+        top: $formctrl_height - 1;
+    }
+}

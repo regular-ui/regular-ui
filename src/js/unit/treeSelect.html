@@ -1,9 +1,9 @@
-<div class="u-selectex" r-class={ {'z-dis': disabled} } ref="element" onselectstart="return false">
-    <div class="selectex_hd" on-click={this.toggle(!open)}>
+<div class="u-dropdown u-dropdown-selectex {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
+    <div class="dropdown_hd f-cb" on-click={this.toggle(!open)}>
+        <i class="f-icon f-icon-caret-down f-fr"></i>
         <span>{selected ? selected.name : placeholder}</span>
-        <i class="f-icon f-icon-caret-down"></i>
     </div>
-    <div class="selectex_bd" r-hide={!open}>
+    <div class="dropdown_bd" r-hide={!open}>
         <treeView source={source} on-select={this.select($event.selected)} />
     </div>
 </div>

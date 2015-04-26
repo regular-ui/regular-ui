@@ -89,6 +89,20 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
+        <li class="sidebar-group">导航类</li>
+        
+        <li><a href="../jsunit/dropdown.html">下拉菜单<small> DropDown</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/menu.html">多级菜单<small> Menu</small>
+        
+        </a></li>
+        
+        
+        
         <li class="sidebar-group">数据类</li>
         
         <li><a href="../jsunit/listbox.html">列表框<small> ListBox</small>
@@ -218,6 +232,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
+        
+        
+        <li class="sidebar-group">效果类</li>
+        
+        <li><a href="../jsunit/dragdrop.html">拖拽<small> DragDrop</small>
+        
+        </a></li>
+        
+        
     </ul>
 </div><div class="g-mn">
     <article class="m-article">
@@ -296,7 +319,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <h4>Class</h4>
 <h5>SelectEx</h5>
-<p>继承自<strong>SourceComponent</strong>。</p>
+<p>继承自<strong>DropDown</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -324,6 +347,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
         
+        <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>数据服务</td></tr>
+        
     </tbody>
 </table>
 <div id="j-options"></div>
@@ -340,19 +365,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <tbody>
         
         <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
-        
-    </tbody>
-</table>
-
-<h5>selectEx.toggle(open)</h5>
-<p>在展开状态和收起状态之间切换</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开还是收起</td></tr>
         
     </tbody>
 </table>
@@ -375,19 +387,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <tbody>
         
         <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
-        
-    </tbody>
-</table>
-
-<h5>on-toggle={$event}</h5>
-<p>展开或收起状态改变时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
         
     </tbody>
 </table>

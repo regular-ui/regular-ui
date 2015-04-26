@@ -4,9 +4,9 @@
 
 .m-article {
 
-    >p {
-        text-indent: 2em;
-    }
+    // >p {
+    //     text-indent: 2em;
+    // }
     
     >li>p {
         text-indent: 0;

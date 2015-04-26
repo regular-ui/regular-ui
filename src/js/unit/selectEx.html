@@ -1,9 +1,9 @@
-<div class="u-selectex {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
-    <div class="selectex_hd" on-click={this.toggle(!open)}>
+<div class="u-dropdown u-dropdown-selectex {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
+    <div class="dropdown_hd f-cb" on-click={this.toggle(!open)}>
         <span>{selected ? selected.name : placeholder}</span>
-        <i class="f-icon f-icon-caret-down"></i>
+        <i class="f-icon f-icon-caret-down f-fr"></i>
     </div>
-    <div class="selectex_bd" r-hide={!open}>
+    <div class="dropdown_bd" r-hide={!open}>
         <ul class="u-listbox">
             {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}
             {#list source as item}

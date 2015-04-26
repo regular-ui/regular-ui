@@ -1,0 +1,35 @@
+// Name:            Badge
+// Description:     徽章
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-badge`
+// ========================================================================
+
+.u-badge {
+    display: inline-block;
+}
+
+
+
+// Color Extends:
+// ========================================================================
+
+$u-badge-extend_color = ($name, $background) {
+
+.u-badge-#{$name} {
+    background: $background;
+}
+
+}
+
+
+
+// Extends:
+// ========================================================================
+
+.u-badge-number {
+    $border-radius: 100px;
+}

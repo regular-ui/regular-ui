@@ -1,25 +1,19 @@
-// Name:            Suggest
-// Description:     自动提示
+// Name:            DropDown
+// Description:     下拉菜单
 // Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
 
 
-// Component:       `u-suggest`
+// Component:       `u-dropdown`
 // ========================================================================
 
-.u-suggest {
+.u-dropdown {
     display: inline-block;
     position: relative;
-    vertical-align: middle;
-
-    .sugggest_hd {
-        $box-sizing: border-box;
-        cursor: pointer;
-    }
     
-    .suggest_bd {
+    .dropdown_bd {
         position: absolute;
         z-index: 1;
         width: 100%;

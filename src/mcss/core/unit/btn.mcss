@@ -51,8 +51,7 @@
 
 
 
-// Extends:         `u-btn-extend_size`, `u-btn-extend_color`
-// Description:     尺寸和颜色扩展函数
+// Size Extends:
 // ========================================================================
 
 $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size, $border-radius_) {
@@ -65,6 +64,11 @@ $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size, $border-r
 }
 
 }
+
+
+
+// Color Extends:
+// ========================================================================
 
 $u-btn-extend_color = ($name, $background, $hover_background, $active_background, $color) {
 

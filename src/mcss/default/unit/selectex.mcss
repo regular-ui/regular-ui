@@ -11,33 +11,27 @@
 
 
 
-// Component:       `u-selectex`
+// Extends:
 // ========================================================================
 
-.u-selectex {
+.u-dropdown-selectex {
     width: 160px;
 
-    .selectex_hd {
+    .dropdown_hd {
         height: $formctrl_height;
         line-height: $formctrl_height - 2;
         padding: 0 index($formctrl_padding, 0);
         background: $formctrl_background;
         color: $formctrl_color;
         $border: $formctrl_border;
-
-        .f-icon {}
     }
 
-    .selectex_hd:hover {}
-    
-    .selectex_bd {
-        top: $formctrl_height - 1;
-    }
+    .dropdown_hd:hover {}
 }
 
 /* Disabled */
-.u-selectex.z-dis {
-    .selectex_hd {
+.u-dropdown-selectex.z-dis {
+    .dropdown_hd {
         background: $formctrl-disabled_background;
         $border: $formctrl-disabled_border;
         color: $formctrl-disabled_color;

@@ -6,7 +6,7 @@ var _ = require('./util.js');
 /**
  * @class SourceComponent
  * @extend Component
- * @param {object}                      options.service 数据服务
+ * @param {object}                  options.service                 数据服务
  */
 var SourceComponent = Component.extend({
     service: null,
@@ -26,16 +26,25 @@ var SourceComponent = Component.extend({
 
         this.supr();
     },
+    /**
+     * @method getParams 返回请求时需要的参数
+     * @protected
+     * @return {object}
+     */
     getParams: function() {
         return {};
     },
-    $updateSource: function(callback) {
+    /**
+     * @method $updateSource 从service中更新数据源
+     * @public
+     * @return {SourceComponent} this
+     */
+    $updateSource: function() {
         this.service.getList(this.getParams(), function(data) {
             if(data.code != 200 && !data.success)
                 return alert(data.result);
 
             this.$update('source', data.result);
-            callback && callback.call(this);
         }.bind(this));
         return this;
     }

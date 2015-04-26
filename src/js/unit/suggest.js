@@ -8,14 +8,14 @@
 
 'use strict';
 
-var SourceComponent = require('../base/sourceComponent.js');
+var DropDown = require('./dropDown.js');
 var template = require('./suggest.html');
 var _ = require('../base/util.js');
 var ListBox = require('./listBox.js');
 
 /**
  * @class Suggest
- * @extend SourceComponent
+ * @extend DropDown
  * @param {object}                  options.data                    绑定属性
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
@@ -29,7 +29,7 @@ var ListBox = require('./listBox.js');
  * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
  * @param {string=''}               options.data.class              补充class
  */
-var Suggest = SourceComponent.extend({
+var Suggest = DropDown.extend({
     name: 'suggest',
     template: template,
     /**

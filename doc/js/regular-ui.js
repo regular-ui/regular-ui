@@ -26,6 +26,9 @@ RGUI.request = require('./base/request.js');
 RGUI.Notify = require('./unit/notify.js');
 RGUI.Progress = require('./unit/progress.js');
 
+// 效果类
+RGUI.DropDown = require('./unit/dropDown.js');
+
 // 表单类
 RGUI.InputEx = require('./unit/inputEx.js');
 RGUI.CheckEx = require('./unit/checkEx.js');
@@ -61,7 +64,7 @@ RGUI.Pager = require('./module/pager.js');
 RGUI.Modal = require('./module/modal.js');
 
 module.exports = window.RGUI = RGUI;
-},{"./base/component.js":28,"./base/request.js":30,"./base/util.js":32,"./module/modal.js":34,"./module/pager.js":36,"./module/tab.js":38,"./module/tabHead.js":40,"./unit/calendar.js":42,"./unit/checkEx.js":44,"./unit/checkExGroup.js":46,"./unit/checkGroup.js":48,"./unit/datePicker.js":50,"./unit/gridView.js":52,"./unit/inputEx.js":54,"./unit/listBox.js":56,"./unit/listView.js":58,"./unit/notify.js":60,"./unit/progress.js":62,"./unit/radioExGroup.js":64,"./unit/radioGroup.js":66,"./unit/selectEx.js":68,"./unit/suggest.js":70,"./unit/tableView.js":72,"./unit/timePicker.js":73,"./unit/treeSelect.js":75,"./unit/treeView.js":77,"regularjs":20}],2:[function(require,module,exports){
+},{"./base/component.js":28,"./base/request.js":30,"./base/util.js":32,"./module/modal.js":34,"./module/pager.js":36,"./module/tab.js":38,"./module/tabHead.js":40,"./unit/calendar.js":42,"./unit/checkEx.js":44,"./unit/checkExGroup.js":46,"./unit/checkGroup.js":48,"./unit/datePicker.js":50,"./unit/dropDown.js":52,"./unit/gridView.js":54,"./unit/inputEx.js":56,"./unit/listBox.js":58,"./unit/listView.js":60,"./unit/notify.js":62,"./unit/progress.js":64,"./unit/radioExGroup.js":66,"./unit/radioGroup.js":68,"./unit/selectEx.js":70,"./unit/suggest.js":72,"./unit/tableView.js":74,"./unit/timePicker.js":75,"./unit/treeSelect.js":77,"./unit/treeView.js":79,"regularjs":20}],2:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -5611,7 +5614,7 @@ var _ = require('./util.js');
 /**
  * @class SourceComponent
  * @extend Component
- * @param {object}                      options.service 数据服务
+ * @param {object}                  options.service                 数据服务
  */
 var SourceComponent = Component.extend({
     service: null,
@@ -5631,16 +5634,25 @@ var SourceComponent = Component.extend({
 
         this.supr();
     },
+    /**
+     * @method getParams 返回请求时需要的参数
+     * @protected
+     * @return {object}
+     */
     getParams: function() {
         return {};
     },
-    $updateSource: function(callback) {
+    /**
+     * @method $updateSource 从service中更新数据源
+     * @public
+     * @return {SourceComponent} this
+     */
+    $updateSource: function() {
         this.service.getList(this.getParams(), function(data) {
             if(data.code != 200 && !data.success)
                 return alert(data.result);
 
             this.$update('source', data.result);
-            callback && callback.call(this);
         }.bind(this));
         return this;
     }
@@ -6277,9 +6289,89 @@ var DatePicker = Suggest.extend({
 });
 
 module.exports = DatePicker;
-},{"../base/filter.js":29,"../base/util.js":32,"./calendar.js":42,"./datePicker.html":49,"./suggest.js":70}],51:[function(require,module,exports){
-module.exports="<div class=\"u-gridview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <div class=\"gridview_item\" r-class={ {\'z-sel\': selected === item} }>{#include itemTemplate || item.name}</div>    {/list}</div>"
+},{"../base/filter.js":29,"../base/util.js":32,"./calendar.js":42,"./datePicker.html":49,"./suggest.js":72}],51:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <a class=\"u-btn u-btn-primary\" on-click={this.toggle(!open)}>下拉 <i class=\"f-icon f-icon-caret-down\"></i></a>    <div class=\"dropdown_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#list source as item}                <li on-click={this.toggle(!open)}><a href=\"#\">{item.name}</a></li>            {/list}        </ul>    </div></div>"
 },{}],52:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * DropDown  下拉菜单
+ * @version  0.0.1
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
+
+var SourceComponent = require('../base/sourceComponent.js');
+var template = require('./dropDown.html');
+var _ = require('../base/util.js');
+
+/**
+ * @class DropDown
+ * @extend SourceComponent
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {boolean=false}           options.data.open               当前为展开/收起状态
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ */
+var DropDown = SourceComponent.extend({
+    name: 'dropDown',
+    template: template,
+    /**
+     * @protected
+     */
+    config: function() {
+        _.extend(this.data, {
+            // @inherited source: [],
+            open: false,
+            disabled: false
+        });
+        this.supr();
+    },
+    /**
+     * @method toggle(open) 在展开/收起状态之间切换
+     * @public
+     * @param  {boolean} open 展开/收起
+     * @return {void}
+     */
+    toggle: function(open) {
+        if(this.data.disabled)
+            return;
+        
+        this.data.open = open;
+
+        // 根据状态在DropDown.opens列表中添加/删除管理项
+        var index = DropDown.opens.indexOf(this);
+        if(open && index < 0)
+            DropDown.opens.push(this);
+        else if(!open && index >= 0)
+            DropDown.opens.splice(index, 1);
+    }
+});
+
+// 处理点击dropDown之外的地方后的收起事件。
+DropDown.opens = [];
+
+_.dom.on(document.body, 'click', function(e) {
+    DropDown.opens.forEach(function(dropDown) {
+        // 这个地方不能用stopPropagation来处理，因为展开一个dropDown的同时要收起其他dropDown
+        var element = dropDown.$refs.element;
+        var element2 = e.target;
+        while(element2) {
+            if(element == element2)
+                return;
+            element2 = element2.parentElement;
+        }
+        dropDown.toggle(false);
+        dropDown.$update();
+    });
+});
+
+module.exports = DropDown;
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./dropDown.html":51}],53:[function(require,module,exports){
+module.exports="<div class=\"u-gridview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <div class=\"gridview_item\" r-class={ {\'z-sel\': selected === item} }>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>    {/list}</div>"
+},{}],54:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * GridView  网格视图
@@ -6319,9 +6411,9 @@ var GridView = SourceComponent.extend({
 });
 
 module.exports = GridView;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./gridView.html":51}],53:[function(require,module,exports){
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./gridView.html":53}],55:[function(require,module,exports){
 module.exports="<label class=\"u-inputex\">    <input class=\"u-input\">    <span class=\"u-unit\">{unit}</span></label>"
-},{}],54:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * InputEx   输入扩展
@@ -6382,9 +6474,9 @@ var InputEx = Component.extend({
 });
 
 module.exports = InputEx;
-},{"../base/component.js":28,"../base/util.js":32,"./inputEx.html":53}],55:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./inputEx.html":55}],57:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
-},{}],56:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListBox   列表框
@@ -6447,9 +6539,9 @@ var ListBox = SourceComponent.extend({
 });
 
 module.exports = ListBox;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./listBox.html":55}],57:[function(require,module,exports){
-module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#if itemTemplate}{#include itemTemplate}{#else}{item.name}{/if}</li>    {/list}</ul>"
-},{}],58:[function(require,module,exports){
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./listBox.html":57}],59:[function(require,module,exports){
+module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>    {/list}</ul>"
+},{}],60:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListView  列表视图
@@ -6485,9 +6577,9 @@ var ListView = ListBox.extend({
 });
 
 module.exports = ListView;
-},{"../base/util.js":32,"./listBox.js":56,"./listView.html":57}],59:[function(require,module,exports){
+},{"../base/util.js":32,"./listBox.js":58,"./listView.html":59}],61:[function(require,module,exports){
 module.exports="<div class=\"m-notify m-notify-{@(position)} {@(class)}\">    {#list messages as message}    <div class=\"notify_message notify_message-{@(message.type)} f-cb\" r-animation=\'on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\'>        <a class=\"notify_close\" on-click={this.close(message)}><i class=\"f-icon f-icon-close\"></i></a>        <div class=\"notify_text\"><i class=\"f-icon f-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i> {@(message.text)}</div>    </div>    {/list}</div>"
-},{}],60:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Notify    通知
@@ -6628,9 +6720,9 @@ Notify.closeAll = function() {
 }
 
 module.exports = Notify;
-},{"../base/component.js":28,"../base/util.js":32,"./notify.html":59}],61:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./notify.html":61}],63:[function(require,module,exports){
 module.exports="<div class=\"u-progress u-progress-{@(size)} u-progress-{@(type)} {@(class)}\" r-class={ {\'u-progress-striped\': striped, \'z-act\': active} }>    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + \'%\' : text) : \'\'}</div></div>"
-},{}],62:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Progress  进度条
@@ -6677,9 +6769,9 @@ var Progress = Component.extend({
 });
 
 module.exports = Progress;
-},{"../base/component.js":28,"../base/util.js":32,"./progress.html":61}],63:[function(require,module,exports){
+},{"../base/component.js":28,"../base/util.js":32,"./progress.html":63}],65:[function(require,module,exports){
 module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
-},{}],64:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioExGroup 输入扩展
@@ -6704,9 +6796,9 @@ var RadioExGroup = RadioGroup.extend({
 });
 
 module.exports = RadioExGroup;
-},{"../base/util.js":32,"./radioExGroup.html":63,"./radioGroup.js":66}],65:[function(require,module,exports){
+},{"../base/util.js":32,"./radioExGroup.html":65,"./radioGroup.js":68}],67:[function(require,module,exports){
 module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
-},{}],66:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioGroup 单选组
@@ -6769,9 +6861,9 @@ var RadioGroup = SourceComponent.extend({
 });
 
 module.exports = RadioGroup;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./radioGroup.html":65}],67:[function(require,module,exports){
-module.exports="<div class=\"u-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],68:[function(require,module,exports){
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./radioGroup.html":67}],69:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>    </div>    <div class=\"dropdown_bd\" r-hide={!open}>        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
+},{}],70:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * SelectEx  选择扩展
@@ -6782,13 +6874,13 @@ module.exports="<div class=\"u-selectex {@(class)}\" r-class={ {\'z-dis\': disab
 
 'use strict';
 
-var SourceComponent = require('../base/sourceComponent.js');
+var DropDown = require('./dropDown.js');
 var template = require('./selectEx.html');
 var _ = require('../base/util.js');
 
 /**
  * @class SelectEx
- * @extend SourceComponent
+ * @extend DropDown
  * @param {object}                  options.data                    绑定属性
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
@@ -6797,8 +6889,9 @@ var _ = require('../base/util.js');
  * @param {string='请选择'}         options.data.placeholder        默认项的文字
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
-var SelectEx = SourceComponent.extend({
+var SelectEx = DropDown.extend({
     name: 'selectEx',
     template: template,
     /**
@@ -6806,11 +6899,11 @@ var SelectEx = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            source: [],
+            // @inherited source: [],
             selected: null,
             placeholder: '请选择',
-            disabled: false,
-            open: false
+            // @inherited disabled: false,
+            // @inherited open: false
         });
         this.supr();
     },
@@ -6832,55 +6925,12 @@ var SelectEx = SourceComponent.extend({
         });
         this.toggle(false);
     },
-    /**
-     * @method toggle(open)  在展开状态和收起状态之间切换
-     * @public
-     * @param  {boolean} open 展开还是收起
-     * @return {void}
-     */
-    toggle: function(open) {
-        if(this.data.disabled)
-            return;
-        
-        this.data.open = open;
-
-        /**
-         * @event toggle 展开或收起状态改变时触发
-         * @property {boolean} open 展开还是收起
-         */
-        this.$emit('toggle', {
-            open: open
-        });
-
-        var index = SelectEx.opens.indexOf(this);
-        if(open && index < 0)
-            SelectEx.opens.push(this);
-        else if(!open && index >= 0)
-            SelectEx.opens.splice(index, 1);
-    }
-});
-
-// 处理点击selectEx之外的地方后的收起事件。
-SelectEx.opens = [];
-
-_.dom.on(document.body, 'click', function(e) {
-    SelectEx.opens.forEach(function(selectEx) {
-        var element = selectEx.$refs.element;
-        var element2 = e.target;
-        while(element2) {
-            if(element == element2)
-                return;
-            element2 = element2.parentElement;
-        }
-        selectEx.toggle(false);
-        selectEx.$update();
-    });
 });
 
 module.exports = SelectEx;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./selectEx.html":67}],69:[function(require,module,exports){
-module.exports="<div class=\"u-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    <div class=\"suggest_bd\" r-hide={!open}>        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
-},{}],70:[function(require,module,exports){
+},{"../base/util.js":32,"./dropDown.js":52,"./selectEx.html":69}],71:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    <div class=\"dropdown_bd\" r-hide={!open}>        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
+},{}],72:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Suggest   自动提示
@@ -6891,14 +6941,14 @@ module.exports="<div class=\"u-suggest {@(class)}\" r-class={ {\'z-dis\': disabl
 
 'use strict';
 
-var SourceComponent = require('../base/sourceComponent.js');
+var DropDown = require('./dropDown.js');
 var template = require('./suggest.html');
 var _ = require('../base/util.js');
 var ListBox = require('./listBox.js');
 
 /**
  * @class Suggest
- * @extend SourceComponent
+ * @extend DropDown
  * @param {object}                  options.data                    绑定属性
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
@@ -6912,7 +6962,7 @@ var ListBox = require('./listBox.js');
  * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
  * @param {string=''}               options.data.class              补充class
  */
-var Suggest = SourceComponent.extend({
+var Suggest = DropDown.extend({
     name: 'suggest',
     template: template,
     /**
@@ -7027,9 +7077,9 @@ _.dom.on(window.document, 'click', function(e) {
 });
 
 module.exports = Suggest;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./listBox.js":56,"./suggest.html":69}],71:[function(require,module,exports){
+},{"../base/util.js":32,"./dropDown.js":52,"./listBox.js":58,"./suggest.html":71}],73:[function(require,module,exports){
 module.exports="<table class=\"m-table m-tableview {@(class)}\" r-class={ {\'m-table-striped\': striped, \'m-table-hover\': hover} }>    <thead>        <tr>            {#list fields as field}            <th r-class={ {\'tableview_sortable\': field.sortable} } on-click={this.sort(field)}>                {field.name || field.key}                {#if field.sortable}                    <i class=\"f-icon {order.by === field.key ? (order.desc ? \'f-icon-sort-desc\' : \'f-icon-sort-asc\') : \'f-icon-sort\'}\"></i>                {/if}            </th>            {/list}        </tr>    </thead>    <tbody>        {#list source as item}        <tr>            {#list fields as field}            <td>{item[field.key]}</td>            {/list}        </tr>        {/list}    </tbody></table>"
-},{}],72:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TableView 表格视图
@@ -7116,7 +7166,7 @@ var TableView = SourceComponent.extend({
 });
 
 module.exports = TableView;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./tableView.html":71}],73:[function(require,module,exports){
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./tableView.html":73}],75:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
@@ -7160,9 +7210,9 @@ var TimePicker = Suggest.extend({
 });
 
 module.exports = TimePicker;
-},{"../base/util.js":32,"./suggest.js":70}],74:[function(require,module,exports){
-module.exports="<div class=\"u-selectex\" r-class={ {\'z-dis\': disabled} } ref=\"element\" onselectstart=\"return false\">    <div class=\"selectex_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down\"></i>    </div>    <div class=\"selectex_bd\" r-hide={!open}>        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
-},{}],75:[function(require,module,exports){
+},{"../base/util.js":32,"./suggest.js":72}],76:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>        <span>{selected ? selected.name : placeholder}</span>    </div>    <div class=\"dropdown_bd\" r-hide={!open}>        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
+},{}],77:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TreeSelect 树型选择
@@ -7199,9 +7249,9 @@ var TreeSelect = SelectEx.extend({
 });
 
 module.exports = TreeSelect;
-},{"../base/util.js":32,"./selectEx.js":68,"./treeSelect.html":74,"./treeView.js":77}],76:[function(require,module,exports){
+},{"../base/util.js":32,"./selectEx.js":70,"./treeSelect.html":76,"./treeView.js":79}],78:[function(require,module,exports){
 module.exports="<div class=\"u-treeview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    <treeViewList source={source} visible={true} /></div>"
-},{}],77:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TreeView  树型视图
@@ -7336,6 +7386,6 @@ var TreeViewList = SourceComponent.extend({
 });
 
 module.exports = TreeView;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./treeView.html":76,"./treeViewList.html":78}],78:[function(require,module,exports){
-module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"f-icon\" r-class={ {\'f-icon-caret-right\': !item.open, \'f-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if itemTemplate}{#include itemTemplate}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
+},{"../base/sourceComponent.js":31,"../base/util.js":32,"./treeView.html":78,"./treeViewList.html":80}],80:[function(require,module,exports){
+module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"f-icon\" r-class={ {\'f-icon-caret-right\': !item.open, \'f-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
 },{}]},{},[1]);

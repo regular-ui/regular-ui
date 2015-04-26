@@ -21,7 +21,7 @@
                 {"name": "Button", "lowerName": "button", "alias": "按钮", "complete": true},
                 {"name": "ButtonGroup", "lowerName": "buttonGroup", "alias": "按钮组"},
                 {"name": "Icon", "lowerName": "icon", "alias": "图标"},
-                {"name": "Badge", "lowerName": "badge", "alias": "徽章"},
+                {"name": "Badge", "lowerName": "badge", "alias": "徽章", "complete": false},
                 {"name": "Thumbnail", "lowerName": "thumbnail", "alias": "缩略图"},
                 {"name": "Text", "lowerName": "text", "alias": "文本"},
                 {"name": "FormControl", "lowerName": "formCtrl", "alias": "表单元素"}
@@ -55,6 +55,9 @@
                 {"name": "Notify", "lowerName": "notify", "alias": "通知", "group": "消息类", "complete": true},
                 {"name": "Progress", "lowerName": "progress", "alias": "进度条", "group": "消息类", "complete": true},
 
+                {"name": "DropDown", "lowerName": "dropDown", "alias": "下拉菜单", "group": "导航类"},
+                {"name": "Menu", "lowerName": "menu", "alias": "多级菜单", "group": "导航类"},
+
                 {"name": "ListBox", "lowerName": "listBox", "alias": "列表框", "group": "数据类", "complete": true},
                 {"name": "TreeBox", "lowerName": "treeBox", "alias": "树型列表框", "group": "数据类", "hidden": true},
                 {"name": "ListView", "lowerName": "listView", "alias": "列表视图", "group": "数据类", "complete": true},
@@ -79,7 +82,10 @@
                 {"name": "TimePicker", "lowerName": "timePicker", "alias": "时间选择", "group": "日期类"},
                 {"name": "DateTimePicker", "lowerName": "dateTimePicker", "alias": "日期时间选择", "group": "日期类"},
 
-                {"name": "SmoothScroll", "lowerName": "smoothScroll", "alias": "滚动", "group": "其他", "hidden": true},
+
+                {"name": "SmoothScroll", "lowerName": "smoothScroll", "alias": "滚动", "group": "效果类", "hidden": true},
+                {"name": "Sticky", "lowerName": "sticky", "alias": "粘连", "group": "效果类", "hidden": true},
+                {"name": "DragDrop", "lowerName": "dragDrop", "alias": "拖拽", "group": "效果类"},
                 {"name": "GoTop", "lowerName": "goTop", "alias": "去顶部", "group": "其他", "hidden": true}
             ]
         },
