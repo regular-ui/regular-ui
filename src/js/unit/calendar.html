@@ -1,19 +1,17 @@
 <div class="u-calendar">
-    <div class="calendar_hd">
-        <div class="calendar_year">
-            <i class="f-icon f-icon-prev calendar_prev" on-click={this.addYear(-1)}></i>
-            <span>{selected | format: 'yyyy'}</span>
-            <i class="f-icon f-icon-next calendar_next" on-click={this.addYear(1)}></i>
-        </div>
-        <div class="calendar_month">
-            <i class="f-icon f-icon-prev calendar_prev" on-click={this.addMonth(-1)}></i>
-            <span>{selected | format: 'MM'}</span>
-            <i class="f-icon f-icon-next calendar_next" on-click={this.addMonth(1)}></i>
-        </div>
-        <a class="calendar_back" on-click={this.back()}>返回今天</a>
+    <div class="calendar_hd f-cb">
+        <span class="f-fl">
+            <span class="calendar_item"><i class="f-icon f-icon-angle-double-left" on-click={this.addYear(-1)}></i></span>
+            <span class="calendar_item"><i class="f-icon f-icon-angle-left" on-click={this.addMonth(-1)}></i></span>
+        </span>
+        <span>{selected | format: 'yyyy'}-{selected | format: 'MM'}</span>
+        <span class="f-fr">
+            <span class="calendar_item"><i class="f-icon f-icon-angle-double-right" on-click={this.addYear(1)}></i></span>
+            <span class="calendar_item"><i class="f-icon f-icon-angle-right" on-click={this.addMonth(1)}></i></span>
+        </span>
     </div>
     <div class="calendar_bd">
-        <div class="calendar_week"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
-        <div class="calendar_day">{#list _days as day}<span r-class={ {'z-sel': day - selected === 0, 'z-dis': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
+        <div class="calendar_week"><span class="calendar_item">日</span><span class="calendar_item">一</span><span class="calendar_item">二</span><span class="calendar_item">三</span><span class="calendar_item">四</span><span class="calendar_item">五</span><span class="calendar_item">六</span></div>
+        <div class="calendar_day">{#list _days as day}<span class="calendar_item" r-class={ {'z-sel': day - selected === 0, 'z-dis': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
     </div>
 </div>

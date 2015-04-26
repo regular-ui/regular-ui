@@ -1,5 +1,5 @@
 /* function */
-.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+.f-cb:after,.f-cbli li:after{display:inline-block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
 .f-cb,.f-cbli li{zoom:1;}
 .f-ib{display:inline-block;*display:inline;*zoom:1;}
 .f-dn{display:none;}

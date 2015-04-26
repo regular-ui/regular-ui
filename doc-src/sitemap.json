@@ -77,8 +77,8 @@
                 {"name": "Slider", "lowerName": "slider", "alias": "滑动器", "group": "表单类", "hidden": true},
                 {"name": "Uploader", "lowerName": "uploader", "alias": "文件上传", "group": "表单类", "hidden": true},
 
-                {"name": "Calendar", "lowerName": "calendar", "alias": "日历", "group": "日期类"},
-                {"name": "DatePicker", "lowerName": "datePicker", "alias": "日期选择", "group": "日期类"},
+                {"name": "Calendar", "lowerName": "calendar", "alias": "日历", "group": "日期类", "complete": false},
+                {"name": "DatePicker", "lowerName": "datePicker", "alias": "日期选择", "group": "日期类", "complete": false},
                 {"name": "TimePicker", "lowerName": "timePicker", "alias": "时间选择", "group": "日期类"},
                 {"name": "DateTimePicker", "lowerName": "dateTimePicker", "alias": "日期时间选择", "group": "日期类"},
 

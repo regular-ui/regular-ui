@@ -186,18 +186,15 @@
 
 
 
-// Extends:         `u-selectex-nav`
-// Description:     在导航条中的SelectEx
+// Extends:
 // ========================================================================
 
 .u-selectex-nav {
-    width: 160px;
+    min-width: 160px;
 
     .dropdown_hd {
-        height: $m-nav_height;
-        line-height: $m-nav_height;
+        $line-height: $m-nav_height;
         padding: 0 10px;
-        min-width: 160px;
 
         background: $m-nav_background-color;
         color: white;

@@ -1,59 +1,43 @@
-/* 下拉选框 样式 */
+// Name:            Calendar
+// Description:     日历
+// Version:         0.0.1
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-calendar`
+// ========================================================================
+
 .u-calendar {
-    width: 200px;
-    color: $u-calendar_color;
-    $border: $u-calendar_border;
-    background: $u-calendar_background;
-    padding: $u-calendar_padding;
+    text-align: center;
 
-    .calendar_hd {
-        .f-icon {
-            cursor: pointer;
-        }
-        .calendar_year {
-            display: inline-block;
-        }
-
-        .calendar_month {
-            display: inline-block;
-        }
-        .calendar_back {
-            float: right;
-        }
+    .calendar_item {
+        display: inline-block;
+        cursor: pointer;
     }
-    
-    .calendar_bd {
-        text-align: center;
-        .calendar_week {
-            font-weight: bold;
-            span {
-                display: inline-block;
-                width: 14%;
-            }
-        }
 
-        .calendar_day {
-            span {
-                display: inline-block;
-                width: 14%;
-                cursor: pointer;
-            }
-            span.z-sel {
-                background: $u-calendar_item-selected_background;
-            }
-            span.z-dis {
-                color: #999;
-                cursor: not-allowed;
-            }
+    .calendar_item:hover {}
+
+    .calendar_item.z-sel {}
+
+    .calendar_item.z-dis {
+        cursor: not-allowed;
+    }
+
+    .calendar_bd {
+        clear: both;
+        
+        .calendar_week .calendar_item {
+            font-weight: bold;
+            cursor: default;
         }
     }
 }
 
-// .u-calendar.z-dis {
-//     .calendar_hd {
-//         cursor: not-allowed;
-//         background: $u-calendar-disabled_background;
-//         border-color: $u-calendar-disabled_border-color;
-//         color: $u-calendar-disabled_color;
-//     }
-// }
+/* Disabled */
+.u-calendar.z-dis {
+    .calendar_item {
+        cursor: not-allowed;
+    }
+}

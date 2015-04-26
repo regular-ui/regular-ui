@@ -195,7 +195,7 @@ table{
 	border-spacing:0;
 }
 .f-cb:after,.f-cbli li:after{
-	display:block;
+	display:inline-block;
 	clear:both;
 	visibility:hidden;
 	height:0;
@@ -2854,45 +2854,59 @@ input.u-check:disabled,input.u-radio:disabled{
 	color:#999;
 }
 .u-calendar{
-	width:200px;
-	color:#444;
-	border:1px solid #ddd;
-	background:#fff;
-	padding:8px;
-}
-.u-calendar .calendar_hd .f-icon{
-	cursor:pointer;
-}
-.u-calendar .calendar_hd .calendar_year{
-	display:inline-block;
-}
-.u-calendar .calendar_hd .calendar_month{
-	display:inline-block;
-}
-.u-calendar .calendar_hd .calendar_back{
-	float:right;
-}
-.u-calendar .calendar_bd{
 	text-align:center;
 }
-.u-calendar .calendar_bd .calendar_week{
-	font-weight:bold;
-}
-.u-calendar .calendar_bd .calendar_week span{
+.u-calendar .calendar_item{
 	display:inline-block;
-	width:14%;
-}
-.u-calendar .calendar_bd .calendar_day span{
-	display:inline-block;
-	width:14%;
 	cursor:pointer;
 }
-.u-calendar .calendar_bd .calendar_day span.z-sel{
-	background:#3498db;
-}
-.u-calendar .calendar_bd .calendar_day span.z-dis{
-	color:#999;
+.u-calendar .calendar_item.z-dis{
 	cursor:not-allowed;
+}
+.u-calendar .calendar_bd{
+	clear:both;
+}
+.u-calendar .calendar_bd .calendar_week .calendar_item{
+	font-weight:bold;
+	cursor:default;
+}
+.u-calendar.z-dis .calendar_item{
+	cursor:not-allowed;
+}
+.u-calendar{
+	width:224px;
+	padding:4px 6px;
+	background:#fff;
+	color:#444;
+	border:1px solid #ddd;
+}
+.u-calendar .calendar_item{
+	width:30px;
+	height:28px;
+	line-height:28px;
+	margin:1px;
+}
+.u-calendar .calendar_item:hover{
+	background:#eee;
+	color:#444;
+}
+.u-calendar .calendar_item.z-sel{
+	background:#3498db;
+	color:#fff;
+}
+.u-calendar .calendar_item.z-dis{
+	background:none;
+	color:#999;
+}
+.u-calendar .calendar_hd{
+	line-height:30px;
+}
+.u-calendar .calendar_bd .calendar_week .calendar_item{
+	background:none;
+}
+.u-calendar.z-dis .calendar_item{
+	background:#f5f5f5;
+	color:#999;
 }
 .m-tab .tab-hd{
 	height:40px;
@@ -3217,13 +3231,12 @@ a:hover{
 	color:#bbb;
 }
 .u-selectex-nav{
-	width:160px;
+	min-width:160px;
 }
 .u-selectex-nav .dropdown_hd{
 	height:50px;
 	line-height:50px;
 	padding:0 10px;
-	min-width:160px;
 	background:#102e42;
 	color:#fff;
 	border:none;

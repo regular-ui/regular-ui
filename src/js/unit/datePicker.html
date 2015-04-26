@@ -1,6 +1,8 @@
-<div class="u-suggest" r-class={ {'z-dis': disabled} } ref="element" onselectstart="return false">
-    <input class="u-input u-input-full" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref="input" {#if disabled}disabled{/if}>
-    <div class="suggest_bd" r-hide={!open}>
+<div class="u-dropdown u-dropdown-suggest {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
+    <div class="dropdown_hd">
+        <input class="u-input u-input-full" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref="input" {#if disabled}disabled{/if}>
+    </div>
+    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <calendar on-select={this.select($event.selected)} />
     </div>
 </div>
