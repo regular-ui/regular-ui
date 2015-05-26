@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * RGUI      Regular UI库
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -61,5 +60,9 @@ RGUI.Pager = require('./module/pager.js');
 
 // 窗口类
 RGUI.Modal = require('./module/modal.js');
+
+// 编辑器类
+RGUI.Editor = require('./module/editor.js');
+RGUI.MarkEditor = require('./module/markEditor.js');
 
 module.exports = window.RGUI = RGUI;

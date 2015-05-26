@@ -126,7 +126,7 @@ var treeView = new TreeView({
 
 ```javascript
 var itemTemplate = _.multiline(function(){/*    
-<i class="f-icon {item.type === 'directory' ? (item.open ? 'f-icon-folder-open' : 'f-icon-folder') : 'f-icon-file-text'}"></i> {item.name}
+<i class="u-icon {item.type === 'directory' ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}
 */});
 
 var service = {

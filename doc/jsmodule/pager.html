@@ -40,27 +40,25 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h1 class="m-logo">
             <a href="/">Regular UI</a>
         </h1>
-        <nav class="m-nav">
-            <ul class="f-fr">
-                
-                
-                <li><a href="../start/index.html">开始使用</a></li>
-                
-                
-                <li><a href="../cssunit/index.html">CSS组件</a></li>
-                
-                
-                <li><a href="../cssmodule/index.html">CSS模块</a></li>
-                
-                
-                <li><a href="../jsunit/index.html">JS组件</a></li>
-                
-                
-                <li class="z-crt"><a href="../jsmodule/index.html">JS模块</a></li>
-                
-                <li id="j-themeSelectEx"></li>
-            </ul>
-        </nav>
+        <ul class="m-nav f-fr">
+            
+            
+            <li><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li class="z-crt"><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelectEx"></li>
+        </ul>
     </div>
 </div>
 <div class="g-bd">
@@ -71,7 +69,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li class="sidebar-group">导航类</li>
+        <li class="sidebar_group"><span>导航类</span></li>
         
         <li><a href="../jsmodule/tabhead.html">选项卡头<small> TabHead</small>
         
@@ -92,11 +90,11 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li class="sidebar-group">窗口类</li>
+        <li class="sidebar_group"><span>窗口类</span></li>
         
         <li><a href="../jsmodule/modal.html">模态对话框<small> Modal</small>
         
-            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
         
         </a></li>
         
@@ -104,6 +102,19 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
+        
+        
+        <li class="sidebar_group"><span>编辑器类</span></li>
+        
+        <li><a href="../jsmodule/editor.html">编辑器<small> Editor</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/markeditor.html">Markdown编辑器<small> MarkEditor</small>
+        
+        </a></li>
         
         
         
@@ -118,7 +129,48 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div id="j-example1"></div>
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Pager</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Pager({options})</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
         
+        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.current</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>1</code></td><td>当前页</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.total</code></td><td class="f-wsn">total</td><td class="f-wsn"><code>11</code></td><td>总页数</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.middle</code></td><td class="f-wsn">middle</td><td class="f-wsn"><code>5</code></td><td>当页数较多时，中间显示的页数</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.side</code></td><td class="f-wsn">side</td><td class="f-wsn"><code>2</code></td><td>当页数较多时，两端各显示的页数</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-events"></div>
     </article>
 </div>    </div>
 </div>
@@ -144,9 +196,7 @@ var themeSelectEx = new RGUI.SelectEx({
 var Pager = RGUI.Pager;
 
 var pager = new Pager({
-    data: {
-        total: 5
-    }
+    data: {}
 }).$inject('#j-example1');
 </script>
 </body>

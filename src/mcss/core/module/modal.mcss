@@ -1,7 +1,13 @@
-/* modal ui */
+// Name:            Modal
+// Description:     模态对话框
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
 
-// 这个是模态层，同时也是对话框的容器
-// This is the modal overlay and modal dialog container
+
+
+// Component:       `m-modal`
+// ========================================================================
+
 .m-modal {
     // - Hide by default
     // display: none;
@@ -11,6 +17,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 1000;
     // - 允许模态对话框在模态层里滚动，因为有时候内容可能会比较多
     // - Allow scrolling for the modal dialog
     overflow-y: auto;
@@ -19,34 +26,10 @@
     // opacity: 0;
     // -webkit-transition: opacity 0.15s linear;
     // transition: opacity 0.15s linear;
-    // ？ Deactivate browser history navigation in IE11
+    // ? Deactivate browser history navigation in IE11
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
 
-    /* Public */
-    z-index: $m-modal_z-index;
-    // - Mask the background page
-    background: $m-modal_background;
-
     .modal_dialog {
-        // - Create position context for caption, spinner and close button
-        position: relative;
-        // - Set box sizing
-        $box-sizing: border-box;
-        margin: $m-modal_dialog_margin-vertical auto;
-        width: $m-modal_dialog_width;
-        padding: $m-modal_dialog_padding;
-        background: $m-modal_dialog_background;
-        @if($m-modal_dialog_border) {border: $m-modal_dialog_border;}
-        @if($m-modal_dialog_border-radius) {border: $m-modal_dialog_border-radius;}
-        @if($m-modal_dialog_color) {color: $m-modal_dialog_color;}
-        // - Set style
-        // - Slide-in transition
-        // opacity: 0;
-        // -webkit-transform: translateY(-100px);
-        // transform: translateY(-100px);
-        // -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
-        // transition: opacity 0.3s linear, transform 0.3s ease-out;
-
         .modal_hd {
             .modal_title {
                 margin: 0;
@@ -55,30 +38,15 @@
             .modal_close {
                 float: right;
                 margin: -6px -4px 0 0;
-                // text-decoration: none;
-                // margin: -6px -4px 0 0;
-                // line-height: 20px;
-                // font-family: monospace;
-                // font-size: 20px;
-                // vertical-align: middle;
-                color: #bbb;
-                &:hover {
-                    color: #888;
-                }
+
+                &:hover {}
             }
         }
 
-        .modal_bd {
-            margin: $m-modal_bd_margin;
-            min-height: $m-modal_bd_min-height;
-        }
+        .modal_bd {}
 
         .modal_ft {
-            text-align: $m-modal_ft_text-align;
-
-            .u-btn {
-                margin: 0 2px;
-            }
+            .u-btn {}
         }
     }
 
@@ -87,7 +55,6 @@
         // - Fit in small screen
         .modal_dialog {
             width: auto;
-            margin: 10px;
         }
     }
 

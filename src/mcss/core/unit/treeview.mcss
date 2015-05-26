@@ -22,7 +22,7 @@
     .treeview_item {
         position: relative;
 
-        > .f-icon {
+        > .u-icon {
             position: absolute;
             left: -1.2em;
             line-height: inherit;
@@ -46,7 +46,7 @@
         cursor: not-allowed;
     }
 
-    .treeview_item .f-icon {
+    .treeview_item .u-icon {
         cursor: not-allowed;
     }
 }

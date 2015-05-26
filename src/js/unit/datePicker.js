@@ -1,14 +1,8 @@
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @version  1.0
- * @author   zhaoyusen(rainforest92@126.com)
- * --------------------------------------------
- * @class Suggest
- * @extend Component
- * @param {Object} options
- *     options.value             
- *              
+/**
+ * ------------------------------------------------------------
+ * DatePicker 日期选择
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
  */
 
 var Suggest = require('./suggest.js');
@@ -17,17 +11,34 @@ var _ = require('../base/util.js');
 var filter = require('../base/filter.js');
 var Calendar = require('./calendar.js');
 
+/**
+ * @class Suggest
+ * @extend DropDown
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.selected           当前选择的日期
+ * @param {string=''}               options.data.value              文本框中的值
+ * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ */
 var DatePicker = Suggest.extend({
     name: 'datepicker',
     template: template,
     config: function() {
         _.extend(this.data, {
-            // @override source: [],
-            // @override selected: null,
-            // @override placeholder: '请选择',
-            // @override open: false,
-            // @override disabled: false,
-            // @override multiple: false
+            // @inherited source: [],
+            // @inherited open: false,
+            // @inherited selected: null,
+            // @inherited value: '',
+            // @inherited placeholder: '请输入',
+            // @inherited minLength: 0,
+            // @inherited delay: 300,
+            // @inherited matchType: 'all',
+            // @inherited strict: false
+            // @inherited disabled: false,
         });
         this.supr();
     },

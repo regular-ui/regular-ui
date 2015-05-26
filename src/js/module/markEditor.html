@@ -1,0 +1,16 @@
+<div class="m-editor">
+    <div class="editor_preview" r-html={this.getHTML()}></div>
+    <ul class="m-toolbar">
+        <li><a title="加粗"><i class="u-icon u-icon-bold"></i></a></li>
+        <li><a title="斜体"><i class="u-icon u-icon-italic"></i></a></li>
+        <li class="seperator"></li>
+        <li><a title="引用"><i class="u-icon u-icon-quote"></i></a></li>
+        <li><a title="无序列表"><i class="u-icon u-icon-list-ul"></i></a></li>
+        <li><a title="有序列表"><i class="u-icon u-icon-list-ol"></i></a></li>
+        <li class="seperator"></li>
+        <li><a title="链接"><i class="u-icon u-icon-link"></i></a></li>
+        <li><a title="图片"><i class="u-icon u-icon-image"></i></a></li>
+        <li><a title="公式">∑</a></li>
+    </ul>
+    <textarea class="editor_textarea" r-model={content}></textarea>
+</div>

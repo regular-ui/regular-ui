@@ -1,34 +1,58 @@
-var Component = require("../base/component.js");
-var template = require("./pager.html");
+/**
+ * ------------------------------------------------------------
+ * Pager     分页
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
 
+var Component = require('../base/component.js');
+var template = require('./pager.html');
+var _ = require('../base/util.js');
+
+/**
+ * @class Pager
+ * @extend Component
+ * @param {object}                  options.data                    监听数据
+ * @param {number=1}                options.data.current            当前页
+ * @param {total=11}                options.data.total              总页数
+ * @param {middle=5}                options.data.middle             当页数较多时，中间显示的页数
+ * @param {side=2}                  options.data.side               当页数较多时，两端各显示的页数
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ */
 var Pager = Component.extend({
-    name: "pager",
+    name: 'pager',
     template: template,
-    // is called before compile. 一般用来处理数据
-    config: function(data){
-        var count =  5;
-        var show = data.show = Math.floor( count/2 );
-        data.current = parseInt(data.current || 1);
-        data.total = parseInt(data.total || 1);
-
-        this.$watch(['current', 'total'], function( current, total ){
-            data.begin = current - show;
-            data.end = current + show;
-            if(data.begin < 2) data.begin = 2;
-            if(data.end > data.total-1) data.end = data.total-1;
-            if(current-data.begin <= 1) data.end = data.end + show + data.begin- current;
-            if(data.end - current <= 1) data.begin = data.begin-show-current+ data.end;
+    config: function() {
+        _.extend(this.data, {
+            current: 1,
+            total: 11,
+            middle: 5,
+            side: 2,
+            disabled: false
         });
     },
-    nav: function(page){
-        var data = this.data;
+    getMiddle: function() {
+        var start = ((this.data.total - this.data.middle)>>1) + 1;
+        var list = [];
+        for(var i = 0; i < this.data.middle; i++)
+            list.push(start + i);
+        return list;
+    },
+    select: function(page) {
+        if(this.data.disabled)
+            return;
+
         if(page < 1) return;
-        if(page > data.total) return;
-        if(page === data.current) return;
-        data.current = page;
-        this.$emit('nav', page);
-        // preventDefault
-        return false;
+        if(page > this.data.total) return;
+        if(page == this.data.current) return;
+
+        this.data.current = page;
+
+        this.$emit('select', {
+            current: this.data.current
+        });
     }
 });
+
 module.exports = Pager;

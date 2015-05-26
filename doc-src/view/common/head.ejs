@@ -40,15 +40,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h1 class="m-logo">
             <a href="/">Regular UI</a>
         </h1>
-        <nav class="m-nav">
-            <ul class="f-fr">
-                <% mainnavs.forEach(function(item) { %>
-                <% if(item.hidden) return; %>
-                <li<% if(mainnav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %></a></li>
-                <% }); %>
-                <li id="j-themeSelectEx"></li>
-            </ul>
-        </nav>
+        <ul class="m-nav f-fr">
+            <% mainnavs.forEach(function(item) { %>
+            <% if(item.hidden) return; %>
+            <li<% if(mainnav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %></a></li>
+            <% }); %>
+            <li id="j-themeSelectEx"></li>
+        </ul>
     </div>
 </div>
 <div class="g-bd">

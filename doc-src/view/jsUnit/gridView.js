@@ -16,7 +16,7 @@ var itemTemplate = _.multiline(function(){/*
     <div><a href="#">{item.name}</a></div>
     <div>
         <span class="org">{item.org}</span>
-        <span class="hits f-fr"><i class="f-icon f-icon-user"></i> {item.hits}</span>
+        <span class="hits f-fr"><i class="u-icon u-icon-user"></i> {item.hits}</span>
     </div>
 </div>
 */});

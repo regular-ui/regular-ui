@@ -40,27 +40,25 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h1 class="m-logo">
             <a href="/">Regular UI</a>
         </h1>
-        <nav class="m-nav">
-            <ul class="f-fr">
-                
-                
-                <li class="z-crt"><a href="../start/index.html">开始使用</a></li>
-                
-                
-                <li><a href="../cssunit/index.html">CSS组件</a></li>
-                
-                
-                <li><a href="../cssmodule/index.html">CSS模块</a></li>
-                
-                
-                <li><a href="../jsunit/index.html">JS组件</a></li>
-                
-                
-                <li><a href="../jsmodule/index.html">JS模块</a></li>
-                
-                <li id="j-themeSelectEx"></li>
-            </ul>
-        </nav>
+        <ul class="m-nav f-fr">
+            
+            
+            <li class="z-crt"><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelectEx"></li>
+        </ul>
     </div>
 </div>
 <div class="g-bd">
@@ -99,8 +97,17 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <li><p>Regular UI中的组件分为两类，<strong>元件（Unit）</strong> 和 <strong>模块（Module）</strong>。</p>
 </li>
 </ul>
+<h3 id="html-">HTML规范</h3>
+<pre><code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
+</code></pre>
 <h3 id="css-">CSS规范</h3>
 <p>Regular UI中所有组件的CSS样式都遵循<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>。</p>
+<h5 id="-">强调</h5>
+<ul>
+<li><p>HTML模板只用于表现组件的结构，因此不在模板标签中使用<code>f-</code>功能等样式，而用<code>@extend</code>方式在CSS中继承。</p>
+<p>如用：<code>&lt;div class=&quot;m-pager&quot;&gt;</code> + <code>.m-pager {@extend .f-wsn}</code>，而不用：<code>&lt;div class=&quot;m-pager f-wsn&quot;&gt;</code></p>
+</li>
+</ul>
 <h5 id="-">补充</h5>
 <ul>
 <li><p>为了防止组件内部类名的污染，并且为了好识别，使用<code>_</code>来做连字符。</p>

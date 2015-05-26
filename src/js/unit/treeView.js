@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * TreeView  树型视图
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -24,6 +23,7 @@ var _ = require('../base/util.js');
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.hierarchical       是否分级动态加载，需要service
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var TreeView = SourceComponent.extend({
     name: 'treeView',
@@ -33,7 +33,7 @@ var TreeView = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            //source: [],
+            // @inherited source: [],
             selected: null,
             disabled: false,
             multiple: false,
@@ -69,6 +69,7 @@ var TreeViewList = SourceComponent.extend({
     template: hierarchicalTemplate,
     config: function() {
         _.extend(this.data, {
+            // @inherited source: [],
             itemTemplate: null,
             visible: false
         });
@@ -91,9 +92,30 @@ var TreeViewList = SourceComponent.extend({
             });
         });
     },
+    /**
+     * @override
+     */
     getParams: function() {
         if(this.data.parent)
             return _.extend({parentId: this.data.parent.id}, this.treeroot.getParams());
+    },
+    $updateSource: function() {
+        this.service.getList(this.getParams(), function(data) {
+            if(data.code != 200 && !data.success)
+                return alert(data.result);
+
+            // 给每个节点item添加parent
+            data.result.forEach(function(item) {
+                item.parent = this.data.parent;
+            }.bind(this));
+
+            this.$update('source', data.result);
+
+            this.$emit('updateSource', {
+                result: data.result
+            });
+        }.bind(this));
+        return this;
     },
     /**
      * @method select(item) 选择某一项

@@ -1,7 +1,7 @@
-<div class="m-modal">
+<div class="m-modal {@(class)}">
     <div class="modal_dialog" {#if width}style="width: {width}px"{/if}>
         <div class="modal_hd">
-            <a class="modal_close" on-click={this.close(!cancelButton)}><i class="f-icon f-icon-close"></i></a>
+            <a class="modal_close" on-click={this.close(!cancelButton)}><i class="u-icon u-icon-close"></i></a>
             <h3 class="modal_title">{title}</h3>
         </div>
         <div class="modal_bd">

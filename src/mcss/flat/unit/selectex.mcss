@@ -1,6 +1,5 @@
 // Name:            SelectEx
 // Description:     选择扩展
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // Require:         core/unit/selectex
 // ========================================================================
@@ -26,7 +25,7 @@
         -webkit-font-smoothing: subpixel-antialiased;
         transition: border .25s linear, color .25s linear, background-color .25s linear;
 
-        .f-icon {
+        .u-icon {
             font-size: 20px;
             width: 44px;
             border-left: 2px solid rgba(52, 73, 94, 0.15)

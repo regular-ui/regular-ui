@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * TableView 表格视图
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -25,6 +24,7 @@ var _ = require('../base/util.js');
  * @param {boolean=false}           options.data.striped            是否显示条纹
  * @param {boolean=false}           options.data.hover              是否每行在hover时显示样式
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var TableView = SourceComponent.extend({
     name: 'tableView',
@@ -34,8 +34,10 @@ var TableView = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            //source: [],
+            // @inherited source: [],
             fields: [],
+            striped: false,
+            hover: false,
             // TODO: 暂不考虑多字段排序
             order: {
                 by: null,

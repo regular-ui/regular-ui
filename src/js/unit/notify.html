@@ -1,8 +1,8 @@
 <div class="m-notify m-notify-{@(position)} {@(class)}">
     {#list messages as message}
     <div class="notify_message notify_message-{@(message.type)} f-cb" r-animation='on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;'>
-        <a class="notify_close" on-click={this.close(message)}><i class="f-icon f-icon-close"></i></a>
-        <div class="notify_text"><i class="f-icon f-icon-{@(message.type)}-circle" r-hide={@(!message.type)}></i> {@(message.text)}</div>
+        <a class="notify_close f-fr" on-click={this.close(message)}><i class="u-icon u-icon-close"></i></a>
+        <div class="notify_text f-fl"><i class="u-icon u-icon-{@(message.type)}-circle" r-hide={@(!message.type)}></i> {@(message.text)}</div>
     </div>
     {/list}
 </div>

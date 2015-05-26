@@ -7,44 +7,43 @@
 
 // Base
 // ========================================================================
-$theme_name = 'default';
-@import 'http://nec.netease.com/download/framework/mass/mass/index.mcss';
+$theme_name = "default";
+@import "http://nec.netease.com/download/framework/mass/mass/index.mcss";
 $reset-normalize();
 
-@import 'core/base/function.mcss';
-@import 'core/base/font-awesome.css';
-@import 'default/base/effect.mcss';
-@import 'core/base/helpers.mcss';
+@import "core/base/function.mcss";
+@import "core/base/font-awesome.css";
+@import "default/base/effect.mcss";
+@import "core/base/helpers.mcss";
 
-@import 'core/base/_global.mcss';
-@import 'default/base/_global.mcss';
-@import 'core/base/global.mcss';
+@import "core/base/_global.mcss";
+@import "default/base/_global.mcss";
+@import "core/base/global.mcss";
 
 
 
 // CSS Unit
 // ========================================================================
 
-@import 'default/unit/btn.mcss';
-@import 'default/unit/badge.mcss';
+@import "default/unit/btn.mcss";
+@import "default/unit/badge.mcss";
 
-@import 'core/unit/_formctrl.mcss';
-@import 'core/unit/formctrl.mcss';
+@import "core/unit/_formctrl.mcss";
+@import "core/unit/formctrl.mcss";
 
 
 
 // CSS Module
 // ========================================================================
-@import 'core/module/_nav.mcss';
-@import 'core/module/nav.mcss';
 
-@import 'default/module/crumb.mcss';
+/* 导航类 */
+@import "default/module/nav.mcss";
+@import "default/module/crumb.mcss";
+@import "default/module/sidebar.mcss";
+@import "default/module/toolbar.mcss";
 
-@import 'core/module/_sidebar.mcss';
-@import 'core/module/sidebar.mcss';
-
-@import 'core/module/_table.mcss';
-@import 'core/module/table.mcss';
+@import "core/module/_table.mcss";
+@import "core/module/table.mcss";
 
 
 
@@ -52,28 +51,28 @@ $reset-normalize();
 // ========================================================================
 
 /* 消息类 */
-@import 'default/unit/notify.mcss';
-@import 'default/unit/progress.mcss';
+@import "default/unit/notify.mcss";
+@import "default/unit/progress.mcss";
 
 /* 导航类 */
-@import 'default/unit/dropdown.mcss';
+@import "default/unit/dropdown.mcss";
 
 /* 数据类 */
-@import 'default/unit/listbox.mcss';
-@import 'default/unit/gridview.mcss';
-@import 'default/unit/treeview.mcss';
-@import 'default/unit/tableview.mcss';
+@import "default/unit/listbox.mcss";
+@import "default/unit/gridview.mcss";
+@import "default/unit/treeview.mcss";
+@import "default/unit/tableview.mcss";
 
 /* 表单类 */
-@import 'default/unit/inputex.mcss';
-@import 'default/unit/checkex.mcss';
-@import 'default/unit/radioex.mcss';
-@import 'core/unit/unitgroup.mcss';
-@import 'default/unit/selectex.mcss';
-// @import 'default/unit/suggest.mcss';
+@import "default/unit/inputex.mcss";
+@import "default/unit/checkex.mcss";
+@import "default/unit/radioex.mcss";
+@import "core/unit/unitgroup.mcss";
+@import "default/unit/selectex.mcss";
+// @import "default/unit/suggest.mcss";
 
 /* 日期类 */
-@import 'default/unit/calendar.mcss';
+@import "default/unit/calendar.mcss";
 
 
 
@@ -81,12 +80,13 @@ $reset-normalize();
 // ========================================================================
 
 /* 导航类 */
-@import 'core/module/_tab.mcss';
-@import 'core/module/tab.mcss';
+@import "core/module/_tab.mcss";
+@import "core/module/tab.mcss";
 
-@import 'core/module/_pager.mcss';
-@import 'core/module/pager.mcss';
+@import "default/module/pager.mcss";
 
 /* 窗口类 */
-@import 'core/module/_modal.mcss';
-@import 'core/module/modal.mcss';
+@import "default/module/modal.mcss";
+
+/* 编辑器类 */
+@import "default/module/editor.mcss";

@@ -3,7 +3,7 @@
     <li>
         <div class="treeview_item">
             {#if item.childrenCount || (item.children && item.children.length)}
-            <i class="f-icon" r-class={ {'f-icon-caret-right': !item.open, 'f-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>
+            <i class="u-icon" r-class={ {'u-icon-caret-right': !item.open, 'u-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>
             {/if}
             <div class="treeview_itemname" r-class={ {'z-sel': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>
         </div>

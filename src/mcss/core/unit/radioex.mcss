@@ -1,6 +1,5 @@
 // Name:            RadioEx
 // Description:     单选按钮
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
@@ -21,7 +20,7 @@
         vertical-align: middle;
         margin-bottom: 2px;
 
-        .f-icon {
+        .u-icon {
             content: '';
             display: none;
             position: absolute;
@@ -34,7 +33,7 @@
 /* Selected */
 .u-radioex.z-sel {
     .radioex_box {
-        .f-icon {
+        .u-icon {
             display: inline-block;
         }
     }

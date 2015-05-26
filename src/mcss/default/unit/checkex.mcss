@@ -1,6 +1,5 @@
 // Name:            CheckEx
 // Description:     多选按钮
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // Require:         core/unit/checkex
 // ========================================================================
@@ -11,7 +10,7 @@
 
 
 
-// Variables
+// Variables:
 // ========================================================================
 
 $u-checkex_box_size = 13px;
@@ -29,7 +28,7 @@ $u-checkex_box_size = 13px;
         color: $brand-primary;
         $border: #aaa;
 
-        .f-icon {
+        .u-icon {
             font-size: 13px;
         }
     }

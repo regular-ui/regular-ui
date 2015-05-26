@@ -5,7 +5,7 @@
             <th r-class={ {'tableview_sortable': field.sortable} } on-click={this.sort(field)}>
                 {field.name || field.key}
                 {#if field.sortable}
-                    <i class="f-icon {order.by === field.key ? (order.desc ? 'f-icon-sort-desc' : 'f-icon-sort-asc') : 'f-icon-sort'}"></i>
+                    <i class="u-icon {order.by === field.key ? (order.desc ? 'u-icon-sort-desc' : 'u-icon-sort-asc') : 'u-icon-sort'}"></i>
                 {/if}
             </th>
             {/list}

@@ -1,6 +1,5 @@
 // Name:            Calendar
 // Description:     日历
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // Require:         core/unit/calendar
 // ========================================================================
@@ -11,7 +10,7 @@
 
 
 
-// Component:       `u-calendar`
+// Varibles:
 // ========================================================================
 
 $u-calendar_item_width = 30px;
@@ -24,7 +23,7 @@ $u-calendar_item_height = 28px;
 
 .u-calendar {
     width: $u-calendar_item_width * 7 + 2 * 7;
-    padding: 4px 6px;
+    padding: 4px;
     background: $formctrl_background;
     color: $formctrl_color;
     $border: $formctrl_border;
@@ -64,6 +63,10 @@ $u-calendar_item_height = 28px;
 /* Disabled */
 .u-calendar.z-dis {
     .calendar_item {
+        background: $formctrl_background;
+    }
+
+    .calendar_item.z-sel {
         background: $formctrl-disabled_background;
         color: $formctrl-disabled_color;
     }

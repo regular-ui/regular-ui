@@ -153,38 +153,41 @@
 
     .org, .hits {
         color: #999;
-        .f-icon {
+        .u-icon {
             margin-top: -3px;
         }
     }
 }
 
 .m-sidebar {
-    li .f-icon-success-circle {
+    li .u-icon-success-circle {
         color: $brand-primary;
     }
 
-    li .f-icon-info-circle {
+    li .u-icon-info-circle {
         @if($brand-warning) {color: $brand-warning;}
     }
 }
 
 .treeview_itemname {
-    .f-icon {
+    .u-icon {
         font-size: 14px;
     }
 
-    .f-icon-folder, .f-icon-folder-open {
+    .u-icon-folder, .u-icon-folder-open {
         color: $brand-warning;
     }
 
-    .f-icon-file-text {
+    .u-icon-file-text {
         color: #bbb;
     }
 }
 
 
-
+$m-nav_height = 50px;
+$m-nav_background-color = mix($brand-primary, black, 30%);
+$m-nav-hover_background-color = mix($m-nav_background-color, white, 85%);
+$m-nav-current_background-color = $brand-primary;
 
 // Extends:
 // ========================================================================
@@ -245,7 +248,7 @@
     margin-left: 20px;
 
 
-    .f-icon {
+    .u-icon {
         font-size: inherit;
         color: $brand-primary;
         width: 24px;

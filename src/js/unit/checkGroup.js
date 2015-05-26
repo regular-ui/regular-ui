@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * CheckGroup 多选组
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -20,9 +19,10 @@ var CheckEx = require('./checkEx.js');
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.block              多行显示
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var CheckGroup = SourceComponent.extend({
     name: 'checkGroup',
@@ -32,8 +32,9 @@ var CheckGroup = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            // source: [],
-            checked: false
+            // @inherited source: [],
+            disabled: false,
+            block: false
         });
         this.supr();
     },

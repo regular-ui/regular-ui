@@ -1,0 +1,37 @@
+// Name:            Sidebar
+// Description:     侧边栏
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/module/sidebar
+// ========================================================================
+
+
+
+@import "../../core/module/sidebar.mcss";
+
+// Component:       `m-sidebar`
+// ========================================================================
+
+.m-sidebar {
+    > li {
+        > a, > span {
+            padding: 2px 12px;
+            color: #555;
+
+            small {font-size: 60%; color: #999;}
+        }
+    }
+
+    > li:hover {
+        background: #e8e8e8;
+    }
+    
+    > li.z-crt {
+        background: #f0f0f0;
+    }
+    
+    > li.sidebar_group {
+        background: transparent;
+        font-weight: bold;
+        font-size: 13px;
+    }
+}

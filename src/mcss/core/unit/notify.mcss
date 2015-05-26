@@ -1,6 +1,5 @@
 // Name:            Notify
 // Description:     通知
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
@@ -29,12 +28,11 @@ $m-notify_width = 320px;
 
     .notify_message {
         .notify_close {
-            float: right;
             &:hover {}
         }
 
         .notify_text {
-            .f-icon {
+            .u-icon {
                 font-size: 20px;
                 vertical-align: middle;
                 margin-top: -2px;

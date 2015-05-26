@@ -1,7 +1,5 @@
 var Pager = RGUI.Pager;
 
 var pager = new Pager({
-    data: {
-        total: 5
-    }
+    data: {}
 }).$inject('#j-example1');

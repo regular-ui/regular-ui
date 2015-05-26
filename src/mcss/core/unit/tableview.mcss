@@ -13,11 +13,11 @@
         cursor: pointer;
         $user-select: none;
 
-        .f-icon-sort-asc, .f-icon-sort-desc {
+        .u-icon-sort-asc, .u-icon-sort-desc {
             position: relative;
         }
 
-        .f-icon-sort-asc:after, .f-icon-sort-desc:after {
+        .u-icon-sort-asc:after, .u-icon-sort-desc:after {
             content: "\f0dc";
             position: absolute;
             z-index: -1;
@@ -25,6 +25,6 @@
             width: 100%;
         }
       
-        .f-icon-sort {}
+        .u-icon-sort {}
     }
 }

@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * DropDown  下拉菜单
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -20,6 +19,7 @@ var _ = require('../base/util.js');
  * @param {boolean=false}           options.data.open               当前为展开/收起状态
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var DropDown = SourceComponent.extend({
     name: 'dropDown',

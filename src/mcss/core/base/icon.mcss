@@ -1,9 +1,9 @@
-.f-icon {
+.u-icon {
     font-style: normal;
     font-size: 16px;
 }
 
-.f-icon-arrowdown {
+.u-icon-arrowdown {
     width: 1em;
     &:before {
         content: '';
@@ -15,7 +15,7 @@
     }
 }
 
-.f-icon-arrowright {
+.u-icon-arrowright {
     width: 1em;
     &:before {
         content: '';
@@ -27,26 +27,26 @@
     }
 }
 
-.f-icon-prev {
+.u-icon-prev {
     &:before {
         content: '<';
     }
 }
 
-.f-icon-next {
+.u-icon-next {
     &:before {
         content: '>';
     }
 }
 
-.f-icon-close {
+.u-icon-close {
     &:before {
         // 乘号那个叉叉
         content: '×';
     }
 }
 
-.f-icon-check {
+.u-icon-check {
     &:before {
         // 乘号那个叉叉
         content: 'v';

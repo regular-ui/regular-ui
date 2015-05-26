@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * Modal     模态对话框
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -21,6 +20,7 @@ var _ = require('../base/util.js');
  * @param {string|boolean=true}     options.data.okButton           是否显示确定按钮。值为`string`时显示该段文字。
  * @param {string|boolean=false}    options.data.cancelButton       是否显示取消按钮。值为`string`时显示该段文字。
  * @param {number=null}             options.data.width              对话框宽度。值为否定时宽度为CSS设置的宽度。
+ * @param {string=''}               options.data.class              补充class
  * @param {function}                options.ok                      当点击确定的时候执行
  * @param {function}                options.cancel                  当点击取消的时候执行
  */

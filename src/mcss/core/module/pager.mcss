@@ -1,5 +1,5 @@
 /* 普通翻页器-默认居中 */
-.m-page{margin:10px 0 0;text-align:center;line-height:32px;font-size:0;letter-spacing:-0.307em;word-wrap:normal;white-space:nowrap;color:#999;}
+.m-page{line-height:32px;font-size:0;letter-spacing:-0.307em;word-wrap:normal;white-space:nowrap;color:#999;}
 .m-page a,.m-page i{display:inline-block;vertical-align:top;padding:0 12px;margin-left:-1px;border:1px solid #ddd;font-size:12px;letter-spacing:normal;text-shadow:0 1px #fff;background:#fff;}
 .m-page a,.m-page a:hover{text-decoration:none;color:#39c;}
 .m-page a:first-child{margin-left:0;}
@@ -22,3 +22,45 @@
 .m-page-sr a,.m-page-sr i{margin:0 3px;border-radius:5px;}
 .m-page-sr i{border:0;}
 .m-page-sr a:first-child,.m-page-sr a:last-child{border-radius:5px;}
+
+// Name:            Pager
+// Description:     分页
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-pager`
+// ========================================================================
+
+.m-pager {
+    // - Center pager by default
+    text-align: center;
+    // - Remove default list style
+    padding: 0;
+    list-style: none;
+    // - Remove whitespace between child elements when using `inline-block`
+    // font-size: 0.001px;
+    $user-select: none;
+
+    @extend .f-wsn;
+
+    > li {
+        display: inline-block;
+
+        > a {
+            text-decoration: none;
+        }
+
+        > a:hover, > a:focus {
+            // - Remove default focus style
+            outline: none;
+        }
+
+        > a:active {}
+
+        > a.z-crt {}
+    }
+
+    > li + li {}
+}

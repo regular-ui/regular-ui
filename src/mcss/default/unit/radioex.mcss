@@ -1,6 +1,5 @@
 // Name:            RadioEx
 // Description:     单选按钮
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // Require:         core/unit/radioex
 // ========================================================================
@@ -15,7 +14,7 @@
 // ========================================================================
 
 $u-radioex_box_size = 12px;
-$u-radioex_f-icon_font-size = 8px;
+$u-radioex_u-icon_font-size = 8px;
 
 
 
@@ -31,12 +30,12 @@ $u-radioex_f-icon_font-size = 8px;
         $border: #aaa;
         border-radius: $u-radioex_box_size;
 
-        .f-icon {
-            margin-top: - $u-radioex_f-icon_font-size / 2;
-            margin-left: - $u-radioex_f-icon_font-size / 2;
-            width: $u-radioex_f-icon_font-size;
-            height: $u-radioex_f-icon_font-size;
-            border-radius: $u-radioex_f-icon_font-size;
+        .u-icon {
+            margin-top: - $u-radioex_u-icon_font-size / 2;
+            margin-left: - $u-radioex_u-icon_font-size / 2;
+            width: $u-radioex_u-icon_font-size;
+            height: $u-radioex_u-icon_font-size;
+            border-radius: $u-radioex_u-icon_font-size;
             background: $brand-primary;
         }
     }

@@ -2,7 +2,6 @@
 /**
  * ------------------------------------------------------------
  * RGUI      Regular UI库
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -63,8 +62,1288 @@ RGUI.Pager = require('./module/pager.js');
 // 窗口类
 RGUI.Modal = require('./module/modal.js');
 
+// 编辑器类
+RGUI.Editor = require('./module/editor.js');
+RGUI.MarkEditor = require('./module/markEditor.js');
+
 module.exports = window.RGUI = RGUI;
-},{"./base/component.js":28,"./base/request.js":30,"./base/util.js":32,"./module/modal.js":34,"./module/pager.js":36,"./module/tab.js":38,"./module/tabHead.js":40,"./unit/calendar.js":42,"./unit/checkEx.js":44,"./unit/checkExGroup.js":46,"./unit/checkGroup.js":48,"./unit/datePicker.js":50,"./unit/dropDown.js":52,"./unit/gridView.js":54,"./unit/inputEx.js":56,"./unit/listBox.js":58,"./unit/listView.js":60,"./unit/notify.js":62,"./unit/progress.js":64,"./unit/radioExGroup.js":66,"./unit/radioGroup.js":68,"./unit/selectEx.js":70,"./unit/suggest.js":72,"./unit/tableView.js":74,"./unit/timePicker.js":75,"./unit/treeSelect.js":77,"./unit/treeView.js":79,"regularjs":20}],2:[function(require,module,exports){
+},{"./base/component.js":29,"./base/request.js":31,"./base/util.js":33,"./module/editor.js":35,"./module/markEditor.js":37,"./module/modal.js":39,"./module/pager.js":41,"./module/tab.js":43,"./module/tabHead.js":45,"./unit/calendar.js":47,"./unit/checkEx.js":49,"./unit/checkExGroup.js":51,"./unit/checkGroup.js":53,"./unit/datePicker.js":55,"./unit/dropDown.js":57,"./unit/gridView.js":59,"./unit/inputEx.js":61,"./unit/listBox.js":63,"./unit/listView.js":65,"./unit/notify.js":67,"./unit/progress.js":69,"./unit/radioExGroup.js":71,"./unit/radioGroup.js":73,"./unit/selectEx.js":75,"./unit/suggest.js":77,"./unit/tableView.js":79,"./unit/timePicker.js":80,"./unit/treeSelect.js":82,"./unit/treeView.js":84,"regularjs":21}],2:[function(require,module,exports){
+(function (global){
+/**
+ * marked - a markdown parser
+ * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
+ * https://github.com/chjj/marked
+ */
+
+;(function() {
+
+/**
+ * Block-Level Grammar
+ */
+
+var block = {
+  newline: /^\n+/,
+  code: /^( {4}[^\n]+\n*)+/,
+  fences: noop,
+  hr: /^( *[-*_]){3,} *(?:\n+|$)/,
+  heading: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/,
+  nptable: noop,
+  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
+  blockquote: /^( *>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,
+  list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
+  html: /^ *(?:comment *(?:\n|\s*$)|closed *(?:\n{2,}|\s*$)|closing *(?:\n{2,}|\s*$))/,
+  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
+  table: noop,
+  paragraph: /^((?:[^\n]+\n?(?!hr|heading|lheading|blockquote|tag|def))+)\n*/,
+  text: /^[^\n]+/
+};
+
+block.bullet = /(?:[*+-]|\d+\.)/;
+block.item = /^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;
+block.item = replace(block.item, 'gm')
+  (/bull/g, block.bullet)
+  ();
+
+block.list = replace(block.list)
+  (/bull/g, block.bullet)
+  ('hr', '\\n+(?=\\1?(?:[-*_] *){3,}(?:\\n+|$))')
+  ('def', '\\n+(?=' + block.def.source + ')')
+  ();
+
+block.blockquote = replace(block.blockquote)
+  ('def', block.def)
+  ();
+
+block._tag = '(?!(?:'
+  + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
+  + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
+  + '|span|br|wbr|ins|del|img)\\b)\\w+(?!:/|[^\\w\\s@]*@)\\b';
+
+block.html = replace(block.html)
+  ('comment', /<!--[\s\S]*?-->/)
+  ('closed', /<(tag)[\s\S]+?<\/\1>/)
+  ('closing', /<tag(?:"[^"]*"|'[^']*'|[^'">])*?>/)
+  (/tag/g, block._tag)
+  ();
+
+block.paragraph = replace(block.paragraph)
+  ('hr', block.hr)
+  ('heading', block.heading)
+  ('lheading', block.lheading)
+  ('blockquote', block.blockquote)
+  ('tag', '<' + block._tag)
+  ('def', block.def)
+  ();
+
+/**
+ * Normal Block Grammar
+ */
+
+block.normal = merge({}, block);
+
+/**
+ * GFM Block Grammar
+ */
+
+block.gfm = merge({}, block.normal, {
+  fences: /^ *(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/,
+  paragraph: /^/
+});
+
+block.gfm.paragraph = replace(block.paragraph)
+  ('(?!', '(?!'
+    + block.gfm.fences.source.replace('\\1', '\\2') + '|'
+    + block.list.source.replace('\\1', '\\3') + '|')
+  ();
+
+/**
+ * GFM + Tables Block Grammar
+ */
+
+block.tables = merge({}, block.gfm, {
+  nptable: /^ *(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*/,
+  table: /^ *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/
+});
+
+/**
+ * Block Lexer
+ */
+
+function Lexer(options) {
+  this.tokens = [];
+  this.tokens.links = {};
+  this.options = options || marked.defaults;
+  this.rules = block.normal;
+
+  if (this.options.gfm) {
+    if (this.options.tables) {
+      this.rules = block.tables;
+    } else {
+      this.rules = block.gfm;
+    }
+  }
+}
+
+/**
+ * Expose Block Rules
+ */
+
+Lexer.rules = block;
+
+/**
+ * Static Lex Method
+ */
+
+Lexer.lex = function(src, options) {
+  var lexer = new Lexer(options);
+  return lexer.lex(src);
+};
+
+/**
+ * Preprocessing
+ */
+
+Lexer.prototype.lex = function(src) {
+  src = src
+    .replace(/\r\n|\r/g, '\n')
+    .replace(/\t/g, '    ')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\u2424/g, '\n');
+
+  return this.token(src, true);
+};
+
+/**
+ * Lexing
+ */
+
+Lexer.prototype.token = function(src, top, bq) {
+  var src = src.replace(/^ +$/gm, '')
+    , next
+    , loose
+    , cap
+    , bull
+    , b
+    , item
+    , space
+    , i
+    , l;
+
+  while (src) {
+    // newline
+    if (cap = this.rules.newline.exec(src)) {
+      src = src.substring(cap[0].length);
+      if (cap[0].length > 1) {
+        this.tokens.push({
+          type: 'space'
+        });
+      }
+    }
+
+    // code
+    if (cap = this.rules.code.exec(src)) {
+      src = src.substring(cap[0].length);
+      cap = cap[0].replace(/^ {4}/gm, '');
+      this.tokens.push({
+        type: 'code',
+        text: !this.options.pedantic
+          ? cap.replace(/\n+$/, '')
+          : cap
+      });
+      continue;
+    }
+
+    // fences (gfm)
+    if (cap = this.rules.fences.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'code',
+        lang: cap[2],
+        text: cap[3]
+      });
+      continue;
+    }
+
+    // heading
+    if (cap = this.rules.heading.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'heading',
+        depth: cap[1].length,
+        text: cap[2]
+      });
+      continue;
+    }
+
+    // table no leading pipe (gfm)
+    if (top && (cap = this.rules.nptable.exec(src))) {
+      src = src.substring(cap[0].length);
+
+      item = {
+        type: 'table',
+        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
+        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+        cells: cap[3].replace(/\n$/, '').split('\n')
+      };
+
+      for (i = 0; i < item.align.length; i++) {
+        if (/^ *-+: *$/.test(item.align[i])) {
+          item.align[i] = 'right';
+        } else if (/^ *:-+: *$/.test(item.align[i])) {
+          item.align[i] = 'center';
+        } else if (/^ *:-+ *$/.test(item.align[i])) {
+          item.align[i] = 'left';
+        } else {
+          item.align[i] = null;
+        }
+      }
+
+      for (i = 0; i < item.cells.length; i++) {
+        item.cells[i] = item.cells[i].split(/ *\| */);
+      }
+
+      this.tokens.push(item);
+
+      continue;
+    }
+
+    // lheading
+    if (cap = this.rules.lheading.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'heading',
+        depth: cap[2] === '=' ? 1 : 2,
+        text: cap[1]
+      });
+      continue;
+    }
+
+    // hr
+    if (cap = this.rules.hr.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'hr'
+      });
+      continue;
+    }
+
+    // blockquote
+    if (cap = this.rules.blockquote.exec(src)) {
+      src = src.substring(cap[0].length);
+
+      this.tokens.push({
+        type: 'blockquote_start'
+      });
+
+      cap = cap[0].replace(/^ *> ?/gm, '');
+
+      // Pass `top` to keep the current
+      // "toplevel" state. This is exactly
+      // how markdown.pl works.
+      this.token(cap, top, true);
+
+      this.tokens.push({
+        type: 'blockquote_end'
+      });
+
+      continue;
+    }
+
+    // list
+    if (cap = this.rules.list.exec(src)) {
+      src = src.substring(cap[0].length);
+      bull = cap[2];
+
+      this.tokens.push({
+        type: 'list_start',
+        ordered: bull.length > 1
+      });
+
+      // Get each top-level item.
+      cap = cap[0].match(this.rules.item);
+
+      next = false;
+      l = cap.length;
+      i = 0;
+
+      for (; i < l; i++) {
+        item = cap[i];
+
+        // Remove the list item's bullet
+        // so it is seen as the next token.
+        space = item.length;
+        item = item.replace(/^ *([*+-]|\d+\.) +/, '');
+
+        // Outdent whatever the
+        // list item contains. Hacky.
+        if (~item.indexOf('\n ')) {
+          space -= item.length;
+          item = !this.options.pedantic
+            ? item.replace(new RegExp('^ {1,' + space + '}', 'gm'), '')
+            : item.replace(/^ {1,4}/gm, '');
+        }
+
+        // Determine whether the next list item belongs here.
+        // Backpedal if it does not belong in this list.
+        if (this.options.smartLists && i !== l - 1) {
+          b = block.bullet.exec(cap[i + 1])[0];
+          if (bull !== b && !(bull.length > 1 && b.length > 1)) {
+            src = cap.slice(i + 1).join('\n') + src;
+            i = l - 1;
+          }
+        }
+
+        // Determine whether item is loose or not.
+        // Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/
+        // for discount behavior.
+        loose = next || /\n\n(?!\s*$)/.test(item);
+        if (i !== l - 1) {
+          next = item.charAt(item.length - 1) === '\n';
+          if (!loose) loose = next;
+        }
+
+        this.tokens.push({
+          type: loose
+            ? 'loose_item_start'
+            : 'list_item_start'
+        });
+
+        // Recurse.
+        this.token(item, false, bq);
+
+        this.tokens.push({
+          type: 'list_item_end'
+        });
+      }
+
+      this.tokens.push({
+        type: 'list_end'
+      });
+
+      continue;
+    }
+
+    // html
+    if (cap = this.rules.html.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: this.options.sanitize
+          ? 'paragraph'
+          : 'html',
+        pre: cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style',
+        text: cap[0]
+      });
+      continue;
+    }
+
+    // def
+    if ((!bq && top) && (cap = this.rules.def.exec(src))) {
+      src = src.substring(cap[0].length);
+      this.tokens.links[cap[1].toLowerCase()] = {
+        href: cap[2],
+        title: cap[3]
+      };
+      continue;
+    }
+
+    // table (gfm)
+    if (top && (cap = this.rules.table.exec(src))) {
+      src = src.substring(cap[0].length);
+
+      item = {
+        type: 'table',
+        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
+        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+        cells: cap[3].replace(/(?: *\| *)?\n$/, '').split('\n')
+      };
+
+      for (i = 0; i < item.align.length; i++) {
+        if (/^ *-+: *$/.test(item.align[i])) {
+          item.align[i] = 'right';
+        } else if (/^ *:-+: *$/.test(item.align[i])) {
+          item.align[i] = 'center';
+        } else if (/^ *:-+ *$/.test(item.align[i])) {
+          item.align[i] = 'left';
+        } else {
+          item.align[i] = null;
+        }
+      }
+
+      for (i = 0; i < item.cells.length; i++) {
+        item.cells[i] = item.cells[i]
+          .replace(/^ *\| *| *\| *$/g, '')
+          .split(/ *\| */);
+      }
+
+      this.tokens.push(item);
+
+      continue;
+    }
+
+    // top-level paragraph
+    if (top && (cap = this.rules.paragraph.exec(src))) {
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'paragraph',
+        text: cap[1].charAt(cap[1].length - 1) === '\n'
+          ? cap[1].slice(0, -1)
+          : cap[1]
+      });
+      continue;
+    }
+
+    // text
+    if (cap = this.rules.text.exec(src)) {
+      // Top-level should never reach here.
+      src = src.substring(cap[0].length);
+      this.tokens.push({
+        type: 'text',
+        text: cap[0]
+      });
+      continue;
+    }
+
+    if (src) {
+      throw new
+        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+    }
+  }
+
+  return this.tokens;
+};
+
+/**
+ * Inline-Level Grammar
+ */
+
+var inline = {
+  escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
+  autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
+  url: noop,
+  tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
+  link: /^!?\[(inside)\]\(href\)/,
+  reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
+  nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
+  strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
+  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+  code: /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,
+  br: /^ {2,}\n(?!\s*$)/,
+  del: noop,
+  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
+};
+
+inline._inside = /(?:\[[^\]]*\]|[^\[\]]|\](?=[^\[]*\]))*/;
+inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
+
+inline.link = replace(inline.link)
+  ('inside', inline._inside)
+  ('href', inline._href)
+  ();
+
+inline.reflink = replace(inline.reflink)
+  ('inside', inline._inside)
+  ();
+
+/**
+ * Normal Inline Grammar
+ */
+
+inline.normal = merge({}, inline);
+
+/**
+ * Pedantic Inline Grammar
+ */
+
+inline.pedantic = merge({}, inline.normal, {
+  strong: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
+  em: /^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/
+});
+
+/**
+ * GFM Inline Grammar
+ */
+
+inline.gfm = merge({}, inline.normal, {
+  escape: replace(inline.escape)('])', '~|])')(),
+  url: /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,
+  del: /^~~(?=\S)([\s\S]*?\S)~~/,
+  text: replace(inline.text)
+    (']|', '~]|')
+    ('|', '|https?://|')
+    ()
+});
+
+/**
+ * GFM + Line Breaks Inline Grammar
+ */
+
+inline.breaks = merge({}, inline.gfm, {
+  br: replace(inline.br)('{2,}', '*')(),
+  text: replace(inline.gfm.text)('{2,}', '*')()
+});
+
+/**
+ * Inline Lexer & Compiler
+ */
+
+function InlineLexer(links, options) {
+  this.options = options || marked.defaults;
+  this.links = links;
+  this.rules = inline.normal;
+  this.renderer = this.options.renderer || new Renderer;
+  this.renderer.options = this.options;
+
+  if (!this.links) {
+    throw new
+      Error('Tokens array requires a `links` property.');
+  }
+
+  if (this.options.gfm) {
+    if (this.options.breaks) {
+      this.rules = inline.breaks;
+    } else {
+      this.rules = inline.gfm;
+    }
+  } else if (this.options.pedantic) {
+    this.rules = inline.pedantic;
+  }
+}
+
+/**
+ * Expose Inline Rules
+ */
+
+InlineLexer.rules = inline;
+
+/**
+ * Static Lexing/Compiling Method
+ */
+
+InlineLexer.output = function(src, links, options) {
+  var inline = new InlineLexer(links, options);
+  return inline.output(src);
+};
+
+/**
+ * Lexing/Compiling
+ */
+
+InlineLexer.prototype.output = function(src) {
+  var out = ''
+    , link
+    , text
+    , href
+    , cap;
+
+  while (src) {
+    // escape
+    if (cap = this.rules.escape.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += cap[1];
+      continue;
+    }
+
+    // autolink
+    if (cap = this.rules.autolink.exec(src)) {
+      src = src.substring(cap[0].length);
+      if (cap[2] === '@') {
+        text = cap[1].charAt(6) === ':'
+          ? this.mangle(cap[1].substring(7))
+          : this.mangle(cap[1]);
+        href = this.mangle('mailto:') + text;
+      } else {
+        text = escape(cap[1]);
+        href = text;
+      }
+      out += this.renderer.link(href, null, text);
+      continue;
+    }
+
+    // url (gfm)
+    if (!this.inLink && (cap = this.rules.url.exec(src))) {
+      src = src.substring(cap[0].length);
+      text = escape(cap[1]);
+      href = text;
+      out += this.renderer.link(href, null, text);
+      continue;
+    }
+
+    // tag
+    if (cap = this.rules.tag.exec(src)) {
+      if (!this.inLink && /^<a /i.test(cap[0])) {
+        this.inLink = true;
+      } else if (this.inLink && /^<\/a>/i.test(cap[0])) {
+        this.inLink = false;
+      }
+      src = src.substring(cap[0].length);
+      out += this.options.sanitize
+        ? escape(cap[0])
+        : cap[0];
+      continue;
+    }
+
+    // link
+    if (cap = this.rules.link.exec(src)) {
+      src = src.substring(cap[0].length);
+      this.inLink = true;
+      out += this.outputLink(cap, {
+        href: cap[2],
+        title: cap[3]
+      });
+      this.inLink = false;
+      continue;
+    }
+
+    // reflink, nolink
+    if ((cap = this.rules.reflink.exec(src))
+        || (cap = this.rules.nolink.exec(src))) {
+      src = src.substring(cap[0].length);
+      link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
+      link = this.links[link.toLowerCase()];
+      if (!link || !link.href) {
+        out += cap[0].charAt(0);
+        src = cap[0].substring(1) + src;
+        continue;
+      }
+      this.inLink = true;
+      out += this.outputLink(cap, link);
+      this.inLink = false;
+      continue;
+    }
+
+    // strong
+    if (cap = this.rules.strong.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.strong(this.output(cap[2] || cap[1]));
+      continue;
+    }
+
+    // em
+    if (cap = this.rules.em.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.em(this.output(cap[2] || cap[1]));
+      continue;
+    }
+
+    // code
+    if (cap = this.rules.code.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.codespan(escape(cap[2], true));
+      continue;
+    }
+
+    // br
+    if (cap = this.rules.br.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.br();
+      continue;
+    }
+
+    // del (gfm)
+    if (cap = this.rules.del.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += this.renderer.del(this.output(cap[1]));
+      continue;
+    }
+
+    // text
+    if (cap = this.rules.text.exec(src)) {
+      src = src.substring(cap[0].length);
+      out += escape(this.smartypants(cap[0]));
+      continue;
+    }
+
+    if (src) {
+      throw new
+        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+    }
+  }
+
+  return out;
+};
+
+/**
+ * Compile Link
+ */
+
+InlineLexer.prototype.outputLink = function(cap, link) {
+  var href = escape(link.href)
+    , title = link.title ? escape(link.title) : null;
+
+  return cap[0].charAt(0) !== '!'
+    ? this.renderer.link(href, title, this.output(cap[1]))
+    : this.renderer.image(href, title, escape(cap[1]));
+};
+
+/**
+ * Smartypants Transformations
+ */
+
+InlineLexer.prototype.smartypants = function(text) {
+  if (!this.options.smartypants) return text;
+  return text
+    // em-dashes
+    .replace(/--/g, '\u2014')
+    // opening singles
+    .replace(/(^|[-\u2014/(\[{"\s])'/g, '$1\u2018')
+    // closing singles & apostrophes
+    .replace(/'/g, '\u2019')
+    // opening doubles
+    .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, '$1\u201c')
+    // closing doubles
+    .replace(/"/g, '\u201d')
+    // ellipses
+    .replace(/\.{3}/g, '\u2026');
+};
+
+/**
+ * Mangle Links
+ */
+
+InlineLexer.prototype.mangle = function(text) {
+  var out = ''
+    , l = text.length
+    , i = 0
+    , ch;
+
+  for (; i < l; i++) {
+    ch = text.charCodeAt(i);
+    if (Math.random() > 0.5) {
+      ch = 'x' + ch.toString(16);
+    }
+    out += '&#' + ch + ';';
+  }
+
+  return out;
+};
+
+/**
+ * Renderer
+ */
+
+function Renderer(options) {
+  this.options = options || {};
+}
+
+Renderer.prototype.code = function(code, lang, escaped) {
+  if (this.options.highlight) {
+    var out = this.options.highlight(code, lang);
+    if (out != null && out !== code) {
+      escaped = true;
+      code = out;
+    }
+  }
+
+  if (!lang) {
+    return '<pre><code>'
+      + (escaped ? code : escape(code, true))
+      + '\n</code></pre>';
+  }
+
+  return '<pre><code class="'
+    + this.options.langPrefix
+    + escape(lang, true)
+    + '">'
+    + (escaped ? code : escape(code, true))
+    + '\n</code></pre>\n';
+};
+
+Renderer.prototype.blockquote = function(quote) {
+  return '<blockquote>\n' + quote + '</blockquote>\n';
+};
+
+Renderer.prototype.html = function(html) {
+  return html;
+};
+
+Renderer.prototype.heading = function(text, level, raw) {
+  return '<h'
+    + level
+    + ' id="'
+    + this.options.headerPrefix
+    + raw.toLowerCase().replace(/[^\w]+/g, '-')
+    + '">'
+    + text
+    + '</h'
+    + level
+    + '>\n';
+};
+
+Renderer.prototype.hr = function() {
+  return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
+};
+
+Renderer.prototype.list = function(body, ordered) {
+  var type = ordered ? 'ol' : 'ul';
+  return '<' + type + '>\n' + body + '</' + type + '>\n';
+};
+
+Renderer.prototype.listitem = function(text) {
+  return '<li>' + text + '</li>\n';
+};
+
+Renderer.prototype.paragraph = function(text) {
+  return '<p>' + text + '</p>\n';
+};
+
+Renderer.prototype.table = function(header, body) {
+  return '<table>\n'
+    + '<thead>\n'
+    + header
+    + '</thead>\n'
+    + '<tbody>\n'
+    + body
+    + '</tbody>\n'
+    + '</table>\n';
+};
+
+Renderer.prototype.tablerow = function(content) {
+  return '<tr>\n' + content + '</tr>\n';
+};
+
+Renderer.prototype.tablecell = function(content, flags) {
+  var type = flags.header ? 'th' : 'td';
+  var tag = flags.align
+    ? '<' + type + ' style="text-align:' + flags.align + '">'
+    : '<' + type + '>';
+  return tag + content + '</' + type + '>\n';
+};
+
+// span level renderer
+Renderer.prototype.strong = function(text) {
+  return '<strong>' + text + '</strong>';
+};
+
+Renderer.prototype.em = function(text) {
+  return '<em>' + text + '</em>';
+};
+
+Renderer.prototype.codespan = function(text) {
+  return '<code>' + text + '</code>';
+};
+
+Renderer.prototype.br = function() {
+  return this.options.xhtml ? '<br/>' : '<br>';
+};
+
+Renderer.prototype.del = function(text) {
+  return '<del>' + text + '</del>';
+};
+
+Renderer.prototype.link = function(href, title, text) {
+  if (this.options.sanitize) {
+    try {
+      var prot = decodeURIComponent(unescape(href))
+        .replace(/[^\w:]/g, '')
+        .toLowerCase();
+    } catch (e) {
+      return '';
+    }
+    if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0) {
+      return '';
+    }
+  }
+  var out = '<a href="' + href + '"';
+  if (title) {
+    out += ' title="' + title + '"';
+  }
+  out += '>' + text + '</a>';
+  return out;
+};
+
+Renderer.prototype.image = function(href, title, text) {
+  var out = '<img src="' + href + '" alt="' + text + '"';
+  if (title) {
+    out += ' title="' + title + '"';
+  }
+  out += this.options.xhtml ? '/>' : '>';
+  return out;
+};
+
+/**
+ * Parsing & Compiling
+ */
+
+function Parser(options) {
+  this.tokens = [];
+  this.token = null;
+  this.options = options || marked.defaults;
+  this.options.renderer = this.options.renderer || new Renderer;
+  this.renderer = this.options.renderer;
+  this.renderer.options = this.options;
+}
+
+/**
+ * Static Parse Method
+ */
+
+Parser.parse = function(src, options, renderer) {
+  var parser = new Parser(options, renderer);
+  return parser.parse(src);
+};
+
+/**
+ * Parse Loop
+ */
+
+Parser.prototype.parse = function(src) {
+  this.inline = new InlineLexer(src.links, this.options, this.renderer);
+  this.tokens = src.reverse();
+
+  var out = '';
+  while (this.next()) {
+    out += this.tok();
+  }
+
+  return out;
+};
+
+/**
+ * Next Token
+ */
+
+Parser.prototype.next = function() {
+  return this.token = this.tokens.pop();
+};
+
+/**
+ * Preview Next Token
+ */
+
+Parser.prototype.peek = function() {
+  return this.tokens[this.tokens.length - 1] || 0;
+};
+
+/**
+ * Parse Text Tokens
+ */
+
+Parser.prototype.parseText = function() {
+  var body = this.token.text;
+
+  while (this.peek().type === 'text') {
+    body += '\n' + this.next().text;
+  }
+
+  return this.inline.output(body);
+};
+
+/**
+ * Parse Current Token
+ */
+
+Parser.prototype.tok = function() {
+  switch (this.token.type) {
+    case 'space': {
+      return '';
+    }
+    case 'hr': {
+      return this.renderer.hr();
+    }
+    case 'heading': {
+      return this.renderer.heading(
+        this.inline.output(this.token.text),
+        this.token.depth,
+        this.token.text);
+    }
+    case 'code': {
+      return this.renderer.code(this.token.text,
+        this.token.lang,
+        this.token.escaped);
+    }
+    case 'table': {
+      var header = ''
+        , body = ''
+        , i
+        , row
+        , cell
+        , flags
+        , j;
+
+      // header
+      cell = '';
+      for (i = 0; i < this.token.header.length; i++) {
+        flags = { header: true, align: this.token.align[i] };
+        cell += this.renderer.tablecell(
+          this.inline.output(this.token.header[i]),
+          { header: true, align: this.token.align[i] }
+        );
+      }
+      header += this.renderer.tablerow(cell);
+
+      for (i = 0; i < this.token.cells.length; i++) {
+        row = this.token.cells[i];
+
+        cell = '';
+        for (j = 0; j < row.length; j++) {
+          cell += this.renderer.tablecell(
+            this.inline.output(row[j]),
+            { header: false, align: this.token.align[j] }
+          );
+        }
+
+        body += this.renderer.tablerow(cell);
+      }
+      return this.renderer.table(header, body);
+    }
+    case 'blockquote_start': {
+      var body = '';
+
+      while (this.next().type !== 'blockquote_end') {
+        body += this.tok();
+      }
+
+      return this.renderer.blockquote(body);
+    }
+    case 'list_start': {
+      var body = ''
+        , ordered = this.token.ordered;
+
+      while (this.next().type !== 'list_end') {
+        body += this.tok();
+      }
+
+      return this.renderer.list(body, ordered);
+    }
+    case 'list_item_start': {
+      var body = '';
+
+      while (this.next().type !== 'list_item_end') {
+        body += this.token.type === 'text'
+          ? this.parseText()
+          : this.tok();
+      }
+
+      return this.renderer.listitem(body);
+    }
+    case 'loose_item_start': {
+      var body = '';
+
+      while (this.next().type !== 'list_item_end') {
+        body += this.tok();
+      }
+
+      return this.renderer.listitem(body);
+    }
+    case 'html': {
+      var html = !this.token.pre && !this.options.pedantic
+        ? this.inline.output(this.token.text)
+        : this.token.text;
+      return this.renderer.html(html);
+    }
+    case 'paragraph': {
+      return this.renderer.paragraph(this.inline.output(this.token.text));
+    }
+    case 'text': {
+      return this.renderer.paragraph(this.parseText());
+    }
+  }
+};
+
+/**
+ * Helpers
+ */
+
+function escape(html, encode) {
+  return html
+    .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function unescape(html) {
+  return html.replace(/&([#\w]+);/g, function(_, n) {
+    n = n.toLowerCase();
+    if (n === 'colon') return ':';
+    if (n.charAt(0) === '#') {
+      return n.charAt(1) === 'x'
+        ? String.fromCharCode(parseInt(n.substring(2), 16))
+        : String.fromCharCode(+n.substring(1));
+    }
+    return '';
+  });
+}
+
+function replace(regex, opt) {
+  regex = regex.source;
+  opt = opt || '';
+  return function self(name, val) {
+    if (!name) return new RegExp(regex, opt);
+    val = val.source || val;
+    val = val.replace(/(^|[^\[])\^/g, '$1');
+    regex = regex.replace(name, val);
+    return self;
+  };
+}
+
+function noop() {}
+noop.exec = noop;
+
+function merge(obj) {
+  var i = 1
+    , target
+    , key;
+
+  for (; i < arguments.length; i++) {
+    target = arguments[i];
+    for (key in target) {
+      if (Object.prototype.hasOwnProperty.call(target, key)) {
+        obj[key] = target[key];
+      }
+    }
+  }
+
+  return obj;
+}
+
+
+/**
+ * Marked
+ */
+
+function marked(src, opt, callback) {
+  if (callback || typeof opt === 'function') {
+    if (!callback) {
+      callback = opt;
+      opt = null;
+    }
+
+    opt = merge({}, marked.defaults, opt || {});
+
+    var highlight = opt.highlight
+      , tokens
+      , pending
+      , i = 0;
+
+    try {
+      tokens = Lexer.lex(src, opt)
+    } catch (e) {
+      return callback(e);
+    }
+
+    pending = tokens.length;
+
+    var done = function(err) {
+      if (err) {
+        opt.highlight = highlight;
+        return callback(err);
+      }
+
+      var out;
+
+      try {
+        out = Parser.parse(tokens, opt);
+      } catch (e) {
+        err = e;
+      }
+
+      opt.highlight = highlight;
+
+      return err
+        ? callback(err)
+        : callback(null, out);
+    };
+
+    if (!highlight || highlight.length < 3) {
+      return done();
+    }
+
+    delete opt.highlight;
+
+    if (!pending) return done();
+
+    for (; i < tokens.length; i++) {
+      (function(token) {
+        if (token.type !== 'code') {
+          return --pending || done();
+        }
+        return highlight(token.text, token.lang, function(err, code) {
+          if (err) return done(err);
+          if (code == null || code === token.text) {
+            return --pending || done();
+          }
+          token.text = code;
+          token.escaped = true;
+          --pending || done();
+        });
+      })(tokens[i]);
+    }
+
+    return;
+  }
+  try {
+    if (opt) opt = merge({}, marked.defaults, opt);
+    return Parser.parse(Lexer.lex(src, opt), opt);
+  } catch (e) {
+    e.message += '\nPlease report this to https://github.com/chjj/marked.';
+    if ((opt || marked.defaults).silent) {
+      return '<p>An error occured:</p><pre>'
+        + escape(e.message + '', true)
+        + '</pre>';
+    }
+    throw e;
+  }
+}
+
+/**
+ * Options
+ */
+
+marked.options =
+marked.setOptions = function(opt) {
+  merge(marked.defaults, opt);
+  return marked;
+};
+
+marked.defaults = {
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: false,
+  silent: false,
+  highlight: null,
+  langPrefix: 'lang-',
+  smartypants: false,
+  headerPrefix: '',
+  renderer: new Renderer,
+  xhtml: false
+};
+
+/**
+ * Expose
+ */
+
+marked.Parser = Parser;
+marked.parser = Parser.parse;
+
+marked.Renderer = Renderer;
+
+marked.Lexer = Lexer;
+marked.lexer = Lexer.lex;
+
+marked.InlineLexer = InlineLexer;
+marked.inlineLexer = InlineLexer.output;
+
+marked.parse = marked;
+
+if (typeof module !== 'undefined' && typeof exports === 'object') {
+  module.exports = marked;
+} else if (typeof define === 'function' && define.amd) {
+  define(function() { return marked; });
+} else {
+  this.marked = marked;
+}
+
+}).call(function() {
+  return this || (typeof window !== 'undefined' ? window : global);
+}());
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],3:[function(require,module,exports){
 
 var env = require('./env.js');
 var Lexer = require("./parser/Lexer.js");
@@ -649,13 +1928,13 @@ var handleComputed = (function(){
   }
 })();
 
-},{"./config.js":3,"./dom.js":8,"./env.js":9,"./group.js":10,"./helper/combine.js":12,"./helper/event.js":14,"./helper/extend.js":15,"./helper/filter.js":16,"./helper/parse.js":17,"./helper/watcher.js":19,"./parser/Lexer.js":22,"./parser/Parser.js":23,"./util":25,"./walkers.js":26}],3:[function(require,module,exports){
+},{"./config.js":4,"./dom.js":9,"./env.js":10,"./group.js":11,"./helper/combine.js":13,"./helper/event.js":15,"./helper/extend.js":16,"./helper/filter.js":17,"./helper/parse.js":18,"./helper/watcher.js":20,"./parser/Lexer.js":23,"./parser/Parser.js":24,"./util":26,"./walkers.js":27}],4:[function(require,module,exports){
 
 module.exports = {
 'BEGIN': '{',
 'END': '}'
 }
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var // packages
   _ = require("../util.js"),
  animate = require("../helper/animate.js"),
@@ -884,7 +2163,7 @@ Regular.directive( "r-animation", processAnimate)
 Regular.directive( "r-sequence", processAnimate)
 
 
-},{"../Regular.js":2,"../dom.js":8,"../helper/animate.js":11,"../util.js":25}],5:[function(require,module,exports){
+},{"../Regular.js":3,"../dom.js":9,"../helper/animate.js":12,"../util.js":26}],6:[function(require,module,exports){
 // Regular
 var _ = require("../util.js");
 var dom = require("../dom.js");
@@ -970,7 +2249,7 @@ Regular.directive('r-html', function(elem, value){
 
 
 
-},{"../Regular.js":2,"../dom.js":8,"../helper/animate.js":11,"../util.js":25,"./event.js":6,"./form.js":7}],6:[function(require,module,exports){
+},{"../Regular.js":3,"../dom.js":9,"../helper/animate.js":12,"../util.js":26,"./event.js":7,"./form.js":8}],7:[function(require,module,exports){
 /**
  * event directive  bundle
  *
@@ -1061,7 +2340,7 @@ function matchParent(ev , delegates){
     target = target.parentNode;
   }
 }
-},{"../Regular.js":2,"../dom.js":8,"../util.js":25}],7:[function(require,module,exports){
+},{"../Regular.js":3,"../dom.js":9,"../util.js":26}],8:[function(require,module,exports){
 // Regular
 var _ = require("../util.js");
 var dom = require("../dom.js");
@@ -1229,7 +2508,7 @@ function initRadio(elem, parsed){
   }
 }
 
-},{"../Regular.js":2,"../dom.js":8,"../util.js":25}],8:[function(require,module,exports){
+},{"../Regular.js":3,"../dom.js":9,"../util.js":26}],9:[function(require,module,exports){
 
 // thanks for angular && mootools for some concise&cross-platform  implemention
 // =====================================
@@ -1619,7 +2898,7 @@ dom.nextReflow = function(callback){
 
 
 
-},{"./env.js":9,"./util":25}],9:[function(require,module,exports){
+},{"./env.js":10,"./util":26}],10:[function(require,module,exports){
 // some fixture test;
 // ---------------
 var _ = require('./util');
@@ -1633,7 +2912,7 @@ exports.browser = typeof document !== "undefined" && document.nodeType;
 exports.exprCache = _.cache(1000);
 exports.isRunning = false;
 
-},{"./util":25}],10:[function(require,module,exports){
+},{"./util":26}],11:[function(require,module,exports){
 var _ = require('./util');
 var combine = require('./helper/combine')
 
@@ -1663,7 +2942,7 @@ module.exports = Group;
 
 
 
-},{"./helper/combine":12,"./util":25}],11:[function(require,module,exports){
+},{"./helper/combine":13,"./util":26}],12:[function(require,module,exports){
 var _ = require("../util");
 var dom  = require("../dom.js");
 var animate = {};
@@ -1888,7 +3167,7 @@ function getMaxTime(str){
 }
 
 module.exports = animate;
-},{"../dom.js":8,"../env.js":9,"../util":25}],12:[function(require,module,exports){
+},{"../dom.js":9,"../env.js":10,"../util":26}],13:[function(require,module,exports){
 // some nested  operation in ast 
 // --------------------------------
 
@@ -1950,7 +3229,7 @@ var combine = module.exports = {
   }
 
 }
-},{"../dom.js":8}],13:[function(require,module,exports){
+},{"../dom.js":9}],14:[function(require,module,exports){
 // http://stackoverflow.com/questions/1354064/how-to-convert-characters-to-html-entities-using-plain-javascript
 var entities = {
   'quot':34, 
@@ -2211,7 +3490,7 @@ var entities = {
 
 
 module.exports  = entities;
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // simplest event emitter 60 lines
 // ===============================
 var slice = [].slice, _ = require("../util.js");
@@ -2289,7 +3568,7 @@ Event.mixTo = function(obj){
   _.extend(obj, API)
 }
 module.exports = Event;
-},{"../util.js":25}],15:[function(require,module,exports){
+},{"../util.js":26}],16:[function(require,module,exports){
 // (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 // Backbone may be freely distributed under the MIT license.
 // For all details and documentation:
@@ -2371,7 +3650,7 @@ module.exports = function extend(o){
 }
 
 
-},{"../util.js":25}],16:[function(require,module,exports){
+},{"../util.js":26}],17:[function(require,module,exports){
 
 var f = module.exports = {};
 
@@ -2435,7 +3714,7 @@ f.total = function(array, key){
 
 
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var exprCache = require('../env').exprCache;
 var _ = require("../util");
 var Parser = require("../parser/Parser.js");
@@ -2453,7 +3732,7 @@ module.exports = {
 }
 
 
-},{"../env":9,"../parser/Parser.js":23,"../util":25}],18:[function(require,module,exports){
+},{"../env":10,"../parser/Parser.js":24,"../util":26}],19:[function(require,module,exports){
 // shim for es5
 var slice = [].slice;
 var tstr = ({}).toString;
@@ -2539,7 +3818,7 @@ extend(Array, {
   }
 })
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var _ = require('../util.js');
 var parseExpression = require('./parse.js').expression;
 
@@ -2785,7 +4064,7 @@ Watcher.mixTo = function(obj){
 }
 
 module.exports = Watcher;
-},{"../util.js":25,"./parse.js":17}],20:[function(require,module,exports){
+},{"../util.js":26,"./parse.js":18}],21:[function(require,module,exports){
 var env =  require("./env.js");
 var config = require("./config"); 
 var Regular = module.exports = require("./Regular.js");
@@ -2813,7 +4092,7 @@ Regular.parse = function(str, options){
 }
 
 
-},{"./Regular.js":2,"./config":3,"./directive/animation.js":4,"./directive/base.js":5,"./dom.js":8,"./env.js":9,"./module/timeout.js":21,"./util.js":25}],21:[function(require,module,exports){
+},{"./Regular.js":3,"./config":4,"./directive/animation.js":5,"./directive/base.js":6,"./dom.js":9,"./env.js":10,"./module/timeout.js":22,"./util.js":26}],22:[function(require,module,exports){
 var Regular = require("../Regular.js");
 
 /**
@@ -2855,7 +4134,7 @@ function TimeoutModule(Component){
 
 Regular.plugin('timeout', TimeoutModule);
 Regular.plugin('$timeout', TimeoutModule);
-},{"../Regular.js":2}],22:[function(require,module,exports){
+},{"../Regular.js":3}],23:[function(require,module,exports){
 var _ = require("../util.js");
 var config = require("../config.js");
 
@@ -3205,7 +4484,7 @@ Lexer.setup();
 
 module.exports = Lexer;
 
-},{"../config.js":3,"../util.js":25}],23:[function(require,module,exports){
+},{"../config.js":4,"../util.js":26}],24:[function(require,module,exports){
 var _ = require("../util.js");
 
 var config = require("../config.js");
@@ -3906,7 +5185,7 @@ op.getset = function(get, set){
 
 module.exports = Parser;
 
-},{"../config.js":3,"../util.js":25,"./Lexer.js":22,"./node.js":24}],24:[function(require,module,exports){
+},{"../config.js":4,"../util.js":26,"./Lexer.js":23,"./node.js":25}],25:[function(require,module,exports){
 module.exports = {
   element: function(name, attrs, children){
     return {
@@ -3961,7 +5240,7 @@ module.exports = {
   }
 }
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 (function (global){
 require('./helper/shim.js');
 var _  = module.exports;
@@ -4469,7 +5748,7 @@ _.assert = function(test, msg){
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./helper/entities.js":13,"./helper/shim.js":18}],26:[function(require,module,exports){
+},{"./helper/entities.js":14,"./helper/shim.js":19}],27:[function(require,module,exports){
 var node = require("./parser/node.js");
 var dom = require("./dom.js");
 var animate = require("./helper/animate.js");
@@ -4869,7 +6148,7 @@ walkers.attribute = function(ast ,options){
 }
 
 
-},{"./dom.js":8,"./group.js":10,"./helper/animate.js":11,"./helper/combine.js":12,"./parser/node.js":24,"./util":25}],27:[function(require,module,exports){
+},{"./dom.js":9,"./group.js":11,"./helper/animate.js":12,"./helper/combine.js":13,"./parser/node.js":25,"./util":26}],28:[function(require,module,exports){
 /*!
   * Reqwest! A general purpose XHR connection manager
   * license MIT (c) Dustin Diaz 2014
@@ -5486,7 +6765,7 @@ walkers.attribute = function(ast ,options){
   return reqwest
 });
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var Regular = require("regularjs");
@@ -5516,7 +6795,7 @@ var Component = Regular.extend({
 })
 
 module.exports = Component;
-},{"./filter.js":29,"regularjs":20}],29:[function(require,module,exports){
+},{"./filter.js":30,"regularjs":21}],30:[function(require,module,exports){
 'use strict';
 
 var filter = {};
@@ -5568,7 +6847,7 @@ filter.filter = function(array, filterFn) {
 }
 
 module.exports = filter;
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 var reqwest = require('reqwest');
@@ -5605,7 +6884,7 @@ request.request = function(opt) {
 }
 
 module.exports = request;
-},{"reqwest":27}],31:[function(require,module,exports){
+},{"reqwest":28}],32:[function(require,module,exports){
 'use strict';
 
 var Component = require('./component.js');
@@ -5659,7 +6938,7 @@ var SourceComponent = Component.extend({
 });
 
 module.exports = SourceComponent;
-},{"./component.js":28,"./util.js":32}],32:[function(require,module,exports){
+},{"./component.js":29,"./util.js":33}],33:[function(require,module,exports){
 'use strict';
 
 var Regular = require('regularjs');
@@ -5679,13 +6958,159 @@ var _ = {
 }
 
 module.exports = _;
-},{"regularjs":20}],33:[function(require,module,exports){
-module.exports="<div class=\"m-modal\">    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>        <div class=\"modal_hd\">            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"f-icon f-icon-close\"></i></a>            <h3 class=\"modal_title\">{title}</h3>        </div>        <div class=\"modal_bd\">            {content}        </div>        <div class=\"modal_ft\">            {#if okButton}            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? \'确定\' : okButton}</button>            {/if}            {#if cancelButton}            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? \'取消\' : cancelButton}</button>            {/if}        </div>    </div></div>"
-},{}],34:[function(require,module,exports){
+},{"regularjs":21}],34:[function(require,module,exports){
+module.exports=""
+},{}],35:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * Editor    编辑器
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
+
+'use strict';
+
+var Component = require('../base/component.js');
+var template = require('./editor.html');
+var _ = require('../base/util.js');
+
+/**
+ * @class Editor
+ * @extend Component
+ * @param {object}                  options.data                    绑定属性 | Binding Properties
+ * @param {string='提示'}           options.data.title              对话框标题 | Title of Dialog
+ * @param {string=''}               options.data.content            对话框内容
+ * @param {string|boolean=true}     options.data.okButton           是否显示确定按钮。值为`string`时显示该段文字。
+ * @param {string|boolean=false}    options.data.cancelButton       是否显示取消按钮。值为`string`时显示该段文字。
+ * @param {number=null}             options.data.width              对话框宽度。值为否定时宽度为CSS设置的宽度。
+ * @param {function}                options.ok                      当点击确定的时候执行
+ * @param {function}                options.cancel                  当点击取消的时候执行
+ */
+var Editor = Component.extend({
+    name: 'modal',
+    template: template,
+    /**
+     * @protected
+     */
+    config: function() {
+        _.extend(this.data, {
+            title: '提示',
+            content: '',
+            okButton: true,
+            cancelButton: false,
+            width: null
+        });
+        this.supr();
+    },
+    /**
+     * @protected
+     */
+    init: function() {
+        this.supr();
+        // 证明不是内嵌组件
+        if(this.$root === this)
+            this.$inject(document.body);
+    },
+    /**
+     * @method close(result) 关闭模态对话框
+     * @public
+     * @param  {boolean} result 点击确定还是取消
+     * @return {void}
+     */
+    close: function(result) {
+        /**
+         * @event close 关闭对话框时触发
+         * @property {boolean} result 点击了确定还是取消
+         */
+        this.$emit('close', {
+            result: result
+        });
+        result ? this.ok() : this.cancel();
+        this.destroy();
+    },
+    /**
+     * @override
+     */
+    ok: function() {
+        /**
+         * @event ok 确定对话框时触发
+         */
+        this.$emit('ok');
+    },
+    /**
+     * @override
+     */
+    cancel: function() {
+        /**
+         * @event close 取消对话框时触发
+         */
+        this.$emit('cancel');
+    }
+});
+
+module.exports = Editor;
+
+},{"../base/component.js":29,"../base/util.js":33,"./editor.html":34}],36:[function(require,module,exports){
+module.exports="<div class=\"m-editor\">    <div class=\"editor_preview\" r-html={this.getHTML()}></div>    <ul class=\"m-toolbar\">        <li><a title=\"加粗\"><i class=\"u-icon u-icon-bold\"></i></a></li>        <li><a title=\"斜体\"><i class=\"u-icon u-icon-italic\"></i></a></li>        <li class=\"seperator\"></li>        <li><a title=\"引用\"><i class=\"u-icon u-icon-quote\"></i></a></li>        <li><a title=\"无序列表\"><i class=\"u-icon u-icon-list-ul\"></i></a></li>        <li><a title=\"有序列表\"><i class=\"u-icon u-icon-list-ol\"></i></a></li>        <li class=\"seperator\"></li>        <li><a title=\"链接\"><i class=\"u-icon u-icon-link\"></i></a></li>        <li><a title=\"图片\"><i class=\"u-icon u-icon-image\"></i></a></li>        <li><a title=\"公式\">∑</a></li>    </ul>    <textarea class=\"editor_textarea\" r-model={content}></textarea></div>"
+},{}],37:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * MarkEditor 编辑器
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
+
+'use strict';
+
+var Component = require('../base/component.js');
+var template = require('./markEditor.html');
+var _ = require('../base/util.js');
+
+var marked = require('marked');
+
+/**
+ * @class MarkEditor
+ * @extend Component
+ * @param {object}                  options.data                    绑定属性 | Binding Properties
+ * @param {string='提示'}           options.data.title              对话框标题 | Title of Dialog
+ * @param {string=''}               options.data.content            编辑器内容
+ * @param {string|boolean=true}     options.data.okButton           是否显示确定按钮。值为`string`时显示该段文字。
+ * @param {string|boolean=false}    options.data.cancelButton       是否显示取消按钮。值为`string`时显示该段文字。
+ * @param {number=null}             options.data.width              对话框宽度。值为否定时宽度为CSS设置的宽度。
+ * @param {function}                options.ok                      当点击确定的时候执行
+ * @param {function}                options.cancel                  当点击取消的时候执行
+ */
+var MarkEditor = Component.extend({
+    name: 'markEditor',
+    template: template,
+    /**
+     * @protected
+     */
+    config: function() {
+        _.extend(this.data, {
+            content: ''
+        });
+        this.supr();
+    },
+    getHTML: function() {
+        return marked(this.data.content);
+    }
+    /**
+     * @protected
+     */
+    // init: function() {
+    //     this.supr();
+    // }
+});
+
+module.exports = MarkEditor;
+
+},{"../base/component.js":29,"../base/util.js":33,"./markEditor.html":36,"marked":2}],38:[function(require,module,exports){
+module.exports="<div class=\"m-modal {@(class)}\">    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>        <div class=\"modal_hd\">            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>            <h3 class=\"modal_title\">{title}</h3>        </div>        <div class=\"modal_bd\">            {content}        </div>        <div class=\"modal_ft\">            {#if okButton}            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? \'确定\' : okButton}</button>            {/if}            {#if cancelButton}            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? \'取消\' : cancelButton}</button>            {/if}        </div>    </div></div>"
+},{}],39:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Modal     模态对话框
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -5705,6 +7130,7 @@ var _ = require('../base/util.js');
  * @param {string|boolean=true}     options.data.okButton           是否显示确定按钮。值为`string`时显示该段文字。
  * @param {string|boolean=false}    options.data.cancelButton       是否显示取消按钮。值为`string`时显示该段文字。
  * @param {number=null}             options.data.width              对话框宽度。值为否定时宽度为CSS设置的宽度。
+ * @param {string=''}               options.data.class              补充class
  * @param {function}                options.ok                      当点击确定的时候执行
  * @param {function}                options.cancel                  当点击取消的时候执行
  */
@@ -5807,50 +7233,73 @@ Modal.confirm = function(content, title) {
 
 module.exports = Modal;
 
-},{"../base/component.js":28,"../base/util.js":32,"./modal.html":33}],35:[function(require,module,exports){
-module.exports="<div class=\"m-page m-page-rt\" r-hide=\"total < 2\">    <a href=\'#\'  on-click={ this.nav(current-1)} class=\'pageprv {current==1? \"z-dis\": \"\"}\'>上一页</a>    {#if total - 5 > show * 2}    <a  on-click={ this.nav(1)} class={current==1? \'z-crt\': \'\'}>1</a>    {#if begin > 2}<a>...</a>{/if}    {#list begin..end as i}    <a on-click={ this.nav(i)} class={current==i? \'z-crt\': \'\'}>{i}</a>    {/list}    {#if (end < total-1)}    <a>...</a>    {/if}    <a on-click={ this.nav(total)} class={current==total? \'z-crt\': \'\'}>{total}</a>    {#else}    {#list 1..total as i}    <a on-click={ this.nav(i)} class={current==i? \'z-crt\': \'\'}>{i}</a>    {/list}    {/if}    <a href=\"#\" on-click={ this.nav(current + 1)} class=\'pagenxt {current==total? \"z-dis\": \"\"}\'>下一页</a></div>"
-},{}],36:[function(require,module,exports){
-var Component = require("../base/component.js");
-var template = require("./pager.html");
+},{"../base/component.js":29,"../base/util.js":33,"./modal.html":38}],40:[function(require,module,exports){
+module.exports="<ul class=\"m-pager {@(class)}\">    <li class=\"pager_prev\" r-class={ {\'z-dis\' : current <= 1} } on-click={this.select(current - 1)}><a>上一页</a></li>    {#if total - middle > side * 2 + 1}        {#list 1..side as i}        <li r-class={ {\'z-crt\': current == i} } on-click={this.select(i)}><a>{i}</a></li>        {/list}        <li>...</li>        {#list this.getMiddle() as i}        <li r-class={ {\'z-crt\': current == i} } on-click={this.select(i)}><a>{i}</a></li>        {/list}        <li>...</li>        {#list (total - side + 1)..total as i}        <li r-class={ {\'z-crt\': current == i} } on-click={this.select(i)}><a>{i}</a></li>        {/list}    {#else}        {#list 1..total as i}        <li r-class={ {\'z-crt\': current == i} } on-click={this.select(i)}><a>{i}</a></li>        {/list}    {/if}    <li class=\"pager_next\" r-class={ {\'z-dis\' : current >= total} } on-click={this.select(current + 1)}><a>上一页</a></li></ul>"
+},{}],41:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * Pager     分页
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
 
+var Component = require('../base/component.js');
+var template = require('./pager.html');
+var _ = require('../base/util.js');
+
+/**
+ * @class Pager
+ * @extend Component
+ * @param {object}                  options.data                    监听数据
+ * @param {number=1}                options.data.current            当前页
+ * @param {total=11}                options.data.total              总页数
+ * @param {middle=5}                options.data.middle             当页数较多时，中间显示的页数
+ * @param {side=2}                  options.data.side               当页数较多时，两端各显示的页数
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ */
 var Pager = Component.extend({
-    name: "pager",
+    name: 'pager',
     template: template,
-    // is called before compile. 一般用来处理数据
-    config: function(data){
-        var count =  5;
-        var show = data.show = Math.floor( count/2 );
-        data.current = parseInt(data.current || 1);
-        data.total = parseInt(data.total || 1);
-
-        this.$watch(['current', 'total'], function( current, total ){
-            data.begin = current - show;
-            data.end = current + show;
-            if(data.begin < 2) data.begin = 2;
-            if(data.end > data.total-1) data.end = data.total-1;
-            if(current-data.begin <= 1) data.end = data.end + show + data.begin- current;
-            if(data.end - current <= 1) data.begin = data.begin-show-current+ data.end;
+    config: function() {
+        _.extend(this.data, {
+            current: 1,
+            total: 11,
+            middle: 5,
+            side: 2,
+            disabled: false
         });
     },
-    nav: function(page){
-        var data = this.data;
+    getMiddle: function() {
+        var start = ((this.data.total - this.data.middle)>>1) + 1;
+        var list = [];
+        for(var i = 0; i < this.data.middle; i++)
+            list.push(start + i);
+        return list;
+    },
+    select: function(page) {
+        if(this.data.disabled)
+            return;
+
         if(page < 1) return;
-        if(page > data.total) return;
-        if(page === data.current) return;
-        data.current = page;
-        this.$emit('nav', page);
-        // preventDefault
-        return false;
+        if(page > this.data.total) return;
+        if(page == this.data.current) return;
+
+        this.data.current = page;
+
+        this.$emit('select', {
+            current: this.data.current
+        });
     }
 });
+
 module.exports = Pager;
-},{"../base/component.js":28,"./pager.html":35}],37:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./pager.html":40}],42:[function(require,module,exports){
 module.exports="<div class=\"m-tab\">    <tabHead source={tabs} selected={selected} />     <div class=\"tab-bd\">        <r-content />    </div></div>"
-},{}],38:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Tab  选择扩展
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -5918,13 +7367,12 @@ var TabPane = Component.extend({
 });
 
 module.exports = Tab;
-},{"../base/component.js":28,"../base/util.js":32,"./tab.html":37,"./tabHead.js":40}],39:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./tab.html":42,"./tabHead.js":45}],44:[function(require,module,exports){
 module.exports="<div class=\"m-tab\">    <div class=\"tab-hd\">        <ul class=\"f-cb\">            {#list source as item}            <li r-class={ {\'z-crt\': item == selected} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],40:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TabHead  选择扩展
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -5982,13 +7430,12 @@ var TabHead = Component.extend({
 });
 
 module.exports = TabHead;
-},{"../base/component.js":28,"../base/util.js":32,"./tabHead.html":39}],41:[function(require,module,exports){
-module.exports="<div class=\"u-calendar\">    <div class=\"calendar_hd f-cb\">        <span class=\"f-fl\">            <span class=\"calendar_item\"><i class=\"f-icon f-icon-angle-double-left\" on-click={this.addYear(-1)}></i></span>            <span class=\"calendar_item\"><i class=\"f-icon f-icon-angle-left\" on-click={this.addMonth(-1)}></i></span>        </span>        <span>{selected | format: \'yyyy\'}-{selected | format: \'MM\'}</span>        <span class=\"f-fr\">            <span class=\"calendar_item\"><i class=\"f-icon f-icon-angle-double-right\" on-click={this.addYear(1)}></i></span>            <span class=\"calendar_item\"><i class=\"f-icon f-icon-angle-right\" on-click={this.addMonth(1)}></i></span>        </span>    </div>    <div class=\"calendar_bd\">        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
-},{}],42:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./tabHead.html":44}],46:[function(require,module,exports){
+module.exports="<div class=\"u-calendar\" r-class={ {\'z-dis\': disabled} }>    <div class=\"calendar_hd f-cb\">        <span class=\"f-fl\">            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>        </span>        <span>{selected | format: \'yyyy\'}-{selected | format: \'MM\'}</span>        <span class=\"f-fr\">            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>        </span>    </div>    <div class=\"calendar_bd\">        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
+},{}],47:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Calendar  日历
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6002,8 +7449,9 @@ var _ = require('../base/util.js');
 /**
  * @class Calendar
  * @extend Component
- * @param {object}                      options.data 绑定属性
- * @param {Date=null}                   options.data.selected 当前选择的日期
+ * @param {object}                  options.data                    绑定属性
+ * @param {Date=null}               options.data.selected           当前选择的日期
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
  */
 var Calendar = Component.extend({
     name: 'calendar',
@@ -6022,14 +7470,6 @@ var Calendar = Component.extend({
         this.back();
         //this.update();
     },
-    addYear: function(year) {
-        this.data.selected.setFullYear(this.data.selected.getFullYear() + year);
-        this.update();
-    },
-    addMonth: function(month) {
-        this.data.selected.setMonth(this.data.selected.getMonth() + month);
-        this.update();
-    },
     update: function() {
         this.data._days = [];
         
@@ -6039,7 +7479,7 @@ var Calendar = Component.extend({
         var mfirstTime = mfirst.getTime();
         var nfirst = new Date(selected); nfirst.setMonth(month + 1); nfirst.setDate(1);
         var nfirstTime = nfirst.getTime();
-        var lastTime = nfirstTime + (6 - nfirst.getDay())*24*3600*1000;
+        var lastTime = nfirstTime + ((7 - nfirst.getDay())%7 - 1)*24*3600*1000;
         var num = - mfirst.getDay();
         var dateTime, date;
         do {
@@ -6048,30 +7488,93 @@ var Calendar = Component.extend({
             this.data._days.push(date);
         } while(dateTime < lastTime);
     },
-    select: function(item) {
-        var month = this.data.selected.getMonth();
-        if(item.getMonth() != month)
+    /**
+     * @method addYear(year) 调整年份
+     * @public
+     * @param  {number=0} year 加/减的年份
+     * @return {void}
+     */
+    addYear: function(year) {
+        if(this.data.disabled || !year)
             return;
 
-        this.data.selected = item;
+        this.data.selected.setFullYear(this.data.selected.getFullYear() + year);
+        this.update();
+
+        /**
+         * @event change 改变日期时触发
+         * @property {object} selected 当前选择的日期
+         */
+        this.$emit('change', {
+            selected: this.data.selected
+        });
+    },
+    /**
+     * @method addMonth(month) 调整月份
+     * @public
+     * @param  {number=0} month 加/减的月份
+     * @return {void}
+     */
+    addMonth: function(month) {
+        if(this.data.disabled || !month)
+            return;
+
+        this.data.selected.setMonth(this.data.selected.getMonth() + month);
+        this.update();
+
+        /**
+         * @event change 改变日期时触发
+         * @property {object} selected 当前选择的日期
+         */
+        this.$emit('change', {
+            selected: this.data.selected
+        });
+    },
+    /**
+     * @method select(date) 选择一个日期
+     * @public
+     * @param  {Date=null} date 选择的日期
+     * @return {void}
+     */
+    select: function(date) {
+        if(this.data.disabled)
+            return;
+
+        var month = this.data.selected.getMonth();
+        if(date.getMonth() != month)
+            return;
+
+        this.data.selected = date;
+
+        /**
+         * @event select 选择某一个日期时触发
+         * @property {object} selected 当前选择的日期
+         */
         this.$emit('select', {
-            selected: item
-        })
+            selected: date
+        });
+
+        /**
+         * @event change 改变日期时触发
+         * @property {object} selected 当前选择的日期
+         */
+        this.$emit('change', {
+            selected: date
+        });
     },
     back: function() {
-        this.data.selected = new Date(new Date().toLocaleDateString());
+        this.data.selected = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
         this.update();
     }
 });
 
 module.exports = Calendar;
-},{"../base/component.js":28,"../base/util.js":32,"./calendar.html":41}],43:[function(require,module,exports){
-module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'z-chk\': checked, \'z-part\': checked === null, \'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"f-icon f-icon-check\"></i></div> {name}</label>"
-},{}],44:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./calendar.html":46}],48:[function(require,module,exports){
+module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'z-chk\': checked, \'z-part\': checked === null, \'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"u-icon u-icon-check\"></i></div> {name}</label>"
+},{}],49:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * CheckEx   多选按钮
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6088,8 +7591,8 @@ var _ = require('../base/util.js');
  * @param {object}                  options.data                    绑定属性
  * @param {string=''}               options.data.name               多选按钮的文字
  * @param {object=null}             options.data.checked            多选按钮的选择状态
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.block              是否以block方式显示
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
  */
 var CheckEx = Component.extend({
@@ -6102,6 +7605,7 @@ var CheckEx = Component.extend({
         _.extend(this.data, {
             name: '',
             checked: false,
+            block: false,
             disabled: false
         });
         this.supr();
@@ -6128,13 +7632,12 @@ var CheckEx = Component.extend({
 });
 
 module.exports = CheckEx;
-},{"../base/component.js":28,"../base/util.js":32,"./checkEx.html":43}],45:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./checkEx.html":48}],50:[function(require,module,exports){
 module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <checkEx name={item.name} checked={item.checked} disabled={disabled} block={block} />    {/list}</div>"
-},{}],46:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * CheckExGroup 输入扩展
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6149,6 +7652,14 @@ var CheckEx = require('./checkEx.js');
 /**
  * @class CheckExGroup
  * @extend CheckGroup
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {boolean=false}           options.data.block              多行显示
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var CheckExGroup = CheckGroup.extend({
     name: 'checkExGroup',
@@ -6156,13 +7667,12 @@ var CheckExGroup = CheckGroup.extend({
 });
 
 module.exports = CheckExGroup;
-},{"../base/util.js":32,"./checkEx.js":44,"./checkExGroup.html":45,"./checkGroup.js":48}],47:[function(require,module,exports){
+},{"../base/util.js":33,"./checkEx.js":49,"./checkExGroup.html":50,"./checkGroup.js":53}],52:[function(require,module,exports){
 module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
-},{}],48:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * CheckGroup 多选组
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6181,9 +7691,10 @@ var CheckEx = require('./checkEx.js');
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.block              多行显示
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var CheckGroup = SourceComponent.extend({
     name: 'checkGroup',
@@ -6193,8 +7704,9 @@ var CheckGroup = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            // source: [],
-            checked: false
+            // @inherited source: [],
+            disabled: false,
+            block: false
         });
         this.supr();
     },
@@ -6220,20 +7732,14 @@ var CheckGroup = SourceComponent.extend({
 });
 
 module.exports = CheckGroup;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./checkEx.js":44,"./checkGroup.html":47}],49:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./checkEx.js":49,"./checkGroup.html":52}],54:[function(require,module,exports){
 module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <calendar on-select={this.select($event.selected)} />    </div></div>"
-},{}],50:[function(require,module,exports){
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @version  1.0
- * @author   zhaoyusen(rainforest92@126.com)
- * --------------------------------------------
- * @class Suggest
- * @extend Component
- * @param {Object} options
- *     options.value             
- *              
+},{}],55:[function(require,module,exports){
+/**
+ * ------------------------------------------------------------
+ * DatePicker 日期选择
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
  */
 
 var Suggest = require('./suggest.js');
@@ -6242,17 +7748,34 @@ var _ = require('../base/util.js');
 var filter = require('../base/filter.js');
 var Calendar = require('./calendar.js');
 
+/**
+ * @class Suggest
+ * @extend DropDown
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.selected           当前选择的日期
+ * @param {string=''}               options.data.value              文本框中的值
+ * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ */
 var DatePicker = Suggest.extend({
     name: 'datepicker',
     template: template,
     config: function() {
         _.extend(this.data, {
-            // @override source: [],
-            // @override selected: null,
-            // @override placeholder: '请选择',
-            // @override open: false,
-            // @override disabled: false,
-            // @override multiple: false
+            // @inherited source: [],
+            // @inherited open: false,
+            // @inherited selected: null,
+            // @inherited value: '',
+            // @inherited placeholder: '请输入',
+            // @inherited minLength: 0,
+            // @inherited delay: 300,
+            // @inherited matchType: 'all',
+            // @inherited strict: false
+            // @inherited disabled: false,
         });
         this.supr();
     },
@@ -6289,13 +7812,12 @@ var DatePicker = Suggest.extend({
 });
 
 module.exports = DatePicker;
-},{"../base/filter.js":29,"../base/util.js":32,"./calendar.js":42,"./datePicker.html":49,"./suggest.js":72}],51:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <a class=\"u-btn u-btn-primary\" on-click={this.toggle(!open)}>下拉菜单 <i class=\"f-icon f-icon-caret-down\"></i></a>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#list source as item}                <li on-click={this.toggle(!open)}><a href=\"#\">{item.name}</a></li>            {/list}        </ul>    </div></div>"
-},{}],52:[function(require,module,exports){
+},{"../base/filter.js":30,"../base/util.js":33,"./calendar.js":47,"./datePicker.html":54,"./suggest.js":77}],56:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <a class=\"u-btn u-btn-primary\" on-click={this.toggle(!open)}>下拉菜单 <i class=\"u-icon u-icon-caret-down\"></i></a>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#list source as item}                <li on-click={this.toggle(!open)}><a href=\"#\">{item.name}</a></li>            {/list}        </ul>    </div></div>"
+},{}],57:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * DropDown  下拉菜单
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6314,6 +7836,7 @@ var _ = require('../base/util.js');
  * @param {boolean=false}           options.data.open               当前为展开/收起状态
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var DropDown = SourceComponent.extend({
     name: 'dropDown',
@@ -6369,13 +7892,12 @@ _.dom.on(document.body, 'click', function(e) {
 });
 
 module.exports = DropDown;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./dropDown.html":51}],53:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./dropDown.html":56}],58:[function(require,module,exports){
 module.exports="<div class=\"u-gridview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <div class=\"gridview_item\" r-class={ {\'z-sel\': selected === item} }>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>    {/list}</div>"
-},{}],54:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * GridView  网格视图
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6394,6 +7916,7 @@ var _ = require('../base/util.js');
  * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var GridView = SourceComponent.extend({
     name: 'gridView',
@@ -6403,21 +7926,19 @@ var GridView = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            source: [],
-            selected: null
+            // @inherited source: []
         });
         this.supr();
     }
 });
 
 module.exports = GridView;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./gridView.html":53}],55:[function(require,module,exports){
-module.exports="<label class=\"u-inputex\">    <input class=\"u-input\">    <span class=\"u-unit\">{unit}</span></label>"
-},{}],56:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./gridView.html":58}],60:[function(require,module,exports){
+module.exports="<label class=\"u-inputex {@(class)}\">    <input class=\"u-input\">    <span class=\"u-unit\">{unit}</span></label>"
+},{}],61:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * InputEx   输入扩展
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6429,16 +7950,13 @@ var _ = require('../base/util.js');
 /**
  * @class InputEx
  * @extend Component
- * @param {object}                      options.data 绑定属性
- * @param {object[]=[]}                 options.data.source 数据源
- * @param {number}                      options.data.source[].id 每项的id
- * @param {string}                      options.data.source[].name 每项的内容
- * @param {object=null}                 options.data.selected 当前选择项
- * @param {boolean=false}               options.data.disabled 是否禁用该组件
- * @example
- *     var listbox = new InputEx().inject('#container');
- * @example
- *     <listbox source={dataSource} />
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.selected           当前选择项
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
  */
 var InputEx = Component.extend({
     name: 'inputEx',
@@ -6474,13 +7992,12 @@ var InputEx = Component.extend({
 });
 
 module.exports = InputEx;
-},{"../base/component.js":28,"../base/util.js":32,"./inputEx.html":55}],57:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./inputEx.html":60}],62:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
-},{}],58:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListBox   列表框
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6501,6 +8018,7 @@ var _ = require('../base/util.js');
  * @param {object=null}             options.data.selected           当前选择项
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var ListBox = SourceComponent.extend({
     name: 'listBox',
@@ -6510,10 +8028,9 @@ var ListBox = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            // source: [],
+            // @inherited source: [],
             selected: null,
-            disabled: false,
-            multiple: false
+            disabled: false
         });
         this.supr();
     },
@@ -6539,13 +8056,12 @@ var ListBox = SourceComponent.extend({
 });
 
 module.exports = ListBox;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./listBox.html":57}],59:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./listBox.html":62}],64:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>    {/list}</ul>"
-},{}],60:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListView  列表视图
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6559,7 +8075,15 @@ var _ = require('../base/util.js');
 /**
  * @class ListView
  * @extend ListBox
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.selected           当前选择项
  * @param {string=null}             options.data.itemTemplate       每一项的模板
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var ListView = ListBox.extend({
     name: 'listView',
@@ -6569,21 +8093,19 @@ var ListView = ListBox.extend({
             itemTemplate: null
             // @inherited source: [],
             // @inherited selected: null,
-            // @inherited disabled: false,
-            // @inherited multiple: false
+            // @inherited disabled: false
         });
         this.supr();
     }
 });
 
 module.exports = ListView;
-},{"../base/util.js":32,"./listBox.js":58,"./listView.html":59}],61:[function(require,module,exports){
-module.exports="<div class=\"m-notify m-notify-{@(position)} {@(class)}\">    {#list messages as message}    <div class=\"notify_message notify_message-{@(message.type)} f-cb\" r-animation=\'on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\'>        <a class=\"notify_close\" on-click={this.close(message)}><i class=\"f-icon f-icon-close\"></i></a>        <div class=\"notify_text\"><i class=\"f-icon f-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i> {@(message.text)}</div>    </div>    {/list}</div>"
-},{}],62:[function(require,module,exports){
+},{"../base/util.js":33,"./listBox.js":63,"./listView.html":64}],66:[function(require,module,exports){
+module.exports="<div class=\"m-notify m-notify-{@(position)} {@(class)}\">    {#list messages as message}    <div class=\"notify_message notify_message-{@(message.type)} f-cb\" r-animation=\'on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\'>        <a class=\"notify_close f-fr\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>        <div class=\"notify_text f-fl\"><i class=\"u-icon u-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i> {@(message.text)}</div>    </div>    {/list}</div>"
+},{}],67:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Notify    通知
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6600,7 +8122,6 @@ var _ = require('../base/util.js');
  * @param {object}                  options.data                    监听数据
  * @param {string='topcenter'}      options.data.position           通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
  * @param {number=2000}             options.data.duration           每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
- * @param {string=''}               options.data.class              补充class
  * @param {string=''}               options.data.class              补充class
  */
 var Notify = Component.extend({
@@ -6720,13 +8241,12 @@ Notify.closeAll = function() {
 }
 
 module.exports = Notify;
-},{"../base/component.js":28,"../base/util.js":32,"./notify.html":61}],63:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./notify.html":66}],68:[function(require,module,exports){
 module.exports="<div class=\"u-progress u-progress-{@(size)} u-progress-{@(type)} {@(class)}\" r-class={ {\'u-progress-striped\': striped, \'z-act\': active} }>    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + \'%\' : text) : \'\'}</div></div>"
-},{}],64:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Progress  进度条
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6769,13 +8289,12 @@ var Progress = Component.extend({
 });
 
 module.exports = Progress;
-},{"../base/component.js":28,"../base/util.js":32,"./progress.html":63}],65:[function(require,module,exports){
-module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"f-icon f-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
-},{}],66:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./progress.html":68}],70:[function(require,module,exports){
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"u-icon u-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
+},{}],71:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioExGroup 输入扩展
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6789,6 +8308,14 @@ var _ = require('../base/util.js');
 /**
  * @class RadioExGroup
  * @extend RadioGroup
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.seleced            当前选择项
+ * @param {boolean=false}           options.data.block              多行显示
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
  */
 var RadioExGroup = RadioGroup.extend({
     name: 'radioExGroup',
@@ -6796,13 +8323,12 @@ var RadioExGroup = RadioGroup.extend({
 });
 
 module.exports = RadioExGroup;
-},{"../base/util.js":32,"./radioExGroup.html":65,"./radioGroup.js":68}],67:[function(require,module,exports){
+},{"../base/util.js":33,"./radioExGroup.html":70,"./radioGroup.js":73}],72:[function(require,module,exports){
 module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
-},{}],68:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioGroup 单选组
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6821,9 +8347,10 @@ var _ = require('../base/util.js');
  * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {object=null}             options.data.seleced            当前选择项
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.block              多行显示
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var RadioGroup = SourceComponent.extend({
     name: 'radioGroup',
@@ -6833,7 +8360,7 @@ var RadioGroup = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            source: [],
+            // @inherited source: [],
             selected: null,
             _radioGroupId: new Date()
         });
@@ -6861,13 +8388,12 @@ var RadioGroup = SourceComponent.extend({
 });
 
 module.exports = RadioGroup;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./radioGroup.html":67}],69:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],70:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./radioGroup.html":72}],74:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"u-icon u-icon-caret-down f-fr\"></i>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
+},{}],75:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * SelectEx  选择扩展
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6900,10 +8426,10 @@ var SelectEx = DropDown.extend({
     config: function() {
         _.extend(this.data, {
             // @inherited source: [],
+            // @inherited open: false
             selected: null,
             placeholder: '请选择',
             // @inherited disabled: false,
-            // @inherited open: false
         });
         this.supr();
     },
@@ -6928,13 +8454,12 @@ var SelectEx = DropDown.extend({
 });
 
 module.exports = SelectEx;
-},{"../base/util.js":32,"./dropDown.js":52,"./selectEx.html":69}],71:[function(require,module,exports){
+},{"../base/util.js":33,"./dropDown.js":57,"./selectEx.html":74}],76:[function(require,module,exports){
 module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
-},{}],72:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Suggest   自动提示
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -6956,11 +8481,12 @@ var ListBox = require('./listBox.js');
  * @param {object=null}             options.data.selected           当前选择项
  * @param {string=''}               options.data.value              文本框中的值
  * @param {string='请输入'}         options.data.placeholder        文本框默认文字
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {number=0}                options.data.minLength          最小提示长度。当输入长度>=该值后开始提示
  * @param {string='all'}            options.data.matchType          匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var Suggest = DropDown.extend({
     name: 'suggest',
@@ -6970,16 +8496,16 @@ var Suggest = DropDown.extend({
      */
     config: function() {
         _.extend(this.data, {
-            source: [],
+            // @inherited source: [],
+            // @inherited open: false,
             selected: null,
             value: '',
             placeholder: '请输入',
-            open: false,
-            disabled: false,
             minLength: 0,
             delay: 300,
             matchType: 'all',
             strict: false
+            // @inherited disabled: false,
         });
         this.supr();
     },
@@ -7077,13 +8603,12 @@ _.dom.on(window.document, 'click', function(e) {
 });
 
 module.exports = Suggest;
-},{"../base/util.js":32,"./dropDown.js":52,"./listBox.js":58,"./suggest.html":71}],73:[function(require,module,exports){
-module.exports="<table class=\"m-table m-tableview {@(class)}\" r-class={ {\'m-table-striped\': striped, \'m-table-hover\': hover} }>    <thead>        <tr>            {#list fields as field}            <th r-class={ {\'tableview_sortable\': field.sortable} } on-click={this.sort(field)}>                {field.name || field.key}                {#if field.sortable}                    <i class=\"f-icon {order.by === field.key ? (order.desc ? \'f-icon-sort-desc\' : \'f-icon-sort-asc\') : \'f-icon-sort\'}\"></i>                {/if}            </th>            {/list}        </tr>    </thead>    <tbody>        {#list source as item}        <tr>            {#list fields as field}            <td>{item[field.key]}</td>            {/list}        </tr>        {/list}    </tbody></table>"
-},{}],74:[function(require,module,exports){
+},{"../base/util.js":33,"./dropDown.js":57,"./listBox.js":63,"./suggest.html":76}],78:[function(require,module,exports){
+module.exports="<table class=\"m-table m-tableview {@(class)}\" r-class={ {\'m-table-striped\': striped, \'m-table-hover\': hover} }>    <thead>        <tr>            {#list fields as field}            <th r-class={ {\'tableview_sortable\': field.sortable} } on-click={this.sort(field)}>                {field.name || field.key}                {#if field.sortable}                    <i class=\"u-icon {order.by === field.key ? (order.desc ? \'u-icon-sort-desc\' : \'u-icon-sort-asc\') : \'u-icon-sort\'}\"></i>                {/if}            </th>            {/list}        </tr>    </thead>    <tbody>        {#list source as item}        <tr>            {#list fields as field}            <td>{item[field.key]}</td>            {/list}        </tr>        {/list}    </tbody></table>"
+},{}],79:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TableView 表格视图
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -7107,6 +8632,7 @@ var _ = require('../base/util.js');
  * @param {boolean=false}           options.data.striped            是否显示条纹
  * @param {boolean=false}           options.data.hover              是否每行在hover时显示样式
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var TableView = SourceComponent.extend({
     name: 'tableView',
@@ -7116,8 +8642,10 @@ var TableView = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            //source: [],
+            // @inherited source: [],
             fields: [],
+            striped: false,
+            hover: false,
             // TODO: 暂不考虑多字段排序
             order: {
                 by: null,
@@ -7166,11 +8694,10 @@ var TableView = SourceComponent.extend({
 });
 
 module.exports = TableView;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./tableView.html":73}],75:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./tableView.html":78}],80:[function(require,module,exports){
 /*
  * --------------------------------------------
  * 下拉列表UI
- * @version  1.0
  * @author   zhaoyusen(rainforest92@126.com)
  * --------------------------------------------
  * @class Suggest
@@ -7210,13 +8737,12 @@ var TimePicker = Suggest.extend({
 });
 
 module.exports = TimePicker;
-},{"../base/util.js":32,"./suggest.js":72}],76:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <i class=\"f-icon f-icon-caret-down f-fr\"></i>        <span>{selected ? selected.name : placeholder}</span>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
-},{}],77:[function(require,module,exports){
+},{"../base/util.js":33,"./suggest.js":77}],81:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <i class=\"u-icon u-icon-caret-down f-fr\"></i>        <span>{selected ? selected.name : placeholder}</span>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
+},{}],82:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TreeSelect 树型选择
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -7231,6 +8757,15 @@ var Treeview = require('./treeView.js');
 /**
  * @class TreeSelect
  * @extend SelectEx
+ * @param {object}                  options.data                    绑定属性
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {number}                  options.data.source[].id        每项的id
+ * @param {string}                  options.data.source[].name      每项的内容
+ * @param {object=null}             options.data.selected           当前选择项
+ * @param {string='请选择'}         options.data.placeholder        默认项的文字
+ * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var TreeSelect = SelectEx.extend({
     name: 'treeSelect',
@@ -7238,24 +8773,22 @@ var TreeSelect = SelectEx.extend({
     config: function() {
         _.extend(this.data, {
             // @inherited source: [],
+            // @inherited open: false,
             // @inherited selected: null,
             // @inherited placeholder: '请选择',
-            // @inherited open: false,
             // @inherited disabled: false,
-            // @inherited multiple: false
         });
         this.supr();
     }
 });
 
 module.exports = TreeSelect;
-},{"../base/util.js":32,"./selectEx.js":70,"./treeSelect.html":76,"./treeView.js":79}],78:[function(require,module,exports){
+},{"../base/util.js":33,"./selectEx.js":75,"./treeSelect.html":81,"./treeView.js":84}],83:[function(require,module,exports){
 module.exports="<div class=\"u-treeview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    <treeViewList source={source} visible={true} /></div>"
-},{}],79:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TreeView  树型视图
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -7278,6 +8811,7 @@ var _ = require('../base/util.js');
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {boolean=false}           options.data.hierarchical       是否分级动态加载，需要service
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var TreeView = SourceComponent.extend({
     name: 'treeView',
@@ -7287,7 +8821,7 @@ var TreeView = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            //source: [],
+            // @inherited source: [],
             selected: null,
             disabled: false,
             multiple: false,
@@ -7323,6 +8857,7 @@ var TreeViewList = SourceComponent.extend({
     template: hierarchicalTemplate,
     config: function() {
         _.extend(this.data, {
+            // @inherited source: [],
             itemTemplate: null,
             visible: false
         });
@@ -7345,9 +8880,30 @@ var TreeViewList = SourceComponent.extend({
             });
         });
     },
+    /**
+     * @override
+     */
     getParams: function() {
         if(this.data.parent)
             return _.extend({parentId: this.data.parent.id}, this.treeroot.getParams());
+    },
+    $updateSource: function() {
+        this.service.getList(this.getParams(), function(data) {
+            if(data.code != 200 && !data.success)
+                return alert(data.result);
+
+            // 给每个节点item添加parent
+            data.result.forEach(function(item) {
+                item.parent = this.data.parent;
+            }.bind(this));
+
+            this.$update('source', data.result);
+
+            this.$emit('updateSource', {
+                result: data.result
+            });
+        }.bind(this));
+        return this;
     },
     /**
      * @method select(item) 选择某一项
@@ -7386,6 +8942,6 @@ var TreeViewList = SourceComponent.extend({
 });
 
 module.exports = TreeView;
-},{"../base/sourceComponent.js":31,"../base/util.js":32,"./treeView.html":78,"./treeViewList.html":80}],80:[function(require,module,exports){
-module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"f-icon\" r-class={ {\'f-icon-caret-right\': !item.open, \'f-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./treeView.html":83,"./treeViewList.html":85}],85:[function(require,module,exports){
+module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
 },{}]},{},[1]);

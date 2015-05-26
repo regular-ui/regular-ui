@@ -15,15 +15,15 @@
 
 .m-tableview {
     .tableview_sortable {
-        .f-icon-sort-asc, .f-icon-sort-desc {
+        .u-icon-sort-asc, .u-icon-sort-desc {
             color: #888;
         }
 
-        .f-icon-sort-asc:after, .f-icon-sort-desc:after {
+        .u-icon-sort-asc:after, .u-icon-sort-desc:after {
             color: #ddd;
         }
       
-        .f-icon-sort {
+        .u-icon-sort {
             color: #ccc;
         }
     }

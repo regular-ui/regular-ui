@@ -1,4 +1,0 @@
-$m-nav_height = 50px;
-$m-nav_background-color = mix($brand-primary, black, 30%);
-$m-nav-hover_background-color = mix($m-nav_background-color, white, 85%);
-$m-nav-current_background-color = $brand-primary;

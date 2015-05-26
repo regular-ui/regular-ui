@@ -59,7 +59,7 @@ notify5.show('Bottom Right notify.');
 <div id="j-example4"><button class="u-btn u-btn-primary">Static</button></div>
 
 ```xml
-<notify ref="notify" position="static" />
+<notify ref="notify" position="static" duration="0" />
 ```
 
 ```javascript
@@ -73,7 +73,8 @@ notify5.show('Bottom Right notify.');
 ```javascript
 var notify = new Notify({
     data: {
-        position: 'static'
+        position: 'static',
+        duration: 0
     }
 }).$inject('#j-example4', 'top');
 notify.show('Static notify.');

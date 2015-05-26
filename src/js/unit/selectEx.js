@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * SelectEx  选择扩展
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -34,10 +33,10 @@ var SelectEx = DropDown.extend({
     config: function() {
         _.extend(this.data, {
             // @inherited source: [],
+            // @inherited open: false
             selected: null,
             placeholder: '请选择',
             // @inherited disabled: false,
-            // @inherited open: false
         });
         this.supr();
     },

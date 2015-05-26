@@ -5,13 +5,13 @@
         <% if(item.hidden) return; %>
         <% if(item.group != group) {
             group = item.group; %>
-        <li class="sidebar-group"><%= item.group %></li>
+        <li class="sidebar_group"><span><%= item.group %></span></li>
         <% } %>
         <li<% if(sidenav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %><small> <%= item.name %></small>
         <% if(item.complete === true) { %>
-            <i class="f-icon f-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
         <% } else if(item.complete === false) { %>
-            <i class="f-icon f-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
         <% } %>
         </a></li>
         <% }); %>

@@ -1,0 +1,34 @@
+// Name:            Nav
+// Description:     导航
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/module/nav
+// ========================================================================
+
+
+
+@import "../../core/module/nav.mcss";
+
+// Component:       `m-nav`
+// ========================================================================
+
+.m-nav {
+    background: mix($brand-primary, black, 30%);
+
+    > li {
+        transition: background 0.3s;
+
+        > a, > span {
+            min-width: 100px;
+            $line-height: 50px;
+            color: white;
+        }
+    }
+
+    > li:hover > a {
+        background: mix(mix($brand-primary, black, 30%), white, 85%);
+    }
+
+    > li.z-crt > a {
+        background: $brand-primary;
+    }
+}

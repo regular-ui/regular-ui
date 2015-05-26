@@ -1,7 +1,6 @@
 /**
  * ------------------------------------------------------------
  * ListBox   列表框
- * @version  0.0.1
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -22,6 +21,7 @@ var _ = require('../base/util.js');
  * @param {object=null}             options.data.selected           当前选择项
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.service                 数据服务
  */
 var ListBox = SourceComponent.extend({
     name: 'listBox',
@@ -31,10 +31,9 @@ var ListBox = SourceComponent.extend({
      */
     config: function() {
         _.extend(this.data, {
-            // source: [],
+            // @inherited source: [],
             selected: null,
-            disabled: false,
-            multiple: false
+            disabled: false
         });
         this.supr();
     },

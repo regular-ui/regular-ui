@@ -1,7 +1,7 @@
-<i class="f-icon"></i>
-<i class="f-icon f-icon-arrowdown"></i>
-<i class="f-icon f-icon-arrowright"></i>
-<i class="f-icon f-icon-prev"></i>
-<i class="f-icon f-icon-next"></i>
-<i class="f-icon f-icon-close"></i>
-<i class="f-icon f-icon-check"></i>
+<i class="u-icon"></i>
+<i class="u-icon u-icon-arrowdown"></i>
+<i class="u-icon u-icon-arrowright"></i>
+<i class="u-icon u-icon-prev"></i>
+<i class="u-icon u-icon-next"></i>
+<i class="u-icon u-icon-close"></i>
+<i class="u-icon u-icon-check"></i>

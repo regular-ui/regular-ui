@@ -1,6 +1,5 @@
 // Name:            CheckEx
 // Description:     多选按钮
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
@@ -21,7 +20,7 @@
         vertical-align: middle;
         margin-bottom: 2px;
 
-        .f-icon {
+        .u-icon {
             display: none;
         }
     }
@@ -30,7 +29,7 @@
 /* Checked */
 .u-checkex.z-chk {
     .checkex_box {
-        .f-icon {
+        .u-icon {
             display: inline-block;
         }
     }
@@ -39,7 +38,7 @@
 /* Indetermined */
 .u-checkex.z-part {
     .checkex_box {
-        .f-icon {
+        .u-icon {
             display: inline-block;
             &:before {
                 content: "\f0c8";

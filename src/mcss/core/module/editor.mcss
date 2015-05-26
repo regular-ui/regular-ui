@@ -1,0 +1,18 @@
+.qeditor .toolbar {height: 40px; background: #f5f5f5;}
+.qeditor .toolbar a {display: block; width: 32px; height: 32px; line-height: 26px; margin: 4px; font-size: 24px; text-align: center; color: #818b95; transition: color 0.2s; float: left; cursor: pointer;}
+.qeditor .toolbar a:hover {color: #444;}
+.qeditor .toolbar a.seperator {border-left: 1px solid #ccc; width: 0; height: 24px; margin: 8px 4px;}
+.qeditor .toolbar a.right {float: right;}
+.qeditor .toolbar a i {line-height: 32px;}
+.qeditor .toolbar h4 {float: left; width: 80px; font-size: 15px; line-height: 40px; font-weight: normal; padding: 0 12px;}
+.qeditor.readonly .preview {max-height: none;}
+.qeditor.readonly .toolbar {display: none;}
+.qeditor.readonly .editor {display: none;}
+
+.qeditor .toolbar {height: 40px; background: #f5f5f5;}
+.qeditor .toolbar a {display: block; width: 20px; height: 32px; line-height: 26px; margin: 4px 6px; font-size: 18px; text-align: center; color: #818b95; transition: color 0.2s; float: left; cursor: pointer;}
+.qeditor .toolbar a:hover {color: #444;}
+.qeditor .toolbar a.seperator {border-left: 1px solid #ccc; width: 0; height: 24px; margin: 8px 4px;}
+.qeditor .toolbar a.right {float: right;}
+.qeditor .toolbar a i {line-height: 32px;}
+.qeditor .toolbar h4 {float: left; width: 80px; font-size: 15px; line-height: 40px; font-weight: normal; padding: 0 12px;}

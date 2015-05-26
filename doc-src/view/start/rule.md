@@ -4,9 +4,21 @@
 
 - Regular UI中的组件分为两类，**元件（Unit）** 和 **模块（Module）**。
 
+### HTML规范
+
+```
+<ul><li></li><li></li><li></li></ul>
+```
+
 ### CSS规范
 
 Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com/standard/css-sort.html)。
+
+##### 强调
+
+- HTML模板只用于表现组件的结构，因此不在模板标签中使用`f-`功能等样式，而用`@extend`方式在CSS中继承。
+
+  如用：`<div class="m-pager">` + `.m-pager {@extend .f-wsn}`，而不用：`<div class="m-pager f-wsn">`
 
 ##### 补充
 

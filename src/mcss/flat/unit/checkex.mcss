@@ -1,6 +1,5 @@
 // Name:            CheckEx
 // Description:     多选按钮
-// Version:         0.0.1
 // Author:          sensen(rainforest92@126.com)
 // Require:         core/unit/checkex
 // ========================================================================
@@ -32,7 +31,7 @@ $u-checkex_box_size = 20px;
         $border-radius: $border-radius-base;
         $transition: background .25s linear, color .25s linear, border .25s linear;
 
-        .f-icon {
+        .u-icon {
             font-size: 14px;
         }
     }

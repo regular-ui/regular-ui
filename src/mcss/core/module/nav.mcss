@@ -1,43 +1,28 @@
-/* m-nav */
+// Name:            Nav
+// Description:     导航
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-nav`
+// ========================================================================
+
 .m-nav {
-    background: $m-nav_background-color;
+    @extend .f-lsn;
     $clearfix();
-    >ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        color: white;
 
-        >li {
-            min-width: 100px;
-            float: left;
-            >a {
-                display: block;
-                height: $m-nav_height;
-                line-height: $m-nav_height;
-                text-align: center;
-                color: white;
-                font-size: 14px;
-                transition: background 0.3s;
-                text-decoration: none;
-            }
-        }
+    > li {
+        float: left;
 
-        >li:hover {
-            >a {
-                background: $m-nav-hover_background-color;
-            }
-        }
-
-        >li.z-crt>a {
-            background: $m-nav-current_background-color;
+        > a, > span {
+            display: block;
+            text-decoration: none;
+            text-align: center;
         }
     }
-    
-    //>ul>li {position: relative; float: left; width: 100px;}
-    
-    //>ul>li>ul {display: none; position: absolute; z-index: 1; width: 120px;}
-    //>ul>li>ul>li>a {height: 40px; line-height: 40px;}
-    //>ul>li:hover>ul {display: block;}
 
+    > li:hover {}
+
+    > li.z-crt {}
 }

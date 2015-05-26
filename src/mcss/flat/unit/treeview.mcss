@@ -20,7 +20,7 @@
     $border-radius: $border-radius-lg;
 
     .treeview_item {
-        > .f-icon {
+        > .u-icon {
             padding: 5px 0;
         }
     }
