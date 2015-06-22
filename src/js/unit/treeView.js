@@ -61,6 +61,9 @@ var TreeView = SourceComponent.extend({
         this.$emit('select', {
             selected: item
         });
+    },
+    dragItem: function(ev){
+        this.dragInfo = ev;
     }
 });
 

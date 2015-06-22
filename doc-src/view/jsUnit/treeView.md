@@ -149,3 +149,8 @@ var treeView = new TreeView({
     }
 }).$inject('#j-example5');
 ```
+
+
+#### 拖拽
+
+<div id="j-example6"></div>

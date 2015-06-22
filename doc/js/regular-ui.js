@@ -8784,7 +8784,7 @@ var TreeSelect = SelectEx.extend({
 
 module.exports = TreeSelect;
 },{"../base/util.js":33,"./selectEx.js":75,"./treeSelect.html":81,"./treeView.js":84}],83:[function(require,module,exports){
-module.exports="<div class=\"u-treeview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    <treeViewList source={source} visible={true} /></div>"
+module.exports="<div class=\"u-treeview {@(class)}\" r-class={ {\'z-dis\': disabled} } dragarea  >    <treeViewList source={source} visible={true} on-dragitem = {this.dragItem($event)} /></div>"
 },{}],84:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -8849,6 +8849,9 @@ var TreeView = SourceComponent.extend({
         this.$emit('select', {
             selected: item
         });
+    },
+    dragItem: function(ev){
+        this.dragInfo = ev;
     }
 });
 
@@ -8943,5 +8946,5 @@ var TreeViewList = SourceComponent.extend({
 
 module.exports = TreeView;
 },{"../base/sourceComponent.js":32,"../base/util.js":33,"./treeView.html":83,"./treeViewList.html":85}],85:[function(require,module,exports){
-module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
+module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible} >    {#list source as item}    <li dragitem={item}>        <div class=\"treeview_item u-treeitem\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList on-dragitem=\'dragitem\' source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul><!-- <ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul> -->"
 },{}]},{},[1]);

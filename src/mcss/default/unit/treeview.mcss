@@ -13,23 +13,28 @@
 // Component:       `u-treeview`
 // ========================================================================
 
+.u-treeitem {
+    padding: 0 4px;
+    &:hover{
+        background: $formctrl_item-hover_background;
+        color: $formctrl_item-hover_color;
+    }
+    &.z-sel{
+        background: $formctrl_item-selected_background;
+        color: $formctrl_item-selected_color;
+    }
+    &.z-drag{
+        pointer-events:none;
+    }
+}
+
+
 .u-treeview {
     background: $formctrl_background;
     color: $formctrl_color;
     $border: $formctrl_border;
-
-    .treeview_itemname {
-        padding: 0 4px;
-    }
-
-    .treeview_itemname:hover {
-        background: $formctrl_item-hover_background;
-        color: $formctrl_item-hover_color;
-    }
-
-    .treeview_itemname.z-sel {
-        background: $formctrl_item-selected_background;
-        color: $formctrl_item-selected_color;
+    .treeview_item{
+        @extend u-treeitem
     }
 }
 
@@ -40,4 +45,11 @@
         background: none;
         color: $formctrl-disabled_color;
     }
+}
+
+.u-tplaceholder{
+    box-sizing: border-box;
+    border: 2px dotted #ccc;
+    background-color: rgba(133,133,133, 0.5);
+    position: relative;
 }
