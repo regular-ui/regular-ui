@@ -4,8 +4,6 @@
 // Require:         core/module/nav
 // ========================================================================
 
-
-
 @import "../../core/module/nav.mcss";
 
 // Component:       `m-nav`

@@ -15,25 +15,7 @@
     // - Block element behavior.
     width: 100%;
 
-    caption {
-        color: $m-table_caption_color;
-        font-size: $m-table_caption_font-size;
-    }
+    caption {}
 
-    th, td {
-        padding: $m-table_tx_padding;
-        $border: $m-table_tx_border;
-    }
-}
-
-// Extends:         `m-table-striped`, `m-table-hover`
-// Description:     尺寸和颜色扩展函数
-// ========================================================================
-// 
-.m-table-striped {
-    tbody tr:nth-of-type(odd) {background: $m-table-striped_tr-background;}
-}
-
-.m-table-hover {
-    tbody tr:hover {background: $m-table_tr_hover-background;}
+    th, td {}
 }

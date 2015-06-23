@@ -50,6 +50,7 @@ RGUI.TreeSelect = require('./unit/treeSelect.js');
 RGUI.Calendar = require('./unit/calendar.js');
 RGUI.DatePicker = require('./unit/datePicker.js');
 RGUI.TimePicker = require('./unit/timePicker.js');
+RGUI.DateTimePicker = require('./unit/dateTimePicker.js');
 
 /**
  * jsModule
@@ -67,7 +68,7 @@ RGUI.Editor = require('./module/editor.js');
 RGUI.MarkEditor = require('./module/markEditor.js');
 
 module.exports = window.RGUI = RGUI;
-},{"./base/component.js":29,"./base/request.js":31,"./base/util.js":33,"./module/editor.js":35,"./module/markEditor.js":37,"./module/modal.js":39,"./module/pager.js":41,"./module/tab.js":43,"./module/tabHead.js":45,"./unit/calendar.js":47,"./unit/checkEx.js":49,"./unit/checkExGroup.js":51,"./unit/checkGroup.js":53,"./unit/datePicker.js":55,"./unit/dropDown.js":57,"./unit/gridView.js":59,"./unit/inputEx.js":61,"./unit/listBox.js":63,"./unit/listView.js":65,"./unit/notify.js":67,"./unit/progress.js":69,"./unit/radioExGroup.js":71,"./unit/radioGroup.js":73,"./unit/selectEx.js":75,"./unit/suggest.js":77,"./unit/tableView.js":79,"./unit/timePicker.js":80,"./unit/treeSelect.js":82,"./unit/treeView.js":84,"regularjs":21}],2:[function(require,module,exports){
+},{"./base/component.js":29,"./base/request.js":31,"./base/util.js":33,"./module/editor.js":35,"./module/markEditor.js":37,"./module/modal.js":39,"./module/pager.js":41,"./module/tab.js":43,"./module/tabHead.js":45,"./unit/calendar.js":47,"./unit/checkEx.js":49,"./unit/checkExGroup.js":51,"./unit/checkGroup.js":53,"./unit/datePicker.js":55,"./unit/dateTimePicker.js":57,"./unit/dropDown.js":59,"./unit/gridView.js":61,"./unit/inputEx.js":63,"./unit/listBox.js":65,"./unit/listView.js":67,"./unit/notify.js":69,"./unit/progress.js":71,"./unit/radioExGroup.js":73,"./unit/radioGroup.js":75,"./unit/selectEx.js":77,"./unit/suggest.js":79,"./unit/tableView.js":81,"./unit/timePicker.js":82,"./unit/treeSelect.js":84,"./unit/treeView.js":86,"regularjs":21}],2:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -7295,31 +7296,26 @@ var Pager = Component.extend({
 
 module.exports = Pager;
 },{"../base/component.js":29,"../base/util.js":33,"./pager.html":40}],42:[function(require,module,exports){
-module.exports="<div class=\"m-tab\">    <tabHead source={tabs} selected={selected} />     <div class=\"tab-bd\">        <r-content />    </div></div>"
+module.exports="<div class=\"m-tab {@(class)}\">    <ul class=\"tab_hd\">        {#list source as item}        <li r-class={ {\'z-crt\': item == selected, \'z-dis\': item.disabled} } on-click={this.select(item)}>{item.name}</li>        {/list}    </ul>    <div class=\"tab_bd\">        <r-content />    </div></div>"
 },{}],43:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
- * Tab  选择扩展
+ * Tab       选项卡
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
+'use strict';
+
 var Component = require('../base/component.js');
 var template = require('./tab.html');
 var _ = require('../base/util.js');
-var TabHead = require('./tabHead.js');
 
 /**
  * @class Tab
- * @extend Component
- * @param {object}                      options.data 绑定属性
- * @param {object[]=[]}                 options.data.source 数据源
- * @param {number}                      options.data.source[].id 每项的id
- * @param {string}                      options.data.source[].name 每项的内容
- * @param {object=null}                 options.data.selected 当前选择项
- * @param {string='请选择'}             options.data.placeholder 默认项
- * @param {boolean=false}               options.data.open 当前为展开状态还是收起状态
- * @param {boolean=false}               options.data.disabled 是否禁用该组件
+ * @extend SourceComponent
+ * @param {object}                  options.data                    绑定属性
+ * @param {string=''}               options.data.class              补充class
  */
 var Tab = Component.extend({
     name: 'tab',
@@ -7329,7 +7325,7 @@ var Tab = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
-            tabs: [],
+            source: [],
             selected: null
         });
         this.supr();
@@ -7341,8 +7337,10 @@ var Tab = Component.extend({
      * @return {void}
      */
     select: function(item) {
-        this.$update('selected', item);
-        //this.data.selected = item;
+        if(item.disabled)
+            return;
+
+        this.data.selected = item;
         /**
          * @event select 选择某一项时触发
          * @property {object} selected 当前选择项
@@ -7355,19 +7353,28 @@ var Tab = Component.extend({
 
 var TabPane = Component.extend({
     name: 'tabPane',
-    data: { selected: false },
-    template: '<div r-hide={this.$outer.data.selected != this}><r-content></div>',
+    template: '<div r-hide={this.$outer.data.selected.tab != this}><r-content></div>',
+    /**
+     * @protected
+     */
     config: function() { 
-
         if(this.$outer) {
-            var tabs = this.$outer.data.tabs;
-            tabs.push(this);
+            var source = this.$outer.data.source;
+            var item = {
+                name: this.data.name,
+                disabled: this.data.disabled,
+                tab: this
+            };
+            source.push(item);
+
+            if(!this.$outer.data.selected)
+                this.$outer.data.selected = item;
         }
     }
 });
 
 module.exports = Tab;
-},{"../base/component.js":29,"../base/util.js":33,"./tab.html":42,"./tabHead.js":45}],44:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./tab.html":42}],44:[function(require,module,exports){
 module.exports="<div class=\"m-tab\">    <div class=\"tab-hd\">        <ul class=\"f-cb\">            {#list source as item}            <li r-class={ {\'z-crt\': item == selected} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
 },{}],45:[function(require,module,exports){
 /**
@@ -7431,7 +7438,7 @@ var TabHead = Component.extend({
 
 module.exports = TabHead;
 },{"../base/component.js":29,"../base/util.js":33,"./tabHead.html":44}],46:[function(require,module,exports){
-module.exports="<div class=\"u-calendar\" r-class={ {\'z-dis\': disabled} }>    <div class=\"calendar_hd f-cb\">        <span class=\"f-fl\">            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>        </span>        <span>{selected | format: \'yyyy\'}-{selected | format: \'MM\'}</span>        <span class=\"f-fr\">            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>        </span>    </div>    <div class=\"calendar_bd\">        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
+module.exports="<div class=\"u-calendar\" r-class={ {\'z-dis\': disabled} }>    <div class=\"calendar_hd\">        <span class=\"calendar_prev\">            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>        </span>        <span>{selected | format: \'yyyy\'}-{selected | format: \'MM\'}</span>        <span class=\"calendar_next\">            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>        </span>    </div>    <div class=\"calendar_bd\">        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
 },{}],47:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -7563,7 +7570,16 @@ var Calendar = Component.extend({
         });
     },
     back: function() {
-        this.data.selected = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
+        var date = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
+        this.data.selected = date;
+
+        /**
+         * @event change 改变日期时触发
+         * @property {object} selected 当前选择的日期
+         */
+        // this.$emit('change', {
+        //     selected: date
+        // });
         this.update();
     }
 });
@@ -7733,7 +7749,7 @@ var CheckGroup = SourceComponent.extend({
 
 module.exports = CheckGroup;
 },{"../base/sourceComponent.js":32,"../base/util.js":33,"./checkEx.js":49,"./checkGroup.html":52}],54:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" {#if disabled}disabled{/if}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <calendar on-select={this.select($event.selected)} />    </div></div>"
+module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <calendar on-select={this.select($event.selected)} on-change={this.change($event.selected)} />    </div></div>"
 },{}],55:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -7745,6 +7761,7 @@ module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class=
 var Suggest = require('./suggest.js');
 var template = require('./datePicker.html');
 var _ = require('../base/util.js');
+
 var filter = require('../base/filter.js');
 var Calendar = require('./calendar.js');
 
@@ -7752,9 +7769,6 @@ var Calendar = require('./calendar.js');
  * @class Suggest
  * @extend DropDown
  * @param {object}                  options.data                    绑定属性
- * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
- * @param {string}                  options.data.source[].name      每项的内容
  * @param {object=null}             options.data.selected           当前选择的日期
  * @param {string=''}               options.data.value              文本框中的值
  * @param {string='请输入'}         options.data.placeholder        文本框默认文字
@@ -7762,7 +7776,7 @@ var Calendar = require('./calendar.js');
  * @param {string=''}               options.data.class              补充class
  */
 var DatePicker = Suggest.extend({
-    name: 'datepicker',
+    name: 'datePicker',
     template: template,
     config: function() {
         _.extend(this.data, {
@@ -7774,15 +7788,17 @@ var DatePicker = Suggest.extend({
             // @inherited minLength: 0,
             // @inherited delay: 300,
             // @inherited matchType: 'all',
-            // @inherited strict: false
+            // @inherited strict: false,
+            readonly: true,
             // @inherited disabled: false,
         });
         this.supr();
     },
-    select: function(item) {
-        this.$update('selected', item);
+    change: function(item) {
         this.data.value = filter.format(item, 'yyyy-MM-dd');
-        //this.data.selected = item;
+        this.data.selected = item;
+    },
+    select: function(item) {
         /**
          * @event select 选择某一项时触发
          * @property {object} selected 当前选择项
@@ -7812,9 +7828,82 @@ var DatePicker = Suggest.extend({
 });
 
 module.exports = DatePicker;
-},{"../base/filter.js":30,"../base/util.js":33,"./calendar.js":47,"./datePicker.html":54,"./suggest.js":77}],56:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <a class=\"u-btn u-btn-primary\" on-click={this.toggle(!open)}>下拉菜单 <i class=\"u-icon u-icon-caret-down\"></i></a>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#list source as item}                <li on-click={this.toggle(!open)}><a href=\"#\">{item.name}</a></li>            {/list}        </ul>    </div></div>"
+},{"../base/filter.js":30,"../base/util.js":33,"./calendar.js":47,"./datePicker.html":54,"./suggest.js":79}],56:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-suggest u-dropdown-datetimepicker {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <calendar on-select={this.select($event.selected)} on-change={this.change($event.selected)} />        <listBox source={source} on-select={this.selectTime($event.selected)} selected={selectedTime} />    </div></div>"
 },{}],57:[function(require,module,exports){
+var DatePicker = require('./datePicker.js');
+var template = require('./dateTimePicker.html');
+var _ = require('../base/util.js');
+
+var filter = require('../base/filter.js');
+
+var DateTimePicker = DatePicker.extend({
+    name: 'dateTimePicker',
+    template: template,
+    config: function() {
+        var source = [];
+        for(var i = 0; i < 10; i++) {
+            source.push({name: '0' + i + ':00'});
+            source.push({name: '0' + i + ':30'});
+        }
+        for(var i = 10; i < 24; i++) {
+            source.push({name: i + ':00'});
+            source.push({name: i + ':30'});
+        }
+        
+        _.extend(this.data, {
+            source: source,
+            // @inherited source: [],
+            // @inherited open: false,
+            // @inherited selected: null,
+            // @inherited value: '',
+            // @inherited placeholder: '请输入',
+            // @inherited minLength: 0,
+            // @inherited delay: 300,
+            matchType: 'start',
+            // @inherited strict: false,
+            readonly: true,
+            // @inherited disabled: false,
+            selectedTime: source[0]
+        });
+        this.supr();
+    },
+    change: function(item) {
+        var time = this.data.selectedTime;
+        time = time.name.split(':');
+
+        item.setHours(time[0]);
+        item.setMinutes(time[1]);
+
+        this.data.selected = item;
+        this.data.value = filter.format(item, 'yyyy-MM-dd HH:mm');
+    },
+    select: function(item) {
+        /**
+         * @event select 选择某一项时触发
+         * @property {object} selected 当前选择项
+         */
+        this.$emit('select', {
+            selected: item
+        });
+        this.toggle(false);
+    },
+    selectTime: function(time) {
+        var item = this.data.selected || new Date();
+        // this.data.selectedTime = time;
+        time = time.name.split(':');
+
+        item.setHours(time[0]);
+        item.setMinutes(time[1]);
+
+        this.data.value = filter.format(item, 'yyyy-MM-dd HH:mm');
+    }
+});
+
+module.exports = DateTimePicker;
+},{"../base/filter.js":30,"../base/util.js":33,"./datePicker.js":55,"./dateTimePicker.html":56}],58:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <a class=\"u-btn u-btn-primary\" on-click={this.toggle(!open)}>下拉菜单 <i class=\"u-icon u-icon-caret-down\"></i></a>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#list source as item}                <li on-click={this.toggle(!open)}><a href=\"#\">{item.name}</a></li>            {/list}        </ul>    </div></div>"
+},{}],59:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * DropDown  下拉菜单
@@ -7892,9 +7981,9 @@ _.dom.on(document.body, 'click', function(e) {
 });
 
 module.exports = DropDown;
-},{"../base/sourceComponent.js":32,"../base/util.js":33,"./dropDown.html":56}],58:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./dropDown.html":58}],60:[function(require,module,exports){
 module.exports="<div class=\"u-gridview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <div class=\"gridview_item\" r-class={ {\'z-sel\': selected === item} }>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>    {/list}</div>"
-},{}],59:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * GridView  网格视图
@@ -7933,9 +8022,9 @@ var GridView = SourceComponent.extend({
 });
 
 module.exports = GridView;
-},{"../base/sourceComponent.js":32,"../base/util.js":33,"./gridView.html":58}],60:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./gridView.html":60}],62:[function(require,module,exports){
 module.exports="<label class=\"u-inputex {@(class)}\">    <input class=\"u-input\">    <span class=\"u-unit\">{unit}</span></label>"
-},{}],61:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * InputEx   输入扩展
@@ -7992,9 +8081,9 @@ var InputEx = Component.extend({
 });
 
 module.exports = InputEx;
-},{"../base/component.js":29,"../base/util.js":33,"./inputEx.html":60}],62:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./inputEx.html":62}],64:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
-},{}],63:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListBox   列表框
@@ -8056,9 +8145,9 @@ var ListBox = SourceComponent.extend({
 });
 
 module.exports = ListBox;
-},{"../base/sourceComponent.js":32,"../base/util.js":33,"./listBox.html":62}],64:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./listBox.html":64}],66:[function(require,module,exports){
 module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>    {/list}</ul>"
-},{}],65:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * ListView  列表视图
@@ -8100,9 +8189,9 @@ var ListView = ListBox.extend({
 });
 
 module.exports = ListView;
-},{"../base/util.js":33,"./listBox.js":63,"./listView.html":64}],66:[function(require,module,exports){
-module.exports="<div class=\"m-notify m-notify-{@(position)} {@(class)}\">    {#list messages as message}    <div class=\"notify_message notify_message-{@(message.type)} f-cb\" r-animation=\'on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\'>        <a class=\"notify_close f-fr\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>        <div class=\"notify_text f-fl\"><i class=\"u-icon u-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i> {@(message.text)}</div>    </div>    {/list}</div>"
-},{}],67:[function(require,module,exports){
+},{"../base/util.js":33,"./listBox.js":65,"./listView.html":66}],68:[function(require,module,exports){
+module.exports="<div class=\"m-notify m-notify-{@(position)} {@(class)}\">    {#list messages as message}    <div class=\"notify_message notify_message-{@(message.type)}\" r-animation=\'on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\'>        <a class=\"notify_close\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>        <div class=\"notify_text\"><i class=\"u-icon u-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i> {@(message.text)}</div>    </div>    {/list}</div>"
+},{}],69:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Notify    通知
@@ -8241,9 +8330,9 @@ Notify.closeAll = function() {
 }
 
 module.exports = Notify;
-},{"../base/component.js":29,"../base/util.js":33,"./notify.html":66}],68:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./notify.html":68}],70:[function(require,module,exports){
 module.exports="<div class=\"u-progress u-progress-{@(size)} u-progress-{@(type)} {@(class)}\" r-class={ {\'u-progress-striped\': striped, \'z-act\': active} }>    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + \'%\' : text) : \'\'}</div></div>"
-},{}],69:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Progress  进度条
@@ -8289,9 +8378,9 @@ var Progress = Component.extend({
 });
 
 module.exports = Progress;
-},{"../base/component.js":29,"../base/util.js":33,"./progress.html":68}],70:[function(require,module,exports){
+},{"../base/component.js":29,"../base/util.js":33,"./progress.html":70}],72:[function(require,module,exports){
 module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"u-icon u-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
-},{}],71:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioExGroup 输入扩展
@@ -8323,9 +8412,9 @@ var RadioExGroup = RadioGroup.extend({
 });
 
 module.exports = RadioExGroup;
-},{"../base/util.js":33,"./radioExGroup.html":70,"./radioGroup.js":73}],72:[function(require,module,exports){
+},{"../base/util.js":33,"./radioExGroup.html":72,"./radioGroup.js":75}],74:[function(require,module,exports){
 module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
-},{}],73:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * RadioGroup 单选组
@@ -8388,9 +8477,9 @@ var RadioGroup = SourceComponent.extend({
 });
 
 module.exports = RadioGroup;
-},{"../base/sourceComponent.js":32,"../base/util.js":33,"./radioGroup.html":72}],74:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"u-icon u-icon-caret-down f-fr\"></i>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
-},{}],75:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./radioGroup.html":74}],76:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>        <span>{selected ? selected.name : placeholder}</span>        <i class=\"u-icon u-icon-caret-down\"></i>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">            {#if placeholder}<li r-class={ {\'z-sel\': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}            {#list source as item}                <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>            {/list}        </ul>    </div></div>"
+},{}],77:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * SelectEx  选择扩展
@@ -8454,9 +8543,9 @@ var SelectEx = DropDown.extend({
 });
 
 module.exports = SelectEx;
-},{"../base/util.js":33,"./dropDown.js":57,"./selectEx.html":74}],76:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
-},{}],77:[function(require,module,exports){
+},{"../base/util.js":33,"./dropDown.js":59,"./selectEx.html":76}],78:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <ul class=\"u-listbox\">        {#list source as item}            {#if this.filter(item)}                <li on-click={this.select(item)}>{item.name}</li>            {/if}        {/list}        </ul>    </div></div>"
+},{}],79:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * Suggest   自动提示
@@ -8484,6 +8573,7 @@ var ListBox = require('./listBox.js');
  * @param {number=0}                options.data.minLength          最小提示长度。当输入长度>=该值后开始提示
  * @param {string='all'}            options.data.matchType          匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
+ * @param {boolean=false}           options.data.readonly           文本框是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  * @param {string=''}               options.data.class              补充class
  * @param {object}                  options.service                 数据服务
@@ -8504,7 +8594,8 @@ var Suggest = DropDown.extend({
             minLength: 0,
             delay: 300,
             matchType: 'all',
-            strict: false
+            strict: false,
+            readonly: false,
             // @inherited disabled: false,
         });
         this.supr();
@@ -8603,9 +8694,9 @@ _.dom.on(window.document, 'click', function(e) {
 });
 
 module.exports = Suggest;
-},{"../base/util.js":33,"./dropDown.js":57,"./listBox.js":63,"./suggest.html":76}],78:[function(require,module,exports){
+},{"../base/util.js":33,"./dropDown.js":59,"./listBox.js":65,"./suggest.html":78}],80:[function(require,module,exports){
 module.exports="<table class=\"m-table m-tableview {@(class)}\" r-class={ {\'m-table-striped\': striped, \'m-table-hover\': hover} }>    <thead>        <tr>            {#list fields as field}            <th r-class={ {\'tableview_sortable\': field.sortable} } on-click={this.sort(field)}>                {field.name || field.key}                {#if field.sortable}                    <i class=\"u-icon {order.by === field.key ? (order.desc ? \'u-icon-sort-desc\' : \'u-icon-sort-asc\') : \'u-icon-sort\'}\"></i>                {/if}            </th>            {/list}        </tr>    </thead>    <tbody>        {#list source as item}        <tr>            {#list fields as field}            <td>{item[field.key]}</td>            {/list}        </tr>        {/list}    </tbody></table>"
-},{}],79:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TableView 表格视图
@@ -8694,24 +8785,12 @@ var TableView = SourceComponent.extend({
 });
 
 module.exports = TableView;
-},{"../base/sourceComponent.js":32,"../base/util.js":33,"./tableView.html":78}],80:[function(require,module,exports){
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @author   zhaoyusen(rainforest92@126.com)
- * --------------------------------------------
- * @class Suggest
- * @extend Component
- * @param {Object} options
- *     options.value             
- *              
- */
-
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./tableView.html":80}],82:[function(require,module,exports){
 var Suggest = require('./suggest.js');
 var _ = require('../base/util.js');
 
 var TimePicker = Suggest.extend({
-    name: 'timepicker',
+    name: 'timePicker',
     config: function() {
         var source = [];
         for(var i = 0; i < 10; i++) {
@@ -8724,7 +8803,6 @@ var TimePicker = Suggest.extend({
         }
         _.extend(this.data, {
             source: source,
-            minLength: 2,
             matchType: 'start'
             // @override selected: null,
             // @override placeholder: '请选择',
@@ -8737,9 +8815,9 @@ var TimePicker = Suggest.extend({
 });
 
 module.exports = TimePicker;
-},{"../base/util.js":33,"./suggest.js":77}],81:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd f-cb\" on-click={this.toggle(!open)}>        <i class=\"u-icon u-icon-caret-down f-fr\"></i>        <span>{selected ? selected.name : placeholder}</span>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
-},{}],82:[function(require,module,exports){
+},{"../base/util.js":33,"./suggest.js":79}],83:[function(require,module,exports){
+module.exports="<div class=\"u-dropdown u-dropdown-selectex {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>        <i class=\"u-icon u-icon-caret-down\"></i>        <span>{selected ? selected.name : placeholder}</span>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <treeView source={source} on-select={this.select($event.selected)} />    </div></div>"
+},{}],84:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TreeSelect 树型选择
@@ -8783,9 +8861,9 @@ var TreeSelect = SelectEx.extend({
 });
 
 module.exports = TreeSelect;
-},{"../base/util.js":33,"./selectEx.js":75,"./treeSelect.html":81,"./treeView.js":84}],83:[function(require,module,exports){
+},{"../base/util.js":33,"./selectEx.js":77,"./treeSelect.html":83,"./treeView.js":86}],85:[function(require,module,exports){
 module.exports="<div class=\"u-treeview {@(class)}\" r-class={ {\'z-dis\': disabled} }>    <treeViewList source={source} visible={true} /></div>"
-},{}],84:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
  * TreeView  树型视图
@@ -8855,6 +8933,9 @@ var TreeView = SourceComponent.extend({
 var TreeViewList = SourceComponent.extend({
     name: 'treeViewList',
     template: hierarchicalTemplate,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
             // @inherited source: [],
@@ -8942,6 +9023,6 @@ var TreeViewList = SourceComponent.extend({
 });
 
 module.exports = TreeView;
-},{"../base/sourceComponent.js":32,"../base/util.js":33,"./treeView.html":83,"./treeViewList.html":85}],85:[function(require,module,exports){
+},{"../base/sourceComponent.js":32,"../base/util.js":33,"./treeView.html":85,"./treeViewList.html":87}],87:[function(require,module,exports){
 module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
 },{}]},{},[1]);

@@ -4,11 +4,7 @@
 // Require:         core/unit/listbox
 // ========================================================================
 
-
-
 @import "../../core/unit/listbox.mcss";
-
-
 
 // Component:       `u-listbox`
 // ========================================================================
@@ -16,6 +12,7 @@
 .u-listbox {
     background: $formctrl_background;
     color: $formctrl_color;
+    padding-top: 1px;
 
     > li {
         padding: 10px 15px;

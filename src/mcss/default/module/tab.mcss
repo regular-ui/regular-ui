@@ -1,0 +1,145 @@
+// Name:            Tab
+// Description:     选项卡
+// Author:          sensen(rainforest92@126.com)
+// Require:         core/module/tab
+// ========================================================================
+
+@import "../../core/module/tab.mcss";
+
+// Variables:
+// ========================================================================
+
+$m-tab_hd_li_border-width = 1px;
+$m-tab_hd_li_margin = 5px;
+$m-tab_hd_li_padding-horizontal = 12px;
+$m-tab-vertical_hd_li_width = 120px;
+
+
+
+// Component:       `m-tab`
+// ========================================================================
+
+.m-tab {
+    .tab_hd {
+        > li {
+            padding: 0 $m-tab_hd_li_padding-horizontal;
+            $line-height: 36px;
+            border: $m-tab_hd_li_border-width solid transparent;
+            border-bottom-width: 0;
+            color: $brand-primary;
+            margin-bottom: -$m-tab_hd_li_border-width;
+        }
+
+        > li + li {
+            margin-left: $m-tab_hd_li_margin;
+        }
+        
+        > li:hover,    // - Apply hover style also to focus state
+        > li:focus {
+            background: #f5f5f5;
+            color: l-adjust($brand-primary, -10%);
+            border-color: #f5f5f5;
+        }
+
+        > li.z-crt {
+            background: white;
+            color: #444;
+            border-color: #ddd;
+            padding-bottom: $m-tab_hd_li_border-width;
+        }
+
+        > li.z-dis {
+            color: #999;
+            background: none;
+            border-color: transparent;
+        }
+    }
+
+    .tab_bd {
+        border: $m-tab_hd_li_border-width solid #ddd;
+        padding: 20px;
+    }
+}
+
+
+
+// Extends:         `m-tab-center`
+// ========================================================================
+
+.m-tab-center {
+    .tab_hd {
+        position: relative;
+        float: left;
+        left: 50%;
+
+        > li {
+            position: relative;
+            left: -50%;
+        }
+    }
+}
+
+.m-tab-left {
+    position: relative;
+
+    .tab_hd {
+        position: absolute;
+        left: 0;
+        width: $m-tab-vertical_hd_li_width;
+
+        > li {
+            float: none;
+            border: $m-tab_hd_li_border-width solid transparent;
+            border-right-width: 0;
+            margin-bottom: 0;
+        }
+
+        > li + li {
+            margin-left: 0;
+            margin-top: $m-tab_hd_li_margin;
+        }
+
+        > li.z-crt {
+            padding-bottom: 0;
+            margin-right: -$m-tab_hd_li_border-width;
+        }
+    }
+
+    .tab_bd {
+        margin-left: $m-tab-vertical_hd_li_width;
+        min-height: 200px;
+    }
+}
+
+.m-tab-right {
+    position: relative;
+
+    .tab_hd {
+        position: absolute;
+        right: 0;
+        width: $m-tab-vertical_hd_li_width;
+
+        > li {
+            float: none;
+            border: $m-tab_hd_li_border-width solid transparent;
+            border-left-width: 0;
+            margin-bottom: 0;
+        }
+
+        > li + li {
+            margin-left: 0;
+            margin-top: $m-tab_hd_li_margin;
+        }
+
+        > li.z-crt {
+            padding-bottom: 0;
+            padding-left: $m-tab_hd_li_padding-horizontal + 1px;
+            margin-left: -$m-tab_hd_li_border-width;
+        }
+    }
+
+    .tab_bd {
+        margin-right: $m-tab-vertical_hd_li_width;
+        min-height: 200px;
+    }
+}

@@ -9,9 +9,7 @@
 // ========================================================================
 
 .m-crumb {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    @extend .f-lsn;
     $clearfix();
 
     > li {

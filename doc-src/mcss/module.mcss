@@ -160,11 +160,17 @@
 }
 
 .m-sidebar {
-    li .u-icon-success-circle {
+    > li {
+        > a, > span {
+            small {font-size: 60%; color: #999;}
+        }
+    }
+
+    > li .u-icon-success-circle {
         color: $brand-primary;
     }
 
-    li .u-icon-info-circle {
+    > li .u-icon-info-circle {
         @if($brand-warning) {color: $brand-warning;}
     }
 }

@@ -27,11 +27,17 @@ $m-notify_width = 320px;
     width: $m-notify_width;
 
     .notify_message {
+        $clearfix();
+
         .notify_close {
+            float: right;
+
             &:hover {}
         }
 
         .notify_text {
+            float: left;
+
             .u-icon {
                 font-size: 20px;
                 vertical-align: middle;

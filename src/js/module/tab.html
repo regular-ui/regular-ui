@@ -1,6 +1,10 @@
-<div class="m-tab">
-    <tabHead source={tabs} selected={selected} /> 
-    <div class="tab-bd">
+<div class="m-tab {@(class)}">
+    <ul class="tab_hd">
+        {#list source as item}
+        <li r-class={ {'z-crt': item == selected, 'z-dis': item.disabled} } on-click={this.select(item)}>{item.name}</li>
+        {/list}
+    </ul>
+    <div class="tab_bd">
         <r-content />
     </div>
 </div>

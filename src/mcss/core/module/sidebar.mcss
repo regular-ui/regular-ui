@@ -12,7 +12,7 @@
     @extend .f-lsn;
 
     > li {
-        > a {
+        > a, > span {
             display: block;
             text-decoration: none;
         }

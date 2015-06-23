@@ -4,11 +4,7 @@
 // Require:         core/unit/dropdown
 // ========================================================================
 
-
-
 @import "../../core/unit/dropdown.mcss";
-
-
 
 // Component:       `u-dropdown`
 // ========================================================================
@@ -16,6 +12,6 @@
 .u-dropdown {
     .dropdown_bd {
         // min-width: $formctrl_min-width;
-        margin-top: -1px;
+        // margin-top: -1px;
     }
 }

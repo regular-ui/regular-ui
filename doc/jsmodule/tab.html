@@ -69,15 +69,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
+        
         <li class="sidebar_group"><span>导航类</span></li>
         
-        <li><a href="../jsmodule/tabhead.html">选项卡头<small> TabHead</small>
-        
-        </a></li>
-        
-        
-        
         <li class="z-crt"><a href="../jsmodule/tab.html">选项卡<small> Tab</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
         
         </a></li>
         
@@ -129,11 +126,66 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div id="j-example1"></div>
+
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">example1</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">&lt;tab&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab1&quot;&gt;content1&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab2&quot;&gt;content2&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab3&quot; disabled={true}&gt;content3&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab4&quot;&gt;content4&lt;/tabPane&gt;</span>
+<span class="cm-comment">&lt;/tab&gt;</span>
+<span class="cm-comment">    */</span>})
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example1&#39;</span>);
+</code></pre>
+<h3 id="-">居中</h3>
+<div id="j-example2"></div>
+
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">example2</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">&lt;tab class=&quot;m-tab-center&quot;&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab1&quot;&gt;content1&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab2&quot;&gt;content2&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab3&quot; disabled={true}&gt;content3&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab4&quot;&gt;content4&lt;/tabPane&gt;</span>
+<span class="cm-comment">&lt;/tab&gt;</span>
+<span class="cm-comment">    */</span>})
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example2&#39;</span>);
+</code></pre>
+<h3 id="-">垂直居左</h3>
+<div id="j-example3"></div>
+
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">example3</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">&lt;tab class=&quot;m-tab-left&quot;&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab1&quot;&gt;content1&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab2&quot;&gt;content2&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab3&quot; disabled={true}&gt;content3&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab4&quot;&gt;content4&lt;/tabPane&gt;</span>
+<span class="cm-comment">&lt;/tab&gt;</span>
+<span class="cm-comment">    */</span>})
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example3&#39;</span>);
+</code></pre>
+<h3 id="-">垂直居右</h3>
+<div id="j-example4"></div>
+
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">example3</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">&lt;tab class=&quot;m-tab-right&quot;&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab1&quot;&gt;content1&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab2&quot;&gt;content2&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab3&quot; disabled={true}&gt;content3&lt;/tabPane&gt;</span>
+<span class="cm-comment">    &lt;tabPane name=&quot;tab4&quot;&gt;content4&lt;/tabPane&gt;</span>
+<span class="cm-comment">&lt;/tab&gt;</span>
+<span class="cm-comment">    */</span>})
+}).<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#j-example4&#39;</span>);
+</code></pre>
+
         <h3>API</h3>
 
 <h4>Class</h4>
 <h5>Tab</h5>
-<p>继承自<strong>Component</strong>。</p>
+<p>继承自<strong>SourceComponent</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -147,19 +199,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
         
-        <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].id</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>每项的id</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请选择&#39;</code></td><td>默认项</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>当前为展开状态还是收起状态</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
+        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
         
     </tbody>
 </table>
@@ -230,21 +270,61 @@ var themeSelectEx = new RGUI.SelectEx({
 var Component = RGUI.Component;
 var _ = RGUI._;
 
-var example1 = new Component({
-    template: _.multiline(function(){/*
+// 基本形式
+(function() {
+    var example1 = new Component({
+        template: _.multiline(function(){/*
 <tab>
-    <tabPane title="test1">
-        test1
-    </tabPane>
-    <tabPane title="test2">
-        test2
-    </tabPane>
-    <tabPane title="test3">
-        test3
-    </tabPane>
+    <tabPane name="tab1">content1</tabPane>
+    <tabPane name="tab2">content2</tabPane>
+    <tabPane name="tab3" disabled={true}>content3</tabPane>
+    <tabPane name="tab4">content4</tabPane>
 </tab>
-    */})
-}).$inject('#j-example1');
+        */})
+    }).$inject('#j-example1');
+})();
+
+// 居中
+(function() {
+    var example2 = new Component({
+        template: _.multiline(function(){/*
+<tab class="m-tab-center">
+    <tabPane name="tab1">content1</tabPane>
+    <tabPane name="tab2">content2</tabPane>
+    <tabPane name="tab3" disabled={true}>content3</tabPane>
+    <tabPane name="tab4">content4</tabPane>
+</tab>
+        */})
+    }).$inject('#j-example2');
+})();
+
+// 垂直居左
+(function() {
+    var example3 = new Component({
+        template: _.multiline(function(){/*
+<tab class="m-tab-left">
+    <tabPane name="tab1">content1</tabPane>
+    <tabPane name="tab2">content2</tabPane>
+    <tabPane name="tab3" disabled={true}>content3</tabPane>
+    <tabPane name="tab4">content4</tabPane>
+</tab>
+        */})
+    }).$inject('#j-example3');
+})();
+
+// 垂直居右
+(function() {
+    var example3 = new Component({
+        template: _.multiline(function(){/*
+<tab class="m-tab-right">
+    <tabPane name="tab1">content1</tabPane>
+    <tabPane name="tab2">content2</tabPane>
+    <tabPane name="tab3" disabled={true}>content3</tabPane>
+    <tabPane name="tab4">content4</tabPane>
+</tab>
+        */})
+    }).$inject('#j-example4');
+})();
 </script>
 </body>
 </html>

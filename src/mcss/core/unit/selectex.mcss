@@ -14,6 +14,14 @@
     .dropdown_hd {
         $box-sizing: border-box;
         cursor: pointer;
+
+        .u-icon {
+            float: right;
+        }
+    }
+
+    .dropdown_bd {
+        clear: both;
     }
 }
 

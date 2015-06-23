@@ -37,8 +37,7 @@
     // - Center pager by default
     text-align: center;
     // - Remove default list style
-    padding: 0;
-    list-style: none;
+    @extend .f-lsn;
     // - Remove whitespace between child elements when using `inline-block`
     // font-size: 0.001px;
     $user-select: none;

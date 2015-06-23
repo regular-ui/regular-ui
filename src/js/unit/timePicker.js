@@ -1,20 +1,8 @@
-/*
- * --------------------------------------------
- * 下拉列表UI
- * @author   zhaoyusen(rainforest92@126.com)
- * --------------------------------------------
- * @class Suggest
- * @extend Component
- * @param {Object} options
- *     options.value             
- *              
- */
-
 var Suggest = require('./suggest.js');
 var _ = require('../base/util.js');
 
 var TimePicker = Suggest.extend({
-    name: 'timepicker',
+    name: 'timePicker',
     config: function() {
         var source = [];
         for(var i = 0; i < 10; i++) {
@@ -27,7 +15,6 @@ var TimePicker = Suggest.extend({
         }
         _.extend(this.data, {
             source: source,
-            minLength: 2,
             matchType: 'start'
             // @override selected: null,
             // @override placeholder: '请选择',

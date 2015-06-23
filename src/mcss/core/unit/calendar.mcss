@@ -10,6 +10,7 @@
 
 .u-calendar {
     text-align: center;
+    $user-select: none;
 
     .calendar_item {
         display: inline-block;
@@ -22,6 +23,18 @@
 
     .calendar_item.z-dis {
         cursor: not-allowed;
+    }
+
+    .calendar_hd {
+        $clearfix();
+
+        .calendar_prev {
+            float: left;
+        }
+
+        .calendar_next {
+            float: right;
+        }
     }
 
     .calendar_bd {

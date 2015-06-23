@@ -49,6 +49,7 @@ RGUI.TreeSelect = require('./unit/treeSelect.js');
 RGUI.Calendar = require('./unit/calendar.js');
 RGUI.DatePicker = require('./unit/datePicker.js');
 RGUI.TimePicker = require('./unit/timePicker.js');
+RGUI.DateTimePicker = require('./unit/dateTimePicker.js');
 
 /**
  * jsModule

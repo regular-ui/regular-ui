@@ -67,6 +67,9 @@ var TreeView = SourceComponent.extend({
 var TreeViewList = SourceComponent.extend({
     name: 'treeViewList',
     template: hierarchicalTemplate,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
             // @inherited source: [],

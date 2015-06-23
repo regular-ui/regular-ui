@@ -8,9 +8,7 @@
 // Component:       `u-listbox`
 // ========================================================================
 .u-listbox {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    @extend .f-lsn;
     $box-sizing: border-box;
     $user-select: none;
 

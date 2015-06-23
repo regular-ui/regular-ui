@@ -32,8 +32,8 @@
             "lowerName": "cssModule",
             "alias": "CSS模块",
             "children": [
-                {"name": "Nav", "lowerName": "nav", "alias": "导航", "group": "导航类"},
-                {"name": "Sidebar", "lowerName": "sidebar", "alias": "侧边栏", "group": "导航类"},
+                {"name": "Nav", "lowerName": "nav", "alias": "导航", "group": "导航类", "complete": true},
+                {"name": "Sidebar", "lowerName": "sidebar", "alias": "侧边栏", "group": "导航类", "complete": true},
                 {"name": "Toolbar", "lowerName": "toolbar", "alias": "工具栏", "group": "导航类"},
                 {"name": "Crumb", "lowerName": "crumb", "alias": "面包屑", "group": "导航类", "complete": true},
 
@@ -42,7 +42,7 @@
                 {"name": "Avatar", "lowerName": "avatar", "alias": "头像", "group": "文章类"},
 
                 {"name": "List", "lowerName": "list", "alias": "列表", "group": "布局类"},
-                {"name": "Table", "lowerName": "table", "alias": "表格", "group": "布局类"},
+                {"name": "Table", "lowerName": "table", "alias": "表格", "group": "布局类", "complete": true},
                 {"name": "Form", "lowerName": "form", "alias": "表单", "group": "布局类"},
                 {"name": "Grid", "lowerName": "grid", "alias": "网格", "group": "布局类"}
             ]
@@ -96,8 +96,8 @@
             "alias": "JS模块",
             "children": [
                 {"name": "Menu", "lowerName": "menu", "alias": "菜单", "group": "导航类", "hidden": true},
-                {"name": "TabHead", "lowerName": "tabHead", "alias": "选项卡头", "group": "导航类"},
-                {"name": "Tab", "lowerName": "tab", "alias": "选项卡", "group": "导航类"},
+                {"name": "TabHead", "lowerName": "tabHead", "alias": "选项卡头", "group": "导航类", "hidden": true},
+                {"name": "Tab", "lowerName": "tab", "alias": "选项卡", "group": "导航类", "complete": true},
                 {"name": "Pager", "lowerName": "pager", "alias": "分页器", "group": "导航类"},
                 {"name": "Accordion", "lowerName": "accordion", "alias": "手风琴", "group": "导航类", "hidden": true},
 

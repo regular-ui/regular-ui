@@ -249,7 +249,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h2>日期时间选择<small> DateTimePicker</small></h2>
         
-        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div id="j-example1"></div>
         
     </article>
 </div>    </div>
@@ -273,7 +275,13 @@ var themeSelectEx = new RGUI.SelectEx({
 });
 </script>
 <script>
+var DateTimePicker = RGUI.DateTimePicker;
 
+var dateTimePicker = new DateTimePicker({
+    data: {
+        //source: source
+    }
+}).$inject('#j-example1');
 </script>
 </body>
 </html>

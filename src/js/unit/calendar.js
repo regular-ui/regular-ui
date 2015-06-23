@@ -128,7 +128,16 @@ var Calendar = Component.extend({
         });
     },
     back: function() {
-        this.data.selected = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
+        var date = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
+        this.data.selected = date;
+
+        /**
+         * @event change 改变日期时触发
+         * @property {object} selected 当前选择的日期
+         */
+        // this.$emit('change', {
+        //     selected: date
+        // });
         this.update();
     }
 });

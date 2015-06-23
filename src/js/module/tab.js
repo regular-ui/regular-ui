@@ -1,26 +1,21 @@
 /**
  * ------------------------------------------------------------
- * Tab  选择扩展
+ * Tab       选项卡
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
+'use strict';
+
 var Component = require('../base/component.js');
 var template = require('./tab.html');
 var _ = require('../base/util.js');
-var TabHead = require('./tabHead.js');
 
 /**
  * @class Tab
- * @extend Component
- * @param {object}                      options.data 绑定属性
- * @param {object[]=[]}                 options.data.source 数据源
- * @param {number}                      options.data.source[].id 每项的id
- * @param {string}                      options.data.source[].name 每项的内容
- * @param {object=null}                 options.data.selected 当前选择项
- * @param {string='请选择'}             options.data.placeholder 默认项
- * @param {boolean=false}               options.data.open 当前为展开状态还是收起状态
- * @param {boolean=false}               options.data.disabled 是否禁用该组件
+ * @extend SourceComponent
+ * @param {object}                  options.data                    绑定属性
+ * @param {string=''}               options.data.class              补充class
  */
 var Tab = Component.extend({
     name: 'tab',
@@ -30,7 +25,7 @@ var Tab = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
-            tabs: [],
+            source: [],
             selected: null
         });
         this.supr();
@@ -42,8 +37,10 @@ var Tab = Component.extend({
      * @return {void}
      */
     select: function(item) {
-        this.$update('selected', item);
-        //this.data.selected = item;
+        if(item.disabled)
+            return;
+
+        this.data.selected = item;
         /**
          * @event select 选择某一项时触发
          * @property {object} selected 当前选择项
@@ -56,13 +53,22 @@ var Tab = Component.extend({
 
 var TabPane = Component.extend({
     name: 'tabPane',
-    data: { selected: false },
-    template: '<div r-hide={this.$outer.data.selected != this}><r-content></div>',
+    template: '<div r-hide={this.$outer.data.selected.tab != this}><r-content></div>',
+    /**
+     * @protected
+     */
     config: function() { 
-
         if(this.$outer) {
-            var tabs = this.$outer.data.tabs;
-            tabs.push(this);
+            var source = this.$outer.data.source;
+            var item = {
+                name: this.data.name,
+                disabled: this.data.disabled,
+                tab: this
+            };
+            source.push(item);
+
+            if(!this.$outer.data.selected)
+                this.$outer.data.selected = item;
         }
     }
 });

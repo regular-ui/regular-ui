@@ -4,11 +4,7 @@
 // Require:         core/unit/selectex
 // ========================================================================
 
-
-
 @import "../../core/unit/selectex.mcss";
-
-
 
 // Extends:
 // ========================================================================
@@ -26,6 +22,14 @@
     }
 
     .dropdown_hd:hover {}
+
+    .dropdown_bd {
+        .u-listbox {
+            max-height: 200px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
 }
 
 /* Disabled */

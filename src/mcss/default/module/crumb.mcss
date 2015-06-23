@@ -4,8 +4,6 @@
 // Require:         core/module/crumb
 // ========================================================================
 
-
-
 @import "../../core/module/crumb.mcss";
 
 // Component:       `m-crumb`

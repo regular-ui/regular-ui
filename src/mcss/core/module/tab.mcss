@@ -1,59 +1,40 @@
+// Name:            Tab
+// Description:     选项卡
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-tab`
+// ========================================================================
+
 .m-tab {
-    .tab-hd {
-        height: 40px;
-        ul {
-            margin-left: 50px;
-            list-style: none;
-            li {
-                float: left;
-                background: #ddd;
-                border-radius: 8px 8px 0 0;
-                padding: 0 16px;
-                line-height: 35px;
-                margin: 5px 1px 0;
-                cursor: pointer;
-            }
+    .tab_hd {
+        @extend .f-lsn;
 
-            li.z-crt {
-                background: #56c1d1;
-                line-height: 40px;
-                margin-top: 0;
-                color: white;
-            }
-        }
-
-        .tab-prev {
+        > li {
             float: left;
-        }
-
-        .tab-next {
-            float: right;
-        }
-
-        .tab-prev, .tab-next {
-            font-size: 22px;
-            line-height: 40px;
-            height: 40px;
-            margin: 0 5px;
-            color: #999;
             cursor: pointer;
         }
 
-        .tab-prev:hover, .tab-next:hover {
-            color: #56c1d1;
+        > li + li {}
+
+        > li:hover,    // - Apply hover style also to focus state
+        > li:focus {
+            // - Remove default focus style
+            outline: none;
         }
 
-        .tab-prev.z-dis, .tab-next.z-dis {
-            color: #ccc;
-            cursor: default;
+        > li.z-crt {
+            position: relative;
+        }
+
+        > li.z-dis {
+            cursor: not-allowed;
         }
     }
 
-    .tab-bd {
+    .tab_bd {
         clear: both;
-        background: white;
-        border: 2px solid #56c1d1;
-        border-radius: 10px;
-        padding: 30px;
     }
 }

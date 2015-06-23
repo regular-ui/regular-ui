@@ -1,6 +1,6 @@
 <div class="u-dropdown u-dropdown-selectex {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
-    <div class="dropdown_hd f-cb" on-click={this.toggle(!open)}>
-        <i class="u-icon u-icon-caret-down f-fr"></i>
+    <div class="dropdown_hd" on-click={this.toggle(!open)}>
+        <i class="u-icon u-icon-caret-down"></i>
         <span>{selected ? selected.name : placeholder}</span>
     </div>
     <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">

@@ -1,17 +1,15 @@
-// Name:            Sidebar
-// Description:     侧边栏
+// Name:            Toolbar
+// Description:     工具栏
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/sidebar
+// Require:         core/module/toolbar
 // ========================================================================
 
+@import "../../core/module/toolbar.mcss";
 
-
-@import "../../core/module/sidebar.mcss";
-
-// Component:       `m-sidebar`
+// Component:       `m-toolbar`
 // ========================================================================
 
-.m-sidebar {
+.m-toolbar {
     > li {
         > a, > span {
             padding: 2px 12px;
@@ -27,11 +25,5 @@
     
     > li.z-crt {
         background: #f0f0f0;
-    }
-    
-    > li.sidebar_group {
-        background: transparent;
-        font-weight: bold;
-        font-size: 13px;
     }
 }

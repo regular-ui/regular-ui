@@ -4,8 +4,6 @@
 // Require:         core/module/editor
 // ========================================================================
 
-
-
 @import "../../core/module/editor.mcss";
 
 // Component:       `m-editor`

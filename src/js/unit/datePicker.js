@@ -8,6 +8,7 @@
 var Suggest = require('./suggest.js');
 var template = require('./datePicker.html');
 var _ = require('../base/util.js');
+
 var filter = require('../base/filter.js');
 var Calendar = require('./calendar.js');
 
@@ -15,9 +16,6 @@ var Calendar = require('./calendar.js');
  * @class Suggest
  * @extend DropDown
  * @param {object}                  options.data                    绑定属性
- * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
- * @param {string}                  options.data.source[].name      每项的内容
  * @param {object=null}             options.data.selected           当前选择的日期
  * @param {string=''}               options.data.value              文本框中的值
  * @param {string='请输入'}         options.data.placeholder        文本框默认文字
@@ -25,7 +23,7 @@ var Calendar = require('./calendar.js');
  * @param {string=''}               options.data.class              补充class
  */
 var DatePicker = Suggest.extend({
-    name: 'datepicker',
+    name: 'datePicker',
     template: template,
     config: function() {
         _.extend(this.data, {
@@ -37,15 +35,17 @@ var DatePicker = Suggest.extend({
             // @inherited minLength: 0,
             // @inherited delay: 300,
             // @inherited matchType: 'all',
-            // @inherited strict: false
+            // @inherited strict: false,
+            readonly: true,
             // @inherited disabled: false,
         });
         this.supr();
     },
-    select: function(item) {
-        this.$update('selected', item);
+    change: function(item) {
         this.data.value = filter.format(item, 'yyyy-MM-dd');
-        //this.data.selected = item;
+        this.data.selected = item;
+    },
+    select: function(item) {
         /**
          * @event select 选择某一项时触发
          * @property {object} selected 当前选择项

@@ -13,10 +13,8 @@
     $user-select: none;
 
     .treeview_list {
-        list-style: none;
-        margin: 0;
+        @extend .f-lsn;
         margin-left: 1.6em;
-        padding: 0;
     }
 
     .treeview_item {

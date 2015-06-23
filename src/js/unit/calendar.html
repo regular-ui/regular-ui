@@ -1,11 +1,11 @@
 <div class="u-calendar" r-class={ {'z-dis': disabled} }>
-    <div class="calendar_hd f-cb">
-        <span class="f-fl">
+    <div class="calendar_hd">
+        <span class="calendar_prev">
             <span class="calendar_item" on-click={this.addYear(-1)}><i class="u-icon u-icon-angle-double-left"></i></span>
             <span class="calendar_item" on-click={this.addMonth(-1)}><i class="u-icon u-icon-angle-left"></i></span>
         </span>
         <span>{selected | format: 'yyyy'}-{selected | format: 'MM'}</span>
-        <span class="f-fr">
+        <span class="calendar_next">
             <span class="calendar_item" on-click={this.addMonth(1)}><i class="u-icon u-icon-angle-right"></i></span>
             <span class="calendar_item" on-click={this.addYear(1)}><i class="u-icon u-icon-angle-double-right"></i></span>
         </span>

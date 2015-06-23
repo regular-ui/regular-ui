@@ -2,7 +2,7 @@
 
 [ ] 通知和Message的关系
 [ ] 合并Radio和Check的样式
-[ ] 合并菜单
+[v] 合并菜单
 [ ] DropDown是否应该有菜单项？itemTemplate, contentTemplate
 [ ] TableView的冗余，SourceComponent的冗余，DropDown有菜单项冗余
 [ ] Regular中怎么实现接口
@@ -11,9 +11,9 @@
 [ ] 继承类样式的关系
 [v] 减少f-系列在模板中的使用
 [ ] 修复f-系列在模板中的使用
-[ ] ul和li的格式
+[v] ul和li的格式，两种current方式和select方式
 [v] li class="z-crt"应该放在里面还是外面。放在外面，需要快速定位当前位置
-[ ] li>a, li>span的区别
+[v] li>a, li>span的区别
 [ ] modal是否要用show
 [ ] on-select和on-change事件
 [ ] selected和current，show、hide和open、close的区别
@@ -21,6 +21,7 @@
 [ ] dragdrop
 [ ] treeView的优化
 [ ] 多重suggest
+[ ] js中要不要实现补充class的内容
 
 模板是可变的，导致样式继承不清晰
 
