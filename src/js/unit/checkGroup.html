@@ -1,5 +1,5 @@
 <div class="u-unitgroup {@(class)}">
     {#list source as item}
-    <label class="u-checkex" r-class={ {'z-dis': disabled, 'u-checkex-block': block} }><input type="checkbox" class="u-check" r-model={item.checked} disabled={disabled}> {item.name}</label>
+    <label class="u-checkex" r-class={ {'z-dis': disabled, 'u-checkex-block': block} } title={item.name}><input type="checkbox" class="u-check" r-model={item.checked} disabled={disabled}> {item.name}</label>
     {/list}
 </div>

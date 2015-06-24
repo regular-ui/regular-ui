@@ -7107,7 +7107,7 @@ var MarkEditor = Component.extend({
 module.exports = MarkEditor;
 
 },{"../base/component.js":29,"../base/util.js":33,"./markEditor.html":36,"marked":2}],38:[function(require,module,exports){
-module.exports="<div class=\"m-modal {@(class)}\">    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>        <div class=\"modal_hd\">            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>            <h3 class=\"modal_title\">{title}</h3>        </div>        <div class=\"modal_bd\">            {content}        </div>        <div class=\"modal_ft\">            {#if okButton}            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? \'确定\' : okButton}</button>            {/if}            {#if cancelButton}            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? \'取消\' : cancelButton}</button>            {/if}        </div>    </div></div>"
+module.exports="<div class=\"m-modal {@(class)}\" on-keyup={this.keyup($event)}>    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>        <div class=\"modal_hd\">            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>            <h3 class=\"modal_title\">{title}</h3>        </div>        <div class=\"modal_bd\">            {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}        </div>        <div class=\"modal_ft\">            {#if okButton}            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? \'确定\' : okButton}</button>            {/if}            {#if cancelButton}            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? \'取消\' : cancelButton}</button>            {/if}        </div>    </div></div>"
 },{}],39:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -7132,8 +7132,6 @@ var _ = require('../base/util.js');
  * @param {string|boolean=false}    options.data.cancelButton       是否显示取消按钮。值为`string`时显示该段文字。
  * @param {number=null}             options.data.width              对话框宽度。值为否定时宽度为CSS设置的宽度。
  * @param {string=''}               options.data.class              补充class
- * @param {function}                options.ok                      当点击确定的时候执行
- * @param {function}                options.cancel                  当点击取消的时候执行
  */
 var Modal = Component.extend({
     name: 'modal',
@@ -7185,48 +7183,60 @@ var Modal = Component.extend({
          * @event ok 确定对话框时触发
          */
         this.$emit('ok');
+
+        this.destroy();
     },
     /**
      * @override
      */
     cancel: function() {
         /**
-         * @event close 取消对话框时触发
+         * @event cancel 取消对话框时触发
          */
         this.$emit('cancel');
+
+        this.destroy();
+    },
+    keyup: function($event) {
+        if($event.which == 13)
+            this.ok();
     }
 });
 
 /**
- * @method alert([content][,title]) 弹出一个alert对话框。关闭时始终触发确定事件。
+ * @method alert(content[,title]) 弹出一个alert对话框。关闭时始终触发确定事件。
  * @static
+ * @public
  * @param  {string=''} content 对话框内容
  * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
-Modal.alert = function(content, title) {
+Modal.alert = function(content, title, okButton) {
     var modal = new Modal({
         data: {
             content: content,
-            title: title
+            title: title,
+            okButton: okButton
         }
     });
     return modal;
 }
 
 /**
- * @method confirm([content][,title]) 弹出一个confirm对话框
+ * @method confirm(content[,title]) 弹出一个confirm对话框
  * @static
+ * @public
  * @param  {string=''} content 对话框内容
  * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
-Modal.confirm = function(content, title) {
+Modal.confirm = function(content, title, okButton, cancelButton) {
     var modal = new Modal({
         data: {
             content: content,
             title: title,
-            cancelButton: true
+            okButton: okButton,
+            cancelButton: cancelButton || true
         }
     });
     return modal;
@@ -7438,7 +7448,7 @@ var TabHead = Component.extend({
 
 module.exports = TabHead;
 },{"../base/component.js":29,"../base/util.js":33,"./tabHead.html":44}],46:[function(require,module,exports){
-module.exports="<div class=\"u-calendar\" r-class={ {\'z-dis\': disabled} }>    <div class=\"calendar_hd\">        <span class=\"calendar_prev\">            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>        </span>        <span>{selected | format: \'yyyy\'}-{selected | format: \'MM\'}</span>        <span class=\"calendar_next\">            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>        </span>    </div>    <div class=\"calendar_bd\">        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {\'z-sel\': day - selected === 0, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
+module.exports="<div class=\"u-calendar\" r-class={ {\'z-dis\': disabled} }>    <div class=\"calendar_hd\">        <span class=\"calendar_prev\">            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>        </span>        <span>{selected | format: \'yyyy\'}-{selected | format: \'MM\'}</span>        <span class=\"calendar_next\">            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>        </span>    </div>    <div class=\"calendar_bd\">        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {\'z-sel\': selected - day >= 0 && selected - day < 3600*24, \'z-dis\': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: \'dd\'}</span>{/list}</div>    </div></div>"
 },{}],47:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -7478,9 +7488,9 @@ var Calendar = Component.extend({
         //this.update();
     },
     update: function() {
-        this.data._days = [];
-        
         var selected = this.data.selected;
+        
+        this.data._days = [];
         var month = selected.getMonth();
         var mfirst = new Date(selected); mfirst.setDate(1);
         var mfirstTime = mfirst.getTime();
@@ -7586,7 +7596,7 @@ var Calendar = Component.extend({
 
 module.exports = Calendar;
 },{"../base/component.js":29,"../base/util.js":33,"./calendar.html":46}],48:[function(require,module,exports){
-module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'z-chk\': checked, \'z-part\': checked === null, \'u-checkex-block\': block} } on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"u-icon u-icon-check\"></i></div> {name}</label>"
+module.exports="<label class=\"u-checkex {@(class)}\" r-class={ {\'z-dis\': disabled, \'z-chk\': checked, \'z-part\': checked === null, \'u-checkex-block\': block} } title={name} on-click={this.check(!checked)}><div class=\"checkex_box\"><i class=\"u-icon u-icon-check\"></i></div> {name}</label>"
 },{}],49:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -7684,7 +7694,7 @@ var CheckExGroup = CheckGroup.extend({
 
 module.exports = CheckExGroup;
 },{"../base/util.js":33,"./checkEx.js":49,"./checkExGroup.html":50,"./checkGroup.js":53}],52:[function(require,module,exports){
-module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-checkex\" r-class={ {\'z-dis\': disabled, \'u-checkex-block\': block} } title={item.name}><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],53:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -7749,7 +7759,7 @@ var CheckGroup = SourceComponent.extend({
 
 module.exports = CheckGroup;
 },{"../base/sourceComponent.js":32,"../base/util.js":33,"./checkEx.js":49,"./checkGroup.html":52}],54:[function(require,module,exports){
-module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <calendar on-select={this.select($event.selected)} on-change={this.change($event.selected)} />    </div></div>"
+module.exports="<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {\'z-dis\': disabled} } ref=\"element\">    <div class=\"dropdown_hd\">        <input class=\"u-input u-input-full\" placeholder={placeholder} value={selected | format: \'yyyy-MM-dd\'} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>    </div>    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">        <calendar selected={selected} on-select={this.select($event.selected)} />    </div></div>"
 },{}],55:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -8082,7 +8092,7 @@ var InputEx = Component.extend({
 
 module.exports = InputEx;
 },{"../base/component.js":29,"../base/util.js":33,"./inputEx.html":62}],64:[function(require,module,exports){
-module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
+module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } title={item.name} on-click={this.select(item)}>{item.name}</li>    {/list}</ul>"
 },{}],65:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -8146,7 +8156,7 @@ var ListBox = SourceComponent.extend({
 
 module.exports = ListBox;
 },{"../base/sourceComponent.js":32,"../base/util.js":33,"./listBox.html":64}],66:[function(require,module,exports){
-module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>    {/list}</ul>"
+module.exports="<ul class=\"u-listbox {@(class)}\" r-class={ {\'z-dis\': disabled} }>    {#list source as item}    <li r-class={ {\'z-sel\': selected === item} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>    {/list}</ul>"
 },{}],67:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -8303,6 +8313,7 @@ Notify.notify = notify;
 /**
  * @method show(text[,type][,duration]) 弹出一个消息
  * @static
+ * @public
  * @param  {string=''} text 消息内容
  * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
  * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
@@ -8312,8 +8323,22 @@ Notify.show = function() {
     notify.show.apply(notify, arguments);
 }
 /**
+ * @method [info|success|warning|error](text) 弹出特殊类型的消息
+ * @static
+ * @public
+ * @param  {string=''} text 消息内容
+ * @return {void}
+ */
+var types = ['success', 'warning', 'info', 'error'];
+types.forEach(function(type) {
+    Notify[type] = function(text) {
+        Notify.show(text, type);
+    }
+});
+/**
  * @method close(message) 关闭某条消息
  * @static
+ * @public
  * @param  {object} message 需要关闭的消息对象
  * @return {void}
  */
@@ -8323,6 +8348,7 @@ Notify.close = function() {
 /**
  * @method closeAll() 关闭所有消息
  * @static
+ * @public
  * @return {void}
  */
 Notify.closeAll = function() {
@@ -8379,7 +8405,7 @@ var Progress = Component.extend({
 
 module.exports = Progress;
 },{"../base/component.js":29,"../base/util.js":33,"./progress.html":70}],72:[function(require,module,exports){
-module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"u-icon u-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'z-sel\': item === selected, \'u-radioex-block\': block} } title={item.name} on-click={this.select(item)}><div class=\"radioex_box\"><i class=\"u-icon u-icon-radio\"></i></div> {item.name}</label>    {/list}</div>"
 },{}],73:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -8413,7 +8439,7 @@ var RadioExGroup = RadioGroup.extend({
 
 module.exports = RadioExGroup;
 },{"../base/util.js":33,"./radioExGroup.html":72,"./radioGroup.js":75}],74:[function(require,module,exports){
-module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
+module.exports="<div class=\"u-unitgroup {@(class)}\">    {#list source as item}    <label class=\"u-radioex\" r-class={ {\'z-dis\': disabled, \'u-radioex-block\': block} } title={item.name} on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>    {/list}</div>"
 },{}],75:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -8639,11 +8665,11 @@ var Suggest = DropDown.extend({
             open: open
         });
 
-        var index = Suggest.opens.indexOf(this);
+        var index = DropDown.opens.indexOf(this);
         if(open && index < 0)
-            Suggest.opens.push(this);
+            DropDown.opens.push(this);
         else if(!open && index >= 0) {
-            Suggest.opens.splice(index, 1);
+            DropDown.opens.splice(index, 1);
 
             if(!_isInput && this.data.strict)
                this.data.value = this.data.selected ? this.data.selected.name : '';
@@ -8674,23 +8700,6 @@ var Suggest = DropDown.extend({
         else if(this.data.matchType == 'end')
             return item.name.slice(-value.length) == value;
     }
-});
-
-// 处理点击suggest之外的地方后的收起事件。
-Suggest.opens = [];
-
-_.dom.on(window.document, 'click', function(e) {
-    Suggest.opens.forEach(function(suggest) {
-        var element = suggest.$refs.element;
-        var element2 = e.target;
-        while(element2 != document.body) {
-            if(element == element2)
-                return;
-            element2 = element2.parentElement;
-        }
-        suggest.toggle(false);
-        suggest.$update();
-    });
 });
 
 module.exports = Suggest;
@@ -9024,5 +9033,5 @@ var TreeViewList = SourceComponent.extend({
 
 module.exports = TreeView;
 },{"../base/sourceComponent.js":32,"../base/util.js":33,"./treeView.html":85,"./treeViewList.html":87}],87:[function(require,module,exports){
-module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
+module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
 },{}]},{},[1]);

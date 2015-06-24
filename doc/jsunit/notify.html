@@ -403,6 +403,63 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-methods"></div>
 
 
+<h4>Static Methods</h4>
+
+<h5>Notify.show(text[, type][, duration])</h5>
+<p>弹出一个消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+        
+        <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+        
+        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>Notify.[info|success|warning|error](text)</h5>
+<p>弹出特殊类型的消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>Notify.close(message)</h5>
+<p>关闭某条消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>Notify.closeAll()</h5>
+<p>关闭所有消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+
 <div id="j-staticMethods"></div>
 
 

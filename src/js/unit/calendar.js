@@ -36,9 +36,9 @@ var Calendar = Component.extend({
         //this.update();
     },
     update: function() {
-        this.data._days = [];
-        
         var selected = this.data.selected;
+        
+        this.data._days = [];
         var month = selected.getMonth();
         var mfirst = new Date(selected); mfirst.setDate(1);
         var mfirstTime = mfirst.getTime();

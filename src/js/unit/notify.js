@@ -109,6 +109,7 @@ Notify.notify = notify;
 /**
  * @method show(text[,type][,duration]) 弹出一个消息
  * @static
+ * @public
  * @param  {string=''} text 消息内容
  * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
  * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
@@ -118,8 +119,22 @@ Notify.show = function() {
     notify.show.apply(notify, arguments);
 }
 /**
+ * @method [info|success|warning|error](text) 弹出特殊类型的消息
+ * @static
+ * @public
+ * @param  {string=''} text 消息内容
+ * @return {void}
+ */
+var types = ['success', 'warning', 'info', 'error'];
+types.forEach(function(type) {
+    Notify[type] = function(text) {
+        Notify.show(text, type);
+    }
+});
+/**
  * @method close(message) 关闭某条消息
  * @static
+ * @public
  * @param  {object} message 需要关闭的消息对象
  * @return {void}
  */
@@ -129,6 +144,7 @@ Notify.close = function() {
 /**
  * @method closeAll() 关闭所有消息
  * @static
+ * @public
  * @return {void}
  */
 Notify.closeAll = function() {

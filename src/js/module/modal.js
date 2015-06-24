@@ -21,8 +21,6 @@ var _ = require('../base/util.js');
  * @param {string|boolean=false}    options.data.cancelButton       是否显示取消按钮。值为`string`时显示该段文字。
  * @param {number=null}             options.data.width              对话框宽度。值为否定时宽度为CSS设置的宽度。
  * @param {string=''}               options.data.class              补充class
- * @param {function}                options.ok                      当点击确定的时候执行
- * @param {function}                options.cancel                  当点击取消的时候执行
  */
 var Modal = Component.extend({
     name: 'modal',
@@ -74,48 +72,60 @@ var Modal = Component.extend({
          * @event ok 确定对话框时触发
          */
         this.$emit('ok');
+
+        this.destroy();
     },
     /**
      * @override
      */
     cancel: function() {
         /**
-         * @event close 取消对话框时触发
+         * @event cancel 取消对话框时触发
          */
         this.$emit('cancel');
+
+        this.destroy();
+    },
+    keyup: function($event) {
+        if($event.which == 13)
+            this.ok();
     }
 });
 
 /**
- * @method alert([content][,title]) 弹出一个alert对话框。关闭时始终触发确定事件。
+ * @method alert(content[,title]) 弹出一个alert对话框。关闭时始终触发确定事件。
  * @static
+ * @public
  * @param  {string=''} content 对话框内容
  * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
-Modal.alert = function(content, title) {
+Modal.alert = function(content, title, okButton) {
     var modal = new Modal({
         data: {
             content: content,
-            title: title
+            title: title,
+            okButton: okButton
         }
     });
     return modal;
 }
 
 /**
- * @method confirm([content][,title]) 弹出一个confirm对话框
+ * @method confirm(content[,title]) 弹出一个confirm对话框
  * @static
+ * @public
  * @param  {string=''} content 对话框内容
  * @param  {string='提示'} title 对话框标题
  * @return {void}
  */
-Modal.confirm = function(content, title) {
+Modal.confirm = function(content, title, okButton, cancelButton) {
     var modal = new Modal({
         data: {
             content: content,
             title: title,
-            cancelButton: true
+            okButton: okButton,
+            cancelButton: cancelButton || true
         }
     });
     return modal;

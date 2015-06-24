@@ -22,6 +22,9 @@
 [ ] treeView的优化
 [ ] 多重suggest
 [ ] js中要不要实现补充class的内容
+[ ] 快捷键
+[v] 数据类的title提示
+[ ] html.z-modal
 
 模板是可变的，导致样式继承不清晰
 
