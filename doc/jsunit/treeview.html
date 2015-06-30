@@ -651,10 +651,6 @@ var source = [
     }
     function DragModule(Component){
         Component.implement({
-            events: {
-                $config: function(){
-                }
-            }
         })
 
         Component.directive({
@@ -680,19 +676,27 @@ var source = [
 
 
                     var targetOffset = getRect(target);
-                    if(ev.pageY - targetOffset.top < 10){
+                    var breakPoint = target.offsetHeight/3;
+                    if(ev.pageY - targetOffset.top < breakPoint){ // 上
                         var swap = target.parentNode.parentNode;
                         dom.inject(dragInfo.placeholder, swap, 'before')
                         dragInfo.swap = {
                             key: swap.key,
                             'position': 'before'
                         }
-                    }else if(targetOffset.top + target.offsetHeight - ev.pageY < 10){
+                    }else if(targetOffset.top + target.offsetHeight - ev.pageY < breakPoint){
                         var swap = target.parentNode.parentNode;
                         dom.inject(dragInfo.placeholder, swap, 'after')
                         dragInfo.swap = {
                             key: swap.key,
                             'position': 'after'
+                        }
+                    }else{ // 在中间位置
+                        var swap = target.parentNode.parentNode;
+                        // @TODO: 当在节点上时 ， 我们怎么做？
+                        dragInfo.swap = {
+                            key: swap.key,
+                            'position': 'bottom'
                         }
                     }
                 }
@@ -748,7 +752,8 @@ var source = [
                    dom.inject(container, document.body);
                    elem.style.display = 'none';
 
-                   this.$emit('dragitem', dragInfo);
+                   this.treeroot.dragInfo = dragInfo;
+                   // this.$emit('dragitem', dragInfo);
 
                    dom.addClass(container, 'z-drag')
                    container.style.position = 'absolute';
@@ -821,14 +826,12 @@ var source = [
 
     Regular.use(DragModule);
 
-
     var drag = new TreeView({
         data: {
             source: source
         },
         events: {
             dragend: function(info){
-                console.log(info.swap)
                 this.insert(info.key, info.swap.key, info.swap.position)
                 this.$update();
 
@@ -838,14 +841,19 @@ var source = [
 
             if(item1 === item2) return;
             var old = this.findListAndPosition(this.data.source, item1);
+            // 我们先将index 排除
             old.list.splice(old.index,1)
             var point = this.findListAndPosition(this.data.source,item2)
             if(!point) return;
             if(position === 'before'){
                 point.list.splice(point.index, 0, item1)
-            }else{
+            }else if(position === 'after'){
                 point.list.splice(point.index+1, 0, item1)
                 // console.log(JSON.stringify(point.list))
+            }else{ // 说明是bottom
+                if(item2.children){
+                    item2.children.push(item1);
+                }
             }
         },
         findListAndPosition: function(list, item){

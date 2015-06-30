@@ -8784,7 +8784,7 @@ var TreeSelect = SelectEx.extend({
 
 module.exports = TreeSelect;
 },{"../base/util.js":33,"./selectEx.js":75,"./treeSelect.html":81,"./treeView.js":84}],83:[function(require,module,exports){
-module.exports="<div class=\"u-treeview {@(class)}\" r-class={ {\'z-dis\': disabled} } dragarea  >    <treeViewList source={source} visible={true} on-dragitem = {this.dragItem($event)} /></div>"
+module.exports="<div class=\"u-treeview {@(class)}\" r-class={ {\'z-dis\': disabled} } dragarea  >    <treeViewList source={source} visible={true} /></div>"
 },{}],84:[function(require,module,exports){
 /**
  * ------------------------------------------------------------
@@ -8828,6 +8828,9 @@ var TreeView = SourceComponent.extend({
             hierarchical: false
         });
         this.supr();
+        this.$on('dragitem', function(ev){
+            this.dragInfo = ev
+        })
 
         this.treeroot = this;
     },
@@ -8849,9 +8852,6 @@ var TreeView = SourceComponent.extend({
         this.$emit('select', {
             selected: item
         });
-    },
-    dragItem: function(ev){
-        this.dragInfo = ev;
     }
 });
 

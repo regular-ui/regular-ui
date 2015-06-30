@@ -40,6 +40,9 @@ var TreeView = SourceComponent.extend({
             hierarchical: false
         });
         this.supr();
+        this.$on('dragitem', function(ev){
+            this.dragInfo = ev
+        })
 
         this.treeroot = this;
     },
@@ -61,9 +64,6 @@ var TreeView = SourceComponent.extend({
         this.$emit('select', {
             selected: item
         });
-    },
-    dragItem: function(ev){
-        this.dragInfo = ev;
     }
 });
 
