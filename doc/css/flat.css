@@ -3330,9 +3330,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	display:inline-block;
 	cursor:pointer;
 }
-.u-calendar .calendar_item.z-dis{
-	cursor:not-allowed;
-}
 .u-calendar .calendar_hd{
 	*zoom:1;
 }
@@ -3382,7 +3379,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	color:#fff;
 }
 .u-calendar .calendar_item.z-dis{
-	background:none;
 	color:#999;
 }
 .u-calendar .calendar_hd{
@@ -3751,7 +3747,7 @@ a:hover{
 	margin:0 2px;
 	font-family:"YaHei consolas Hybrid","Consolas";
 }
-.m-article >pre{
+.m-article pre{
 	margin:0.5em 0;
 	padding:6px 12px;
 	background:#f7f7f7;
@@ -3759,18 +3755,18 @@ a:hover{
 	border-radius:3px;
 	word-break:break-word;
 }
-.m-article >pre code{
+.m-article pre code{
 	background:none;
 	border:none;
 	color:#333;
 	padding:0;
 	margin:0;
 }
-.m-article >pre.lang-console{
+.m-article pre.lang-console{
 	background:#2e74ac;
 	border:none;
 }
-.m-article >pre.lang-console code{
+.m-article pre.lang-console code{
 	color:#fff;
 }
 .m-article key{
@@ -3902,6 +3898,9 @@ a:hover{
 }
 #j-themeSelectEx .u-icon:before{
 	content:"\f1fc";
+}
+.m-tab{
+	margin:0.5em 0;
 }
 .g-top{
 	height:50px;

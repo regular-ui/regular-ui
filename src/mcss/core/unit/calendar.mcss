@@ -21,9 +21,7 @@
 
     .calendar_item.z-sel {}
 
-    .calendar_item.z-dis {
-        cursor: not-allowed;
-    }
+    .calendar_item.z-dis {}
 
     .calendar_hd {
         $clearfix();

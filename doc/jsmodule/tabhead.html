@@ -74,7 +74,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/tab.html">选项卡<small> Tab</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -91,7 +91,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/modal.html">模态对话框<small> Modal</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -130,82 +130,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabHead</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 
-        <h3>API</h3>
-
-<h4>Class</h4>
-<h5>TabHead</h5>
-<p>继承自<strong>Component</strong>。</p>
-<p></p>
-<div id="j-class"></div>
-
-<h4>Options</h4>
-<h5>new TabHead({options})</h5>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].id</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>每项的id</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请选择&#39;</code></td><td>默认项</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>当前为展开状态还是收起状态</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
-        
-    </tbody>
-</table>
-<div id="j-options"></div>
-
-
-<h4>Methods</h4>
-
-<h5>tabHead.select(item)</h5>
-<p>选择某一项</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
-        
-    </tbody>
-</table>
-
-
-<div id="j-methods"></div>
-
-
-<div id="j-staticMethods"></div>
-
-
-<h4>Events</h4>
-
-<h5>on-select={$event}</h5>
-<p>选择某一项时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
-        
-    </tbody>
-</table>
-
-
-<div id="j-events"></div>
     </article>
 </div>    </div>
 </div>
@@ -226,6 +151,54 @@ var themeSelectEx = new RGUI.SelectEx({
     themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
+
+// 生成tab
+(function() {
+    for(var i = 1; i < 40; i++) {
+        var id = 'j-example' + i;
+        var $example = document.getElementById(id);
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.tagName[0] !== 'H') {
+            if($next.className === 'lang-xml') {
+                source.push({name: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({name: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.tagName === 'P' && $next.innerText.trim() === '或') {
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tab>
+    {#list source as item}
+    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    {/list}
+</tab>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
 </script>
 <script>
 var TabHead = RGUI.TabHead;

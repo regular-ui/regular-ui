@@ -71,7 +71,7 @@
         font-family: 'YaHei consolas Hybrid', 'Consolas';
     }
 
-    >pre {
+    pre {
         margin: .5em 0;
         padding: 6px 12px;
         background: #f7f7f7;
@@ -80,7 +80,7 @@
         word-break: break-word;
     }
 
-    >pre code {
+    pre code {
         background: none;
         border: none;
         color: #333;
@@ -88,12 +88,12 @@
         margin: 0;
     }
 
-    >pre.lang-console {
+    pre.lang-console {
         background: #2e74ac;
         border: none;
     }
 
-    >pre.lang-console code {
+    pre.lang-console code {
         color: white;
     }
 
@@ -268,4 +268,8 @@ $m-nav-current_background-color = $brand-primary;
             content: "\f1fc";
         }
     }
+}
+
+.m-tab {
+    margin: 0.5em 0;
 }

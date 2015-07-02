@@ -72,7 +72,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/nav.html">导航<small> Nav</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/sidebar.html">侧边栏<small> Sidebar</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -94,7 +94,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/crumb.html">面包屑<small> Crumb</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -130,7 +130,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../cssmodule/table.html">表格<small> Table</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -244,6 +244,54 @@ var themeSelectEx = new RGUI.SelectEx({
     themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
+
+// 生成tab
+(function() {
+    for(var i = 1; i < 40; i++) {
+        var id = 'j-example' + i;
+        var $example = document.getElementById(id);
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.tagName[0] !== 'H') {
+            if($next.className === 'lang-xml') {
+                source.push({name: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({name: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.tagName === 'P' && $next.innerText.trim() === '或') {
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tab>
+    {#list source as item}
+    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    {/list}
+</tab>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
 </script>
 <script>
 

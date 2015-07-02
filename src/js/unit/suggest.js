@@ -91,11 +91,11 @@ var Suggest = DropDown.extend({
             open: open
         });
 
-        var index = Suggest.opens.indexOf(this);
+        var index = DropDown.opens.indexOf(this);
         if(open && index < 0)
-            Suggest.opens.push(this);
+            DropDown.opens.push(this);
         else if(!open && index >= 0) {
-            Suggest.opens.splice(index, 1);
+            DropDown.opens.splice(index, 1);
 
             if(!_isInput && this.data.strict)
                this.data.value = this.data.selected ? this.data.selected.name : '';
@@ -126,23 +126,6 @@ var Suggest = DropDown.extend({
         else if(this.data.matchType == 'end')
             return item.name.slice(-value.length) == value;
     }
-});
-
-// 处理点击suggest之外的地方后的收起事件。
-Suggest.opens = [];
-
-_.dom.on(window.document, 'click', function(e) {
-    Suggest.opens.forEach(function(suggest) {
-        var element = suggest.$refs.element;
-        var element2 = e.target;
-        while(element2 != document.body) {
-            if(element == element2)
-                return;
-            element2 = element2.parentElement;
-        }
-        suggest.toggle(false);
-        suggest.$update();
-    });
 });
 
 module.exports = Suggest;
