@@ -1343,6 +1343,7 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{}],3:[function(require,module,exports){
 
 var env = require('./env.js');
@@ -5748,6 +5749,7 @@ _.assert = function(test, msg){
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{"./helper/entities.js":14,"./helper/shim.js":19}],27:[function(require,module,exports){
 var node = require("./parser/node.js");
 var dom = require("./dom.js");
@@ -8970,4 +8972,7 @@ var TreeViewList = SourceComponent.extend({
 module.exports = TreeView;
 },{"../base/sourceComponent.js":32,"../base/util.js":33,"./treeView.html":83,"./treeViewList.html":85}],85:[function(require,module,exports){
 module.exports="<ul class=\"treeview_list\" r-class={ {\'z-dis\': disabled} } r-hide={!visible}>    {#list source as item}    <li>        <div class=\"treeview_item\">            {#if item.childrenCount || (item.children && item.children.length)}            <i class=\"u-icon\" r-class={ {\'u-icon-caret-right\': !item.open, \'u-icon-caret-down\': item.open}} on-click={this.toggle(item)}></i>            {/if}            <div class=\"treeview_itemname\" r-class={ {\'z-sel\': this.treeroot.data.selected === item} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>        </div>        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}    </li>    {/list}</ul>"
-},{}]},{},[1]);
+},{}]},{},[1])
+
+
+//# sourceMappingURL=regular-ui.js.map
