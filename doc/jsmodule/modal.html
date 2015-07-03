@@ -177,6 +177,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
         
+        <tr><td class="f-wsn"><code>ok</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击确定的时候执行</td></tr>
+        
+        <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击取消的时候执行</td></tr>
+        
     </tbody>
 </table>
 <div id="j-options"></div>
@@ -199,39 +203,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 
 <div id="j-methods"></div>
-
-
-<h4>Static Methods</h4>
-
-<h5>Modal.alert(content[, title])</h5>
-<p>弹出一个alert对话框。关闭时始终触发确定事件。</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
-        
-    </tbody>
-</table>
-
-<h5>Modal.confirm(content[, title])</h5>
-<p>弹出一个confirm对话框</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-        <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
-        
-    </tbody>
-</table>
 
 
 <div id="j-staticMethods"></div>
@@ -263,7 +234,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </tbody>
 </table>
 
-<h5>on-cancel={$event}</h5>
+<h5>on-close={$event}</h5>
 <p>取消对话框时触发</p>
 <table>
     <thead>

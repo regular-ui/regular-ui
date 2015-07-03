@@ -255,13 +255,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h3>API</h3>
 
 <h4>Class</h4>
-<h5>Suggest</h5>
+<h5>DatePicker</h5>
 <p>继承自<strong>DropDown</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Suggest({options})</h5>
+<h5>new DatePicker({options})</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
@@ -270,11 +270,11 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
         
-        <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>文本框中的值</td></tr>
+        <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
         
         <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请输入&#39;</code></td><td>文本框默认文字</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>文本框是否只读</td></tr>
         
         <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
         
@@ -283,6 +283,22 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </tbody>
 </table>
 <div id="j-options"></div>
+
+
+<h4>Methods</h4>
+
+<h5>datePicker.select(date)</h5>
+<p>选择一个日期</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>选择的日期</td></tr>
+        
+    </tbody>
+</table>
 
 
 <div id="j-methods"></div>
@@ -301,7 +317,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+        <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
         
     </tbody>
 </table>
