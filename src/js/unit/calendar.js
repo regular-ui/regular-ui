@@ -43,19 +43,11 @@ var Calendar = Component.extend({
             this.goToday();
     },
     update: function() {
-<<<<<<< HEAD
-        var selected = this.data.selected;
-        
-        this.data._days = [];
-        var month = selected.getMonth();
-        var mfirst = new Date(selected); mfirst.setDate(1);
-=======
         this.data._days = [];
         
         var date = this.data.date;
         var month = date.getMonth();
         var mfirst = new Date(date); mfirst.setDate(1);
->>>>>>> feature/dateTimeComponent_yusen_2015-06-24
         var mfirstTime = mfirst.getTime();
         var nfirst = new Date(mfirst); nfirst.setMonth(month + 1); nfirst.setDate(1);
         var nfirstTime = nfirst.getTime();

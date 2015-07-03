@@ -12,10 +12,6 @@
     </div>
     <div class="calendar_bd">
         <div class="calendar_week"><span class="calendar_item">日</span><span class="calendar_item">一</span><span class="calendar_item">二</span><span class="calendar_item">三</span><span class="calendar_item">四</span><span class="calendar_item">五</span><span class="calendar_item">六</span></div>
-<<<<<<< HEAD
-        <div class="calendar_day">{#list _days as day}<span class="calendar_item" r-class={ {'z-sel': selected - day >= 0 && selected - day < 3600*24, 'z-dis': day.getMonth() !== selected.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
-=======
         <div class="calendar_day">{#list _days as day}<span class="calendar_item" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-dis': day.getMonth() !== date.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
->>>>>>> feature/dateTimeComponent_yusen_2015-06-24
     </div>
 </div>
