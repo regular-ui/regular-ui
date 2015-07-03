@@ -126,6 +126,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div id="j-example1"></div>
+
+<div id="j-example2"></div>
+
+<div id="j-example3"></div>
         <h3>API</h3>
 
 <h4>Class</h4>
@@ -150,7 +154,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <tr><td class="f-wsn"><code>data.middle</code></td><td class="f-wsn">middle</td><td class="f-wsn"><code>5</code></td><td>当页数较多时，中间显示的页数</td></tr>
         
-        <tr><td class="f-wsn"><code>data.side</code></td><td class="f-wsn">side</td><td class="f-wsn"><code>2</code></td><td>当页数较多时，两端各显示的页数</td></tr>
+        <tr><td class="f-wsn"><code>data.side</code></td><td class="f-wsn">side</td><td class="f-wsn"><code>2</code></td><td>当页数较多时，两端显示的页数</td></tr>
         
         <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用该组件</td></tr>
         
@@ -240,9 +244,34 @@ var themeSelectEx = new RGUI.SelectEx({
 <script>
 var Pager = RGUI.Pager;
 
-var pager = new Pager({
-    data: {}
-}).$inject('#j-example1');
+// 基本形式
+(function() {
+    var pager = new Pager({
+        data: {
+            current: 6
+        }
+    }).$inject('#j-example1');
+})();
+
+// 基本形式
+(function() {
+    var pager = new Pager({
+        data: {
+            side: 1
+        }
+    }).$inject('#j-example2');
+})();
+
+// 基本形式
+(function() {
+    var pager = new Pager({
+        data: {
+            side: 3,
+            middle: 3,
+            total: 11
+        }
+    }).$inject('#j-example3');
+})();
 </script>
 </body>
 </html>

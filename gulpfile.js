@@ -58,17 +58,18 @@ gulp.task('browserify-js', function(done) {
             done(null);
         })
         .pipe(source('regular-ui.js'))
-        .pipe(buffer())
+        // .pipe(buffer())
         // .pipe(codefixed())
-        .pipe(sourcemaps.init({loadMaps: true}))
+        // .pipe(sourcemaps.init({loadMaps: true}))
         // .pipe(uglify())
-        .pipe(sourcemaps.write('./'))
+        // .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('doc/js/'));
 });
 
 // doc-src/* => * -> doc/
 gulp.task('doc-src', function(done) {
-    return buildAll();
+    buildAll();
+    done();
 });
 
 gulp.task('sequence', function(done) {
