@@ -4,11 +4,11 @@
     </div>
     <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <ul class="u-listbox">
-        {#list source as item}
+            {#list source as item}
             {#if this.filter(item)}
                 <li on-click={this.select(item)}>{item.name}</li>
             {/if}
-        {/list}
+            {/list}
         </ul>
     </div>
 </div>

@@ -9,9 +9,9 @@
         <% } %>
         <li<% if(sidenav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.alias %><small> <%= item.name %></small>
         <% if(item.complete === true) { %>
-            <i class="u-icon u-icon-success-circle" title="功能和主题全部实现，文档比较完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         <% } else if(item.complete === false) { %>
-            <i class="u-icon u-icon-info-circle" title="功能和主题部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         <% } %>
         </a></li>
         <% }); %>

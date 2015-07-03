@@ -43,7 +43,6 @@ $u-calendar_item_height = 28px;
     }
 
     .calendar_item.z-dis {
-        background: none;
         color: $formctrl-disabled_color;
     }
 

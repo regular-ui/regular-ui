@@ -55,7 +55,6 @@ RGUI.DateTimePicker = require('./unit/dateTimePicker.js');
  * jsModule
  */
 // 导航类
-RGUI.TabHead = require('./module/tabHead.js');
 RGUI.Tab = require('./module/tab.js');
 RGUI.Pager = require('./module/pager.js');
 

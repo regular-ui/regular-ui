@@ -9,8 +9,6 @@
 [v] 继承类的文档，只确定参数，方法和事件自动生成
 [v] 参数的顺序不按继承性排列，按照重要性排列，参数必须在config中声明，除了`class`这个东东。
 [ ] 继承类样式的关系
-[v] 减少f-系列在模板中的使用
-[ ] 修复f-系列在模板中的使用
 [v] ul和li的格式，两种current方式和select方式
 [v] li class="z-crt"应该放在里面还是外面。放在外面，需要快速定位当前位置
 [v] li>a, li>span的区别
@@ -25,21 +23,23 @@
 [ ] 快捷键
 [v] 数据类的title提示
 [ ] html.z-modal
+[ ] selected在日期类组件中分化为date属性
+[ ] rgl和js输入
 
 模板是可变的，导致样式继承不清晰
 
 样式 *->* 模板 *->1 js
 
+### CSS
 
-《NEC规范：内部类名》
-《NEC规范：在内部扩展插件》u-dropdown-selectex
+[v] 减少f-系列在模板中的使用
+[v] 修复f-系列在模板中的使用
+[v] NEC规范：内部类名，使用下划线
+[ ] NEC规范：允许在内部扩展插件
 u-dropdown-nav
     u-listbox-nav {
         box...
     }
-function，哪些可以用哪些可以不用
-
-### CSS
 
 #### 扩展属性
 

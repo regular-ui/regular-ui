@@ -15,7 +15,7 @@ var _ = require('../base/util.js');
  * @class Calendar
  * @extend Component
  * @param {object}                  options.data                    绑定属性
- * @param {Date=null}               options.data.selected           当前选择的日期
+ * @param {Date=null}               options.data.date               当前选择的日期
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
  */
 var Calendar = Component.extend({
@@ -26,32 +26,47 @@ var Calendar = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
-            selected: null,
+            date: null,
             disabled: false,
             _days: []
         });
         this.supr();
 
-        this.back();
-        //this.update();
+        this.$watch('date', function(newValue, oldValue) {
+            if(newValue && oldValue && newValue.getFullYear() === oldValue.getFullYear() && newValue.getMonth() === oldValue.getMonth())
+                return;
+
+            this.update();
+        });
+
+        if(!this.data.date)
+            this.goToday();
     },
     update: function() {
+<<<<<<< HEAD
         var selected = this.data.selected;
         
         this.data._days = [];
         var month = selected.getMonth();
         var mfirst = new Date(selected); mfirst.setDate(1);
+=======
+        this.data._days = [];
+        
+        var date = this.data.date;
+        var month = date.getMonth();
+        var mfirst = new Date(date); mfirst.setDate(1);
+>>>>>>> feature/dateTimeComponent_yusen_2015-06-24
         var mfirstTime = mfirst.getTime();
-        var nfirst = new Date(selected); nfirst.setMonth(month + 1); nfirst.setDate(1);
+        var nfirst = new Date(mfirst); nfirst.setMonth(month + 1); nfirst.setDate(1);
         var nfirstTime = nfirst.getTime();
         var lastTime = nfirstTime + ((7 - nfirst.getDay())%7 - 1)*24*3600*1000;
         var num = - mfirst.getDay();
-        var dateTime, date;
+        var tmpTime, tmp;
         do {
-            dateTime = mfirstTime + (num++)*24*3600*1000;
-            date = new Date(dateTime);
-            this.data._days.push(date);
-        } while(dateTime < lastTime);
+            tmpTime = mfirstTime + (num++)*24*3600*1000;
+            tmp = new Date(tmpTime);
+            this.data._days.push(tmp);
+        } while(tmpTime < lastTime);
     },
     /**
      * @method addYear(year) 调整年份
@@ -63,16 +78,9 @@ var Calendar = Component.extend({
         if(this.data.disabled || !year)
             return;
 
-        this.data.selected.setFullYear(this.data.selected.getFullYear() + year);
-        this.update();
-
-        /**
-         * @event change 改变日期时触发
-         * @property {object} selected 当前选择的日期
-         */
-        this.$emit('change', {
-            selected: this.data.selected
-        });
+        var date = new Date(this.data.date);
+        date.setFullYear(date.getFullYear() + year);
+        this.data.date = date;
     },
     /**
      * @method addMonth(month) 调整月份
@@ -84,16 +92,9 @@ var Calendar = Component.extend({
         if(this.data.disabled || !month)
             return;
 
-        this.data.selected.setMonth(this.data.selected.getMonth() + month);
-        this.update();
-
-        /**
-         * @event change 改变日期时触发
-         * @property {object} selected 当前选择的日期
-         */
-        this.$emit('change', {
-            selected: this.data.selected
-        });
+        var date = new Date(this.data.date);
+        date.setMonth(date.getMonth() + month);
+        this.data.date = date;
     },
     /**
      * @method select(date) 选择一个日期
@@ -105,40 +106,23 @@ var Calendar = Component.extend({
         if(this.data.disabled)
             return;
 
-        var month = this.data.selected.getMonth();
-        if(date.getMonth() != month)
-            return;
-
-        this.data.selected = date;
+        this.data.date = new Date(date);
 
         /**
          * @event select 选择某一个日期时触发
-         * @property {object} selected 当前选择的日期
+         * @property {object} date 当前选择的日期
          */
         this.$emit('select', {
-            selected: date
-        });
-
-        /**
-         * @event change 改变日期时触发
-         * @property {object} selected 当前选择的日期
-         */
-        this.$emit('change', {
-            selected: date
+            date: date
         });
     },
-    back: function() {
-        var date = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
-        this.data.selected = date;
-
-        /**
-         * @event change 改变日期时触发
-         * @property {object} selected 当前选择的日期
-         */
-        // this.$emit('change', {
-        //     selected: date
-        // });
-        this.update();
+    /**
+     * @method goToday() 回到今天
+     * @public
+     * @return {void}
+     */
+    goToday: function() {
+        this.data.date = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
     }
 });
 

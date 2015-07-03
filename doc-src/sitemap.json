@@ -72,16 +72,16 @@
                 {"name": "RadioGroup", "lowerName": "radioGroup", "alias": "单选组", "group": "表单类", "complete": true},
                 {"name": "SelectEx", "lowerName": "selectEx", "alias": "选择扩展", "group": "表单类", "complete": true},
                 {"name": "TreeSelect", "lowerName": "treeSelect", "alias": "树型选择", "group": "表单类", "complete": true},
-                {"name": "Suggest", "lowerName": "suggest", "alias": "自动提示", "group": "表单类", "complete": false},
+                {"name": "Suggest", "lowerName": "suggest", "alias": "自动提示", "group": "表单类", "complete": true},
                 {"name": "Picker", "lowerName": "picker", "alias": "采集器", "group": "表单类", "hidden": true},
                 {"name": "ColorPicker", "lowerName": "colorPicker", "alias": "颜色采集器", "group": "表单类", "hidden": true},
                 {"name": "Slider", "lowerName": "slider", "alias": "滑动器", "group": "表单类", "hidden": true},
                 {"name": "Uploader", "lowerName": "uploader", "alias": "文件上传", "group": "表单类", "hidden": true},
 
                 {"name": "Calendar", "lowerName": "calendar", "alias": "日历", "group": "日期类", "complete": true},
-                {"name": "DatePicker", "lowerName": "datePicker", "alias": "日期选择", "group": "日期类", "complete": false},
-                {"name": "TimePicker", "lowerName": "timePicker", "alias": "时间选择", "group": "日期类"},
-                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "alias": "日期时间选择", "group": "日期类"},
+                {"name": "DatePicker", "lowerName": "datePicker", "alias": "日期选择", "group": "日期类", "complete": true},
+                {"name": "TimePicker", "lowerName": "timePicker", "alias": "时间选择", "group": "日期类", "complete": true},
+                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "alias": "日期时间选择", "group": "日期类", "complete": true},
 
 
                 {"name": "SmoothScroll", "lowerName": "smoothScroll", "alias": "滚动", "group": "效果类", "hidden": true},
