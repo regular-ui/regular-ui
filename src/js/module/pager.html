@@ -1,4 +1,4 @@
-<ul class="m-pager m-pager-{position} {@(class)}">
+<ul class="m-pager m-pager-{@(position)} {@(class)}">
     <li class="pager_prev" r-class={ {'z-dis' : current <= 1} } on-click={this.select(current - 1)}><a>上一页</a></li>
     {#if total - middle > side * 2 + 1}
         {#list 1..side as i}

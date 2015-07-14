@@ -3,11 +3,6 @@
 
 <div id="j-example1"></div>
 
-```javascript
-var modal = new Modal({
-    data: {
-        title: 'Modal标题',
-        content: 'Modal内容'
-    }
-});
+```xml
+<markEditor />
 ```

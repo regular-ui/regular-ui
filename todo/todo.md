@@ -15,7 +15,8 @@
 [ ] modal是否要用show
 [ ] on-select和on-change事件
 [ ] selected和current，show、hide和open、close的区别
-[ ] uploader
+[v] uploader
+[v] editor
 [ ] dragdrop
 [ ] treeView的优化
 [ ] 多重suggest
@@ -23,8 +24,13 @@
 [ ] 快捷键
 [v] 数据类的title提示
 [ ] html.z-modal
-[ ] selected在日期类组件中分化为date属性
-[ ] rgl和js输入
+[v] selected在日期类组件中分化为date属性
+[v] selected在Pager组件中分化为current属性
+[ ] rgl和js代码显示，为了防止混淆，只使用rgl式的写法，不直接用data注入
+[ ] name和title的问题
+[v] 文字是否要在模板中实现
+[ ] visible
+[ ] unit和module区分，默认方式按inline和block区分。下拉都属于unit。
 
 模板是可变的，导致样式继承不清晰
 

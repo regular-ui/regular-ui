@@ -13,7 +13,7 @@ var _ = require('../base/util.js');
 
 /**
  * @class Tab
- * @extend SourceComponent
+ * @extend Component
  * @param {object}                  options.data                    绑定属性
  * @param {string=''}               options.data.class              补充class
  */

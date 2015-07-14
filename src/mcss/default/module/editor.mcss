@@ -22,7 +22,7 @@
     }
 
     .editor_toolbar {
-        height: 40px;
+        line-height: 32px;
         background: #f5f5f5;
     }
 

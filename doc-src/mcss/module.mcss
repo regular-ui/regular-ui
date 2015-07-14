@@ -142,6 +142,10 @@
     margin-top: 10px;
 }
 
+.m-pager + .m-pager {
+    margin-top: 10px;
+}
+
 .u-dropdown + .u-dropdown {
     margin-left: 20px;
 }

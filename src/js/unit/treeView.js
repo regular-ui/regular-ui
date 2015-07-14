@@ -103,19 +103,16 @@ var TreeViewList = SourceComponent.extend({
             return _.extend({parentId: this.data.parent.id}, this.treeroot.getParams());
     },
     $updateSource: function() {
-        this.service.getList(this.getParams(), function(data) {
-            if(data.code != 200 && !data.success)
-                return alert(data.result);
-
+        this.service.getList(this.getParams(), function(result) {
             // 给每个节点item添加parent
-            data.result.forEach(function(item) {
+            result.forEach(function(item) {
                 item.parent = this.data.parent;
             }.bind(this));
 
-            this.$update('source', data.result);
+            this.$update('source', result);
 
             this.$emit('updateSource', {
-                result: data.result
+                result: result
             });
         }.bind(this));
         return this;

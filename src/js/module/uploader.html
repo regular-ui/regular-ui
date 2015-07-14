@@ -1,0 +1,11 @@
+<div class="m-uploader">
+    <a class="u-btn" on-click={this.upload()}>{name || '上传'}</a>
+    <form method="POST" action={url} target="iframe{_id}" enctype={contentType} ref="form">
+        <input type="file" name="file" ref="file" on-change={this.submit()}>
+        {#list Object.keys(data) as key}
+        <input type="hidden" name={key} value={data[key]}>
+        {/list}
+    </form>
+    <iframe name="iframe{_id}" on-load={this.cbUpload()} ref="iframe">
+    </iframe>
+</div>

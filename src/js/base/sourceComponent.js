@@ -40,11 +40,8 @@ var SourceComponent = Component.extend({
      * @return {SourceComponent} this
      */
     $updateSource: function() {
-        this.service.getList(this.getParams(), function(data) {
-            if(data.code != 200 && !data.success)
-                return alert(data.result);
-
-            this.$update('source', data.result);
+        this.service.getList(this.getParams(), function(result) {
+            this.$update('source', result);
         }.bind(this));
         return this;
     }

@@ -15,6 +15,7 @@ var _ = require('../base/util.js');
  * @param {object}                  options.data                    监听数据
  * @param {number=1}                options.data.current            当前页
  * @param {total=11}                options.data.total              总页数
+ * @param {string='center'}         options.data.position           分页的位置，可选参数：`center`、`left`、`right`
  * @param {middle=5}                options.data.middle             当页数较多时，中间显示的页数
  * @param {side=2}                  options.data.side               当页数较多时，两端显示的页数
  * @param {boolean=false}           options.data.disabled           是否禁用该组件
@@ -27,6 +28,7 @@ var Pager = Component.extend({
         _.extend(this.data, {
             current: 1,
             total: 11,
+            position: 'center',
             middle: 5,
             side: 2,
             _start: 1,
@@ -51,6 +53,12 @@ var Pager = Component.extend({
                 this.data._start += this.data._end - current - show;
         });
     },
+    /**
+     * @method select(page) 选择某一页
+     * @public
+     * @param  {object} page 选择页
+     * @return {void}
+     */
     select: function(page) {
         if(this.data.disabled)
             return;
@@ -60,7 +68,10 @@ var Pager = Component.extend({
         if(page == this.data.current) return;
 
         this.data.current = page;
-
+        /**
+         * @event select 选择某一页时触发
+         * @property {object} current 当前选择页
+         */
         this.$emit('select', {
             current: this.data.current
         });

@@ -15,7 +15,7 @@
     > li {
         float: left;
 
-        > a {
+        > a, > span {
             display: block;
             text-decoration: none;
         }

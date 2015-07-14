@@ -87,3 +87,6 @@ $reset-normalize();
 
 /* 窗口类 */
 @import "default/module/modal.mcss";
+
+/* 上传类 */
+@import "core/module/uploader.mcss";

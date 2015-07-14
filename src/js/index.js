@@ -61,6 +61,9 @@ RGUI.Pager = require('./module/pager.js');
 // 窗口类
 RGUI.Modal = require('./module/modal.js');
 
+// 上传类
+RGUI.Uploader = require('./module/uploader.js');
+
 // 编辑器类
 RGUI.Editor = require('./module/editor.js');
 RGUI.MarkEditor = require('./module/markEditor.js');

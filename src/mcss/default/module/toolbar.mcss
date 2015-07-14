@@ -10,6 +10,8 @@
 // ========================================================================
 
 .m-toolbar {
+    background: #f4f4f4;
+
     > li {
         > a, > span {
             padding: 2px 12px;
@@ -20,10 +22,14 @@
     }
 
     > li:hover {
-        background: #e8e8e8;
+        > a {
+            background: #e8e8e8;
+        }
     }
     
     > li.z-crt {
-        background: #f0f0f0;
+        > a {
+            background: #f0f0f0;
+        }
     }
 }
