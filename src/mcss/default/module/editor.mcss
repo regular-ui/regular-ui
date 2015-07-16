@@ -1,7 +1,6 @@
 // Name:            Editor
 // Description:     编辑器
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/editor
 // ========================================================================
 
 @import "../../core/module/editor.mcss";

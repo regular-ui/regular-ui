@@ -1,0 +1,15 @@
+// Name:            UnitGroup
+// Description:     单元组
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-unitgroup`
+// ========================================================================
+
+.u-unitgroup {
+    .u-check2, .u-radio2 {
+        margin-right: 2em;
+    }
+}

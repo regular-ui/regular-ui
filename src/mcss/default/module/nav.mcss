@@ -1,7 +1,6 @@
 // Name:            Nav
 // Description:     导航
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/nav
 // ========================================================================
 
 @import "../../core/module/nav.mcss";

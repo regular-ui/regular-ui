@@ -1,7 +1,6 @@
 // Name:            Tab
 // Description:     选项卡
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/tab
 // ========================================================================
 
 @import "../../core/module/tab.mcss";

@@ -1,7 +1,6 @@
 // Name:            Sidebar
 // Description:     侧边栏
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/sidebar
 // ========================================================================
 
 @import "../../core/module/sidebar.mcss";

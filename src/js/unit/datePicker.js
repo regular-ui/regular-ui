@@ -5,24 +5,25 @@
  * ------------------------------------------------------------
  */
 
-var DropDown = require('./dropDown.js');
+var Dropdown = require('./dropdown.js');
 var template = require('./datePicker.html');
 var _ = require('../base/util.js');
 
 var filter = require('../base/filter.js');
-var Calendar = require('./calendar.js');
+var Calendar = require('../module/calendar.js');
 
 /**
  * @class DatePicker
- * @extend DropDown
+ * @extend Dropdown
  * @param {object}                  options.data                    绑定属性
  * @param {object=null}             options.data.date               当前选择的日期
  * @param {string='请输入'}         options.data.placeholder        文本框默认文字
- * @param {boolean=false}           options.data.readonly           文本框是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
-var DatePicker = DropDown.extend({
+var DatePicker = Dropdown.extend({
     name: 'datePicker',
     template: template,
     /**
@@ -32,9 +33,7 @@ var DatePicker = DropDown.extend({
         _.extend(this.data, {
             // @inherited source: [],
             // @inherited open: false,
-            placeholder: '请输入',
-            readonly: false,
-            // @inherited disabled: false,
+            placeholder: '请输入'
         });
         this.supr();
     },

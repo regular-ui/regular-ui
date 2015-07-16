@@ -14,8 +14,9 @@ var _ = require('../base/util.js');
  * @param {object}                  options.data                    绑定属性
  * @param {string=''}               options.data.value              文本框中的值
  * @param {string='请输入'}         options.data.placeholder        文本框默认文字
- * @param {boolean=false}           options.data.readonly           文本框是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
 var TimePicker = Suggest.extend({
@@ -43,9 +44,7 @@ var TimePicker = Suggest.extend({
             // @inherited minLength: 0,
             // @inherited delay: 300,
             matchType: 'start'
-            // @inherited strict: false,
-            // @inherited readonly: false,
-            // @inherited disabled: false,
+            // @inherited strict: false
         });
         this.supr();
     },

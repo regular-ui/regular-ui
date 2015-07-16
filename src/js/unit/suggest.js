@@ -7,14 +7,14 @@
 
 'use strict';
 
-var DropDown = require('./dropDown.js');
+var Dropdown = require('./dropdown.js');
 var template = require('./suggest.html');
 var _ = require('../base/util.js');
-var ListBox = require('./listBox.js');
+var ListView = require('../module/listView.js');
 
 /**
  * @class Suggest
- * @extend DropDown
+ * @extend Dropdown
  * @param {object}                  options.data                    绑定属性
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
@@ -25,12 +25,13 @@ var ListBox = require('./listBox.js');
  * @param {number=0}                options.data.minLength          最小提示长度。当输入长度>=该值后开始提示
  * @param {string='all'}            options.data.matchType          匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
- * @param {boolean=false}           options.data.readonly           文本框是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  * @param {object}                  options.service                 数据服务
  */
-var Suggest = DropDown.extend({
+var Suggest = Dropdown.extend({
     name: 'suggest',
     template: template,
     /**
@@ -46,9 +47,7 @@ var Suggest = DropDown.extend({
             minLength: 0,
             delay: 300,
             matchType: 'all',
-            strict: false,
-            readonly: false,
-            // @inherited disabled: false,
+            strict: false
         });
         this.supr();
     },
@@ -78,7 +77,7 @@ var Suggest = DropDown.extend({
      * @return {void}
      */
     toggle: function(open, _isInput) {
-        if(this.data.disabled)
+        if(this.data.readonly || this.data.disabled)
             return;
 
         this.data.open = open;
@@ -91,11 +90,11 @@ var Suggest = DropDown.extend({
             open: open
         });
 
-        var index = DropDown.opens.indexOf(this);
+        var index = Dropdown.opens.indexOf(this);
         if(open && index < 0)
-            DropDown.opens.push(this);
+            Dropdown.opens.push(this);
         else if(!open && index >= 0) {
-            DropDown.opens.splice(index, 1);
+            Dropdown.opens.splice(index, 1);
 
             if(!_isInput && this.data.strict)
                this.data.value = this.data.selected ? this.data.selected.name : '';

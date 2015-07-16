@@ -1,17 +1,17 @@
 var CheckGroup = RGUI.CheckGroup;
-var CheckExGroup = RGUI.CheckExGroup;
-
-var source = [
-    {id: 0, name: '选项1'},
-    {id: 1, name: '选项2'},
-    {id: 2, name: '选项3'},
-    {id: 3, name: '选项4'},
-    {id: 4, name: '选项5'},
-    {id: 5, name: '选项6'}
-];
+var Check2Group = RGUI.Check2Group;
 
 // 基本形式
 (function() {
+    var source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+
     var checkGroup = new CheckGroup({
         data: {
             source: source
@@ -21,6 +21,15 @@ var source = [
 
 // 禁用
 (function() {
+    var source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+
     var checkGroup = new CheckGroup({
         data: {
             source: source,
@@ -31,6 +40,15 @@ var source = [
 
 // 多行
 (function() {
+    var source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+
     var checkGroup = new CheckGroup({
         data: {
             source: source,
@@ -39,9 +57,18 @@ var source = [
     }).$inject('#j-example3');
 })();
 
-// 使用CheckEx
+// 使用Check2
 (function() {
-    var checkExGroup = new CheckExGroup({
+    var source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+
+    var check2Group = new Check2Group({
         data: {
             source: source
         }
@@ -50,6 +77,15 @@ var source = [
 
 // 全选
 (function() {
+    var source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+    
     var check = document.getElementById('j-example5').children[0].children[0];
     var checkGroup = new CheckGroup({
         data: {

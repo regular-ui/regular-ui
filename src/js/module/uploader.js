@@ -20,6 +20,8 @@ var _ = require('../base/util.js');
  * @param {string='json'}           options.data.dataType           数据类型
  * @param {object}                  options.data.data               附加数据
  * @param {string[]=null}           options.data.extensions         可上传的扩展名，如果为空，则表示可上传任何文件类型
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
 var Uploader = Component.extend({

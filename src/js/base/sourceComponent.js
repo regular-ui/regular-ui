@@ -1,3 +1,10 @@
+/**
+ * ------------------------------------------------------------
+ * SourceComponent 数据组件基类
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
+
 'use strict';
 
 var Component = require('./component.js');
@@ -6,6 +13,11 @@ var _ = require('./util.js');
 /**
  * @class SourceComponent
  * @extend Component
+ * @param {object[]=[]}             options.data.source             数据源
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
+ * @param {string=''}               options.data.class              补充class
  * @param {object}                  options.service                 数据服务
  */
 var SourceComponent = Component.extend({

@@ -26,7 +26,7 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com
 
   后代选择器的类名定义为组件名+`_`+后代选择器的含义。
 
-  如用：`.m-tab .tab_hd`、`.u-calendar .calendar_hd`，而不用：`.m-tab .hd`、`.u-calendar .hd`
+  如用：`.m-tab .tab_hd`、`.m-calendar .calendar_hd`，而不用：`.m-tab .hd`、`.m-calendar .hd`
 
 - 为了防止组件内部语义化标签的污染，使用`>`来进行限制选择
 
@@ -46,13 +46,13 @@ Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面�
 | -             | -           | `<button>`            | `u-btn`  | - | `btn.mcss` |
 | `Modal`             | `modal`            | `<modal>`            | `m-modal`  | `modal.js` | `modal.mcss` |
 | `DetailModal`       | `detailModal`      | `<detailModal>`      | - | `detailModal.js` | - |
-| `ListBox`           | `listBox`          | `<listBox>`          | `u-listbox` | `listBox.js` | `listbox.mcss` |
+| `ListBox`           | `listBox`          | `<listBox>`          | `m-listbox` | `listBox.js` | `listbox.mcss` |
 | `ListView`          | `listView`         | `<listView>`         | `u-listview` | `listView.js` | `listview.mcss` |
 | `MusicListView`     | `musicListView`    | `<musicListView>`    | - | `musicListView.js` | - |
-| `TreeView`          | `treeView`         | `<treeView>`         | `u-treeview` | `treeView.js` | `treeview.mcss` |
+| `TreeView`          | `treeView`         | `<treeView>`         | `m-treeview` | `treeView.js` | `treeview.mcss` |
 | `KnowledgeTreeView` | `knowledgeTreeView`| `<knowledgeTreeView>`| -         | `knowledgeTreeView.js` | - |
 | `TreeViewList`      | `treeViewList`     | `<treeViewList>`     | -     | - | - |
-| `Calendar`          | `calendar`         | `<calendar>`         | `u-calendar`         | `calendar.js` | `calendar.mcss` |
+| `Calendar`          | `calendar`         | `<calendar>`         | `m-calendar`         | `calendar.js` | `calendar.mcss` |
 | `DatePicker`        | `datePicker`       | `<datePicker>`       | `u-datepicker`       | `datePicker.js` | `datepicker.mcss` |
 | `DateTimePicker`    | `dateTimePicker`   | `<dateTimePicker>`   | `u-datetimepicker`   | `dateTimePicker.js` | `datetimepicker.mcss` |
 

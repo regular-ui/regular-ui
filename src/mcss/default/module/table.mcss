@@ -1,7 +1,6 @@
 // Name:            Table
 // Description:     表格
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/table
 // ========================================================================
 
 @import "../../core/module/table.mcss";

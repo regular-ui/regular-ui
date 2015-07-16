@@ -7,26 +7,20 @@
 <suggest source={source} />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 1, name: 'abandon'},
-    {id: 2, name: 'about'},
-    {id: 3, name: 'absent'},
-    {id: 4, name: 'bread'},
-    {id: 5, name: 'break'},
-    {id: 6, name: 'brief'},
-    {id: 7, name: 'calendar'},
-    {id: 8, name: 'cancel'},
-    {id: 9, name: 'column'}
-];
-
-var suggest = new Suggest({
-    data: {
-        source: source
-    }
-}).$inject('#j-example1');
+...
+    this.data.source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+...
 ```
 
 #### 禁用
@@ -37,27 +31,20 @@ var suggest = new Suggest({
 <suggest source={source} disabled={true} />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 1, name: 'abandon'},
-    {id: 2, name: 'about'},
-    {id: 3, name: 'absent'},
-    {id: 4, name: 'bread'},
-    {id: 5, name: 'break'},
-    {id: 6, name: 'brief'},
-    {id: 7, name: 'calendar'},
-    {id: 8, name: 'cancel'},
-    {id: 9, name: 'column'}
-];
-
-var suggest = new Suggest({
-    data: {
-        source: source,
-        disabled: true
-    }
-}).$inject('#j-example2');
+...
+    this.data.source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+...
 ```
 
 #### Placeholder
@@ -68,27 +55,20 @@ var suggest = new Suggest({
 <suggest source={source} placeholder="输入时会自动提示" />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 1, name: 'abandon'},
-    {id: 2, name: 'about'},
-    {id: 3, name: 'absent'},
-    {id: 4, name: 'bread'},
-    {id: 5, name: 'break'},
-    {id: 6, name: 'brief'},
-    {id: 7, name: 'calendar'},
-    {id: 8, name: 'cancel'},
-    {id: 9, name: 'column'}
-];
-
-var suggest = new Suggest({
-    data: {
-        source: source,
-        placeholder: '输入时会自动提示'
-    }
-}).$inject('#j-example3');
+...
+    this.data.source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+...
 ```
 
 #### 最小提示长度
@@ -101,28 +81,20 @@ var suggest = new Suggest({
 <suggest source={source} placeholder="输入2个字符后开始提示" minLength="2" />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 1, name: 'abandon'},
-    {id: 2, name: 'about'},
-    {id: 3, name: 'absent'},
-    {id: 4, name: 'bread'},
-    {id: 5, name: 'break'},
-    {id: 6, name: 'brief'},
-    {id: 7, name: 'calendar'},
-    {id: 8, name: 'cancel'},
-    {id: 9, name: 'column'}
-];
-
-var suggest = new Suggest({
-    data: {
-        source: source,
-        placeholder: '输入2个字符后开始提示',
-        minLength: 2
-    }
-}).$inject('#j-example4');
+...
+    this.data.source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+...
 ```
 
 #### 匹配方式
@@ -136,41 +108,19 @@ var suggest = new Suggest({
 ```
 
 ```javascript
-var source = [
-    {id: 1, name: 'abandon'},
-    {id: 2, name: 'about'},
-    {id: 3, name: 'absent'},
-    {id: 4, name: 'bread'},
-    {id: 5, name: 'break'},
-    {id: 6, name: 'brief'},
-    {id: 7, name: 'calendar'},
-    {id: 8, name: 'cancel'},
-    {id: 9, name: 'column'}
-];
-
-var suggest = new Suggest({
-    data: {
-        source: source,
-        placeholder: '匹配全局',
-        matchType: 'all'
-    }
-}).$inject('#j-example5');
-
-var suggest = new Suggest({
-    data: {
-        source: source,
-        placeholder: '只匹配开头',
-        matchType: 'start'
-    }
-}).$inject('#j-example5');
-
-var suggest = new Suggest({
-    data: {
-        source: source,
-        placeholder: '只匹配结尾',
-        matchType: 'end'
-    }
-}).$inject('#j-example5');
+...
+    this.data.source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+...
 ```
 
 #### 严格模式
@@ -182,22 +132,17 @@ var suggest = new Suggest({
 ```
 
 ```javascript
-var source = [
-    {id: 1, name: 'abandon'},
-    {id: 2, name: 'about'},
-    {id: 3, name: 'absent'},
-    {id: 4, name: 'bread'},
-    {id: 5, name: 'break'},
-    {id: 6, name: 'brief'},
-    {id: 7, name: 'calendar'},
-    {id: 8, name: 'cancel'},
-    {id: 9, name: 'column'}
-];
-
-var suggest = new Suggest({
-    data: {
-        source: source,
-        strict: true
-    }
-}).$inject('#j-example6');
+...
+    this.data.source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+...
 ```

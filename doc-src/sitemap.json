@@ -49,59 +49,54 @@
             "lowerName": "jsUnit",
             "cnName": "JS元件",
             "children": [
-                {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "消息类", "hidden": true},
-                {"name": "Notify", "lowerName": "notify", "cnName": "通知", "group": "消息类", "complete": true},
-                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "消息类", "complete": true},
-
-                {"name": "DropDown", "lowerName": "dropDown", "cnName": "下拉菜单", "group": "导航类"},
+                {"name": "Dropdown", "lowerName": "dropdown", "cnName": "下拉菜单", "group": "导航类"},
                 {"name": "Menu", "lowerName": "menu", "cnName": "多级菜单", "group": "导航类"},
 
-                {"name": "ListBox", "lowerName": "listBox", "cnName": "列表框", "group": "数据类", "complete": true},
-                {"name": "TreeBox", "lowerName": "treeBox", "cnName": "树型列表框", "group": "数据类", "hidden": true},
-                {"name": "ListView", "lowerName": "listView", "cnName": "列表视图", "group": "数据类", "complete": true},
-                {"name": "GridView", "lowerName": "gridView", "cnName": "网格视图", "group": "数据类", "complete": false},
-                {"name": "TreeView", "lowerName": "treeView", "cnName": "树型视图", "group": "数据类", "complete": true},
-                {"name": "TableView", "lowerName": "tableView", "cnName": "表格视图", "group": "数据类", "complete": false},
-
-                {"name": "InputEx", "lowerName": "inputEx", "cnName": "输入扩展", "group": "表单类"},
-                {"name": "CheckEx", "lowerName": "checkEx", "cnName": "多选按钮", "group": "表单类", "complete": true},
+                {"name": "Input2", "lowerName": "input2", "cnName": "输入扩展", "group": "表单类"},
+                {"name": "Check2", "lowerName": "check2", "cnName": "多选按钮", "group": "表单类", "complete": true},
                 {"name": "CheckGroup", "lowerName": "checkGroup", "cnName": "多选组", "group": "表单类", "complete": true},
                 {"name": "RadioGroup", "lowerName": "radioGroup", "cnName": "单选组", "group": "表单类", "complete": true},
-                {"name": "SelectEx", "lowerName": "selectEx", "cnName": "选择扩展", "group": "表单类", "complete": true},
+                {"name": "Select2", "lowerName": "select2", "cnName": "选择扩展", "group": "表单类", "complete": true},
                 {"name": "TreeSelect", "lowerName": "treeSelect", "cnName": "树型选择", "group": "表单类", "complete": true},
                 {"name": "Suggest", "lowerName": "suggest", "cnName": "自动提示", "group": "表单类", "complete": true},
-                {"name": "Picker", "lowerName": "picker", "cnName": "采集器", "group": "表单类", "hidden": true},
-                {"name": "ColorPicker", "lowerName": "colorPicker", "cnName": "颜色采集器", "group": "表单类", "hidden": true},
                 {"name": "Slider", "lowerName": "slider", "cnName": "滑动器", "group": "表单类", "hidden": true},
+                {"name": "ColorPicker", "lowerName": "colorPicker", "cnName": "颜色采集器", "group": "表单类", "hidden": true},
 
-                {"name": "Calendar", "lowerName": "calendar", "cnName": "日历", "group": "日期类", "complete": true},
                 {"name": "DatePicker", "lowerName": "datePicker", "cnName": "日期选择", "group": "日期类", "complete": true},
                 {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类", "complete": true},
                 {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类", "complete": true},
 
-
-                {"name": "SmoothScroll", "lowerName": "smoothScroll", "cnName": "滚动", "group": "效果类", "hidden": true},
-                {"name": "Sticky", "lowerName": "sticky", "cnName": "粘连", "group": "效果类", "hidden": true},
-                {"name": "DragDrop", "lowerName": "dragDrop", "cnName": "拖拽", "group": "效果类"},
-                {"name": "GoTop", "lowerName": "goTop", "cnName": "去顶部", "group": "其他", "hidden": true}
+                {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "消息类", "hidden": true},
+                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "消息类", "complete": true}
             ]
         }, {
             "name": "JSModule",
             "lowerName": "jsModule",
             "cnName": "JS模块",
             "children": [
-                {"name": "Menu", "lowerName": "menu", "cnName": "菜单", "group": "导航类", "hidden": true},
+                {"name": "Menubar", "lowerName": "menubar", "cnName": "菜单", "group": "导航类", "hidden": true},
                 {"name": "Tab", "lowerName": "tab", "cnName": "选项卡", "group": "导航类", "complete": true},
                 {"name": "Pager", "lowerName": "pager", "cnName": "分页器", "group": "导航类", "complete": true},
                 {"name": "Accordion", "lowerName": "accordion", "cnName": "手风琴", "group": "导航类", "hidden": true},
 
+                {"name": "Notify", "lowerName": "notify", "cnName": "通知", "group": "窗口类", "complete": true},
                 {"name": "Modal", "lowerName": "modal", "cnName": "模态对话框", "group": "窗口类", "complete": true},
                 {"name": "Window", "lowerName": "window", "cnName": "窗口", "group": "窗口类", "hidden": true},
                 {"name": "OffCanvas", "lowerName": "offCanvas", "cnName": "弹出式画布", "group": "窗口类", "hidden": true},
+                {"name": "Gotop", "lowerName": "gotop", "cnName": "去顶部", "group": "其他", "hidden": true},
                 {"name": "SlideShow", "lowerName": "slideShow", "cnName": "幻灯片", "group": "窗口类", "hidden": true},
                 {"name": "Album", "lowerName": "album", "cnName": "相册", "group": "窗口类", "hidden": true},
 
+                {"name": "ListView", "lowerName": "listView", "cnName": "列表视图", "group": "数据类", "complete": true},
+                {"name": "GridView", "lowerName": "gridView", "cnName": "网格视图", "group": "数据类", "complete": false},
+                {"name": "TreeView", "lowerName": "treeView", "cnName": "树型视图", "group": "数据类", "complete": true},
+                {"name": "TableView", "lowerName": "tableView", "cnName": "表格视图", "group": "数据类", "complete": false},
+
+                {"name": "Calendar", "lowerName": "calendar", "cnName": "日历", "group": "日期类", "complete": true},
+                {"name": "Schedule", "lowerName": "schedule", "cnName": "日程", "group": "日期类", "hidden": true},
+
                 {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "上传类", "complete": false},
+                {"name": "ImageUploader", "lowerName": "imageUploader", "cnName": "图片上传", "group": "上传类", "hidden": true},
 
                 {"name": "Editor", "lowerName": "editor", "cnName": "编辑器", "group": "编辑器类", "hidden": true},
                 {"name": "MarkEditor", "lowerName": "markEditor", "cnName": "Markdown编辑器", "group": "编辑器类", "complete": false},

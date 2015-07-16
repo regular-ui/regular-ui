@@ -1,0 +1,50 @@
+// Name:            ListBox
+// Description:     列表框
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+@import "../../core/module/listView.mcss";
+
+
+
+// Component:       `m-listview`
+// ========================================================================
+
+.m-listview {
+    background: $brand-secondary;
+    color: white;
+    border: 3px solid $brand-secondary;
+    $border-radius: $border-radius-lg;
+
+    > li {
+        padding: 5px 9px;
+        $border-radius: $border-radius-sm;
+        $transition: border .25s linear, color .25s linear, background-color .25s linear;
+    }
+
+    > li + li {
+        margin-top: 3px;
+    }
+
+    > li:hover {
+        background: $brand-primary;
+        color: white;
+    }
+
+    > li.z-sel {
+        background: $brand-primary;
+        color: white;
+    }
+}
+
+.m-listview.z-dis {
+    background: fade($gray-light, 0.75, true);
+
+    > li {
+        background: fade($gray-light, 0.75, true);
+        color: fade($inverse, 0.75, true);
+        border-color: fade($gray-light, 0.75, true);
+    }
+}

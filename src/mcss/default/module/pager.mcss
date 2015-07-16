@@ -1,7 +1,6 @@
 // Name:            Pager
 // Description:     分页
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/pager
 // ========================================================================
 
 @import "../../core/module/pager.mcss";

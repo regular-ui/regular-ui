@@ -19,6 +19,9 @@ var marked = require('marked');
  * @param {object}                  options.data                    绑定属性 | Binding Properties
  * @param {string='提示'}           options.data.title              对话框标题 | Title of Dialog
  * @param {function}                options.cancel                  当点击取消的时候执行
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
  */
 var MarkEditor = Component.extend({
     name: 'markEditor',

@@ -1,7 +1,6 @@
 // Name:            Toolbar
 // Description:     工具栏
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/toolbar
 // ========================================================================
 
 @import "../../core/module/toolbar.mcss";

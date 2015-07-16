@@ -7,23 +7,17 @@
 <checkGroup source={source} />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 0, name: '选项1'},
-    {id: 1, name: '选项2'},
-    {id: 2, name: '选项3'},
-    {id: 3, name: '选项4'},
-    {id: 4, name: '选项5'},
-    {id: 5, name: '选项6'}
-];
-
-var checkGroup = new CheckGroup({
-    data: {
-        source: source
-    }
-}).$inject('#j-example1');
+...
+    this.data.source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+...
 ```
 
 #### 禁用
@@ -34,24 +28,17 @@ var checkGroup = new CheckGroup({
 <checkGroup source={source} disabled={true} />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 0, name: '选项1'},
-    {id: 1, name: '选项2'},
-    {id: 2, name: '选项3'},
-    {id: 3, name: '选项4'},
-    {id: 4, name: '选项5'},
-    {id: 5, name: '选项6'}
-];
-
-var checkGroup = new CheckGroup({
-    data: {
-        source: source,
-        disabled: true
-    }
-}).$inject('#j-example2');
+...
+    this.data.source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+...
 ```
 
 #### 远程数据
@@ -66,72 +53,62 @@ var checkGroup = new CheckGroup({
 <checkGroup source={source} block={true} />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 0, name: '选项1'},
-    {id: 1, name: '选项2'},
-    {id: 2, name: '选项3'},
-    {id: 3, name: '选项4'},
-    {id: 4, name: '选项5'},
-    {id: 5, name: '选项6'}
-];
-
-var checkGroup = new CheckGroup({
-    data: {
-        source: source,
-        block: true
-    }
-}).$inject('#j-example3');
+...
+    this.data.source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+...
 ```
 
-#### 使用CheckEx
+#### 使用Check2
 
 <div id="j-example4"></div>
 
 ```xml
-<checkExGroup source={source} />
+<check2Group source={source} />
 ```
 
-或
-
 ```javascript
-var source = [
-    {id: 0, name: '选项1'},
-    {id: 1, name: '选项2'},
-    {id: 2, name: '选项3'},
-    {id: 3, name: '选项4'},
-    {id: 4, name: '选项5'},
-    {id: 5, name: '选项6'}
-];
-
-var checkExGroup = new CheckExGroup({
-    data: {
-        source: source
-    }
-}).$inject('#j-example4');
+...
+    this.data.source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+...
 ```
 
 #### 全选
 
 <div id="j-example5"><label><input type="checkbox" class="u-check"> 全选</label></div>
 
+```xml
+<label><input type="checkbox" class="u-check"> 全选</label>
+<checkGroup ref="checkGroup" source={source} />
+```
+
 ```javascript
-var source = [
-    {id: 0, name: '选项1'},
-    {id: 1, name: '选项2'},
-    {id: 2, name: '选项3'},
-    {id: 3, name: '选项4'},
-    {id: 4, name: '选项5'},
-    {id: 5, name: '选项6'}
-];
+...
+    this.data.source = [
+        {id: 0, name: '选项1'},
+        {id: 1, name: '选项2'},
+        {id: 2, name: '选项3'},
+        {id: 3, name: '选项4'},
+        {id: 4, name: '选项5'},
+        {id: 5, name: '选项6'}
+    ];
+...
 
-var checkGroup = new CheckGroup({
-    data: {
-        source: source
-    }
-}).$inject('#j-example5');
-
-checkGroup.checkAll(true);
+...
+    this.$refs.checkGroup.checkAll(true);
+...
 ```

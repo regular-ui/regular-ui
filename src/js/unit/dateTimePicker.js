@@ -17,8 +17,9 @@ var filter = require('../base/filter.js');
  * @param {object}                  options.data                    绑定属性
  * @param {object=null}             options.data.date               当前选择的日期
  * @param {string='请输入'}         options.data.placeholder        文本框默认文字
- * @param {boolean=false}           options.data.readonly           文本框是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
 var DateTimePicker = DatePicker.extend({
@@ -40,8 +41,6 @@ var DateTimePicker = DatePicker.extend({
             // @inherited source: [],
             // @inherited open: false,
             // @inherited placeholder: '请输入',
-            // @inherited readonly: false,
-            // @inherited disabled: false,
             selectedDate: new Date(),
             selectedTime: ''
         });

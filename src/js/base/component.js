@@ -1,29 +1,41 @@
+/**
+ * ------------------------------------------------------------
+ * Component 组件基类
+ * @author   sensen(rainforest92@126.com)
+ * ------------------------------------------------------------
+ */
+
 'use strict';
 
-var Regular = require("regularjs");
-var filter = require("./filter.js");
+var Regular = require('regularjs');
+var _ = require('./util.js');
+var filter = require('./filter.js');
 
-var dom = Regular.dom; 
-
+/**
+ * @class Component
+ * @extend Regular
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
+ * @param {string=''}               options.data.class              补充class
+ */
 var Component = Regular.extend({
-	// request
-	$request: function(){}
+    /**
+     * @protected
+     */
+    config: function() {
+        _.extend(this.data, {
+            readonly: false,
+            disabled: false,
+            visible: true,
+            'class': ''
+        });
+        this.supr();
+    }
 })
 .filter(filter)
 .directive({
-	// if expression evaluated to true then addClass z-crt.
-	// otherwise, remove it
-	// <li z-crt={this.$state.current.name==='app.test.exam.choice'}>
-	"z-crt": function(elem, value){
-	this.$watch(value, function(val){
-		dom[val? 'addClass': 'delClass'](elem, 'z-crt');
-	})
-	},
-	"q-render": function(elem, value){
-	this.$watch(value, function(val){
-		if(val) elem.innerHTML = qs.render(val)
-	})
-	}
+
 })
 
 module.exports = Component;

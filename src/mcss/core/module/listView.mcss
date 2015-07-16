@@ -1,0 +1,29 @@
+// Name:            ListBox
+// Description:     列表框
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-listview`
+// ========================================================================
+.m-listview {
+    @extend .f-lsn;
+    $box-sizing: border-box;
+    $user-select: none;
+
+    > li {
+        cursor: pointer;
+    }
+
+    > li:hover {}
+
+    > li.z-sel {}
+}
+
+.m-listview.z-dis {
+    > li {
+        cursor: not-allowed;
+        background: none;
+    }
+}

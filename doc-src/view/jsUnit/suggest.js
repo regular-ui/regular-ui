@@ -1,19 +1,19 @@
 var Suggest = RGUI.Suggest;
 
-var source = [
-    {id: 1, name: 'abandon'},
-    {id: 2, name: 'about'},
-    {id: 3, name: 'absent'},
-    {id: 4, name: 'bread'},
-    {id: 5, name: 'break'},
-    {id: 6, name: 'brief'},
-    {id: 7, name: 'calendar'},
-    {id: 8, name: 'cancel'},
-    {id: 9, name: 'column'}
-];
-
 // 基本形式
 (function() {
+    var source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+
     var suggest = new Suggest({
         data: {
             source: source
@@ -23,6 +23,18 @@ var source = [
 
 // 禁用
 (function() {
+    var source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+
     var suggest = new Suggest({
         data: {
             source: source,
@@ -33,6 +45,18 @@ var source = [
 
 // Placeholder
 (function() {
+    var source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+
     var suggest = new Suggest({
         data: {
             source: source,
@@ -43,6 +67,18 @@ var source = [
 
 // 最小提示长度
 (function() {
+    var source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+
     var suggest = new Suggest({
         data: {
             source: source,
@@ -54,6 +90,18 @@ var source = [
 
 // 匹配方式
 (function() {
+    var source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+
     var suggest = new Suggest({
         data: {
             source: source,
@@ -81,6 +129,18 @@ var source = [
 
 // 严格模式
 (function() {
+    var source = [
+        {id: 1, name: 'abandon'},
+        {id: 2, name: 'about'},
+        {id: 3, name: 'absent'},
+        {id: 4, name: 'bread'},
+        {id: 5, name: 'break'},
+        {id: 6, name: 'brief'},
+        {id: 7, name: 'calendar'},
+        {id: 8, name: 'cancel'},
+        {id: 9, name: 'column'}
+    ];
+    
     var suggest = new Suggest({
         data: {
             source: source,

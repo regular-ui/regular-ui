@@ -18,7 +18,9 @@ var _ = require('../base/util.js');
  * @param {string='center'}         options.data.position           分页的位置，可选参数：`center`、`left`、`right`
  * @param {middle=5}                options.data.middle             当页数较多时，中间显示的页数
  * @param {side=2}                  options.data.side               当页数较多时，两端显示的页数
- * @param {boolean=false}           options.data.disabled           是否禁用该组件
+ * @param {boolean=false}           options.data.readonly           是否只读
+ * @param {boolean=false}           options.data.disabled           是否禁用
+ * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
 var Pager = Component.extend({
@@ -32,8 +34,7 @@ var Pager = Component.extend({
             middle: 5,
             side: 2,
             _start: 1,
-            _end: 5,
-            disabled: false
+            _end: 5
         });
         this.supr();
 
@@ -60,7 +61,7 @@ var Pager = Component.extend({
      * @return {void}
      */
     select: function(page) {
-        if(this.data.disabled)
+        if(this.data.readonly || this.data.disabled)
             return;
 
         if(page < 1) return;

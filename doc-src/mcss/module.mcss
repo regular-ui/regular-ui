@@ -202,7 +202,7 @@ $m-nav-current_background-color = $brand-primary;
 // Extends:
 // ========================================================================
 
-.u-selectex-nav {
+.u-select2-nav {
     min-width: 160px;
 
     .dropdown_hd {
@@ -226,7 +226,7 @@ $m-nav-current_background-color = $brand-primary;
             display: none;
         }
 
-        .u-listbox {
+        .m-listbox {
             background: $m-nav_background-color;
             color: white;
             border: none;
@@ -253,7 +253,7 @@ $m-nav-current_background-color = $brand-primary;
     }
 }
 
-#j-themeSelectEx {
+#j-themeSelect {
     width: 192px;
     margin-left: 20px;
 

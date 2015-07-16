@@ -1,7 +1,6 @@
 // Name:            Modal
 // Description:     模态对话框
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/module/modal
 // ========================================================================
 
 @import "../../core/module/modal.mcss";

@@ -9,7 +9,7 @@ var ajax = {};
 //     $emit: eventEmitter.emit
 // };
 
-var Notify = require('../unit/notify.js');
+var Notify = require('../module/notify.js');
 
 ajax.request = function(opt) {
     var noop = function(){};

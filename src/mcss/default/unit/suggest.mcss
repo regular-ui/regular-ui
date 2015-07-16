@@ -1,7 +1,6 @@
 // Name:            Suggest
 // Description:     自动提示
 // Author:          sensen(rainforest92@126.com)
-// Require:         core/unit/suggest
 // ========================================================================
 
 @import "../../core/unit/suggest.mcss";
@@ -11,7 +10,7 @@
 
 .u-dropdown-suggest {
     .dropdown_bd {
-        .u-listbox {
+        .m-listview {
             max-height: 200px;
             overflow-x: hidden;
             overflow-y: auto;

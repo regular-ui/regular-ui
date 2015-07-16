@@ -1,0 +1,33 @@
+// Name:            Select2
+// Description:     选择扩展
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Extends:
+// ========================================================================
+
+.u-dropdown-select2 {
+    $user-select: none;
+
+    .dropdown_hd {
+        $box-sizing: border-box;
+        cursor: pointer;
+
+        .u-icon {
+            float: right;
+        }
+    }
+
+    .dropdown_bd {
+        clear: both;
+    }
+}
+
+/* Disabled */
+.u-dropdown-select2.z-dis {
+    .dropdown_hd {
+        cursor: not-allowed;
+    }
+}

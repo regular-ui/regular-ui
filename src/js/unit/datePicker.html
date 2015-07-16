@@ -1,4 +1,4 @@
-<div class="u-dropdown u-dropdown-suggest {@(class)}" r-class={ {'z-dis': disabled} } ref="element">
+<div class="u-dropdown u-dropdown-suggest {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
     <div class="dropdown_hd">
         <input class="u-input u-input-full" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this.change($event)} ref="input" disabled={disabled} {#if readonly}readonly="readonly"{/if}>
     </div>
