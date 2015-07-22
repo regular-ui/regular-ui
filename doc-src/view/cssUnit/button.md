@@ -84,3 +84,11 @@
 <button class="u-btn u-btn-primary" disabled>Disabled</button>
 <a class="u-btn z-dis">Disabled</a>
 ```
+
+#### 按钮组
+
+<div id="j-example5">
+<div class="u-btngroup">
+    <button class="u-btn">Button1</button><button class="u-btn">Button2</button><button class="u-btn">Button3</button>
+</div>
+</div>

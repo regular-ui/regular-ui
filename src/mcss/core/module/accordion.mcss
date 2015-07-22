@@ -1,0 +1,23 @@
+// Name:            Accordion
+// Description:     手风琴
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:
+// ========================================================================
+
+.m-accordion {
+    $user-select: none;
+
+    .accordion_pane {
+        .accordion_pane_hd {
+            cursor: pointer;
+        }
+
+        .accordion_pane_bd {
+            $clearfix();
+        }
+    }
+}

@@ -40,7 +40,7 @@ var Tab = Component.extend({
      * @return {void}
      */
     select: function(item) {
-        if(item.disabled)
+        if(item.disabled || this.data.readonly || this.data.disabled)
             return;
 
         this.data.selected = item;

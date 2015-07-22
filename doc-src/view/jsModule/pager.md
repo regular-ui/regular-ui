@@ -24,3 +24,11 @@
 ```xml
 <pager current="6" total="11" middle="3" side="1" />
 ```
+
+#### 禁用
+
+<div id="j-example4"></div>
+
+```xml
+<pager current="6" total="11" disabled={true} />
+```

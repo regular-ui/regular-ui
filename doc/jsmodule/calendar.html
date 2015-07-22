@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+var relativePath = '../';
+var themes = [
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
+];
+
+var selectedTheme;
+if(localStorage['selectedTheme']) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === localStorage['selectedTheme']) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[0];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <ul class="m-nav f-fr">
+            
+            
+            <li><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li class="z-crt"><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        <li class="sidebar_group"><span>导航类</span></li>
+        
+        <li><a href="../jsmodule/tab.html">选项卡<small> Tab</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/pager.html">分页器<small> Pager</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/menubar.html">菜单<small> Menubar</small>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>窗口类</span></li>
+        
+        <li><a href="../jsmodule/notify.html">通知<small> Notify</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/modal.html">模态对话框<small> Modal</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li><a href="../jsmodule/gotop.html">回到顶部<small> Gotop</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        
+        
+        <li class="sidebar_group"><span>数据类</span></li>
+        
+        <li><a href="../jsmodule/listview.html">列表视图<small> ListView</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>日期类</span></li>
+        
+        <li class="z-crt"><a href="../jsmodule/calendar.html">日历<small> Calendar</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li class="sidebar_group"><span>上传类</span></li>
+        
+        <li><a href="../jsmodule/uploader.html">上传<small> Uploader</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        
+        <li class="sidebar_group"><span>编辑器类</span></li>
+        
+        <li><a href="../jsmodule/htmleditor.html">HTML编辑器<small> HTMLEditor</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/markeditor.html">Markdown编辑器<small> MarkEditor</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>日历<small> Calendar</small></h2>
+        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div id="j-example1"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">禁用</h4>
+<div id="j-example2"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Calendar</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Calendar({options})</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<h4>Methods</h4>
+
+<h5>calendar.addYear(year)</h5>
+<p>调整年份</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>year</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的年份</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>calendar.addMonth(month)</h5>
+<p>调整月份</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>month</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的月份</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>calendar.select(date)</h5>
+<p>选择一个日期</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>选择的日期</td></tr>
+        
+    </tbody>
+</table>
+
+<h5>calendar.goToday()</h5>
+<p>回到今天</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<h4>Events</h4>
+
+<h5>on-select={$event}</h5>
+<p>选择某一个日期时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+        <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择的日期</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-events"></div>
+    </article>
+</div>    </div>
+</div>
+<footer class="g-ft">
+</footer>
+<a href="#" class="m-gotop"></a>
+<script src="../js/regular-ui.js"></script>
+<script>
+var themeSelect = new RGUI.Select2({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null,
+        'class': 'u-select2-nav'
+    }
+}).$inject('#j-themeSelect')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    localStorage['selectedTheme'] = $event.selected.name;
+});
+
+// 生成tab
+(function() {
+    for(var i = 1; i < 40; i++) {
+        var id = 'j-example' + i;
+        var $example = document.getElementById(id);
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.tagName[0] !== 'H') {
+            if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
+                source.push({name: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-html') {
+                source.push({name: 'html', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({name: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tab>
+    {#list source as item}
+    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    {/list}
+</tab>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
+</script>
+<script>
+var Calendar = RGUI.Calendar;
+
+// 基本形式
+(function() {
+    var calendar = new Calendar().$inject('#j-example1');
+})();
+
+// 禁用
+(function() {
+    var calendar = new Calendar({
+        data: {
+            disabled: true
+        }
+    }).$inject('#j-example2');
+})();
+</script>
+</body>
+</html>

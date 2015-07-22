@@ -146,6 +146,10 @@
     margin-top: 10px;
 }
 
+.m-panel + .m-panel {
+    margin-top: 10px;
+}
+
 .u-dropdown + .u-dropdown {
     margin-left: 20px;
 }

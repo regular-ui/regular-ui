@@ -114,7 +114,7 @@
 ```javascript
 ...
     this.data.itemTemplate = _.multiline(function(){/*    
-    <i class="u-icon {item.type === 'directory' ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}
+<i class="u-icon {item.type === 'directory' ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}
     */});
    
     this.data.service = {

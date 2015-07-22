@@ -45,7 +45,7 @@ var _ = RGUI._;
 
 // 垂直居右
 (function() {
-    var example3 = new Component({
+    var example4 = new Component({
         template: _.multiline(function(){/*
 <tab class="m-tab-right">
     <tabPane name="tab1">content1</tabPane>
@@ -55,4 +55,18 @@ var _ = RGUI._;
 </tab>
         */})
     }).$inject('#j-example4');
+})();
+
+// 禁用
+(function() {
+    var example5 = new Component({
+        template: _.multiline(function(){/*
+<tab disabled={true}>
+    <tabPane name="tab1">content1</tabPane>
+    <tabPane name="tab2">content2</tabPane>
+    <tabPane name="tab3">content3</tabPane>
+    <tabPane name="tab4">content4</tabPane>
+</tab>
+        */})
+    }).$inject('#j-example5');
 })();

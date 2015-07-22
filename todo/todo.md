@@ -3,7 +3,7 @@
 [ ] 通知和Message的关系
 [ ] 合并Radio和Check的样式
 [v] 合并菜单
-[ ] DropDown是否应该有菜单项？itemTemplate, contentTemplate
+[ ] Dropdown是否应该有菜单项？itemTemplate, contentTemplate
 [ ] TableView的冗余，SourceComponent的冗余，DropDown有菜单项冗余
 [ ] Regular中怎么实现接口
 [v] 继承类的文档，只确定参数，方法和事件自动生成
@@ -26,13 +26,16 @@
 [ ] html.z-modal
 [v] selected在日期类组件中分化为date属性
 [v] selected在Pager组件中分化为current属性
-[ ] rgl和js代码显示，为了防止读者搞不清楚，只使用rgl式的写法，不直接用data注入
+[v] rgl和js代码显示，为了防止读者搞不清楚，只使用rgl式的写法，不直接用data注入
 [ ] name和title的问题
 [v] 文字是否要在模板中实现
 [v] readonly, disabled, visible
 [ ] readOnly bug
 [v] unit和module区分。从功能上能独立构成页面的一部分，或从大小上形成面的属于module，其它属于unit。所有下拉类均属于unit。
-[ ] 内嵌模板
+[ ] 内嵌模板 itemTemplate
+[ ] service文档
+[v] 结尾为bar, top, down的不用驼峰
+[ ] checkbox, checkButton, toggle
 
 模板是可变的，导致样式继承不清晰
 
@@ -44,10 +47,14 @@
 [v] 修复f-系列在模板中的使用
 [v] NEC规范：内部类名，使用下划线
 [ ] NEC规范：允许在内部扩展插件
-u-dropdown-nav
-    u-listbox-nav {
-        box...
-    }
+[ ] btngroup, unitgroup要不要默认inline-block
+[ ] inline-block的空格处理
+[ ] core中允许含有常量和$brand-primary
+[v] focus: outline, 提取出来，reset
+[ ] a不用a-link, button.u-btn, input.u-input, select.u-select, textarea.u-textarea?
+[ ] H1, H2, H3, H4, H5, H6在文章中的展示
+[ ] u-btn 不要u-btn-default
+
 
 #### 扩展属性
 
@@ -68,3 +75,5 @@ u-dropdown-nav
 #### 非扩展属性
 
 - text-align
+
+- float, position

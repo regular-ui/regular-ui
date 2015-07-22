@@ -27,17 +27,27 @@
             text-decoration: none;
         }
 
-        > a:hover, > a:focus {
-            // - Remove default focus style
-            outline: none;
-        }
+        > a:hover, > a:focus {}
 
         > a:active {}
+    }
 
-        > a.z-crt {}
+    >li.z-crt > a {}
+
+    >li.z-dis > a {
+        cursor: not-allowed;
     }
 
     > li + li {}
+}
+
+/* Disabled */
+.m-pager.z-dis {
+    > li {
+        > a {
+            cursor: not-allowed;
+        }
+    }
 }
 
 

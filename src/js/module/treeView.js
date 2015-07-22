@@ -42,7 +42,7 @@ var TreeView = SourceComponent.extend({
         });
         this.supr();
 
-        this.treeroot = this;
+        this.$ancestor = this;
     },
     /**
      * @method select(item) 选择某一项
@@ -79,10 +79,10 @@ var TreeViewList = SourceComponent.extend({
         });
         this.supr();
 
-        this.treeroot = this.$parent.treeroot;
-        this.service = this.treeroot.service;
-        this.data.itemTemplate = this.treeroot.data.itemTemplate;
-        this.data.hierarchical = this.treeroot.data.hierarchical;
+        this.$ancestor = this.$parent.$ancestor;
+        this.service = this.$ancestor.service;
+        this.data.itemTemplate = this.$ancestor.data.itemTemplate;
+        this.data.hierarchical = this.$ancestor.data.hierarchical;
 
         this.$watch('visible', function(newValue) {
             if(!this.data.hierarchical)
@@ -101,7 +101,7 @@ var TreeViewList = SourceComponent.extend({
      */
     getParams: function() {
         if(this.data.parent)
-            return _.extend({parentId: this.data.parent.id}, this.treeroot.getParams());
+            return _.extend({parentId: this.data.parent.id}, this.$ancestor.getParams());
     },
     $updateSource: function() {
         this.service.getList(this.getParams(), function(result) {
@@ -125,10 +125,10 @@ var TreeViewList = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
-        if(this.treeroot.data.disabled)
+        if(this.$ancestor.data.disabled)
             return;
 
-        this.treeroot.select(item);
+        this.$ancestor.select(item);
     },
     /**
      * @method toggle(item) 展开或收起某一项
@@ -137,7 +137,7 @@ var TreeViewList = SourceComponent.extend({
      * @return {void}
      */
     toggle: function(item) {
-        if(this.treeroot.data.disabled)
+        if(this.$ancestor.data.disabled)
             return;
 
         item.open = !item.open;
@@ -147,7 +147,7 @@ var TreeViewList = SourceComponent.extend({
          * @property {object} item 展开收起项
          * @property {boolean} open 展开还是收起
          */
-        this.treeroot.$emit('toggle', {
+        this.$ancestor.$emit('toggle', {
             item: item,
             open: item.open
         });

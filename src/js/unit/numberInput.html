@@ -1,0 +1,6 @@
+<label class="u-input2 u-input2-numberinput {@(class)}" r-hide={!visible}>
+    <input class="u-input u-input-{type}" r-model={value | number} on-keyup={this.validate(value)}>
+    <a class="u-btn" on-click={this.increase()}><i class="u-icon u-icon-caret-up"></i></a>
+    <a class="u-btn" on-click={this.decrease()}><i class="u-icon u-icon-caret-down"></i></a>
+    <span class="input2_tip">{tip}</span>
+</label>

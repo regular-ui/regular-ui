@@ -1,0 +1,8 @@
+<div class="u-dropdown u-dropdown-menu {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
+    <div class="dropdown_hd">
+        <a class="u-btn u-btn-primary" on-click={this.toggle(!open)}>{name || '菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+    </div>
+    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+        <menuList source={source} visible={true} />
+    </div>
+</div>

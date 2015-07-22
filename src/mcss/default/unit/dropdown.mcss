@@ -10,7 +10,7 @@
 
 .u-dropdown {
     .dropdown_bd {
-        // min-width: $formctrl_min-width;
+        min-width: $formctrl_min-width;
         // margin-top: -1px;
     }
 }

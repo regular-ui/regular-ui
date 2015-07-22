@@ -36,7 +36,6 @@ $m-pager_li_a_size = 22px;
             background: #ddd;
             color: #444;
         }
-
     }
 
     >li.z-crt > a {
@@ -44,7 +43,22 @@ $m-pager_li_a_size = 22px;
         color: white;
     }
 
+    >li.z-dis > a {
+        background: $formctrl-disabled_background;
+        color: $formctrl-disabled_color;
+    }
+
     > li + li {
         margin-left: 5px;
+    }
+}
+
+/* Disabled */
+.m-pager.z-dis {
+    > li {
+        > a {
+            background: $formctrl-disabled_background;
+            color: $formctrl-disabled_color;
+        }
     }
 }

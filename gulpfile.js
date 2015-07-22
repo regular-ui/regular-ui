@@ -11,11 +11,13 @@ var mcss = require('./lib/gulp-mcss.js');
 var jshint = require('gulp-jshint');
 var buildAll = require('./doc-src/buildAll.js');
 
+// clean doc/
 gulp.task('clean', function(done) {
     return gulp.src('./doc/*', { read: false }) // much faster
     .pipe(rm());
 });
 
+// copy files from doc-src/assets/ to doc/
 gulp.task('copy',  function() {
     return gulp.src(['./doc-src/assets/**'], {
         base: './doc-src/assets'

@@ -22,9 +22,11 @@ RGUI.request = require('./base/request.js');
  */
 // 导航类
 RGUI.Dropdown = require('./unit/dropdown.js');
+RGUI.Menu = require('./unit/menu.js');
 
 // 表单类
 RGUI.Input2 = require('./unit/input2.js');
+RGUI.NumberInput = require('./unit/numberInput.js');
 RGUI.Check2 = require('./unit/check2.js');
 RGUI.CheckGroup = require('./unit/checkGroup.js');
 RGUI.Check2Group = require('./unit/check2Group.js');
@@ -46,11 +48,14 @@ RGUI.Progress = require('./unit/progress.js');
  */
 // 导航类
 RGUI.Tab = require('./module/tab.js');
+RGUI.Accordion = require('./module/accordion.js');
 RGUI.Pager = require('./module/pager.js');
+RGUI.Menubar = require('./module/menubar.js');
 
 // 窗口类
 RGUI.Notify = require('./module/notify.js');
 RGUI.Modal = require('./module/modal.js');
+RGUI.Gotop = require('./module/gotop.js');
 
 // 数据类
 RGUI.ListView = require('./module/listView.js');
@@ -66,6 +71,7 @@ RGUI.Uploader = require('./module/uploader.js');
 
 // 编辑器类
 RGUI.Editor = require('./module/editor.js');
+RGUI.HTMLEditor = require('./module/htmlEditor.js');
 RGUI.MarkEditor = require('./module/markEditor.js');
 
 module.exports = window.RGUI = RGUI;

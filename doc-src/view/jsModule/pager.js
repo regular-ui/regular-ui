@@ -48,3 +48,14 @@ var Pager = RGUI.Pager;
         }
     }).$inject('#j-example3');
 })();
+
+// 禁用
+(function() {
+    var pager = new Pager({
+        data: {
+            current: 6,
+            total: 11,
+            disabled: true
+        }
+    }).$inject('#j-example4');
+})();

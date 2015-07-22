@@ -60,6 +60,17 @@ $m-tab-vertical_hd_li_width = 120px;
     }
 }
 
+/* Disabled */
+.m-tab.z-dis {
+    .tab_hd {
+        > li:not(.z-crt) {
+            background: none;
+            color: #999;
+            border-color: transparent;
+        }
+    }
+}
+
 
 
 // Extends:         `m-tab-center`

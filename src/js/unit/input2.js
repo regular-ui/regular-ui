@@ -13,10 +13,6 @@ var _ = require('../base/util.js');
  * @class Input2
  * @extend Component
  * @param {object}                  options.data                    绑定属性
- * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
- * @param {string}                  options.data.source[].name      每项的内容
- * @param {object=null}             options.data.selected           当前选择项
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
@@ -30,27 +26,22 @@ var Input2 = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
+            value: '',
             unit: '%',
-            selected: null,
-            multiple: false
+            type: null
         });
         this.supr();
     },
-    /**
-     * @method select(item) 选择某一项
-     * @public
-     * @param  {object} item 选择项
-     * @return {void}
-     */
-    select: function(item) {
-        this.data.selected = item;
-        /**
-         * @event select 选择某一项时触发
-         * @property {object} selected 当前选择项
-         */
-        this.$emit('select', {
-            selected: item
-        });
+    validate: function(value) {
+        console.log(value);
+        var reg = /^\d+$/;
+        if(!reg.test(value)) {
+            this.data.tip = '请输入数字！';
+            this.data.type = 'error';
+        } else {
+            this.data.tip = '';
+            this.data.type = 'success';
+        }
     }
 });
 

@@ -1,4 +1,14 @@
-// Brand Colors
+// Name:            Variables
+// Description:     变量
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/base/var.mcss";
+
+// Variables:
+// ========================================================================
+
+/* Brand Colors */
 $brand-primary =                        #3498db;
 $brand-info   =                         #3498db;
 $brand-success =                        #8cc14c;

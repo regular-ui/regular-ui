@@ -1,3 +1,19 @@
+// Name:            Base
+// Description:     基础
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Base:
+// ========================================================================
+
+html {
+    // - Prevents iOS text size adjust after orientation change, without disabling user zoom
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
 body {
     font: 14px/1.6 'Microsoft YaHei';
     background: white;
@@ -7,7 +23,43 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
+    // - Remove the gray background color from active links in IE 10.
+    background: transparent;
     color: $brand-primary;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+// - Improves readability when focused and also mouse hovered in all browsers.
+a:hover,
+a:focus {
+    outline: 0;
+}
+
+/* Text-level semantics */
+
+// - Addresses styling not present in Chrome, Safari, Opera and IE 8/9/10.
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+
+
+// Headings
+// ==================================
+h1, h2, h3, h4, h5, h6 {
+    margin: 25px 0 15px;
+}
+
+$hx-extend_size = ($number, $font-size, $line-height_) {
+
+h#{$number} {
+    font-size: $font-size;
+    line-height: $line-height_;
+}
+
 }
 
 // h3 {font-size: 16px; margin: 1.5em 0 1em; color: $brand-primary;}

@@ -1,3 +1,13 @@
+// Name:            Variables
+// Description:     变量
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/base/var.mcss";
+
+// Variables:
+// ========================================================================
+
 /* Dimension */
 $font-size-base =            14px;
 
@@ -47,7 +57,7 @@ $inverse =                   white;
 // Brand Colors
 $brand-primary =             $turquoise;
 $brand-secondary =           $wet-asphalt;
+$brand-info =                $peter-river;
 $brand-success =             $emerald;
 $brand-warning =             $sun-flower;
-$brand-error =              $alizarin;
-$brand-info =                $peter-river;
+$brand-error =               $alizarin;

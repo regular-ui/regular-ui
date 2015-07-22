@@ -40,27 +40,26 @@ Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面�
 
 ### 命名规范
 
-| 组件名和类名      | 对象名         | 标签名       | CSS类名        |　JS文件名  |  CSS文件名  |
-| ------------------  | ------------------ | ------------------ | ---------------- | ------- | ------- |
-| 大驼峰              | 小驼峰             | 小驼峰           | 全小写           | 与标签名一致 | 与CSS类名一致 |
-| -             | -           | `<button>`            | `u-btn`  | - | `btn.mcss` |
-| `Modal`             | `modal`            | `<modal>`            | `m-modal`  | `modal.js` | `modal.mcss` |
-| `DetailModal`       | `detailModal`      | `<detailModal>`      | - | `detailModal.js` | - |
-| `ListBox`           | `listBox`          | `<listBox>`          | `m-listbox` | `listBox.js` | `listbox.mcss` |
-| `ListView`          | `listView`         | `<listView>`         | `u-listview` | `listView.js` | `listview.mcss` |
-| `MusicListView`     | `musicListView`    | `<musicListView>`    | - | `musicListView.js` | - |
-| `TreeView`          | `treeView`         | `<treeView>`         | `m-treeview` | `treeView.js` | `treeview.mcss` |
-| `KnowledgeTreeView` | `knowledgeTreeView`| `<knowledgeTreeView>`| -         | `knowledgeTreeView.js` | - |
-| `TreeViewList`      | `treeViewList`     | `<treeViewList>`     | -     | - | - |
-| `Calendar`          | `calendar`         | `<calendar>`         | `m-calendar`         | `calendar.js` | `calendar.mcss` |
-| `DatePicker`        | `datePicker`       | `<datePicker>`       | `u-datepicker`       | `datePicker.js` | `datepicker.mcss` |
-| `DateTimePicker`    | `dateTimePicker`   | `<dateTimePicker>`   | `u-datetimepicker`   | `dateTimePicker.js` | `datetimepicker.mcss` |
+| 组件名和类名        | 对象名              | 标签名                | CSS类名        |　JS文件名  |  CSS文件名  |
+| ------------------  | ------------------- | --------------------- | ---------------- | ------- | ------- |
+| 大驼峰              | 小驼峰              |  与小驼峰一致         | 全小写           | 与标签名一致 | 与标签名一致 |
+| -                   | -                   | `<button>`            | `u-btn`  | - | `btn.mcss` |
+| `Modal`             | `modal`             | `<modal>`             | `m-modal`  | `modal.js` | `modal.mcss` |
+| `DetailModal`       | `detailModal`       | `<detailModal>`       | - | `detailModal.js` | - |
+| `ListView`          | `listView`          | `<listView>`          | `u-listview` | `listView.js` | `listView.mcss` |
+| `MusicListView`     | `musicListView`     | `<musicListView>`     | - | `musicListView.js` | - |
+| `TreeView`          | `treeView`          | `<treeView>`          | `m-treeview` | `treeView.js` | `treeView.mcss` |
+| `KnowledgeTreeView` | `knowledgeTreeView` | `<knowledgeTreeView>` | -         | `knowledgeTreeView.js` | - |
+| `TreeViewList`      | `treeViewList`      | `<treeViewList>`      | -     | - | - |
+| `Calendar`          | `calendar`          | `<calendar>`          | `m-calendar`         | `calendar.js` | `calendar.mcss` |
+| `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`       | `datePicker.js` | `datePicker.mcss` |
+| `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`   | `dateTimePicker.js` | `dateTimePicker.mcss` |
 
 ### 缩写
 
 button => btn
 
-thumbnail => thumb
+image => img
 
 active => act
 

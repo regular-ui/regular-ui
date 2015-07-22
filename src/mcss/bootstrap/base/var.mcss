@@ -1,4 +1,12 @@
-// Brand Colors
+// Name:            Variables
+// Description:     变量
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/base/var.mcss";
+
+// Variables:
+// ========================================================================
 
 $gray-base =                #000;
 $gray-darker =              l-adjust($gray-base, 13.5%); // #222
@@ -23,3 +31,20 @@ $border-radius-xs =          2px;
 $border-radius-sm =          3px;
 $border-radius-lg =          6px;
 $border-radius-xl =          6px;
+
+
+$status-success_color =             #3c763d;
+$status-success_background =               #dff0d8;
+$status-success_border =           l-adjust(h-adjust($status-success_background, -10), -5%);
+
+$status-info_color =                #31708f;
+$status-info_background =                  #d9edf7;
+$status-info_border =              l-adjust(h-adjust($status-info_background, -10), -7%);
+
+$status-warning_color =             #8a6d3b;
+$status-warning_background =               #fcf8e3;
+$status-warning_border =           l-adjust(h-adjust($status-warning_background, -10), -5%);
+
+$status-error_color =              #a94442;
+$status-error_background =                #f2dede;
+$status-error_border =            l-adjust(h-adjust($status-error_background, -10), -5%);

@@ -1,0 +1,28 @@
+// Name:            NumberInput
+// Description:     基础
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/numberInput.mcss";
+
+// Component:       `u-numberinput`
+// ========================================================================
+
+.u-input2-numberinput {
+    display: inline-block;
+    position: relative;
+    $user-select: none;
+
+    .u-btn {
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        $line-height: 12px;
+        padding: 0 4px;
+    }
+
+    .u-btn + .u-btn {
+        top: auto;
+        bottom: 2px;
+    }
+}

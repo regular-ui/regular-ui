@@ -1,0 +1,16 @@
+// Name:            ButtonGroup
+// Description:     按钮组
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-btngroup`
+// ========================================================================
+
+.u-btngroup {
+    // - 和button一致 | Behave like buttons
+    display: inline-block;
+    vertical-align: middle;
+    // white-space: nowrap;
+}

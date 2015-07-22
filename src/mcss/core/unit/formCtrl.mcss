@@ -1,5 +1,14 @@
-// 一般认为input和textarea的样式是差不多的。
+// Name:            FormCtrl
+// Description:     基础
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
 
+
+
+// Component:       `u-input`, `u-select`, `u-textarea`
+// ========================================================================
+
+// 一般认为input和textarea的样式是差不多的。
 // u-input用于input:not([type="radio"]), input:not([type="checkbox"])
 
 .u-input,
@@ -20,52 +29,22 @@
     //-webkit-appearance: none;
     vertical-align: middle;
 
-    $placeholder({
-        color: $u-input_placeholder_color;
-        // - Removes placeholder transparency in Firefox.
-        // opacity: 1;
-    });
-
-    // - Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports.
-    // max-width: 100%;
-    padding: $u-input_padding;
-    border: $u-input_border;
-    color: $u-input_color;
-    background: $u-input_background;
-    
-    // -webkit-transition: all linear 0.2s;
-    // transition: all linear 0.2s;
-
     &:focus {
         outline: 0;
-        $border: $u-input-focus_border;
-        background: $u-input-focus_background;
-        color: $u-input-focus_color;
     }
 
     &:disabled {
-        $border: $u-input-disabled_border;
-        background: $u-input-disabled_background;
-        color: $u-input-disabled_color;
-
         cursor: not-allowed;
-        // $placeholder({
-        //     color:$u-input-disabled_color;
-        // });
     }
 }
 
-.u-input {
-    height: $u-input_height;
-}
+.u-input {}
 
 .u-input-full {
     width: 100%;
 }
 
 .u-select {
-    height: $u-input_height;
-    min-width: $u-select_min-width;
     // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox
     text-transform: none;
 
@@ -87,9 +66,6 @@
     // overflow: auto;
     // - Improve readability and alignment in all browsers.
     vertical-align: top;
-
-    min-width: $u-textarea_min-width;
-    min-height: $u-textarea_min-height;
 }
 
 input.u-check,
@@ -106,4 +82,45 @@ input.u-radio {
 input.u-check:disabled,
 input.u-radio:disabled {
     cursor: not-allowed;
+}
+
+
+
+// Size Extends:
+// ========================================================================
+
+$formctrl-extend_size = ($name, $padding, $height, $font-size, $border-radius_) {
+
+.u-input-#{$name}, .u-select-#{$name} {
+    padding: $padding;
+    height: $height;
+    @if($font-size) {font-size: $font-size;}
+    @if($border-radius_) {$border-radius: $border-radius_;}
+}
+
+}
+
+$formctrl-extend_width = ($name, $width) {
+
+.u-input-#{$name}w, .u-select-#{$name}w {
+    width: $width;
+}
+
+}
+
+
+
+// Color Extends:
+// ========================================================================
+
+$formctrl-extend_color = ($name, $background, $color, $border_) {
+
+.u-input.u-input-#{$name},
+.u-select.u-select-#{$name},
+.u-textarea.u-textarea-#{$name} {
+    background: $background;
+    color: $color;
+    border-color: $border_;
+}
+
 }

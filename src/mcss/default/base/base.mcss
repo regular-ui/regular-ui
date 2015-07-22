@@ -1,0 +1,18 @@
+// Name:            Base
+// Description:     基础
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/base/base.mcss";
+
+// Base:
+// ========================================================================
+
+body {}
+
+$hx-extend_size(1, 36px, 42px);
+$hx-extend_size(2, 24px, 30px);
+$hx-extend_size(3, 18px, 24px);
+$hx-extend_size(4, 16px, 22px);
+$hx-extend_size(5, 14px, 20px);
+$hx-extend_size(6, 12px, 18px);

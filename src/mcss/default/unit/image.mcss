@@ -1,0 +1,22 @@
+// Name:            Thumbnail
+// Description:     缩略图
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/image.mcss";
+
+// Component:       `u-badge`
+// ========================================================================
+
+.u-img {
+    padding: 4px;
+    $border: #ddd;
+    background: #fff;
+}
+
+/* Hover */
+a.u-img:hover,
+a.u-img:focus {
+    border-color: #aaa;
+    background: #fff;
+}
