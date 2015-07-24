@@ -1,0 +1,13 @@
+// Name:            Comment
+// Description:     评论
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/comment.mcss";
+
+// Component:       `m-comment`
+// ========================================================================
+
+.m-comment {
+
+}

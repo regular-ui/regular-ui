@@ -1,4 +1,4 @@
-<div class="m-uploader {@(class)}" r-hide={!visible}>
+<div class="u-uploader {@(class)}" r-hide={!visible}>
     <a class="u-btn" on-click={this.upload()}>{name || '上传'}</a>
     <form method="POST" action={url} target="iframe{_id}" enctype={contentType} ref="form">
         <input type="file" name="file" ref="file" on-change={this.submit()}>

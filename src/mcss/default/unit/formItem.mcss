@@ -1,0 +1,19 @@
+// Name:            FormItem
+// Description:     表单项
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/formItem.mcss";
+
+// Component:       `u-formitem`
+// ========================================================================
+
+
+.u-formitem + .u-formitem {
+    margin-left: 20px;
+}
+
+.u-formitem-row + .u-formitem-row {
+    margin-left: 0;
+    margin-top: 20px;
+}

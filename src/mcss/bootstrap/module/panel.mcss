@@ -39,6 +39,11 @@
     }
 }
 
+
+
+// Color Extends:
+// ========================================================================
+
 $m-panel-extend_color(primary, $brand-primary, #fff, $brand-primary);
 $m-panel-extend_color(info, $status-info_background, $status-info_color, $status-info_border);
 $m-panel-extend_color(success, $status-success_background, $status-success_color, $status-success_border);

@@ -1,0 +1,17 @@
+// Name:            Article
+// Description:     文章
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-article`
+// ========================================================================
+
+.m-article {
+    .article_title {
+        font-weight: bold;
+    }
+
+    .article_meta {}
+}

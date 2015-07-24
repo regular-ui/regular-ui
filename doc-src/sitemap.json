@@ -22,8 +22,9 @@
                 {"name": "Color", "lowerName": "color", "cnName": "色块", "completed": false},
                 {"name": "Badge", "lowerName": "badge", "cnName": "徽章", "completed": false},
                 {"name": "Image", "lowerName": "image", "cnName": "图片"},
-                {"name": "Text", "lowerName": "text", "cnName": "文本"},
-                {"name": "FormControl", "lowerName": "formCtrl", "cnName": "表单元素"}
+                {"name": "Text", "lowerName": "text", "cnName": "文本", "completed": false},
+                {"name": "FormControl", "lowerName": "formCtrl", "cnName": "表单元素", "completed": false},
+                {"name": "FormItem", "lowerName": "formItem", "cnName": "表单项", "completed": false}
             ]
         }, {
             "name": "CSSModule",
@@ -35,15 +36,15 @@
                 {"name": "Toolbar", "lowerName": "toolbar", "cnName": "工具栏", "group": "导航类"},
                 {"name": "Crumb", "lowerName": "crumb", "cnName": "面包屑", "group": "导航类", "completed": true},
 
-                {"name": "Article", "lowerName": "article", "cnName": "文章", "group": "文章类"},
-                {"name": "Comment", "lowerName": "comment", "cnName": "评论", "group": "文章类"},
+                {"name": "Article", "lowerName": "article", "cnName": "文章", "group": "文章类", "completed": false},
+                {"name": "Comment", "lowerName": "comment", "cnName": "评论", "group": "文章类", "completed": false},
                 {"name": "Avatar", "lowerName": "avatar", "cnName": "头像", "group": "文章类"},
 
-                {"name": "List", "lowerName": "list", "cnName": "列表", "group": "布局类"},
+                {"name": "List", "lowerName": "list", "cnName": "列表", "group": "布局类", "completed": false},
                 {"name": "Table", "lowerName": "table", "cnName": "表格", "group": "布局类", "completed": true},
-                {"name": "Form", "lowerName": "form", "cnName": "表单", "group": "布局类"},
-                {"name": "Grid", "lowerName": "grid", "cnName": "网格", "group": "布局类"},
-                {"name": "Panel", "lowerName": "panel", "cnName": "面板", "group": "布局类", "completed": false}
+                {"name": "Panel", "lowerName": "panel", "cnName": "面板", "group": "布局类", "completed": false},
+                {"name": "Form", "lowerName": "form", "cnName": "表单", "group": "布局类", "completed": false},
+                {"name": "Grid", "lowerName": "grid", "cnName": "网格", "group": "布局类", "hidden": true, "new": true}
             ]
         }, {
             "name": "JSUnit",
@@ -65,13 +66,15 @@
                 {"name": "EmailSuggest", "lowerName": "suggest", "cnName": "邮件输入", "group": "表单类", "hidden": true},
                 {"name": "Slider", "lowerName": "slider", "cnName": "滑动器", "group": "表单类", "hidden": true},
                 {"name": "ColorPicker", "lowerName": "colorPicker", "cnName": "颜色采集器", "group": "表单类", "hidden": true},
+                {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "表单类", "completed": false},
 
                 {"name": "DatePicker", "lowerName": "datePicker", "cnName": "日期选择", "group": "日期类", "completed": true},
                 {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类", "completed": true},
                 {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类", "completed": true},
 
-                {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "消息类", "hidden": true},
-                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "消息类", "completed": true}
+                {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "其他类", "hidden": true},
+                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "其他类", "completed": true},
+                {"name": "Gotop", "lowerName": "gotop", "cnName": "回到顶部", "group": "其他类", "completed": false}
             ]
         }, {
             "name": "JSModule",
@@ -86,7 +89,6 @@
                 {"name": "Notify", "lowerName": "notify", "cnName": "通知", "group": "窗口类", "completed": true},
                 {"name": "Modal", "lowerName": "modal", "cnName": "模态对话框", "group": "窗口类", "completed": true},
                 {"name": "Window", "lowerName": "window", "cnName": "窗口", "group": "窗口类", "hidden": true},
-                {"name": "Gotop", "lowerName": "gotop", "cnName": "回到顶部", "group": "窗口类", "completed": false},
                 {"name": "OffCanvas", "lowerName": "offCanvas", "cnName": "弹出式画布", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "SlideShow", "lowerName": "slideShow", "cnName": "幻灯片", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "Album", "lowerName": "album", "cnName": "相册", "group": "窗口类", "hidden": true, "new": true},
@@ -99,7 +101,6 @@
                 {"name": "Calendar", "lowerName": "calendar", "cnName": "日历", "group": "日期类", "completed": true},
                 {"name": "Schedule", "lowerName": "schedule", "cnName": "日程", "group": "日期类", "hidden": true, "new": true},
 
-                {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "上传类", "completed": false},
                 {"name": "ImageUploader", "lowerName": "imageUploader", "cnName": "图片上传", "group": "上传类", "hidden": true, "new": true},
 
                 {"name": "Editor", "lowerName": "editor", "cnName": "编辑器", "group": "编辑器类", "hidden": true},

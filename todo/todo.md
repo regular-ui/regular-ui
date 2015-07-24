@@ -31,7 +31,7 @@
 [v] 文字是否要在模板中实现
 [v] readonly, disabled, visible
 [ ] readOnly bug
-[v] unit和module区分。从功能上能独立构成页面的一部分，或从大小上形成面的属于module，其它属于unit。所有下拉类均属于unit。
+[v] unit和module区分。正常情况下，通过直接观察，组件内部元素个数小于3的属于unit，其它属于module。例：所有下拉类均属于unit。
 [ ] 内嵌模板 itemTemplate
 [ ] service文档
 [v] 结尾为bar, top, down的不用驼峰

@@ -9,21 +9,35 @@
 // ========================================================================
 
 .m-panel {
-    $border: #ddd;
+    background: #f5f5f5;
+    color: #444;
 
     .panel_hd {
         padding: 5px 15px;
         background: #eee;
         color: #444;
+        border-bottom: 1px solid #ddd;
     }
 
     .panel_bd {
         padding: 5px 15px;
-        border-top: 1px solid #ddd;
+    }
+
+    .panel_ft {
+        padding: 5px 15px;
+        background: #eee;
+        color: #444;
+        border-bottom: 1px solid #ddd;
     }
 
     .panel_img {
-        
-    }
 
+    }
 }
+
+
+
+// Color Extends:
+// ========================================================================
+
+$m-panel-extend_color(primary, #ebf7fd, #2d7091, #2d7091);

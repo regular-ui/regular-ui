@@ -1,0 +1,28 @@
+// Name:            Text
+// Description:     文本
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/text.mcss";
+
+// Variables:
+// ========================================================================
+
+.u-text {}
+
+.u-text-sm {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.u-text-lg {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.u-text-muted { color: #999; }
+.u-text-primary { color: #2d7091; }
+.u-text-success { color: #659f13; }
+.u-text-warning { color: #e28327; }
+.u-text-error { color: #d85030; }
+.u-text-contrast { color: #fff; }

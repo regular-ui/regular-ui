@@ -121,3 +121,11 @@
 <div id="j-example7">
 <input class="u-input u-input-blank" value="Blank">
 </div>
+
+
+#### formItem
+
+<div class="u-formitem">
+    <label class="formitem_label">abc</label>
+    <div class="formitem_ctrl"><input class="u-input" /></div>
+</div>

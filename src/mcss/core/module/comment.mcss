@@ -1,17 +1,13 @@
-// Name:            Uploader
-// Description:     上传
+// Name:            Comment
+// Description:     评论
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
 
 
-// Component:       `m-uploader`
+// Component:       `m-comment`
 // ========================================================================
 
-.m-uploader {
-    display: inline-block;
-    
-    form, iframe {
-        display: none;
-    }
+.m-comment {
+
 }

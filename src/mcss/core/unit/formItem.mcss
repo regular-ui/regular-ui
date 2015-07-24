@@ -1,0 +1,35 @@
+// Name:            Form
+// Description:     表单
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-formitem`
+// ========================================================================
+
+.u-formitem {
+    display: inline-block;
+
+    .formitem_label {
+        font-weight: bold;
+    }
+}
+
+.u-formitem-row {
+    display: block;
+
+    .formitem_label {
+        display: block;
+        float: left;
+        width: 100px;
+        text-align: right;
+        font-weight: bold;
+        line-height: 30px;
+    }
+
+    .formitem_ctrl {
+        display: block;
+        margin-left: 116px;
+    }
+}

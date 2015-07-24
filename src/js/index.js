@@ -35,13 +35,16 @@ RGUI.Radio2Group = require('./unit/radio2Group.js');
 RGUI.Select2 = require('./unit/select2.js');
 RGUI.TreeSelect = require('./unit/treeSelect.js');
 RGUI.Suggest = require('./unit/suggest.js');
+RGUI.Uploader = require('./unit/uploader.js');
 
 // 日期类
 RGUI.DatePicker = require('./unit/datePicker.js');
 RGUI.TimePicker = require('./unit/timePicker.js');
 RGUI.DateTimePicker = require('./unit/dateTimePicker.js');
 
+// 其他
 RGUI.Progress = require('./unit/progress.js');
+RGUI.Gotop = require('./unit/gotop.js');
 
 /**
  * jsModule
@@ -55,7 +58,6 @@ RGUI.Menubar = require('./module/menubar.js');
 // 窗口类
 RGUI.Notify = require('./module/notify.js');
 RGUI.Modal = require('./module/modal.js');
-RGUI.Gotop = require('./module/gotop.js');
 
 // 数据类
 RGUI.ListView = require('./module/listView.js');
@@ -67,7 +69,7 @@ RGUI.TableView = require('./module/tableView.js');
 RGUI.Calendar = require('./module/calendar.js');
 
 // 上传类
-RGUI.Uploader = require('./module/uploader.js');
+//
 
 // 编辑器类
 RGUI.Editor = require('./module/editor.js');
