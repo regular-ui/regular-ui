@@ -10,12 +10,16 @@
 
 /* Dimension */
 $font-size-base =            14px;
+$font-size-sm =              12px;
 
 $border-radius-base =        4px;
 $border-radius-xs =          2px;
 $border-radius-sm =          3px;
 $border-radius-lg =          6px;
 $border-radius-xl =          6px;
+
+$line-height-base =          1.72222;
+$line-height-computed =      31px;
 
 /* Color */
 // Color swatches
@@ -61,3 +65,20 @@ $brand-info =                $peter-river;
 $brand-success =             $emerald;
 $brand-warning =             $sun-flower;
 $brand-error =               $alizarin;
+
+
+$status-success_color =         $brand-success;
+$status-success_background =           #dff0d8;
+$status-success_border =       l-adjust(h-adjust($status-success_background, -10), -5%);
+
+$status-info_color =            $brand-info;
+$status-info_background =              #d9edf7;
+$status-info_border =          l-adjust(h-adjust($status-info_background, -10), -7%);
+
+$status-warning_color =         $brand-warning;
+$status-warning_background =           #fcf8e3;
+$status-warning_border =       l-adjust(h-adjust($status-warning_background, -10), -5%);
+
+$status-error_color =          $brand-error;
+$status-error_background =            #f2dede;
+$status-error_border =        l-adjust(h-adjust($status-error_background, -10), -5%);

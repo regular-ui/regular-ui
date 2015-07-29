@@ -12,5 +12,21 @@
     // - 和button一致 | Behave like buttons
     display: inline-block;
     vertical-align: middle;
-    // white-space: nowrap;
+    white-space: nowrap;
+    letter-spacing: -.3em;
+
+    > .u-btn {
+        letter-spacing: normal;
+    }
+}
+
+
+
+// Extends:         `u-btn-vertical`
+// ========================================================================
+
+.u-btngroup-vertical {
+    > .u-btn {
+        @extend .u-btn-block;
+    }
 }

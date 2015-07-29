@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <checkGroup source={source} />
@@ -22,7 +22,7 @@
 
 #### 禁用
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <checkGroup source={source} disabled={true} />
@@ -47,7 +47,7 @@
 
 #### 多行
 
-<div id="j-example3"></div>
+<div class="m-example" id="j-example3"></div>
 
 ```xml
 <checkGroup source={source} block={true} />
@@ -68,7 +68,7 @@
 
 #### 使用Check2
 
-<div id="j-example4"></div>
+<div class="m-example" id="j-example4"></div>
 
 ```xml
 <check2Group source={source} />
@@ -89,7 +89,7 @@
 
 #### 全选
 
-<div id="j-example5"><label><input type="checkbox" class="u-check"> 全选</label></div>
+<div class="m-example" id="j-example5"><label><input type="checkbox" class="u-check"> 全选</label></div>
 
 ```xml
 <label><input type="checkbox" class="u-check"> 全选</label>

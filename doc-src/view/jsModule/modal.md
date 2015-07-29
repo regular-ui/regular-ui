@@ -5,7 +5,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"><button class="u-btn u-btn-primary">Modal</button></div>
+<div class="m-example" id="j-example1"><button class="u-btn u-btn-primary">Modal</button></div>
 
 ```javascript
 var modal = new Modal({
@@ -18,7 +18,7 @@ var modal = new Modal({
 
 #### Alert
 
-<div id="j-example2"><button class="u-btn u-btn-error">Alert</button></div>
+<div class="m-example" id="j-example2"><button class="u-btn u-btn-error">Alert</button></div>
 
 ```javascript
 Modal.alert('Alert内容');
@@ -26,7 +26,7 @@ Modal.alert('Alert内容');
 
 #### Confirm
 
-<div id="j-example3"><button class="u-btn u-btn-success">Confirm</button></div>
+<div class="m-example" id="j-example3"><button class="u-btn u-btn-success">Confirm</button></div>
 
 ```javascript
 Modal.confirm('Confirm内容');

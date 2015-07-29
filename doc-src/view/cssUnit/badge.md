@@ -3,7 +3,7 @@
 
 在`<span>`或`<a>`标签上使用`class="u-badge"`即可。
 
-<div id="j-example1">
+<div class="m-example">
 <span class="u-badge">New</span>
 <a class="u-badge">Free</a>
 </div>
@@ -15,7 +15,7 @@
 
 #### 颜色扩展
 
-<div id="j-example2">
+<div class="m-example">
 <span class="u-badge u-badge-info">Info</span>
 <span class="u-badge u-badge-success">Success</span>
 <span class="u-badge u-badge-warning">Warning</span>
@@ -31,7 +31,7 @@
 
 #### 数字
 
-<div id="j-example3">
+<div class="m-example">
 <span class="u-badge u-badge-success u-badge-number">1</span>
 <span class="u-badge u-badge-error u-badge-number">7</span>
 </div>

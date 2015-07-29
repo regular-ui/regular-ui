@@ -3,7 +3,8 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-
+//@base-margin-vertical:                          15px;
+//@base-list-padding-left:                        30px;
 
 // Base:
 // ========================================================================
@@ -19,6 +20,11 @@ body {
     background: white;
     color: #333;
 }
+
+
+
+// A:
+// ========================================================================
 
 a {
     text-decoration: none;
@@ -38,40 +44,222 @@ a:focus {
     outline: 0;
 }
 
-/* Text-level semantics */
-
-// - Addresses styling not present in Chrome, Safari, Opera and IE 8/9/10.
-abbr[title] {
-    border-bottom: 1px dotted;
-}
 
 
+// Headings:
+// ========================================================================
 
-// Headings
-// ==================================
-h1, h2, h3, h4, h5, h6 {
-    margin: 25px 0 15px;
-}
+h1, h2, h3, h4, h5, h6 {}
 
 $hx-extend_size = ($number, $font-size, $line-height_) {
 
 h#{$number} {
     font-size: $font-size;
-    line-height: $line-height_;
+    @if($line-height_) {line-height: $line-height_;}
 }
 
 }
 
-// h3 {font-size: 16px; margin: 1.5em 0 1em; color: $brand-primary;}
-// h4 {font-size: 14px; margin: 1em 0 .5em;}
-// h5 {font-size: 14px; margin: 1em 0 .5em; text-indent: 2em;}
-// h6 {font-size: 12px; margin: .3em 0;}
-// p {margin: .5em 0;}
-// pre {margin: .5em 0;}
-// img {vertical-align: text-bottom;}
-// ul {padding-left: 2em; margin: .5em 0;}
 
-*::selection, *::-moz-selection, *::-webkit-selection {
-    color: #fff;
-    background: $brand-primary;
+
+// P:
+// ========================================================================
+
+p {}
+
+
+
+// Hr:
+// ========================================================================
+
+hr {
+    border: none;
+}
+
+
+
+// Text:
+// ========================================================================
+
+em {
+    font-style: normal;
+}
+
+strong {}
+
+ins {
+    text-decoration: none;
+}
+
+del {}
+
+mark {}
+
+small {}
+
+pre, code, kbd, samp {
+    // - Consolas has a better baseline in running text compared to `Courier`
+    font-family: 'YaHei consolas Hybrid', 'Consolas';
+}
+
+code {}
+
+kbd {}
+
+// - Addresses styling not present in Chrome, Safari, Opera and IE 8/9/10.
+abbr[title] {
+    cursor: help;
+}
+
+dfn {
+    font-style: normal;
+    font-weight: bold;
+}
+
+sup, sub {}
+
+q {
+    &:before {
+        content: '“';
+    }
+
+    &:after {
+        content: '”';
+    }
+
+    q {
+        &:before {
+            content: '‘';
+        }
+
+        &:after {
+            content: '’';
+        }
+    }
+}
+
+
+
+// Blockquote:
+// ========================================================================
+
+blockquote,
+figure { margin: 0; }
+
+blockquote {
+    footer {
+        text-align: right;
+
+        &:before {
+          content: '—— ';
+        }
+    }
+}
+
+
+
+// Pre:
+// ========================================================================
+
+pre {
+    $tab-size: 4;
+    // - Contain overflow in all browsers.
+    overflow: auto;
+    // word-break: break-all;
+    // word-wrap: break-word;
+
+    code {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-size: inherit;
+        color: inherit;
+        // white-space: pre-wrap;
+    }
+}
+
+
+
+// List:
+// ========================================================================
+
+ul > li > ul,
+ul > li > ol,
+ol > li > ol,
+ol > li > ul {
+    margin: 0;
+}
+
+
+
+// Description List:
+// ========================================================================
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0;
+}
+
+
+// Address:
+// ========================================================================
+
+address { font-style: normal; }
+
+
+
+// Image:
+// ========================================================================
+
+img {
+    // -Responsiveness: Sets a maximum width relative to the parent and auto scales the height.
+    max-width: 100%;
+    height: auto;
+    $box-sizing: border-box;
+    // - Remove border when inside `a` element in IE 8/9/10.
+    border: none;
+    // - Remove the gap between images and the bottom of their containers.
+    vertical-align: middle;
+}
+
+// - Correct overflow not hidden in IE 9/10/11.
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+
+// HTML5 elements:
+// ========================================================================
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+iframe {
+    border: none;
+}
+
+// - Prevent displaying `audio` without controls in Chrome, Safari and Opera
+audio:not([controls]) {
+    display: none;
+}
+
+// - Addresses inconsistent vertical alignment of `progress` in Chrome, Firefox and Opera.
+progress {
+    vertical-align: baseline;
 }

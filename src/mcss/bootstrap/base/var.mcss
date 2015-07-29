@@ -14,6 +14,7 @@ $gray-dark =                l-adjust($gray-base, 20%);   // #333
 $gray =                     l-adjust($gray-base, 33.5%); // #555
 $gray-light =               l-adjust($gray-base, 46.7%); // #777
 $gray-lighter =             l-adjust($gray-base, 93.5%); // #eee
+$inverse =                   white;
 
 $brand-primary =            l-adjust(#428bca, -6.5%); // #337ab7
 $brand-success =            #5cb85c;
@@ -24,7 +25,41 @@ $brand-error =              #d9534f;
 
 /* Dimension */
 $font-size-base =            14px;
-$font-size-sm =              14px;
+$font-size-sm =              12px;
+$line-height-base =          1.428571429;
+$line-height-computed =      20px;
+
+/* Form Controls */
+$formctrl_padding = 6px 12px;
+$formctrl-xs_padding = 1px 5px;
+$formctrl-sm_padding = 5px 10px;
+$formctrl-lg_padding = 10px 16px;
+
+$formctrl_height = 34px;
+$formctrl-sm_height = 30px;
+$formctrl-lg_height = 46px;
+
+$formctrl-sm_font-size = 13px;
+$formctrl-lg_font-size = 17px;
+$formctrl-xl_font-size = 22px;
+
+$formctrl_min-width = 160px;
+
+$formctrl_background = white;
+$formctrl_color = $gray;
+$formctrl_border = 1px solid #ccc;
+
+$formctrl-focus_background = $formctrl_background;
+$formctrl-focus_color = $formctrl_color;
+$formctrl-focus_border = #66afe9;
+
+$formctrl-disabled_background = $gray-lighter;
+$formctrl-disabled_color = $formctrl_color;
+$formctrl-disabled_border = $formctrl_border;
+
+$formctrl_placeholder_color = #999;
+
+
 
 $border-radius-base =        4px;
 $border-radius-xs =          2px;
@@ -34,17 +69,17 @@ $border-radius-xl =          6px;
 
 
 $status-success_color =             #3c763d;
-$status-success_background =               #dff0d8;
+$status-success_background =        #dff0d8;
 $status-success_border =           l-adjust(h-adjust($status-success_background, -10), -5%);
 
 $status-info_color =                #31708f;
-$status-info_background =                  #d9edf7;
+$status-info_background =           #d9edf7;
 $status-info_border =              l-adjust(h-adjust($status-info_background, -10), -7%);
 
 $status-warning_color =             #8a6d3b;
-$status-warning_background =               #fcf8e3;
+$status-warning_background =        #fcf8e3;
 $status-warning_border =           l-adjust(h-adjust($status-warning_background, -10), -5%);
 
 $status-error_color =              #a94442;
-$status-error_background =                #f2dede;
+$status-error_background =         #f2dede;
 $status-error_border =            l-adjust(h-adjust($status-error_background, -10), -5%);

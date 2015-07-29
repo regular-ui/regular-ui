@@ -70,6 +70,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/base.html">基础<small> Base</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
@@ -84,13 +86,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/icon.html">图标<small> Icon</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
         
         <li><a href="../cssunit/color.html">色块<small> Color</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -98,13 +102,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/badge.html">徽章<small> Badge</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
-        
-        <li class="z-crt"><a href="../cssunit/image.html">图片<small> Image</small>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -112,25 +110,27 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/text.html">文本<small> Text</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
+        
+        
+        
+        <li class="z-crt"><a href="../cssunit/image.html">图片<small> Image</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
         
         
         
         <li><a href="../cssunit/formctrl.html">表单元素<small> FormControl</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
-        
-        
-        <li><a href="../cssunit/formitem.html">表单项<small> FormItem</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
     </ul>
 </div><div class="g-mn">
@@ -138,7 +138,45 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h2>图片<small> Image</small></h2>
         
-        
+        <p>在Base中，已经将<code>&lt;img&gt;</code>标签默认设置为响应式的了。使用<code>u-img</code>及其扩展功能可以实现更多的图片样式。</p>
+<h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div class="m-example">
+<img class="u-img" src="../dataimg/placeholder-200x100.svg">
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">圆形</h4>
+<div class="m-example">
+<img class="u-img u-img-circle" src="../dataimg/placeholder-200x100.svg">
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img u-img-circle&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">边框</h4>
+<div class="m-example">
+<img class="u-img u-img-border" src="../dataimg/placeholder-200x100.svg">
+<img class="u-img u-img-circle u-img-border" src="../dataimg/placeholder-200x100.svg">
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img u-img-border&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img u-img-circle u-img-border&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">尺寸扩展</h4>
+<div class="m-example">
+<p><img class="u-img u-img-xs" src="../dataimg/placeholder-200x100.svg"></p>
+<p><img class="u-img u-img-sm" src="../dataimg/placeholder-200x100.svg"></p>
+<p><img class="u-img u-img-lg" src="../dataimg/placeholder-200x100.svg"></p>
+<p><img class="u-img u-img-xl" src="../dataimg/placeholder-200x100.svg"></p>
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img u-img-xs&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">p</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img u-img-sm&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">p</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img u-img-lg&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">p</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-img u-img-xl&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">p</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+</code></pre>
+
         
     </article>
 </div>    </div>

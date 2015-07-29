@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1">
+<div class="m-example">
 <table class="m-table">
     <thead>
         <tr><th>表格标题</th><th>表格标题</th><th>表格标题</th></tr>
@@ -29,7 +29,7 @@
 
 #### hover
 
-<div id="j-example2">
+<div class="m-example">
 <table class="m-table m-table-hover">
     <thead>
         <tr><th>表格标题</th><th>表格标题</th><th>表格标题</th></tr>
@@ -57,7 +57,7 @@
 
 #### 条纹
 
-<div id="j-example3">
+<div class="m-example">
 <table class="m-table m-table-striped m-table-hover">
     <thead>
         <tr><th>表格标题</th><th>表格标题</th><th>表格标题</th></tr>

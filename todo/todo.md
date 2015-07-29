@@ -47,13 +47,24 @@
 [v] 修复f-系列在模板中的使用
 [v] NEC规范：内部类名，使用下划线
 [ ] NEC规范：允许在内部扩展插件
-[ ] btngroup, unitgroup要不要默认inline-block
-[ ] inline-block的空格处理
+[ ] btngroup, unitgroup默认inline-block
+[v] inline-block的空格处理，目前使用letter-spacing
 [ ] core中允许含有常量和$brand-primary
 [v] focus: outline, 提取出来，reset
-[ ] a不用a-link, button.u-btn, input.u-input, select.u-select, textarea.u-textarea?
+[ ] a, h1, h2... 不用单独的类; button.u-btn, input.u-input, select.u-select, textarea.u-textarea?
 [ ] H1, H2, H3, H4, H5, H6在文章中的展示
-[ ] u-btn 不要u-btn-default
+[v] u-btn不要u-btn-default
+[ ] full和block的区别，目前都用block
+[ ] 关于一些缩写是否要流行化
+[ ] btngroup尺寸扩展
+[ ] 目前只有hx和p标签设置margin
+[ ] CSS文档中的代码块需不需要用tab
+[v] 目前颜色缺少success, secondary等等，先不考虑
+[ ] 图片示例
+[ ] u-icon和u-badge的大小扩展
+[ ] .u-badge..u-badge-number优先级问题，目前先遇到问题再调整
+[v] 圆角为主题的固有属性，不单独作为一个类。
+[ ] 控件宽度需不需要保留
 
 
 #### 扩展属性

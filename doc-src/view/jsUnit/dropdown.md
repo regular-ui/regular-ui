@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <dropdown source={source} />
@@ -19,7 +19,7 @@
 
 #### 单项模板自定义
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <dropdown source={source} itemTemplate={@(itemTemplate)} />

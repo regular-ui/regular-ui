@@ -1,25 +1,33 @@
-// Name:            Thumbnail
-// Description:     缩略图
+// Name:            Image
+// Description:     图片
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
 
 
-// Component:       `u-thumbnail`
+// Component:       `u-img`
 // ========================================================================
 
-.u-thumbnail {
-    // - Container width fits its content
-    display: inline-block;
-    // - Responsive behavior
-    max-width: 100%;
-    $box-sizing: border-box;
-    // margin: 0;
+.u-img {}
+
+
+
+// Circle:
+// ========================================================================
+
+.u-img.u-img-circle {
+    $border-radius: 1000px;
 }
 
-/* Hover */
-a.u-thumbnail:hover,
-a.u-thumbnail:focus {
-    // - Required for `a` elements
-    text-decoration: none;
+
+
+// Size Extends:
+// ========================================================================
+
+$u-img-extend_size = ($name, $width) {
+
+.u-img-#{$name} {
+    width: $width;
+}
+
 }

@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <select2 source={source} />
@@ -19,7 +19,7 @@
 
 #### 禁用
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <select2 source={source} disabled={true} />
@@ -41,7 +41,7 @@
 
 #### 设置或取消默认项
 
-<div id="j-example3"></div>
+<div class="m-example" id="j-example3"></div>
 
 ```xml
 <select2 source={source} placeholder="全部" />

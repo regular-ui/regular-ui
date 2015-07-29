@@ -7,6 +7,7 @@
 
 // Base
 // ========================================================================
+
 $theme_name = "default";
 @import "http://nec.netease.com/download/framework/mass/mass/index.mcss";
 $reset-normalize();
@@ -28,8 +29,9 @@ $reset-normalize();
 @import "default/unit/buttonGroup.mcss";
 @import "default/unit/color.mcss";
 @import "default/unit/badge.mcss";
-@import "default/unit/image.mcss";
 @import "default/unit/text.mcss";
+@import "default/unit/image.mcss";
+@import "default/unit/thumbnail.mcss";
 @import "default/unit/formCtrl.mcss";
 @import "default/unit/formItem.mcss";
 

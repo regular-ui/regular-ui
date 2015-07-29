@@ -70,6 +70,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/base.html">基础<small> Base</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
@@ -84,13 +86,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/icon.html">图标<small> Icon</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
         
         <li><a href="../cssunit/color.html">色块<small> Color</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -98,13 +102,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/badge.html">徽章<small> Badge</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="../cssunit/image.html">图片<small> Image</small>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -112,25 +110,27 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/text.html">文本<small> Text</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
+        
+        
+        
+        <li><a href="../cssunit/image.html">图片<small> Image</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
         
         
         
         <li><a href="../cssunit/formctrl.html">表单元素<small> FormControl</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
-        
-        
-        <li><a href="../cssunit/formitem.html">表单项<small> FormItem</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
     </ul>
 </div><div class="g-mn">
@@ -140,19 +140,23 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<p>在<code>&lt;button&gt;</code>或<code>&lt;a&gt;</code>标签上使用<code>class=&quot;u-btn&quot;</code>，两者样式完全一致。</p>
-<div id="j-example1">
+<p>在<code>&lt;button&gt;</code>、<code>&lt;a&gt;</code>或<code>&lt;input&gt;</code>标签上使用<code>class=&quot;u-btn&quot;</code>，三者样式完全一致。</p>
+<div class="m-example">
 <button class="u-btn">Button</button>
-<a class="u-btn">aButton</a>
-<a class="u-btn" href="#">aButton#</a>
+<a class="u-btn">Link</a>
+<a class="u-btn" href="#">Link#</a>
+<input class="u-btn" type="button" value="Input">
+<input class="u-btn" type="submit" value="Submit">
 </div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>aButton<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;#&quot;</span><span class="cm-tagcm-bracket">&gt;</span>aButton#<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;button&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Input&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;submit&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Submit&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">颜色扩展</h4>
-<div id="j-example2">
+<div class="m-example">
 <button class="u-btn">Default</button>
 <button class="u-btn u-btn-primary">Primary</button>
 <button class="u-btn u-btn-secondary">Secondary</button>
@@ -173,7 +177,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-inverse&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Inverse<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">尺寸扩展</h4>
-<div id="j-example3">
+<div class="m-example">
 <button class="u-btn u-btn-xs">Extra Small</button>
 <button class="u-btn u-btn-sm">Small</button>
 <button class="u-btn">Normal</button>
@@ -202,22 +206,59 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary u-btn-xl&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Extra Large<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">禁用</h4>
-<div id="j-example4">
+<div class="m-example">
 <button class="u-btn z-dis">Disabled</button>
-<button class="u-btn u-btn-primary" disabled>Disabled</button>
-<a class="u-btn z-dis">Disabled</a>
+<button class="u-btn u-btn-primary" disabled>Button</button>
+<a class="u-btn z-dis">Link</a>
+<input class="u-btn" type="button" value="Input" disabled>
+<input class="u-btn" type="submit" value="Submit" disabled>
 </div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn z-dis&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn z-dis&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Button<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn z-dis&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Link<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;button&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Input&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;submit&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Submit&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+</code></pre>
+<h4 id="-">整行</h4>
+<div class="m-example">
+<button class="u-btn u-btn-primary u-btn-block">Block</button>
+<p></p>
+<a class="u-btn u-btn-block">Link</a>
+<p></p>
+<input class="u-btn u-btn-lg u-btn-block" type="button" value="Large Input">
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-block&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Block<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary u-btn-block&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Link<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-lg u-btn-block&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;button&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Input&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">按钮组</h4>
-<div id="j-example5">
-<div class="u-btngroup">
-    <button class="u-btn">Button1</button><button class="u-btn">Button2</button><button class="u-btn">Button3</button>
+<div class="m-example">
+<div class="u-btngroup u-btngroup-horizontal">
+    <button class="u-btn">Button1</button>
+    <button class="u-btn">Button2</button>
+    <button class="u-btn">Button3</button>
+</div>
+<p></p>
+<div class="u-btngroup u-btngroup-vertical">
+    <button class="u-btn">Button1</button>
+    <button class="u-btn">Button2</button>
+    <button class="u-btn">Button3</button>
 </div>
 </div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btngroup u-btngroup-horizontal&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btngroup u-btngroup-vertical&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Button3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
 
         
     </article>

@@ -18,7 +18,7 @@
 
 #### 颜色扩展
 
-<div id="j-example2">
+<div class="m-example">
 <div class="m-panel">
     <div class="panel_hd">Default</div>
     <div class="panel_bd">456</div>

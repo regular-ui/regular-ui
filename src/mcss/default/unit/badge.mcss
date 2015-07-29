@@ -11,10 +11,9 @@
 .u-badge {
     padding: 0 5px;
     line-height: 14px;
-    background: #00a8e6;
-    color: white;
     font-size: 12px;
-    font-weight: bold;
+    background: #aaa; // background: #00a8e6;
+    color: white;
 }
 
 /* Hover */

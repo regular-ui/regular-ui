@@ -12,7 +12,7 @@
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-    background: #ccc;
+    background: white;
     color: white;
 }
 

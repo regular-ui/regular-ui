@@ -36,7 +36,7 @@
 
 
 
-// Size Extends:       `u-btn-xs`, `u-btn-sm`, `u-btn-lg`
+// Size Extends:
 // ========================================================================
 
 $u-btn-extend_size(xs, 6px, 18px, 12px, $border-radius-xs);
@@ -46,7 +46,7 @@ $u-btn-extend_size(xl, 20px, 53px, 22px, $border-radius-xl);
 
 
 
-// Color Extends:       `u-btn-primary`, `u-btn-info`, `u-btn-success`, `u-btn-error`
+// Color Extends:
 // ========================================================================
 
 $u-btn-extend_color = ($name, $background) {

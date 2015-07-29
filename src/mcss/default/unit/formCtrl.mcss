@@ -17,7 +17,7 @@
     $placeholder({
         color: $formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
-        // opacity: 1;
+        opacity: 1;
     });
 
     // - Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports.

@@ -1,22 +1,32 @@
-// Name:            Thumbnail
-// Description:     缩略图
+// Name:            Image
+// Description:     图片
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
 @import "../../core/unit/image.mcss";
 
-// Component:       `u-badge`
+// Component:       `u-img`
 // ========================================================================
 
-.u-img {
+.u-img {}
+
+
+
+// Border:
+// ========================================================================
+
+.u-img-border {
     padding: 4px;
     $border: #ddd;
     background: #fff;
 }
 
-/* Hover */
-a.u-img:hover,
-a.u-img:focus {
-    border-color: #aaa;
-    background: #fff;
-}
+
+
+// Size Extends:
+// ========================================================================
+
+$u-img-extend_size(xs, 150px);
+$u-img-extend_size(sm, 200px);
+$u-img-extend_size(lg, 300px);
+$u-img-extend_size(xl, 400px);

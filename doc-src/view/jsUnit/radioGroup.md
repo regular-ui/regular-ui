@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <radioGroup source={source} />
@@ -22,7 +22,7 @@
 
 #### 禁用
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <radioGroup source={source} disabled={true} />
@@ -47,7 +47,7 @@
 
 #### 多行
 
-<div id="j-example3"></div>
+<div class="m-example" id="j-example3"></div>
 
 ```xml
 <radioGroup source={source} block={true} />
@@ -68,7 +68,7 @@
 
 #### 使用Radio2
 
-<div id="j-example4"></div>
+<div class="m-example" id="j-example4"></div>
 
 ```xml
 <radio2Group source={source} />

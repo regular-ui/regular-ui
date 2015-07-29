@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <tableView source={source} fields={@(fields)} itemTemplate={@(itemTemplate)} />
@@ -46,7 +46,7 @@
 
 如果有`service`属性，会向服务器发送请求并带上排序相关的参数，进行后端排序；如果没有`service`属性，则在本地对`source`进行排序。
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <tableView source={source} fields={@(fields)} itemTemplate={@(itemTemplate)} />

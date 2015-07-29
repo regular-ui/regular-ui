@@ -197,12 +197,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <p>创建显示消息的通知，并且能自动淡出。类似Android中的Toast。</p>
 <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div id="j-example1"><button class="u-btn u-btn-primary">Notify</button></div>
+<div class="m-example" id="j-example1"><button class="u-btn u-btn-primary">Notify</button></div>
 
 <pre class="lang-javascript"><code><span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;This is a message.&#39;</span>);
 </code></pre>
 <h4 id="-">状态扩展</h4>
-<div id="j-example2">
+<div class="m-example" id="j-example2">
 <button class="u-btn u-btn-info">Info</button>
 <button class="u-btn u-btn-success">Success</button>
 <button class="u-btn u-btn-warning">Warning</button>
@@ -215,7 +215,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Error message.&#39;</span>, <span class="cm-string">&#39;error&#39;</span>);
 </code></pre>
 <h4 id="-">位置扩展</h4>
-<div id="j-example3">
+<div class="m-example" id="j-example3">
 <button class="u-btn">Top Center</button>
 <button class="u-btn">Top Left</button>
 <button class="u-btn">Top Right</button>
@@ -240,7 +240,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </code></pre>
 <h4 id="-">嵌入文档流</h4>
 <p>上面的模式通知都是以<code>fixed</code>的形式固定在浏览器中，如果要将通知嵌入到文档流，先将<code>notify</code>注入到需要的位置，同时设置<code>notify</code>的<code>position=&quot;static&quot;</code>。</p>
-<div id="j-example4"><button class="u-btn u-btn-primary">Static</button></div>
+<div class="m-example" id="j-example4"><button class="u-btn u-btn-primary">Static</button></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">notify</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;notify&quot;</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-attribute">duration</span>=<span class="cm-string">&quot;0&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
@@ -250,7 +250,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </code></pre>
 <h4 id="-">消息停留时间</h4>
 <p>可以通过设置<code>notify</code>的<code>duration</code>参数设置所有消息的停留时间，也可以在<code>show</code>的时候单独设置该条消息的停留时间，单位为毫秒。</p>
-<div id="j-example5">
+<div class="m-example" id="j-example5">
 <button class="u-btn">0.5s</button>
 <button class="u-btn">1s</button>
 <button class="u-btn">2s</button>

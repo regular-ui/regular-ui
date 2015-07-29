@@ -105,4 +105,6 @@ $u-btn-extend_color = ($name, $background, $hover_background, $active_background
 
 .u-btn-block {
     display: block;
+    // 为了`button`标签
+    width: 100%;
 }

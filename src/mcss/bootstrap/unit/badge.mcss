@@ -12,11 +12,9 @@
     padding: 3px 7px;
     min-width: 10px;
     line-height: 1;
+    font-size: $font-size-sm;
     background: $gray-light;    
     color: white;
-    font-size: $font-size-sm;
-    font-weight: bold;
-    text-align: center;
     $border-radius: 10px;
 }
 

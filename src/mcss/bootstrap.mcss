@@ -29,9 +29,10 @@ $reset-normalize();
 @import "bootstrap/unit/buttonGroup.mcss";
 @import "bootstrap/unit/color.mcss";
 @import "bootstrap/unit/badge.mcss";
-@import "default/unit/image.mcss";
-@import "default/unit/text.mcss";
-@import "default/unit/formCtrl.mcss";
+@import "bootstrap/unit/text.mcss";
+@import "bootstrap/unit/image.mcss";
+@import "default/unit/thumbnail.mcss";
+@import "bootstrap/unit/formCtrl.mcss";
 @import "default/unit/formItem.mcss";
 
 

@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <treeView source={source} />
@@ -30,7 +30,7 @@
 
 #### 禁用
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <treeView source={source} disabled={true} />
@@ -59,7 +59,7 @@
 
 #### 远程数据
 
-<div id="j-example3"></div>
+<div class="m-example" id="j-example3"></div>
 
 ```xml
 <treeView service={@(service)} />
@@ -82,7 +82,7 @@
 
 #### 分级加载
 
-<div id="j-example4"></div>
+<div class="m-example" id="j-example4"></div>
 
 ```xml
 <treeView service={@(service)} hierarchical={true} />
@@ -105,7 +105,7 @@
 
 #### 单项模板自定义
 
-<div id="j-example5"></div>
+<div class="m-example" id="j-example5"></div>
 
 ```xml
 <treeView service={@(service)} hierarchical={true} itemTemplate={@(itemTemplate)} />

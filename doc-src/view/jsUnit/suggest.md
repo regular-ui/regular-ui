@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <suggest source={source} />
@@ -25,7 +25,7 @@
 
 #### 禁用
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <suggest source={source} disabled={true} />
@@ -49,7 +49,7 @@
 
 #### Placeholder
 
-<div id="j-example3"></div>
+<div class="m-example" id="j-example3"></div>
 
 ```xml
 <suggest source={source} placeholder="输入时会自动提示" />
@@ -75,7 +75,7 @@
 
 当输入长度>=`minLength`属性后开始提示。
 
-<div id="j-example4"></div>
+<div class="m-example" id="j-example4"></div>
 
 ```xml
 <suggest source={source} placeholder="输入2个字符后开始提示" minLength="2" />
@@ -99,7 +99,7 @@
 
 #### 匹配方式
 
-<div id="j-example5"></div>
+<div class="m-example" id="j-example5"></div>
 
 ```xml
 <suggest source={source} placeholder="匹配全局" matchType="all" />
@@ -125,7 +125,7 @@
 
 #### 严格模式
 
-<div id="j-example6"></div>
+<div class="m-example" id="j-example6"></div>
 
 ```xml
 <suggest source={source} strict={true} />

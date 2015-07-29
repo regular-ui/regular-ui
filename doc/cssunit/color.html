@@ -70,6 +70,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/base.html">基础<small> Base</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
@@ -84,13 +86,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/icon.html">图标<small> Icon</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
         
         <li class="z-crt"><a href="../cssunit/color.html">色块<small> Color</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -98,13 +102,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/badge.html">徽章<small> Badge</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="../cssunit/image.html">图片<small> Image</small>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -112,25 +110,27 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssunit/text.html">文本<small> Text</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
+        
+        
+        
+        <li><a href="../cssunit/image.html">图片<small> Image</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
         
         
         
         <li><a href="../cssunit/formctrl.html">表单元素<small> FormControl</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
-        
-        
-        <li><a href="../cssunit/formitem.html">表单项<small> FormItem</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
     </ul>
 </div><div class="g-mn">
@@ -140,16 +140,32 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<p>这个并没有什么卵用，只是用于显示该主题色块的。</p>
+<p>这个并没有什么卵用，只是用于显示主题配色的。</p>
+<div class="m-example">
 <div class="u-color u-color-primary">Primary</div>
 <div class="u-color u-color-info">Info</div>
 <div class="u-color u-color-success">Success</div>
 <div class="u-color u-color-warning">Warning</div>
 <div class="u-color u-color-error">Error</div>
+<div class="u-color">Default</div>
 <div class="u-color u-color-secondary">Secondary</div>
 <div class="u-color u-color-gray">Gray</div>
 <div class="u-color u-color-graylight">GrayLight</div>
 <div class="u-color u-color-inverse">Inverse</div>
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Primary<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-info&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-error&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Error<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Default<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-secondary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Secondary<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-gray&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Gray<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-graylight&quot;</span><span class="cm-tagcm-bracket">&gt;</span>GrayLight<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-inverse&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Inverse<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+
         
     </article>
 </div>    </div>

@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1">
+<div class="m-example">
 <ul class="m-crumb">
     <li><a href="#">首页</a></li>
     <li><a href="#">CSS模块</a></li>

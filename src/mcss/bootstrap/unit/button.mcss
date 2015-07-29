@@ -5,7 +5,7 @@
 
 @import "../../core/unit/button.mcss";
 
-// Variables
+// Variables:
 // ========================================================================
 
 $u-btn_background = white;
@@ -45,7 +45,7 @@ $u-btn_border = #ccc;
 
 
 
-// Size Extends:       `u-btn-xs`, `u-btn-sm`, `u-btn-lg`
+// Size Extends:
 // ========================================================================
 
 $u-btn-extend_size(xs, 5px, 15px, 12px, $border-radius-xs);
@@ -54,7 +54,7 @@ $u-btn-extend_size(lg, 16px, 38px, 18px, $border-radius-lg);
 
 
 
-// Color Extends:       `u-btn-primary`, `u-btn-info`, `u-btn-success`, `u-btn-error`
+// Color Extends:
 // ========================================================================
 
 $u-btn-extend_color = ($name, $background) {
@@ -88,8 +88,6 @@ $u-btn-extend_color(info, $brand-info);
 $u-btn-extend_color(success, $brand-success);
 $u-btn-extend_color(warning, $brand-warning);
 $u-btn-extend_color(error, $brand-error);
-
-
 
 /* Disabled */
 .u-btn:disabled,

@@ -1,23 +1,27 @@
 ### 示例
 #### 基本形式
 
-在`<button>`或`<a>`标签上使用`class="u-btn"`，两者样式完全一致。
+在`<button>`、`<a>`或`<input>`标签上使用`class="u-btn"`，三者样式完全一致。
 
-<div id="j-example1">
+<div class="m-example">
 <button class="u-btn">Button</button>
-<a class="u-btn">aButton</a>
-<a class="u-btn" href="#">aButton#</a>
+<a class="u-btn">Link</a>
+<a class="u-btn" href="#">Link#</a>
+<input class="u-btn" type="button" value="Input">
+<input class="u-btn" type="submit" value="Submit">
 </div>
 
 ```html
 <button class="u-btn">Button</button>
 <a class="u-btn">aButton</a>
 <a class="u-btn" href="#">aButton#</a>
+<input class="u-btn" type="button" value="Input">
+<input class="u-btn" type="submit" value="Submit">
 ```
 
 #### 颜色扩展
 
-<div id="j-example2">
+<div class="m-example">
 <button class="u-btn">Default</button>
 <button class="u-btn u-btn-primary">Primary</button>
 <button class="u-btn u-btn-secondary">Secondary</button>
@@ -41,7 +45,7 @@
 
 #### 尺寸扩展
 
-<div id="j-example3">
+<div class="m-example">
 <button class="u-btn u-btn-xs">Extra Small</button>
 <button class="u-btn u-btn-sm">Small</button>
 <button class="u-btn">Normal</button>
@@ -73,22 +77,63 @@
 
 #### 禁用
 
-<div id="j-example4">
+<div class="m-example">
 <button class="u-btn z-dis">Disabled</button>
-<button class="u-btn u-btn-primary" disabled>Disabled</button>
-<a class="u-btn z-dis">Disabled</a>
+<button class="u-btn u-btn-primary" disabled>Button</button>
+<a class="u-btn z-dis">Link</a>
+<input class="u-btn" type="button" value="Input" disabled>
+<input class="u-btn" type="submit" value="Submit" disabled>
 </div>
 
 ```html
 <button class="u-btn z-dis">Disabled</button>
-<button class="u-btn u-btn-primary" disabled>Disabled</button>
-<a class="u-btn z-dis">Disabled</a>
+<button class="u-btn u-btn-primary" disabled>Button</button>
+<a class="u-btn z-dis">Link</a>
+<input class="u-btn" type="button" value="Input" disabled>
+<input class="u-btn" type="submit" value="Submit" disabled>
+```
+
+#### 整行
+
+<div class="m-example">
+<button class="u-btn u-btn-primary u-btn-block">Block</button>
+<p></p>
+<a class="u-btn u-btn-block">Link</a>
+<p></p>
+<input class="u-btn u-btn-lg u-btn-block" type="button" value="Large Input">
+</div>
+
+```html
+<button class="u-btn u-btn-block">Block</button>
+<a class="u-btn u-btn-primary u-btn-block">Link</a>
+<input class="u-btn u-btn-lg u-btn-block" type="button" value="Input">
 ```
 
 #### 按钮组
 
-<div id="j-example5">
-<div class="u-btngroup">
-    <button class="u-btn">Button1</button><button class="u-btn">Button2</button><button class="u-btn">Button3</button>
+<div class="m-example">
+<div class="u-btngroup u-btngroup-horizontal">
+    <button class="u-btn">Button1</button>
+    <button class="u-btn">Button2</button>
+    <button class="u-btn">Button3</button>
+</div>
+<p></p>
+<div class="u-btngroup u-btngroup-vertical">
+    <button class="u-btn">Button1</button>
+    <button class="u-btn">Button2</button>
+    <button class="u-btn">Button3</button>
 </div>
 </div>
+
+```html
+<div class="u-btngroup u-btngroup-horizontal">
+    <button class="u-btn">Button1</button>
+    <button class="u-btn">Button2</button>
+    <button class="u-btn">Button3</button>
+</div>
+<div class="u-btngroup u-btngroup-vertical">
+    <button class="u-btn">Button1</button>
+    <button class="u-btn">Button2</button>
+    <button class="u-btn">Button3</button>
+</div>
+```

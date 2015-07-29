@@ -6,5 +6,5 @@
 <input class="u-input" type="url" />
 <p></p>
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 

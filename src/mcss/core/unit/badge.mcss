@@ -10,6 +10,12 @@
 
 .u-badge {
     display: inline-block;
+    font-weight: bold;
+    text-align: center;
+}
+
+a.u-badge {
+    text-decoration: none;
 }
 
 
@@ -30,6 +36,6 @@ $u-badge-extend_color = ($name, $background) {
 // Extends:
 // ========================================================================
 
-.u-badge-number {
-    $border-radius: 100px;
+.u-badge.u-badge-number {
+    $border-radius: 1000px;
 }

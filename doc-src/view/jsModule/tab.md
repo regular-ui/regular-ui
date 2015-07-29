@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div id="j-example1"></div>
+<div class="m-example" id="j-example1"></div>
 
 ```xml
 <tab>
@@ -14,7 +14,7 @@
 
 ### 居中
 
-<div id="j-example2"></div>
+<div class="m-example" id="j-example2"></div>
 
 ```xml
 <tab class="m-tab-center">
@@ -27,7 +27,7 @@
 
 ### 垂直居左
 
-<div id="j-example3"></div>
+<div class="m-example" id="j-example3"></div>
 
 ```xml
 <tab class="m-tab-left">
@@ -40,7 +40,7 @@
 
 ### 垂直居右
 
-<div id="j-example4"></div>
+<div class="m-example" id="j-example4"></div>
 
 ```xml
 <tab class="m-tab-right">
@@ -53,7 +53,7 @@
 
 ### 禁用
 
-<div id="j-example5"></div>
+<div class="m-example" id="j-example5"></div>
 
 ```xml
 <tab disabled={true}>

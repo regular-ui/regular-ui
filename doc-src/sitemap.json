@@ -15,16 +15,17 @@
             "lowerName": "cssUnit",
             "cnName": "CSS元件",
             "children": [
-                {"name": "Base", "lowerName": "base", "cnName": "基础"},
+                {"name": "Base", "lowerName": "base", "cnName": "基础", "completed": true},
 
                 {"name": "Button", "lowerName": "button", "cnName": "按钮", "completed": true},
-                {"name": "Icon", "lowerName": "icon", "cnName": "图标"},
-                {"name": "Color", "lowerName": "color", "cnName": "色块", "completed": false},
-                {"name": "Badge", "lowerName": "badge", "cnName": "徽章", "completed": false},
-                {"name": "Image", "lowerName": "image", "cnName": "图片"},
-                {"name": "Text", "lowerName": "text", "cnName": "文本", "completed": false},
-                {"name": "FormControl", "lowerName": "formCtrl", "cnName": "表单元素", "completed": false},
-                {"name": "FormItem", "lowerName": "formItem", "cnName": "表单项", "completed": false}
+                {"name": "Icon", "lowerName": "icon", "cnName": "图标", "completed": true},
+                {"name": "Color", "lowerName": "color", "cnName": "色块", "completed": true},
+                {"name": "Badge", "lowerName": "badge", "cnName": "徽章", "completed": true},
+                {"name": "Text", "lowerName": "text", "cnName": "文本", "completed": true},
+                {"name": "Image", "lowerName": "image", "cnName": "图片", "completed": true},
+                {"name": "Thumbnail", "lowerName": "thumbnail", "cnName": "缩略图", "completed": false, "hidden": true},
+                {"name": "FormControl", "lowerName": "formCtrl", "cnName": "表单元素", "completed": true},
+                {"name": "FormItem", "lowerName": "formItem", "cnName": "表单项", "hidden": true}
             ]
         }, {
             "name": "CSSModule",
