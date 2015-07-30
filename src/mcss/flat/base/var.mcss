@@ -82,3 +82,36 @@ $status-warning_border =       l-adjust(h-adjust($status-warning_background, -10
 $status-error_color =          $brand-error;
 $status-error_background =            #f2dede;
 $status-error_border =        l-adjust(h-adjust($status-error_background, -10), -5%);
+
+
+/* Form Controls */
+$formctrl_padding = 6px 12px;
+$formctrl-xs_padding = 1px 5px;
+$formctrl-sm_padding = 5px 10px;
+$formctrl-lg_padding = 10px 16px;
+
+$formctrl_height = 42px;
+$formctrl-sm_height = 35px;
+$formctrl-lg_height = 45px;
+$formctrl-xg_height = 53px;
+
+$formctrl-sm_font-size = 13px;
+$formctrl_font-size = 15px;
+$formctrl-lg_font-size = 17px;
+$formctrl-xl_font-size = 22px;
+
+$formctrl_min-width = 160px;
+
+$formctrl_background = white;
+$formctrl_color = $brand-secondary;
+$formctrl_border = 2px solid $gray-light;
+
+$formctrl-focus_background = $formctrl_background;
+$formctrl-focus_color = $formctrl_color;
+$formctrl-focus_border = $brand-primary;
+
+$formctrl-disabled_background = mix($gray, white, 10%);;
+$formctrl-disabled_color = mix($gray, white, 40%);
+$formctrl-disabled_border = mix($gray, white, 40%);
+
+$formctrl_placeholder_color = s-adjust(l-adjust($brand-secondary, 45%), -15%);

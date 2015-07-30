@@ -31,8 +31,8 @@ $reset-normalize();
 @import "bootstrap/unit/badge.mcss";
 @import "bootstrap/unit/text.mcss";
 @import "flat/unit/image.mcss";
-@import "default/unit/thumbnail.mcss";
-@import "default/unit/formCtrl.mcss";
+// @import "default/unit/thumbnail.mcss";
+@import "flat/unit/formCtrl.mcss";
 @import "default/unit/formItem.mcss";
 
 
@@ -42,7 +42,7 @@ $reset-normalize();
 
 /* 导航类 */
 @import "default/module/nav.mcss";
-@import "default/module/crumb.mcss";
+@import "bootstrap/module/crumb.mcss";
 @import "default/module/sidebar.mcss";
 @import "default/module/toolbar.mcss";
 
@@ -52,7 +52,7 @@ $reset-normalize();
 
 /* 布局类 */
 @import "default/module/list.mcss";
-@import "default/module/table.mcss";
+@import "bootstrap/module/table.mcss";
 @import "default/module/panel.mcss";
 @import "default/module/form.mcss";
 

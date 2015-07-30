@@ -1,8 +1,35 @@
 <div class="m-comment">
-    <div class="comment_hd">
-        <img class="comment_avatar" src="" alt="">
-        <h4 class="comment_title">...</h4>
-        <div class="comment_meta">...</div>
+    <a class="comment_avatar"><img src="../dataimg/placeholder-avatar.svg"></a>
+    <div class="comment_bd">
+        <div><a href="#">冷笑话：</a></div>
+        <div class="comment_cnt">
+            <p>小企鹅有一天问他奶奶，“奶奶，奶奶，我是不是一只企鹅啊？”“是啊，你当然是企鹅。”小企鹅又问爸爸，“爸爸，爸爸，我是不是一只企鹅啊？”“是啊，你是企鹅啊，怎么了？” “可是，可是我怎觉得那么冷呢？”</p>
+        </div>
+        <div class="comment_meta">
+            <span class="comment_time">1小时之前</span>
+            <span class="comment_actions">
+                <a><i class="u-icon u-icon-thumbs-o-up"></i>(1024)</a> |
+                <a>转发</a> |
+                <a>评论</a>
+            </span>
+        </div>
     </div>
-    <div class="comment_body">...</div>
 </div>
+
+```html
+<div class="m-comment">
+    <a class="comment_avatar"><img src="../dataimg/placeholder-avatar.svg"></a>
+    <div class="comment_bd">
+        <div><a href="#">冷笑话：</a></div>
+        <div class="comment_cnt">
+            <p>小企鹅有一天问他奶奶，“奶奶，奶奶，我是不是一只企鹅啊？”“是啊，你当然是企鹅。”小企鹅又问爸爸，“爸爸，爸爸，我是不是一只企鹅啊？”“是啊，你是企鹅啊，怎么了？” “可是，可是我怎觉得那么冷呢？”</p>
+        </div>
+        <div class="comment_meta">
+            <span class="comment_time">1小时之前</span>
+            <span class="comment_actions">
+                <a><i class="u-icon u-icon-thumbs-o-up"></i>(1024)</a> | <a>转发</a> | <a>评论</a>
+            </span>
+        </div>
+    </div>
+</div>
+```

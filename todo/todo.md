@@ -47,7 +47,8 @@
 [v] 修复f-系列在模板中的使用
 [v] NEC规范：内部类名，使用下划线
 [ ] NEC规范：允许在内部扩展插件
-[ ] btngroup, unitgroup默认inline-block
+[ ] btngroup默认inline-block, unitgroup默认block
+[ ] btngroup, unitgroup的默认margin
 [v] inline-block的空格处理，目前使用letter-spacing
 [ ] core中允许含有常量和$brand-primary
 [v] focus: outline, 提取出来，reset
@@ -65,6 +66,8 @@
 [ ] .u-badge..u-badge-number优先级问题，目前先遇到问题再调整
 [v] 圆角为主题的固有属性，不单独作为一个类。
 [ ] 控件宽度需不需要保留
+[ ] 尽量使用`>`
+[ ] 表头细节
 
 
 #### 扩展属性

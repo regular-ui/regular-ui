@@ -3,6 +3,7 @@
 
 <div class="m-example">
 <table class="m-table">
+    <!-- caption>表格说明</caption -->
     <thead>
         <tr><th>表格标题</th><th>表格标题</th><th>表格标题</th></tr>
     </thead>
@@ -82,3 +83,7 @@
     </tbody>
 </table>
 ```
+
+#### 颜色扩展
+
+颜色扩展，待完成……

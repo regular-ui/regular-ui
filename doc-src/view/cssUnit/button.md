@@ -112,6 +112,12 @@
 #### 按钮组
 
 <div class="m-example">
+<!-- div class="u-btngroup">
+    <button class="u-btn">Button1</button>
+    <button class="u-btn">Button2</button>
+    <button class="u-btn">Button3</button>
+</div>
+<p></p-->
 <div class="u-btngroup u-btngroup-horizontal">
     <button class="u-btn">Button1</button>
     <button class="u-btn">Button2</button>

@@ -1,4 +1,4 @@
-<div class="m-form">
+<div class="u-formgroup">
     <div class="u-formitem">
         <label class="formitem_label">账号：</label>
         <span class="formitem_ctrl"><input class="u-input u-input-smw" /></span>

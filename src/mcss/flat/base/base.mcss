@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 
     small {
         font-size: 75%;
-        color: mix($brand-primary, $inverse, 88%);
+        color: mix($brand-secondary, $inverse, 42%); // 12%
     }
 }
 
@@ -65,7 +65,7 @@ p {
 // ========================================================================
 
 hr {
-    border-top: 1px solid mix($brand-primary, $inverse, 63%);
+    border-top: 2px solid mix($brand-secondary, $inverse, 63%); // 1px
 }
 
 
@@ -107,7 +107,7 @@ kbd {
     padding: 2px 6px;
     font-size: 85%;
     color: $inverse;
-    background: $brand-primary;
+    background: $brand-secondary;
     $border-radius: $border-radius-base;
 }
 
@@ -127,7 +127,7 @@ sup {
 
 blockquote {
     padding: 0 0 0 16px;
-    border-left: 3px solid mix($brand-primary, $inverse, 12%);
+    border-left: 3px solid mix($brand-secondary, $inverse, 12%);
 
     footer {
         font-style: italic;
@@ -143,9 +143,9 @@ blockquote {
 pre {
     padding: (($line-height-computed - 6) / 3);
     font-size: 13px;
-    background: mix($brand-primary, $inverse, 4%); //$inverse;
+    background: mix($brand-secondary, $inverse, 4%); //$inverse;
     color: inherit;
-    border: 2px solid mix($brand-primary, $inverse, 12%);
+    border: 2px solid mix($brand-secondary, $inverse, 12%);
     $border-radius: $border-radius-lg;
 
     code {}

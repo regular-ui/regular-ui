@@ -8,12 +8,21 @@
 // Component:       `u-formitem`
 // ========================================================================
 
+.u-formitem {
+    .formitem_rqr {
+        color: $brand-error;
+    }
 
-.u-formitem + .u-formitem {
-    margin-left: 20px;
+    .formitem_tip {
+        font-size: 12px;
+    }
 }
 
-.u-formitem-row + .u-formitem-row {
-    margin-left: 0;
-    margin-top: 20px;
-}
+// .u-formitem + .u-formitem {
+//     margin-left: 20px;
+// }
+
+// .u-formitem-row + .u-formitem-row {
+//     margin-left: 0;
+//     margin-top: 20px;
+// }

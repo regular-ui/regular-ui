@@ -103,15 +103,15 @@
 #### 颜色扩展
 
 <div class="m-example">
-<input class="u-input u-input-success" value="Success">
-<input class="u-input u-input-warning" value="Warning">
-<input class="u-input u-input-error" value="Error">
+<input class="u-input u-input-success" value="Success" placeholder="请输入">
+<input class="u-input u-input-warning" value="Warning" placeholder="请输入">
+<input class="u-input u-input-error" value="Error" placeholder="请输入">
 </div>
 
 ```html
-<input class="u-input u-input-success" value="Success">
-<input class="u-input u-input-warning" value="Warning">
-<input class="u-input u-input-error" value="Error">
+<input class="u-input u-input-success" value="Success" placeholder="请输入">
+<input class="u-input u-input-warning" value="Warning" placeholder="请输入">
+<input class="u-input u-input-error" value="Error" placeholder="请输入">
 ```
 
 #### 禁用
@@ -170,17 +170,19 @@ Regular UI中将表单名称、表单控件和表单提示封装为一个表单�
 
 表单项在表单中很常见，请参见[Form](../cssmodule/form.html)。
 
+<div class="m-example">
 <div class="u-formitem">
-    <label class="formitem_label">用户名：</label>
+    <label class="formitem_label">用户名<span class="formitem_rqr">*</span>：</label>
     <span class="formitem_ctrl">
         <input class="u-input" placeholder="请输入" />
         <span class="formitem_tip">4~12个字符，区分大小写</span>
     </span>
 </div>
+</div>
 
 ```html
 <div class="u-formitem">
-    <label class="formitem_label">用户名：</label>
+    <label class="formitem_label">用户名<span class="formitem_rqr">*</span>：</label>
     <span class="formitem_ctrl">
         <input class="u-input" placeholder="请输入" />
         <span class="formitem_tip">4~12个字符，区分大小写</span>

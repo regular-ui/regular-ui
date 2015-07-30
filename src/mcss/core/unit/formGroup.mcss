@@ -1,0 +1,20 @@
+// Name:            FormGroup
+// Description:     表单组
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-formgroup`
+// ========================================================================
+
+.u-formgroup {
+    > .u-formitem + .u-formitem {
+        margin-left: 20px;
+    }
+
+    > .u-formitem-row + .u-formitem-row {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}

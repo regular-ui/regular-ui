@@ -32,14 +32,14 @@
             "lowerName": "cssModule",
             "cnName": "CSS模块",
             "children": [
-                {"name": "Nav", "lowerName": "nav", "cnName": "导航", "group": "导航类", "completed": true},
+                {"name": "Nav", "lowerName": "nav", "cnName": "导航", "group": "导航类", "completed": false},
                 {"name": "Sidebar", "lowerName": "sidebar", "cnName": "侧边栏", "group": "导航类", "completed": true},
                 {"name": "Toolbar", "lowerName": "toolbar", "cnName": "工具栏", "group": "导航类"},
                 {"name": "Crumb", "lowerName": "crumb", "cnName": "面包屑", "group": "导航类", "completed": true},
 
-                {"name": "Article", "lowerName": "article", "cnName": "文章", "group": "文章类", "completed": false},
-                {"name": "Comment", "lowerName": "comment", "cnName": "评论", "group": "文章类", "completed": false},
-                {"name": "Avatar", "lowerName": "avatar", "cnName": "头像", "group": "文章类"},
+                {"name": "Article", "lowerName": "article", "cnName": "文章", "group": "文章类", "completed": true},
+                {"name": "Comment", "lowerName": "comment", "cnName": "评论", "group": "文章类", "completed": true},
+                {"name": "Avatar", "lowerName": "avatar", "cnName": "头像", "group": "文章类", "hidden": true},
 
                 {"name": "List", "lowerName": "list", "cnName": "列表", "group": "布局类", "completed": false},
                 {"name": "Table", "lowerName": "table", "cnName": "表格", "group": "布局类", "completed": true},

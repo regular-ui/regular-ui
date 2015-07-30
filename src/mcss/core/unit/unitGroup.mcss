@@ -9,7 +9,9 @@
 // ========================================================================
 
 .u-unitgroup {
-    .u-check2, .u-radio2 {
+    // display: inline-block;
+
+    > .u-check2, > .u-radio2 {
         margin-right: 2em;
     }
 }
