@@ -88,6 +88,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/toolbar.html">工具栏<small> Toolbar</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
@@ -123,7 +125,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/list.html">列表<small> List</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -139,7 +141,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/panel.html">面板<small> Panel</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -147,7 +149,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/form.html">表单<small> Form</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -165,13 +167,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <li><a>Item</a></li>
     <li class="z-crt"><a>Current</a></li>
     <li><a>Item</a></li>
-    <li class="sidebar_group"><span>Group 1</span></li>
-    <li><a>Item</a></li>
-    <li><a>Item</a></li>
-    <li><a>Item</a></li>
-    <li class="sidebar_group"><span>Group 2</span></li>
-    <li><a>Item</a></li>
-    <li><span>Text</span></li>
     <li><span>Text</span></li>
 </ul>
 </div>
@@ -180,14 +175,61 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;z-crt&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Current<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Text<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">分组</h4>
+<div class="m-example">
+<ul class="m-sidebar">
+    <li><a>Item</a></li>
+    <li><a>Item</a></li>
+    <li><a>Item</a></li>
+    <li class="sidebar_group"><span>Group 1</span></li>
+    <li><a>Item</a></li>
+    <li class="z-crt"><a>Current</a></li>
+    <li><span>Text</span></li>
+    <li class="sidebar_group"><span>Group 2</span></li>
+    <li><a>Item</a></li>
+    <li><a>Item</a></li>
+   <li><span>Text</span></li>
+</ul>
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-sidebar&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;sidebar_group&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Group 1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;z-crt&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Current<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Text<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;sidebar_group&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Group 2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;sidebar_group&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Group 1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Text<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+   <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Text<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">分隔符</h4>
+<div class="m-example">
+<ul class="m-sidebar">
+    <li><a>Item</a></li>
+    <li class="z-crt"><a>Current</a></li>
+    <li><a>Item</a></li>
+    <li class="sidebar_divider"></li>
+    <li><a>Item</a></li>
+    <li><a>Item</a></li>
+   <li><span>Text</span></li>
+</ul>
+</div>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-sidebar&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;z-crt&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Current<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;sidebar_divider&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+   <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>Text<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 

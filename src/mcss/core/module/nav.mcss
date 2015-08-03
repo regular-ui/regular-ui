@@ -10,10 +10,10 @@
 
 .m-nav {
     @extend .f-lsn;
-    $clearfix();
+    @extend .f-lsi;
 
     > li {
-        float: left;
+        display: inline-block;
 
         > a, > span {
             display: block;

@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-在`<button>`、`<a>`或`<input>`标签上使用`class="u-btn"`，三者样式完全一致。
+在`<button>`、`<a>`或`<input>`标签上使用`.u-btn`，三者样式完全一致。
 
 <div class="m-example">
 <button class="u-btn">Button</button>

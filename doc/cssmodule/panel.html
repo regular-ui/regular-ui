@@ -88,6 +88,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/toolbar.html">工具栏<small> Toolbar</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
@@ -123,7 +125,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/list.html">列表<small> List</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -139,7 +141,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../cssmodule/panel.html">面板<small> Panel</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -147,7 +149,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/form.html">表单<small> Form</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -160,58 +162,89 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
+<div class="m-example">
 <div class="m-panel">
-    <div class="panel_bd">456</div>
+    <div class="panel_bd">Content</div>
+</div>
+<div class="m-panel">
+    <div class="panel_hd">Header</div>
+    <div class="panel_bd">Content</div>
+</div>
+<div class="m-panel">
+    <div class="panel_hd">Header</div>
+    <div class="panel_bd">Content</div>
+    <div class="panel_ft">Footer</div>
+</div>
 </div>
 
-<div class="m-panel">
-    <div class="panel_bd">123</div>
-    <div class="panel_ft">456</div>
-</div>
-
-<div class="m-panel">
-    <div class="panel_hd">123</div>
-    <div class="panel_bd">123</div>
-    <div class="panel_ft">456</div>
-</div>
-
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Header<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Header<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_ft&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Footer<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
 <h4 id="-">颜色扩展</h4>
 <div class="m-example">
 <div class="m-panel">
     <div class="panel_hd">Default</div>
-    <div class="panel_bd">456</div>
+    <div class="panel_bd">Content</div>
 </div>
 <div class="m-panel m-panel-primary">
     <div class="panel_hd">Primary</div>
-    <div class="panel_bd">456</div>
+    <div class="panel_bd">Content</div>
 </div>
 <div class="m-panel m-panel-info">
     <div class="panel_hd">Info</div>
-    <div class="panel_bd">456</div>
+    <div class="panel_bd">Content</div>
 </div>
 <div class="m-panel m-panel-success">
     <div class="panel_hd">Success</div>
-    <div class="panel_bd">456</div>
+    <div class="panel_bd">Content</div>
 </div>
 <div class="m-panel m-panel-warning">
     <div class="panel_hd">Warning</div>
-    <div class="panel_bd">456</div>
+    <div class="panel_bd">Content</div>
 </div>
 <div class="m-panel m-panel-error">
     <div class="panel_hd">Error</div>
-    <div class="panel_bd">456</div>
+    <div class="panel_bd">Content</div>
 </div>
 </div>
 
-<h4 id="-">其他</h4>
-<div class="m-panel">
-    <div class="panel_img">
-        <img src="../dataimg/courceitem-android.jpg" />
-    </div>
-    <div class="panel_bd">
-    456
-    </div>
-</div>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Default<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel m-panel-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Primary<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel m-panel-info&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel m-panel-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel m-panel-warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel m-panel-error&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Error<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<p>颜色扩展，待完成……</p>
+
         
     </article>
 </div>    </div>

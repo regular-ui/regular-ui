@@ -37,6 +37,14 @@
 .f-usn{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
 // @extend .f-lsn;
 .f-lsn{list-style:none;margin:0;padding:0;}
+// @extend .f-lsi;
+.f-lsi{
+    letter-spacing: -.307em;
+    
+    > * {
+        letter-spacing: normal;
+    }
+}
 
 .f-ti{overflow:hidden;text-indent:-30000px;}
 .f-ti2{text-indent:2em;}

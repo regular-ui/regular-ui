@@ -10,26 +10,26 @@
 
 .u-formitem {
     display: inline-block;
+    
 
-    .formitem_label {
+    .formitem_tt {
         font-weight: bold;
     }
+
+    .formitem_tip {}
 }
 
-.u-formitem-row {
+.u-formitem-block {
     display: block;
 
-    .formitem_label {
+    .formitem_tt {
         display: block;
         float: left;
-        width: 100px;
         text-align: right;
         font-weight: bold;
-        line-height: 30px;
     }
 
-    .formitem_ctrl {
-        display: block;
-        margin-left: 116px;
+    .formitem_ct {
+        display: block; 
     }
 }

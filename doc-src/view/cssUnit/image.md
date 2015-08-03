@@ -1,7 +1,7 @@
-在Base中，已经将`<img>`标签默认设置为响应式的了。使用`u-img`及其扩展功能可以实现更多的图片样式。
-
 ### 示例
 #### 基本形式
+
+在Base中，已经将`<img>`标签默认设置为响应式的了。使用`.u-img`及其扩展类可以实现更多的图片样式。
 
 <div class="m-example">
 <img class="u-img" src="../dataimg/placeholder-200x100.svg">

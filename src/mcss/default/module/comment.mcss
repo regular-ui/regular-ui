@@ -9,7 +9,7 @@
 // ========================================================================
 
 .m-comment {
-    .comment_avatar {
+    .comment_sd {
         float: left;
 
         > img {
@@ -17,10 +17,10 @@
         }
     }
 
-    .comment_bd {
+    .comment_mn {
         margin-left: 72px;
 
-        .comment_meta {
+        .comment_ft {
             font-size: 12px;
             color: #777;
 

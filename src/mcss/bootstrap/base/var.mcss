@@ -57,6 +57,10 @@ $formctrl-disabled_background = $gray-lighter;
 $formctrl-disabled_color = $formctrl_color;
 $formctrl-disabled_border = $formctrl_border;
 
+$formctrl_item-selected_background = $brand-primary;
+$formctrl_item-selected_color = white;
+$formctrl_item-selected_border = null;
+
 $formctrl_placeholder_color = #999;
 
 

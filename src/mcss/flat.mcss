@@ -33,7 +33,8 @@ $reset-normalize();
 @import "flat/unit/image.mcss";
 // @import "default/unit/thumbnail.mcss";
 @import "flat/unit/formCtrl.mcss";
-@import "default/unit/formItem.mcss";
+@import "bootstrap/unit/formItem.mcss";
+@import "default/unit/formGroup.mcss";
 
 
 
@@ -51,10 +52,10 @@ $reset-normalize();
 @import "default/module/comment.mcss";
 
 /* 布局类 */
-@import "default/module/list.mcss";
+@import "bootstrap/module/list.mcss";
 @import "bootstrap/module/table.mcss";
-@import "default/module/panel.mcss";
-@import "default/module/form.mcss";
+@import "flat/module/panel.mcss";
+@import "bootstrap/module/form.mcss";
 
 
 

@@ -22,13 +22,21 @@
 
     > li:hover {
         > a {
-            background: #e8e8e8;
+            background: #ececec;
         }
     }
     
     > li.z-crt {
         > a {
-            background: #f0f0f0;
+            background: #e5e5e5;
         }
+    }
+
+    > li.toolbar_divider {
+        margin: 0px 4px;
+        border-left: 1px solid #ccc;
+        color: transparent;
+        text-indent: -10px;
+        line-height: 1;
     }
 }

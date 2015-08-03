@@ -1,7 +1,7 @@
-对`<input>`、`<select>`和`<textarea>`三个表单控件可以使用`u-input`、`u-select`和`u-textarea`来美化。
-
 ### 示例
 #### 基本形式
+
+对于`<input>`、`<select>`和`<textarea>`三个表单控件，可以使用`.u-input`、`.u-select`和`.u-textarea`来美化。
 
 <div class="m-example">
 <input class="u-input" placeholder="请输入">
@@ -140,7 +140,7 @@
 
 #### 白板
 
-添加`u-*-blank`类可以使表单控件的样式特别简化。
+添加`.u-*-blank`类可以使表单控件的样式特别简化。
 
 <div class="m-example">
 <input class="u-input u-input-blank" value="Blank">
@@ -166,26 +166,66 @@
 
 #### 表单项
 
-Regular UI中将表单名称、表单控件和表单提示封装为一个表单项`u-formitem`。
+Regular UI中将表单名称、表单控件和表单提示封装为一个表单项`.u-formitem`。
 
 表单项在表单中很常见，请参见[Form](../cssmodule/form.html)。
 
 <div class="m-example">
 <div class="u-formitem">
-    <label class="formitem_label">用户名<span class="formitem_rqr">*</span>：</label>
-    <span class="formitem_ctrl">
-        <input class="u-input" placeholder="请输入" />
-        <span class="formitem_tip">4~12个字符，区分大小写</span>
+    <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
+    <span class="formitem_ct">
+        <input class="u-input" placeholder="请输入">
+        <span class="formitem_tip">4~12个字符，包括字母、数字、下划线</span>
     </span>
 </div>
 </div>
 
 ```html
 <div class="u-formitem">
-    <label class="formitem_label">用户名<span class="formitem_rqr">*</span>：</label>
-    <span class="formitem_ctrl">
-        <input class="u-input" placeholder="请输入" />
-        <span class="formitem_tip">4~12个字符，区分大小写</span>
+    <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
+    <span class="formitem_ct">
+        <input class="u-input" placeholder="请输入">
+        <span class="formitem_tip">4~12个字符，包括字母、数字、下划线</span>
     </span>
 </div>
 ```
+
+<!--
+
+#### 表单组
+
+<div class="m-example">
+<div class="u-formgroup">
+    <div class="u-formitem">
+        <label class="formitem_tt">姓名<span class="formitem_rqr">*</span>：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">班级：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">学号：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+</div>
+</div>
+
+```html
+<div class="u-formgroup">
+    <div class="u-formitem">
+        <label class="formitem_tt">姓名<span class="formitem_rqr">*</span>：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">班级：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">学号：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+</div>
+```
+
+-->

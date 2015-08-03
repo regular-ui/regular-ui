@@ -13,11 +13,9 @@
     display: inline-block;
     vertical-align: middle;
     white-space: nowrap;
-    letter-spacing: -.3em;
+    @extend .f-lsi;
 
-    > .u-btn {
-        letter-spacing: normal;
-    }
+    > .u-btn {}
 }
 
 

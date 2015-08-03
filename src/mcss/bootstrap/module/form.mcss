@@ -10,11 +10,11 @@
 
 .m-form {
     legend {
-        font-size: 16px;
-        border-bottom: 1px solid #ddd;
+        font-size: $font-size-base * 1.3;
+        border-bottom: 1px solid #e5e5e5;
         line-height: 30px;
         margin: 15px 0;
-        color: #777;
+        color: $gray-dark;
     }
 
     > .u-formitem, fieldset > .u-formitem {

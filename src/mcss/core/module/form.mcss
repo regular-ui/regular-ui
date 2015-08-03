@@ -9,5 +9,18 @@
 // ========================================================================
 
 .m-form {
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
 
+    legend {
+        // - Behave like block element
+        width: 100%;
+        // -  Remove padding
+        padding: 0;
+        // - Correct `color` not being inherited in IE 8/9/10/11.
+        border: none;
+    }
 }

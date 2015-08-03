@@ -11,7 +11,7 @@
 .u-unitgroup {
     // display: inline-block;
 
-    > .u-check2, > .u-radio2 {
+    > .u-check, > .u-radio, > .u-check2, > .u-radio2, > label {
         margin-right: 2em;
     }
 }

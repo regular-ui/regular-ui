@@ -88,6 +88,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/toolbar.html">工具栏<small> Toolbar</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
@@ -123,7 +125,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../cssmodule/list.html">列表<small> List</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -139,7 +141,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/panel.html">面板<small> Panel</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -147,7 +149,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../cssmodule/form.html">表单<small> Form</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -158,7 +160,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h2>列表<small> List</small></h2>
         
-        <ul class="m-list">
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<p>对<code>ul</code>或<code>ol</code>标签添加<code>.m-list</code>，将不显示默认的列表样式。</p>
+<ul class="m-list">
     <li>List Item</li>
     <li>List Item</li>
     <li>List Item</li>
@@ -166,6 +171,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <li>List Item</li>
 </ul>
 
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-list&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
 <h4 id="-">分割线</h4>
 <ul class="m-list m-list-line">
     <li>List Item</li>
@@ -175,8 +188,16 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <li>List Item</li>
 </ul>
 
-<h4 id="-">条纹</h4>
-<ul class="m-list m-list-line m-list-striped">
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-list m-list-line&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="hover">Hover</h4>
+<ul class="m-list m-list-line m-list-hover">
     <li>List Item</li>
     <li>List Item</li>
     <li>List Item</li>
@@ -184,7 +205,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <li>List Item</li>
 </ul>
 
-<h4 id="hover">Hover</h4>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-list m-list-line m-list-hover&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">条纹</h4>
 <ul class="m-list m-list-line m-list-striped m-list-hover">
     <li>List Item</li>
     <li>List Item</li>
@@ -192,6 +221,16 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <li>List Item</li>
     <li>List Item</li>
 </ul>
+
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-list m-list-line m-list-striped m-list-hover&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>List Item<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+
         
     </article>
 </div>    </div>

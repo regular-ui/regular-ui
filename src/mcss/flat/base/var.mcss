@@ -55,6 +55,7 @@ $asbestos =                  #7f8c8d;
 
 // Grays
 $gray =                      $concrete;
+$gray-dark =                 #333;
 $gray-light =                $silver;
 $inverse =                   white;
 

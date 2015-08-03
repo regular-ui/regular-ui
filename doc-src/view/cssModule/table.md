@@ -28,7 +28,7 @@
 </table>
 ```
 
-#### hover
+#### Hover
 
 <div class="m-example">
 <table class="m-table m-table-hover">

@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-在`<span>`或`<a>`标签上使用`class="u-badge"`即可。
+在`<span>`或`<a>`标签上使用`.u-badge`即可。
 
 <div class="m-example">
 <span class="u-badge">New</span>

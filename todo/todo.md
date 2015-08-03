@@ -47,7 +47,7 @@
 [v] 修复f-系列在模板中的使用
 [v] NEC规范：内部类名，使用下划线
 [ ] NEC规范：允许在内部扩展插件
-[ ] btngroup默认inline-block, unitgroup默认block
+[ ] btngroup默认inline-block, vertical; unitgroup和formgroup默认block, block
 [ ] btngroup, unitgroup的默认margin
 [v] inline-block的空格处理，目前使用letter-spacing
 [ ] core中允许含有常量和$brand-primary
@@ -68,6 +68,8 @@
 [ ] 控件宽度需不需要保留
 [ ] 尽量使用`>`
 [ ] 表头细节
+[ ] 关于formitem的控制，formitem + formitem的问题
+[ ] @extend和margin
 
 
 #### 扩展属性

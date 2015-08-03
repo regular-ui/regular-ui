@@ -138,9 +138,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h2>表单元素<small> FormControl</small></h2>
         
-        <p>对<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>和<code>&lt;textarea&gt;</code>三个表单控件可以使用<code>u-input</code>、<code>u-select</code>和<code>u-textarea</code>来美化。</p>
-<h3 id="-">示例</h3>
+        <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
+<p>对于<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>和<code>&lt;textarea&gt;</code>三个表单控件，可以使用<code>.u-input</code>、<code>.u-select</code>和<code>.u-textarea</code>来美化。</p>
 <div class="m-example">
 <input class="u-input" placeholder="请输入">
 <select class="u-select">
@@ -262,7 +262,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">textarea</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-textarea&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">textarea</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">白板</h4>
-<p>添加<code>u-*-blank</code>类可以使表单控件的样式特别简化。</p>
+<p>添加<code>.u-*-blank</code>类可以使表单控件的样式特别简化。</p>
 <div class="m-example">
 <input class="u-input u-input-blank" value="Blank">
 <select class="u-select u-select-blank">
@@ -284,27 +284,65 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">textarea</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-textarea u-textarea-blank&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Blank<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">textarea</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">表单项</h4>
-<p>Regular UI中将表单名称、表单控件和表单提示封装为一个表单项<code>u-formitem</code>。</p>
+<p>Regular UI中将表单名称、表单控件和表单提示封装为一个表单项<code>.u-formitem</code>。</p>
 <p>表单项在表单中很常见，请参见<a href="../cssmodule/form.html">Form</a>。</p>
 <div class="m-example">
 <div class="u-formitem">
-    <label class="formitem_label">用户名<span class="formitem_rqr">*</span>：</label>
-    <span class="formitem_ctrl">
-        <input class="u-input" placeholder="请输入" />
-        <span class="formitem_tip">4~12个字符，区分大小写</span>
+    <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
+    <span class="formitem_ct">
+        <input class="u-input" placeholder="请输入">
+        <span class="formitem_tip">4~12个字符，包括字母、数字、下划线</span>
     </span>
 </div>
 </div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-formitem&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_label&quot;</span><span class="cm-tagcm-bracket">&gt;</span>用户名<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_rqr&quot;</span><span class="cm-tagcm-bracket">&gt;</span>*<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>：<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_ctrl&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_tip&quot;</span><span class="cm-tagcm-bracket">&gt;</span>4~12个字符，区分大小写<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>用户名<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_rqr&quot;</span><span class="cm-tagcm-bracket">&gt;</span>*<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>：<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_ct&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_tip&quot;</span><span class="cm-tagcm-bracket">&gt;</span>4~12个字符，包括字母、数字、下划线<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">span</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">div</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 </code></pre>
+<!--
 
+#### 表单组
+
+<div class="m-example">
+<div class="u-formgroup">
+    <div class="u-formitem">
+        <label class="formitem_tt">姓名<span class="formitem_rqr">*</span>：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">班级：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">学号：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+</div>
+</div>
+
+```html
+<div class="u-formgroup">
+    <div class="u-formitem">
+        <label class="formitem_tt">姓名<span class="formitem_rqr">*</span>：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">班级：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+    <div class="u-formitem">
+        <label class="formitem_tt">学号：</label>
+        <span class="formitem_ct"><input class="u-input u-input-smw"></span>
+    </div>
+</div>
+```
+
+-->
         
     </article>
 </div>    </div>

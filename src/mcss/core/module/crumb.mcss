@@ -10,10 +10,10 @@
 
 .m-crumb {
     @extend .f-lsn;
-    $clearfix();
+    @extend .f-lsi;
 
     > li {
-        float: left;
+        display: inline-block;
     }
 
     > li + li:before {}
