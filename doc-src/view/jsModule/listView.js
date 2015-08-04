@@ -8,7 +8,7 @@ var ajax = RGUI.request;
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
+        {id: 3, name: '选项3', disabled: true}
     ];
 
     var listView = new ListView({
@@ -39,7 +39,7 @@ var ajax = RGUI.request;
     var service = {
         getList: function(params, success) {
             ajax.request({
-                url: 'listbox.json',
+                url: 'listview.json',
                 method: 'get',
                 type: 'json',
                 success: success

@@ -19,3 +19,9 @@
         top: 100%;
     }
 }
+
+.u-dropdown.z-dis {
+    .dropdown_hd > .u-btn {
+        @extend .u-btn.z-dis;
+    }
+}

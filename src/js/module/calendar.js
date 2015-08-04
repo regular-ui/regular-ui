@@ -16,6 +16,8 @@ var _ = require('../base/util.js');
  * @extend Component
  * @param {object}                  options.data                    绑定属性
  * @param {Date=null}               options.data.date               当前选择的日期
+ * @param {Date=null}               options.data.minDate            最小日期，如果为空则不限制
+ * @param {Date=null}               options.data.maxDate            最大日期，如果为空则不限制
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
@@ -30,6 +32,8 @@ var Calendar = Component.extend({
     config: function() {
         _.extend(this.data, {
             date: null,
+            minDate: null,
+            maxDate: null,
             _days: []
         });
         this.supr();
@@ -102,7 +106,7 @@ var Calendar = Component.extend({
      * @return {void}
      */
     select: function(date) {
-        if(this.data.readonly || this.data.disabled)
+        if(this.data.readonly || this.data.disabled || this.isDisabledDay(date))
             return;
 
         this.data.date = new Date(date);
@@ -122,6 +126,17 @@ var Calendar = Component.extend({
      */
     goToday: function() {
         this.data.date = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
+    },
+    /**
+     * @method isDisabledDay 是否禁用某一天
+     * @param {Date} day 某一天
+     * @return {void}
+     */
+    isDisabledDay: function(day) {
+        var minDate = this.data.minDate ? new Date((this.data.minDate.getTime()/(24*3600*1000)>>0)*(24*3600*1000)) : null;
+        var maxDate = this.data.maxDate ? new Date((this.data.maxDate.getTime()/(24*3600*1000)>>0)*(24*3600*1000)) : null;
+
+        return (minDate && day < minDate) || (maxDate && day > maxDate);
     }
 });
 

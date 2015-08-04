@@ -2255,6 +2255,349 @@ pre{
 	color:#fff;
 	background:#39f;
 }
+body{
+	-webkit-backface-visibility:hidden;
+}
+.animated{
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	animation-duration:1s;
+	-webkit-animation-fill-mode:both;
+	-moz-animation-fill-mode:both;
+	animation-fill-mode:both;
+}
+@-webkit-keyframes fadeIn{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+@-moz-keyframes fadeIn{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+@-o-keyframes fadeIn{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+@keyframes fadeIn{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+.animated.fadeIn{
+	-webkit-animation-name:fadeIn;
+	-moz-animation-name:fadeIn;
+	animation-name:fadeIn;
+}
+@-webkit-keyframes fadeOut{
+	0%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+	}
+}
+@-moz-keyframes fadeOut{
+	0%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+	}
+}
+@-o-keyframes fadeOut{
+	0%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+	}
+}
+@keyframes fadeOut{
+	0%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+	}
+}
+.animated.fadeOut{
+	-webkit-animation-name:fadeOut;
+	-moz-animation-name:fadeOut;
+	animation-name:fadeOut;
+}
+@-webkit-keyframes bounceOut{
+	0%{
+		-webkit-transform:scale(1);
+	}
+	25%{
+		-webkit-transform:scale(0.95);
+	}
+	50%{
+		opacity:1;
+		-webkit-transform:scale(1.1);
+	}
+	100%{
+		opacity:0;
+		-webkit-transform:scale(0.3);
+	}
+}
+@-moz-keyframes bounceOut{
+	0%{
+		-moz-transform:scale(1);
+	}
+	25%{
+		-moz-transform:scale(0.95);
+	}
+	50%{
+		opacity:1;
+		-moz-transform:scale(1.1);
+	}
+	100%{
+		opacity:0;
+		-moz-transform:scale(0.3);
+	}
+}
+@-o-keyframes bounceOut{
+	0%{
+		-o-transform:scale(1);
+	}
+	25%{
+		-o-transform:scale(0.95);
+	}
+	50%{
+		opacity:1;
+		-o-transform:scale(1.1);
+	}
+	100%{
+		opacity:0;
+		-o-transform:scale(0.3);
+	}
+}
+@keyframes bounceOut{
+	0%{
+		transform:scale(1);
+	}
+	25%{
+		transform:scale(0.95);
+	}
+	50%{
+		opacity:1;
+		transform:scale(1.1);
+	}
+	100%{
+		opacity:0;
+		transform:scale(0.3);
+	}
+}
+.animated.bounceOut{
+	-webkit-animation-name:bounceOut;
+	-moz-animation-name:bounceOut;
+	animation-name:bounceOut;
+}
+@-webkit-keyframes fadeInX{
+	0%{
+		opacity:0;
+		-webkit-transform:translateX(30px);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:translateX(0);
+	}
+}
+@-moz-keyframes fadeInX{
+	0%{
+		opacity:0;
+		-moz-transform:translateX(30px);
+	}
+	100%{
+		opacity:1;
+		-moz-transform:translateX(0);
+	}
+}
+@-o-keyframes fadeInX{
+	0%{
+		opacity:0;
+		-o-transform:translateX(30px);
+	}
+	100%{
+		opacity:1;
+		-o-transform:translateX(0);
+	}
+}
+@keyframes fadeInX{
+	0%{
+		opacity:0;
+		transform:translateX(30px);
+	}
+	100%{
+		opacity:1;
+		transform:translateX(0);
+	}
+}
+.animated.fadeInX{
+	-webkit-animation-name:fadeInX;
+	-moz-animation-name:fadeInX;
+	animation-name:fadeInX;
+}
+@-webkit-keyframes fadeInY{
+	0%{
+		opacity:0;
+		-webkit-transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:translateY(0);
+	}
+}
+@-moz-keyframes fadeInY{
+	0%{
+		opacity:0;
+		-moz-transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		-moz-transform:translateY(0);
+	}
+}
+@-o-keyframes fadeInY{
+	0%{
+		opacity:0;
+		-o-transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		-o-transform:translateY(0);
+	}
+}
+@keyframes fadeInY{
+	0%{
+		opacity:0;
+		transform:translateY(-10px);
+	}
+	100%{
+		opacity:1;
+		transform:translateY(0);
+	}
+}
+.animated.fadeInY{
+	-webkit-animation-name:fadeInY;
+	-moz-animation-name:fadeInY;
+	animation-name:fadeInY;
+}
+@-webkit-keyframes fadeOutY{
+	0%{
+		opacity:1;
+		-webkit-transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		-webkit-transform:translateY(-10px);
+	}
+}
+@-moz-keyframes fadeOutY{
+	0%{
+		opacity:1;
+		-moz-transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		-moz-transform:translateY(-10px);
+	}
+}
+@-o-keyframes fadeOutY{
+	0%{
+		opacity:1;
+		-o-transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		-o-transform:translateY(-10px);
+	}
+}
+@keyframes fadeOutY{
+	0%{
+		opacity:1;
+		transform:translateY(0);
+	}
+	100%{
+		opacity:0;
+		transform:translateY(-10px);
+	}
+}
+.animated.fadeOutY{
+	-webkit-animation-name:fadeOutY;
+	-moz-animation-name:fadeOutY;
+	animation-name:fadeOutY;
+}
+@-webkit-keyframes pulse{
+	0%{
+		-webkit-transform:scale(1);
+	}
+	50%{
+		-webkit-transform:scale(1.1);
+	}
+	100%{
+		-webkit-transform:scale(1);
+	}
+}
+@-moz-keyframes pulse{
+	0%{
+		-moz-transform:scale(1);
+	}
+	50%{
+		-moz-transform:scale(1.1);
+	}
+	100%{
+		-moz-transform:scale(1);
+	}
+}
+@-o-keyframes pulse{
+	0%{
+		-o-transform:scale(1);
+	}
+	50%{
+		-o-transform:scale(1.1);
+	}
+	100%{
+		-o-transform:scale(1);
+	}
+}
+@keyframes pulse{
+	0%{
+		transform:scale(1);
+	}
+	50%{
+		transform:scale(1.1);
+	}
+	100%{
+		transform:scale(1);
+	}
+}
+.animated.pulse{
+	-webkit-animation-name:pulse;
+	-moz-animation-name:pulse;
+	animation-name:pulse;
+}
+.animated{
+	-webkit-animation-duration:0.2s;
+	-moz-animation-duration:0.2s;
+	animation-duration:0.2s;
+}
 .u-btn{
 	-webkit-appearance:none;
 	margin:0;
@@ -2404,7 +2747,7 @@ pre{
 	color:#fff;
 	border:1px solid #761c19;
 }
-.u-btn:disabled,.u-btn.z-dis{
+.u-btn:disabled,.u-btn.z-dis,.u-dropdown.z-dis .dropdown_hd>.u-btn{
 	background:#fff;
 	color:#999;
 	border:1px solid #ccc;
@@ -2657,7 +3000,7 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-input:disabled,.u-select:disabled,.u-textarea:disabled{
 	border:1px solid #ccc;
 	background:#eee;
-	color:#555;
+	color:#999;
 }
 .u-input{
 	height:34px;
@@ -3062,6 +3405,33 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-dropdown .dropdown_bd{
 	min-width:160px;
+	margin-top:2px;
+}
+.u-dropdown .dropdown_bd .m-listview{
+	padding:5px 0;
+	background:#fff;
+	border:1px solid rgba(0,0,0,0.2);
+	-moz-border-radius:6px;
+	border-radius:6px;
+	-webkit-box-shadow:0 5px 10px rgba(0,0,0,0.2);
+	box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+.u-dropdown .dropdown_bd .m-listview >li{
+	border:none;
+	padding:3px 20px;
+	-moz-border-radius:0;
+	border-radius:0;
+}
+.u-dropdown .dropdown_bd .m-listview li.z-dis{
+	background:none;
+	color:#777;
+}
+.u-dropdown .dropdown_bd .m-listview li.dropdown_divider{
+	height:1px;
+	margin:9px 0;
+	background:#e5e5e5;
+	padding:0;
+	overflow:hidden;
 }
 .u-input2-numberinput{
 	display:inline-block;
@@ -3228,7 +3598,7 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-dropdown-select2.z-dis .dropdown_hd{
 	background:#eee;
 	border:1px solid #ccc;
-	color:#555;
+	color:#999;
 }
 .u-dropdown-suggest .dropdown_bd .m-listview{
 	max-height:200px;
@@ -3556,14 +3926,14 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .m-pager >li.z-dis>a{
 	background:#eee;
-	color:#555;
+	color:#999;
 }
 .m-pager >li + li{
 	margin-left:5px;
 }
 .m-pager.z-dis >li >a{
 	background:#eee;
-	color:#555;
+	color:#999;
 }
 .m-notify{
 	-webkit-box-sizing:border-box;
@@ -3747,6 +4117,10 @@ html.z-modal,html.z-modal body{
 .m-listview >li{
 	cursor:pointer;
 }
+.m-listview >li.z-dis{
+	cursor:not-allowed;
+	background:none;
+}
 .m-listview.z-dis >li{
 	cursor:not-allowed;
 	background:none;
@@ -3776,6 +4150,10 @@ html.z-modal,html.z-modal body{
 .m-listview >li.z-sel{
 	background:#337ab7;
 	color:#fff;
+}
+.m-listview >li.z-dis{
+	background:#eee;
+	color:#777;
 }
 .m-listview.z-dis{
 	background:#eee;
@@ -3834,6 +4212,10 @@ html.z-modal,html.z-modal body{
 	cursor:pointer;
 	white-space:nowrap;
 }
+.m-treeview .treeview_itemname.z-dis{
+	cursor:not-allowed;
+	background:none;
+}
 .m-treeview.z-dis .treeview_itemname{
 	cursor:not-allowed;
 }
@@ -3856,12 +4238,16 @@ html.z-modal,html.z-modal body{
 	background:#337ab7;
 	color:#fff;
 }
+.m-treeview .treeview_itemname.z-dis{
+	background:none;
+	color:#999;
+}
 .m-treeview.z-dis{
 	background:#eee;
 }
 .m-treeview.z-dis .treeview_itemname{
 	background:none;
-	color:#555;
+	color:#999;
 }
 .m-tableview .tableview_sortable{
 	cursor:pointer;
@@ -3899,6 +4285,9 @@ html.z-modal,html.z-modal body{
 .u-calendar .calendar_item{
 	display:inline-block;
 	cursor:pointer;
+}
+.u-calendar .calendar_item.z-dis{
+	cursor:not-allowed;
 }
 .u-calendar .calendar_hd{
 	*zoom:1;
@@ -3953,8 +4342,12 @@ html.z-modal,html.z-modal body{
 	background:#337ab7;
 	color:#fff;
 }
+.u-calendar .calendar_item.z-muted{
+	color:#999;
+}
 .u-calendar .calendar_item.z-dis{
-	color:#555;
+	background:none;
+	color:#999;
 }
 .u-calendar .calendar_hd{
 	line-height:30px;
@@ -3964,10 +4357,11 @@ html.z-modal,html.z-modal body{
 }
 .u-calendar.z-dis .calendar_item{
 	background:#fff;
+	color:#999;
 }
 .u-calendar.z-dis .calendar_item.z-sel{
 	background:#eee;
-	color:#555;
+	color:#999;
 }
 .qeditor .toolbar{
 	height:40px;

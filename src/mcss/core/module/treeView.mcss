@@ -37,6 +37,11 @@
     .treeview_itemname:hover {}
 
     .treeview_itemname.z-sel {}
+
+    .treeview_itemname.z-dis {
+        cursor: not-allowed;
+        background: none;
+    }
 }
 
 .m-treeview.z-dis {

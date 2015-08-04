@@ -21,7 +21,11 @@
 
     .calendar_item.z-sel {}
 
-    .calendar_item.z-dis {}
+    .calendar_item.z-muted {}
+
+    .calendar_item.z-dis {
+        cursor: not-allowed;
+    }
 
     .calendar_hd {
         $clearfix();

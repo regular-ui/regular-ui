@@ -51,7 +51,7 @@ var TreeView = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
-        if(this.data.readonly || this.data.disabled)
+        if(this.data.readonly || this.data.disabled || item.disabled)
             return;
 
         this.data.selected = item;
@@ -61,6 +61,28 @@ var TreeView = SourceComponent.extend({
          */
         this.$emit('select', {
             selected: item
+        });
+    },
+    /**
+     * @method toggle(item) 展开或收起某一项
+     * @private
+     * @param  {object} item 展开收起项
+     * @return {void}
+     */
+    toggle: function(item) {
+        if(this.data.readonly || this.data.disabled || item.disabled)
+            return;
+
+        item.open = !item.open;
+
+        /**
+         * @event toggle 展开或收起某一项时触发
+         * @property {object} item 展开收起项
+         * @property {boolean} open 展开还是收起
+         */
+        this.$emit('toggle', {
+            item: item,
+            open: item.open
         });
     }
 });
@@ -125,9 +147,6 @@ var TreeViewList = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
-        if(this.$ancestor.data.disabled)
-            return;
-
         this.$ancestor.select(item);
     },
     /**
@@ -137,20 +156,7 @@ var TreeViewList = SourceComponent.extend({
      * @return {void}
      */
     toggle: function(item) {
-        if(this.$ancestor.data.disabled)
-            return;
-
-        item.open = !item.open;
-
-        /**
-         * @event toggle 展开或收起某一项时触发
-         * @property {object} item 展开收起项
-         * @property {boolean} open 展开还是收起
-         */
-        this.$ancestor.$emit('toggle', {
-            item: item,
-            open: item.open
-        });
+        this.$ancestor.toggle(item);
     }
 });
 

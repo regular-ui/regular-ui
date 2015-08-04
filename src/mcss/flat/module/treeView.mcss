@@ -40,6 +40,11 @@
         color: white;
     }
 
+    .treeview_itemname.z-dis {
+        background: none;
+        color: fade($inverse, 0.6, true);
+    }
+
     li {
         margin-top: 3px;
     }

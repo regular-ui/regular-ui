@@ -7,7 +7,7 @@ var _ = RGUI._;
     var source = [
         {id: 1, name: '节点1', children: [
             {id: 11, name: '节点1.1'},
-            {id: 12, name: '节点1.2', children: [
+            {id: 12, name: '节点1.2', disabled: true, children: [
                 {id: 101, name: '节点1.2.1'},
                 {id: 102, name: '节点1.2.2'}
             ]},

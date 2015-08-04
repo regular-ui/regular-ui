@@ -15,3 +15,10 @@
 <datePicker disabled={true} />
 ```
 
+#### 日期范围
+
+<div class="m-example" id="j-example3"></div>
+
+```javascript
+<datePicker minDate={minDate} maxDate={maxDate} />
+```

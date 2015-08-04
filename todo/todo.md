@@ -36,6 +36,7 @@
 [ ] service文档
 [v] 结尾为bar, top, down的不用驼峰
 [ ] checkbox, checkButton, toggle
+[ ] 第一版中先不引入`<modal.body>`、`<menuItem>`等新特性
 
 模板是可变的，导致样式继承不清晰
 

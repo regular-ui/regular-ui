@@ -43,6 +43,9 @@ var Dropdown = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
+        if(this.data.readonly || this.data.disabled || item.disabled || item.divider)
+            return;
+
         //this.data.selected = item;
         /**
          * @event select 选择某一项时触发

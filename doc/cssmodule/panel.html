@@ -278,7 +278,7 @@ var themeSelect = new RGUI.Select2({
         var source = [];
 
         var $next = $example.nextElementSibling;
-        while($next && $next.tagName[0] !== 'H') {
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
                 source.push({name: 'rgl', content: $next.outerHTML});
                 $prev = $next;

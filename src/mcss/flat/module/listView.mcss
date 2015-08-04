@@ -37,6 +37,11 @@
         background: $brand-primary;
         color: white;
     }
+
+    > li.z-dis {
+        background: none;
+        color: fade($inverse, 0.6, true);
+    }
 }
 
 .m-listview.z-dis {

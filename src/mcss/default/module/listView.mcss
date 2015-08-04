@@ -26,6 +26,11 @@
         background: $formctrl_item-selected_background;
         color: $formctrl_item-selected_color;
     }
+
+    > li.z-dis {
+        background: none;
+        color: $formctrl-disabled_color;
+    }
 }
 
 .m-listview.z-dis {

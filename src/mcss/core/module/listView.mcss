@@ -20,6 +20,11 @@
     > li:hover {}
 
     > li.z-sel {}
+
+    > li.z-dis {
+        cursor: not-allowed;
+        background: none;
+    }
 }
 
 .m-listview.z-dis {

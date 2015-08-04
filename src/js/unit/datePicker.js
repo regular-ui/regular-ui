@@ -18,6 +18,8 @@ var Calendar = require('../module/calendar.js');
  * @param {object}                  options.data                    绑定属性
  * @param {object=null}             options.data.date               当前选择的日期
  * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+ * @param {Date=null}               options.data.minDate            最小日期，如果为空则不限制
+ * @param {Date=null}               options.data.maxDate            最大日期，如果为空则不限制
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示

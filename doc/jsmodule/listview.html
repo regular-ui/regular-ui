@@ -377,7 +377,7 @@ var themeSelect = new RGUI.Select2({
         var source = [];
 
         var $next = $example.nextElementSibling;
-        while($next && $next.tagName[0] !== 'H') {
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
                 source.push({name: 'rgl', content: $next.outerHTML});
                 $prev = $next;
@@ -426,7 +426,7 @@ var ajax = RGUI.request;
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
+        {id: 3, name: '选项3', disabled: true}
     ];
 
     var listView = new ListView({
@@ -457,7 +457,7 @@ var ajax = RGUI.request;
     var service = {
         getList: function(params, success) {
             ajax.request({
-                url: 'listbox.json',
+                url: 'listview.json',
                 method: 'get',
                 type: 'json',
                 success: success

@@ -1,4 +1,3 @@
-
 $fadeIn();
 $fadeOut();
 $bounceOut();

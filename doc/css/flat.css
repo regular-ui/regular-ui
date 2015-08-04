@@ -2752,7 +2752,7 @@ body{
 .u-btn-inverse:active,.u-btn-inverse.z-act{
 	background:#d9d9d9;
 }
-.u-btn:disabled,.u-btn.z-dis{
+.u-btn:disabled,.u-btn.z-dis,.u-dropdown.z-dis .dropdown_hd>.u-btn{
 	background:rgba(189,195,199,0.75);
 	color:rgba(255,255,255,0.75);
 	opacity:0.7;
@@ -4117,6 +4117,10 @@ html.z-modal,html.z-modal body{
 .m-listview >li{
 	cursor:pointer;
 }
+.m-listview >li.z-dis{
+	cursor:not-allowed;
+	background:none;
+}
 .m-listview.z-dis >li{
 	cursor:not-allowed;
 	background:none;
@@ -4146,6 +4150,10 @@ html.z-modal,html.z-modal body{
 .m-listview >li.z-sel{
 	background:#1abc9c;
 	color:#fff;
+}
+.m-listview >li.z-dis{
+	background:none;
+	color:rgba(255,255,255,0.6);
 }
 .m-listview.z-dis{
 	background:rgba(189,195,199,0.75);
@@ -4205,6 +4213,10 @@ html.z-modal,html.z-modal body{
 	cursor:pointer;
 	white-space:nowrap;
 }
+.m-treeview .treeview_itemname.z-dis{
+	cursor:not-allowed;
+	background:none;
+}
 .m-treeview.z-dis .treeview_itemname{
 	cursor:not-allowed;
 }
@@ -4236,6 +4248,10 @@ html.z-modal,html.z-modal body{
 .m-treeview .treeview_itemname.z-sel{
 	background:#1abc9c;
 	color:#fff;
+}
+.m-treeview .treeview_itemname.z-dis{
+	background:none;
+	color:rgba(255,255,255,0.6);
 }
 .m-treeview li{
 	margin-top:3px;
@@ -4288,6 +4304,9 @@ html.z-modal,html.z-modal body{
 	display:inline-block;
 	cursor:pointer;
 }
+.u-calendar .calendar_item.z-dis{
+	cursor:not-allowed;
+}
 .u-calendar .calendar_hd{
 	*zoom:1;
 }
@@ -4336,7 +4355,11 @@ html.z-modal,html.z-modal body{
 	background:#3498db;
 	color:#fff;
 }
+.u-calendar .calendar_item.z-muted{
+	color:#d5dbdb;
+}
 .u-calendar .calendar_item.z-dis{
+	background:none;
 	color:#d5dbdb;
 }
 .u-calendar .calendar_hd{
@@ -4347,6 +4370,7 @@ html.z-modal,html.z-modal body{
 }
 .u-calendar.z-dis .calendar_item{
 	background:#fff;
+	color:#d5dbdb;
 }
 .u-calendar.z-dis .calendar_item.z-sel{
 	background:#f4f6f6;

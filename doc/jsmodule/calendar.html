@@ -205,6 +205,11 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
+<h4 id="-">最大和最小日期</h4>
+<div class="m-example" id="j-example3"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
 
         <h3>API</h3>
 
@@ -225,6 +230,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
         
         <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.minDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最小日期，如果为空则不限制</td></tr>
+        
+        <tr><td class="f-wsn"><code>data.maxDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最大日期，如果为空则不限制</td></tr>
         
         <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
         
@@ -347,7 +356,7 @@ var themeSelect = new RGUI.Select2({
         var source = [];
 
         var $next = $example.nextElementSibling;
-        while($next && $next.tagName[0] !== 'H') {
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
                 source.push({name: 'rgl', content: $next.outerHTML});
                 $prev = $next;
@@ -400,6 +409,17 @@ var Calendar = RGUI.Calendar;
             disabled: true
         }
     }).$inject('#j-example2');
+})();
+
+
+// 禁用
+(function() {
+    var calendar = new Calendar({
+        data: {
+            minDate: new Date(),
+            maxDate: new Date(new Date().getTime() + 24*3600*1000*5)
+        }
+    }).$inject('#j-example3');
 })();
 </script>
 </body>

@@ -41,7 +41,12 @@ $u-calendar_item_height = 28px;
         color: $formctrl_item-selected_color;
     }
 
+    .calendar_item.z-muted {
+        color: $formctrl-disabled_color;
+    }
+
     .calendar_item.z-dis {
+        background: none;
         color: $formctrl-disabled_color;
     }
 
@@ -60,6 +65,7 @@ $u-calendar_item_height = 28px;
 .u-calendar.z-dis {
     .calendar_item {
         background: $formctrl_background;
+        color: $formctrl-disabled_color;
     }
 
     .calendar_item.z-sel {
