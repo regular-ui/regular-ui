@@ -18,7 +18,7 @@ var ajax = RGUI.request;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var source = [
         {id: 1, name: '选项1'},
@@ -52,7 +52,7 @@ var ajax = RGUI.request;
     }).$inject('#j-example3');
 })();
 
-// 单项模板自定义
+// 单项模板定制
 (function() {
     var source = [
         {id: 3, name: '精通Javascript开发', org: '前端Funs', hits: 42371},

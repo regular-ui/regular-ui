@@ -222,6 +222,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
 var themeSelect = new RGUI.Select2({
     data: {
         source: themes,
@@ -237,9 +240,10 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tab
 (function() {
-    for(var i = 1; i < 40; i++) {
-        var id = 'j-example' + i;
-        var $example = document.getElementById(id);
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
         if(!$example)
             break;
 

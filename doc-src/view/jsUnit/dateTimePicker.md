@@ -7,7 +7,7 @@
 <dateTimePicker />
 ```
 
-#### 禁用
+#### 禁用组件
 
 <div class="m-example" id="j-example2"></div>
 

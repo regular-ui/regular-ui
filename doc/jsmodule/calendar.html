@@ -200,7 +200,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<h4 id="-">禁用</h4>
+<h4 id="-">禁用组件</h4>
 <div class="m-example" id="j-example2"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -332,6 +332,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
 var themeSelect = new RGUI.Select2({
     data: {
         source: themes,
@@ -347,9 +350,10 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tab
 (function() {
-    for(var i = 1; i < 40; i++) {
-        var id = 'j-example' + i;
-        var $example = document.getElementById(id);
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
         if(!$example)
             break;
 
@@ -402,7 +406,7 @@ var Calendar = RGUI.Calendar;
     var calendar = new Calendar().$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var calendar = new Calendar({
         data: {
@@ -412,7 +416,7 @@ var Calendar = RGUI.Calendar;
 })();
 
 
-// 禁用
+// 禁用组件
 (function() {
     var calendar = new Calendar({
         data: {

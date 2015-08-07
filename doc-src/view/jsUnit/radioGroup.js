@@ -19,7 +19,7 @@ var Radio2Group = RGUI.Radio2Group;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var source = [
         {id: 0, name: '选项1'},

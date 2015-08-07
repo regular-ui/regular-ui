@@ -5,7 +5,7 @@ var TimePicker = RGUI.TimePicker;
     var timePicker = new TimePicker().$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var timePicker = new TimePicker({
         data: {

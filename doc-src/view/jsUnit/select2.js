@@ -15,7 +15,7 @@ var Select2 = RGUI.Select2;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var source = [
         {id: 1, name: '选项1'},

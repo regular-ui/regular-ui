@@ -5,7 +5,7 @@ var DateTimePicker = RGUI.DateTimePicker;
     var dateTimePicker = new DateTimePicker().$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var dateTimePicker = new DateTimePicker({
         data: {

@@ -21,7 +21,7 @@ var Suggest = RGUI.Suggest;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var source = [
         {id: 1, name: 'abandon'},

@@ -9,7 +9,7 @@ var Check2 = RGUI.Check2;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var check2 = new Check2({
         data: {

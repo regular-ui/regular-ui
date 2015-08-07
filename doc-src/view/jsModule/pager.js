@@ -49,7 +49,7 @@ var Pager = RGUI.Pager;
     }).$inject('#j-example3');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var pager = new Pager({
         data: {

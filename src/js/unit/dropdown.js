@@ -16,6 +16,8 @@ var _ = require('../base/util.js');
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
+ * @param {boolean=false}           options.data.source[].disabled  禁用此项
+ * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
  * @param {string=null}             options.data.itemTemplate       单项模板
  * @param {boolean=false}           options.data.open               当前为展开/收起状态
  * @param {boolean=false}           options.data.disabled           是否禁用

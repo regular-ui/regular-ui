@@ -57,7 +57,7 @@ var _ = RGUI._;
     }).$inject('#j-example4');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var example5 = new Component({
         template: _.multiline(function(){/*

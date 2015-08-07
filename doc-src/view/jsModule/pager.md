@@ -25,7 +25,7 @@
 <pager current="6" total="11" middle="3" side="1" />
 ```
 
-#### 禁用
+#### 禁用组件
 
 <div class="m-example" id="j-example4"></div>
 

@@ -239,7 +239,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     ];
 <span class="cm-meta">...</span>
 </code></pre>
-<h4 id="-">禁用</h4>
+<h4 id="-">禁用组件</h4>
 <div class="m-example" id="j-example2"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeSelect</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -322,6 +322,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <a href="#" class="m-gotop"></a>
 <script src="../js/regular-ui.js"></script>
 <script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
 var themeSelect = new RGUI.Select2({
     data: {
         source: themes,
@@ -337,9 +340,10 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tab
 (function() {
-    for(var i = 1; i < 40; i++) {
-        var id = 'j-example' + i;
-        var $example = document.getElementById(id);
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
         if(!$example)
             break;
 
@@ -413,7 +417,7 @@ var TreeSelect = RGUI.TreeSelect;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var source = [
         {id: 1, name: '节点1', children: [

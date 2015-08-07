@@ -28,7 +28,7 @@ var _ = RGUI._;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var source = [
         {id: 1, name: '节点1', children: [
@@ -98,7 +98,7 @@ var _ = RGUI._;
     }).$inject('#j-example4');
 })();
 
-// 单项模板自定义
+// 单项模板定制
 (function() {
     var itemTemplate = _.multiline(function(){/*    
     <i class="u-icon {item.type === 'directory' ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}

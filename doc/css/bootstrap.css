@@ -2619,7 +2619,7 @@ body{
 	outline:none;
 	text-decoration:none;
 }
-.u-btn:disabled,.u-btn.z-dis{
+.u-btn:disabled,.u-btn.z-dis,.u-dropdown.z-dis .dropdown_hd>.u-btn{
 	cursor:not-allowed;
 }
 .u-btn-block,.u-btngroup-vertical >.u-btn{
@@ -3079,16 +3079,16 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-formitem .formitem_tt{
 	font-weight:bold;
 }
-.u-formitem-block{
+.u-formitem-block,.m-form >.u-formitem,.m-form fieldset>.u-formitem{
 	display:block;
 }
-.u-formitem-block .formitem_tt{
+.u-formitem-block .formitem_tt,.m-form >.u-formitem .formitem_tt,.m-form fieldset>.u-formitem .formitem_tt{
 	display:block;
 	float:left;
 	text-align:right;
 	font-weight:bold;
 }
-.u-formitem-block .formitem_ct{
+.u-formitem-block .formitem_ct,.m-form >.u-formitem .formitem_ct,.m-form fieldset>.u-formitem .formitem_ct{
 	display:block;
 }
 .u-formitem{
@@ -3381,17 +3381,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	color:#333;
 }
 .m-form >.u-formitem,.m-form fieldset>.u-formitem{
-	display:block;
 	margin-bottom:1em;
-}
-.m-form >.u-formitem .formitem_tt,.m-form fieldset>.u-formitem .formitem_tt{
-	display:block;
-	float:left;
-	text-align:right;
-	font-weight:bold;
-}
-.m-form >.u-formitem .formitem_ct,.m-form fieldset>.u-formitem .formitem_ct{
-	display:block;
 }
 .u-dropdown{
 	display:inline-block;

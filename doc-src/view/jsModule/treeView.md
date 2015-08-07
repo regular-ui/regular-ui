@@ -28,7 +28,7 @@
 ...
 ```
 
-#### 禁用
+#### 禁用组件
 
 <div class="m-example" id="j-example2"></div>
 
@@ -103,7 +103,7 @@
 ...
 ```
 
-#### 单项模板自定义
+#### 单项模板定制
 
 <div class="m-example" id="j-example5"></div>
 

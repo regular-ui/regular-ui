@@ -26,7 +26,7 @@ var TreeSelect = RGUI.TreeSelect;
     }).$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var source = [
         {id: 1, name: '节点1', children: [

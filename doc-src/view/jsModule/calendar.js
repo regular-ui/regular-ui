@@ -5,7 +5,7 @@ var Calendar = RGUI.Calendar;
     var calendar = new Calendar().$inject('#j-example1');
 })();
 
-// 禁用
+// 禁用组件
 (function() {
     var calendar = new Calendar({
         data: {
@@ -15,7 +15,7 @@ var Calendar = RGUI.Calendar;
 })();
 
 
-// 禁用
+// 禁用组件
 (function() {
     var calendar = new Calendar({
         data: {

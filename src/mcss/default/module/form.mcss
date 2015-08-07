@@ -19,20 +19,6 @@
 
     > .u-formitem, fieldset > .u-formitem {
         @extend .u-formitem-block;
-        /* @extend bug */
-        display: block;
-
-        .formitem_tt {
-            display: block;
-            float: left;
-            text-align: right;
-            font-weight: bold;
-        }
-
-        .formitem_ct {
-            display: block; 
-        }
-        /* @extend bug */
         margin-bottom: 1em;
     }
 }

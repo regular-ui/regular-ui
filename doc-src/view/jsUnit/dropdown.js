@@ -1,8 +1,8 @@
 var Dropdown = RGUI.Dropdown;
-var _ = RGUI._;
+var index = 0;
 
 // 基本形式
-(function() {
+(function(index) {
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
@@ -13,11 +13,27 @@ var _ = RGUI._;
         data: {
             source: source
         }
-    }).$inject('#j-example1');
-})();
+    }).$inject($$('.m-example')[index]);
+})(index++);
+
+// 标题
+(function(index) {
+    var source = [
+        {id: 1, name: '选项1'},
+        {id: 2, name: '选项2'},
+        {id: 3, name: '选项3'}
+    ];
+
+    var dropdown = new Dropdown({
+        data: {
+            source: source,
+            title: 'Title'
+        }
+    }).$inject($$('.m-example')[index]);
+})(index++);
 
 // 禁用某一项，禁用组件
-(function() {
+(function(index) {
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
@@ -29,34 +45,35 @@ var _ = RGUI._;
         data: {
             source: source
         }
-    }).$inject('#j-example2');
+    }).$inject($$('.m-example')[index]);
 
     var dropdown = new Dropdown({
         data: {
             source: source,
             disabled: true
         }
-    }).$inject('#j-example2');
-})();
+    }).$inject($$('.m-example')[index]);
+})(index++);
 
 // 分隔符
-(function() {
+(function(index) {
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
+        {id: 3, name: '选项3（禁用）', disabled: true},
         {divider: true},
-        {id: 3, name: '选项3', disabled: true}
+        {id: 4, name: '选项4'}
     ];
 
     var dropdown = new Dropdown({
         data: {
             source: source
         }
-    }).$inject('#j-example3');
-})();
+    }).$inject($$('.m-example')[index]);
+})(index++);
 
-// 单项模板自定义
-(function() {
+// 单项模板定制
+(function(index) {
     var source = [
         {id: 1, name: 'Dropdown', url: 'dropdown.html'},
         {id: 2, name: 'Menu', url: 'menu.html'},
@@ -72,5 +89,5 @@ var _ = RGUI._;
             source: source,
             itemTemplate: itemTemplate
         }
-    }).$inject('#j-example4');
-})();
+    }).$inject($$('.m-example')[index]);
+})(index++);
