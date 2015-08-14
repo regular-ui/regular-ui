@@ -8,13 +8,16 @@
 ```
 
 ```javascript
-...
-    this.data.source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
-    ];
-...
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {id: 1, name: '选项1'},
+            {id: 2, name: '选项2'},
+            {id: 3, name: '选项3'}
+        ]
+    }
+});
 ```
 
 #### 修改标题
@@ -26,13 +29,16 @@
 ```
 
 ```javascript
-...
-    this.data.source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
-    ];
-...
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {id: 1, name: '选项1'},
+            {id: 2, name: '选项2'},
+            {id: 3, name: '选项3'}
+        ]
+    }
+});
 ```
 
 #### 禁用某一项，禁用组件
@@ -45,13 +51,16 @@
 ```
 
 ```javascript
-...
-    this.data.source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3（禁用）', disabled: true}
-    ];
-...
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {id: 1, name: '选项1'},
+            {id: 2, name: '选项2'},
+            {id: 3, name: '选项3（禁用）', disabled: true}
+        ]
+    }
+});
 ```
 
 #### 分隔线
@@ -63,14 +72,17 @@
 ```
 
 ```javascript
-...
-    this.data.source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {divider: true},
-        {id: 3, name: '选项3（禁用）', disabled: true}
-    ];
-...
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {id: 1, name: '选项1'},
+            {id: 2, name: '选项2'},
+            {divider: true},
+            {id: 3, name: '选项3（禁用）', disabled: true}
+        ]
+    }
+});
 ```
 
 #### 按钮自定义
@@ -96,17 +108,16 @@
 ```
 
 ```javascript
-...
-    this.data.source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
-    ];
-    
-    this.data.itemTemplate = _.multiline(function(){/*
-<a href={item.url}>{item.name}</a>
-    */});
-...
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {id: 1, name: '选项1'},
+            {id: 2, name: '选项2'},
+            {id: 3, name: '选项3'}
+        ]
+    }
+});
 ```
 
 #### 单项模板自定义
@@ -118,15 +129,17 @@
 ```
 
 ```javascript
-...
-    this.data.source = [
-        {id: 1, name: 'Dropdown', url: 'dropdown.html'},
-        {id: 2, name: 'Menu', url: 'menu.html'},
-        {id: 3, name: 'Input2', url: 'input2.html'}
-    ];
-    
-    this.data.itemTemplate = _.multiline(function(){/*
-<a href={item.url}>{item.name}</a>
-    */});
-...
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {id: 1, name: 'Dropdown', url: 'dropdown.html'},
+            {id: 2, name: 'Menu', url: 'menu.html'},
+            {id: 3, name: 'Input2', url: 'input2.html'}
+        ],
+        itemTemplate: _.multiline(function(){/*
+    <a href={item.url}>{item.name}</a>
+        */})
+    }
+});
 ```

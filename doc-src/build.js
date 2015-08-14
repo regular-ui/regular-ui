@@ -30,6 +30,7 @@ markextend.setOptions({
 });
 
 // var sitemap = require('./sitemap.json');
+var markscript = require('./markscript.js');
 var jsdoc = require('./jsdoc.js');
 var cssdoc = require('./cssdoc.js');
 
@@ -83,8 +84,15 @@ function build(path, sitemap, template) {
 
     // 根据./view目录下的markdown文件生成文档
     var md = __dirname + '/view/' + path + '.md';
-    if(fs.existsSync(md))
-        data.article = markextend(fs.readFileSync(md) + '');
+    if(fs.existsSync(md)) {
+        var mdContent = fs.readFileSync(md) + '';
+        data.article = markextend(mdContent);
+
+        // 将./view目录下的js脚本添加到HTML中用于生成示例
+        if(level[0] === 'jsUnit' || level[0] === 'jsModule') {
+            data.script = markscript.render(mdContent);
+        }
+    }
 
     // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API
     if(level[0] === 'jsUnit') {
@@ -96,11 +104,6 @@ function build(path, sitemap, template) {
         if(fs.existsSync(jsModule))
             data.api = jsdoc.render(jsModule, template.jsApi);
     }
-
-    // 将./view目录下的js脚本添加到HTML中用于生成示例
-    var script = __dirname + '/view/' + path + '.js';
-    if(fs.existsSync(script))
-        data.script = fs.readFileSync(script);
 
     // 渲染HTML文件
     var tpl = template.head + template.sidebar + template.main + template.foot;
