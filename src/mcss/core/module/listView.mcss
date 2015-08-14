@@ -14,6 +14,7 @@
     $user-select: none;
 
     > li {
+        // @extend .f-toe;
         cursor: pointer;
     }
 

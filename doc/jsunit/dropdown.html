@@ -72,7 +72,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../jsunit/dropdown.html">下拉菜单<small> Dropdown</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/menu.html">多级菜单<small> Menu</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -90,19 +90,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/input2.html">输入扩展<small> Input2</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
         
         <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
-        </a></li>
-        
-        
-        
-        <li><a href="../jsunit/telinput.html">电话输入<small> TelInput</small>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
+        
         
         
         
@@ -224,20 +223,20 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
     ];
 <span class="cm-meta">...</span>
 </code></pre>
-<h4 id="-">标题</h4>
+<h4 id="-">修改标题</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Title&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;修改标题&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-meta">...</span>
     <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
     ];
 <span class="cm-meta">...</span>
 </code></pre>
@@ -251,8 +250,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">divider</span>: <span class="cm-atom">true</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>}
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3（禁用）&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>}
     ];
 <span class="cm-meta">...</span>
 </code></pre>
@@ -265,22 +263,52 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3（禁用）&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
         {<span class="cm-property">divider</span>: <span class="cm-atom">true</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项4&#39;</span>}
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3（禁用）&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>}
     ];
 <span class="cm-meta">...</span>
 </code></pre>
-<h4 id="-">单项模板定制</h4>
+<h4 id="-">按钮自定义</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Primary<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">dropdown</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">dropdown</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">dropdown</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Error<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">dropdown</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>Link<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">dropdown</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-meta">...</span>
     <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+    ];
+
+    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">&lt;a href={item.url}&gt;{item.name}&lt;/a&gt;</span>
+<span class="cm-comment">    */</span>});
+<span class="cm-meta">...</span>
+</code></pre>
+<h4 id="-">单项模板自定义</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-meta">...</span>
+    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
+        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Dropdown&#39;</span>, <span class="cm-property">url</span>: <span class="cm-string">&#39;dropdown.html&#39;</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Menu&#39;</span>, <span class="cm-property">url</span>: <span class="cm-string">&#39;menu.html&#39;</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Input2&#39;</span>, <span class="cm-property">url</span>: <span class="cm-string">&#39;input2.html&#39;</span>}
     ];
 
     <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
@@ -298,36 +326,38 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Dropdown({options})</h5>
+<h5>new Dropdown()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].id</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>每项的id</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>禁用此项</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].divider</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>设置此项分隔线</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.itemTemplate</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>单项模板</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>当前为展开/收起状态</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
-        
-        <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>数据服务</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source[].id</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>每项的id</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source[].disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>禁用此项</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source[].divider</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>设置此项分隔线</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.itemTemplate</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>单项模板</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>当前为展开/收起状态</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>数据服务</td></tr>
+            
         
     </tbody>
 </table>
@@ -344,7 +374,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
+            
+            <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
+            
         
     </tbody>
 </table>
@@ -357,7 +389,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起</td></tr>
+            
+            <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起</td></tr>
+            
         
     </tbody>
 </table>
@@ -369,9 +403,28 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<h4>Inherited Methods</h4>
+
+<h5>dropdown.$updateSource()</h5>
+<p>从service中更新数据源</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-inheritedMethods"></div>
+
+
 <h4>Events</h4>
 
-<h5>on-select={$event}</h5>
+<h5>dropdown.$on('select')</h5>
 <p>选择某一项时触发</p>
 <table>
     <thead>
@@ -379,13 +432,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+            
+            <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+            
         
     </tbody>
 </table>
 
 
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>
@@ -461,6 +519,7 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
+var Component = RGUI.Component;
 var Dropdown = RGUI.Dropdown;
 var index = 0;
 
@@ -479,7 +538,7 @@ var index = 0;
     }).$inject($$('.m-example')[index]);
 })(index++);
 
-// 标题
+// 修改标题
 (function(index) {
     var source = [
         {id: 1, name: '选项1'},
@@ -490,7 +549,7 @@ var index = 0;
     var dropdown = new Dropdown({
         data: {
             source: source,
-            title: 'Title'
+            title: '修改标题'
         }
     }).$inject($$('.m-example')[index]);
 })(index++);
@@ -500,8 +559,7 @@ var index = 0;
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 3, name: '选项3（禁用）', disabled: true},
-        {id: 4, name: '选项4'}
+        {id: 3, name: '选项3（禁用）', disabled: true}
     ];
 
     var dropdown = new Dropdown({
@@ -523,9 +581,8 @@ var index = 0;
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 3, name: '选项3（禁用）', disabled: true},
         {divider: true},
-        {id: 4, name: '选项4'}
+        {id: 3, name: '选项3（禁用）', disabled: true}
     ];
 
     var dropdown = new Dropdown({
@@ -535,7 +592,39 @@ var index = 0;
     }).$inject($$('.m-example')[index]);
 })(index++);
 
-// 单项模板定制
+// 按钮自定义
+(function(index) {
+    var source = [
+        {id: 1, name: '选项1'},
+        {id: 2, name: '选项2'},
+        {id: 3, name: '选项3'}
+    ];
+
+    var component = new Component({
+        data: {
+            source: source
+        },
+        template: _.multiline(function(){/*
+<dropdown source={source}>
+    <a class="u-btn u-btn-primary">Primary</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-success">Success</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-warning">Warning</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-error">Error</a>
+</dropdown>
+<dropdown source={source}>
+    <a>Link</a>
+</dropdown>
+        */})
+    }).$inject($$('.m-example')[index]);
+})(index++);
+
+// 单项模板自定义
 (function(index) {
     var source = [
         {id: 1, name: 'Dropdown', url: 'dropdown.html'},

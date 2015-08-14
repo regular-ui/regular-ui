@@ -29,5 +29,20 @@
             width: 0px;
             -webkit-transform: rotate(360deg);
         }
+
+        li.dropdown_divider {
+            padding: 0;
+            height: 2px;
+            background: fade($inverse, 0.6, true);
+            overflow: hidden;
+        }
+
+        .m-listview {
+            min-width: $formctrl_min-width;
+
+            > li > a {
+                color: inherit;
+            }
+        }
     }
 }

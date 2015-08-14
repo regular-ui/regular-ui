@@ -47,7 +47,7 @@ var SourceComponent = Component.extend({
         return {};
     },
     /**
-     * @method $updateSource 从service中更新数据源
+     * @method $updateSource() 从service中更新数据源
      * @public
      * @return {SourceComponent} this
      */

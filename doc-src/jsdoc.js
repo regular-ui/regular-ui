@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
+var path = require('path');
 var ejs = require('ejs');
 
-function parse(path) {
+function parse(filepath) {
     var rule = {
         block: /\/\*\*\s+([\s\S]*?)\s+\*\//g,
         infoline: /^-+$/,
@@ -15,9 +16,10 @@ function parse(path) {
         author: /^@author\s+(.+?)$/,
     }
 
-    var content = fs.readFileSync(path, {encoding: 'utf8'});
+    var content = fs.readFileSync(filepath, {encoding: 'utf8'});
 
     var tokens = [];
+    var baseClass = null;
     var cap;
     while(cap = rule.block.exec(content)) {
         var token = {
@@ -26,8 +28,8 @@ function parse(path) {
             properties: []
         };
         var lines = cap[1].split('\n');
-        for(var i = 0; i < lines.length; i++) {
-            var line = lines[i].replace(/^\s*\*\s*/, '').replace(/\s*$/, '');
+        lines.forEach(function(line) {
+            line = line.replace(/^\s*\*\s*/, '').replace(/\s*$/, '');
 
             var cap2;
 
@@ -45,6 +47,9 @@ function parse(path) {
 
             if(cap2 = rule.map.exec(line)) {
                 token[cap2[1]] = cap2[2];
+
+                if(cap2[1] === 'extend')
+                    baseClass = cap2[2];
             }
 
             if(cap2 = rule.flag.exec(line)) {
@@ -67,35 +72,54 @@ function parse(path) {
                     description: cap2[3]
                 });
             }
-        }
+        });
 
         if(token.type)
             tokens.push(token);
     }
 
+    if(baseClass && baseClass !== 'Regular') {
+        var basePath = content.match(new RegExp('var ' + baseClass + ' = require\\(\'(.+?)\'\\)'));
+        if(basePath) {
+            basePath = basePath[1];
+            var baseTokens = parse(path.join(filepath, '..', basePath));
+            baseTokens.forEach(function(token) {
+                if(token.type === 'method' || token.type === 'event') {
+                    token.inherited = true;
+                    tokens.push(token);
+                }
+            });
+        }        
+    }
+
     return tokens;
 }
 
-function render(path, tpl) {
-    var tokens = parse(path);
+function render(filepath, tpl) {
+    var tokens = parse(filepath);
     var data = {
         class_: null,
         methods: [],
         staticMethods: [],
-        events: []
+        inheritedMethods: [],
+        events: [],
+        inheritedEvents: []
     };
 
-    for(var i = 0; i < tokens.length; i++) {
-        var token = tokens[i];
+    tokens.forEach(function(token) {
         if(token.type === 'class' && !data.class_)
             data.class_ = token;
-        else if(token.type === 'method' && token['public'] && !token['static'])
+        else if(token.type === 'method' && token['public'] && !token['static'] && !token['inherited'])
             data.methods.push(token);
-        else if(token.type === 'method' && token['public'] && token['static'])
+        else if(token.type === 'method' && token['public'] && token['static'] && !token['inherited'])
             data.staticMethods.push(token);
-        else if(token.type === 'event')
+        else if(token.type === 'method' && token['public'] && token['inherited'])
+            data.inheritedMethods.push(token);
+        else if(token.type === 'event' && !token['inherited'])
             data.events.push(token);
-    }
+        else if(token.type === 'event' && token['inherited'])
+            data.inheritedEvents.push(token);
+    });
 
     return data.class_ ? ejs.render(tpl, data) : '';
 }

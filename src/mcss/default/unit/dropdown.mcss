@@ -14,10 +14,10 @@
         // margin-top: -1px;
 
         li.dropdown_divider {
-            height: 1px;
             margin: 6px 0;
-            background: #e5e5e5;
             padding: 0;
+            height: 1px;
+            background: #e5e5e5;
             overflow: hidden;
         }
     }

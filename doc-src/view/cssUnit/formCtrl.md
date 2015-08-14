@@ -175,7 +175,7 @@ Regular UI中将表单名称、表单控件和表单提示封装为一个表单�
     <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
     <span class="formitem_ct">
         <input class="u-input" placeholder="请输入">
-        <span class="formitem_tip">4~12个字符，包括字母、数字、下划线</span>
+        <span class="u-tip">4~12个字符，包括字母、数字、下划线</span>
     </span>
 </div>
 </div>
@@ -185,7 +185,7 @@ Regular UI中将表单名称、表单控件和表单提示封装为一个表单�
     <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
     <span class="formitem_ct">
         <input class="u-input" placeholder="请输入">
-        <span class="formitem_tip">4~12个字符，包括字母、数字、下划线</span>
+        <span class="u-tip">4~12个字符，包括字母、数字、下划线</span>
     </span>
 </div>
 ```

@@ -17,6 +17,12 @@
         z-index: 1;
         width: 100%;
         top: 100%;
+
+        .m-listview {
+            > li > a {
+                display: block;
+            }
+        }
     }
 }
 

@@ -72,7 +72,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/dropdown.html">下拉菜单<small> Dropdown</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/menu.html">多级菜单<small> Menu</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -90,19 +90,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/input2.html">输入扩展<small> Input2</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
         
         <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
-        </a></li>
-        
-        
-        
-        <li><a href="../jsunit/telinput.html">电话输入<small> TelInput</small>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
+        
         
         
         
@@ -254,30 +253,32 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Progress({options})</h5>
+<h5>new Progress()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.percent</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>36</code></td><td>百分比</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.text</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>在进度条中是否显示百分比。值为`string`时显示该段文字。</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.size</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>进度条的尺寸</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>进度条的类型，改变显示颜色</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.striped</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否显示条纹</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.active</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>进度条是否为激活状态，当`striped`为`true`时，进度条显示动画</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.percent</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>36</code></td><td>百分比</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.text</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>在进度条中是否显示百分比。值为`string`时显示该段文字。</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.size</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>进度条的尺寸</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>进度条的类型，改变显示颜色</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.striped</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否显示条纹</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.active</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>进度条是否为激活状态，当`striped`为`true`时，进度条显示动画</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
         
     </tbody>
 </table>
@@ -290,7 +291,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<div id="j-inheritedMethods"></div>
+
+
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>

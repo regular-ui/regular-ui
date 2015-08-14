@@ -220,28 +220,30 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Calendar({options})</h5>
+<h5>new Calendar()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.minDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最小日期，如果为空则不限制</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.maxDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最大日期，如果为空则不限制</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.minDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最小日期，如果为空则不限制</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.maxDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最大日期，如果为空则不限制</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
         
     </tbody>
 </table>
@@ -258,7 +260,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>year</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的年份</td></tr>
+            
+            <tr><td class="f-wsn"><code>year</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的年份</td></tr>
+            
         
     </tbody>
 </table>
@@ -271,7 +275,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>month</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的月份</td></tr>
+            
+            <tr><td class="f-wsn"><code>month</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的月份</td></tr>
+            
         
     </tbody>
 </table>
@@ -284,7 +290,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>选择的日期</td></tr>
+            
+            <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>选择的日期</td></tr>
+            
         
     </tbody>
 </table>
@@ -297,6 +305,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        
     </tbody>
 </table>
 
@@ -307,9 +317,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<div id="j-inheritedMethods"></div>
+
+
 <h4>Events</h4>
 
-<h5>on-select={$event}</h5>
+<h5>calendar.$on('select')</h5>
 <p>选择某一个日期时触发</p>
 <table>
     <thead>
@@ -317,13 +330,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择的日期</td></tr>
+            
+            <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择的日期</td></tr>
+            
         
     </tbody>
 </table>
 
 
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>

@@ -52,7 +52,7 @@ var ajax = RGUI.request;
     }).$inject('#j-example3');
 })();
 
-// 单项模板定制
+// 单项模板自定义
 (function() {
     var source = [
         {id: 3, name: '精通Javascript开发', org: '前端Funs', hits: 42371},

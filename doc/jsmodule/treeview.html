@@ -279,7 +279,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     };
 <span class="cm-meta">...</span>
 </code></pre>
-<h4 id="-">单项模板定制</h4>
+<h4 id="-">单项模板自定义</h4>
 <div class="m-example" id="j-example5"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(service)}</span> <span class="cm-attribute">hierarchical</span>=<span class="cm-attribute">{true}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -311,34 +311,36 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new TreeView({options})</h5>
+<h5>new TreeView()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].id</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>每项的id</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.hierarchical</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否分级动态加载，需要service</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
-        
-        <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>数据服务</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source[].id</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>每项的id</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.hierarchical</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否分级动态加载，需要service</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>数据服务</td></tr>
+            
         
     </tbody>
 </table>
@@ -355,7 +357,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
+            
+            <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
+            
         
     </tbody>
 </table>
@@ -367,9 +371,28 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<h4>Inherited Methods</h4>
+
+<h5>treeView.$updateSource()</h5>
+<p>从service中更新数据源</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-inheritedMethods"></div>
+
+
 <h4>Events</h4>
 
-<h5>on-select={$event}</h5>
+<h5>treeView.$on('select')</h5>
 <p>选择某一项时触发</p>
 <table>
     <thead>
@@ -377,12 +400,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+            
+            <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+            
         
     </tbody>
 </table>
 
-<h5>on-toggle={$event}</h5>
+<h5>treeView.$on('toggle')</h5>
 <p>展开或收起某一项时触发</p>
 <table>
     <thead>
@@ -390,15 +415,20 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn">展开收起项</td></tr>
-        
-        <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
+            
+            <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn">展开收起项</td></tr>
+            
+            <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
+            
         
     </tbody>
 </table>
 
 
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>
@@ -574,7 +604,7 @@ var _ = RGUI._;
     }).$inject('#j-example4');
 })();
 
-// 单项模板定制
+// 单项模板自定义
 (function() {
     var itemTemplate = _.multiline(function(){/*    
     <i class="u-icon {item.type === 'directory' ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}

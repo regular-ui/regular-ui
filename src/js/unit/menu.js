@@ -18,6 +18,9 @@ var _ = require('../base/util.js');
  * @param {object[]=[]}             options.data.source             数据源
  * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
+ * @param {boolean=false}           options.data.source[].disabled  禁用此项
+ * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
+ * @param {string=null}             options.data.itemTemplate       单项模板
  * @param {boolean=false}           options.data.open               当前为展开/收起状态
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
@@ -66,7 +69,7 @@ var MenuList = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
-        if(this.$ancestor.data.disabled)
+        if(this.$ancestor.data.disabled || item.disabled || item.divider)
             return;
 
         this.$ancestor.select(item);
@@ -85,6 +88,7 @@ var MenuList = SourceComponent.extend({
 
         /**
          * @event toggle 展开或收起某一项时触发
+         * @private
          * @property {object} item 展开收起项
          * @property {boolean} open 展开还是收起
          */

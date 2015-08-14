@@ -72,7 +72,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/dropdown.html">下拉菜单<small> Dropdown</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/menu.html">多级菜单<small> Menu</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -90,19 +90,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/input2.html">输入扩展<small> Input2</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
         
         <li class="z-crt"><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
-        </a></li>
-        
-        
-        
-        <li><a href="../jsunit/telinput.html">电话输入<small> TelInput</small>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
+        
         
         
         
@@ -216,38 +215,53 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<p><input class="u-input" type="search" /></p>
-<p><input class="u-input" type="url" /></p>
-<p></p>
+<div class="m-example"></div>
 
-<div class="m-example" id="j-example1"></div>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">最大值和最小值</h4>
+<div class="m-example"></div>
 
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">min</span>=<span class="cm-attribute">5</span> <span class="cm-attribute">max</span>=<span class="cm-attribute">8</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
 
         <h3>API</h3>
 
 <h4>Class</h4>
 <h5>NumberInput</h5>
-<p>继承自<strong>Component</strong>。</p>
+<p>继承自<strong>Input2</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new NumberInput({options})</h5>
+<h5>new NumberInput()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>输入框的值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>输入框的类型</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>占位符</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.min</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>null</code></td><td>最小值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.max</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>null</code></td><td>最大值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
         
     </tbody>
 </table>
@@ -260,7 +274,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<div id="j-inheritedMethods"></div>
+
+
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>
@@ -337,19 +357,26 @@ var themeSelect = new RGUI.Select2({
 </script>
 <script>
 var NumberInput = RGUI.NumberInput;
+var index = 0;
 
-var numberInput = new NumberInput({
-    data: {
-        //source: source
-    }
-}).$inject('#j-example1');
+// 基本形式
+(function(index) {
+    var numberInput = new NumberInput({
+        data: {
+            //source: source
+        }
+    }).$inject($$('.m-example')[index]);
+})(index++);
 
-// var input2 = new NumberInput({
-//     data: {
-//         source: source,
-//         disabled: true
-//     }
-// }).$inject('#j-example2');
+// 最大值和最小值
+(function(index) {
+    var numberInput = new NumberInput({
+        data: {
+            min: 5,
+            max: 8
+        }
+    }).$inject($$('.m-example')[index]);
+})(index++);
 </script>
 </body>
 </html>

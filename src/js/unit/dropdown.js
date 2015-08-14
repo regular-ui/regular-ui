@@ -34,6 +34,7 @@ var Dropdown = SourceComponent.extend({
     config: function() {
         _.extend(this.data, {
             // @inherited source: [],
+            itemTemplate: null,
             open: false
         });
         this.supr();
@@ -45,7 +46,7 @@ var Dropdown = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
-        if(this.data.readonly || this.data.disabled || item.disabled || item.divider)
+        if(this.data.disabled || item.disabled || item.divider)
             return;
 
         //this.data.selected = item;
@@ -65,7 +66,7 @@ var Dropdown = SourceComponent.extend({
      * @return {void}
      */
     toggle: function(open) {
-        if(this.data.readonly || this.data.disabled)
+        if(this.data.disabled)
             return;
         
         this.data.open = open;

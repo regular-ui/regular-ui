@@ -8,11 +8,16 @@
 var Component = require('../base/component.js');
 var template = require('./input2.html');
 var _ = require('../base/util.js');
+var validator = require('../base/validator.js');
 
 /**
  * @class Input2
  * @extend Component
  * @param {object}                  options.data                    绑定属性
+ * @param {string=''}               options.data.value              输入框的值
+ * @param {string=''}               options.data.type               输入框的类型
+ * @param {string=''}               options.data.placeholder        占位符
+ * @param {object[]=[]}             options.data.rules              验证规则
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
@@ -27,21 +32,17 @@ var Input2 = Component.extend({
     config: function() {
         _.extend(this.data, {
             value: '',
-            unit: '%',
-            type: null
+            type: '',
+            placeholder: '',
+            rules: []
         });
         this.supr();
     },
-    validate: function(value) {
-        console.log(value);
-        var reg = /^\d+$/;
-        if(!reg.test(value)) {
-            this.data.tip = '请输入数字！';
-            this.data.type = 'error';
-        } else {
-            this.data.tip = '';
-            this.data.type = 'success';
-        }
+    validate: function(value, rules) {
+        var result = validator.validate(value, rules);
+        
+        this.data.type = result.success ? 'success' : 'error';
+        this.data.tip = result.message;
     }
 });
 

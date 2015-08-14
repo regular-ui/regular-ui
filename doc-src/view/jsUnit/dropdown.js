@@ -1,3 +1,4 @@
+var Component = RGUI.Component;
 var Dropdown = RGUI.Dropdown;
 var index = 0;
 
@@ -16,7 +17,7 @@ var index = 0;
     }).$inject($$('.m-example')[index]);
 })(index++);
 
-// 标题
+// 修改标题
 (function(index) {
     var source = [
         {id: 1, name: '选项1'},
@@ -27,7 +28,7 @@ var index = 0;
     var dropdown = new Dropdown({
         data: {
             source: source,
-            title: 'Title'
+            title: '修改标题'
         }
     }).$inject($$('.m-example')[index]);
 })(index++);
@@ -37,8 +38,7 @@ var index = 0;
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 3, name: '选项3（禁用）', disabled: true},
-        {id: 4, name: '选项4'}
+        {id: 3, name: '选项3（禁用）', disabled: true}
     ];
 
     var dropdown = new Dropdown({
@@ -60,9 +60,8 @@ var index = 0;
     var source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 3, name: '选项3（禁用）', disabled: true},
         {divider: true},
-        {id: 4, name: '选项4'}
+        {id: 3, name: '选项3（禁用）', disabled: true}
     ];
 
     var dropdown = new Dropdown({
@@ -72,7 +71,39 @@ var index = 0;
     }).$inject($$('.m-example')[index]);
 })(index++);
 
-// 单项模板定制
+// 按钮自定义
+(function(index) {
+    var source = [
+        {id: 1, name: '选项1'},
+        {id: 2, name: '选项2'},
+        {id: 3, name: '选项3'}
+    ];
+
+    var component = new Component({
+        data: {
+            source: source
+        },
+        template: _.multiline(function(){/*
+<dropdown source={source}>
+    <a class="u-btn u-btn-primary">Primary</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-success">Success</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-warning">Warning</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-error">Error</a>
+</dropdown>
+<dropdown source={source}>
+    <a>Link</a>
+</dropdown>
+        */})
+    }).$inject($$('.m-example')[index]);
+})(index++);
+
+// 单项模板自定义
 (function(index) {
     var source = [
         {id: 1, name: 'Dropdown', url: 'dropdown.html'},

@@ -72,7 +72,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/dropdown.html">下拉菜单<small> Dropdown</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/menu.html">多级菜单<small> Menu</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -90,19 +90,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../jsunit/input2.html">输入扩展<small> Input2</small>
         
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
         </a></li>
         
         
         
         <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
-        </a></li>
-        
-        
-        
-        <li><a href="../jsunit/telinput.html">电话输入<small> TelInput</small>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
+        
         
         
         
@@ -216,8 +215,17 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-meta">...</span>
+    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">rules</span> <span class="cm-operator">=</span> [
+        {<span class="cm-property">type</span>: <span class="cm-string">&#39;isRequired&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入字符！&#39;</span>},
+        {<span class="cm-property">type</span>: <span class="cm-string">&#39;isLength&#39;</span>, <span class="cm-property">min</span>: <span class="cm-number">5</span>, <span class="cm-property">max</span>: <span class="cm-number">8</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入5-8个字符！&#39;</span>}
+    ]
+<span class="cm-meta">...</span>
+</code></pre>
 
         <h3>API</h3>
 
@@ -228,22 +236,32 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Input2({options})</h5>
+<h5>new Input2()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>输入框的值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>输入框的类型</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>占位符</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.rules</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>验证规则</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
         
     </tbody>
 </table>
@@ -256,7 +274,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<div id="j-inheritedMethods"></div>
+
+
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>
@@ -333,19 +357,21 @@ var themeSelect = new RGUI.Select2({
 </script>
 <script>
 var Input2 = RGUI.Input2;
+var index = 0;
 
-var input2 = new Input2({
-    data: {
-        //source: source
-    }
-}).$inject('#j-example1');
+// 基本形式
+(function(index) {
+    var rules = [
+        {type: 'isRequired', message: '请输入字符！'},
+        {type: 'isLength', min: 5, max: 8, message: '请输入5-8个字符！'}
+    ]
 
-// var input2 = new Input2({
-//     data: {
-//         source: source,
-//         disabled: true
-//     }
-// }).$inject('#j-example2');
+    var input2 = new Input2({
+        data: {
+            rules: rules
+        }
+    }).$inject($$('.m-example')[index]);
+})(index++);
 </script>
 </body>
 </html>

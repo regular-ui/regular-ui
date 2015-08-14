@@ -29,6 +29,7 @@ $reset-normalize();
 @import "bootstrap/unit/buttonGroup.mcss";
 @import "bootstrap/unit/color.mcss";
 @import "bootstrap/unit/badge.mcss";
+@import "default/unit/tip.mcss";
 @import "bootstrap/unit/text.mcss";
 @import "bootstrap/unit/image.mcss";
 // @import "default/unit/thumbnail.mcss";
@@ -63,10 +64,11 @@ $reset-normalize();
 
 /* 导航类 */
 @import "bootstrap/unit/dropdown.mcss";
+@import "bootstrap/unit/menu.mcss";
 
 /* 表单类 */
 @import "default/unit/input2.mcss";
-@import "default/unit/numberInput.mcss";
+@import "bootstrap/unit/numberInput.mcss";
 @import "default/unit/check2.mcss";
 @import "default/unit/radio2.mcss";
 @import "core/unit/unitGroup.mcss";

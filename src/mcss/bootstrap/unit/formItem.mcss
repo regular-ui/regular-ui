@@ -17,9 +17,9 @@
 
     .formitem_tip {
         font-size: 12px;
-        background: #f4f4f4;
         padding: 4px;
         $border-radius: $border-radius-sm;
+        background: #f4f4f4;
     }
 }
 

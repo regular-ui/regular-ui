@@ -2418,6 +2418,30 @@ a.u-badge:hover{
 .u-badge-error{
 	background:#da314b;
 }
+.u-tip{
+	display:inline-block;
+}
+.u-tip{
+	font-size:12px;
+	padding:2px 6px;
+	background:#f4f4f4;
+}
+.u-tip-info{
+	background:#ebf7fd;
+	color:#2d7091;
+}
+.u-tip-success{
+	background:#f2fae3;
+	color:#659f13;
+}
+.u-tip-warning{
+	background:#fffceb;
+	color:#e28327;
+}
+.u-tip-error{
+	background:#fff1f0;
+	color:#d85030;
+}
 .u-text-sm{
 	font-size:12px;
 	line-height:16px;
@@ -2848,14 +2872,17 @@ input.u-check:disabled,input.u-radio:disabled{
 	width:100%;
 	top:100%;
 }
+.u-dropdown .dropdown_bd .m-listview >li>a{
+	display:block;
+}
 .u-dropdown .dropdown_bd{
 	min-width:120px;
 }
 .u-dropdown .dropdown_bd li.dropdown_divider{
-	height:1px;
 	margin:6px 0;
-	background:#e5e5e5;
 	padding:0;
+	height:1px;
+	background:#e5e5e5;
 	overflow:hidden;
 }
 .u-dropdown-menu li{
@@ -2867,7 +2894,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	left:100%;
 	top:0;
 }
-.u-dropdown-menu li:hover>.menu_list{
+.u-dropdown-menu li:hover:not(.z-dis)>.menu_list{
 	display:block;
 }
 .u-dropdown-menu .menu_item{
@@ -2879,6 +2906,9 @@ input.u-check:disabled,input.u-radio:disabled{
 	line-height:inherit;
 	margin:0;
 	cursor:pointer;
+}
+.u-dropdown-menu .menu_itemname >a{
+	display:block;
 }
 .u-dropdown-menu .menu_list{
 	min-width:120px;
@@ -2896,6 +2926,11 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-input2-numberinput .u-btn{
 	position:absolute;
+}
+.u-input2 + .u-tip{
+	margin-left:5px;
+}
+.u-input2-numberinput .u-btn{
 	right:2px;
 	top:2px;
 	height:12px;

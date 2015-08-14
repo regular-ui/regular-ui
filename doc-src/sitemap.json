@@ -52,12 +52,12 @@
             "lowerName": "jsUnit",
             "cnName": "JS元件",
             "children": [
-                {"name": "Dropdown", "lowerName": "dropdown", "cnName": "下拉菜单", "group": "导航类", "completed": false},
-                {"name": "Menu", "lowerName": "menu", "cnName": "多级菜单", "group": "导航类", "completed": false},
+                {"name": "Dropdown", "lowerName": "dropdown", "cnName": "下拉菜单", "group": "导航类", "completed": true},
+                {"name": "Menu", "lowerName": "menu", "cnName": "多级菜单", "group": "导航类", "completed": true},
 
-                {"name": "Input2", "lowerName": "input2", "cnName": "输入扩展", "group": "表单类"},
-                {"name": "NumberInput", "lowerName": "numberInput", "cnName": "数字输入", "group": "表单类"},
-                {"name": "TelInput", "lowerName": "telInput", "cnName": "电话输入", "group": "表单类"},
+                {"name": "Input2", "lowerName": "input2", "cnName": "输入扩展", "group": "表单类", "completed": true},
+                {"name": "NumberInput", "lowerName": "numberInput", "cnName": "数字输入", "group": "表单类", "completed": true},
+                {"name": "TelInput", "lowerName": "telInput", "cnName": "电话输入", "group": "表单类", "hidden": true},
                 {"name": "Check2", "lowerName": "check2", "cnName": "多选按钮", "group": "表单类", "completed": true},
                 {"name": "CheckGroup", "lowerName": "checkGroup", "cnName": "多选组", "group": "表单类", "completed": true},
                 {"name": "RadioGroup", "lowerName": "radioGroup", "cnName": "单选组", "group": "表单类", "completed": true},

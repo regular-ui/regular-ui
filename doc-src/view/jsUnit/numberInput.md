@@ -1,10 +1,16 @@
 ### 示例
 #### 基本形式
 
+<div class="m-example"></div>
 
-<input class="u-input" type="search" />
-<input class="u-input" type="url" />
-<p></p>
+```xml
+<numberInput />
+```
 
-<div class="m-example" id="j-example1"></div>
+#### 最大值和最小值
 
+<div class="m-example"></div>
+
+```xml
+<numberInput min=5 max=8 />
+```

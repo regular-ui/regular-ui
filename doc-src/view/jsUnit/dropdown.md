@@ -12,17 +12,17 @@
     this.data.source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 4, name: '选项3'}
+        {id: 3, name: '选项3'}
     ];
 ...
 ```
 
-#### 标题
+#### 修改标题
 
 <div class="m-example"></div>
 
 ```xml
-<dropdown source={source} title="Title" />
+<dropdown source={source} title="修改标题" />
 ```
 
 ```javascript
@@ -30,7 +30,7 @@
     this.data.source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 4, name: '选项3'}
+        {id: 3, name: '选项3'}
     ];
 ...
 ```
@@ -49,8 +49,7 @@
     this.data.source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {divider: true},
-        {id: 3, name: '选项3', disabled: true}
+        {id: 3, name: '选项3（禁用）', disabled: true}
     ];
 ...
 ```
@@ -68,14 +67,49 @@
     this.data.source = [
         {id: 1, name: '选项1'},
         {id: 2, name: '选项2'},
-        {id: 3, name: '选项3（禁用）', disabled: true},
         {divider: true},
-        {id: 4, name: '选项4'}
+        {id: 3, name: '选项3（禁用）', disabled: true}
     ];
 ...
 ```
 
-#### 单项模板定制
+#### 按钮自定义
+
+<div class="m-example"></div>
+
+```xml
+<dropdown source={source}>
+    <a class="u-btn u-btn-primary">Primary</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-success">Success</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-warning">Warning</a>
+</dropdown>
+<dropdown source={source}>
+    <a class="u-btn u-btn-error">Error</a>
+</dropdown>
+<dropdown source={source}>
+    <a>Link</a>
+</dropdown>
+```
+
+```javascript
+...
+    this.data.source = [
+        {id: 1, name: '选项1'},
+        {id: 2, name: '选项2'},
+        {id: 3, name: '选项3'}
+    ];
+    
+    this.data.itemTemplate = _.multiline(function(){/*
+<a href={item.url}>{item.name}</a>
+    */});
+...
+```
+
+#### 单项模板自定义
 
 <div class="m-example"></div>
 
@@ -86,9 +120,9 @@
 ```javascript
 ...
     this.data.source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
+        {id: 1, name: 'Dropdown', url: 'dropdown.html'},
+        {id: 2, name: 'Menu', url: 'menu.html'},
+        {id: 3, name: 'Input2', url: 'input2.html'}
     ];
     
     this.data.itemTemplate = _.multiline(function(){/*

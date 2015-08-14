@@ -1,6 +1,10 @@
 <div class="u-dropdown {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
-    <div class="dropdown_hd">
-        <a class="u-btn" on-click={this.toggle(!open)}>{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+    <div class="dropdown_hd" on-click={this.toggle(!open)}>
+        {#if this.$body}
+            {#inc this.$body}
+        {#else}
+            <a class="u-btn">{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+        {/if}
     </div>
     <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <ul class="m-listview">

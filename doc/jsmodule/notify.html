@@ -272,22 +272,24 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Notify({options})</h5>
+<h5>new Notify()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;topcenter&#39;</code></td><td>通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>2000</code></td><td>每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;topcenter&#39;</code></td><td>通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>2000</code></td><td>每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
         
     </tbody>
 </table>
@@ -304,11 +306,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
-        
-        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
+            <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+            
+            <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+            
+            <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
         
     </tbody>
 </table>
@@ -321,7 +325,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+            
         
     </tbody>
 </table>
@@ -333,6 +339,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
+        
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
         
     </tbody>
 </table>
@@ -351,11 +359,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
-        
-        <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
-        
-        <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
+            <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+            
+            <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+            
+            <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
         
     </tbody>
 </table>
@@ -368,7 +378,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+            
+            <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+            
         
     </tbody>
 </table>
@@ -381,7 +393,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+            
         
     </tbody>
 </table>
@@ -394,6 +408,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        
     </tbody>
 </table>
 
@@ -401,9 +417,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<div id="j-inheritedMethods"></div>
+
+
 <h4>Events</h4>
 
-<h5>on-show={$event}</h5>
+<h5>notify.$on('show')</h5>
 <p>弹出一个消息时触发</p>
 <table>
     <thead>
@@ -411,12 +430,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">弹出的消息对象</td></tr>
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">弹出的消息对象</td></tr>
+            
         
     </tbody>
 </table>
 
-<h5>on-close={$event}</h5>
+<h5>notify.$on('close')</h5>
 <p>关闭某条消息时触发</p>
 <table>
     <thead>
@@ -424,13 +445,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">关闭了的消息对象</td></tr>
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">关闭了的消息对象</td></tr>
+            
         
     </tbody>
 </table>
 
 
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>

@@ -56,7 +56,7 @@ var Tab = Component.extend({
 
 var TabPane = Component.extend({
     name: 'tabPane',
-    template: '<div r-hide={this.$outer.data.selected.tab != this}><r-content></div>',
+    template: '<div r-hide={this.$outer.data.selected.tab != this}>{#include this.$body}</div>',
     /**
      * @protected
      */

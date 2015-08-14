@@ -22,7 +22,7 @@
         top: 0;
     }
         
-    li:hover > .menu_list {
+    li:hover:not(.z-dis) > .menu_list {
         display: block;
     }
 
@@ -35,6 +35,12 @@
             line-height: inherit;
             margin: 0;
             cursor: pointer;
+        }
+    }
+
+    .menu_itemname {
+        > a {
+            display: block;
         }
     }
 }

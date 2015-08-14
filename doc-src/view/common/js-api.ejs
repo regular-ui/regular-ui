@@ -7,15 +7,19 @@
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new <%= class_.name %>({options})</h5>
+<h5>new <%= class_.name %>()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
-        <% class_.params.forEach(function(param) { %>
-        <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
-        <% }); %>
+        <% if(class_.params.length) { %>
+            <% class_.params.forEach(function(param) { %>
+            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        <% } %>
     </tbody>
 </table>
 <div id="j-options"></div>
@@ -30,9 +34,13 @@
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
-        <% method.params.forEach(function(param) { %>
-        <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
-        <% }); %>
+        <% if(method.params.length) { %>
+            <% method.params.forEach(function(param) { %>
+            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        <% } %>
     </tbody>
 </table>
 <% }); %>
@@ -49,30 +57,84 @@
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
-        <% method.params.forEach(function(param) { %>
-        <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
-        <% }); %>
+        <% if(method.params.length) { %>
+            <% method.params.forEach(function(param) { %>
+            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        <% } %>
     </tbody>
 </table>
 <% }); %>
 <% } %>
 <div id="j-staticMethods"></div>
 
+<% if(inheritedMethods.length) { %>
+<h4>Inherited Methods</h4>
+<% inheritedMethods.forEach(function(method) { %>
+<h5><%= class_.lowerName %>.<%= method.name %></h5>
+<p><%= method.description %></p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        <% if(method.params.length) { %>
+            <% method.params.forEach(function(param) { %>
+            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        <% } %>
+    </tbody>
+</table>
+<% }); %>
+<% } %>
+<div id="j-inheritedMethods"></div>
+
 <% if(events.length) { %>
 <h4>Events</h4>
 <% events.forEach(function(event) { %>
-<h5>on-<%= event.name %>={$event}</h5>
+<h5><%= class_.lowerName %>.$on('<%= event.name %>')</h5>
 <p><%= event.description %></p>
 <table>
     <thead>
         <tr><th>属性</th><th>类型</th><th>描述</th></tr>
     </thead>
     <tbody>
-        <% event.properties.forEach(function(property) { %>
-        <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
-        <% }); %>
+        <% if(event.properties.length) { %>
+            <% event.properties.forEach(function(property) { %>
+            <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        <% } %>
     </tbody>
 </table>
 <% }); %>
 <% } %>
 <div id="j-events"></div>
+
+<% if(inheritedEvents.length) { %>
+<h4>Inherited Events</h4>
+<% inheritedEvents.forEach(function(event) { %>
+<h5><%= class_.lowerName %>.$on('<%= event.name %>')</h5>
+<p><%= event.description %></p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        <% if(event.properties.length) { %>
+            <% event.properties.forEach(function(property) { %>
+            <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        <% } %>
+    </tbody>
+</table>
+<% }); %>
+<% } %>
+<div id="j-inheritedEvents"></div>

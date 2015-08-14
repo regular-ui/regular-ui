@@ -12,7 +12,7 @@
     .u-btn {
         right: 2px;
         top: 2px;
-        $line-height: 12px;
+        $line-height: 14px;
         padding: 0 4px;
     }
 

@@ -10,14 +10,15 @@
 
 .u-input2-numberinput {
     .u-btn {
-        right: 2px;
-        top: 2px;
-        $line-height: 12px;
+        right: 4px;
+        top: 4px;
+        width: 26px;
+        $line-height: 16px;
         padding: 0 4px;
     }
 
     .u-btn + .u-btn {
         top: auto;
-        bottom: 2px;
+        bottom: 4px;
     }
 }

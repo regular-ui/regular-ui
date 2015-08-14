@@ -98,7 +98,7 @@ var _ = RGUI._;
     }).$inject('#j-example4');
 })();
 
-// 单项模板定制
+// 单项模板自定义
 (function() {
     var itemTemplate = _.multiline(function(){/*    
     <i class="u-icon {item.type === 'directory' ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}

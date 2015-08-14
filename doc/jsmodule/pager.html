@@ -227,32 +227,34 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Pager({options})</h5>
+<h5>new Pager()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.current</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>1</code></td><td>当前页</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.total</code></td><td class="f-wsn">total</td><td class="f-wsn"><code>11</code></td><td>总页数</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;center&#39;</code></td><td>分页的位置，可选参数：`center`、`left`、`right`</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.middle</code></td><td class="f-wsn">middle</td><td class="f-wsn"><code>5</code></td><td>当页数较多时，中间显示的页数</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.side</code></td><td class="f-wsn">side</td><td class="f-wsn"><code>2</code></td><td>当页数较多时，两端显示的页数</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
-        
-        <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.current</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>1</code></td><td>当前页</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.total</code></td><td class="f-wsn">total</td><td class="f-wsn"><code>11</code></td><td>总页数</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;center&#39;</code></td><td>分页的位置，可选参数：`center`、`left`、`right`</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.middle</code></td><td class="f-wsn">middle</td><td class="f-wsn"><code>5</code></td><td>当页数较多时，中间显示的页数</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.side</code></td><td class="f-wsn">side</td><td class="f-wsn"><code>2</code></td><td>当页数较多时，两端显示的页数</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
         
     </tbody>
 </table>
@@ -269,7 +271,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>page</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择页</td></tr>
+            
+            <tr><td class="f-wsn"><code>page</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择页</td></tr>
+            
         
     </tbody>
 </table>
@@ -281,9 +285,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
+<div id="j-inheritedMethods"></div>
+
+
 <h4>Events</h4>
 
-<h5>on-select={$event}</h5>
+<h5>pager.$on('select')</h5>
 <p>选择某一页时触发</p>
 <table>
     <thead>
@@ -291,13 +298,18 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </thead>
     <tbody>
         
-        <tr><td class="f-wsn"><code>current</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择页</td></tr>
+            
+            <tr><td class="f-wsn"><code>current</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择页</td></tr>
+            
         
     </tbody>
 </table>
 
 
 <div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>
