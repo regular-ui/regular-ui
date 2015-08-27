@@ -158,7 +158,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/uploader.html">上传<small> Uploader</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -176,7 +176,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -184,14 +184,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
         
         
         
-        <li class="sidebar_group"><span>其他类</span></li>
+        <li class="sidebar_group"><span>其他</span></li>
         
         <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
         
@@ -203,7 +203,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -219,12 +219,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">rules</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">type</span>: <span class="cm-string">&#39;isRequired&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入字符！&#39;</span>},
-        {<span class="cm-property">type</span>: <span class="cm-string">&#39;isLength&#39;</span>, <span class="cm-property">min</span>: <span class="cm-number">5</span>, <span class="cm-property">max</span>: <span class="cm-number">8</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入5-8个字符！&#39;</span>}
-    ]
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">rules</span>: [
+            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isRequired&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入字符！&#39;</span>},
+            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isLength&#39;</span>, <span class="cm-property">min</span>: <span class="cm-number">5</span>, <span class="cm-property">max</span>: <span class="cm-number">8</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入5-8个字符！&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -319,17 +322,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -344,7 +347,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -356,21 +359,21 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Input2 = RGUI.Input2;
 var index = 0;
-
-// 基本形式
 (function(index) {
-    var rules = [
-        {type: 'isRequired', message: '请输入字符！'},
-        {type: 'isLength', min: 5, max: 8, message: '请输入5-8个字符！'}
-    ]
-
-    var input2 = new Input2({
-        data: {
-            rules: rules
-        }
-    }).$inject($$('.m-example')[index]);
+    var template = RGUI._.multiline(function(){/*
+<input2 rules={rules} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        rules: [
+            {type: 'isRequired', message: '请输入字符！'},
+            {type: 'isLength', min: 5, max: 8, message: '请输入5-8个字符！'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
 })(index++);
 </script>
 </body>

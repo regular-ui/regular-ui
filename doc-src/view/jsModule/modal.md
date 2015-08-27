@@ -5,29 +5,56 @@
 ### 示例
 #### 基本形式
 
-<div class="m-example" id="j-example1"><button class="u-btn u-btn-primary">Modal</button></div>
+<div class="m-example"></div>
+
+```xml
+<button class="u-btn u-btn-primary" on-click={this.showModal()}>Modal</button>
+```
 
 ```javascript
-var modal = new Modal({
-    data: {
-        title: 'Modal标题',
-        content: 'Modal内容'
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        var modal = new RGUI.Modal({
+            data: {
+                title: 'Modal标题',
+                content: 'Modal内容'
+            }
+        });
     }
 });
 ```
 
 #### Alert
 
-<div class="m-example" id="j-example2"><button class="u-btn u-btn-error">Alert</button></div>
+<div class="m-example"></div>
+
+```xml
+<button class="u-btn u-btn-error" on-click={this.showModal()}>Alert</button>
+```
 
 ```javascript
-Modal.alert('Alert内容');
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        RGUI.Modal.alert('Alert内容');
+    }
+});
 ```
 
 #### Confirm
 
-<div class="m-example" id="j-example3"><button class="u-btn u-btn-success">Confirm</button></div>
+<div class="m-example"></div>
+
+```xml
+<button class="u-btn u-btn-success" on-click={this.showModal()}>Confirm</button>
+```
 
 ```javascript
-Modal.confirm('Confirm内容');
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        RGUI.Modal.confirm('Confirm内容');
+    }
+});
 ```

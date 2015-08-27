@@ -72,13 +72,13 @@ $border-radius-lg =          6px;
 $border-radius-xl =          6px;
 
 
-$status-success_color =             #3c763d;
-$status-success_background =        #dff0d8;
-$status-success_border =           l-adjust(h-adjust($status-success_background, -10), -5%);
-
 $status-info_color =                #31708f;
 $status-info_background =           #d9edf7;
 $status-info_border =              l-adjust(h-adjust($status-info_background, -10), -7%);
+
+$status-success_color =             #3c763d;
+$status-success_background =        #dff0d8;
+$status-success_border =           l-adjust(h-adjust($status-success_background, -10), -5%);
 
 $status-warning_color =             #8a6d3b;
 $status-warning_background =        #fcf8e3;

@@ -1,7 +1,7 @@
 ### 示例
 #### 基本形式
 
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 ```xml
 <progress percent="36" />
@@ -9,7 +9,7 @@
 
 #### 颜色扩展
 
-<div class="m-example" id="j-example2"></div>
+<div class="m-example"></div>
 
 ```xml
 <progress percent="25" type="success" />
@@ -19,7 +19,7 @@
 
 #### 尺寸扩展
 
-<div class="m-example" id="j-example3"></div>
+<div class="m-example"></div>
 
 ```xml
 <progress percent="25" size="xs" />
@@ -29,7 +29,7 @@
 
 #### 条纹
 
-<div class="m-example" id="j-example4"></div>
+<div class="m-example"></div>
 
 ```xml
 <progress percent="36" striped={true} />
@@ -37,7 +37,7 @@
 
 #### 条纹动画
 
-<div class="m-example" id="j-example5"></div>
+<div class="m-example"></div>
 
 ```xml
 <progress percent="72" type="error" striped={true} active={true} />

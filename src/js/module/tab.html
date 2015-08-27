@@ -1,10 +1,10 @@
 <div class="m-tab {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible}>
     <ul class="tab_hd">
         {#list source as item}
-        <li r-class={ {'z-crt': item == selected, 'z-dis': item.disabled} } on-click={this.select(item)}>{item.name}</li>
+        <li r-class={ {'z-crt': item == selected, 'z-dis': item.disabled} } on-click={this.select(item)}>{item.title}</li>
         {/list}
     </ul>
     <div class="tab_bd">
-        <r-content />
+        {#inc this.$body}
     </div>
 </div>

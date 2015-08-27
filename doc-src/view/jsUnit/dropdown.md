@@ -12,9 +12,9 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {id: 1, name: '选项1'},
-            {id: 2, name: '选项2'},
-            {id: 3, name: '选项3'}
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
         ]
     }
 });
@@ -33,9 +33,9 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {id: 1, name: '选项1'},
-            {id: 2, name: '选项2'},
-            {id: 3, name: '选项3'}
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
         ]
     }
 });
@@ -55,9 +55,9 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {id: 1, name: '选项1'},
-            {id: 2, name: '选项2'},
-            {id: 3, name: '选项3（禁用）', disabled: true}
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3（禁用）', disabled: true}
         ]
     }
 });
@@ -76,10 +76,10 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {id: 1, name: '选项1'},
-            {id: 2, name: '选项2'},
+            {name: '选项1'},
+            {name: '选项2'},
             {divider: true},
-            {id: 3, name: '选项3（禁用）', disabled: true}
+            {name: '选项3（禁用）', disabled: true}
         ]
     }
 });
@@ -112,9 +112,9 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {id: 1, name: '选项1'},
-            {id: 2, name: '选项2'},
-            {id: 3, name: '选项3'}
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
         ]
     }
 });
@@ -125,21 +125,21 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<dropdown source={source} itemTemplate={@(itemTemplate)} />
+<dropdown source={source} itemTemplate={@(this.itemTemplate)} />
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
+    itemTemplate: RGUI._.multiline(function(){/*
+<a href={item.url}>{item.name}</a>
+    */}),
     data: {
         source: [
-            {id: 1, name: 'Dropdown', url: 'dropdown.html'},
-            {id: 2, name: 'Menu', url: 'menu.html'},
-            {id: 3, name: 'Input2', url: 'input2.html'}
-        ],
-        itemTemplate: _.multiline(function(){/*
-    <a href={item.url}>{item.name}</a>
-        */})
+            {name: 'Dropdown', url: 'dropdown.html'},
+            {name: 'Menu', url: 'menu.html'},
+            {name: 'Input2', url: 'input2.html'}
+        ]
     }
 });
 ```

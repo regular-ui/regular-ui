@@ -9,21 +9,4 @@
 // ========================================================================
 
 .m-accordion {
-    .accordion_pane {
-        $border: #ddd;
-
-        .accordion_pane_hd {
-            padding: 5px 15px;
-            background: #eee;
-        }
-
-        .accordion_pane_bd {
-            padding: 5px 15px;
-            border-top: 1px solid #ddd;
-        }
-    }
-
-    .accordion_pane + .accordion_pane {
-        margin-top: 10px;
-    }
 }

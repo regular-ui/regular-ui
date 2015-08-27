@@ -20,8 +20,9 @@
                 {"name": "Button", "lowerName": "button", "cnName": "按钮", "completed": true},
                 {"name": "Icon", "lowerName": "icon", "cnName": "图标", "completed": true},
                 {"name": "Color", "lowerName": "color", "cnName": "色块", "completed": true},
-                {"name": "Badge", "lowerName": "badge", "cnName": "徽章", "completed": true},
                 {"name": "Text", "lowerName": "text", "cnName": "文本", "completed": true},
+                {"name": "Badge", "lowerName": "badge", "cnName": "徽章", "completed": true},
+                {"name": "Message", "lowerName": "message", "cnName": "消息条", "completed": true},
                 {"name": "Image", "lowerName": "image", "cnName": "图片", "completed": true},
                 {"name": "Thumbnail", "lowerName": "thumbnail", "cnName": "缩略图", "completed": false, "hidden": true},
                 {"name": "FormControl", "lowerName": "formCtrl", "cnName": "表单元素", "completed": true},
@@ -64,18 +65,18 @@
                 {"name": "Select2", "lowerName": "select2", "cnName": "选择扩展", "group": "表单类", "completed": true},
                 {"name": "TreeSelect", "lowerName": "treeSelect", "cnName": "树型选择", "group": "表单类", "completed": true},
                 {"name": "Suggest", "lowerName": "suggest", "cnName": "自动提示", "group": "表单类", "completed": true},
-                {"name": "EmailSuggest", "lowerName": "suggest", "cnName": "邮件输入", "group": "表单类", "hidden": true},
+                {"name": "EmailSuggest", "lowerName": "emailSuggest", "cnName": "邮件输入", "group": "表单类", "hidden": true},
                 {"name": "Slider", "lowerName": "slider", "cnName": "滑动器", "group": "表单类", "hidden": true},
                 {"name": "ColorPicker", "lowerName": "colorPicker", "cnName": "颜色采集器", "group": "表单类", "hidden": true},
-                {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "表单类", "completed": false},
+                {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "表单类", "completed": true},
 
                 {"name": "DatePicker", "lowerName": "datePicker", "cnName": "日期选择", "group": "日期类", "completed": true},
-                {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类", "completed": true},
-                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类", "completed": true},
+                {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类", "completed": false},
+                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类", "completed": false},
 
-                {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "其他类", "hidden": true},
-                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "其他类", "completed": true},
-                {"name": "Gotop", "lowerName": "gotop", "cnName": "回到顶部", "group": "其他类", "completed": false}
+                {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "其他", "hidden": true},
+                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "其他", "completed": true},
+                {"name": "Gotop", "lowerName": "gotop", "cnName": "回到顶部", "group": "其他", "completed": true}
             ]
         }, {
             "name": "JSModule",
@@ -83,7 +84,7 @@
             "cnName": "JS模块",
             "children": [
                 {"name": "Tab", "lowerName": "tab", "cnName": "选项卡", "group": "导航类", "completed": true},
-                {"name": "Accordion", "lowerName": "accordion", "cnName": "手风琴", "group": "导航类", "completed": false},
+                {"name": "Accordion", "lowerName": "accordion", "cnName": "手风琴", "group": "导航类", "completed": true},
                 {"name": "Pager", "lowerName": "pager", "cnName": "分页器", "group": "导航类", "completed": true},
                 {"name": "Menubar", "lowerName": "menubar", "cnName": "菜单", "group": "导航类"},
 
@@ -95,9 +96,9 @@
                 {"name": "Album", "lowerName": "album", "cnName": "相册", "group": "窗口类", "hidden": true, "new": true},
 
                 {"name": "ListView", "lowerName": "listView", "cnName": "列表视图", "group": "数据类", "completed": true},
-                {"name": "GridView", "lowerName": "gridView", "cnName": "网格视图", "group": "数据类", "completed": false},
+                {"name": "GridView", "lowerName": "gridView", "cnName": "网格视图", "group": "数据类", "hidden": true, "completed": false},
                 {"name": "TreeView", "lowerName": "treeView", "cnName": "树型视图", "group": "数据类", "completed": true},
-                {"name": "TableView", "lowerName": "tableView", "cnName": "表格视图", "group": "数据类", "completed": false},
+                {"name": "TableView", "lowerName": "tableView", "cnName": "表格视图", "group": "数据类", "hidden": true, "completed": false},
 
                 {"name": "Calendar", "lowerName": "calendar", "cnName": "日历", "group": "日期类", "completed": true},
                 {"name": "Schedule", "lowerName": "schedule", "cnName": "日程", "group": "日期类", "hidden": true, "new": true},

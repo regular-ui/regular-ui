@@ -11,6 +11,8 @@
 .m-treeview {
     $box-sizing: border-box;
     $user-select: none;
+    overflow-x: auto;
+    overflow-y: visible;
 
     .treeview_list {
         @extend .f-lsn;

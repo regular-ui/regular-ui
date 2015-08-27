@@ -28,9 +28,10 @@ $reset-normalize();
 @import "bootstrap/unit/button.mcss";
 @import "bootstrap/unit/buttonGroup.mcss";
 @import "bootstrap/unit/color.mcss";
-@import "bootstrap/unit/badge.mcss";
-@import "default/unit/tip.mcss";
 @import "bootstrap/unit/text.mcss";
+@import "default/unit/tip.mcss";
+@import "bootstrap/unit/badge.mcss";
+@import "bootstrap/unit/message.mcss";
 @import "bootstrap/unit/image.mcss";
 // @import "default/unit/thumbnail.mcss";
 @import "bootstrap/unit/formCtrl.mcss";
@@ -79,8 +80,9 @@ $reset-normalize();
 /* 日期类 */
 @import "bootstrap/unit/dateTimePicker.mcss";
 
-/* 消息类 */
+/* 其他 */
 @import "bootstrap/unit/progress.mcss";
+@import "default/unit/gotop.mcss";
 
 
 
@@ -88,13 +90,13 @@ $reset-normalize();
 // ========================================================================
 
 /* 导航类 */
-@import "default/module/tab.mcss";
+@import "bootstrap/module/tab.mcss";
 @import "default/module/accordion.mcss";
-@import "default/module/pager.mcss";
+@import "bootstrap/module/pager.mcss";
 
 /* 窗口类 */
 @import "default/module/notify.mcss";
-@import "default/module/modal.mcss";
+@import "bootstrap/module/modal.mcss";
 
 /* 数据类 */
 @import "bootstrap/module/listView.mcss";

@@ -15,11 +15,11 @@ var _ = require('../base/util.js');
  * @class Uploader
  * @extend Component
  * @param {object}                  options.data                    绑定属性
- * @param {string=''}               options.data.name               按钮文字
+ * @param {string=''}               options.data.title              按钮文字
  * @param {string=''}               options.data.url                上传路径
  * @param {string='json'}           options.data.dataType           数据类型
  * @param {object}                  options.data.data               附加数据
- * @param {string[]=null}           options.data.extensions         可上传的扩展名，如果为空，则表示可上传任何文件类型
+ * @param {string|string[]=''}      options.data.extensions         可上传的扩展名，如果为空，则表示可上传任何文件类型
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
@@ -32,7 +32,7 @@ var Uploader = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
-            name: '',
+            title: '',
             url: '',
             contentType: 'multipart/form-data',
             dataType: 'json',
@@ -48,7 +48,8 @@ var Uploader = Component.extend({
      * @return {void}
      */
     upload: function() {
-        this.$refs.file.click();
+        if(!this.data.disabled)
+            this.$refs.file.click();
     },
     /**
      * @method submit() 提交表单
@@ -60,7 +61,11 @@ var Uploader = Component.extend({
             var fileName = this.$refs.file.value;
             var ext = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase();
 
-            if(this.data.extensions.indexOf(ext) === -1)
+            var extensions = this.data.extensions;
+            if(typeof extensions === 'string')
+                extensions = extensions.split(',');
+            
+            if(extensions.indexOf(ext) === -1)
                 return this.$emit('error', this.extensionError());
         }
 

@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li class="z-crt"><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -196,12 +182,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gridView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
         {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-javascript.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端Funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-android.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-cocos2dx.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
@@ -209,7 +197,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-arduino.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
     ];
 
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+    <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-variable">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
 <span class="cm-comment">&lt;div class=&quot;u-courceitem&quot;&gt;</span>
 <span class="cm-comment">    &lt;div&gt;&lt;img src=&quot;{item.img}&quot; alt=&quot;{item.name}&quot; title=&quot;{item.name}&quot;&gt;&lt;/div&gt;</span>
 <span class="cm-comment">    &lt;div&gt;&lt;a href=&quot;#&quot;&gt;{item.name}&lt;/a&gt;&lt;/div&gt;</span>
@@ -218,8 +206,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-comment">        &lt;span class=&quot;hits f-fr&quot;&gt;&lt;i class=&quot;u-icon u-icon-user&quot;&gt;&lt;/i&gt; {item.hits}&lt;/span&gt;</span>
 <span class="cm-comment">    &lt;/div&gt;</span>
 <span class="cm-comment">&lt;/div&gt;</span>
-<span class="cm-comment">    */</span>});
-<span class="cm-meta">...</span>
+<span class="cm-comment">    */</span>})
+    }
+});
 </code></pre>
 <h4 id="-">远程数据</h4>
 <p>同<a href="listbox.html">ListBox</a>。</p>
@@ -328,17 +317,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -353,7 +342,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -365,21 +354,23 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var GridView = RGUI.GridView;
-var _ = RGUI._;
-var ajax = RGUI.request;
-
-// 基本形式
-(function() {
-    var source = [
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<gridView source={source} itemTemplate={@(itemTemplate)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
         {id: 3, name: '精通Javascript开发', img: '../dataimg/courceitem-javascript.jpg', org: '前端Funs', hits: 42371},
         {id: 2, name: 'Android深入浅出', img: '../dataimg/courceitem-android.jpg', org: 'Android学院', hits: 30645},
         {id: 1, name: 'cocos2dx游戏开发教程', img: '../dataimg/courceitem-cocos2dx.jpg', org: '鱼C课程', hits: 25112},
         {id: 4, name: 'MySQL数据库', img: '../dataimg/courceitem-mysql.jpg', org: 'LAMP兄弟连', hits: 18089},
         {id: 5, name: 'Arduino初级教程', img: '../dataimg/courceitem-arduino.jpg', org: '硬件社', hits: 16361}
     ];
-
-    var itemTemplate = _.multiline(function(){/*
+    
+    this.data.itemTemplate = _.multiline(function(){/*
 <div class="u-courceitem">
     <div><img src="{item.img}" alt="{item.name}" title="{item.name}"></div>
     <div><a href="#">{item.name}</a></div>
@@ -388,15 +379,11 @@ var ajax = RGUI.request;
         <span class="hits f-fr"><i class="u-icon u-icon-user"></i> {item.hits}</span>
     </div>
 </div>
-    */});
-   
-    var gridView = new GridView({
-        data: {
-            itemTemplate: itemTemplate,
-            source: source
-        }
-    }).$inject('#j-example1');
-})();
+    */})
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

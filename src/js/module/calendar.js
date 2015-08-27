@@ -11,6 +11,8 @@ var Component = require('../base/component.js');
 var template = require('./calendar.html');
 var _ = require('../base/util.js');
 
+var MS_OF_DAY = 24*3600*1000;
+
 /**
  * @class Calendar
  * @extend Component
@@ -42,6 +44,9 @@ var Calendar = Component.extend({
             if(newValue && oldValue && newValue.getFullYear() === oldValue.getFullYear() && newValue.getMonth() === oldValue.getMonth())
                 return;
 
+            // if(newValue && this.isOutOfRange(newValue))
+            //     this.data.date = this.data.minDate || this.data.maxDate;
+            
             this.update();
         });
 
@@ -62,11 +67,11 @@ var Calendar = Component.extend({
         var mfirstTime = mfirst.getTime();
         var nfirst = new Date(mfirst); nfirst.setMonth(month + 1); nfirst.setDate(1);
         var nfirstTime = nfirst.getTime();
-        var lastTime = nfirstTime + ((7 - nfirst.getDay())%7 - 1)*24*3600*1000;
+        var lastTime = nfirstTime + ((7 - nfirst.getDay())%7 - 1)*MS_OF_DAY;
         var num = - mfirst.getDay();
         var tmpTime, tmp;
         do {
-            tmpTime = mfirstTime + (num++)*24*3600*1000;
+            tmpTime = mfirstTime + (num++)*MS_OF_DAY;
             tmp = new Date(tmpTime);
             this.data._days.push(tmp);
         } while(tmpTime < lastTime);
@@ -106,7 +111,7 @@ var Calendar = Component.extend({
      * @return {void}
      */
     select: function(date) {
-        if(this.data.readonly || this.data.disabled || this.isDisabledDay(date))
+        if(this.data.readonly || this.data.disabled || this.isOutOfRange(date))
             return;
 
         this.data.date = new Date(date);
@@ -125,16 +130,16 @@ var Calendar = Component.extend({
      * @return {void}
      */
     goToday: function() {
-        this.data.date = new Date((new Date().getTime()/(24*3600*1000)>>0)*(24*3600*1000));
+        this.data.date = new Date((new Date().getTime()/MS_OF_DAY>>0)*MS_OF_DAY);
     },
     /**
-     * @method isDisabledDay 是否禁用某一天
+     * @method isOutOfRange 是否超出日期范围
      * @param {Date} day 某一天
      * @return {void}
      */
-    isDisabledDay: function(day) {
-        var minDate = this.data.minDate ? new Date((this.data.minDate.getTime()/(24*3600*1000)>>0)*(24*3600*1000)) : null;
-        var maxDate = this.data.maxDate ? new Date((this.data.maxDate.getTime()/(24*3600*1000)>>0)*(24*3600*1000)) : null;
+    isOutOfRange: function(day) {
+        var minDate = this.data.minDate ? new Date((this.data.minDate.getTime()/MS_OF_DAY>>0)*MS_OF_DAY) : null;
+        var maxDate = this.data.maxDate ? new Date((this.data.maxDate.getTime()/MS_OF_DAY>>0)*MS_OF_DAY) : null;
 
         return (minDate && day < minDate) || (maxDate && day > maxDate);
     }

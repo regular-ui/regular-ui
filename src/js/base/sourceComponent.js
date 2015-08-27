@@ -14,6 +14,7 @@ var _ = require('./util.js');
  * @class SourceComponent
  * @extend Component
  * @param {object[]=[]}             options.data.source             数据源
+ * @param {boolean=true}            options.data.updateAuto         当有service时，是否自动加载
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
@@ -27,13 +28,14 @@ var SourceComponent = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
-            source: []
+            source: [],
+            updateAuto: true
         });
 
         if(this.data.service)
             this.service = this.data.service;
 
-        if(this.service)
+        if(this.service && this.data.updateAuto)
             this.$updateSource();
 
         this.supr();

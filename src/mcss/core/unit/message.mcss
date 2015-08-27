@@ -1,0 +1,48 @@
+// Name:            Message
+// Description:     消息条
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-message`
+// ========================================================================
+
+.u-message {
+    $clearfix();
+
+    .message_close {
+        float: right;
+
+        &:hover {}
+    }
+
+    .message_icon {
+        font-size: 20px;
+        vertical-align: middle;
+        margin-top: -2px;
+        line-height: 1;
+    }
+}
+
+
+
+// Color Extend:
+// Description:     颜色扩展
+// ========================================================================
+
+$u-message-extend_color = ($name, $background, $color) {
+    .u-message-#{$name} {
+        background: $background;
+        @if($color) {
+            color: $color;
+            .message_close {
+                color: fade($color, 0.75, true);
+                &:hover {
+                    color: $color;
+                }
+            }
+        }
+        $border: fade($color, 0.3, true);
+    }
+}

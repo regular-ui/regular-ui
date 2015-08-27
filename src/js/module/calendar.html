@@ -12,6 +12,6 @@
     </div>
     <div class="calendar_bd">
         <div class="calendar_week"><span class="calendar_item">日</span><span class="calendar_item">一</span><span class="calendar_item">二</span><span class="calendar_item">三</span><span class="calendar_item">四</span><span class="calendar_item">五</span><span class="calendar_item">六</span></div>
-        <div class="calendar_day">{#list _days as day}<span class="calendar_item" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-muted': date.getMonth() !== day.getMonth(), 'z-dis': this.isDisabledDay(day)} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
+        <div class="calendar_day">{#list _days as day}<span class="calendar_item" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-muted': date.getMonth() !== day.getMonth(), 'z-dis': this.isOutOfRange(day)} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
     </div>
 </div>

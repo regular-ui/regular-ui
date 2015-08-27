@@ -39,6 +39,8 @@ var Pager = Component.extend({
         this.supr();
 
         this.$watch(['current', 'total'], function(current, total) {
+            this.data.current = current = +current;
+            this.data.total = total = +total;
             var show = this.data.middle>>1;
             var side = this.data.side;
 
@@ -52,6 +54,11 @@ var Pager = Component.extend({
                 this.data._end += this.data._start - current + show;
             if(this.data._end - current < show)
                 this.data._start += this.data._end - current - show;
+        });
+
+        this.$watch(['middle', 'side'], function(middle, side) {
+            this.data.middle = +middle;
+            this.data.side = +side;
         });
     },
     /**

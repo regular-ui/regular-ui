@@ -26,25 +26,8 @@ $m-notify_width = 320px;
     left: $m-notify_position;
     width: $m-notify_width;
 
-    .notify_message {
-        $clearfix();
-
-        .notify_close {
-            float: right;
-
-            &:hover {}
-        }
-
-        .notify_text {
-            float: left;
-
-            .u-icon {
-                font-size: 20px;
-                vertical-align: middle;
-                margin-top: -2px;
-                line-height: 1;
-            }
-        }
+    .u-message {
+        margin-bottom: 10px;
     }
 }
 
@@ -88,28 +71,4 @@ $m-notify_width = 320px;
 .m-notify-static {
     position: static;
     width: auto;
-}
-
-
-
-// Color Extend:
-// Description:     颜色扩展
-// ========================================================================
-
-$m-notify_message-extend_color = ($name, $background, $color) {
-    .m-notify {
-        .notify_message-#{$name} {
-            background: $background;
-            @if($color) {
-                color: $color;
-                .notify_close {
-                    color: fade($color, 0.75, true);
-                    &:hover {
-                        color: $color;
-                    }
-                }
-            }
-            $border: l-adjust($color, 10%);
-        }
-    }
 }

@@ -1,6 +1,6 @@
-<div class="accordion_pane">
-    <div class="accordion_pane_hd" on-click={this.toggle(!open)}>{name}</div>
-    <div class="accordion_pane_bd" r-hide={!open}>
+<div class="m-panel">
+    <div class="panel_hd" on-click={this.toggle(!open)}>{title}</div>
+    <div class="panel_bd" r-hide={!open}>
         {#include this.$body}
     </div>
 </div>

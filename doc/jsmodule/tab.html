@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -196,53 +182,60 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab3&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h3 id="-">禁用某一项，禁用组件</h3>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab3&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h3 id="-">居中</h3>
-<div class="m-example" id="j-example2"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-tab-center&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab3&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h3 id="-">垂直居左</h3>
-<div class="m-example" id="j-example3"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-tab-left&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab3&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h3 id="-">垂直居右</h3>
-<div class="m-example" id="j-example4"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-tab-right&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab3&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
-</code></pre>
-<h3 id="-">禁用组件</h3>
-<div class="m-example" id="j-example5"></div>
-
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">name</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabPane</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 
@@ -366,17 +359,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -391,7 +384,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -403,78 +396,84 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Component = RGUI.Component;
-var _ = RGUI._;
-
-// 基本形式
-(function() {
-    var example1 = new Component({
-        template: _.multiline(function(){/*
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
 <tab>
-    <tabPane name="tab1">content1</tabPane>
-    <tabPane name="tab2">content2</tabPane>
-    <tabPane name="tab3" disabled={true}>content3</tabPane>
-    <tabPane name="tab4">content4</tabPane>
+    <tabPane title="tab1">content1</tabPane>
+    <tabPane title="tab2">content2</tabPane>
+    <tabPane title="tab3">content3</tabPane>
+    <tabPane title="tab4">content4</tabPane>
 </tab>
-        */})
-    }).$inject('#j-example1');
-})();
-
-// 居中
-(function() {
-    var example2 = new Component({
-        template: _.multiline(function(){/*
-<tab class="m-tab-center">
-    <tabPane name="tab1">content1</tabPane>
-    <tabPane name="tab2">content2</tabPane>
-    <tabPane name="tab3" disabled={true}>content3</tabPane>
-    <tabPane name="tab4">content4</tabPane>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tab>
+    <tabPane title="tab1">content1</tabPane>
+    <tabPane title="tab2">content2</tabPane>
+    <tabPane title="tab3" disabled={true}>content3</tabPane>
+    <tabPane title="tab4">content4</tabPane>
 </tab>
-        */})
-    }).$inject('#j-example2');
-})();
 
-// 垂直居左
-(function() {
-    var example3 = new Component({
-        template: _.multiline(function(){/*
-<tab class="m-tab-left">
-    <tabPane name="tab1">content1</tabPane>
-    <tabPane name="tab2">content2</tabPane>
-    <tabPane name="tab3" disabled={true}>content3</tabPane>
-    <tabPane name="tab4">content4</tabPane>
-</tab>
-        */})
-    }).$inject('#j-example3');
-})();
-
-// 垂直居右
-(function() {
-    var example4 = new Component({
-        template: _.multiline(function(){/*
-<tab class="m-tab-right">
-    <tabPane name="tab1">content1</tabPane>
-    <tabPane name="tab2">content2</tabPane>
-    <tabPane name="tab3" disabled={true}>content3</tabPane>
-    <tabPane name="tab4">content4</tabPane>
-</tab>
-        */})
-    }).$inject('#j-example4');
-})();
-
-// 禁用组件
-(function() {
-    var example5 = new Component({
-        template: _.multiline(function(){/*
 <tab disabled={true}>
-    <tabPane name="tab1">content1</tabPane>
-    <tabPane name="tab2">content2</tabPane>
-    <tabPane name="tab3">content3</tabPane>
-    <tabPane name="tab4">content4</tabPane>
+    <tabPane title="tab1">content1</tabPane>
+    <tabPane title="tab2">content2</tabPane>
+    <tabPane title="tab3">content3</tabPane>
+    <tabPane title="tab4">content4</tabPane>
 </tab>
-        */})
-    }).$inject('#j-example5');
-})();
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tab class="m-tab-center">
+    <tabPane title="tab1">content1</tabPane>
+    <tabPane title="tab2">content2</tabPane>
+    <tabPane title="tab3">content3</tabPane>
+    <tabPane title="tab4">content4</tabPane>
+</tab>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tab class="m-tab-left">
+    <tabPane title="tab1">content1</tabPane>
+    <tabPane title="tab2">content2</tabPane>
+    <tabPane title="tab3">content3</tabPane>
+    <tabPane title="tab4">content4</tabPane>
+</tab>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tab class="m-tab-right">
+    <tabPane title="tab1">content1</tabPane>
+    <tabPane title="tab2">content2</tabPane>
+    <tabPane title="tab3">content3</tabPane>
+    <tabPane title="tab4">content4</tabPane>
+</tab>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

@@ -104,13 +104,18 @@ var Suggest = Dropdown.extend({
     input: function($event) {
         var value = this.data.value;
 
-        if(value.length >= this.data.minLength)
+        if(value.length >= this.data.minLength) {
             this.toggle(true);
-        else
+            if(this.service)
+                this.$updateSource();
+        } else
             this.toggle(false, true);
     },
     uninput: function($event) {
 
+    },
+    getParams: function() {
+        return {value: this.data.value};
     },
     filter: function(item) {
         var value = this.data.value;

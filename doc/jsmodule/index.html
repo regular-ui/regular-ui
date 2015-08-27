@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -234,17 +220,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -259,7 +245,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -271,7 +257,7 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-
+var index = 0;
 </script>
 </body>
 </html>

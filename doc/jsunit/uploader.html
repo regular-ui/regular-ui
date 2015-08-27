@@ -158,7 +158,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../jsunit/uploader.html">上传<small> Uploader</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -176,7 +176,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -184,14 +184,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
         
         
         
-        <li class="sidebar_group"><span>其他类</span></li>
+        <li class="sidebar_group"><span>其他</span></li>
         
         <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
         
@@ -203,7 +203,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -215,9 +215,31 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">修改标题</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;上传文件&quot;</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">按钮自定义</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">i</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-icon u-icon-upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">i</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">禁用组件</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<h4 id="-">文件类型限制</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -239,7 +261,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.name</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>按钮文字</td></tr>
+            <tr><td class="f-wsn"><code>data.title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>按钮文字</td></tr>
             
             <tr><td class="f-wsn"><code>data.url</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>上传路径</td></tr>
             
@@ -247,7 +269,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
             
             <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>附加数据</td></tr>
             
-            <tr><td class="f-wsn"><code>data.extensions</code></td><td class="f-wsn">string[]</td><td class="f-wsn"><code>null</code></td><td>可上传的扩展名，如果为空，则表示可上传任何文件类型</td></tr>
+            <tr><td class="f-wsn"><code>data.extensions</code></td><td class="f-wsn">string | string[]</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>可上传的扩展名，如果为空，则表示可上传任何文件类型</td></tr>
             
             <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
             
@@ -328,17 +350,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -353,7 +375,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -365,17 +387,54 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Uploader = RGUI.Uploader;
-
-// 基本形式
-(function() {
-    var uploader = new Uploader({
-        data: {
-            url: 'http://127.0.0.1:8000'
-        }
-    }).$inject('#j-example1');
-})();
-
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader title="上传文件" url="/api/upload" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload">
+    <a class="u-btn u-btn-primary">上传 <i class="u-icon u-icon-upload"></i></a>
+</uploader>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload" disabled={true} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload" extensions="jpg,gif,png" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

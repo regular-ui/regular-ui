@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -196,71 +182,81 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="-">禁用组件</h4>
-<div class="m-example" id="j-example2"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="-">远程数据</h4>
-<div class="m-example" id="j-example3"></div>
+<div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(service)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">service</span> <span class="cm-operator">=</span> {
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">service</span>: {
         <span class="cm-property">getList</span>: <span class="cm-keyword">function</span>(<span class="cm-def">params</span>, <span class="cm-def">success</span>) {
-            <span class="cm-variable">ajax</span>.<span class="cm-property">request</span>({
-                <span class="cm-property">url</span>: <span class="cm-string">&#39;listbox.json&#39;</span>,
+            <span class="cm-variable">RGUI</span>.<span class="cm-property">ajax</span>.<span class="cm-property">request</span>({
+                <span class="cm-property">url</span>: <span class="cm-string">&#39;../data/list.json&#39;</span>,
                 <span class="cm-property">method</span>: <span class="cm-string">&#39;get&#39;</span>,
                 <span class="cm-property">type</span>: <span class="cm-string">&#39;json&#39;</span>,
+                <span class="cm-property">data</span>: <span class="cm-variable-2">params</span>,
                 <span class="cm-property">success</span>: <span class="cm-variable-2">success</span>
             });
         }
-    };
-<span class="cm-meta">...</span>
+    }
+});
 </code></pre>
 <h4 id="-">单项模板自定义</h4>
-<div class="m-example" id="j-example4"></div>
+<div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(this.itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端Funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;MySQL数据库&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;LAMP兄弟连&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">18089</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
-    ];
-
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">itemTemplate</span>: <span class="cm-variable">RGUI</span>.<span class="cm-property">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
 <span class="cm-comment">&lt;div&gt;</span>
 <span class="cm-comment">    &lt;span class=&quot;number&quot;&gt;{item_index + 1}&lt;/span&gt;</span>
 <span class="cm-comment">    &lt;span class=&quot;title&quot;&gt;{item.name}&lt;/span&gt;</span>
 <span class="cm-comment">    &lt;span class=&quot;hits f-fr&quot;&gt;{item.hits}&lt;/span&gt;</span>
 <span class="cm-comment">&lt;/div&gt;</span>
-<span class="cm-comment">    */</span>});
-<span class="cm-meta">...</span>
+<span class="cm-comment">    */</span>}),
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端Funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;MySQL数据库&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;LAMP兄弟连&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">18089</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
+        ]
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -395,17 +391,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -420,7 +416,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -432,85 +428,84 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var ListView = RGUI.ListView;
-var _ = RGUI._;
-var ajax = RGUI.request;
-
-
-// 基本形式
-(function() {
-    var source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3', disabled: true}
-    ];
-
-    var listView = new ListView({
-        data: {
-            source: source
-        }
-    }).$inject('#j-example1');
-})();
-
-// 禁用组件
-(function() {
-    var source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
-    ];
-
-    var listView = new ListView({
-        data: {
-            source: source,
-            disabled: true
-        }
-    }).$inject('#j-example2');
-})();
-
-// 远程数据
-(function() {
-    var service = {
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<listView source={source} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<listView source={source} disabled={true} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<listView service={@(this.service)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    service: {
         getList: function(params, success) {
-            ajax.request({
-                url: 'listview.json',
+            RGUI.ajax.request({
+                url: '../data/list.json',
                 method: 'get',
                 type: 'json',
+                data: params,
                 success: success
             });
         }
-    };
-
-    var listView = new ListView({
-        service: service
-    }).$inject('#j-example3');
-})();
-
-// 单项模板自定义
-(function() {
-    var source = [
-        {id: 3, name: '精通Javascript开发', org: '前端Funs', hits: 42371},
-        {id: 2, name: 'Android深入浅出', org: 'Android学院', hits: 30645},
-        {id: 1, name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
-        {id: 4, name: 'MySQL数据库', org: 'LAMP兄弟连', hits: 18089},
-        {id: 5, name: 'Arduino初级教程', org: '硬件社', hits: 16361}
-    ];
-
-    var itemTemplate = _.multiline(function(){/*
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<listView source={source} itemTemplate={@(this.itemTemplate)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    itemTemplate: RGUI._.multiline(function(){/*
 <div>
     <span class="number">{item_index + 1}</span>
     <span class="title">{item.name}</span>
     <span class="hits f-fr">{item.hits}</span>
 </div>
-    */});
-   
-    var listView = new ListView({
-        data: {
-            itemTemplate: itemTemplate,
-            source: source
-        }
-    }).$inject('#j-example4');
-})();
+    */}),
+    data: {
+        source: [
+            {name: '精通Javascript开发', org: '前端Funs', hits: 42371},
+            {name: 'Android深入浅出', org: 'Android学院', hits: 30645},
+            {name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
+            {name: 'MySQL数据库', org: 'LAMP兄弟连', hits: 18089},
+            {name: 'Arduino初级教程', org: '硬件社', hits: 16361}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

@@ -60,8 +60,8 @@ var Notify = Component.extend({
         this.data.messages.unshift(message);
         this.$update();
 
-        if(message.duration)
-            this.$timeout(this.close.bind(this, message), message.duration);
+        if(+message.duration)
+            this.$timeout(this.close.bind(this, message), +message.duration);
 
         /**
          * @event show 弹出一个消息时触发

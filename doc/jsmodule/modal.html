@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -198,24 +184,45 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <p>模态对话框通过遮罩层来阻止用户的其他行为。</p>
 <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"><button class="u-btn u-btn-primary">Modal</button></div>
+<div class="m-example"></div>
 
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">modal</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Modal</span>({
-    <span class="cm-property">data</span>: {
-        <span class="cm-property">title</span>: <span class="cm-string">&#39;Modal标题&#39;</span>,
-        <span class="cm-property">content</span>: <span class="cm-string">&#39;Modal内容&#39;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Modal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">var</span> <span class="cm-def">modal</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>({
+            <span class="cm-property">data</span>: {
+                <span class="cm-property">title</span>: <span class="cm-string">&#39;Modal标题&#39;</span>,
+                <span class="cm-property">content</span>: <span class="cm-string">&#39;Modal内容&#39;</span>
+            }
+        });
     }
 });
 </code></pre>
 <h4 id="alert">Alert</h4>
-<div class="m-example" id="j-example2"><button class="u-btn u-btn-error">Alert</button></div>
+<div class="m-example"></div>
 
-<pre class="lang-javascript"><code><span class="cm-variable">Modal</span>.<span class="cm-property">alert</span>(<span class="cm-string">&#39;Alert内容&#39;</span>);
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Alert<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">alert</span>(<span class="cm-string">&#39;Alert内容&#39;</span>);
+    }
+});
 </code></pre>
 <h4 id="confirm">Confirm</h4>
-<div class="m-example" id="j-example3"><button class="u-btn u-btn-success">Confirm</button></div>
+<div class="m-example"></div>
 
-<pre class="lang-javascript"><code><span class="cm-variable">Modal</span>.<span class="cm-property">confirm</span>(<span class="cm-string">&#39;Confirm内容&#39;</span>);
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Confirm<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">confirm</span>(<span class="cm-string">&#39;Confirm内容&#39;</span>);
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -405,17 +412,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -430,7 +437,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -442,36 +449,48 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Modal = RGUI.Modal;
-
-// 基本形式
-(function() {
-    var button = document.getElementById('j-example1').children[0];
-    RGUI._.dom.on(button, 'click', function() {
-        var modal = new Modal({
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-primary" on-click={this.showModal()}>Modal</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        var modal = new RGUI.Modal({
             data: {
                 title: 'Modal标题',
                 content: 'Modal内容'
             }
         });
-    });
-})();
-
-// Alert
-(function() {
-    var button = document.getElementById('j-example2').children[0];
-    RGUI._.dom.on(button, 'click', function() {
-        Modal.alert('Alert内容');
-    });
-})();
-
-// Confirm
-(function() {
-    var button = document.getElementById('j-example3').children[0];
-    RGUI._.dom.on(button, 'click', function() {
-        Modal.confirm('Confirm内容');
-    });
-})();
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-error" on-click={this.showModal()}>Alert</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        RGUI.Modal.alert('Alert内容');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-success" on-click={this.showModal()}>Confirm</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        RGUI.Modal.confirm('Confirm内容');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

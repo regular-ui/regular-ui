@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -197,70 +183,89 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <p>创建显示消息的通知，并且能自动淡出。类似Android中的Toast。</p>
 <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"><button class="u-btn u-btn-primary">Notify</button></div>
+<div class="m-example"></div>
 
-<pre class="lang-javascript"><code><span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;This is a message.&#39;</span>);
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Notify<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;This is a message.&#39;</span>);
+    }
+});
 </code></pre>
 <h4 id="-">状态扩展</h4>
-<div class="m-example" id="j-example2">
-<button class="u-btn u-btn-info">Info</button>
-<button class="u-btn u-btn-success">Success</button>
-<button class="u-btn u-btn-warning">Warning</button>
-<button class="u-btn u-btn-error">Error</button>
-</div>
+<div class="m-example"></div>
 
-<pre class="lang-javascript"><code><span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Info message.&#39;</span>, <span class="cm-string">&#39;info&#39;</span>);
-<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Success message.&#39;</span>, <span class="cm-string">&#39;success&#39;</span>);
-<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Warning message.&#39;</span>, <span class="cm-string">&#39;warning&#39;</span>);
-<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Error message.&#39;</span>, <span class="cm-string">&#39;error&#39;</span>);
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-info&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;info&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;success&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-warning&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;warning&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;error&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Error<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">type</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-variable-2">type</span> <span class="cm-operator">+</span> <span class="cm-string">&#39; message.&#39;</span>, <span class="cm-variable-2">type</span>);
+    }
+});
 </code></pre>
 <h4 id="-">位置扩展</h4>
-<div class="m-example" id="j-example3">
-<button class="u-btn">Top Center</button>
-<button class="u-btn">Top Left</button>
-<button class="u-btn">Top Right</button>
-<button class="u-btn">Bottom Center</button>
-<button class="u-btn">Bottom Left</button>
-<button class="u-btn">Bottom Right</button>
-</div>
+<div class="m-example"></div>
 
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">notify0</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topcenter&#39;</span>} });
-<span class="cm-keyword">var</span> <span class="cm-variable">notify1</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topleft&#39;</span>} });
-<span class="cm-keyword">var</span> <span class="cm-variable">notify2</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topright&#39;</span>} });
-<span class="cm-keyword">var</span> <span class="cm-variable">notify3</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomcenter&#39;</span>} });
-<span class="cm-keyword">var</span> <span class="cm-variable">notify4</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomleft&#39;</span>} });
-<span class="cm-keyword">var</span> <span class="cm-variable">notify5</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomright&#39;</span>} });
-
-<span class="cm-variable">notify0</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Top Center notify.&#39;</span>);
-<span class="cm-variable">notify1</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Top Left notify.&#39;</span>);
-<span class="cm-variable">notify2</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Top Right notify.&#39;</span>);
-<span class="cm-variable">notify3</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Bottom Center notify.&#39;</span>);
-<span class="cm-variable">notify4</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Bottom Left notify.&#39;</span>);
-<span class="cm-variable">notify5</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Bottom Right notify.&#39;</span>);
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(0)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Top Center<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(1)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Top Left<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(2)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Top Right<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(3)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Bottom Center<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(4)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Bottom Left<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(5)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Bottom Right<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">config</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">notifies</span> <span class="cm-operator">=</span> [
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topcenter&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topleft&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topright&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomcenter&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomleft&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomright&#39;</span>} })
+        ];
+    },
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">index</span>) {
+        <span class="cm-keyword">var</span> <span class="cm-def">notify</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">notifies</span>[<span class="cm-variable-2">index</span>];
+        <span class="cm-variable-2">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Position: &#39;</span> <span class="cm-operator">+</span> <span class="cm-variable-2">notify</span>.<span class="cm-property">data</span>.<span class="cm-property">position</span> <span class="cm-operator">+</span> <span class="cm-string">&#39;.&#39;</span>);
+    }
+});
 </code></pre>
 <h4 id="-">嵌入文档流</h4>
 <p>上面的模式通知都是以<code>fixed</code>的形式固定在浏览器中，如果要将通知嵌入到文档流，先将<code>notify</code>注入到需要的位置，同时设置<code>notify</code>的<code>position=&quot;static&quot;</code>。</p>
-<div class="m-example" id="j-example4"><button class="u-btn u-btn-primary">Static</button></div>
+<div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">notify</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;notify&quot;</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-attribute">duration</span>=<span class="cm-string">&quot;0&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Static<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">notify</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;notify&quot;</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-attribute">duration</span>=<span class="cm-string">&quot;0&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Static notify.&#39;</span>);
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Static notify.&#39;</span>);
+    }
+});
 </code></pre>
 <h4 id="-">消息停留时间</h4>
 <p>可以通过设置<code>notify</code>的<code>duration</code>参数设置所有消息的停留时间，也可以在<code>show</code>的时候单独设置该条消息的停留时间，单位为毫秒。</p>
-<div class="m-example" id="j-example5">
-<button class="u-btn">0.5s</button>
-<button class="u-btn">1s</button>
-<button class="u-btn">2s</button>
-<button class="u-btn">常驻</button>
-</div>
+<div class="m-example"></div>
 
-<pre class="lang-javascript"><code><span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;0.5 seconds.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">500</span>);
-<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;1 second.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">1000</span>);
-<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;2 seconds.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">2000</span>);
-<span class="cm-variable">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Stick here.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-number">0</span>);
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(500)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>0.5s<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(1000)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>1s<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(2000)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>2s<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(0)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>常驻<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">duration</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Duration: &#39;</span> <span class="cm-operator">+</span> <span class="cm-variable-2">duration</span> <span class="cm-operator">+</span> <span class="cm-string">&#39; ms.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-variable-2">duration</span>);
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -495,17 +500,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -520,7 +525,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -532,110 +537,90 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Notify = RGUI.Notify;
-
-// 基本形式
-(function() {
-    var button = document.getElementById('j-example1').children[0];
-
-    RGUI._.dom.on(button, 'click', function() {
-        Notify.show('This is a message.');
-    });
-})();
-
-// 状态扩展
-(function() {
-    var button0 = document.getElementById('j-example2').children[0];
-    var button1 = document.getElementById('j-example2').children[1];
-    var button2 = document.getElementById('j-example2').children[2];
-    var button3 = document.getElementById('j-example2').children[3];
-
-    RGUI._.dom.on(button0, 'click', function() {
-        Notify.show('Info message.', 'info');
-    });
-    RGUI._.dom.on(button1, 'click', function() {
-        Notify.show('Success message.', 'success');
-    });
-    RGUI._.dom.on(button2, 'click', function() {
-        Notify.show('Warning message.', 'warning');
-    });
-    RGUI._.dom.on(button3, 'click', function() {
-        Notify.show('Error message.', 'error');
-    });
-})();
-
-// 位置扩展
-(function() {
-    var button0 = document.getElementById('j-example3').children[0];
-    var button1 = document.getElementById('j-example3').children[1];
-    var button2 = document.getElementById('j-example3').children[2];
-    var button3 = document.getElementById('j-example3').children[3];
-    var button4 = document.getElementById('j-example3').children[4];
-    var button5 = document.getElementById('j-example3').children[5];
-
-    var notify0 = new Notify({data: {position: 'topcenter'} });
-    var notify1 = new Notify({data: {position: 'topleft'} });
-    var notify2 = new Notify({data: {position: 'topright'} });
-    var notify3 = new Notify({data: {position: 'bottomcenter'} });
-    var notify4 = new Notify({data: {position: 'bottomleft'} });
-    var notify5 = new Notify({data: {position: 'bottomright'} });
-
-    RGUI._.dom.on(button0, 'click', function() {
-        notify0.show('Top Center notify.');
-    });
-    RGUI._.dom.on(button1, 'click', function() {
-        notify1.show('Top Left notify.');
-    });
-    RGUI._.dom.on(button2, 'click', function() {
-        notify2.show('Top Right notify.');
-    });
-    RGUI._.dom.on(button3, 'click', function() {
-        notify3.show('Bottom Center notify.');
-    });
-    RGUI._.dom.on(button4, 'click', function() {
-        notify4.show('Bottom Left notify.');
-    });
-    RGUI._.dom.on(button5, 'click', function() {
-        notify5.show('Bottom Right notify.');
-    });
-})();
-
-// 嵌入文档流
-(function() {
-    var button = document.getElementById('j-example4').children[0];
-
-    var notify = new Notify({
-        data: {
-            position: 'static',
-            duration: 0
-        },
-    }).$inject('#j-example4', 'top');
-
-    RGUI._.dom.on(button, 'click', function() {
-        notify.show('Static notify.', 'info');
-    });
-})();
-
-// 消息停留时间
-(function() {
-    var button0 = document.getElementById('j-example5').children[0];
-    var button1 = document.getElementById('j-example5').children[1];
-    var button2 = document.getElementById('j-example5').children[2];
-    var button3 = document.getElementById('j-example5').children[3];
-
-    RGUI._.dom.on(button0, 'click', function() {
-        Notify.show('0.5 seconds.', null, 500);
-    });
-    RGUI._.dom.on(button1, 'click', function() {
-        Notify.show('1 second.', null, 1000);
-    });
-    RGUI._.dom.on(button2, 'click', function() {
-        Notify.show('2 seconds.', null, 2000);
-    });
-    RGUI._.dom.on(button3, 'click', function() {
-        Notify.show('Stick here.', null, 0);
-    });
-})();
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-primary" on-click={this.showMessage()}>Notify</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function() {
+        RGUI.Notify.show('This is a message.');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-info" on-click={this.showMessage('info')}>Info</button>
+<button class="u-btn u-btn-success" on-click={this.showMessage('success')}>Success</button>
+<button class="u-btn u-btn-warning" on-click={this.showMessage('warning')}>Warning</button>
+<button class="u-btn u-btn-error" on-click={this.showMessage('error')}>Error</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function(type) {
+        RGUI.Notify.show(type + ' message.', type);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn" on-click={this.showMessage(0)}>Top Center</button>
+<button class="u-btn" on-click={this.showMessage(1)}>Top Left</button>
+<button class="u-btn" on-click={this.showMessage(2)}>Top Right</button>
+<button class="u-btn" on-click={this.showMessage(3)}>Bottom Center</button>
+<button class="u-btn" on-click={this.showMessage(4)}>Bottom Left</button>
+<button class="u-btn" on-click={this.showMessage(5)}>Bottom Right</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    config: function() {
+        this.notifies = [
+            new RGUI.Notify({data: {position: 'topcenter'} }),
+            new RGUI.Notify({data: {position: 'topleft'} }),
+            new RGUI.Notify({data: {position: 'topright'} }),
+            new RGUI.Notify({data: {position: 'bottomcenter'} }),
+            new RGUI.Notify({data: {position: 'bottomleft'} }),
+            new RGUI.Notify({data: {position: 'bottomright'} })
+        ];
+    },
+    showMessage: function(index) {
+        var notify = this.notifies[index];
+        notify.show('Position: ' + notify.data.position + '.');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-primary" on-click={this.showMessage()}>Static</button>
+<notify ref="notify" position="static" duration="0" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function() {
+        this.$refs.notify.show('Static notify.');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn" on-click={this.showMessage(500)}>0.5s</button>
+<button class="u-btn" on-click={this.showMessage(1000)}>1s</button>
+<button class="u-btn" on-click={this.showMessage(2000)}>2s</button>
+<button class="u-btn" on-click={this.showMessage(0)}>常驻</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function(duration) {
+        RGUI.Notify.show('Duration: ' + duration + ' ms.', null, duration);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

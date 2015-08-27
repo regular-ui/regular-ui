@@ -11,6 +11,6 @@
         <li><a title="链接" on-click={this.link()}><i class="u-icon u-icon-link"></i></a></li>
         <li><a title="图片" on-click={this.image()}><i class="u-icon u-icon-image"></i></a></li>
     </ul>
-    <textarea class="editor_textarea" r-model={content} ref="textarea" {#if readonly}readonly{/if}></textarea>
+    <textarea class="editor_textarea" r-model={content} ref="textarea" readonly={readonly}></textarea>
 </div>
 <uploader visible={false} url={imageUrl} extensions={extensions} ref="uploader" on-success={this.uploaderSuccess($event)} on-error={this.uploaderError($event)} />

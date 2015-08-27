@@ -158,7 +158,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/uploader.html">上传<small> Uploader</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -176,7 +176,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -184,14 +184,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
         
         
         
-        <li class="sidebar_group"><span>其他类</span></li>
+        <li class="sidebar_group"><span>其他</span></li>
         
         <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
         
@@ -203,7 +203,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -215,9 +215,19 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">位置扩展</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;bottomleft&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">嵌入文档流</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -239,15 +249,11 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;bottomright&#39;</code></td><td>组件的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`</td></tr>
             
             <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
             
             <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
-            
-            <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>数据服务</td></tr>
             
         
     </tbody>
@@ -322,17 +328,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -347,7 +353,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -359,12 +365,34 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Gotop = RGUI.Gotop;
-
-// 基本形式
-(function() {
-    var gotop = new Gotop().$inject('#j-example1');
-})();
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<gotop />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<gotop position="bottomleft" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<gotop position="static" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 function parse(content) {
     var rule = {
-        example: /<div class="m-example"><\/div>([\s\S]+?)(?:####|$)/g,
+        example: /<div class="m-example"><\/div>([\s\S]+?)(?:##|$)/g,
         pre: /```(.+?)\n([\s\S]+?)\n```/g
     }
 
@@ -30,7 +30,13 @@ function render(content) {
         strings.push('    var template = RGUI._.multiline(function(){/*');
         strings.push(         example.xml);
         strings.push('    */})');
-        strings.push(     example.javascript);
+        if(example.javascript)
+            strings.push(example.javascript);
+        else {
+            strings.push('var component = new RGUI.Component({');
+            strings.push('    template: template,');
+            strings.push('});');
+        }
         strings.push('    component.$inject($$(".m-example")[index]);');
         strings.push('})(index++);');
     });

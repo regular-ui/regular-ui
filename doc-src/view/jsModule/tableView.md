@@ -1,15 +1,17 @@
 ### 示例
 #### 基本形式
 
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 ```xml
 <tableView source={source} fields={@(fields)} itemTemplate={@(itemTemplate)} />
 ```
 
 ```javascript
-...
-    this.data.source = [
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
         {id: 3, name: '精通Javascript开发', org: '前端Funs', hits: 42371},
         {id: 2, name: 'Android深入浅出', org: 'Android学院', hits: 30645},
         {id: 1, name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
@@ -32,8 +34,9 @@
         <span class="hits f-fr"><i class="u-icon u-icon-user"></i> {item.hits}</span>
     </div>
 </div>
-    */});
-...
+    */})
+    }
+});
 ```
 
 #### 远程数据
@@ -46,15 +49,17 @@
 
 如果有`service`属性，会向服务器发送请求并带上排序相关的参数，进行后端排序；如果没有`service`属性，则在本地对`source`进行排序。
 
-<div class="m-example" id="j-example2"></div>
+<div class="m-example"></div>
 
 ```xml
 <tableView source={source} fields={@(fields)} itemTemplate={@(itemTemplate)} />
 ```
 
 ```javascript
-...
-    this.data.source = [
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
         {id: 3, name: '精通Javascript开发', org: '前端Funs', hits: 42371},
         {id: 2, name: 'Android深入浅出', org: 'Android学院', hits: 30645},
         {id: 1, name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
@@ -77,6 +82,7 @@
         <span class="hits f-fr"><i class="u-icon u-icon-user"></i> {item.hits}</span>
     </div>
 </div>
-    */});
-...
+    */})
+    }
+});
 ```

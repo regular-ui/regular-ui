@@ -158,7 +158,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/uploader.html">上传<small> Uploader</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -176,7 +176,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -184,14 +184,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
         
         
         
-        <li class="sidebar_group"><span>其他类</span></li>
+        <li class="sidebar_group"><span>其他</span></li>
         
         <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
         
@@ -203,7 +203,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -211,125 +211,166 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>邮件输入<small> EmailSuggest</small></h2>
+        <h2>自动提示<small> Suggest</small></h2>
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">6</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">7</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">8</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">9</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="-">禁用组件</h4>
-<div class="m-example" id="j-example2"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">6</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">7</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">8</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">9</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="placeholder">Placeholder</h4>
-<div class="m-example" id="j-example3"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;输入时会自动提示&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">6</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">7</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">8</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">9</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="-">最小提示长度</h4>
 <p>当输入长度&gt;=<code>minLength</code>属性后开始提示。</p>
-<div class="m-example" id="j-example4"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;输入2个字符后开始提示&quot;</span> <span class="cm-attribute">minLength</span>=<span class="cm-string">&quot;2&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">6</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">7</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">8</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">9</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="-">匹配方式</h4>
-<div class="m-example" id="j-example5"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;匹配全局&quot;</span> <span class="cm-attribute">matchType</span>=<span class="cm-string">&quot;all&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;只匹配开头&quot;</span> <span class="cm-attribute">matchType</span>=<span class="cm-string">&quot;start&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;只匹配结尾&quot;</span> <span class="cm-attribute">matchType</span>=<span class="cm-string">&quot;end&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">6</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">7</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">8</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">9</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="-">严格模式</h4>
-<div class="m-example" id="j-example6"></div>
+<p>当为严格模式时，<code>value</code>属性必须在source中选择，否则为空。</p>
+<div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">strict</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;非严格模式&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{value1}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span> {value1}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;严格模式&quot;</span> <span class="cm-attribute">strict</span>=<span class="cm-attribute">{true}</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{value2}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span> {value2}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">6</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">7</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">8</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">9</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">远程数据</h4>
+<p>支持远程过滤。</p>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">service</span>: {
+        <span class="cm-property">getList</span>: <span class="cm-keyword">function</span>(<span class="cm-def">params</span>, <span class="cm-def">success</span>) {
+            <span class="cm-variable">RGUI</span>.<span class="cm-property">ajax</span>.<span class="cm-property">request</span>({
+                <span class="cm-property">url</span>: <span class="cm-string">&#39;../data/suggest.json&#39;</span>,
+                <span class="cm-property">method</span>: <span class="cm-string">&#39;get&#39;</span>,
+                <span class="cm-property">type</span>: <span class="cm-string">&#39;json&#39;</span>,
+                <span class="cm-property">data</span>: <span class="cm-variable-2">params</span>,
+                <span class="cm-property">success</span>: <span class="cm-variable-2">success</span>
+            });
+        }
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -566,17 +607,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -591,7 +632,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -603,156 +644,162 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Suggest = RGUI.Suggest;
-
-// 基本形式
-(function() {
-    var source = [
-        {id: 1, name: 'abandon'},
-        {id: 2, name: 'about'},
-        {id: 3, name: 'absent'},
-        {id: 4, name: 'bread'},
-        {id: 5, name: 'break'},
-        {id: 6, name: 'brief'},
-        {id: 7, name: 'calendar'},
-        {id: 8, name: 'cancel'},
-        {id: 9, name: 'column'}
-    ];
-
-    var suggest = new Suggest({
-        data: {
-            source: source
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<suggest source={source} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<suggest source={source} disabled={true} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<suggest source={source} placeholder="输入时会自动提示" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<suggest source={source} placeholder="输入2个字符后开始提示" minLength="2" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<suggest source={source} placeholder="匹配全局" matchType="all" />
+<suggest source={source} placeholder="只匹配开头" matchType="start" />
+<suggest source={source} placeholder="只匹配结尾" matchType="end" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<p><suggest source={source} placeholder="非严格模式" value={value1} /> {value1}</p>
+<p><suggest source={source} placeholder="严格模式" strict={true} value={value2} /> {value2}</p>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<suggest service={@(this.service)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    service: {
+        getList: function(params, success) {
+            RGUI.ajax.request({
+                url: '../data/suggest.json',
+                method: 'get',
+                type: 'json',
+                data: params,
+                success: success
+            });
         }
-    }).$inject('#j-example1');
-})();
-
-// 禁用组件
-(function() {
-    var source = [
-        {id: 1, name: 'abandon'},
-        {id: 2, name: 'about'},
-        {id: 3, name: 'absent'},
-        {id: 4, name: 'bread'},
-        {id: 5, name: 'break'},
-        {id: 6, name: 'brief'},
-        {id: 7, name: 'calendar'},
-        {id: 8, name: 'cancel'},
-        {id: 9, name: 'column'}
-    ];
-
-    var suggest = new Suggest({
-        data: {
-            source: source,
-            disabled: true
-        }
-    }).$inject('#j-example2');
-})();
-
-// Placeholder
-(function() {
-    var source = [
-        {id: 1, name: 'abandon'},
-        {id: 2, name: 'about'},
-        {id: 3, name: 'absent'},
-        {id: 4, name: 'bread'},
-        {id: 5, name: 'break'},
-        {id: 6, name: 'brief'},
-        {id: 7, name: 'calendar'},
-        {id: 8, name: 'cancel'},
-        {id: 9, name: 'column'}
-    ];
-
-    var suggest = new Suggest({
-        data: {
-            source: source,
-            placeholder: '输入时会自动提示'
-        }
-    }).$inject('#j-example3');
-})();
-
-// 最小提示长度
-(function() {
-    var source = [
-        {id: 1, name: 'abandon'},
-        {id: 2, name: 'about'},
-        {id: 3, name: 'absent'},
-        {id: 4, name: 'bread'},
-        {id: 5, name: 'break'},
-        {id: 6, name: 'brief'},
-        {id: 7, name: 'calendar'},
-        {id: 8, name: 'cancel'},
-        {id: 9, name: 'column'}
-    ];
-
-    var suggest = new Suggest({
-        data: {
-            source: source,
-            placeholder: '输入2个字符后开始提示',
-            minLength: 2
-        }
-    }).$inject('#j-example4');
-})();
-
-// 匹配方式
-(function() {
-    var source = [
-        {id: 1, name: 'abandon'},
-        {id: 2, name: 'about'},
-        {id: 3, name: 'absent'},
-        {id: 4, name: 'bread'},
-        {id: 5, name: 'break'},
-        {id: 6, name: 'brief'},
-        {id: 7, name: 'calendar'},
-        {id: 8, name: 'cancel'},
-        {id: 9, name: 'column'}
-    ];
-
-    var suggest = new Suggest({
-        data: {
-            source: source,
-            placeholder: '匹配全局',
-            matchType: 'all'
-        }
-    }).$inject('#j-example5');
-
-    var suggest = new Suggest({
-        data: {
-            source: source,
-            placeholder: '只匹配开头',
-            matchType: 'start'
-        }
-    }).$inject('#j-example5');
-
-    var suggest = new Suggest({
-        data: {
-            source: source,
-            placeholder: '只匹配结尾',
-            matchType: 'end'
-        }
-    }).$inject('#j-example5');
-})();
-
-// 严格模式
-(function() {
-    var source = [
-        {id: 1, name: 'abandon'},
-        {id: 2, name: 'about'},
-        {id: 3, name: 'absent'},
-        {id: 4, name: 'bread'},
-        {id: 5, name: 'break'},
-        {id: 6, name: 'brief'},
-        {id: 7, name: 'calendar'},
-        {id: 8, name: 'cancel'},
-        {id: 9, name: 'column'}
-    ];
-    
-    var suggest = new Suggest({
-        data: {
-            source: source,
-            strict: true
-        }
-    }).$inject('#j-example6');
-})();
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

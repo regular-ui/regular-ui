@@ -1,15 +1,16 @@
 ### JS
 
-[ ] 通知和Message的关系
+[v] Notify和Message的关系
+[ ] Notify和Message，Accordion和Panel
 [ ] 合并Radio和Check的样式
-[v] 合并菜单
-[ ] Dropdown是否应该有菜单项？itemTemplate, contentTemplate
-[ ] TableView的冗余，SourceComponent的冗余，DropDown有菜单项冗余
-[ ] Regular中怎么实现接口
-[v] 继承类的文档，只确定参数，方法和事件自动生成
-[v] 参数的顺序不按继承性排列，按照重要性排列，参数必须在config中声明，除了`class`这个东东。
+[v] 合并菜单，都继承自Dropdown
+[v] Dropdown是否应该有菜单项？itemTemplate。目前contentTemplate在$body中实现。
+[v] TableView的冗余，SourceComponent的冗余，DropDown有菜单项冗余。这些可以忽略。
+[v] Regular中怎么实现接口，使用implement，目前还没有地方用到。
+[v] 继承类的文档，只确定参数，方法和事件自动生成。
+[v] 参数的顺序不按继承性排列，按照重要性排列，参数必须在config中声明，除了`class`, `readonly`, `disabled`, `visible`, `class`, `service`不用重复写。
 [ ] 继承类样式的关系
-[v] ul和li的格式，两种current方式和select方式
+[ ] ul和li的格式，current方式和select方式。数据类的用select，导航类的用current
 [v] li class="z-crt"应该放在里面还是外面。放在外面，需要快速定位当前位置
 [v] li>a, li>span的区别
 [ ] modal是否要用show
@@ -20,25 +21,31 @@
 [ ] dragdrop
 [ ] treeView的优化
 [ ] 多重suggest
-[ ] js中要不要实现补充class的内容
+[ ] js中要不要实现补充class的内容，暂定全部实现。
 [ ] 快捷键
 [v] 数据类的title提示
 [ ] html.z-modal
 [v] selected在日期类组件中分化为date属性
 [v] selected在Pager组件中分化为current属性
+[ ] name和title的问题。数据类的用name，导航类的用title
 [v] rgl和js代码显示，为了防止读者搞不清楚，只使用rgl式的写法，不直接用data注入
-[ ] name和title的问题
+[v] 自动生成js代码
 [v] 文字是否要在模板中实现
 [v] readonly, disabled, visible
-[ ] readOnly bug
+[v] readOnly bug
 [v] unit和module区分。正常情况下，通过直接观察，组件内部元素个数小于3的属于unit，其它属于module。例：所有下拉类均属于unit。
 [ ] 内嵌模板 itemTemplate
 [ ] service文档
 [v] 结尾为bar, top, down的不用驼峰
 [ ] checkbox, checkButton, toggle
 [v] 第一版中先不引入`<modal.body>`、`<menuItem>`等新特性
-[v] 先不自动生成js代码
-[ ] config的_.extend中readonly, disabled, visible, class, service不用重复写。
+[ ] MVVM的例子
+[ ] 事件的例子
+[ ] unitGroup, select2, treeSelect, suggest模板自定义
+[ ] updateAuto
+[ ] toggle(item, open) ?
+[ ] Accordion的动画
+[ ] Gotop和Notify的自定义模板
 
 模板是可变的，导致样式继承不清晰
 

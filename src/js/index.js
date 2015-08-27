@@ -15,7 +15,7 @@ var RGUI = {}
 RGUI.Regular = require('regularjs');
 RGUI.Component = require('./base/component.js');
 RGUI._ = require('./base/util.js');
-RGUI.request = require('./base/request.js');
+RGUI.ajax = require('./base/ajax.js');
 
 /**
  * jsUnit

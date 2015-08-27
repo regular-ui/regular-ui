@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li class="z-crt"><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -196,12 +182,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tableView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">fields</span>=<span class="cm-attribute">{@(fields)}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
         {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端Funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
@@ -209,13 +197,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
     ];
 
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">fields</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">key</span>: <span class="cm-string">&#39;name&#39;</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;课程&#39;</span>},
-        {<span class="cm-property">key</span>: <span class="cm-string">&#39;org&#39;</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;机构&#39;</span>},
+    <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">fields</span> <span class="cm-operator">=</span> [
+        {<span class="cm-variable">key</span>: <span class="cm-string">&#39;name&#39;</span>, <span class="cm-variable">name</span>: <span class="cm-string">&#39;课程&#39;</span>},
+        {<span class="cm-variable">key</span>: <span class="cm-string">&#39;org&#39;</span>, <span class="cm-variable">name</span>: <span class="cm-string">&#39;机构&#39;</span>},
         {<span class="cm-property">key</span>: <span class="cm-string">&#39;hits&#39;</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;点击率&#39;</span>}
     ];
 
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+    <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-variable">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
 <span class="cm-comment">&lt;div class=&quot;u-courceitem&quot;&gt;</span>
 <span class="cm-comment">    &lt;div&gt;&lt;img src=&quot;{item.img}&quot; alt=&quot;{item.name}&quot; title=&quot;{item.name}&quot;&gt;&lt;/div&gt;</span>
 <span class="cm-comment">    &lt;div&gt;&lt;a href=&quot;#&quot;&gt;{item.name}&lt;/a&gt;&lt;/div&gt;</span>
@@ -224,20 +212,23 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-comment">        &lt;span class=&quot;hits f-fr&quot;&gt;&lt;i class=&quot;u-icon u-icon-user&quot;&gt;&lt;/i&gt; {item.hits}&lt;/span&gt;</span>
 <span class="cm-comment">    &lt;/div&gt;</span>
 <span class="cm-comment">&lt;/div&gt;</span>
-<span class="cm-comment">    */</span>});
-<span class="cm-meta">...</span>
+<span class="cm-comment">    */</span>})
+    }
+});
 </code></pre>
 <h4 id="-">远程数据</h4>
 <p>同<a href="listbox.html">ListBox</a>。</p>
 <h4 id="-">排序</h4>
 <p>只要给可排序的字段添加<code>sortable: true</code>即可。</p>
 <p>如果有<code>service</code>属性，会向服务器发送请求并带上排序相关的参数，进行后端排序；如果没有<code>service</code>属性，则在本地对<code>source</code>进行排序。</p>
-<div class="m-example" id="j-example2"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tableView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">fields</span>=<span class="cm-attribute">{@(fields)}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
         {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端Funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
         {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
@@ -245,13 +236,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
     ];
 
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">fields</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">key</span>: <span class="cm-string">&#39;name&#39;</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;课程&#39;</span>},
-        {<span class="cm-property">key</span>: <span class="cm-string">&#39;org&#39;</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;机构&#39;</span>},
+    <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">fields</span> <span class="cm-operator">=</span> [
+        {<span class="cm-variable">key</span>: <span class="cm-string">&#39;name&#39;</span>, <span class="cm-variable">name</span>: <span class="cm-string">&#39;课程&#39;</span>},
+        {<span class="cm-variable">key</span>: <span class="cm-string">&#39;org&#39;</span>, <span class="cm-variable">name</span>: <span class="cm-string">&#39;机构&#39;</span>},
         {<span class="cm-property">key</span>: <span class="cm-string">&#39;hits&#39;</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;点击率&#39;</span>}
     ];
 
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+    <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-variable">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
 <span class="cm-comment">&lt;div class=&quot;u-courceitem&quot;&gt;</span>
 <span class="cm-comment">    &lt;div&gt;&lt;img src=&quot;{item.img}&quot; alt=&quot;{item.name}&quot; title=&quot;{item.name}&quot;&gt;&lt;/div&gt;</span>
 <span class="cm-comment">    &lt;div&gt;&lt;a href=&quot;#&quot;&gt;{item.name}&lt;/a&gt;&lt;/div&gt;</span>
@@ -260,8 +251,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-comment">        &lt;span class=&quot;hits f-fr&quot;&gt;&lt;i class=&quot;u-icon u-icon-user&quot;&gt;&lt;/i&gt; {item.hits}&lt;/span&gt;</span>
 <span class="cm-comment">    &lt;/div&gt;</span>
 <span class="cm-comment">&lt;/div&gt;</span>
-<span class="cm-comment">    */</span>});
-<span class="cm-meta">...</span>
+<span class="cm-comment">    */</span>})
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -414,17 +406,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -439,7 +431,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -451,13 +443,15 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var TableView = RGUI.TableView;
-var _ = RGUI._;
-var ajax = RGUI.request;
-
-// 基本形式
-(function() {
-    var source = [
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tableView source={source} fields={@(fields)} itemTemplate={@(itemTemplate)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
         {id: 3, name: '精通Javascript开发', org: '前端Funs', hits: 42371},
         {id: 2, name: 'Android深入浅出', org: 'Android学院', hits: 30645},
         {id: 1, name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
@@ -465,7 +459,13 @@ var ajax = RGUI.request;
         {id: 5, name: 'Arduino初级教程', org: '硬件社', hits: 16361}
     ];
 
-    var itemTemplate = _.multiline(function(){/*
+    this.data.fields = [
+        {key: 'name', name: '课程'},
+        {key: 'org', name: '机构'},
+        {key: 'hits', name: '点击率'}
+    ];
+
+    this.data.itemTemplate = _.multiline(function(){/*
 <div class="u-courceitem">
     <div><img src="{item.img}" alt="{item.name}" title="{item.name}"></div>
     <div><a href="#">{item.name}</a></div>
@@ -474,23 +474,19 @@ var ajax = RGUI.request;
         <span class="hits f-fr"><i class="u-icon u-icon-user"></i> {item.hits}</span>
     </div>
 </div>
-    */});
-   
-    var tableView = new TableView({
-        data: {
-            source: source,
-            fields: [
-                {key: 'name', name: '课程'},
-                {key: 'org', name: '机构'},
-                {key: 'hits', name: '点击率'}
-            ]
-        }
-    }).$inject('#j-example1');
-})();
-
-// 排序
-(function() {
-    var source = [
+    */})
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tableView source={source} fields={@(fields)} itemTemplate={@(itemTemplate)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
         {id: 3, name: '精通Javascript开发', org: '前端Funs', hits: 42371},
         {id: 2, name: 'Android深入浅出', org: 'Android学院', hits: 30645},
         {id: 1, name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
@@ -498,7 +494,13 @@ var ajax = RGUI.request;
         {id: 5, name: 'Arduino初级教程', org: '硬件社', hits: 16361}
     ];
 
-    var itemTemplate = _.multiline(function(){/*
+    this.data.fields = [
+        {key: 'name', name: '课程'},
+        {key: 'org', name: '机构'},
+        {key: 'hits', name: '点击率'}
+    ];
+
+    this.data.itemTemplate = _.multiline(function(){/*
 <div class="u-courceitem">
     <div><img src="{item.img}" alt="{item.name}" title="{item.name}"></div>
     <div><a href="#">{item.name}</a></div>
@@ -507,19 +509,11 @@ var ajax = RGUI.request;
         <span class="hits f-fr"><i class="u-icon u-icon-user"></i> {item.hits}</span>
     </div>
 </div>
-    */});
-   
-    var tableView = new TableView({
-        data: {
-            source: source,
-            fields: [
-                {key: 'name', name: '课程', sortable: true},
-                {key: 'org', name: '机构'},
-                {key: 'hits', name: '点击率', sortable: true}
-            ]
-        }
-    }).$inject('#j-example2');
-})();
+    */})
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

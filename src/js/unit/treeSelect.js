@@ -21,6 +21,7 @@ var Treeview = require('../module/treeView.js');
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {object=null}             options.data.selected           当前选择项
  * @param {string='请选择'}         options.data.placeholder        默认项的文字
+ * @param {boolean=false}           options.data.hierarchical       是否分级动态加载，需要service
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
@@ -36,6 +37,8 @@ var TreeSelect = Select2.extend({
             // @inherited open: false,
             // @inherited selected: null,
             // @inherited placeholder: '请选择'
+            hierarchical: false,
+            updateAuto: false
         });
         this.supr();
     }

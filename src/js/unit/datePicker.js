@@ -35,6 +35,8 @@ var DatePicker = Dropdown.extend({
         _.extend(this.data, {
             // @inherited source: [],
             // @inherited open: false,
+            minDate: null,
+            maxDate: null,
             placeholder: '请输入'
         });
         this.supr();
@@ -59,6 +61,8 @@ var DatePicker = Dropdown.extend({
         var date = new Date($event.target.value);
         if(date != 'Invalid Date')
             this.data.date = date;
+        else
+            $event.target.value = filter.format(this.data.date, 'yyyy-MM-dd');
     }
 });
 

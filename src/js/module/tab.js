@@ -64,7 +64,7 @@ var TabPane = Component.extend({
         if(this.$outer) {
             var source = this.$outer.data.source;
             var item = {
-                name: this.data.name,
+                title: this.data.title,
                 disabled: this.data.disabled,
                 tab: this
             };

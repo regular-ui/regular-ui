@@ -158,7 +158,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/uploader.html">上传<small> Uploader</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -176,7 +176,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
@@ -184,14 +184,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
         
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
         </a></li>
         
         
         
         
-        <li class="sidebar_group"><span>其他类</span></li>
+        <li class="sidebar_group"><span>其他</span></li>
         
         <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
         
@@ -203,7 +203,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -215,46 +215,73 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ]
+    }
+});
 </code></pre>
 <h4 id="-">禁用组件</h4>
-<div class="m-example" id="j-example2"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ]
+    }
+});
 </code></pre>
-<h4 id="-">远程数据</h4>
-<p>同<a href="listbox.html">ListBox</a>。</p>
 <h4 id="-">设置或取消默认项</h4>
-<div class="m-example" id="j-example3"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;全部&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-meta">...</span>
-    <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span> <span class="cm-operator">=</span> [
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
-    ];
-<span class="cm-meta">...</span>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">远程数据</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">service</span>: {
+        <span class="cm-property">getList</span>: <span class="cm-keyword">function</span>(<span class="cm-def">params</span>, <span class="cm-def">success</span>) {
+            <span class="cm-variable">RGUI</span>.<span class="cm-property">ajax</span>.<span class="cm-property">request</span>({
+                <span class="cm-property">url</span>: <span class="cm-string">&#39;../data/list.json&#39;</span>,
+                <span class="cm-property">method</span>: <span class="cm-string">&#39;get&#39;</span>,
+                <span class="cm-property">type</span>: <span class="cm-string">&#39;json&#39;</span>,
+                <span class="cm-property">data</span>: <span class="cm-variable-2">params</span>,
+                <span class="cm-property">success</span>: <span class="cm-variable-2">success</span>
+            });
+        }
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -453,17 +480,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -478,7 +505,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -490,61 +517,76 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Select2 = RGUI.Select2;
-
-// 基本形式
-(function() {
-    var source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
-    ];
-
-    var select2 = new Select2({
-        data: {
-            source: source
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select2 source={source} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select2 source={source} disabled={true} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select2 source={source} placeholder="全部" />
+<select2 source={source} placeholder="" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select2 service={@(this.service)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    service: {
+        getList: function(params, success) {
+            RGUI.ajax.request({
+                url: '../data/list.json',
+                method: 'get',
+                type: 'json',
+                data: params,
+                success: success
+            });
         }
-    }).$inject('#j-example1');
-})();
-
-// 禁用组件
-(function() {
-    var source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
-    ];
-
-    var select2 = new Select2({
-        data: {
-            source: source,
-            disabled: true
-        }
-    }).$inject('#j-example2');
-})();
-
-// 设置或取消默认项
-(function() {
-    var source = [
-        {id: 1, name: '选项1'},
-        {id: 2, name: '选项2'},
-        {id: 3, name: '选项3'}
-    ];
-
-    var select2_1 = new Select2({
-        data: {
-            source: source,
-            placeholder: '全部'
-        }
-    }).$inject('#j-example3');
-
-    var select2_2 = new Select2({
-        data: {
-            source: source,
-            placeholder: null
-        }
-    }).$inject('#j-example3');
-})();
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

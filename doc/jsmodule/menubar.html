@@ -80,7 +80,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -132,13 +132,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         
         
-        <li><a href="../jsmodule/gridview.html">网格视图<small> GridView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
-        
-        
         
         <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
         
@@ -146,13 +139,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/tableview.html">表格视图<small> TableView</small>
-        
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
-        
-        </a></li>
         
         
         
@@ -196,7 +182,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">menubar</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
@@ -297,17 +283,17 @@ var themeSelect = new RGUI.Select2({
         var $next = $example.nextElementSibling;
         while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
-                source.push({name: 'rgl', content: $next.outerHTML});
+                source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-html') {
-                source.push({name: 'html', content: $next.outerHTML});
+                source.push({title: 'html', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
             } else if($next.className === 'lang-javascript') {
-                source.push({name: 'javascript', content: $next.outerHTML});
+                source.push({title: 'javascript', content: $next.outerHTML});
                 $prev = $next;
                 $next = $next.nextElementSibling;
                 $prev.remove();
@@ -322,7 +308,7 @@ var themeSelect = new RGUI.Select2({
             template: RGUI._.multiline(function(){/*
 <tab>
     {#list source as item}
-    <tabPane name={item.name}><div r-html={item.content}></div></tabPane>
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
     {/list}
 </tab>
             */}),
@@ -334,37 +320,16 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-var Menubar = RGUI.Menubar;
-var _ = RGUI._;
-
-// 基本形式
-(function() {
-    var source = [
-        {id: 1, name: '菜单1', children: [
-            {id: 11, name: '选项1.1'},
-            {id: 12, name: '选项1.2', children: [
-                {id: 101, name: '选项1.2.1'},
-                {id: 102, name: '选项1.2.2'}
-            ]},
-            {id: 13, name: '选项1.3'},
-            {id: 14, name: '选项1.4'},
-        ]},
-        {id: 2, name: '菜单2', children: [
-            {id: 13, name: '选项1.3'},
-            {id: 14, name: '选项1.4'}
-        ]},
-        {id: 3, name: '菜单3', children: [
-            {id: 15, name: '选项3.1'},
-            {id: 16, name: '选项3.2'}
-        ]}
-    ];
-
-    var menubar = new Menubar({
-        data: {
-            source: source
-        }
-    }).$inject('#j-example1');
-})();
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<menubar source={source} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

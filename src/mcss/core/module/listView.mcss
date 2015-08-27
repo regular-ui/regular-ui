@@ -12,7 +12,9 @@
     @extend .f-lsn;
     $box-sizing: border-box;
     $user-select: none;
-
+    overflow-x: auto;
+    overflow-y: visible;
+    
     > li {
         // @extend .f-toe;
         cursor: pointer;

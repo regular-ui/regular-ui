@@ -10,10 +10,13 @@
 
 $fadeIn();
 $fadeOut();
+$bounceIn();
 $bounceOut();
 $fadeInX();
 $fadeInY(-10px);
 $fadeOutY(-10px);
+$flipInY();
+$flipOutY();
 $pulse();
 
 .animated {

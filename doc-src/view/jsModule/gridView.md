@@ -1,15 +1,17 @@
 ### 示例
 #### 基本形式
 
-<div class="m-example" id="j-example1"></div>
+<div class="m-example"></div>
 
 ```xml
 <gridView source={source} itemTemplate={@(itemTemplate)} />
 ```
 
 ```javascript
-...
-    this.data.source = [
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
         {id: 3, name: '精通Javascript开发', img: '../dataimg/courceitem-javascript.jpg', org: '前端Funs', hits: 42371},
         {id: 2, name: 'Android深入浅出', img: '../dataimg/courceitem-android.jpg', org: 'Android学院', hits: 30645},
         {id: 1, name: 'cocos2dx游戏开发教程', img: '../dataimg/courceitem-cocos2dx.jpg', org: '鱼C课程', hits: 25112},
@@ -26,8 +28,9 @@
         <span class="hits f-fr"><i class="u-icon u-icon-user"></i> {item.hits}</span>
     </div>
 </div>
-    */});
-...
+    */})
+    }
+});
 ```
 
 #### 远程数据

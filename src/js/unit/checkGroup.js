@@ -37,25 +37,6 @@ var CheckGroup = SourceComponent.extend({
             block: false
         });
         this.supr();
-    },
-    /**
-     * @method checkAll(checked) 改变所有多选的选中状态
-     * @public
-     * @param  {object} checked 选中状态
-     * @return {void}
-     */
-    checkAll: function(checked) {
-        this.data.source.forEach(function(item) {
-            item.checked = checked;
-        });
-        this.$update();
-        /**
-         * @event checkAll 改变所有多选的选中状态时触发
-         * @property {object} checked 选中状态
-         */
-        this.$emit('checkAll', {
-            checked: checked
-        });
     }
 });
 

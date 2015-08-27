@@ -11,13 +11,10 @@
 .m-accordion {
     $user-select: none;
 
-    .accordion_pane {
-        .accordion_pane_hd {
+    .m-panel {
+        .panel_hd {
             cursor: pointer;
-        }
-
-        .accordion_pane_bd {
-            $clearfix();
+            // border-bottom: none;
         }
     }
 }

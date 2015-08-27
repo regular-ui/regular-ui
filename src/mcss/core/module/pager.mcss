@@ -13,16 +13,18 @@
     text-align: center;
     // - Remove default list style
     @extend .f-lsn;
-    @extend .f-lsi;    
+    @extend .f-lsi;
     $user-select: none;
 
     @extend .f-wsn;
 
     > li {
         display: inline-block;
-        // text-align: center;
+        text-align: center;
 
-        > a {
+        > a, > span {
+            display: inline-block;
+            // $box-sizing: border-box;
             text-decoration: none;
         }
 
