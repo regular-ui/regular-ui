@@ -149,16 +149,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <p>对于<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>和<code>&lt;textarea&gt;</code>三个表单控件，可以使用<code>.u-input</code>、<code>.u-select</code>和<code>.u-textarea</code>来美化。</p>
-<div class="m-example">
-<input class="u-input" placeholder="请输入">
+<div class="m-example"><input class="u-input" placeholder="请输入">
 <select class="u-select">
     <option>请选择</option>
     <option>选项1</option>
     <option>选项2</option>
     <option>选项3</option>
 </select>
-<textarea class="u-textarea">这是一段文字。</textarea>
-</div>
+<textarea class="u-textarea">这是一段文字。</textarea></div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-select&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -170,11 +168,12 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">textarea</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-textarea&quot;</span><span class="cm-tagcm-bracket">&gt;</span>这是一段文字。<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">textarea</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">尺寸扩展</h4>
-<div class="m-example">
-<input class="u-input u-input-sm" value="Small">
+<div class="m-example"><input class="u-input u-input-sm" value="Small">
 <input class="u-input" value="Normal">
 <input class="u-input u-input-lg" value="Large">
+
 <p></p>
+
 <select class="u-select u-select-sm">
     <option>Small</option>
     <option>选项1</option>
@@ -192,12 +191,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <option>选项1</option>
     <option>选项2</option>
     <option>选项3</option>
-</select>
-</div>
+</select></div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-sm&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Small&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Normal&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-lg&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Large&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
 
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-select u-select-sm&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>Small<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -219,15 +219,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">宽度扩展</h4>
-<div class="m-example">
-<input class="u-input u-input-xsw" value="Extra Small Width">
-<p></p>
+<div class="m-example"><input class="u-input u-input-xsw" value="Extra Small Width">
 <input class="u-input u-input-smw" value="Small Width">
-<p></p>
 <input class="u-input" value="Normal Width">
-<p></p>
 <input class="u-input u-input-lgw" value="Large Width">
-<p></p>
 <input class="u-input u-input-xlw" value="Extra Large Width">
 </div>
 
@@ -238,27 +233,23 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-xlw&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Extra Large Width&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">颜色扩展</h4>
-<div class="m-example">
-<input class="u-input u-input-success" value="Success" placeholder="请输入">
+<div class="m-example"><input class="u-input u-input-success" value="Success" placeholder="请输入">
 <input class="u-input u-input-warning" value="Warning" placeholder="请输入">
-<input class="u-input u-input-error" value="Error" placeholder="请输入">
-</div>
+<input class="u-input u-input-error" value="Error" placeholder="请输入"></div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-success&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Success&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-warning&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Warning&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-error&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Error&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">禁用</h4>
-<div class="m-example">
-<input class="u-input" value="Disabled" disabled>
+<div class="m-example"><input class="u-input" value="Disabled" disabled>
 <select class="u-select" disabled>
     <option>Disabled</option>
     <option>选项1</option>
     <option>选项2</option>
     <option>选项3</option>
 </select>
-<textarea class="u-textarea" disabled>Disabled</textarea>
-</div>
+<textarea class="u-textarea" disabled>Disabled</textarea></div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Disabled&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-select&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
@@ -271,16 +262,14 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </code></pre>
 <h4 id="-">白板</h4>
 <p>添加<code>.u-*-blank</code>类可以使表单控件的样式特别简化。</p>
-<div class="m-example">
-<input class="u-input u-input-blank" value="Blank">
+<div class="m-example"><input class="u-input u-input-blank" value="Blank">
 <select class="u-select u-select-blank">
     <option>Blank</option>
     <option>选项1</option>
     <option>选项2</option>
     <option>选项3</option>
 </select>
-<textarea class="u-textarea u-textarea-blank">Blank</textarea>
-</div>
+<textarea class="u-textarea u-textarea-blank">Blank</textarea></div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-blank&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Blank&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-select u-select-blank&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -294,15 +283,13 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <h4 id="-">表单项</h4>
 <p>Regular UI中将表单名称、表单控件和表单提示封装为一个表单项<code>.u-formitem</code>。</p>
 <p>表单项在表单中很常见，请参见<a href="../cssmodule/form.html">Form</a>。</p>
-<div class="m-example">
-<div class="u-formitem">
+<div class="m-example"><div class="u-formitem">
     <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
     <span class="formitem_ct">
         <input class="u-input" placeholder="请输入">
         <span class="u-tip">4~12个字符，包括字母、数字、下划线</span>
     </span>
-</div>
-</div>
+</div></div>
 
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-formitem&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>用户名<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_rqr&quot;</span><span class="cm-tagcm-bracket">&gt;</span>*<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>：<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -316,8 +303,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 #### 表单组
 
-<div class="m-example">
-<div class="u-formgroup">
+<div class="m-example"><div class="u-formgroup">
     <div class="u-formitem">
         <label class="formitem_tt">姓名<span class="formitem_rqr">*</span>：</label>
         <span class="formitem_ct"><input class="u-input u-input-smw"></span>
@@ -330,8 +316,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <label class="formitem_tt">学号：</label>
         <span class="formitem_ct"><input class="u-input u-input-smw"></span>
     </div>
-</div>
-</div>
+</div></div>
 
 ```html
 <div class="u-formgroup">
