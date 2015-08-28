@@ -5,51 +5,52 @@
  * ------------------------------------------------------------
  */
 
-var Suggest = require('./suggest.js');
+var Component = require('../base/component.js');
+var template = require('./timePicker.html');
 var _ = require('../base/util.js');
+var NumberInput = require('./numberInput.js');
 
 /**
  * @class TimePicker
- * @extend Suggest
+ * @extend Component
  * @param {object}                  options.data                    绑定属性
- * @param {string=''}               options.data.value              文本框中的值
- * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+ * @param {string='00:00'}          options.data.time               当前的时间值
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
-var TimePicker = Suggest.extend({
+var TimePicker = Component.extend({
     name: 'timePicker',
+    template: template,
     /**
      * @protected
      */
     config: function() {
-        var source = [];
-        for(var i = 0; i < 10; i++) {
-            source.push({name: '0' + i + ':00'});
-            source.push({name: '0' + i + ':30'});
-        }
-        for(var i = 10; i < 24; i++) {
-            source.push({name: i + ':00'});
-            source.push({name: i + ':30'});
-        }
-
         _.extend(this.data, {
-            source: source,
-            // @inherited open: false,
-            // @inherited selected: null,
-            // @inherited value: '',
-            // @inherited placeholder: '请输入',
-            // @inherited minLength: 0,
-            // @inherited delay: 300,
-            matchType: 'start'
-            // @inherited strict: false
+            time: '00:00',
+            hour: 0,
+            minute: 0
         });
         this.supr();
-    },
-    filter: function(item) {
-        return true;
+
+        this.$watch('time', function(newValue, oldValue) {
+            if(newValue && newValue != oldValue) {
+                time = newValue.split(':');
+                this.data.hour = +time[0];
+                this.data.minute = +time[1];
+
+                this.$emit('change', {
+                    time: newValue
+                })
+            }
+        });
+
+        this.$watch(['hour', 'minute'], function(hour, minute) {
+            hour = '' + hour;
+            minute = '' + minute;
+            this.data.time = (hour.length > 1 ? hour : '0' + hour) + ':' + (minute.length > 1 ? minute : '0' + minute);
+        });
     }
 });
 

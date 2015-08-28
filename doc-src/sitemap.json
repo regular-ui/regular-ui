@@ -33,7 +33,7 @@
             "lowerName": "cssModule",
             "cnName": "CSS模块",
             "children": [
-                {"name": "Nav", "lowerName": "nav", "cnName": "导航", "group": "导航类", "completed": false},
+                {"name": "Navbar", "lowerName": "navbar", "cnName": "导航栏", "group": "导航类", "completed": true},
                 {"name": "Sidebar", "lowerName": "sidebar", "cnName": "侧边栏", "group": "导航类", "completed": true},
                 {"name": "Toolbar", "lowerName": "toolbar", "cnName": "工具栏", "group": "导航类", "completed": true},
                 {"name": "Crumb", "lowerName": "crumb", "cnName": "面包屑", "group": "导航类", "completed": true},
@@ -71,8 +71,8 @@
                 {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "表单类", "completed": true},
 
                 {"name": "DatePicker", "lowerName": "datePicker", "cnName": "日期选择", "group": "日期类", "completed": true},
-                {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类", "completed": false},
-                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类", "completed": false},
+                {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类", "completed": true},
+                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类", "completed": true},
 
                 {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "其他", "hidden": true},
                 {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "其他", "completed": true},
@@ -86,7 +86,7 @@
                 {"name": "Tab", "lowerName": "tab", "cnName": "选项卡", "group": "导航类", "completed": true},
                 {"name": "Accordion", "lowerName": "accordion", "cnName": "手风琴", "group": "导航类", "completed": true},
                 {"name": "Pager", "lowerName": "pager", "cnName": "分页器", "group": "导航类", "completed": true},
-                {"name": "Menubar", "lowerName": "menubar", "cnName": "菜单", "group": "导航类"},
+                {"name": "Menubar", "lowerName": "menubar", "cnName": "菜单", "group": "导航类", "hidden": true},
 
                 {"name": "Notify", "lowerName": "notify", "cnName": "通知", "group": "窗口类", "completed": true},
                 {"name": "Modal", "lowerName": "modal", "cnName": "模态对话框", "group": "窗口类", "completed": true},
@@ -106,8 +106,8 @@
                 {"name": "ImageUploader", "lowerName": "imageUploader", "cnName": "图片上传", "group": "上传类", "hidden": true, "new": true},
 
                 {"name": "Editor", "lowerName": "editor", "cnName": "编辑器", "group": "编辑器类", "hidden": true},
-                {"name": "HTMLEditor", "lowerName": "htmlEditor", "cnName": "HTML编辑器", "group": "编辑器类", "completed": false},
-                {"name": "MarkEditor", "lowerName": "markEditor", "cnName": "Markdown编辑器", "group": "编辑器类", "completed": false},
+                {"name": "HTMLEditor", "lowerName": "htmlEditor", "cnName": "HTML编辑器", "group": "编辑器类", "completed": true},
+                {"name": "MarkEditor", "lowerName": "markEditor", "cnName": "Markdown编辑器", "group": "编辑器类", "completed": true},
                 {"name": "RichEditor", "lowerName": "richEditor", "cnName": "富文本编辑器", "group": "编辑器类", "hidden": true, "new": true},
 
                 {"name": "AudioPlayer", "lowerName": "audioPlayer", "cnName": "音频播放器", "group": "播放器类", "hidden": true, "new": true},

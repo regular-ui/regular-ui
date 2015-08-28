@@ -25,3 +25,11 @@
         > a {}
     }
 }
+
+.m-toolbar.z-dis {
+    > li {
+        > a {
+            cursor: not-allowed;
+        }
+    }
+}

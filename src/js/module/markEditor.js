@@ -17,11 +17,11 @@ var marked = require('marked');
  * @class MarkEditor
  * @extend Component
  * @param {object}                  options.data                    绑定属性 | Binding Properties
- * @param {string='提示'}           options.data.title              对话框标题 | Title of Dialog
- * @param {function}                options.cancel                  当点击取消的时候执行
+ * @param {string=''}               options.data.content            编辑器内容
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
+ * @param {string=''}               options.data.class              补充class
  */
 var MarkEditor = Component.extend({
     name: 'markEditor',
@@ -41,6 +41,9 @@ var MarkEditor = Component.extend({
         }
     },
     bold: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         var rangeData = this.getCursorPosition();
         rangeData.text = '**' + rangeData.text + '**';
         this.setCursorPosition(rangeData);
@@ -48,6 +51,9 @@ var MarkEditor = Component.extend({
         this.$update();
     },
     italic: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         var rangeData = this.getCursorPosition();
         rangeData.text = '*' + rangeData.text + '*';
         this.setCursorPosition(rangeData);
@@ -55,11 +61,16 @@ var MarkEditor = Component.extend({
         this.$update();
     },
     quote: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         var rangeData = this.getCursorPosition();
         var value = this.$refs.textarea.value;
-        for(var i = rangeData.start; i > 0; i--)
-            if(value[i] == '\n')
+        for(var i = rangeData.start - 1; i > 0; i--)
+            if(value[i] == '\n') {
+                i++;
                 break;
+            }
         rangeData.start = i;
         rangeData.text = '> ';
         rangeData.end = rangeData.start;
@@ -68,11 +79,16 @@ var MarkEditor = Component.extend({
         this.$update();
     },
     ul: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         var rangeData = this.getCursorPosition();
         var value = this.$refs.textarea.value;
-        for(var i = rangeData.start; i > 0; i--)
-            if(value[i] == '\n')
+        for(var i = rangeData.start - 1; i > 0; i--)
+            if(value[i] == '\n') {
+                i++;
                 break;
+            }
         rangeData.start = i;
         rangeData.text = '- ';
         rangeData.end = rangeData.start;
@@ -81,11 +97,16 @@ var MarkEditor = Component.extend({
         this.$update();
     },
     ol: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         var rangeData = this.getCursorPosition();
         var value = this.$refs.textarea.value;
-        for(var i = rangeData.start; i > 0; i--)
-            if(value[i] == '\n')
+        for(var i = rangeData.start - 1; i > 0; i--)
+            if(value[i] == '\n') {
+                i++;
                 break;
+            }
         rangeData.start = i;
         rangeData.text = '1. ';
         rangeData.end = rangeData.start;
@@ -94,16 +115,25 @@ var MarkEditor = Component.extend({
         this.$update();
     },
     link: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         var rangeData = this.getCursorPosition();
-        rangeData.text = '[链接](http://)';
+        rangeData.text = '[' + rangeData.text + '](http://)';
         this.setCursorPosition(rangeData);
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
     image: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         this.$refs.uploader.upload();
     },
     latex: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+        
         var rangeData = this.getCursorPosition();
         rangeData.text = '$$a^2 + b^2 = c^2$$';
         this.setCursorPosition(rangeData);
@@ -112,7 +142,7 @@ var MarkEditor = Component.extend({
     },
     uploaderSuccess: function(data) {
         var rangeData = this.getCursorPosition();
-        rangeData.text = '\n![](~/' + data.result + ')';
+        rangeData.text = '\n![](' + data.result + ')';
         this.setCursorPosition(rangeData);
         this.data.content = this.$refs.textarea.value;
         this.$update();
@@ -123,10 +153,11 @@ var MarkEditor = Component.extend({
     getCursorPosition: function() {
         var textarea = this.$refs.textarea;
 
-        var rangeData = {text: '', start: 0, end: 0 };
-            textarea.focus();
+        var rangeData = {text: '', start: 0, end: 0};
+        textarea.focus();
+
         if (textarea.setSelectionRange) { // W3C
-            rangeData.start= textarea.selectionStart;
+            rangeData.start = textarea.selectionStart;
             rangeData.end = textarea.selectionEnd;
             rangeData.text = (rangeData.start != rangeData.end) ? textarea.value.substring(rangeData.start, rangeData.end): '';
         } else if (document.selection) { // IE
@@ -141,10 +172,10 @@ var MarkEditor = Component.extend({
 
             // object.moveStart(sUnit [, iCount])
             // Return Value: Integer that returns the number of units moved.
-            for (i = 0; oR.compareEndPoints('StartToStart', oS) < 0 && oS.moveStart('character', -1) !== 0; i ++) {
+            for (i = 0; oR.compareEndPoints('StartToStart', oS) < 0 && oS.moveStart('character', -1) !== 0; i++) {
                 // Why? You can alert(textarea.value.length)
                 if (textarea.value.charAt(i) == '\n') {
-                    i ++;
+                    i++;
                 }
             }
             rangeData.start = i;
@@ -154,9 +185,9 @@ var MarkEditor = Component.extend({
         return rangeData;
     },
     setCursorPosition: function(rangeData) {
-        if(!rangeData) {
-            alert("You must get cursor position first.")
-        }
+        if(!rangeData)
+            throw new Error('You must get cursor position first!');
+
         var textarea = this.$refs.textarea;
 
         var oldValue = textarea.value;

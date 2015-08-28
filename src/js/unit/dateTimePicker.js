@@ -8,6 +8,7 @@
 var DatePicker = require('./datePicker.js');
 var template = require('./dateTimePicker.html');
 var _ = require('../base/util.js');
+var TimePicker = require('./timePicker.js');
 
 var filter = require('../base/filter.js');
 
@@ -25,79 +26,44 @@ var filter = require('../base/filter.js');
 var DateTimePicker = DatePicker.extend({
     name: 'dateTimePicker',
     template: template,
-    config: function() {
-        var source = [];
-        for(var i = 0; i < 10; i++) {
-            source.push({name: '0' + i + ':00'});
-            source.push({name: '0' + i + ':30'});
-        }
-        for(var i = 10; i < 24; i++) {
-            source.push({name: i + ':00'});
-            source.push({name: i + ':30'});
-        }
-        
+    config: function() {   
         _.extend(this.data, {
-            source: source,
             // @inherited source: [],
             // @inherited open: false,
             // @inherited placeholder: '请输入',
-            selectedDate: new Date(),
-            selectedTime: ''
+            date: null,
+            _date: undefined,
+            _time: '00:00'
         });
         this.supr();
 
-        // this.$watch('selected', function(newValue, oldValue) {
-        //     newValue = newValue || new Date();
-        //     this.$refs.calendar.data.selected = newValue;
+        this.$watch('date', function(newValue, oldValue) {
+            if(newValue && newValue != 'Invalid Date' && newValue - oldValue !== 0) {
+                this.data._date = new Date(newValue);
+                this.data._time = filter.format(newValue, 'HH:mm');
+            }
+        });
 
-        //     var time =  filter.format(newValue, newValue.getMinutes()%30 === 0 ? 'HH:mm' : 'HH:00');
-        //     for(var i = 0; i < this.data.source.length; i++) {
-        //         var item = this.data.source[i];   
-        //         if(time === item.name) {
-        //             this.data.selectedTime = item;
-        //             break;
-        //         }
-        //     }
-        // });
-
-        this.$watch(['selectedDate', 'selectedTime'], function(selectedDate, selectedTime) {
-            if(selectedDate && selectedTime) {
-                var date = new Date(this.data.selectedDate);
-                var time = this.data.selectedTime.split(':');
-
+        this.$watch(['_date', '_time'], function(_date, _time) {
+            if(_date && _time) {
+                var date = new Date(this.data._date);
+                var time = this.data._time.split(':');
                 date.setHours(time[0]);
                 date.setMinutes(time[1]);
                 date.setSeconds(0);
                 date.setMilliseconds(0);
-                
                 this.data.date = date;
-            } else
-                this.data.date = null;
+            }
         });
     },
-    select: function(item) {
-        /**
-         * @event select 选择某一项时触发
-         * @property {object} date 当前选择项
-         */
-        // this.$emit('select', {
-        //     date: item
-        // });
-
-        if(!(item instanceof Date))
-            this.data.selectedTime = item.name;
-
-        if(!(item instanceof Date) || this.data.selectedTime)
-            this.toggle(false);
-    },
-    change: function($event) {
-        var value = $event.target.value;
-        var date = new Date(value);
+    input: function($event) {
+        var date = new Date($event.target.value);
         if(date != 'Invalid Date') {
-            // this.data.date = date;
-            this.data.selectedDate = date;
-            this.data.selectedTime = value.split(' ')[1];
-        }
+            date.setSeconds(0);
+            date.setMilliseconds(0);
+            this.data.date = date;
+        } else
+            $event.target.value = filter.format(this.data.date, 'yyyy-MM-dd HH:mm');
     }
 });
 

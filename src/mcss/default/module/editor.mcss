@@ -40,3 +40,10 @@
         }
     }
 }
+
+.m-editor.z-dis {
+    .editor_textarea {
+        background: $formctrl-disabled_background;
+        color: $formctrl-disabled_color;
+    }
+}

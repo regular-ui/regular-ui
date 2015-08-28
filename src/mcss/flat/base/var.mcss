@@ -116,3 +116,12 @@ $formctrl-disabled_color = mix($gray, white, 40%);
 $formctrl-disabled_border = mix($gray, white, 40%);
 
 $formctrl_placeholder_color = s-adjust(l-adjust($brand-secondary, 45%), -15%);
+
+$formctrl_item_padding = 0 10px;
+$formctrl_item-hover_background = #eee;
+$formctrl_item-hover_color = $brand-secondary;
+$formctrl_item-hover_border = null;
+
+$formctrl_item-selected_background = $brand-primary;
+$formctrl_item-selected_color = white;
+$formctrl_item-selected_border = null;

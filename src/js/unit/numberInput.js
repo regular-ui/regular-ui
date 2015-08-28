@@ -44,18 +44,32 @@ var NumberInput = Input2.extend({
                 this.data.value = this.data.max;
             if(this.data.min !== null && this.data.value < this.data.min)
                 this.data.value = this.data.min;
+
+            if(newValue != oldValue)
+                this.$emit('change', {
+                    value: newValue
+                });
         });
     },
     increase: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         this.data.value++;
     },
     decrease: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         this.data.value--;
     }
 }).filter({
     number: {
         get: function(value) {
-            return '' + (value || 0);
+            value = '' + (value || 0);
+            if(this.data.format)
+                return this.data.format.replace(new RegExp('\\d{0,' + value.length + '}$'), value);
+            return value;
         },
         set: function(value) {
             return +value || 0;

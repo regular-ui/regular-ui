@@ -11,8 +11,6 @@
 .u-dropdown {
     display: inline-block;
     position: relative;
-    // - 防止select2在文字为空时飘起来
-    vertical-align: bottom;
     
     .dropdown_bd {
         position: absolute;

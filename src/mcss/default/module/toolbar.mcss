@@ -40,3 +40,12 @@
         line-height: 1;
     }
 }
+
+.m-toolbar.z-dis {
+    > li {
+        > a {
+            background: transparent;
+            color: #999;
+        }
+    }
+}

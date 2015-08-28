@@ -3,29 +3,27 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-@import "../../core/module/nav.mcss";
+@import "../../core/module/navbar.mcss";
 
-// Component:       `m-nav`
+// Component:       `m-navbar`
 // ========================================================================
 
-.m-nav {
-    font-size: 16px;
-    background: #ecf0f1; //saturate(spin(tint($brand-secondary, 91%), -18), 2%);
+.m-navbar {
+    background: #f8f8f8;
     color: l-adjust(#f8f8f8, -6.5%);
-    $border-radius: $border-radius-lg;
 
     > li {
         > a, > span {
-            padding: 0 21px;
-            // min-width: 100px;
-            $line-height: 53px;
-            color: $brand-secondary;
+            // padding: 10px 0;
+            min-width: 100px;
+            $line-height: 50px;
+            color: #777;
             // $transition: background 0.3s;
         }
     }
 
     > li:hover > a {
-        color: $brand-primary;
+        color: #333;
     }
 
     // > li:active > a {
@@ -33,6 +31,7 @@
     // }
 
     > li.z-crt > a {
-        color: $brand-primary;
+        background: l-adjust(#f8f8f8, -6.5%);
+        color: #555;
     }
 }

@@ -6,3 +6,11 @@
 ```xml
 <markEditor />
 ```
+
+#### 禁用组件
+
+<div class="m-example"></div>
+
+```xml
+<markEditor disabled={true} />
+```

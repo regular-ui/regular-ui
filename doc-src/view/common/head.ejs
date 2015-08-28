@@ -40,7 +40,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h1 class="m-logo">
             <a href="/">Regular UI</a>
         </h1>
-        <ul class="m-nav f-fr">
+        <ul class="m-navbar f-fr">
             <% mainnavs.forEach(function(item) { %>
             <% if(item.hidden) return; %>
             <li<% if(mainnav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.cnName %></a></li>

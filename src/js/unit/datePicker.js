@@ -57,7 +57,7 @@ var DatePicker = Dropdown.extend({
         });
         this.toggle(false);
     },
-    change: function($event) {
+    input: function($event) {
         var date = new Date($event.target.value);
         if(date != 'Invalid Date')
             this.data.date = date;

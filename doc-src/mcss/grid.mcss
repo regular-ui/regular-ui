@@ -1,7 +1,7 @@
 // Grid
 .g-top {
-    height: $m-nav_height;
-    background: $m-nav_background-color;
+    height: $m-navbar_height;
+    background: $m-navbar_background-color;
 }
 
 .g-topc {
@@ -46,5 +46,5 @@
 .g-ft {
     clear: both;
     height: 200px;
-    background: $m-nav_background-color;
+    background: $m-navbar_background-color;
 }

@@ -40,7 +40,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h1 class="m-logo">
             <a href="/">Regular UI</a>
         </h1>
-        <ul class="m-nav f-fr">
+        <ul class="m-navbar f-fr">
             
             
             <li><a href="../start/index.html">开始使用</a></li>
@@ -92,11 +92,6 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         </a></li>
         
-        
-        
-        <li><a href="../jsmodule/menubar.html">菜单<small> Menubar</small>
-        
-        </a></li>
         
         
         
@@ -159,7 +154,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../jsmodule/htmleditor.html">HTML编辑器<small> HTMLEditor</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -167,7 +162,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsmodule/markeditor.html">Markdown编辑器<small> MarkEditor</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -185,6 +180,11 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">htmlEditor</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">禁用组件</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">htmlEditor</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -206,15 +206,15 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性 | Binding Properties</td></tr>
             
-            <tr><td class="f-wsn"><code>data.title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题 | Title of Dialog</td></tr>
-            
-            <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击取消的时候执行</td></tr>
+            <tr><td class="f-wsn"><code>data.content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>编辑器内容</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
             
             <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
             
             <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
             
         
     </tbody>
@@ -314,6 +314,15 @@ var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <htmlEditor />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<htmlEditor disabled={true} />
     */})
 var component = new RGUI.Component({
     template: template,

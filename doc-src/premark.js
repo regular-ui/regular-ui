@@ -1,9 +1,9 @@
-function parse(content) {
-    var rule = {
-        example: /<div class="m-example"><\/div>([\s\S]+?)(?:##|$)/g,
-        pre: /```(.+?)\n([\s\S]+?)\n```/g
-    }
+var rule = {
+    example: /<div class="m-example"><\/div>([\s\S]+?)(?:##|$)/g,
+    pre: /```(.+?)\n([\s\S]+?)\n```/g
+}
 
+function parse(content) {
     var examples = [];
     var cap, cap2;
     while(cap = rule.example.exec(content)) {
@@ -18,14 +18,16 @@ function parse(content) {
     return examples;
 }
 
-function render(content) {
+function buildScript(content) {
+    var examples = parse(content);
+
     var strings = [
 'var index = 0;'
     ];
-
-    var examples = parse(content);
-
     examples.forEach(function(example) {
+        if(!example.xml)
+            return;
+
         strings.push('(function(index) {');
         strings.push('    var template = RGUI._.multiline(function(){/*');
         strings.push(         example.xml);
@@ -44,4 +46,14 @@ function render(content) {
     return strings.join('\n');
 }
 
-exports.render = render;
+function placeHTML(content) {
+    var examples = parse(content);
+    var i = 0;
+
+    return content.replace(/<div class="m-example"><\/div>/g, function() {
+        return '<div class="m-example">' + examples[i++].html + '</div>';
+    });
+}
+
+exports.buildScript = buildScript;
+exports.placeHTML = placeHTML;

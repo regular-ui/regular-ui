@@ -30,7 +30,7 @@ markextend.setOptions({
 });
 
 // var sitemap = require('./sitemap.json');
-var markscript = require('./markscript.js');
+var premark = require('./premark.js');
 var jsdoc = require('./jsdoc.js');
 var cssdoc = require('./cssdoc.js');
 
@@ -85,24 +85,24 @@ function build(path, sitemap, template) {
     // 根据./view目录下的markdown文件生成文档
     var md = __dirname + '/view/' + path + '.md';
     if(fs.existsSync(md)) {
-        var mdContent = fs.readFileSync(md) + '';
-        data.article = markextend(mdContent);
+        var markdown = fs.readFileSync(md) + '';
 
-        // 将./view目录下的js脚本添加到HTML中用于生成示例
-        if(level[0] === 'jsUnit' || level[0] === 'jsModule') {
-            data.script = markscript.render(mdContent);
+        if(level[0].slice(0, 2) === 'js') {
+            // 根据markdown文件中的示例代码直接生成js脚本
+            data.script = premark.buildScript(markdown);
+        } else {
+            // 根据markdown文件中的示例代码直接生成html
+            markdown = premark.placeHTML(markdown);
         }
+
+        data.article = markextend(markdown);
     }
 
     // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API
-    if(level[0] === 'jsUnit') {
-        var jsUnit = __dirname + '/../src/js/unit/' + level[1] + '.js';
-        if(fs.existsSync(jsUnit))
-            data.api = jsdoc.render(jsUnit, template.jsApi);
-    } else if(level[0] === 'jsModule') {
-        var jsModule = __dirname + '/../src/js/module/' + level[1] + '.js';
-        if(fs.existsSync(jsModule))
-            data.api = jsdoc.render(jsModule, template.jsApi);
+    if(level[0].slice(0, 2) === 'js') {
+        var jsFile = __dirname + '/../src/js/' + level[0].slice(2, 20).toLowerCase() + '/' + level[1] + '.js';
+        if(fs.existsSync(jsFile))
+            data.api = jsdoc.render(jsFile, template.jsApi);
     }
 
     // 渲染HTML文件

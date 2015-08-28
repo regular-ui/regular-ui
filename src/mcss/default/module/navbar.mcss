@@ -3,12 +3,12 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-@import "../../core/module/nav.mcss";
+@import "../../core/module/navbar.mcss";
 
-// Component:       `m-nav`
+// Component:       `m-navbar`
 // ========================================================================
 
-.m-nav {
+.m-navbar {
     background: mix($brand-primary, black, 30%); // #eee
     color: white; // #444
 

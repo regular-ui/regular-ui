@@ -8,7 +8,11 @@
 // Extends:
 // ========================================================================
 
-.u-dropdown-datetimepicker {}
+.u-dropdown-datetimepicker {
+    .u-timepicker {
+        margin: 4px 0;
+    }
+}
 
 /* Disabled */
 .u-dropdown-datetimepicker.z-dis {}

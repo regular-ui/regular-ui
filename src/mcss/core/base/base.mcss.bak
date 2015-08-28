@@ -1,8 +1,8 @@
 $main-color = #3498db;
 
-$m-nav_height = 50px;
-$m-nav_background-color = mix($main-color, black, 30%);
-$m-nav-hover_background-color = mix($m-nav_background-color, white, 85%);
+$m-navbar_height = 50px;
+$m-navbar_background-color = mix($main-color, black, 30%);
+$m-navbar-hover_background-color = mix($m-navbar_background-color, white, 85%);
 
 
 /* ======== Reset ======== */
@@ -27,30 +27,30 @@ ul {padding-left: 2em; margin: .5em 0;}
 
 
 /* ======== Layout ======== */
-.g-top {height: $m-nav_height; background: $m-nav_background-color;}
+.g-top {height: $m-navbar_height; background: $m-navbar_background-color;}
 .g-topc {width: 960px; margin: 0 auto;}
 .g-hd {height: 200px; background: #f4f4f4;}
 .g-hdc {width: 960px; margin: 0 auto;}
 .g-bdc {width: 960px; margin: 0 auto;}
 .g-sd {width: 249px; float: left; min-height: 400px; margin: 20px 0; border-right: 1px solid #eee;}
 .g-mn {width: 960px - 250px; float: right;}
-.g-ft {clear: both; height: 200px; background: $m-nav_background-color;}
+.g-ft {clear: both; height: 200px; background: $m-navbar_background-color;}
 
 /* ======== Module ======== */
 /* m-logo */
 .m-logo {float: left; margin: 0; display: none;}
 // .m-logo a {display: block; text-indent: -2000px; overflow: hidden; width: 200px; height: 36px; background: url(../img/logo-horizontal-long-light.svg) no-repeat; background-size: auto 36px;}
 
-/* m-nav */
-.m-nav {float: right;}
-.m-nav ul {list-style: none; margin: 0; padding: 0; background: $m-nav_background-color;}
-.m-nav li>a {display: block; height: $m-nav_height; line-height: $m-nav_height; text-align: center; color: white; font-size: 14px; transition: background 0.3s;}
-.m-nav li:hover>a {background: $m-nav-hover_background-color; text-decoration: none;}
-.m-nav li.z-crt>a {background: $main-color;}
-.m-nav>ul>li {position: relative; float: left; width: 100px;}
-.m-nav>ul>li>ul {display: none; position: absolute; z-index: 1; width: 120px;}
-.m-nav>ul>li>ul>li>a {height: 40px; line-height: 40px;}
-.m-nav>ul>li:hover>ul {display: block;}
+/* m-navbar */
+.m-navbar {float: right;}
+.m-navbar ul {list-style: none; margin: 0; padding: 0; background: $m-navbar_background-color;}
+.m-navbar li>a {display: block; height: $m-navbar_height; line-height: $m-navbar_height; text-align: center; color: white; font-size: 14px; transition: background 0.3s;}
+.m-navbar li:hover>a {background: $m-navbar-hover_background-color; text-decoration: none;}
+.m-navbar li.z-crt>a {background: $main-color;}
+.m-navbar>ul>li {position: relative; float: left; width: 100px;}
+.m-navbar>ul>li>ul {display: none; position: absolute; z-index: 1; width: 120px;}
+.m-navbar>ul>li>ul>li>a {height: 40px; line-height: 40px;}
+.m-navbar>ul>li:hover>ul {display: block;}
 
 
 
@@ -128,7 +128,7 @@ ul {padding-left: 2em; margin: .5em 0;}
 @media screen and (max-width: 639px) {
 	.m-logo {float: none; width: 200px; padding-left: 36px; margin: 0 auto;}
 
-	.m-nav {display: none;}
+	.m-navbar {display: none;}
 	.m-article {margin: 10px;}
 	.m-article .content {padding: 20px;}
 

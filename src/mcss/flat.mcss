@@ -9,7 +9,7 @@
 // ========================================================================
 
 $theme_name = "flat";
-@import "http://nec.netease.com/download/framework/mass/mass/index.mcss";
+@import "mass/mass/index.mcss";
 $reset-normalize();
 
 @import "core/base/function.mcss";
@@ -44,7 +44,7 @@ $reset-normalize();
 // ========================================================================
 
 /* 导航类 */
-@import "default/module/nav.mcss";
+@import "default/module/navbar.mcss";
 @import "bootstrap/module/crumb.mcss";
 @import "default/module/sidebar.mcss";
 @import "default/module/toolbar.mcss";
@@ -79,6 +79,8 @@ $reset-normalize();
 @import "core/unit/uploader.mcss";
 
 /* 日期类 */
+@import "flat/unit/timePicker.mcss";
+@import "flat/unit/datePicker.mcss";
 @import "default/unit/dateTimePicker.mcss";
 
 /* 其他 */
@@ -109,7 +111,7 @@ $reset-normalize();
 //
 
 /* 日期类 */
-@import "default/module/calendar.mcss";
+@import "flat/module/calendar.mcss";
 
 /* 编辑器类 */
 @import "default/module/editor.mcss";

@@ -5,10 +5,10 @@
 
 
 
-// Component:       `m-nav`
+// Component:       `m-navbar`
 // ========================================================================
 
-.m-nav {
+.m-navbar {
     @extend .f-lsn;
     @extend .f-lsi;
 

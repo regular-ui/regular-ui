@@ -40,7 +40,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         <h1 class="m-logo">
             <a href="/">Regular UI</a>
         </h1>
-        <ul class="m-nav f-fr">
+        <ul class="m-navbar f-fr">
             
             
             <li><a href="../start/index.html">开始使用</a></li>
@@ -176,7 +176,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li class="z-crt"><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -184,7 +184,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
         
         <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
         
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
         </a></li>
         
@@ -229,7 +229,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 
 <h4>Class</h4>
 <h5>TimePicker</h5>
-<p>继承自<strong>Suggest</strong>。</p>
+<p>继承自<strong>Component</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -244,9 +244,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>文本框中的值</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请输入&#39;</code></td><td>文本框默认文字</td></tr>
+            <tr><td class="f-wsn"><code>data.time</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;00:00&#39;</code></td><td>当前的时间值</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
             
@@ -268,134 +266,10 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <div id="j-staticMethods"></div>
 
 
-<h4>Inherited Methods</h4>
-
-<h5>timePicker.select(item)</h5>
-<p>选择某一项</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>timePicker.toggle(open)</h5>
-<p>在展开状态和收起状态之间切换</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开还是收起</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>timePicker.select(item)</h5>
-<p>选择某一项</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>timePicker.toggle(open)</h5>
-<p>在展开/收起状态之间切换</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>timePicker.$updateSource()</h5>
-<p>从service中更新数据源</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            <tr><td class="f-tac" colspan="4">无参数</td></tr>
-        
-    </tbody>
-</table>
-
-
 <div id="j-inheritedMethods"></div>
 
 
 <div id="j-events"></div>
-
-
-<h4>Inherited Events</h4>
-
-<h5>timePicker.$on('select')</h5>
-<p>选择某一项时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>timePicker.$on('toggle')</h5>
-<p>展开或收起状态改变时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>timePicker.$on('select')</h5>
-<p>选择某一项时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
-            
-        
-    </tbody>
-</table>
 
 
 <div id="j-inheritedEvents"></div>

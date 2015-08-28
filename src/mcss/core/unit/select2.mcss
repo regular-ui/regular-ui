@@ -10,7 +10,9 @@
 
 .u-dropdown-select2 {
     $user-select: none;
-
+    // - 防止select2在文字为空时飘起来
+    vertical-align: bottom;
+    
     .dropdown_hd {
         $box-sizing: border-box;
         cursor: pointer;

@@ -187,10 +187,10 @@
 }
 
 
-$m-nav_height = 50px;
-$m-nav_background-color = mix($brand-primary, black, 30%);
-$m-nav-hover_background-color = mix($m-nav_background-color, white, 85%);
-$m-nav-current_background-color = $brand-primary;
+$m-navbar_height = 50px;
+$m-navbar_background-color = mix($brand-primary, black, 30%);
+$m-navbar-hover_background-color = mix($m-navbar_background-color, white, 85%);
+$m-navbar-current_background-color = $brand-primary;
 
 // Extends:
 // ========================================================================
@@ -199,28 +199,28 @@ $m-nav-current_background-color = $brand-primary;
     min-width: 160px;
 
     .dropdown_hd {
-        $line-height: $m-nav_height;
+        $line-height: $m-navbar_height;
         padding: 0 10px;
 
-        background: $m-nav_background-color;
+        background: $m-navbar_background-color;
         color: white;
         border: none;
         $border-radius: 0;
     }
 
     .dropdown_hd:hover {
-        background: $m-nav-hover_background-color;
+        background: $m-navbar-hover_background-color;
     }
 
     .dropdown_bd {
-        top: $m-nav_height;
+        top: $m-navbar_height;
 
         &:before {
-            display: none;
+            border-color: transparent transparent $m-navbar_background-color transparent;
         }
 
         .m-listview {
-            background: $m-nav_background-color;
+            background: $m-navbar_background-color;
             color: white;
             border: none;
             $border-radius: 0;
@@ -234,7 +234,7 @@ $m-nav-current_background-color = $brand-primary;
             }
 
             > li:hover {
-                background: $m-nav-hover_background-color;
+                background: $m-navbar-hover_background-color;
                 color: white;
             }
 
@@ -250,6 +250,9 @@ $m-nav-current_background-color = $brand-primary;
     width: 192px;
     margin-left: 20px;
 
+    .u-dropdown-select2 {
+        vertical-align: baseline;
+    }
 
     .u-icon {
         font-size: inherit;
