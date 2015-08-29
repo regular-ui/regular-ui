@@ -228,7 +228,7 @@ var themeSelect = new RGUI.Select2({
     }
 }).$inject('#j-themeSelect')
   .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
 

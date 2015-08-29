@@ -5,7 +5,7 @@
 
 ```html
 <div class="m-comment">
-    <a class="comment_sd"><img src="../dataimg/placeholder-avatar.svg"></a>
+    <a class="comment_sd"><img src="../img/placeholder-avatar.svg"></a>
     <div class="comment_mn">
         <div class="comment_hd"><a>冷笑话：</a></div>
         <div class="comment_bd">

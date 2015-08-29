@@ -182,7 +182,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <label class="formitem_tt">验证码<span class="formitem_rqr"></em></span>：</label>
         <span class="formitem_ct">
             <input class="u-input">
-            <img src="../dataimg/verifyCode.jpg">
+            <img src="../img/verifyCode.jpg">
             <a>换一张</a>
         </span>
     </div>
@@ -214,7 +214,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>验证码<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_rqr&quot;</span><span class="cm-tagcm-bracket">&gt;</span>*<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>：<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_ct&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
             <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-            <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/verifyCode.jpg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+            <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/verifyCode.jpg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
             <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>换一张<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">span</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">div</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
@@ -380,7 +380,7 @@ var themeSelect = new RGUI.Select2({
     }
 }).$inject('#j-themeSelect')
   .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
 

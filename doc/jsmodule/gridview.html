@@ -185,11 +185,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">source</span>: [
-        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-javascript.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端Funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-android.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-cocos2dx.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;MySQL数据库&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-mysql.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;LAMP兄弟连&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">18089</span>},
-        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../dataimg/courceitem-arduino.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
+        {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;精通Javascript开发&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../img/courceitem-javascript.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;前端Funs&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">42371</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Android深入浅出&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../img/courceitem-android.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;Android学院&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">30645</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../img/courceitem-cocos2dx.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">4</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;MySQL数据库&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../img/courceitem-mysql.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;LAMP兄弟连&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">18089</span>},
+        {<span class="cm-property">id</span>: <span class="cm-number">5</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">img</span>: <span class="cm-string">&#39;../img/courceitem-arduino.jpg&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
     ];
 
     <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">itemTemplate</span> <span class="cm-operator">=</span> <span class="cm-variable">_</span>.<span class="cm-variable">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
@@ -295,7 +295,7 @@ var themeSelect = new RGUI.Select2({
     }
 }).$inject('#j-themeSelect')
   .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
 
@@ -359,11 +359,11 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-        {id: 3, name: '精通Javascript开发', img: '../dataimg/courceitem-javascript.jpg', org: '前端Funs', hits: 42371},
-        {id: 2, name: 'Android深入浅出', img: '../dataimg/courceitem-android.jpg', org: 'Android学院', hits: 30645},
-        {id: 1, name: 'cocos2dx游戏开发教程', img: '../dataimg/courceitem-cocos2dx.jpg', org: '鱼C课程', hits: 25112},
-        {id: 4, name: 'MySQL数据库', img: '../dataimg/courceitem-mysql.jpg', org: 'LAMP兄弟连', hits: 18089},
-        {id: 5, name: 'Arduino初级教程', img: '../dataimg/courceitem-arduino.jpg', org: '硬件社', hits: 16361}
+        {id: 3, name: '精通Javascript开发', img: '../img/courceitem-javascript.jpg', org: '前端Funs', hits: 42371},
+        {id: 2, name: 'Android深入浅出', img: '../img/courceitem-android.jpg', org: 'Android学院', hits: 30645},
+        {id: 1, name: 'cocos2dx游戏开发教程', img: '../img/courceitem-cocos2dx.jpg', org: '鱼C课程', hits: 25112},
+        {id: 4, name: 'MySQL数据库', img: '../img/courceitem-mysql.jpg', org: 'LAMP兄弟连', hits: 18089},
+        {id: 5, name: 'Arduino初级教程', img: '../img/courceitem-arduino.jpg', org: '硬件社', hits: 16361}
     ];
     
     this.data.itemTemplate = _.multiline(function(){/*

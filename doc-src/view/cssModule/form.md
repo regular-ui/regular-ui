@@ -24,7 +24,7 @@
         <label class="formitem_tt">验证码<span class="formitem_rqr">*</span>：</label>
         <span class="formitem_ct">
             <input class="u-input">
-            <img src="../dataimg/verifyCode.jpg">
+            <img src="../img/verifyCode.jpg">
             <a>换一张</a>
         </span>
     </div>

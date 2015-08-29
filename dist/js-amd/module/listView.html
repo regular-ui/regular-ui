@@ -1,5 +1,0 @@
-<ul class="m-listview {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible}>
-    {#list source as item}
-    <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>
-    {/list}
-</ul>

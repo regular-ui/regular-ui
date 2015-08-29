@@ -1,23 +1,13 @@
-var path = require('path');
 var gulp = require('gulp');
-var webpack = require('gulp-webpack');
-var umd = require('gulp-umd');
-var requireConvert = require('gulp-require-convert');
 
-var browserify = require('browserify');
-var html2string = require('browserify-html2string');
-var sequence = require('run-sequence');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var named = require('vinyl-named');
+var webpack = require('gulp-webpack');
+var rm = require('gulp-rimraf');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
-var sourcemaps = require('gulp-sourcemaps');
-var rm = require('gulp-rimraf');
-var del = require('del');
+var sequence = require('run-sequence');
+
 var mcss = require('../lib/gulp-mcss.js');
-var jshint = require('gulp-jshint');
 var buildAll = require('../doc-src/buildAll.js');
 
 /**
@@ -27,13 +17,33 @@ var buildAll = require('../doc-src/buildAll.js');
  */
 
 gulp.task('doc-clean', function(done) {
-    del('./doc', done);
+    return gulp.src('./doc', {read: false}).pipe(rm());
 });
 
 gulp.task('doc-copy', function(done) {
     return gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc'))
         && gulp.src('./src/font/*').pipe(gulp.dest('./doc/font'))
-        && gulp.src(['./dist/js/*', './dist/vendor/*']).pipe(gulp.dest('./doc/js'));
+        && gulp.src([
+            './node_modules/regularjs/dist/regular.min.js',
+            './node_modules/marked/marked.min.js'
+        ]).pipe(gulp.dest('doc/js'));
+});
+
+gulp.task('doc-js', function(done) {
+    return gulp.src('./src/js/index.js')
+        .pipe(webpack({
+            output: {
+                filename: 'regular-ui.min.js',
+                library: 'RGUI',
+                libraryTarget: 'umd'
+            },
+            externals: {
+                'regularjs': 'Regular',
+                'marked': 'marked'
+            }
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('doc/js'));
 });
 
 gulp.task('doc-css', function(done) {
@@ -58,5 +68,5 @@ gulp.task('doc-build', function(done) {
 });
 
 gulp.task('doc', function(done) {
-    sequence('doc-clean', ['doc-copy', 'doc-css', 'doc-build'], done);
+    sequence('doc-clean', ['doc-copy', 'doc-js', 'doc-css', 'doc-build'], done);
 });

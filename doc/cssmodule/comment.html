@@ -163,7 +163,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div class="m-example"><div class="m-comment">
-    <a class="comment_sd"><img src="../dataimg/placeholder-avatar.svg"></a>
+    <a class="comment_sd"><img src="../img/placeholder-avatar.svg"></a>
     <div class="comment_mn">
         <div class="comment_hd"><a>冷笑话：</a></div>
         <div class="comment_bd">
@@ -181,7 +181,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </div></div>
 
 <pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-comment&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;comment_sd&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-avatar.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">a</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;comment_sd&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/placeholder-avatar.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">a</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;comment_mn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;comment_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>冷笑话：<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;comment_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -221,7 +221,7 @@ var themeSelect = new RGUI.Select2({
     }
 }).$inject('#j-themeSelect')
   .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
 

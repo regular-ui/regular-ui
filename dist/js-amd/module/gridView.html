@@ -1,5 +1,0 @@
-<div class="m-gridview {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible}>
-    {#list source as item}
-    <div class="gridview_item" r-class={ {'z-sel': selected === item} }>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>
-    {/list}
-</div>

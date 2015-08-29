@@ -1,24 +1,14 @@
-var path = require('path');
 var gulp = require('gulp');
-var webpack = require('gulp-webpack');
-var umd = require('gulp-umd');
-var requireConvert = require('gulp-require-convert');
 
-var browserify = require('browserify');
-var html2string = require('browserify-html2string');
-var sequence = require('run-sequence');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var named = require('vinyl-named');
+var webpack = require('gulp-webpack');
+var requireConvert = require('gulp-require-convert');
+var rm = require('gulp-rimraf');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
-var sourcemaps = require('gulp-sourcemaps');
-var rm = require('gulp-rimraf');
-var del = require('del');
+var sequence = require('run-sequence');
+
 var mcss = require('../lib/gulp-mcss.js');
-var jshint = require('gulp-jshint');
-var buildAll = require('../doc-src/buildAll.js');
 
 /**
  * ------------------------------------------------------------
@@ -27,15 +17,22 @@ var buildAll = require('../doc-src/buildAll.js');
  */
 
 gulp.task('dist-clean', function(done) {
-    del('./dist', done);
+    return done();
+    return gulp.src([
+        '../regular-ui-bower/*',
+        '!../regular-ui-bower/bower.json',
+        '!../regular-ui-bower/README.md'
+    ], {read: false}).pipe(rm());
 });
 
 gulp.task('dist-copy', function(done) {
-    return gulp.src('./src/font/*').pipe(gulp.dest('./dist/font'))
+    return gulp.src('./src/font/**').pipe(gulp.dest('../regular-ui-bower/font'))
+        && gulp.src('./src/js/**').pipe(gulp.dest('../regular-ui-bower/js-common'))
+        && gulp.src('./src/mcss/**').pipe(gulp.dest('../regular-ui-bower/mcss'))
         && gulp.src([
             './node_modules/regularjs/dist/regular.min.js',
             './node_modules/marked/marked.min.js'
-        ]).pipe(gulp.dest('./dist/vendor'));
+        ]).pipe(gulp.dest('../regular-ui-bower/vendor'));
 });
 
 gulp.task('dist-js', function(done) {
@@ -51,17 +48,17 @@ gulp.task('dist-js', function(done) {
                 'marked': 'marked'
             }
         }))
-        .pipe(gulp.dest('./dist/js'))
+        .pipe(gulp.dest('../regular-ui-bower/js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('../regular-ui-bower/js'));
 });
 
 gulp.task('dist-js-amd', function(done) {
-    return gulp.src('./src/js/**/*.html').pipe(gulp.dest('./dist/js-amd'))
+    return gulp.src('./src/js/**/*.html').pipe(gulp.dest('../regular-ui-bower/js-amd'))
         && gulp.src('./src/js/**/*.js')
         .pipe(requireConvert())
-        .pipe(gulp.dest('./dist/js-amd'));
+        .pipe(gulp.dest('../regular-ui-bower/js-amd'));
 });
 
 gulp.task('dist-css', function(done) {
@@ -74,10 +71,10 @@ gulp.task('dist-css', function(done) {
                 importCSS: true
             }))
             .pipe(rename('regular-ui.' + theme + '.css'))
-            .pipe(gulp.dest('dist/css'))
+            .pipe(gulp.dest('../regular-ui-bower/css'))
             .pipe(rename({suffix: '.min'}))
             .pipe(minifycss())
-            .pipe(gulp.dest('dist/css'));
+            .pipe(gulp.dest('../regular-ui-bower/css'));
     }
     
     return gulpCSS(themes[0]) && gulpCSS(themes[1]) && gulpCSS(themes[2]);

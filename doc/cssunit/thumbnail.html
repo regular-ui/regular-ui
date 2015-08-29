@@ -149,27 +149,27 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div class="m-example"><div class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
 </div>
 <a class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
 </a>
 <figure class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
 </figure></div>
 
 <pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-thumbnail&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">div</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-thumbnail&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">a</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">figure</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-thumbnail&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../dataimg/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/placeholder-200x100.svg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">figure</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 </code></pre>
 <div class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
     <div class="thumbnail_caption">test</div>
 </div>
         
@@ -194,7 +194,7 @@ var themeSelect = new RGUI.Select2({
     }
 }).$inject('#j-themeSelect')
   .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/' + $event.selected.name + '.css';
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
 

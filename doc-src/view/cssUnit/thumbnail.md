@@ -5,17 +5,17 @@
 
 ```html
 <div class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
 </div>
 <a class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
 </a>
 <figure class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
 </figure>
 ```
 
 <div class="u-thumbnail">
-    <img src="../dataimg/placeholder-200x100.svg">
+    <img src="../img/placeholder-200x100.svg">
     <div class="thumbnail_caption">test</div>
 </div>
