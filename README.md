@@ -2,6 +2,9 @@
 
 Regular UI is a set of front-end components built with RegularJS and MCSS.
 
+[![NPM Version][npm-badge]][npm]
+[![Bower Version][bower-badge]][bower]
+
 ## Getting Start
 
 Install with [bower][bower]:
@@ -22,15 +25,11 @@ You need install gulp CLI.
 npm install gulp -g
 ```
 
-Run gulp to watch file changes.
-
-```
-gulp
-```
+Run `gulp` to develop with watching files.
 
 Run `gulp dist` to generate regular-ui-bower.
 
-Run `gulp doc` to rebuild doc files without watching.
+Run `gulp doc` to rebuild docs without watching.
 
 ## References
 
@@ -50,3 +49,11 @@ Run `gulp doc` to rebuild doc files without watching.
 ## Copyright and License
 
 Code released under the MIT license. 
+
+
+
+[npm]: https://www.npmjs.com
+[npm-badge]: https://badge.fury.io/js/regular-ui.svg
+
+[bower]: http://bower.io
+[bower-badge]: https://badge.fury.io/bo/regular-ui.svg
