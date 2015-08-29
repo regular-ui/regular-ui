@@ -1,0 +1,126 @@
+// Name:            FormCtrl
+// Description:     基础
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-input`, `u-select`, `u-textarea`
+// ========================================================================
+
+// 一般认为input和textarea的样式是差不多的。
+// u-input用于input:not([type="radio"]), input:not([type="checkbox"])
+
+.u-input,
+.u-select,
+.u-textarea {
+    // - Default is `content-box` with following exceptions set to `border-box`.
+    $box-sizing: border-box;
+    // - Address margins set differently in Firefox/IE and Chrome/Safari/Opera.
+    margin: 0;
+    border: 0;
+    padding: 0;
+    // - Remove `border-radius` in iOS.
+    border-radius: 0;
+    // - Correct `font` properties and `color` not being inherited.
+    font: inherit;
+    color: inherit;
+    // - Remove default style in iOS.
+    //-webkit-appearance: none;
+    vertical-align: middle;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.u-input {}
+
+.u-input-full {
+    width: 100%;
+}
+
+.u-select {
+    // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox
+    text-transform: none;
+
+    optgroup {
+        // - Correct `font` properties not being inherited.
+        font: inherit;
+        // - Don't inherit the `font-weight` and use `bold` instead.
+        font-weight: bold;
+        // - NOTE: Both declarations don't work in Chrome, Safari and Opera.
+    }
+}
+
+.u-select-full {
+    width: 100%;
+}
+
+.u-textarea {
+    // - (It has been realized in normalize.css) Remove default vertical scrollbar in IE 8/9/10/11.
+    // overflow: auto;
+    // - Improve readability and alignment in all browsers.
+    vertical-align: top;
+}
+
+input.u-check,
+input.u-radio {
+    // - (It has been realized in normalize.css) Removes excess padding in IE 8/9/10.
+    // padding: 0;
+    cursor: pointer;
+    vertical-align: middle;
+    &:focus {
+        outline: 0;
+    }
+}
+
+input.u-check:disabled,
+input.u-radio:disabled {
+    cursor: not-allowed;
+}
+
+
+
+// Size Extends:
+// ========================================================================
+
+$formctrl-extend_size = ($name, $padding, $height, $font-size, $border-radius_) {
+
+.u-input-#{$name}, .u-select-#{$name} {
+    padding: $padding;
+    height: $height;
+    @if($font-size) {font-size: $font-size;}
+    @if($border-radius_) {$border-radius: $border-radius_;}
+}
+
+}
+
+$formctrl-extend_width = ($name, $width) {
+
+.u-input-#{$name}w, .u-select-#{$name}w {
+    width: $width;
+}
+
+}
+
+
+
+// Color Extends:
+// ========================================================================
+
+$formctrl-extend_color = ($name, $background, $color, $border_) {
+
+.u-input.u-input-#{$name},
+.u-select.u-select-#{$name},
+.u-textarea.u-textarea-#{$name} {
+    background: $background;
+    color: $color;
+    border-color: $border_;
+}
+
+}

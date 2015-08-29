@@ -1,0 +1,37 @@
+// Name:            Nav
+// Description:     导航
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/navbar.mcss";
+
+// Component:       `m-navbar`
+// ========================================================================
+
+.m-navbar {
+    background: #f8f8f8;
+    color: l-adjust(#f8f8f8, -6.5%);
+
+    > li {
+        > a, > span {
+            // padding: 10px 0;
+            min-width: 100px;
+            $line-height: 50px;
+            color: #777;
+            // $transition: background 0.3s;
+        }
+    }
+
+    > li:hover > a {
+        color: #333;
+    }
+
+    // > li:active > a {
+    //     background: mix($brand-primary, black, 20%);
+    // }
+
+    > li.z-crt > a {
+        background: l-adjust(#f8f8f8, -6.5%);
+        color: #555;
+    }
+}

@@ -1,0 +1,12 @@
+// Name:            Accordion
+// Description:     手风琴
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/accordion.mcss";
+
+// Component:
+// ========================================================================
+
+.m-accordion {
+}

@@ -1,0 +1,75 @@
+// Name:            Pager
+// Description:     分页
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/pager.mcss";
+
+// Variables:
+// ========================================================================
+
+$m-pager_li_a_size = 41px;
+
+
+
+// Component:       `m-pager`
+// ========================================================================
+
+.m-pager {
+    > li {
+        > a, > span {
+            padding: 0 14px;
+            min-width: $m-pager_li_a_size - 14px*2;
+            $line-height: $m-pager_li_a_size;
+            font-size: 14px;
+            color: white;
+            background: mix($brand-secondary, white, 20%);
+            // border: 1px solid #ddd;
+            $transition: background .25s ease-out;
+        }
+
+        > a:hover, > a:focus {
+            background: $brand-primary;
+            color: white;
+        }
+
+        > a:active {
+            background: $brand-primary;
+            color: white;
+        }
+    }
+
+    >li.z-crt > a {
+        background: $brand-primary;
+        color: white;
+    }
+
+    >li.z-dis > a {
+        background: #E2E6E9;
+        color: white;
+    }
+
+    > li + li {
+        > a, > span {
+            border-left: 2px solid mix(mix($brand-secondary, white, 20%), white, 66%);
+        }
+    }
+
+    > li:first-child > a {
+        $border-radius: $border-radius-lg 0 0 $border-radius-lg;
+    }
+
+    > li:last-child > a {
+        $border-radius: 0 $border-radius-lg $border-radius-lg 0;
+    }
+}
+
+/* Disabled */
+.m-pager.z-dis {
+    > li {
+        > a, > span {
+            background: #E2E6E9;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<ul class="m-listview menu_list" r-hide={!visible}>
+    {#list source as item}
+    <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} }>
+        <div class="menu_item">
+            {#if item.childrenCount || (item.children && item.children.length)}
+            <i class="u-icon u-icon-caret-right"></i>
+            {/if}
+            <div class="menu_itemname" title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>
+        </div>
+        {#if item.childrenCount || (item.children && item.children.length)}<menuList source={item.children} visible={item.open} parent={item} />{/if}
+    </li>
+    {/list}
+</ul>

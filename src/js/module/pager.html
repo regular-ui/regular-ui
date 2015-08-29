@@ -1,0 +1,21 @@
+<ul class="m-pager m-pager-{@(position)} {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible}>
+    <li class="pager_prev" r-class={ {'z-dis' : current <= 1} } on-click={this.select(current - 1)}><a>上一页</a></li>
+    {#if total - middle > side * 2 + 1}
+        {#list 1..side as i}
+        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+        {#if _start > side + 1}<li><span>...</span></li>{/if}
+        {#list _start.._end as i}
+        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+        {#if _end < total - side}<li><span>...</span></li>{/if}
+        {#list (total - side + 1)..total as i}
+        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+    {#else}
+        {#list 1..total as i}
+        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+    {/if}
+    <li class="pager_next" r-class={ {'z-dis' : current >= total} } on-click={this.select(current + 1)}><a>下一页</a></li>
+</ul>

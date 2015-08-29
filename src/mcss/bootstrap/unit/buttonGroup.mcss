@@ -1,0 +1,65 @@
+// Name:            ButtonGroup
+// Description:     按钮组
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/buttonGroup.mcss";
+
+// Component:       `u-btngroup`
+// ========================================================================
+
+.u-btngroup {}
+
+
+
+// Extends:         `u-btn-horizontal`
+// ========================================================================
+
+.u-btngroup-horizontal {
+    > .u-btn {
+        margin-left: 0;
+    }
+
+    > .u-btn + .u-btn {
+        margin-left: -1px;
+    }
+
+    > .u-btn:not(:first-child):not(:last-child) {
+        $border-radius: 0;
+    }
+
+    > .u-btn:first-child:not(:last-child) {
+        $border-radius: 0, right;
+    }
+
+    > .u-btn:last-child:not(:first-child) {
+        $border-radius: 0, left;
+    }
+}
+
+
+
+// Extends:         `u-btn-vertical`
+// ========================================================================
+
+.u-btngroup-vertical {
+    > .u-btn {
+        margin-top: 0;
+    }
+
+    > .u-btn + .u-btn {
+        margin-top: -1px;
+    }
+
+    > .u-btn:not(:first-child):not(:last-child) {
+        $border-radius: 0;
+    }
+
+    > .u-btn:first-child:not(:last-child) {
+        $border-radius: 0, bottom;
+    }
+
+    > .u-btn:last-child:not(:first-child) {
+        $border-radius: 0, top;
+    }
+}

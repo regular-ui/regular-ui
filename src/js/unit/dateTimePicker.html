@@ -1,0 +1,10 @@
+<div class="u-dropdown u-dropdown-datepicker u-dropdown-datetimepicker {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
+    <div class="dropdown_hd">
+        <input class="u-input u-input-full" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this.input($event)} ref="input" disabled={disabled} {#if readonly}readonly="readonly"{/if}>
+    </div>
+    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+        <calendar date={_date}>
+            <timePicker time={_time} />
+        </calendar>
+    </div>
+</div>

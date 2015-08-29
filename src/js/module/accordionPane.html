@@ -1,0 +1,6 @@
+<div class="m-panel">
+    <div class="panel_hd" on-click={this.toggle(!open)}>{title}</div>
+    <div class="panel_bd" r-hide={!open}>
+        {#include this.$body}
+    </div>
+</div>

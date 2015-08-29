@@ -1,0 +1,47 @@
+// Name:            Tab
+// Description:     选项卡
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-tab`
+// ========================================================================
+
+.m-tab {
+    .tab_hd {
+        @extend .f-lsn;
+
+        > li {
+            float: left;
+            cursor: pointer;
+        }
+
+        > li + li {}
+
+        > li.z-crt {
+            position: relative;
+        }
+
+        > li.z-dis {
+            cursor: not-allowed;
+        }
+    }
+
+    .tab_bd {
+        clear: both;
+    }
+}
+
+/* Disabled */
+.m-tab.z-dis {
+    .tab_hd {
+        > li {
+            cursor: not-allowed;
+        }
+
+        > li.z-crt {
+            cursor: default;
+        }
+    }
+}

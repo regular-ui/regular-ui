@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+var relativePath = '<%= relativePath %>';
+var themes = [
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
+];
+
+var selectedTheme;
+if(localStorage['selectedTheme']) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === localStorage['selectedTheme']) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[0];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <ul class="m-navbar f-fr">
+            <% mainnavs.forEach(function(item) { %>
+            <% if(item.hidden) return; %>
+            <li<% if(mainnav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.cnName %></a></li>
+            <% }); %>
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc">

@@ -1,0 +1,26 @@
+// Name:            Sidebar
+// Description:     侧边栏
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-sidebar`
+// ========================================================================
+
+.m-sidebar {
+    @extend .f-lsn;
+
+    > li {
+        > a, > span {
+            display: block;
+            text-decoration: none;
+        }
+    }
+
+    > li:hover {}
+    
+    > li.z-crt {}
+    
+    > li.sidebar_group {}
+}

@@ -1,0 +1,127 @@
+// Name:            Variables
+// Description:     变量
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/base/var.mcss";
+
+// Variables:
+// ========================================================================
+
+/* Dimension */
+$font-size-base =            14px;
+$font-size-sm =              12px;
+
+$border-radius-base =        4px;
+$border-radius-xs =          2px;
+$border-radius-sm =          3px;
+$border-radius-lg =          6px;
+$border-radius-xl =          6px;
+
+$line-height-base =          1.72222;
+$line-height-computed =      31px;
+
+/* Color */
+// Color swatches
+$turquoise =                 #1abc9c;
+$green-sea =                 #16a085;
+
+$emerald =                   #2ecc71;
+$nephritis =                 #27ae60;
+
+$peter-river =               #3498db;
+$belize-hole =               #2980b9;
+
+$amethyst =                  #9b59b6;
+$wisteria =                  #8e44ad;
+
+$wet-asphalt =               #34495e;
+$midnight-blue =             #2c3e50;
+
+$sun-flower =                #f1c40f;
+$orange =                    #f39c12;
+
+$carrot =                    #e67e22;
+$pumpkin =                   #d35400;
+
+$alizarin =                  #e74c3c;
+$pomegranate =               #c0392b;
+
+$clouds =                    #ecf0f1;
+$silver =                    #bdc3c7;
+
+$concrete =                  #95a5a6;
+$asbestos =                  #7f8c8d;
+
+// Grays
+$gray =                      $concrete;
+$gray-dark =                 #333;
+$gray-light =                $silver;
+$inverse =                   white;
+
+// Brand Colors
+$brand-primary =             $turquoise;
+$brand-secondary =           $wet-asphalt;
+$brand-info =                $peter-river;
+$brand-success =             $emerald;
+$brand-warning =             $sun-flower;
+$brand-error =               $alizarin;
+
+
+$status-success_color =         $brand-success;
+$status-success_background =           #dff0d8;
+$status-success_border =       l-adjust(h-adjust($status-success_background, -10), -5%);
+
+$status-info_color =            $brand-info;
+$status-info_background =              #d9edf7;
+$status-info_border =          l-adjust(h-adjust($status-info_background, -10), -7%);
+
+$status-warning_color =         $brand-warning;
+$status-warning_background =           #fcf8e3;
+$status-warning_border =       l-adjust(h-adjust($status-warning_background, -10), -5%);
+
+$status-error_color =          $brand-error;
+$status-error_background =            #f2dede;
+$status-error_border =        l-adjust(h-adjust($status-error_background, -10), -5%);
+
+
+/* Form Controls */
+$formctrl_padding = 6px 12px;
+$formctrl-xs_padding = 1px 5px;
+$formctrl-sm_padding = 5px 10px;
+$formctrl-lg_padding = 10px 16px;
+
+$formctrl_height = 42px;
+$formctrl-sm_height = 35px;
+$formctrl-lg_height = 45px;
+$formctrl-xg_height = 53px;
+
+$formctrl-sm_font-size = 13px;
+$formctrl_font-size = 15px;
+$formctrl-lg_font-size = 17px;
+$formctrl-xl_font-size = 22px;
+
+$formctrl_min-width = 160px;
+
+$formctrl_background = white;
+$formctrl_color = $brand-secondary;
+$formctrl_border = 2px solid $gray-light;
+
+$formctrl-focus_background = $formctrl_background;
+$formctrl-focus_color = $formctrl_color;
+$formctrl-focus_border = $brand-primary;
+
+$formctrl-disabled_background = mix($gray, white, 10%);;
+$formctrl-disabled_color = mix($gray, white, 40%);
+$formctrl-disabled_border = mix($gray, white, 40%);
+
+$formctrl_placeholder_color = s-adjust(l-adjust($brand-secondary, 45%), -15%);
+
+$formctrl_item_padding = 0 10px;
+$formctrl_item-hover_background = #eee;
+$formctrl_item-hover_color = $brand-secondary;
+$formctrl_item-hover_border = null;
+
+$formctrl_item-selected_background = $brand-primary;
+$formctrl_item-selected_color = white;
+$formctrl_item-selected_border = null;

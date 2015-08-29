@@ -1,0 +1,19 @@
+<div class="m-modal {@(class)}" on-keyup={this.keyup($event)} r-hide={!visible}>
+    <div class="modal_dialog" {#if width}style="width: {width}px"{/if}>
+        <div class="modal_hd">
+            <a class="modal_close" on-click={this.close(!cancelButton)}><i class="u-icon u-icon-close"></i></a>
+            <h3 class="modal_title">{title}</h3>
+        </div>
+        <div class="modal_bd">
+            {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}
+        </div>
+        <div class="modal_ft">
+            {#if okButton}
+            <button class="u-btn u-btn-primary" on-click={this.close(true)}>{okButton === true ? '确定' : okButton}</button>
+            {/if}
+            {#if cancelButton}
+            <button class="u-btn" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>
+            {/if}
+        </div>
+    </div>
+</div>

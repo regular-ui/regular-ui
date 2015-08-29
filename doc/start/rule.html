@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+var relativePath = '../';
+var themes = [
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
+];
+
+var selectedTheme;
+if(localStorage['selectedTheme']) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === localStorage['selectedTheme']) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[0];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <ul class="m-navbar f-fr">
+            
+            
+            <li class="z-crt"><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        <li><a href="../start/start.html">开始<small> Start</small>
+        
+        </a></li>
+        
+        
+        
+        <li class="z-crt"><a href="../start/rule.html">规范<small> Rule</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../start/todo.html">后续开发<small> Todo</small>
+        
+        </a></li>
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>规范<small> Rule</small></h2>
+        
+        <h3 id="-">名词解释</h3>
+<ul>
+<li><p>继承自Regular的所有的类都叫 <strong>组件（Component）</strong> 。</p>
+</li>
+<li><p>Regular UI中的组件分为两类，<strong>元件（Unit）</strong> 和 <strong>模块（Module）</strong>。</p>
+</li>
+</ul>
+<h3 id="html-">HTML规范</h3>
+<pre><code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
+</code></pre><h3 id="css-">CSS规范</h3>
+<p>Regular UI中所有组件的CSS样式都遵循<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>。</p>
+<h5 id="-">强调</h5>
+<ul>
+<li><p>HTML模板只用于表现组件的结构，因此不在模板标签中使用<code>f-</code>功能等样式，而用<code>@extend</code>方式在CSS中继承。</p>
+<p>如用：<code>&lt;div class=&quot;m-pager&quot;&gt;</code> + <code>.m-pager {@extend .f-wsn}</code>，而不用：<code>&lt;div class=&quot;m-pager f-wsn&quot;&gt;</code></p>
+</li>
+</ul>
+<h5 id="-">补充</h5>
+<ul>
+<li><p>为了防止组件内部类名的污染，并且为了好识别，使用<code>_</code>来做连字符。</p>
+<p>后代选择器的类名定义为组件名+<code>_</code>+后代选择器的含义。</p>
+<p>如用：<code>.m-tab .tab_hd</code>、<code>.m-calendar .calendar_hd</code>，而不用：<code>.m-tab .hd</code>、<code>.m-calendar .hd</code></p>
+</li>
+<li><p>为了防止组件内部语义化标签的污染，使用<code>&gt;</code>来进行限制选择</p>
+<p>如用：<code>.m-list&gt;li</code>，而不用：<code>.m-list li</code></p>
+</li>
+</ul>
+<h3 id="js-">JS规范</h3>
+<p>Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面。。。</p>
+<p>代码的注释遵循jsDoc的规范。</p>
+<h3 id="-">命名规范</h3>
+<table>
+<thead>
+<tr>
+<th>组件名和类名</th>
+<th>对象名</th>
+<th>标签名</th>
+<th>CSS类名</th>
+<th>　JS文件名</th>
+<th>CSS文件名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大驼峰</td>
+<td>小驼峰</td>
+<td>与小驼峰一致</td>
+<td>全小写</td>
+<td>与标签名一致</td>
+<td>与标签名一致</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><code>&lt;button&gt;</code></td>
+<td><code>u-btn</code></td>
+<td>-</td>
+<td><code>btn.mcss</code></td>
+</tr>
+<tr>
+<td><code>Modal</code></td>
+<td><code>modal</code></td>
+<td><code>&lt;modal&gt;</code></td>
+<td><code>m-modal</code></td>
+<td><code>modal.js</code></td>
+<td><code>modal.mcss</code></td>
+</tr>
+<tr>
+<td><code>DetailModal</code></td>
+<td><code>detailModal</code></td>
+<td><code>&lt;detailModal&gt;</code></td>
+<td>-</td>
+<td><code>detailModal.js</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ListView</code></td>
+<td><code>listView</code></td>
+<td><code>&lt;listView&gt;</code></td>
+<td><code>u-listview</code></td>
+<td><code>listView.js</code></td>
+<td><code>listView.mcss</code></td>
+</tr>
+<tr>
+<td><code>MusicListView</code></td>
+<td><code>musicListView</code></td>
+<td><code>&lt;musicListView&gt;</code></td>
+<td>-</td>
+<td><code>musicListView.js</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>TreeView</code></td>
+<td><code>treeView</code></td>
+<td><code>&lt;treeView&gt;</code></td>
+<td><code>m-treeview</code></td>
+<td><code>treeView.js</code></td>
+<td><code>treeView.mcss</code></td>
+</tr>
+<tr>
+<td><code>KnowledgeTreeView</code></td>
+<td><code>knowledgeTreeView</code></td>
+<td><code>&lt;knowledgeTreeView&gt;</code></td>
+<td>-</td>
+<td><code>knowledgeTreeView.js</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>TreeViewList</code></td>
+<td><code>treeViewList</code></td>
+<td><code>&lt;treeViewList&gt;</code></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>Calendar</code></td>
+<td><code>calendar</code></td>
+<td><code>&lt;calendar&gt;</code></td>
+<td><code>m-calendar</code></td>
+<td><code>calendar.js</code></td>
+<td><code>calendar.mcss</code></td>
+</tr>
+<tr>
+<td><code>DatePicker</code></td>
+<td><code>datePicker</code></td>
+<td><code>&lt;datePicker&gt;</code></td>
+<td><code>u-datepicker</code></td>
+<td><code>datePicker.js</code></td>
+<td><code>datePicker.mcss</code></td>
+</tr>
+<tr>
+<td><code>DateTimePicker</code></td>
+<td><code>dateTimePicker</code></td>
+<td><code>&lt;dateTimePicker&gt;</code></td>
+<td><code>u-datetimepicker</code></td>
+<td><code>dateTimePicker.js</code></td>
+<td><code>dateTimePicker.mcss</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">缩写</h3>
+<p>button =&gt; btn</p>
+<p>image =&gt; img</p>
+<p>active =&gt; act</p>
+<p>disabled =&gt; dis</p>
+<p>head =&gt; hd</p>
+<p>body =&gt; bd</p>
+<p>foot =&gt; ft</p>
+<p>extra small =&gt; xs</p>
+<p>small =&gt; sm</p>
+<p>medium =&gt; md</p>
+<p>large =&gt; lg</p>
+<p>extra large =&gt; xl</p>
+
+        
+    </article>
+</div>    </div>
+</div>
+<footer class="g-ft">
+</footer>
+<a href="#" class="m-gotop"></a>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
+<script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
+var themeSelect = new RGUI.Select2({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null,
+        'class': 'u-select2-nav'
+    }
+}).$inject('#j-themeSelect')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+    localStorage['selectedTheme'] = $event.selected.name;
+});
+
+// 生成tab
+(function() {
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+            if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
+                source.push({title: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-html') {
+                source.push({title: 'html', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({title: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tab>
+    {#list source as item}
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
+    {/list}
+</tab>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
+</script>
+<script>
+
+</script>
+</body>
+</html>

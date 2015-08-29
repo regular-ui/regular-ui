@@ -1,0 +1,9 @@
+<div class="u-dropdown u-dropdown-select2 {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
+    <div class="dropdown_hd" on-click={this.toggle(!open)}>
+        <i class="u-icon u-icon-caret-down"></i>
+        <span>{selected ? selected.name : placeholder}</span>
+    </div>
+    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />
+    </div>
+</div>

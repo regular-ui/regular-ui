@@ -1,0 +1,41 @@
+// Name:            Select2
+// Description:     选择扩展
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/select2.mcss";
+
+// Extends:
+// ========================================================================
+
+.u-dropdown-select2 {
+    min-width: 160px;
+
+    .dropdown_hd {
+        height: $formctrl_height;
+        line-height: $formctrl_height - 2;
+        padding: 0 index($formctrl_padding, 0);
+        background: $formctrl_background;
+        color: $formctrl_color;
+        $border: $formctrl_border;
+    }
+
+    .dropdown_hd:hover {}
+
+    .dropdown_bd {
+        .m-listview {
+            max-height: 200px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
+}
+
+/* Disabled */
+.u-dropdown-select2.z-dis {
+    .dropdown_hd {
+        background: $formctrl-disabled_background;
+        $border: $formctrl-disabled_border;
+        color: $formctrl-disabled_color;
+    }
+}

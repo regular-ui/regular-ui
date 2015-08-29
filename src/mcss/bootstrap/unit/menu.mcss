@@ -1,0 +1,20 @@
+// Name:            Menu
+// Description:     多级菜单
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/menu.mcss";
+
+// Component:       `u-dropdown-menu`
+// ========================================================================
+
+.u-dropdown-menu {
+    .menu_list {
+        min-width: $formctrl_min-width;
+    }
+
+    li > .menu_list {
+        margin-top: -1px;
+        margin-left: 3px;
+    }
+}

@@ -1,0 +1,19 @@
+$fadeIn();
+$fadeOut();
+$bounceOut();
+$fadeInX();
+$fadeInY(-10px);
+$fadeOutY(-10px);
+$pulse();
+
+.animated {
+  $animation-duration: 0.5s;
+}
+
+// .animated.infinite{
+//     $animation-iteration-count: infinite
+// }
+
+// .u-count.pulse{
+//     color: $brand-danger;
+// }

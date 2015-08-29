@@ -1,0 +1,48 @@
+// Name:            DropDown
+// Description:     下拉菜单
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+@import "../../core/unit/dropdown.mcss";
+
+
+
+// Component:       `u-dropdown`
+// ========================================================================
+
+.u-dropdown {
+    .dropdown_bd {
+        // min-width: $formctrl_min-width;
+        margin-top: 12px;
+
+        &:before {
+            content: '';
+            border-style: solid;
+            border-width: 0 9px 9px 9px;
+            border-color: transparent transparent #34495e transparent;
+            height: 0px;
+            position: absolute;
+            right: 13px;
+            top: -9px;
+            width: 0px;
+            -webkit-transform: rotate(360deg);
+        }
+
+        li.dropdown_divider {
+            padding: 0;
+            height: 2px;
+            background: fade($inverse, 0.6, true);
+            overflow: hidden;
+        }
+
+        .m-listview {
+            min-width: $formctrl_min-width;
+
+            > li > a {
+                color: inherit;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+// Name:            Panel
+// Description:     面板
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-panel`
+// ========================================================================
+
+.m-panel {
+    $clearfix();
+
+    .panel_hd {}
+
+    .panel_bd {}
+
+    .panel_ft {}
+}
+
+// Color Extends:
+// ========================================================================
+
+$m-panel-extend_color = ($name, $background, $color, $border) {
+
+.m-panel-#{$name} {
+    @if($border) {border-color: $border;}
+
+    .panel_hd {
+        background: $background;
+        @if($color) {color: $color;}
+        @if($border) {border-color: $border;}
+    }
+}
+
+}

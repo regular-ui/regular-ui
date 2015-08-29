@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+var relativePath = '../';
+var themes = [
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
+];
+
+var selectedTheme;
+if(localStorage['selectedTheme']) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === localStorage['selectedTheme']) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[0];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <ul class="m-navbar f-fr">
+            
+            
+            <li><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li class="z-crt"><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        <li class="sidebar_group"><span>导航类</span></li>
+        
+        <li><a href="../jsmodule/tab.html">选项卡<small> Tab</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/pager.html">分页器<small> Pager</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li class="sidebar_group"><span>窗口类</span></li>
+        
+        <li class="z-crt"><a href="../jsmodule/notify.html">通知<small> Notify</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/modal.html">模态对话框<small> Modal</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        
+        
+        
+        <li class="sidebar_group"><span>数据类</span></li>
+        
+        <li><a href="../jsmodule/listview.html">列表视图<small> ListView</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li class="sidebar_group"><span>日期类</span></li>
+        
+        <li><a href="../jsmodule/calendar.html">日历<small> Calendar</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        
+        
+        <li class="sidebar_group"><span>编辑器类</span></li>
+        
+        <li><a href="../jsmodule/htmleditor.html">HTML编辑器<small> HTMLEditor</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/markeditor.html">Markdown编辑器<small> MarkEditor</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>通知<small> Notify</small></h2>
+        
+        <p>创建显示消息的通知，并且能自动淡出。类似Android中的Toast。</p>
+<h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Notify<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;This is a message.&#39;</span>);
+    }
+});
+</code></pre>
+<h4 id="-">状态扩展</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-info&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;info&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;success&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-warning&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;warning&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;error&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Error<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">type</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-variable-2">type</span> <span class="cm-operator">+</span> <span class="cm-string">&#39; message.&#39;</span>, <span class="cm-variable-2">type</span>);
+    }
+});
+</code></pre>
+<h4 id="-">位置扩展</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(0)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Top Center<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(1)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Top Left<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(2)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Top Right<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(3)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Bottom Center<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(4)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Bottom Left<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(5)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Bottom Right<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">config</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">notifies</span> <span class="cm-operator">=</span> [
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topcenter&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topleft&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;topright&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomcenter&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomleft&#39;</span>} }),
+            <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>({<span class="cm-property">data</span>: {<span class="cm-property">position</span>: <span class="cm-string">&#39;bottomright&#39;</span>} })
+        ];
+    },
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">index</span>) {
+        <span class="cm-keyword">var</span> <span class="cm-def">notify</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">notifies</span>[<span class="cm-variable-2">index</span>];
+        <span class="cm-variable-2">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Position: &#39;</span> <span class="cm-operator">+</span> <span class="cm-variable-2">notify</span>.<span class="cm-property">data</span>.<span class="cm-property">position</span> <span class="cm-operator">+</span> <span class="cm-string">&#39;.&#39;</span>);
+    }
+});
+</code></pre>
+<h4 id="-">嵌入文档流</h4>
+<p>上面的模式通知都是以<code>fixed</code>的形式固定在浏览器中，如果要将通知嵌入到文档流，先将<code>notify</code>注入到需要的位置，同时设置<code>notify</code>的<code>position=&quot;static&quot;</code>。</p>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Static<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">notify</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;notify&quot;</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-attribute">duration</span>=<span class="cm-string">&quot;0&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Static notify.&#39;</span>);
+    }
+});
+</code></pre>
+<h4 id="-">消息停留时间</h4>
+<p>可以通过设置<code>notify</code>的<code>duration</code>参数设置所有消息的停留时间，也可以在<code>show</code>的时候单独设置该条消息的停留时间，单位为毫秒。</p>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(500)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>0.5s<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(1000)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>1s<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(2000)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>2s<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(0)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>常驻<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">duration</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-string">&#39;Duration: &#39;</span> <span class="cm-operator">+</span> <span class="cm-variable-2">duration</span> <span class="cm-operator">+</span> <span class="cm-string">&#39; ms.&#39;</span>, <span class="cm-atom">null</span>, <span class="cm-variable-2">duration</span>);
+    }
+});
+</code></pre>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Notify</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Notify()</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;topcenter&#39;</code></td><td>通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>2000</code></td><td>每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<h4>Methods</h4>
+
+<h5>notify.show(text[, type][, duration])</h5>
+<p>弹出一个消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+            
+            <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+            
+            <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
+        
+    </tbody>
+</table>
+
+<h5>notify.close(message)</h5>
+<p>关闭某条消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+            
+        
+    </tbody>
+</table>
+
+<h5>notify.closeAll()</h5>
+<p>关闭所有消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-methods"></div>
+
+
+<h4>Static Methods</h4>
+
+<h5>Notify.show(text[, type][, duration])</h5>
+<p>弹出一个消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+            
+            <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+            
+            <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
+            
+        
+    </tbody>
+</table>
+
+<h5>Notify.[info|success|warning|error](text)</h5>
+<p>弹出特殊类型的消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
+            
+        
+    </tbody>
+</table>
+
+<h5>Notify.close(message)</h5>
+<p>关闭某条消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>需要关闭的消息对象</td></tr>
+            
+        
+    </tbody>
+</table>
+
+<h5>Notify.closeAll()</h5>
+<p>关闭所有消息</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-inheritedMethods"></div>
+
+
+<h4>Events</h4>
+
+<h5>notify.$on('show')</h5>
+<p>弹出一个消息时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">弹出的消息对象</td></tr>
+            
+        
+    </tbody>
+</table>
+
+<h5>notify.$on('close')</h5>
+<p>关闭某条消息时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">关闭了的消息对象</td></tr>
+            
+        
+    </tbody>
+</table>
+
+
+<div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
+    </article>
+</div>    </div>
+</div>
+<footer class="g-ft">
+</footer>
+<a href="#" class="m-gotop"></a>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
+<script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
+var themeSelect = new RGUI.Select2({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null,
+        'class': 'u-select2-nav'
+    }
+}).$inject('#j-themeSelect')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+    localStorage['selectedTheme'] = $event.selected.name;
+});
+
+// 生成tab
+(function() {
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+            if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
+                source.push({title: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-html') {
+                source.push({title: 'html', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({title: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tab>
+    {#list source as item}
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
+    {/list}
+</tab>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
+</script>
+<script>
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-primary" on-click={this.showMessage()}>Notify</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function() {
+        RGUI.Notify.show('This is a message.');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-info" on-click={this.showMessage('info')}>Info</button>
+<button class="u-btn u-btn-success" on-click={this.showMessage('success')}>Success</button>
+<button class="u-btn u-btn-warning" on-click={this.showMessage('warning')}>Warning</button>
+<button class="u-btn u-btn-error" on-click={this.showMessage('error')}>Error</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function(type) {
+        RGUI.Notify.show(type + ' message.', type);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn" on-click={this.showMessage(0)}>Top Center</button>
+<button class="u-btn" on-click={this.showMessage(1)}>Top Left</button>
+<button class="u-btn" on-click={this.showMessage(2)}>Top Right</button>
+<button class="u-btn" on-click={this.showMessage(3)}>Bottom Center</button>
+<button class="u-btn" on-click={this.showMessage(4)}>Bottom Left</button>
+<button class="u-btn" on-click={this.showMessage(5)}>Bottom Right</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    config: function() {
+        this.notifies = [
+            new RGUI.Notify({data: {position: 'topcenter'} }),
+            new RGUI.Notify({data: {position: 'topleft'} }),
+            new RGUI.Notify({data: {position: 'topright'} }),
+            new RGUI.Notify({data: {position: 'bottomcenter'} }),
+            new RGUI.Notify({data: {position: 'bottomleft'} }),
+            new RGUI.Notify({data: {position: 'bottomright'} })
+        ];
+    },
+    showMessage: function(index) {
+        var notify = this.notifies[index];
+        notify.show('Position: ' + notify.data.position + '.');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-primary" on-click={this.showMessage()}>Static</button>
+<notify ref="notify" position="static" duration="0" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function() {
+        this.$refs.notify.show('Static notify.');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn" on-click={this.showMessage(500)}>0.5s</button>
+<button class="u-btn" on-click={this.showMessage(1000)}>1s</button>
+<button class="u-btn" on-click={this.showMessage(2000)}>2s</button>
+<button class="u-btn" on-click={this.showMessage(0)}>常驻</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showMessage: function(duration) {
+        RGUI.Notify.show('Duration: ' + duration + ' ms.', null, duration);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+</script>
+</body>
+</html>

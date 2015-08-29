@@ -1,0 +1,57 @@
+// Name:            Message
+// Description:     消息条
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/message.mcss";
+
+// Variables:
+// ========================================================================
+
+$u-message_color = #333;
+
+
+
+// Component:       `u-message`
+// ========================================================================
+
+.u-message {
+    padding: 15px;
+    background: #f5f5f5;
+    color: $u-message_color;
+    $border-radius: $border-radius-base;
+    $border: #ddd;
+
+    .message_close {
+        color: fade($u-message_color, 0.75, true);
+        &:hover {
+            color: $u-message_color;
+        }
+    }
+}
+
+
+
+// Color Extends:       `u-message-info`, `u-message-success`, `u-message-warning`, `u-message-error`
+// ========================================================================
+
+$u-message-extend_color = ($name, $background, $color, $border_) {
+    .u-message-#{$name} {
+        background: $background;
+        @if($color) {
+            color: $color;
+            .message_close {
+                color: fade($color, 0.75, true);
+                &:hover {
+                    color: $color;
+                }
+            }
+        }
+        @if($border) {$border: $border_;}
+    }
+}
+
+$u-message-extend_color(info, $status-info_background, $status-info_color, $status-info_border);
+$u-message-extend_color(success, $status-success_background, $status-success_color, $status-success_border);
+$u-message-extend_color(warning, $status-warning_background, $status-warning_color, $status-warning_border);
+$u-message-extend_color(error, $status-error_background, $status-error_color, $status-error_border);

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+var relativePath = '../';
+var themes = [
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
+];
+
+var selectedTheme;
+if(localStorage['selectedTheme']) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === localStorage['selectedTheme']) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[0];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <ul class="m-navbar f-fr">
+            
+            
+            <li><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li class="z-crt"><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        <li class="sidebar_group"><span>导航类</span></li>
+        
+        <li><a href="../jsunit/dropdown.html">下拉菜单<small> Dropdown</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/menu.html">多级菜单<small> Menu</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>表单类</span></li>
+        
+        <li><a href="../jsunit/input2.html">输入扩展<small> Input2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li><a href="../jsunit/check2.html">多选按钮<small> Check2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/select2.html">选择扩展<small> Select2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        
+        
+        <li class="z-crt"><a href="../jsunit/uploader.html">上传<small> Uploader</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>日期类</span></li>
+        
+        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li class="sidebar_group"><span>其他</span></li>
+        
+        <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>上传<small> Uploader</small></h2>
+        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">修改标题</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;上传文件&quot;</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">按钮自定义</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">i</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-icon u-icon-upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">i</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">禁用组件</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<h4 id="-">文件类型限制</h4>
+<div class="m-example"></div>
+
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Uploader</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Uploader()</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>按钮文字</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.url</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>上传路径</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.dataType</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;json&#39;</code></td><td>数据类型</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>附加数据</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.extensions</code></td><td class="f-wsn">string | string[]</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>可上传的扩展名，如果为空，则表示可上传任何文件类型</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<h4>Methods</h4>
+
+<h5>uploader.upload()</h5>
+<p>弹出文件对话框并且上传文件</p>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+        
+    </tbody>
+</table>
+
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-inheritedMethods"></div>
+
+
+<div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
+    </article>
+</div>    </div>
+</div>
+<footer class="g-ft">
+</footer>
+<a href="#" class="m-gotop"></a>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
+<script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
+var themeSelect = new RGUI.Select2({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null,
+        'class': 'u-select2-nav'
+    }
+}).$inject('#j-themeSelect')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+    localStorage['selectedTheme'] = $event.selected.name;
+});
+
+// 生成tab
+(function() {
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+            if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
+                source.push({title: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-html') {
+                source.push({title: 'html', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({title: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tab>
+    {#list source as item}
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
+    {/list}
+</tab>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
+</script>
+<script>
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader title="上传文件" url="/api/upload" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload">
+    <a class="u-btn u-btn-primary">上传 <i class="u-icon u-icon-upload"></i></a>
+</uploader>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload" disabled={true} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/api/upload" extensions="jpg,gif,png" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+</script>
+</body>
+</html>
