@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
+var pathlib = require('path');
 var ejs = require('ejs');
-var markextend = require('markextend');
+var marked = require('marked');
 var codemirror = require('codemirror-highlight');
 
-markextend.setOptions({
+marked.setOptions({
     // 代码高亮
     highlight: function(code, lang) {
         if(lang && !codemirror.modes[lang]) {
@@ -95,7 +96,7 @@ function build(path, sitemap, template) {
             markdown = premark.placeHTML(markdown);
         }
 
-        data.article = markextend(markdown);
+        data.article = marked(markdown);
     }
 
     // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API
@@ -109,7 +110,11 @@ function build(path, sitemap, template) {
     var tpl = template.head + template.sidebar + template.main + template.foot;
     var html = ejs.render(tpl, data);
 
-    fs.writeFileSync(__dirname + '/../doc/' + path.toLowerCase() + '.html', html, {encoding: 'utf8', mode: 0644});
+    var filepath = __dirname + '/../doc/' + path.toLowerCase() + '.html';
+    var filedir = pathlib.dirname(filepath);
+    if(!fs.existsSync(filedir))
+        fs.mkdirSync(filedir);
+    fs.writeFileSync(filepath, html, {encoding: 'utf8', mode: 0644});
     // console.log('[SUCCESS] build: ' + path);
 }
 

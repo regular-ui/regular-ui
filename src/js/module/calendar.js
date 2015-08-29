@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('./calendar.html');
+var template = require('text!./calendar.html');
 var _ = require('../base/util.js');
 
 var MS_OF_DAY = 24*3600*1000;

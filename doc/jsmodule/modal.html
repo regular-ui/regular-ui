@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -181,9 +181,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Modal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Modal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
         <span class="cm-keyword">var</span> <span class="cm-def">modal</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>({
@@ -198,9 +198,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <h4 id="alert">Alert</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Alert<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Alert<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
         <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">alert</span>(<span class="cm-string">&#39;Alert内容&#39;</span>);
@@ -210,9 +210,9 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <h4 id="confirm">Confirm</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Confirm<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Confirm<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
         <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">confirm</span>(<span class="cm-string">&#39;Confirm内容&#39;</span>);
@@ -375,7 +375,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};

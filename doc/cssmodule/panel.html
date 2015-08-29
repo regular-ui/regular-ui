@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -175,7 +175,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <div class="panel_ft">Footer</div>
 </div></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -214,7 +214,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <div class="panel_bd">Content</div>
 </div></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-panel&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_hd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Default<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;panel_bd&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -248,7 +248,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};

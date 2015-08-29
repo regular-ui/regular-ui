@@ -14,6 +14,7 @@ var RGUI = {}
  */
 RGUI.Regular = require('regularjs');
 RGUI.Component = require('./base/component.js');
+RGUI.SourceComponent = require('./base/sourceComponent.js');
 RGUI._ = require('./base/util.js');
 RGUI.ajax = require('./base/ajax.js');
 
@@ -76,4 +77,4 @@ RGUI.Editor = require('./module/editor.js');
 RGUI.HTMLEditor = require('./module/htmlEditor.js');
 RGUI.MarkEditor = require('./module/markEditor.js');
 
-module.exports = window.RGUI = RGUI;
+module.exports = RGUI;

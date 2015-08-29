@@ -6,7 +6,7 @@
  */
 
 var Component = require('../base/component.js');
-var template = require('./pager.html');
+var template = require('text!./pager.html');
 var _ = require('../base/util.js');
 
 /**

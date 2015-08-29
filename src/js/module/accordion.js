@@ -8,8 +8,8 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('./accordion.html');
-var itemTemplate = require('./accordionPane.html');
+var template = require('text!./accordion.html');
+var itemTemplate = require('text!./accordionPane.html');
 var _ = require('../base/util.js');
 
 /**

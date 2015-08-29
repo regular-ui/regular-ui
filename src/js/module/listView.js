@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('../base/sourceComponent.js');
-var template = require('./listView.html');
+var template = require('text!./listView.html');
 var _ = require('../base/util.js');
 
 /**

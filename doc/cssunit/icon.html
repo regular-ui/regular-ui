@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -151,7 +151,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <p>使用字体图标，可以在任何地方方便地放置矢量图标。由<a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>提供。</p>
 <div class="m-example"><i class="u-icon u-icon-html5"></i></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">i</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-icon u-icon-html5&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">i</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">i</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-icon u-icon-html5&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">i</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <p>其他图标请参见<a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>，图标总览，待完成……</p>
 
@@ -162,7 +162,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};

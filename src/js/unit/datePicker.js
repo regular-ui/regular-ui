@@ -6,7 +6,7 @@
  */
 
 var Dropdown = require('./dropdown.js');
-var template = require('./datePicker.html');
+var template = require('text!./datePicker.html');
 var _ = require('../base/util.js');
 
 var filter = require('../base/filter.js');

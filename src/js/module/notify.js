@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('./notify.html');
+var template = require('text!./notify.html');
 var _ = require('../base/util.js');
 
 /**

@@ -8,7 +8,7 @@ var sitemap = require('./sitemap.json');
  * @function buildAll 生成全部文档
  * @return {void}
  */
-function buildAll() {
+function buildAll(callback) {
     // 动态加载，require有缓存
     var sitemap = fs.readFileSync(__dirname + '/sitemap.json', {encoding: 'utf8'});
     sitemap = JSON.parse(sitemap);
@@ -30,6 +30,8 @@ function buildAll() {
             build(level1.lowerName + '/' + level2.lowerName, sitemap, template);
         });        
     });
+
+    callback && callback();
 }
 
 if(!module.parent)

@@ -18,31 +18,37 @@
     "ui"
   ],
   "dependencies": {
-    "browserify": "^9.0.3",
-    "browserify-html2string": "^1.0.9",
-    "marked": "^0.3.3",
-    "mass": "^0.1.0",
-    "mcss": "^0.5.0",
-    "regular-state": "git://github.com/regularjs/regular-state",
     "regularjs": "git://github.com/regularjs/regular.git#group",
+    "marked": "^0.3.3",
     "reqwest": "^1.1.5",
-    "validator": "^4.0.2"
+    "validator": "^4.0.2",
+    "mass": "^0.1.0",
+    "mcss": "^0.5.0"
   },
   "devDependencies": {
+    "browserify": "^9.0.3",
+    "browserify-html2string": "^1.0.9",
     "codemirror-highlight": "^1.1.1",
+    "del": "^1.2.1",
     "ejs": "^2.3.1",
     "formidable": "^1.0.17",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.2",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-require-convert": "0.0.1",
     "gulp-rimraf": "^0.1.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
+    "gulp-umd": "^0.2.0",
     "gulp-util": "^3.0.4",
-    "jsdoc": "^3.3.0-beta3",
-    "markextend": "0.0.2",
+    "gulp-webpack": "^1.5.0",
     "run-sequence": "^1.1.1",
+    "text-loader": "0.0.1",
     "through2": "^0.6.3",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-named": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "webpack": "^1.12.0"
   }
 }

@@ -8,7 +8,7 @@
 'use strict';
 
 var Dropdown = require('./dropdown.js');
-var template = require('./suggest.html');
+var template = require('text!./suggest.html');
 var _ = require('../base/util.js');
 var ListView = require('../module/listView.js');
 

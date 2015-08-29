@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -99,8 +99,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </ul>
 <h3 id="html-">HTML规范</h3>
 <pre><code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
-</code></pre>
-<h3 id="css-">CSS规范</h3>
+</code></pre><h3 id="css-">CSS规范</h3>
 <p>Regular UI中所有组件的CSS样式都遵循<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>。</p>
 <h5 id="-">强调</h5>
 <ul>
@@ -253,7 +252,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};

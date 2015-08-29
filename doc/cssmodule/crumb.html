@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -168,7 +168,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <li><span>面包屑</span></li>
 </ul></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-crumb&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-crumb&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;#&quot;</span><span class="cm-tagcm-bracket">&gt;</span>首页<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;#&quot;</span><span class="cm-tagcm-bracket">&gt;</span>CSS模块<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>面包屑<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">li</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -182,7 +182,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};

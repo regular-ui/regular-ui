@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('./gotop.html');
+var template = require('text!./gotop.html');
 var _ = require('../base/util.js');
 
 /**

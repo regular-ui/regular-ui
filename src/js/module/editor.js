@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('./editor.html');
+var template = require('text!./editor.html');
 var _ = require('../base/util.js');
 
 /**

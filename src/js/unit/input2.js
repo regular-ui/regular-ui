@@ -6,7 +6,7 @@
  */
 
 var Component = require('../base/component.js');
-var template = require('./input2.html');
+var template = require('text!./input2.html');
 var _ = require('../base/util.js');
 var validator = require('../base/validator.js');
 

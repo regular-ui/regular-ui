@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('../base/sourceComponent.js');
-var template = require('./checkGroup.html');
+var template = require('text!./checkGroup.html');
 var _ = require('../base/util.js');
 
 /**

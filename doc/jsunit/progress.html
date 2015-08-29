@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -217,31 +217,31 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">颜色扩展</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;success&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;success&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;warning&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">尺寸扩展</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;xs&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;xs&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;sm&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">条纹</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <h4 id="-">条纹动画</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;72&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-attribute">active</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;72&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-attribute">active</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -304,7 +304,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};

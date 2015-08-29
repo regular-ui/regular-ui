@@ -6,7 +6,7 @@
  */
 
 var DatePicker = require('./datePicker.js');
-var template = require('./dateTimePicker.html');
+var template = require('text!./dateTimePicker.html');
 var _ = require('../base/util.js');
 var TimePicker = require('./timePicker.js');
 

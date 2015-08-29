@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -158,7 +158,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </select>
 <textarea class="u-textarea">这是一段文字。</textarea></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-select&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>请选择<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -193,7 +193,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     <option>选项3</option>
 </select></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-sm&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Small&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-sm&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Small&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Normal&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-lg&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Large&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 
@@ -226,7 +226,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <input class="u-input u-input-xlw" value="Extra Large Width">
 </div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-xsw&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Extra Small Width&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-xsw&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Extra Small Width&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-smw&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Small Width&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Normal Width&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-lgw&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Large Width&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -237,7 +237,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <input class="u-input u-input-warning" value="Warning" placeholder="请输入">
 <input class="u-input u-input-error" value="Error" placeholder="请输入"></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-success&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Success&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-success&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Success&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-warning&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Warning&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-error&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Error&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
@@ -251,7 +251,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </select>
 <textarea class="u-textarea" disabled>Disabled</textarea></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Disabled&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Disabled&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-select&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>Disabled<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -271,7 +271,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 </select>
 <textarea class="u-textarea u-textarea-blank">Blank</textarea></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-blank&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Blank&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input u-input-blank&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;Blank&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-select u-select-blank&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>Blank<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -291,7 +291,7 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
     </span>
 </div></div>
 
-<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-formitem&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-formitem&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>用户名<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_rqr&quot;</span><span class="cm-tagcm-bracket">&gt;</span>*<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>：<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;formitem_ct&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-input&quot;</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -343,7 +343,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};

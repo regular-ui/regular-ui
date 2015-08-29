@@ -1,0 +1,9 @@
+<div class="m-notify m-notify-{@(position)} {@(class)}" r-hide={!visible}>
+    {#list messages as message}
+    <div class="u-message u-message-{@(message.type)}" r-animation="on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;">
+        <a class="message_close" on-click={this.close(message)}><i class="u-icon u-icon-close"></i></a>
+        <i class="message_icon u-icon u-icon-{@(message.type)}-circle" r-hide={@(!message.type)}></i>
+        {@(message.text)}
+    </div>
+    {/list}
+</div>

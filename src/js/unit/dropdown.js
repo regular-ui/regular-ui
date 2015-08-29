@@ -6,7 +6,7 @@
  */
 
 var SourceComponent = require('../base/sourceComponent.js');
-var template = require('./dropdown.html');
+var template = require('text!./dropdown.html');
 var _ = require('../base/util.js');
 
 /**

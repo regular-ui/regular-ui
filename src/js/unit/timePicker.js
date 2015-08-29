@@ -6,7 +6,7 @@
  */
 
 var Component = require('../base/component.js');
-var template = require('./timePicker.html');
+var template = require('text!./timePicker.html');
 var _ = require('../base/util.js');
 var NumberInput = require('./numberInput.js');
 

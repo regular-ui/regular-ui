@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('./uploader.html');
+var template = require('text!./uploader.html');
 var _ = require('../base/util.js');
 
 /**

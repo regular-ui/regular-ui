@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('./markEditor.html');
+var template = require('text!./markEditor.html');
 var _ = require('../base/util.js');
 
 var marked = require('marked');

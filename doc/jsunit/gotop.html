@@ -32,7 +32,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -217,17 +217,17 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">位置扩展</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;bottomleft&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;bottomleft&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">嵌入文档流</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">gotop</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;static&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -296,7 +296,8 @@ themeCSS.href = window.relativePath + 'css/' + selectedTheme.name + '.css';
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular-ui.js"></script>
+<script src="../js/regular.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};
