@@ -5,6 +5,9 @@ Regular UI is a set of front-end components built with [RegularJS][RegularJS] an
 [![NPM Version][npm-badge]][npm]
 [![Bower Version][bower-badge]][bower]
 
+[![Dependency Status][deps-badge]][deps]
+[![devDependency Status][dev-deps-badge]][dev-deps]
+
 ## Quick Start
 
 Following options to get Regular UI:
@@ -88,6 +91,12 @@ Code released under the MIT license.
 
 [bower]: http://bower.io
 [bower-badge]: https://badge.fury.io/bo/regular-ui.svg
+
+[deps-badge]: https://david-dm.org/rainfore/regular-ui.svg
+[deps]: https://david-dm.org/rainfore/regular-ui
+
+[dev-deps-badge]: https://david-dm.org/rainfore/regular-ui/dev-status.svg
+[dev-deps]: https://david-dm.org/rainfore/regular-ui#info=devDependencies
 
 [repo-bower]: https://github.com/rainfore/regular-ui-bower
 [latest]: https://github.com/rainfore/regular-ui/releases/latest
