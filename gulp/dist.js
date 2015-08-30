@@ -17,22 +17,22 @@ var mcss = require('../lib/gulp-mcss.js');
  */
 
 gulp.task('dist-clean', function(done) {
-    return done();
-    return gulp.src([
-        '../regular-ui-bower/*',
-        '!../regular-ui-bower/bower.json',
-        '!../regular-ui-bower/README.md'
-    ], {read: false}).pipe(rm());
+    return gulp.src('./dist', {read: false}).pipe(rm())
+        || gulp.src([
+            '../regular-ui-bower/*',
+            '!../regular-ui-bower/bower.json',
+            '!../regular-ui-bower/README.md'
+        ], {read: false}).pipe(rm());
 });
 
 gulp.task('dist-copy', function(done) {
-    return gulp.src('./src/font/**').pipe(gulp.dest('../regular-ui-bower/font'))
+    return gulp.src('./src/font/**').pipe(gulp.dest('../regular-ui-bower/font')).pipe(gulp.dest('./dist/font'))
         && gulp.src('./src/js/**').pipe(gulp.dest('../regular-ui-bower/js-common'))
         && gulp.src('./src/mcss/**').pipe(gulp.dest('../regular-ui-bower/mcss'))
         && gulp.src([
             './node_modules/regularjs/dist/regular.min.js',
             './node_modules/marked/marked.min.js'
-        ]).pipe(gulp.dest('../regular-ui-bower/vendor'));
+        ]).pipe(gulp.dest('../regular-ui-bower/vendor')).pipe(gulp.dest('./dist/vendor'))
 });
 
 gulp.task('dist-js', function(done) {
@@ -49,9 +49,11 @@ gulp.task('dist-js', function(done) {
             }
         }))
         .pipe(gulp.dest('../regular-ui-bower/js'))
+        .pipe(gulp.dest('./dist/js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('../regular-ui-bower/js'));
+        .pipe(gulp.dest('../regular-ui-bower/js'))
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('dist-js-amd', function(done) {
@@ -72,9 +74,11 @@ gulp.task('dist-css', function(done) {
             }))
             .pipe(rename('regular-ui.' + theme + '.css'))
             .pipe(gulp.dest('../regular-ui-bower/css'))
+            .pipe(gulp.dest('./dist/css'))
             .pipe(rename({suffix: '.min'}))
             .pipe(minifycss())
-            .pipe(gulp.dest('../regular-ui-bower/css'));
+            .pipe(gulp.dest('../regular-ui-bower/css'))
+            .pipe(gulp.dest('./dist/css'));
     }
     
     return gulpCSS(themes[0]) && gulpCSS(themes[1]) && gulpCSS(themes[2]);
