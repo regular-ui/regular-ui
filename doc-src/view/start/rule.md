@@ -4,12 +4,6 @@
 
 - Regular UI中的组件分为两类，**元件（Unit）** 和 **模块（Module）**。
 
-### HTML规范
-
-```
-<ul><li></li><li></li><li></li></ul>
-```
-
 ### CSS规范
 
 Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com/standard/css-sort.html)。
@@ -55,6 +49,8 @@ Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面�
 | `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`       | `datePicker.js` | `datePicker.mcss` |
 | `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`   | `dateTimePicker.js` | `dateTimePicker.mcss` |
 
+
+<!-- 
 ### 缩写
 
 button => btn
@@ -81,3 +77,5 @@ medium => md
 large => lg
 
 extra large => xl
+
+-->

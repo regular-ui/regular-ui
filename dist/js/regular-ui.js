@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("Regular"), require("marked"));
+		module.exports = factory(require("regularjs"), require("marked"));
 	else if(typeof define === 'function' && define.amd)
 		define(["Regular", "marked"], factory);
 	else if(typeof exports === 'object')
-		exports["RGUI"] = factory(require("Regular"), require("marked"));
+		exports["RGUI"] = factory(require("regularjs"), require("marked"));
 	else
 		root["RGUI"] = factory(root["Regular"], root["marked"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_78__) {

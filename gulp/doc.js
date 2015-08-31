@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 
 var webpack = require('gulp-webpack');
+var webpackConfig = require('../webpack.config.js');
 var rm = require('gulp-rimraf');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
@@ -31,17 +32,8 @@ gulp.task('doc-copy', function(done) {
 
 gulp.task('doc-js', function(done) {
     return gulp.src('./src/js/index.js')
-        .pipe(webpack({
-            output: {
-                filename: 'regular-ui.min.js',
-                library: 'RGUI',
-                libraryTarget: 'umd'
-            },
-            externals: {
-                'regularjs': 'Regular',
-                'marked': 'marked'
-            }
-        }))
+        .pipe(webpack(webpackConfig))
+        .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('doc/js'));
 });

@@ -13,8 +13,8 @@ Regular UI is a set of front-end components built with [RegularJS][RegularJS] an
 Following options to get Regular UI:
 
 - Download the [latest release][latest]
-- Install with [npm][npm]: `npm install regular-ui`
 - Install with [bower][bower]: `bower install regular-ui`
+- Install with [npm][npm]: `npm install regular-ui`
 
 You can find the compiled Regular UI distribution in [Bower Repo][repo-bower].
 
@@ -99,7 +99,7 @@ Code released under the MIT license.
 [dev-deps]: https://david-dm.org/rainfore/regular-ui#info=devDependencies
 
 [repo-bower]: https://github.com/rainfore/regular-ui-bower
-[latest]: https://github.com/rainfore/regular-ui/releases/latest
+[latest]: https://github.com/rainfore/regular-ui-bower/releases/latest
 [documentation]: https://github.com/rainfore/regular-ui/blob/master/doc
 [contributing]: https://github.com/rainfore/regular-ui/blob/master/README.md
 
