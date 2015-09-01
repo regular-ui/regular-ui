@@ -3,7 +3,7 @@
 Regular UI是基于[RegularJS][RegularJS]的前端组件库。
 
 <a class="u-btn u-btn-primary u-btn-lg" target="_blank" href="https://github.com/regular-ui/regular-ui-bower/releases/latest">下载Regular UI 0.1</a>
-<a class="u-btn u-btn-success u-btn-lg" target="_blank" href="start/start.html">开始使用</a>
+<a class="u-btn u-btn-success u-btn-lg" href="start/quickstart.html">开始使用</a>
 
 #### 特点
 

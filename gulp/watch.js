@@ -27,7 +27,7 @@ gulp.task('doc-watch-js', function(done) {
         .pipe(webpack(webpackConfig2))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('doc/js'));
+        .pipe(gulp.dest('./doc/js'));
 });
 
 gulp.task('doc-watch', function() {
