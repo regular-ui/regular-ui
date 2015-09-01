@@ -34,20 +34,20 @@ Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面�
 
 ### 命名规范
 
-| 组件名和类名        | 对象名              | 标签名                | CSS类名        |　JS文件名  |  CSS文件名  |
-| ------------------  | ------------------- | --------------------- | ---------------- | ------- | ------- |
-| 大驼峰              | 小驼峰              |  与小驼峰一致         | 全小写           | 与标签名一致 | 与标签名一致 |
-| -                   | -                   | `<button>`            | `u-btn`  | - | `btn.mcss` |
-| `Modal`             | `modal`             | `<modal>`             | `m-modal`  | `modal.js` | `modal.mcss` |
-| `DetailModal`       | `detailModal`       | `<detailModal>`       | - | `detailModal.js` | - |
-| `ListView`          | `listView`          | `<listView>`          | `u-listview` | `listView.js` | `listView.mcss` |
-| `MusicListView`     | `musicListView`     | `<musicListView>`     | - | `musicListView.js` | - |
-| `TreeView`          | `treeView`          | `<treeView>`          | `m-treeview` | `treeView.js` | `treeView.mcss` |
-| `KnowledgeTreeView` | `knowledgeTreeView` | `<knowledgeTreeView>` | -         | `knowledgeTreeView.js` | - |
-| `TreeViewList`      | `treeViewList`      | `<treeViewList>`      | -     | - | - |
-| `Calendar`          | `calendar`          | `<calendar>`          | `m-calendar`         | `calendar.js` | `calendar.mcss` |
-| `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`       | `datePicker.js` | `datePicker.mcss` |
-| `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`   | `dateTimePicker.js` | `dateTimePicker.mcss` |
+| 组件名和类名       | 对象名             | 标签名               | CSS类名               |　JS文件名             |  CSS文件名           |
+| ------------------ | ------------------ | -------------------- | --------------------- | --------------------- | -------------------- |
+| 大驼峰             | 小驼峰             | 小驼峰               | 全小写                | 与标签名一致          | 与标签名一致         |
+| -                  | -                  | `<button>`            | `u-btn`                | -                     | `btn.mcss`            |
+| `Modal`             | `modal`             | `<modal>`             | `m-modal`              | `modal.js`             | `modal.mcss`          |
+| `DetailModal`       | `detailModal`       | `<detailModal>`       | `m-modal-detail`       | `detailModal.js`       | -                    |
+| `ListView`          | `listView`          | `<listView>`          | `m-listview`           | `listView.js`          | `listView.mcss`       |
+| `MusicListView`     | `musicListView`     | `<musicListView>`     | `m-listview-music`     | `musicListView.js`     | -                    |
+| `TreeView`          | `treeView`          | `<treeView>`          | `m-treeview`           | `treeView.js`          | `treeView.mcss`       |
+| `KnowledgeTreeView` | `knowledgeTreeView` | `<knowledgeTreeView>` | `m-treeview-knowledge` | `knowledgeTreeView.js` | -                    |
+| `TreeViewList`      | `treeViewList`      | `<treeViewList>`      | `treeview_list`        | -                     | -                    |
+| `Calendar`          | `calendar`          | `<calendar>`          | `m-calendar`           | `calendar.js`          | `calendar.mcss`       |
+| `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`         | `datePicker.js`        | `datePicker.mcss`     |
+| `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`     | `dateTimePicker.js`    | `dateTimePicker.mcss` |
 
 
 <!-- 

@@ -34,7 +34,7 @@ Latest ✔ | Latest ✔ | untested | untested | untested |
 First of all, clone the code.
 
 ```shell
-git clone git@github.com:rainfore/regular-ui.git
+git clone git@github.com:regular-ui/regular-ui.git
 ```
 
 Install project dependencies.
@@ -93,19 +93,22 @@ Code released under the MIT license.
 [bower]: http://bower.io
 [bower-badge]: https://badge.fury.io/bo/regular-ui.svg
 
-[deps-badge]: https://david-dm.org/rainfore/regular-ui.svg
-[deps]: https://david-dm.org/rainfore/regular-ui
+[deps-badge]: https://david-dm.org/regular-ui/regular-ui.svg
+[deps]: https://david-dm.org/regular-ui/regular-ui
 
-[dev-deps-badge]: https://david-dm.org/rainfore/regular-ui/dev-status.svg
-[dev-deps]: https://david-dm.org/rainfore/regular-ui#info=devDependencies
+[dev-deps-badge]: https://david-dm.org/regular-ui/regular-ui/dev-status.svg
+[dev-deps]: https://david-dm.org/regular-ui/regular-ui#info=devDependencies
 
-[peer-deps-badge]: https://david-dm.org/rainfore/regular-ui/peer-status.svg
-[peer-deps]: https://david-dm.org/rainfore/regular-ui#info=peerDependencies
+[peer-deps-badge]: https://david-dm.org/regular-ui/regular-ui/peer-status.svg
+[peer-deps]: https://david-dm.org/regular-ui/regular-ui#info=peerDependencies
 
-[repo-bower]: https://github.com/rainfore/regular-ui-bower
-[latest]: https://github.com/rainfore/regular-ui-bower/releases/latest
-[documentation]: https://rawgit.com/rainfore/regular-ui/master/doc/index.html
-[contributing]: https://github.com/rainfore/regular-ui/blob/master/CONTRIBUTING.md
+[repo-main]: https://github.com/regular-ui/regular-ui
+[repo-bower]: https://github.com/regular-ui/regular-ui-bower
+[repo-page]: https://github.com/regular-ui/regular-ui.github.io
+
+[latest]: https://github.com/regular-ui/regular-ui-bower/releases/latest
+[documentation]: https://rawgit.com/regular-ui/regular-ui/master/doc/index.html
+[contributing]: https://github.com/regular-ui/regular-ui/blob/master/CONTRIBUTING.md
 
 [RegularJS]: https://github.com/regularjs/regular
 [MCSS]: https://github.com/leeluolee/mcss
