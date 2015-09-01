@@ -4,10 +4,10 @@
   "version": "0.1.1",
   "author": "Sensen <rainforest92@126.com>",
   "main": "./dist/js/regular-ui.min.js",
-  "repository": "git://github.com/rainfore/regular-ui.git",
-  "homepage": "https://github.com/rainfore/regular-ui",
+  "repository": "git://github.com/regular-ui/regular-ui.git",
+  "homepage": "http://regular-ui.github.io",
   "bugs": {
-    "url": "http://github.com/rainfore/regular-ui/issues"
+    "url": "http://github.com/regular-ui/regular-ui/issues"
   },
   "license": "MIT",
   "keywords": [
