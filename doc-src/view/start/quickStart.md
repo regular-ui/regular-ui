@@ -6,7 +6,7 @@
 
 下载Regular UI并引入页面，有以下几种方式：
 
-#### 直接在Github上下载最新发布
+#### 直接在GitHub上下载最新发布
 
 <a class="u-btn u-btn-primary u-btn-lg" target="_blank" href="https://github.com/regular-ui/regular-ui-bower/releases/latest">下载Regular UI 0.1</a>
 

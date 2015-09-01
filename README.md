@@ -2,6 +2,8 @@
 
 Regular UI is a set of front-end components built with [RegularJS][RegularJS].
 
+To get started, check out http://regular-ui.github.io!
+
 [![NPM Version][npm-badge]][npm]
 [![Bower Version][bower-badge]][bower]
 
@@ -21,7 +23,7 @@ You can find the compiled Regular UI distribution in [Bower Repo][repo-bower].
 
 ## Docs
 
-All documentations are saved in the directory of `./doc`. You can download the package to view. We will build a website soon for the convenience.
+All documentations are generated in the directory of `./doc` by Gulp. You can read them on [GitHub Page][documentation] conveniently or download them to local.
 
 ## Browser Support
 
@@ -102,10 +104,13 @@ Code released under the MIT license.
 [peer-deps-badge]: https://david-dm.org/regular-ui/regular-ui/peer-status.svg
 [peer-deps]: https://david-dm.org/regular-ui/regular-ui#info=peerDependencies
 
+[repo-main]: https://github.com/regular-ui/regular-ui
 [repo-bower]: https://github.com/regular-ui/regular-ui-bower
+[repo-page]: https://github.com/regular-ui/regular-ui.github.io
+
 [latest]: https://github.com/regular-ui/regular-ui-bower/releases/latest
 [documentation]: http://regular-ui.github.io
-[contributing]: https://github.com/regular-ui/regular-ui/blob/master/README.md
+[contributing]: https://github.com/regular-ui/regular-ui/blob/master/CONTRIBUTING.md
 
 [RegularJS]: https://github.com/regularjs/regular
 [SemVer]: http://semver.org

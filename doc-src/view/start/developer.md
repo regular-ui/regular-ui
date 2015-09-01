@@ -84,7 +84,7 @@ require(['module/calendar'], function(Calendar) {
 ```
 
 <div class="u-message u-message-warning">
-    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：使用Require.js单独引入组件时
+    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：使用Require.js单独引入组件时，
     <ul>
         <li>需要开启<code>nodeIdCompat</code>。</li>
         <li>需要<code>text!</code>插件来引入模板。</li>
