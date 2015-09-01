@@ -1,6 +1,6 @@
 ## Regular UI
 
-Regular UI是基于[RegularJS][RegularJS]和[MCSS][MCSS]的前端组件库。
+Regular UI是基于[RegularJS][RegularJS]的前端组件库。
 
 <a class="u-btn u-btn-primary u-btn-lg" target="_blank" href="https://github.com/rainfore/regular-ui-bower/releases/latest">下载Regular UI 0.1</a>
 <a class="u-btn u-btn-success u-btn-lg" target="_blank" href="start/start.html">开始使用</a>

@@ -21,7 +21,7 @@ You can find the compiled Regular UI distribution in [Bower Repo][repo-bower].
 
 ## Docs
 
-All documentations are saved in the directory of `./doc`. You can download the package to view. We will build a website soon for the convenience.
+All documentations are saved in the directory of `./doc`. You can read it on [RawGit][documentation] conveniently or download this package in advance.
 
 ## Browser Support
 
@@ -104,8 +104,8 @@ Code released under the MIT license.
 
 [repo-bower]: https://github.com/rainfore/regular-ui-bower
 [latest]: https://github.com/rainfore/regular-ui-bower/releases/latest
-[documentation]: https://github.com/rainfore/regular-ui/blob/master/doc
-[contributing]: https://github.com/rainfore/regular-ui/blob/master/README.md
+[documentation]: https://rawgit.com/rainfore/regular-ui/master/doc/index.html
+[contributing]: https://github.com/rainfore/regular-ui/blob/master/CONTRIBUTING.md
 
 [RegularJS]: https://github.com/regularjs/regular
 [MCSS]: https://github.com/leeluolee/mcss
