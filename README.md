@@ -1,12 +1,13 @@
 # Regular UI
 
-Regular UI is a set of front-end components built with [RegularJS][RegularJS] and [MCSS][MCSS].
+Regular UI is a set of front-end components built with [RegularJS][RegularJS].
 
 [![NPM Version][npm-badge]][npm]
 [![Bower Version][bower-badge]][bower]
 
 [![Dependency Status][deps-badge]][deps]
 [![devDependency Status][dev-deps-badge]][dev-deps]
+[![peerDependency Status][peer-deps-badge]][peer-deps]
 
 ## Quick Start
 
@@ -97,6 +98,9 @@ Code released under the MIT license.
 
 [dev-deps-badge]: https://david-dm.org/rainfore/regular-ui/dev-status.svg
 [dev-deps]: https://david-dm.org/rainfore/regular-ui#info=devDependencies
+
+[peer-deps-badge]: https://david-dm.org/rainfore/regular-ui/peer-status.svg
+[peer-deps]: https://david-dm.org/rainfore/regular-ui#info=peerDependencies
 
 [repo-bower]: https://github.com/rainfore/regular-ui-bower
 [latest]: https://github.com/rainfore/regular-ui-bower/releases/latest

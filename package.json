@@ -1,6 +1,6 @@
 {
   "name": "regular-ui",
-  "description": "Regular UI is a set of front-end components built with RegularJS and MCSS.",
+  "description": "Regular UI is a set of front-end components built with RegularJS.",
   "version": "0.1.1",
   "author": "Sensen <rainforest92@126.com>",
   "main": "./dist/js/regular-ui.min.js",
@@ -22,10 +22,12 @@
     "marked": "^0.3.5",
     "mass": "^0.1.0",
     "mcss": "^0.5.0",
-    "regularjs": "git://github.com/regularjs/regular.git#group",
     "reqwest": "^2.0.2",
     "validator": "^4.0.5",
     "xhr2": "^0.1.3"
+  },
+  "peerDependencies": {
+    "regularjs": "git://github.com/regularjs/regular.git#group"
   },
   "devDependencies": {
     "codemirror-highlight": "^1.1.1",
