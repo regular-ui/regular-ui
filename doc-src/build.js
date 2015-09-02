@@ -3,10 +3,10 @@
 var fs = require('fs');
 var pathlib = require('path');
 var ejs = require('ejs');
-var marked = require('marked');
+var markextend = require('markextend');
 var codemirror = require('codemirror-highlight');
 
-marked.setOptions({
+markextend.setOptions({
     // 代码高亮
     highlight: function(code, lang) {
         if(lang && !codemirror.modes[lang]) {
@@ -96,7 +96,7 @@ function build(path, sitemap, template) {
             markdown = premark.placeHTML(markdown);
         }
 
-        data.article = marked(markdown);
+        data.article = markextend(markdown);
     }
 
     // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API

@@ -80,6 +80,12 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../start/structure.html">项目结构<small> Structure</small>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../start/rule.html">规范<small> Rule</small>
         
         </a></li>
@@ -96,69 +102,82 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <h2>开发者<small> Developer</small></h2>
         
-        <h3 id="node-gulp-">node+gulp工作流</h3>
-<p>首先：</p>
-<pre><code class="lang-shell"><span class="cm-builtin">npm</span> install regular-ui
+        <h3 id="commonjs">CommonJS</h3>
+<p>本例中使用node+<a href="http://webpack.github.io">webpack</a>打包JS文件。</p>
+<p>首先安装WebPack CLI：</p>
+<pre class="lang-shell"><code><span class="cm-builtin">npm</span> install webpack <span class="cm-attribute">-g</span>
 </code></pre>
-<h4 id="-">一次性引入所有组件</h4>
-<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">RGUI</span> <span class="cm-operator">=</span> <span class="cm-variable">require</span>(<span class="cm-string">&#39;regular-ui&#39;</span>);
+<p>然后在项目中安装Regular UI：</p>
+<pre class="lang-shell"><code><span class="cm-builtin">npm</span> install regular-ui
 </code></pre>
-<h4 id="-">单独引入某个组件</h4>
-<pre><code class="lang-javascript"><span class="cm-keyword">var</span> <span class="cm-variable">Calendar</span> <span class="cm-operator">=</span> <span class="cm-variable">require</span>(<span class="cm-string">&#39;regular-ui/src/calendar&#39;</span>);
+<h4 id="-">如果要一次性引入所有组件</h4>
+<p>在<code>index.js</code>文件中添加：</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">RGUI</span> <span class="cm-operator">=</span> <span class="cm-variable">require</span>(<span class="cm-string">&#39;regular-ui&#39;</span>);
+
+<span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Calendar</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#app&#39;</span>);
+</code></pre>
+<p>然后打包：</p>
+<pre class="lang-shell"><code>webpack index.js bundle.js
+</code></pre>
+<p><a href="../demo/common/index.html">Demo &gt;&gt;</a></p>
+<h4 id="-">如果要单独引入某个组件</h4>
+<p>在<code>index.js</code>文件中添加：</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">Calendar</span> <span class="cm-operator">=</span> <span class="cm-variable">require</span>(<span class="cm-string">&#39;regular-ui/src/calendar&#39;</span>);
+
+<span class="cm-keyword">new</span> <span class="cm-variable">Calendar</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#app&#39;</span>);
 </code></pre>
 <div class="u-message u-message-warning">
     <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在打包时需要<code>require</code>有<code>text!</code>插件来引入模板。<br>
     <ul>
-        <li>使用webpack打包，安装<code>text-loader</code>即可。</li>
+        <li>使用webpack打包时，先安装<code>text-loader</code>：<code>npm install text-loader</code>。</li>
     </ul>
 </div>
 
-<h3 id="amd-">AMD规范</h3>
-<p>首先使用Bower下载：</p>
-<pre><code class="lang-shell">bower install regular-ui
+<p>然后打包：</p>
+<pre class="lang-shell"><code>webpack index.js bundle.js
 </code></pre>
-<h4 id="-">一次性引入所有组件</h4>
-<p>在HTML中添加：</p>
-<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">link</span> <span class="cm-attribute">rel</span>=<span class="cm-string">&quot;stylesheet&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;bower_components/regular-ui/css/regular-ui.default.css&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;require.min.js&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">head</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
-requirejs.config({
-    baseUrl: &#39;bower_components/regular-ui&#39;,
-    paths: {
-        Regular: &#39;vendor/regular.min&#39;,
-        marked: &#39;vendor/marked.min&#39;
+<p><a href="../demo/common-multi/index.html">Demo &gt;&gt;</a></p>
+<h3 id="amd">AMD</h3>
+<p>本例中使用<a href="http://requirejs.org">RequireJS</a>加载Regular UI。</p>
+<p>首先在HTML的<code>&lt;head&gt;</code>中添加：</p>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">data-main</span>=<span class="cm-string">&quot;index.js&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;require.min.js&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<p>使用Bower下载Regular UI：</p>
+<pre class="lang-shell"><code>bower install regular-ui
+</code></pre>
+<h4 id="-">如果要一次性引入所有组件</h4>
+<div class="u-message u-message-info">
+    <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
+</div>
+
+<p>在<code>index.js</code>文件中添加：</p>
+<pre class="lang-javascript"><code><span class="cm-variable">requirejs</span>.<span class="cm-property">config</span>({
+    <span class="cm-property">baseUrl</span>: <span class="cm-string">&#39;bower_components/regular-ui&#39;</span>,
+    <span class="cm-property">paths</span>: {
+        <span class="cm-property">Regular</span>: <span class="cm-string">&#39;vendor/regular.min&#39;</span>,
+        <span class="cm-property">marked</span>: <span class="cm-string">&#39;vendor/marked.min&#39;</span>
     }
 });
 
-require([&#39;js/regular-ui&#39;], function(RGUI) {
-    ...
+<span class="cm-variable">require</span>([<span class="cm-string">&#39;js/regular-ui.min&#39;</span>], <span class="cm-keyword">function</span>(<span class="cm-def">RGUI</span>) {
+    <span class="cm-keyword">new</span> <span class="cm-variable-2">RGUI</span>.<span class="cm-property">Calendar</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#app&#39;</span>);
 });
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<h4 id="-">单独引入某个组件</h4>
-<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">link</span> <span class="cm-attribute">rel</span>=<span class="cm-string">&quot;stylesheet&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;bower_components/regular-ui/css/regular-ui.default.css&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;require.min.js&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">head</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
-requirejs.config({
-    baseUrl: &#39;bower_components/regular-ui/js-amd&#39;,
-    nodeIdCompat: true,
-    paths: {
-        regularjs: &#39;vendor/regular.min&#39;,
-        text: &#39;../../../text&#39;
+<p><a href="../demo/amd/index.html">Demo &gt;&gt;</a></p>
+<h4 id="-">如果要单独引入某个组件</h4>
+<pre class="lang-javascript"><code><span class="cm-variable">requirejs</span>.<span class="cm-property">config</span>({
+    <span class="cm-property">baseUrl</span>: <span class="cm-string">&#39;bower_components/regular-ui/js-amd&#39;</span>,
+    <span class="cm-property">nodeIdCompat</span>: <span class="cm-atom">true</span>,
+    <span class="cm-property">paths</span>: {
+        <span class="cm-property">Regular</span>: <span class="cm-string">&#39;vendor/regular.min&#39;</span>,
+        <span class="cm-property">text</span>: <span class="cm-string">&#39;../../../text&#39;</span>
     }
 });
 
-require([&#39;module/calendar&#39;], function(Calendar) {
-    ...
+<span class="cm-variable">require</span>([<span class="cm-string">&#39;module/calendar&#39;</span>], <span class="cm-keyword">function</span>(<span class="cm-def">Calendar</span>) {
+    <span class="cm-keyword">new</span> <span class="cm-variable-2">Calendar</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#app&#39;</span>);
 });
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-operator">&lt;</span><span class="cm-string-2">/script&gt;</span>
 </code></pre>
 <div class="u-message u-message-warning">
     <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：使用Require.js单独引入组件时，
@@ -167,6 +186,10 @@ require([&#39;module/calendar&#39;], function(Calendar) {
         <li>需要<code>text!</code>插件来引入模板。</li>
     </ul>
 </div>
+
+
+
+
         
     </article>
 </div>    </div>
@@ -174,7 +197,8 @@ require([&#39;module/calendar&#39;], function(Calendar) {
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular.min.js"></script>
+<script src="../vendor/regular.min.js"></script>
+<script src="../vendor/marked.min.js"></script>
 <script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;

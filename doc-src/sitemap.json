@@ -8,6 +8,7 @@
             "children": [
                 {"name": "QuickStart", "lowerName": "quickStart", "cnName": "快速开始"},
                 {"name": "Developer", "lowerName": "developer", "cnName": "开发者"},
+                {"name": "Structure", "lowerName": "structure", "cnName": "项目结构"},
                 {"name": "Rule", "lowerName": "rule", "cnName": "规范"},
                 {"name": "Todo", "lowerName": "todo", "cnName": "后续开发"}
             ]

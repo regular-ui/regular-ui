@@ -80,6 +80,12 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../start/structure.html">项目结构<small> Structure</small>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../start/rule.html">规范<small> Rule</small>
         
         </a></li>
@@ -105,7 +111,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-github-">直接在GitHub上下载最新发布</h4>
 <p><a class="u-btn u-btn-primary u-btn-lg" target="_blank" href="https://github.com/regular-ui/regular-ui-bower/releases/latest">下载Regular UI 0.1</a></p>
 <p>在HTML页面中添加以下代码：</p>
-<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">link</span> <span class="cm-attribute">rel</span>=<span class="cm-string">&quot;stylesheet&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;regular-ui/css/regular-ui.default.min.css&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">head</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -114,10 +120,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-bower-">使用Bower下载</h4>
-<pre><code class="lang-shell">bower install regular-ui
+<pre class="lang-shell"><code>bower install regular-ui
 </code></pre>
 <p>在HTML页面中添加以下代码：</p>
-<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">link</span> <span class="cm-attribute">rel</span>=<span class="cm-string">&quot;stylesheet&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;bower_components/regular-ui/css/regular-ui.default.min.css&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">head</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -126,10 +132,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-npm-">使用NPM下载</h4>
-<pre><code class="lang-shell"><span class="cm-builtin">npm</span> install regular-ui
+<pre class="lang-shell"><code><span class="cm-builtin">npm</span> install regular-ui
 </code></pre>
 <p>在HTML页面中添加以下代码：</p>
-<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">link</span> <span class="cm-attribute">rel</span>=<span class="cm-string">&quot;stylesheet&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;node_modules/regular-ui/dist/css/regular-ui.default.min.css&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">head</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -139,10 +145,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </code></pre>
 <h3 id="-">使用组件</h3>
 <p>如何在页面中使用Regular UI组件？</p>
-<p>以Regular UI中的日历组件（RGUI.Calendar）为例：</p>
+<p>下面以在页面中添加日历组件（RGUI.Calendar）为例：</p>
 <h4 id="-regular-">使用Regular模板添加组件</h4>
-<p>在HTML页面中的<code>&lt;body&gt;</code>中添加以下代码：</p>
-<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
+<p>创建一个HTML页面，添加如下代码：</p>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">link</span> <span class="cm-attribute">rel</span>=<span class="cm-string">&quot;stylesheet&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;regular-ui/css/regular-ui.default.min.css&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">head</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -159,9 +165,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
+<div class="u-message u-message-info">
+    <i class="message_icon u-icon u-icon-info-circle"></i> 后面文档中具体的示例都会以这种添加组件的方式展现。
+</div>
+
+<p><a href="../demo/global/index.html">Demo &gt;&gt;</a></p>
 <h4 id="-js-">使用JS创建组件</h4>
-<p>在HTML页面中的<code>&lt;body&gt;</code>中添加以下代码：</p>
-<pre><code class="lang-html"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
+<p>创建一个HTML页面，添加如下代码：</p>
+<pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">link</span> <span class="cm-attribute">rel</span>=<span class="cm-string">&quot;stylesheet&quot;</span> <span class="cm-attribute">href</span>=<span class="cm-string">&quot;regular-ui/css/regular-ui.default.min.css&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">head</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -169,10 +180,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;regular-ui/vendor/regular.min.js&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;regular-ui/js/regular-ui.min.js&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
-    new RGUI.Calendar().$inject(&#39;#example&#39;);
+    new RGUI.Calendar().$inject(&#39;#app&#39;);
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
+<p><a href="../demo/global/index2.html">Demo &gt;&gt;</a></p>
 <p>Regular的详细使用请参考<a href="http://regularjs.github.io/guide/zh/">Regular指南</a>。</p>
 
         
@@ -182,7 +194,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular.min.js"></script>
+<script src="../vendor/regular.min.js"></script>
+<script src="../vendor/marked.min.js"></script>
 <script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;

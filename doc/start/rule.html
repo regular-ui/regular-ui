@@ -80,6 +80,12 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../start/structure.html">项目结构<small> Structure</small>
+        
+        </a></li>
+        
+        
+        
         <li class="z-crt"><a href="../start/rule.html">规范<small> Rule</small>
         
         </a></li>
@@ -122,7 +128,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </li>
 </ul>
 <h3 id="js-">JS规范</h3>
-<p>Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面。。。</p>
+<p>Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。</p>
 <p>代码的注释遵循jsDoc的规范。</p>
 <h3 id="-">命名规范</h3>
 <table>
@@ -167,7 +173,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <td><code>&lt;detailModal&gt;</code></td>
 <td><code>m-modal-detail</code></td>
 <td><code>detailModal.js</code></td>
-<td>-</td>
+<td><code>detailModal.mcss</code></td>
 </tr>
 <tr>
 <td><code>ListView</code></td>
@@ -183,7 +189,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <td><code>&lt;musicListView&gt;</code></td>
 <td><code>m-listview-music</code></td>
 <td><code>musicListView.js</code></td>
-<td>-</td>
+<td><code>musicListView.mcss</code></td>
 </tr>
 <tr>
 <td><code>TreeView</code></td>
@@ -199,7 +205,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <td><code>&lt;knowledgeTreeView&gt;</code></td>
 <td><code>m-treeview-knowledge</code></td>
 <td><code>knowledgeTreeView.js</code></td>
-<td>-</td>
+<td><code>knowledgeTreeView.mcss</code></td>
 </tr>
 <tr>
 <td><code>TreeViewList</code></td>
@@ -235,35 +241,37 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </tr>
 </tbody>
 </table>
-<!-- 
-### 缩写
+<h3 id="-">已使用的缩写</h3>
+<h5 id="-">组件名</h5>
+<ul>
+<li>button: btn</li>
+<li>image: img</li>
+<li>formControl: formCtrl</li>
+<li>breadCrumb: crumb</li>
+<li>markdownEditor: markEditor</li>
+</ul>
+<h5 id="-">类名</h5>
+<ul>
+<li>head: hd</li>
+<li>body: bd</li>
+<li>foot: ft</li>
+</ul>
+<h5 id="-">状态名</h5>
+<ul>
+<li>active: act</li>
+<li>disabled: dis</li>
+<li>current: crt</li>
+<li>selected: sel</li>
+</ul>
+<h5 id="-">扩展样式名</h5>
+<ul>
+<li>extra small: xs</li>
+<li>small: sm</li>
+<li>medium: md</li>
+<li>large: lg</li>
+<li>extra large: xl</li>
+</ul>
 
-button => btn
-
-image => img
-
-active => act
-
-disabled => dis
-
-head => hd
-
-body => bd
-
-foot => ft
-
-
-extra small => xs
-
-small => sm
-
-medium => md
-
-large => lg
-
-extra large => xl
-
--->
         
     </article>
 </div>    </div>
@@ -271,7 +279,8 @@ extra large => xl
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular.min.js"></script>
+<script src="../vendor/regular.min.js"></script>
+<script src="../vendor/marked.min.js"></script>
 <script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;

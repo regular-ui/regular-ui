@@ -10,6 +10,7 @@ var sequence = require('run-sequence');
 /**
  * ------------------------------------------------------------
  * Watch
+ * Only the files in `./doc` will be changed while watching.
  * ------------------------------------------------------------
  */
 
@@ -30,9 +31,27 @@ gulp.task('doc-watch-js', function(done) {
         .pipe(gulp.dest('./doc/js'));
 });
 
+gulp.task('doc-watch-css', function(done) {
+    var themes = ['default', 'flat', 'bootstrap'];
+
+    var gulpCSS = function(theme) {
+        // Should Merge
+        return gulp.src('./doc-src/mcss/' + theme + '.mcss')
+            .pipe(mcss({
+                pathes: ["./node_modules"],
+                importCSS: true
+            }))
+            .pipe(rename('doc.' + theme + '.min.css'))
+            .pipe(minifycss())
+            .pipe(gulp.dest('./doc/css'));
+    }
+    
+    return gulpCSS(themes[0]) && gulpCSS(themes[1]) && gulpCSS(themes[2]);
+});
+
 gulp.task('doc-watch', function() {
     gulp.watch('doc-src/assets/**', ['doc-watch-copy']);
-    gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['doc-css']);
+    gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['doc-watch-css']);
     gulp.watch(['src/js/**/*.js', 'doc-src/view/**', 'doc-src/sitemap.json'], ['doc-build']);
 });
 

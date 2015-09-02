@@ -179,7 +179,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordion</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordion</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -189,7 +189,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">同时展开多个</h4>
 <div class="m-example"></div>
 
-<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordion</span> <span class="cm-attribute">collapse</span>=<span class="cm-attribute">{false}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordion</span> <span class="cm-attribute">collapse</span>=<span class="cm-attribute">{false}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -253,7 +253,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular.min.js"></script>
+<script src="../vendor/regular.min.js"></script>
+<script src="../vendor/marked.min.js"></script>
 <script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;

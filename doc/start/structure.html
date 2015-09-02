@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+var relativePath = '../';
+var themes = [
+    {id: 1, name: 'default'},
+    {id: 2, name: 'flat'},
+    {id: 3, name: 'bootstrap'}
+];
+
+var selectedTheme;
+if(localStorage['selectedTheme']) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === localStorage['selectedTheme']) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[0];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <ul class="m-navbar f-fr">
+            
+            
+            <li class="z-crt"><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        <li><a href="../start/quickstart.html">快速开始<small> QuickStart</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../start/developer.html">开发者<small> Developer</small>
+        
+        </a></li>
+        
+        
+        
+        <li class="z-crt"><a href="../start/structure.html">项目结构<small> Structure</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../start/rule.html">规范<small> Rule</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../start/todo.html">后续开发<small> Todo</small>
+        
+        </a></li>
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>项目结构<small> Structure</small></h2>
+        
+        <h3 id="bower-">bower包目录结构</h3>
+<h4 id="-regular-ui-bower-"><code>regular-ui-bower</code>根目录</h4>
+<pre><code>regular-ui-bower
+|— css                    # css文件
+|— font                   # 字体，Regular UI使用FontAwesome
+|— js                     # js文件，整合的单入口文件
+|— js-amd                 # amd规范的多入口文件
+|— js-common              # commonJS规范的多入口文件
+|— mcss                   # mcss文件
+|— vendor                 # 第三方库
+|-- bower.json             # bower配置文件
+|-- README.md              # 说明文件
+</code></pre>
+<h3 id="npm-">npm包目录结构</h3>
+<h4 id="-regular-ui-"><code>regular-ui</code>根目录</h4>
+<pre><code>regular-ui
+|— dist                   # 部署目录，与regular-ui-bower一致
+|— doc                    # 文档目录，与regular-ui.github.io一致
+|— doc-src                # 文档构建目录，文档目录的内容是由此编译生成的
+|— gulp                   # gulp任务目录，将`gulpfile.js`拆成多个文件，方便维护
+|— lib                    # 辅助脚本库
+|— src                    # 组件的开发源代码
+|— test                   # 测试目录
+|-- CHANGELOG.md           # 修改日志
+|-- CONTRIBUTING.md        # 贡献代码规范事项
+|-- LICENSE                # Regular UI遵循MIT协议
+|-- package.json           # npm配置文件
+|-- README.md              # 说明文件
+|-- webpack.config.js      # WebPack打包配置文件
+</code></pre>
+<h4 id="-regular-ui-src-"><code>regular-ui/src</code>目录</h4>
+<pre><code>regular-ui
+|— src                    # 组件的开发源代码
+    |— font               # 字体，Regular UI使用FontAwesome
+    |— js                 # 组件的js源代码
+        |— base           # 基础组件和辅助类库
+        |— module         # js模块类
+        |— unit           # js元件类
+        |-- index.js       # js引导文件
+    |— mcss               # 组件的mcss源代码
+        |— bootstrap      # Bootstrap主题
+        |— core           # 主题内核
+        |— default        # Default主题
+        |— flat           # Flat主题
+        |-- bootstrap.mcss # Bootstrap主题引导文件
+        |-- default.mcss   # Default主题引导文件
+        |-- flat.mcss      # Flat主题引导文件
+</code></pre>
+<h4 id="-regular-ui-doc-src-"><code>regular-ui/doc-src</code>目录</h4>
+<pre><code>regular-ui
+|— doc-src                # 文档构建目录
+    |— assets             # 静态资源，里面的内容会直接复制到doc目录下
+    |— mcss               # doc的mcss源代码
+    |— view               # 文档页面的模板和内容
+        |— common         # 文档页面的头部、侧边栏、API等公共部分模板，ejs文件
+        |— cssModule      # css模块的内容，markdown文件
+        |— cssUnit        # css元件的内容，markdown文件
+        |— jsModule       # js元件的内容，markdown文件
+        |— jsUnit         # js元件的内容，markdown文件
+        |— start          # 开始使用的内容，markdown文件
+        |-- index.md       # 首页内容
+    |— build.js           # 根据路径构建单个文档
+    |— buildAll.js        # 构建全部文档
+    |— cssdoc.js          # 暂无
+    |— jsdoc.js           # 由组件js源代码的注释块生成文档API
+    |— premark.js         # 将markdown中的代码段自动添加到页面中创建出活生生的例子
+    |— sitemap.json       # 网站地图
+</code></pre>
+
+        
+    </article>
+</div>    </div>
+</div>
+<footer class="g-ft">
+</footer>
+<a href="#" class="m-gotop"></a>
+<script src="../vendor/regular.min.js"></script>
+<script src="../vendor/marked.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
+<script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
+var themeSelect = new RGUI.Select2({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null,
+        'class': 'u-select2-nav'
+    }
+}).$inject('#j-themeSelect')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+    localStorage['selectedTheme'] = $event.selected.name;
+});
+
+// 生成tab
+(function() {
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+            if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
+                source.push({title: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-html') {
+                source.push({title: 'html', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({title: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tab>
+    {#list source as item}
+    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
+    {/list}
+</tab>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
+</script>
+<script>
+
+</script>
+</body>
+</html>

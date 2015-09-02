@@ -217,29 +217,29 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">修改标题</h4>
 <div class="m-example"></div>
 
-<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;上传文件&quot;</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;上传文件&quot;</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">按钮自定义</h4>
 <div class="m-example"></div>
 
-<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">i</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-icon u-icon-upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">i</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">禁用组件</h4>
 <div class="m-example"></div>
 
-<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <h4 id="-">文件类型限制</h4>
 <div class="m-example"></div>
 
-<pre><code class="lang-xml"><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -318,7 +318,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <footer class="g-ft">
 </footer>
 <a href="#" class="m-gotop"></a>
-<script src="../js/regular.min.js"></script>
+<script src="../vendor/regular.min.js"></script>
+<script src="../vendor/marked.min.js"></script>
 <script src="../js/regular-ui.min.js"></script>
 <script>
 var _ = RGUI._;

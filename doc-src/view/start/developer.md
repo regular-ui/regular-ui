@@ -1,49 +1,87 @@
-### node+gulp工作流
+### CommonJS
 
-首先：
+本例中使用node+[webpack][WebPack]打包JS文件。
+
+首先安装WebPack CLI：
+
+```shell
+npm install webpack -g
+```
+
+然后在项目中安装Regular UI：
 
 ```shell
 npm install regular-ui
 ```
 
-#### 一次性引入所有组件
+#### 如果要一次性引入所有组件
+
+在`index.js`文件中添加：
 
 ```javascript
 var RGUI = require('regular-ui');
+
+new RGUI.Calendar().$inject('#app');
 ```
 
-#### 单独引入某个组件
+然后打包：
+
+```shell
+webpack index.js bundle.js
+```
+
+[Demo &gt;&gt;](../demo/common/index.html)
+
+#### 如果要单独引入某个组件
+
+在`index.js`文件中添加：
 
 ```javascript
 var Calendar = require('regular-ui/src/calendar');
+
+new Calendar().$inject('#app');
 ```
 
 <div class="u-message u-message-warning">
     <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在打包时需要<code>require</code>有<code>text!</code>插件来引入模板。<br>
     <ul>
-        <li>使用webpack打包，安装<code>text-loader</code>即可。</li>
+        <li>使用webpack打包时，先安装<code>text-loader</code>：<code>npm install text-loader</code>。</li>
     </ul>
 </div>
 
-### AMD规范
+然后打包：
 
-首先使用Bower下载：
+```shell
+webpack index.js bundle.js
+```
+
+[Demo &gt;&gt;](../demo/common-multi/index.html)
+
+### AMD
+
+本例中使用[RequireJS][RequireJS]加载Regular UI。
+
+首先在HTML的`<head>`中添加：
+
+```html
+<script data-main="index.js" src="require.min.js"></script>
+```
+
+使用Bower下载Regular UI：
 
 ```shell
 bower install regular-ui
 ```
 
-#### 一次性引入所有组件
+#### 如果要一次性引入所有组件
 
-在HTML中添加：
+<div class="u-message u-message-info">
+    <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
+</div>
 
-```html
-<head>
-<link rel="stylesheet" href="bower_components/regular-ui/css/regular-ui.default.css">
-<script src="require.min.js"></script>
-</head>
-<body>
-<script>
+在`index.js`文件中添加：
+
+```javascript
 requirejs.config({
     baseUrl: 'bower_components/regular-ui',
     paths: {
@@ -52,33 +90,27 @@ requirejs.config({
     }
 });
 
-require(['js/regular-ui'], function(RGUI) {
-    ...
+require(['js/regular-ui.min'], function(RGUI) {
+    new RGUI.Calendar().$inject('#app');
 });
-</script>
-</body>
 ```
 
-#### 单独引入某个组件
+[Demo &gt;&gt;](../demo/amd/index.html)
 
-```html
-<head>
-<link rel="stylesheet" href="bower_components/regular-ui/css/regular-ui.default.css">
-<script src="require.min.js"></script>
-</head>
-<body>
-<script>
+#### 如果要单独引入某个组件
+
+```javascript
 requirejs.config({
     baseUrl: 'bower_components/regular-ui/js-amd',
     nodeIdCompat: true,
     paths: {
-        regularjs: 'vendor/regular.min',
+        Regular: 'vendor/regular.min',
         text: '../../../text'
     }
 });
 
 require(['module/calendar'], function(Calendar) {
-    ...
+    new Calendar().$inject('#app');
 });
 </script>
 ```
@@ -90,3 +122,8 @@ require(['module/calendar'], function(Calendar) {
         <li>需要<code>text!</code>插件来引入模板。</li>
     </ul>
 </div>
+
+
+
+[WebPack]: http://webpack.github.io
+[RequireJS]: http://requirejs.org

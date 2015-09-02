@@ -61,6 +61,13 @@ gulp.task('dist', function(done) {
     sequence('dist-clean', ['dist-copy', 'dist-js', 'dist-css'], done);
 });
 
+/**
+ * ------------------------------------------------------------
+ * Sync to Bower Repo
+ * If start `bower` task, `dist` task will be running in advance.
+ * ------------------------------------------------------------
+ */
+
 gulp.task('bower-clean', function(done) {
     return gulp.src([
         '../regular-ui-bower/*',

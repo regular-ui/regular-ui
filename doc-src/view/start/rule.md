@@ -28,54 +28,54 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com
 
 ### JS规范
 
-Regular UI中所有组件的JS代码都遵循。。。呃，在网易WIKI里面。。。
+Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。
 
 代码的注释遵循jsDoc的规范。
 
 ### 命名规范
 
-| 组件名和类名       | 对象名             | 标签名               | CSS类名               |　JS文件名             |  CSS文件名           |
-| ------------------ | ------------------ | -------------------- | --------------------- | --------------------- | -------------------- |
-| 大驼峰             | 小驼峰             | 小驼峰               | 全小写                | 与标签名一致          | 与标签名一致         |
-| -                  | -                  | `<button>`            | `u-btn`                | -                     | `btn.mcss`            |
-| `Modal`             | `modal`             | `<modal>`             | `m-modal`              | `modal.js`             | `modal.mcss`          |
-| `DetailModal`       | `detailModal`       | `<detailModal>`       | `m-modal-detail`       | `detailModal.js`       | -                    |
-| `ListView`          | `listView`          | `<listView>`          | `m-listview`           | `listView.js`          | `listView.mcss`       |
-| `MusicListView`     | `musicListView`     | `<musicListView>`     | `m-listview-music`     | `musicListView.js`     | -                    |
-| `TreeView`          | `treeView`          | `<treeView>`          | `m-treeview`           | `treeView.js`          | `treeView.mcss`       |
-| `KnowledgeTreeView` | `knowledgeTreeView` | `<knowledgeTreeView>` | `m-treeview-knowledge` | `knowledgeTreeView.js` | -                    |
-| `TreeViewList`      | `treeViewList`      | `<treeViewList>`      | `treeview_list`        | -                     | -                    |
-| `Calendar`          | `calendar`          | `<calendar>`          | `m-calendar`           | `calendar.js`          | `calendar.mcss`       |
-| `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`         | `datePicker.js`        | `datePicker.mcss`     |
-| `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`     | `dateTimePicker.js`    | `dateTimePicker.mcss` |
+| 组件名和类名       | 对象名             | 标签名               | CSS类名               |　JS文件名             |  CSS文件名              |
+| ------------------ | ------------------ | -------------------- | --------------------- | --------------------- | ----------------------- |
+| 大驼峰             | 小驼峰             | 小驼峰               | 全小写                | 与标签名一致          | 与标签名一致            |
+| -                  | -                  | `<button>`            | `u-btn`                | -                     | `btn.mcss`               |
+| `Modal`             | `modal`             | `<modal>`             | `m-modal`              | `modal.js`             | `modal.mcss`             |
+| `DetailModal`       | `detailModal`       | `<detailModal>`       | `m-modal-detail`       | `detailModal.js`       | `detailModal.mcss`       |
+| `ListView`          | `listView`          | `<listView>`          | `m-listview`           | `listView.js`          | `listView.mcss`          |
+| `MusicListView`     | `musicListView`     | `<musicListView>`     | `m-listview-music`     | `musicListView.js`     | `musicListView.mcss`     |
+| `TreeView`          | `treeView`          | `<treeView>`          | `m-treeview`           | `treeView.js`          | `treeView.mcss`          |
+| `KnowledgeTreeView` | `knowledgeTreeView` | `<knowledgeTreeView>` | `m-treeview-knowledge` | `knowledgeTreeView.js` | `knowledgeTreeView.mcss` |
+| `TreeViewList`      | `treeViewList`      | `<treeViewList>`      | `treeview_list`        | -                     | -                       |
+| `Calendar`          | `calendar`          | `<calendar>`          | `m-calendar`           | `calendar.js`          | `calendar.mcss`          |
+| `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`         | `datePicker.js`        | `datePicker.mcss`        |
+| `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`     | `dateTimePicker.js`    | `dateTimePicker.mcss`    |
 
+### 已使用的缩写
 
-<!-- 
-### 缩写
+##### 组件名
 
-button => btn
+- button: btn
+- image: img
+- formControl: formCtrl
+- breadCrumb: crumb
+- markdownEditor: markEditor
 
-image => img
+##### 类名
 
-active => act
+- head: hd
+- body: bd
+- foot: ft
 
-disabled => dis
+##### 状态名
 
-head => hd
+- active: act
+- disabled: dis
+- current: crt
+- selected: sel
 
-body => bd
+##### 扩展样式名
 
-foot => ft
-
-
-extra small => xs
-
-small => sm
-
-medium => md
-
-large => lg
-
-extra large => xl
-
--->
+- extra small: xs
+- small: sm
+- medium: md
+- large: lg
+- extra large: xl
