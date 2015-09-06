@@ -17,9 +17,9 @@ var MS_OF_DAY = 24*3600*1000;
  * @class Calendar
  * @extend Component
  * @param {object}                  options.data                    绑定属性
- * @param {Date=null}               options.data.date               当前选择的日期
- * @param {Date=null}               options.data.minDate            最小日期，如果为空则不限制
- * @param {Date=null}               options.data.maxDate            最大日期，如果为空则不限制
+ * @param {Date|string=TODAY}       options.data.date               当前选择的日期
+ * @param {Date|string=null}        options.data.minDate            最小日期，如果为空则不限制
+ * @param {Date|string=null}        options.data.maxDate            最大日期，如果为空则不限制
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
@@ -41,17 +41,73 @@ var Calendar = Component.extend({
         this.supr();
 
         this.$watch('date', function(newValue, oldValue) {
-            if(newValue && oldValue && newValue.getFullYear() === oldValue.getFullYear() && newValue.getMonth() === oldValue.getMonth())
-                return;
+            // 字符类型自动转为日期类型
+            if(typeof newValue === 'string')
+                return this.data.date = new Date(newValue);
 
-            // if(newValue && this.isOutOfRange(newValue))
-            //     this.data.date = this.data.minDate || this.data.maxDate;
-            
-            this.update();
+            // 如果newValue为空或非法日期， 则自动转到今天
+            if(!newValue || newValue == 'Invalid Date')
+                return this.data.date = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
+
+            var isOutOfRange = this.isOutOfRange(newValue);
+            if(isOutOfRange) {
+                this.data.date = isOutOfRange;
+
+                // 防止第二次刷新同月
+                this.update();
+                return;
+            }
+
+            if(!oldValue || !oldValue.getFullYear)
+                this.update();
+            else if(newValue.getFullYear() !== oldValue.getFullYear() || newValue.getMonth() !== oldValue.getMonth())
+                this.update();
+
+            /**
+             * @event change 日期改变时触发
+             * @property {object} date 改变后的日期
+             */
+            this.$emit('change', {
+                date: newValue
+            });
         });
 
-        if(!this.data.date)
-            this.goToday();
+        this.$watch('minDate', function(newValue, oldValue) {
+            if(!newValue)
+                return;
+
+            if(typeof newValue === 'string')
+                return this.data.minDate = new Date(newValue);
+
+            if(newValue == 'Invalid Date')
+                return this.data.minDate = null;
+
+            var minDate = new Date((newValue/MS_OF_DAY>>0)*MS_OF_DAY);
+            if(newValue - minDate !== 0)
+                return this.data.minDate = minDate;
+        });
+
+        this.$watch('maxDate', function(newValue, oldValue) {
+            if(!newValue)
+                return;
+
+            if(typeof newValue === 'string')
+                return this.data.maxDate = new Date(newValue);
+
+            if(newValue == 'Invalid Date')
+                return this.data.maxDate = null;
+
+            var maxDate = new Date((newValue/MS_OF_DAY>>0)*MS_OF_DAY);
+            if(newValue - maxDate !== 0)
+                return this.data.maxDate = maxDate;
+        });
+
+        this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
+            if(minDate && maxDate && minDate instanceof Date && maxDate instanceof Date)
+                if(minDate - maxDate > 0)
+                    throw new DateRangeException(minDate, maxDate);
+
+        });
     },
     /**
      * @method update() 日期改变后更新日历
@@ -64,9 +120,9 @@ var Calendar = Component.extend({
         var date = this.data.date;
         var month = date.getMonth();
         var mfirst = new Date(date); mfirst.setDate(1);
-        var mfirstTime = mfirst.getTime();
+        var mfirstTime = +mfirst;
         var nfirst = new Date(mfirst); nfirst.setMonth(month + 1); nfirst.setDate(1);
-        var nfirstTime = nfirst.getTime();
+        var nfirstTime = +nfirst;
         var lastTime = nfirstTime + ((7 - nfirst.getDay())%7 - 1)*MS_OF_DAY;
         var num = - mfirst.getDay();
         var tmpTime, tmp;
@@ -87,7 +143,10 @@ var Calendar = Component.extend({
             return;
 
         var date = new Date(this.data.date);
+        var oldMonth = date.getMonth();
         date.setFullYear(date.getFullYear() + year);
+        if(date.getMonth() != oldMonth)
+            date.setDate(0);
         this.data.date = date;
     },
     /**
@@ -101,7 +160,11 @@ var Calendar = Component.extend({
             return;
 
         var date = new Date(this.data.date);
-        date.setMonth(date.getMonth() + month);
+        var correctMonth = date.getMonth() + month;
+        date.setMonth(correctMonth);
+        // 如果跳月，则置为上一个月
+        if((date.getMonth() - correctMonth)%12)
+            date.setDate(0);
         this.data.date = date;
     },
     /**
@@ -130,19 +193,29 @@ var Calendar = Component.extend({
      * @return {void}
      */
     goToday: function() {
-        this.data.date = new Date((new Date().getTime()/MS_OF_DAY>>0)*MS_OF_DAY);
+        this.data.date = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
     },
     /**
      * @method isOutOfRange 是否超出日期范围
      * @param {Date} day 某一天
-     * @return {void}
+     * @return {boolean}
      */
     isOutOfRange: function(day) {
-        var minDate = this.data.minDate ? new Date((this.data.minDate.getTime()/MS_OF_DAY>>0)*MS_OF_DAY) : null;
-        var maxDate = this.data.maxDate ? new Date((this.data.maxDate.getTime()/MS_OF_DAY>>0)*MS_OF_DAY) : null;
+        var minDate = this.data.minDate;
+        var maxDate = this.data.maxDate;
 
-        return (minDate && day < minDate) || (maxDate && day > maxDate);
+        // minDate && day < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
+        return (minDate && day < minDate && minDate) || (maxDate && day > maxDate && maxDate);
     }
 });
+
+var DateRangeException = function(minDate, maxDate) {
+    this.type = 'DateRangeException';
+    this.message = 'Wrong date range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + ' .';
+}
+
+DateRangeException.prototype.toString = function() {
+    return this.message;
+}
 
 module.exports = Calendar;

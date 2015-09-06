@@ -27,7 +27,7 @@ gulp.task('doc-watch-js', function(done) {
     return gulp.src('./src/js/index.js')
         .pipe(webpack(webpackConfig2))
         .pipe(rename({suffix: '.min'}))
-        .pipe(uglify())
+        // .pipe(uglify()) // watch的时候不压缩了
         .pipe(gulp.dest('./doc/js'));
 });
 
@@ -42,7 +42,7 @@ gulp.task('doc-watch-css', function(done) {
                 importCSS: true
             }))
             .pipe(rename('doc.' + theme + '.min.css'))
-            .pipe(minifycss())
+            // .pipe(minifycss()) // watch的时候不压缩了
             .pipe(gulp.dest('./doc/css'));
     }
     

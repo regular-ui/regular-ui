@@ -17,7 +17,7 @@ var filter = require('../base/filter.js');
  * @extend DatePicker
  * @param {object}                  options.data                    绑定属性
  * @param {object=null}             options.data.date               当前选择的日期
- * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+ * @param {string='请输入'}         options.data.placeholder        文本框的占位文字
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示

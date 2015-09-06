@@ -21,7 +21,7 @@ var ListView = require('../module/listView.js');
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {object=null}             options.data.selected           当前选择项
  * @param {string=''}               options.data.value              文本框中的值
- * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+ * @param {string='请输入'}         options.data.placeholder        文本框的占位文字
  * @param {number=0}                options.data.minLength          最小提示长度。当输入长度>=该值后开始提示
  * @param {string='all'}            options.data.matchType          匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。

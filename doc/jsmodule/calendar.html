@@ -180,6 +180,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">date</span>=<span class="cm-string">&quot;2008-08-08&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">禁用组件</h4>
 <div class="m-example"></div>
@@ -190,12 +191,39 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">minDate</span>=<span class="cm-attribute">{minDate}</span> <span class="cm-attribute">maxDate</span>=<span class="cm-attribute">{maxDate}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">minDate</span>=<span class="cm-string">&quot;2008-08-08&quot;</span> <span class="cm-attribute">maxDate</span>=<span class="cm-string">&quot;2008-08-16&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">minDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Date</span>().<span class="cm-property">getTime</span>() <span class="cm-operator">+</span> <span class="cm-number">2</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>),
         <span class="cm-property">maxDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Date</span>().<span class="cm-property">getTime</span>() <span class="cm-operator">+</span> <span class="cm-number">7</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>)
+    }
+});
+</code></pre>
+<h4 id="-">数据绑定</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">date</span>=<span class="cm-attribute">{date}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前选择的日期为：{date | format: &#39;yyyy-MM-dd&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">date</span>: <span class="cm-string">&#39;2008-08-08&#39;</span>
+    }
+});
+</code></pre>
+<h4 id="-">事件</h4>
+<p>请打开浏览器的控制台查看结果。</p>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this.log(</span><span class="cm-stringcm-error">&#39;select:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.date)}</span> <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{this.log(</span><span class="cm-stringcm-error">&#39;change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.date)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">log</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">console</span>.<span class="cm-property">log</span>.<span class="cm-property">apply</span>(<span class="cm-variable">console</span>, <span class="cm-variable-2">arguments</span>);
     }
 });
 </code></pre>
@@ -219,11 +247,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
+            <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">Date | string</td><td class="f-wsn"><code>TODAY</code></td><td>当前选择的日期</td></tr>
             
-            <tr><td class="f-wsn"><code>data.minDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最小日期，如果为空则不限制</td></tr>
+            <tr><td class="f-wsn"><code>data.minDate</code></td><td class="f-wsn">Date | string</td><td class="f-wsn"><code>null</code></td><td>最小日期，如果为空则不限制</td></tr>
             
-            <tr><td class="f-wsn"><code>data.maxDate</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>最大日期，如果为空则不限制</td></tr>
+            <tr><td class="f-wsn"><code>data.maxDate</code></td><td class="f-wsn">Date | string</td><td class="f-wsn"><code>null</code></td><td>最大日期，如果为空则不限制</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
             
@@ -310,6 +338,21 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 
 <h4>Events</h4>
+
+<h5>calendar.$on('change')</h5>
+<p>日期改变时触发</p>
+<table>
+    <thead>
+        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">改变后的日期</td></tr>
+            
+        
+    </tbody>
+</table>
 
 <h5>calendar.$on('select')</h5>
 <p>选择某一个日期时触发</p>
@@ -412,6 +455,7 @@ var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <calendar />
+<calendar date="2008-08-08" />
     */})
 var component = new RGUI.Component({
     template: template,
@@ -430,12 +474,38 @@ var component = new RGUI.Component({
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <calendar minDate={minDate} maxDate={maxDate} />
+<calendar minDate="2008-08-08" maxDate="2008-08-16" />
     */})
 var component = new RGUI.Component({
     template: template,
     data: {
         minDate: new Date(new Date().getTime() + 2*24*3600*1000),
         maxDate: new Date(new Date().getTime() + 7*24*3600*1000)
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<calendar date={date} />
+<p>当前选择的日期为：{date | format: 'yyyy-MM-dd'}</p>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        date: '2008-08-08'
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<calendar on-select={this.log('select:', $event.date)} on-change={this.log('change:', $event.date)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    log: function() {
+        console.log.apply(console, arguments);
     }
 });
     component.$inject($$(".m-example")[index]);
