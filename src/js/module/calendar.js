@@ -49,19 +49,20 @@ var Calendar = Component.extend({
             if(!newValue || newValue == 'Invalid Date')
                 return this.data.date = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
 
+            // 如果超出日期范围，则设置为范围边界的日期
             var isOutOfRange = this.isOutOfRange(newValue);
             if(isOutOfRange) {
                 this.data.date = isOutOfRange;
 
                 // 防止第二次刷新同月
-                this.update();
+                this._update();
                 return;
             }
 
             if(!oldValue || !oldValue.getFullYear)
-                this.update();
+                this._update();
             else if(newValue.getFullYear() !== oldValue.getFullYear() || newValue.getMonth() !== oldValue.getMonth())
-                this.update();
+                this._update();
 
             /**
              * @event change 日期改变时触发
@@ -105,16 +106,15 @@ var Calendar = Component.extend({
         this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
             if(minDate && maxDate && minDate instanceof Date && maxDate instanceof Date)
                 if(minDate - maxDate > 0)
-                    throw new DateRangeException(minDate, maxDate);
-
+                    throw new Calendar.DateRangeException(minDate, maxDate);
         });
     },
     /**
-     * @method update() 日期改变后更新日历
+     * @method _update() 日期改变后更新日历
      * @private
      * @return {void}
      */
-    update: function() {
+    _update: function() {
         this.data._days = [];
         
         var date = this.data.date;
@@ -193,28 +193,32 @@ var Calendar = Component.extend({
      * @return {void}
      */
     goToday: function() {
+        if(this.data.readonly || this.data.disabled)
+            return;
+
         this.data.date = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
     },
     /**
-     * @method isOutOfRange 是否超出日期范围
-     * @param {Date} day 某一天
-     * @return {boolean}
+     * @method isOutOfRange(date) 是否超出规定的日期范围
+     * @public
+     * @param {Date} date 待测的日期
+     * @return {boolean|Date} 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
      */
-    isOutOfRange: function(day) {
+    isOutOfRange: function(date) {
         var minDate = this.data.minDate;
         var maxDate = this.data.maxDate;
 
-        // minDate && day < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
-        return (minDate && day < minDate && minDate) || (maxDate && day > maxDate && maxDate);
+        // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
+        return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
     }
 });
 
-var DateRangeException = function(minDate, maxDate) {
+Calendar.DateRangeException = function(minDate, maxDate) {
     this.type = 'DateRangeException';
     this.message = 'Wrong date range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + ' .';
 }
 
-DateRangeException.prototype.toString = function() {
+Calendar.DateRangeException.prototype.toString = function() {
     return this.message;
 }
 

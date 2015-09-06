@@ -7,6 +7,8 @@ var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
 
+var mcss = require('../lib/gulp-mcss.js');
+
 /**
  * ------------------------------------------------------------
  * Watch

@@ -449,95 +449,107 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-staticMethods"></div>
 
 
-<h4>Inherited Methods</h4>
-
-<h5>menu.select(item)</h5>
-<p>选择某一项</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>menu.toggle(open)</h5>
-<p>在展开/收起状态之间切换</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起</td></tr>
-            
-        
-    </tbody>
-</table>
-
-<h5>menu.$updateSource()</h5>
-<p>从service中更新数据源</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            <tr><td class="f-tac" colspan="4">无参数</td></tr>
-        
-    </tbody>
-</table>
-
+    <h4>Inherited Methods</h4>
+    
+    
+        <h5>menu.select(item)</h5>
+        <p>选择某一项</p>
+        <table>
+            <thead>
+                <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    
+                    <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
+                    
+                
+            </tbody>
+        </table>
+    
+    
+    
+        <h5>menu.toggle(open)</h5>
+        <p>在展开/收起状态之间切换</p>
+        <table>
+            <thead>
+                <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    
+                    <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起</td></tr>
+                    
+                
+            </tbody>
+        </table>
+    
+    
+    
+        <h5>menu.$updateSource()</h5>
+        <p>从service中更新数据源</p>
+        <table>
+            <thead>
+                <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                
+            </tbody>
+        </table>
+    
+    
 
 <div id="j-inheritedMethods"></div>
 
 
-<h4>Events</h4>
-
-<h5>menu.$on('toggle')</h5>
-<p>展开或收起某一项时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+    <h4>Events</h4>
+    
+    <h5>menu.$on('toggle')</h5>
+    <p>展开或收起某一项时触发</p>
+    <table>
+        <thead>
+            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn">展开收起项</td></tr>
+                
+                <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn">展开收起项</td></tr>
+                
+                <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
+                
             
-            <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
-            
-        
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+    
 
 <div id="j-events"></div>
 
 
-<h4>Inherited Events</h4>
-
-<h5>menu.$on('select')</h5>
-<p>选择某一项时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            
-            <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
-            
-        
-    </tbody>
-</table>
-
+    <h4>Inherited Events</h4>
+    
+    
+        <h5>menu.$on('select')</h5>
+        <p>选择某一项时触发</p>
+        <table>
+            <thead>
+                <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    
+                    <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+                    
+                
+            </tbody>
+        </table>
+    
+    
+    
+        <h5><span class="u-text u-text-muted">@override</span> <del>menu.$on('toggle')</del></h5>
+    
+    
 
 <div id="j-inheritedEvents"></div>
     </article>

@@ -257,63 +257,63 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-options"></div>
 
 
-<h4>Methods</h4>
-
-<h5>modal.close(result)</h5>
-<p>关闭模态对话框</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+    <h4>Methods</h4>
+    
+    <h5>modal.close(result)</h5>
+    <p>关闭模态对话框</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>点击确定还是取消</td></tr>
+                
+                <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>点击确定还是取消</td></tr>
+                
             
-        
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+    
 
 <div id="j-methods"></div>
 
 
-<h4>Static Methods</h4>
-
-<h5>Modal.alert(content[, title])</h5>
-<p>弹出一个alert对话框。关闭时始终触发确定事件。</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+    <h4>Static Methods</h4>
+    
+    <h5>Modal.alert(content[, title])</h5>
+    <p>弹出一个alert对话框。关闭时始终触发确定事件。</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
+                
+                <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
+                
+                <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
+                
             
-            <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
+        </tbody>
+    </table>
+    
+    <h5>Modal.confirm(content[, title])</h5>
+    <p>弹出一个confirm对话框</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-        
-    </tbody>
-</table>
-
-<h5>Modal.confirm(content[, title])</h5>
-<p>弹出一个confirm对话框</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+                
+                <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
+                
+                <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
+                
             
-            <tr><td class="f-wsn"><code>content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
-            
-            <tr><td class="f-wsn"><code>title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题</td></tr>
-            
-        
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+    
 
 <div id="j-staticMethods"></div>
 
@@ -321,49 +321,49 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-inheritedMethods"></div>
 
 
-<h4>Events</h4>
-
-<h5>modal.$on('close')</h5>
-<p>关闭对话框时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+    <h4>Events</h4>
+    
+    <h5>modal.$on('close')</h5>
+    <p>关闭对话框时触发</p>
+    <table>
+        <thead>
+            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">boolean</td><td class="f-wsn">点击了确定还是取消</td></tr>
+                
+                <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">boolean</td><td class="f-wsn">点击了确定还是取消</td></tr>
+                
             
-        
-    </tbody>
-</table>
-
-<h5>modal.$on('ok')</h5>
-<p>确定对话框时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            <tr><td class="f-tac" colspan="4">无参数</td></tr>
-        
-    </tbody>
-</table>
-
-<h5>modal.$on('cancel')</h5>
-<p>取消对话框时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            <tr><td class="f-tac" colspan="4">无参数</td></tr>
-        
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+    
+    <h5>modal.$on('ok')</h5>
+    <p>确定对话框时触发</p>
+    <table>
+        <thead>
+            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+    <h5>modal.$on('cancel')</h5>
+    <p>取消对话框时触发</p>
+    <table>
+        <thead>
+            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
 
 <div id="j-events"></div>
 

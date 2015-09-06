@@ -196,8 +196,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
-        <span class="cm-property">minDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Date</span>().<span class="cm-property">getTime</span>() <span class="cm-operator">+</span> <span class="cm-number">2</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>),
-        <span class="cm-property">maxDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Date</span>().<span class="cm-property">getTime</span>() <span class="cm-operator">+</span> <span class="cm-number">7</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>)
+        <span class="cm-property">minDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-operator">+</span><span class="cm-keyword">new</span> <span class="cm-variable">Date</span> <span class="cm-operator">+</span> <span class="cm-number">2</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>),
+        <span class="cm-property">maxDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-operator">+</span><span class="cm-keyword">new</span> <span class="cm-variable">Date</span> <span class="cm-operator">+</span> <span class="cm-number">7</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>)
     }
 });
 </code></pre>
@@ -205,6 +205,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">date</span>=<span class="cm-attribute">{date}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">date</span>=<span class="cm-attribute">{date}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前选择的日期为：{date | format: &#39;yyyy-MM-dd&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
@@ -218,7 +219,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <p>请打开浏览器的控制台查看结果。</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this.log(</span><span class="cm-stringcm-error">&#39;select:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.date)}</span> <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{this.log(</span><span class="cm-stringcm-error">&#39;change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.date)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span>
+    <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this.log(</span><span class="cm-stringcm-error">&#39;on-select:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.date:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.date)}</span>
+    <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{this.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.date:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.date)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -267,66 +270,81 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-options"></div>
 
 
-<h4>Methods</h4>
-
-<h5>calendar.addYear(year)</h5>
-<p>调整年份</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+    <h4>Methods</h4>
+    
+    <h5>calendar.addYear(year)</h5>
+    <p>调整年份</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>year</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的年份</td></tr>
+                
+                <tr><td class="f-wsn"><code>year</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的年份</td></tr>
+                
             
-        
-    </tbody>
-</table>
-
-<h5>calendar.addMonth(month)</h5>
-<p>调整月份</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+        </tbody>
+    </table>
+    
+    <h5>calendar.addMonth(month)</h5>
+    <p>调整月份</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>month</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的月份</td></tr>
+                
+                <tr><td class="f-wsn"><code>month</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td>加/减的月份</td></tr>
+                
             
-        
-    </tbody>
-</table>
-
-<h5>calendar.select(date)</h5>
-<p>选择一个日期</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+        </tbody>
+    </table>
+    
+    <h5>calendar.select(date)</h5>
+    <p>选择一个日期</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>选择的日期</td></tr>
+                
+                <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"><code>null</code></td><td>选择的日期</td></tr>
+                
             
-        
-    </tbody>
-</table>
-
-<h5>calendar.goToday()</h5>
-<p>回到今天</p>
-<table>
-    <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
-            <tr><td class="f-tac" colspan="4">无参数</td></tr>
-        
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+    
+    <h5>calendar.goToday()</h5>
+    <p>回到今天</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+    <h5>calendar.isOutOfRange(date)</h5>
+    <p>是否超出规定的日期范围</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"></td><td>待测的日期</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
 
 <div id="j-methods"></div>
 
@@ -337,38 +355,38 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-inheritedMethods"></div>
 
 
-<h4>Events</h4>
-
-<h5>calendar.$on('change')</h5>
-<p>日期改变时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+    <h4>Events</h4>
+    
+    <h5>calendar.$on('change')</h5>
+    <p>日期改变时触发</p>
+    <table>
+        <thead>
+            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">改变后的日期</td></tr>
+                
+                <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">改变后的日期</td></tr>
+                
             
-        
-    </tbody>
-</table>
-
-<h5>calendar.$on('select')</h5>
-<p>选择某一个日期时触发</p>
-<table>
-    <thead>
-        <tr><th>属性</th><th>类型</th><th>描述</th></tr>
-    </thead>
-    <tbody>
-        
+        </tbody>
+    </table>
+    
+    <h5>calendar.$on('select')</h5>
+    <p>选择某一个日期时触发</p>
+    <table>
+        <thead>
+            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择的日期</td></tr>
+                
+                <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择的日期</td></tr>
+                
             
-        
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+    
 
 <div id="j-events"></div>
 
@@ -479,14 +497,15 @@ var component = new RGUI.Component({
 var component = new RGUI.Component({
     template: template,
     data: {
-        minDate: new Date(new Date().getTime() + 2*24*3600*1000),
-        maxDate: new Date(new Date().getTime() + 7*24*3600*1000)
+        minDate: new Date(+new Date + 2*24*3600*1000),
+        maxDate: new Date(+new Date + 7*24*3600*1000)
     }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
+<calendar date={date} />
 <calendar date={date} />
 <p>当前选择的日期为：{date | format: 'yyyy-MM-dd'}</p>
     */})
@@ -500,7 +519,9 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<calendar on-select={this.log('select:', $event.date)} on-change={this.log('change:', $event.date)} />
+<calendar
+    on-select={this.log('on-select:', '$event.date:', $event.date)}
+    on-change={this.log('on-change:', '$event.date:', $event.date)} />
     */})
 var component = new RGUI.Component({
     template: template,

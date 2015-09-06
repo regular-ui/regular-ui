@@ -104,6 +104,24 @@ describe('Calendar', function() {
                 except(calendar.data.date - new Date('2013-02-28')).to.be(0);
             });
         });
+
+        describe('#goToday()', function() {
+            it('should go back today.', function() {
+                calendar.select(today_7);
+                calendar.$update();
+
+                calendar.goToday();
+                calendar.$update();
+
+                except(calendar.data.date - today).to.be(0);
+            });
+        });
+
+        describe('#isOutOfRange(date)', function() {
+            it('should return false with any date.', function() {
+                except(calendar.isOutOfRange(today_7)).not.to.be.ok();
+            });
+        });
     });
 
     describe('initialized with string-type `date`', function() {
@@ -113,7 +131,7 @@ describe('Calendar', function() {
             }
         }).$inject(document.body);
         
-        it('should change `date` property from string-type to Date-type.', function() {
+        it('should convert `date` property from string-type to Date-type.', function() {
             except(calendar.data.date).to.be.a(Date);
             except(calendar.data.date - new Date('2008-08-08')).to.be(0);
         });
@@ -139,6 +157,70 @@ describe('Calendar', function() {
         });
     });
 
+    describe('initialized to be disabled', function() {
+        var calendar = new Calendar({
+            data: {
+                disabled: true
+            }
+        }).$inject(document.body);
+        
+        it('should select today by default.', function() {
+            except(calendar.data.date - today).to.be(0);
+        });
+
+        it('should output `_days` of this month.', function() {
+            except(calendar.data._days.length >= 28).to.be.ok();
+        });
+
+        describe('#select(date)', function() {
+            it('should not react.', function() {
+                var oldDate = calendar.data.date;
+
+                var date = new Date(+new Date + 4*MS_OF_DAY);
+                calendar.select(date);
+                calendar.$update();
+
+                except(calendar.data.date).to.be(oldDate);
+            });
+        });
+
+        describe('#addMonth(month)', function() {
+            it('should not react.', function() {
+                var oldDate = calendar.data.date;
+
+                calendar.addMonth(1);
+                calendar.$update();
+
+                except(calendar.data.date).to.be(oldDate);
+            });
+        });
+
+        describe('#addYear(month)', function() {
+            it('should not react.', function() {
+                var oldDate = calendar.data.date;
+
+                calendar.addYear(3);
+                calendar.$update();
+
+                except(calendar.data.date).to.be(oldDate);
+            });
+        });
+
+        describe('#goToday()', function() {
+            it('should not react.', function() {
+                var oldDate = calendar.data.date;
+
+                calendar.select(today_7);
+                calendar.$update();
+
+                calendar.goToday();
+                calendar.$update();
+
+                except(calendar.data.date).to.be(oldDate);
+            });
+        });
+    });
+
     describe('initialized with Date-type `minDate` and `maxDate`', function() {
         var calendar = new Calendar({
             data: {
@@ -147,7 +229,7 @@ describe('Calendar', function() {
             }
         }).$inject(document.body);
         
-        it('should select range date.', function() {
+        it('should select the boundary date if out of range.', function() {
             except(calendar.data.date.toDateString()).to.be(today_2.toDateString());
         });
 
@@ -161,6 +243,16 @@ describe('Calendar', function() {
 
             except(calendar.data.date.toDateString()).to.be(today_7.toDateString());
         });
+
+        describe('#isOutOfRange(date)', function() {
+            it('should return true if out of range.', function() {
+                except(calendar.isOutOfRange(today)).to.be.ok();
+            });
+
+            it('should return false if in the range.', function() {
+                except(calendar.isOutOfRange(new Date(+new Date + 3*MS_OF_DAY))).not.to.be.ok();
+            });
+        });
     });
 
     describe('initialized with string-type `minDate` and `maxDate`', function() {
@@ -171,7 +263,7 @@ describe('Calendar', function() {
             }
         }).$inject(document.body);
         
-        it('should select range date.', function() {
+        it('should select the boundary date if out of range.', function() {
             except(calendar.data.date - new Date('2008-08-16')).to.be(0);
         });
     });

@@ -18,6 +18,9 @@
     "regular",
     "ui"
   ],
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start"
+  },
   "dependencies": {
     "marked": "^0.3.5",
     "mass": "^0.1.0",

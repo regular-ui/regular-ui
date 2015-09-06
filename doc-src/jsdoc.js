@@ -9,6 +9,7 @@ function parse(filepath) {
         block: /\/\*\*\s+([\s\S]*?)\s+\*\//g,
         infoline: /^-+$/,
         type: /^@(class|method|event)\s+(.+?)(?:\s+(.+?))?$/,
+        method: /^(.+?)\((.*)\)$/,
         map: /^@(extend|version)\s+(.+?)$/,
         flag: /^@(public|private|static|override)$/,
         param: /^@param\s+\{(.+?)(?:=(.*?))?\}\s+(.+?)(?:\s+(.+?))?$/,
@@ -40,9 +41,18 @@ function parse(filepath) {
 
             if(cap2 = rule.type.exec(line)) {
                 token.type = cap2[1];
-                token.name = cap2[2].replace(/,/g, ', ');
+                token.name = cap2[2];
                 token.lowerName = token.name[0].toLowerCase() + token.name.slice(1);
                 token.description = cap2[3];
+
+                if(token.type === 'method') {
+                    var match = token.name.match(rule.method);
+
+                    if(match) {
+                        token.name = match[1];
+                        token.body = match[2].replace(/,/g, ', ');
+                    }
+                }
             }
 
             if(cap2 = rule.map.exec(line)) {
@@ -113,12 +123,19 @@ function render(filepath, tpl) {
             data.methods.push(token);
         else if(token.type === 'method' && token['public'] && token['static'] && !token['inherited'])
             data.staticMethods.push(token);
-        else if(token.type === 'method' && token['public'] && token['inherited'])
+        else if(token.type === 'method' && token['public'] && token['inherited']) {
             data.inheritedMethods.push(token);
-        else if(token.type === 'event' && !token['inherited'])
+
+            if(data.methods.some(function(method) { return method.name === token.name; }))
+                token.overridden = true;
+        } else if(token.type === 'event' && !token['inherited'])
             data.events.push(token);
-        else if(token.type === 'event' && token['inherited'])
+        else if(token.type === 'event' && token['inherited']) {
             data.inheritedEvents.push(token);
+
+            if(data.events.some(function(event) { return event.name === token.name; }))
+                token.overridden = true;
+        }
     });
 
     return data.class_ ? ejs.render(tpl, data) : '';

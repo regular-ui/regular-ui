@@ -1,6 +1,6 @@
 <div class="u-dropdown u-dropdown-suggest {@(class)}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
     <div class="dropdown_hd">
-        <input class="u-input u-input-full" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref="input" disabled={disabled} {#if readonly}readonly="readonly"{/if}>
+        <input class="u-input u-input-full" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref="input" disabled={disabled} readonly={readonly}>
     </div>
     <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <ul class="m-listview">

@@ -29,8 +29,8 @@
 var component = new RGUI.Component({
     template: template,
     data: {
-        minDate: new Date(new Date().getTime() + 2*24*3600*1000),
-        maxDate: new Date(new Date().getTime() + 7*24*3600*1000)
+        minDate: new Date(+new Date + 2*24*3600*1000),
+        maxDate: new Date(+new Date + 7*24*3600*1000)
     }
 });
 ```
@@ -40,6 +40,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
+<calendar date={date} />
 <calendar date={date} />
 <p>当前选择的日期为：{date | format: 'yyyy-MM-dd'}</p>
 ```
@@ -60,7 +61,9 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<calendar on-select={this.log('select:', $event.date)} on-change={this.log('change:', $event.date)} />
+<calendar
+    on-select={this.log('on-select:', '$event.date:', $event.date)}
+    on-change={this.log('on-change:', '$event.date:', $event.date)} />
 ```
 
 ```javascript

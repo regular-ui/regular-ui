@@ -78,6 +78,14 @@ var Dropdown = SourceComponent.extend({
             Dropdown.opens.push(this);
         else if(!open && index >= 0)
             Dropdown.opens.splice(index, 1);
+
+        /**
+         * @event toggle  展开/收起时触发
+         * @property {object} open 展开/收起状态
+         */
+        this.$emit('toggle', {
+            open: open
+        });
     }
 });
 
