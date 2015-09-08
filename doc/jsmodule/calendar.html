@@ -192,12 +192,20 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">minDate</span>=<span class="cm-attribute">{minDate}</span> <span class="cm-attribute">maxDate</span>=<span class="cm-attribute">{maxDate}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">minDate</span>=<span class="cm-string">&quot;2008-08-08&quot;</span> <span class="cm-attribute">maxDate</span>=<span class="cm-string">&quot;2008-08-16&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;customCalendar&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">minDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-operator">+</span><span class="cm-keyword">new</span> <span class="cm-variable">Date</span> <span class="cm-operator">+</span> <span class="cm-number">2</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>),
         <span class="cm-property">maxDate</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>(<span class="cm-operator">+</span><span class="cm-keyword">new</span> <span class="cm-variable">Date</span> <span class="cm-operator">+</span> <span class="cm-number">7</span><span class="cm-operator">*</span><span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span><span class="cm-operator">*</span><span class="cm-number">1000</span>)
+    },
+    <span class="cm-property">init</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-comment">// 只能选择星期一、三、五</span>
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">customCalendar</span>.<span class="cm-property">isOutOfRange</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span>(<span class="cm-def">date</span>) {
+            <span class="cm-keyword">return</span> <span class="cm-operator">!</span>(<span class="cm-variable-2">date</span>.<span class="cm-property">getDay</span>()<span class="cm-operator">%</span><span class="cm-number">2</span>);
+        }
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">customCalendar</span>.<span class="cm-property">$update</span>();
     }
 });
 </code></pre>
@@ -493,12 +501,20 @@ var component = new RGUI.Component({
     var template = RGUI._.multiline(function(){/*
 <calendar minDate={minDate} maxDate={maxDate} />
 <calendar minDate="2008-08-08" maxDate="2008-08-16" />
+<calendar ref="customCalendar" />
     */})
 var component = new RGUI.Component({
     template: template,
     data: {
         minDate: new Date(+new Date + 2*24*3600*1000),
         maxDate: new Date(+new Date + 7*24*3600*1000)
+    },
+    init: function() {
+        // 只能选择星期一、三、五
+        this.$refs.customCalendar.isOutOfRange = function(date) {
+            return !(date.getDay()%2);
+        }
+        this.$refs.customCalendar.$update();
     }
 });
     component.$inject($$(".m-example")[index]);

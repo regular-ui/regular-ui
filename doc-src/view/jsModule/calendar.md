@@ -23,6 +23,7 @@
 ```xml
 <calendar minDate={minDate} maxDate={maxDate} />
 <calendar minDate="2008-08-08" maxDate="2008-08-16" />
+<calendar ref="customCalendar" />
 ```
 
 ```javascript
@@ -31,6 +32,13 @@ var component = new RGUI.Component({
     data: {
         minDate: new Date(+new Date + 2*24*3600*1000),
         maxDate: new Date(+new Date + 7*24*3600*1000)
+    },
+    init: function() {
+        // 只能选择星期一、三、五
+        this.$refs.customCalendar.isOutOfRange = function(date) {
+            return !(date.getDay()%2);
+        }
+        this.$refs.customCalendar.$update();
     }
 });
 ```

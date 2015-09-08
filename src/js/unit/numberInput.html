@@ -1,6 +1,6 @@
 <label class="u-input2 u-input2-numberinput {@(class)}" r-hide={!visible}>
     <input class="u-input u-input-{type}" r-model={value | number} placeholder={placeholder} disabled={disabled} readonly={readonly}>
-    <a class="u-btn" r-class={ {'z-dis': disabled} } on-click={this.increase()}><i class="u-icon u-icon-caret-up"></i></a>
-    <a class="u-btn" r-class={ {'z-dis': disabled} } on-click={this.decrease()}><i class="u-icon u-icon-caret-down"></i></a>
+    <a class="u-btn" r-class={ {'z-dis': disabled} } on-click={this.add(1)}><i class="u-icon u-icon-caret-up"></i></a>
+    <a class="u-btn" r-class={ {'z-dis': disabled} } on-click={this.add(-1)}><i class="u-icon u-icon-caret-down"></i></a>
 </label>
 {#if tip}<span class="u-tip u-tip-{type}">{tip}</span>{/if}

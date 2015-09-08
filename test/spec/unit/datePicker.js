@@ -1,9 +1,8 @@
 var except = require('expect.js');
 var DatePicker = require('../../../src/js/unit/datePicker.js');
+var Calendar = require('../../../src/js/module/calendar.js');
 
 describe('DatePicker', function() {
-    document.body.innerHTML = '';
-
     var MS_OF_DAY = 24*3600*1000;
 
     var today = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
@@ -11,7 +10,7 @@ describe('DatePicker', function() {
     var today_7 = new Date(+new Date + 7*MS_OF_DAY);
 
     describe('initialized without params', function() {
-        var datePicker = new DatePicker().$inject(document.body);
+        var datePicker = new DatePicker();
 
         it('should not have a value.', function() {
             expect(datePicker.data.date).to.be(null);
@@ -73,7 +72,7 @@ describe('DatePicker', function() {
             data: {
                 date: '2008-08-08'
             }
-        }).$inject(document.body);
+        });
         
         it('should convert `date` property from string-type to Date-type.', function() {
             except(datePicker.data.date).to.be.a(Date);
@@ -85,12 +84,32 @@ describe('DatePicker', function() {
         });
     });
 
+    describe('initialized with Date-type `date`', function() {
+        var datePicker = new DatePicker({
+            data: {
+                date: today_2
+            }
+        });
+        
+        it('should sync `date` property to Calendar component.', function() {
+            except(datePicker.data._date.toDateString()).to.be(datePicker.data.date.toDateString());
+        });
+
+
+        it('should check if out of the range after set a new `minDate` value.', function() {
+            datePicker.data.minDate = today_7;
+            datePicker.$update();
+
+            except(datePicker.data.date.toDateString()).to.be(today_7.toDateString());
+        });
+    });
+
     describe('initialized to be disabled', function() {
         var datePicker = new DatePicker({
             data: {
                 disabled: true
             }
-        }).$inject(document.body);
+        });
 
         it('should not have a value.', function() {
             expect(datePicker.data.date).to.be(null);
@@ -115,7 +134,7 @@ describe('DatePicker', function() {
                 minDate: today_2,
                 maxDate: today_7
             }
-        }).$inject(document.body);
+        });
 
         it('should check if out of the range after set a new `date` value.', function() {
             datePicker.data.date = new Date(+new Date + 16*MS_OF_DAY);
@@ -141,7 +160,7 @@ describe('DatePicker', function() {
                 minDate: '2008-08-08',
                 maxDate: '2008-08-16'
             }
-        }).$inject(document.body);
+        });
         
         it('should convert `minDate` and `maxDate` property from string-type to Date-type.', function() {
             except(datePicker.data.minDate).to.be.a(Date);
@@ -150,16 +169,16 @@ describe('DatePicker', function() {
     });
 
     describe('initialized with wrong range where `minDate` > `maxDate`', function() {
-        it('should throw a DateRangeError.', function() {
+        it('should throw a DateRangeException.', function() {
             try {
                 var datePicker = new DatePicker({
                     data: {
                         minDate: today_7,
                         maxDate: today_2
                     }
-                }).$inject(document.body);
+                });
             } catch (e) {
-                except(e.type).to.be('DateRangeException');
+                except(e).to.be.a(Calendar.DateRangeException);
             }
         });
     });

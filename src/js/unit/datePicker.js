@@ -60,7 +60,7 @@ var DatePicker = Dropdown.extend({
                     return this.data.date = isOutOfRange;
             }
 
-            if(newValue && this.data._date.toDateString() !== newValue.toDateString())
+            if(newValue && (!this.data._date || this.data._date.toDateString() !== newValue.toDateString()))
                 this.data._date = new Date(newValue);
 
             /**
@@ -103,9 +103,18 @@ var DatePicker = Dropdown.extend({
         });
 
         this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
-            if(minDate && maxDate && minDate instanceof Date && maxDate instanceof Date)
-                if(minDate - maxDate > 0)
+            if(!(minDate && minDate instanceof Date || maxDate && maxDate instanceof Date))
+                return;
+
+            if(minDate && maxDate && minDate - maxDate > 0)
                     throw new Calendar.DateRangeException(minDate, maxDate);
+
+            // 如果不为空并且超出日期范围，则设置为范围边界的日期
+            if(this.data.date) {
+                var isOutOfRange = this.isOutOfRange(this.data.date);
+                if(isOutOfRange)
+                    return this.data.date = isOutOfRange;
+            }
         });
     },
     /**

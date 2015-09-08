@@ -104,9 +104,16 @@ var Calendar = Component.extend({
         });
 
         this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
-            if(minDate && maxDate && minDate instanceof Date && maxDate instanceof Date)
-                if(minDate - maxDate > 0)
+            if(!(minDate && minDate instanceof Date || maxDate && maxDate instanceof Date))
+                return;
+
+            if(minDate && maxDate && minDate - maxDate > 0)
                     throw new Calendar.DateRangeException(minDate, maxDate);
+            
+            // 如果超出日期范围，则设置为范围边界的日期
+            var isOutOfRange = this.isOutOfRange(this.data.date);
+            if(isOutOfRange)
+                this.data.date = isOutOfRange;
         });
     },
     /**
@@ -208,7 +215,7 @@ var Calendar = Component.extend({
         var minDate = this.data.minDate;
         var maxDate = this.data.maxDate;
 
-        // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
+        // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
         return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
     }
 });

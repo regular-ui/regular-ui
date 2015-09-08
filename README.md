@@ -64,6 +64,8 @@ Run `gulp doc` to rebuild docs without watching.
 
 Run `gulp page` to rebuild docs and sync to [GitHub Page Repo][repo-page].
 
+Run `npm test` to start karma for testing cases.
+
 ## Structure
 
 I'm lazy to translate...

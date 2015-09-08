@@ -2,8 +2,6 @@ var except = require('expect.js');
 var Calendar = require('../../../src/js/module/calendar.js');
 
 describe('Calendar', function() {
-    document.body.innerHTML = '';
-
     var MS_OF_DAY = 24*3600*1000;
 
     var today = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
@@ -17,7 +15,7 @@ describe('Calendar', function() {
     }
 
     describe('initialized without params', function() {
-        var calendar = new Calendar().$inject(document.body);
+        var calendar = new Calendar();
         
         it('should select today by default.', function() {
             except(calendar.data.date - today).to.be(0);
@@ -129,7 +127,7 @@ describe('Calendar', function() {
             data: {
                 date: '2008-08-08'
             }
-        }).$inject(document.body);
+        });
         
         it('should convert `date` property from string-type to Date-type.', function() {
             except(calendar.data.date).to.be.a(Date);
@@ -146,7 +144,7 @@ describe('Calendar', function() {
             data: {
                 date: today_2
             }
-        }).$inject(document.body);
+        });
         
         it('should select this day.', function() {
             except(calendar.data.date - today_2).to.be(0);
@@ -155,6 +153,14 @@ describe('Calendar', function() {
         it('should output `_days` of this month.', function() {
             except(calendar.data._days.length >= 28).to.be.ok();
         });
+
+
+        it('should check if out of the range after set a new `minDate` or `maxDate` value.', function() {
+            calendar.data.minDate = today_7;
+            calendar.$update();
+
+            except(calendar.data.date.toDateString()).to.be(today_7.toDateString());
+        });
     });
 
     describe('initialized to be disabled', function() {
@@ -162,7 +168,7 @@ describe('Calendar', function() {
             data: {
                 disabled: true
             }
-        }).$inject(document.body);
+        });
         
         it('should select today by default.', function() {
             except(calendar.data.date - today).to.be(0);
@@ -227,7 +233,7 @@ describe('Calendar', function() {
                 minDate: today_2,
                 maxDate: today_7
             }
-        }).$inject(document.body);
+        });
         
         it('should select the boundary date if out of range.', function() {
             except(calendar.data.date.toDateString()).to.be(today_2.toDateString());
@@ -261,7 +267,7 @@ describe('Calendar', function() {
                 minDate: '2008-08-08',
                 maxDate: '2008-08-16'
             }
-        }).$inject(document.body);
+        });
         
         it('should select the boundary date if out of range.', function() {
             except(calendar.data.date - new Date('2008-08-16')).to.be(0);
@@ -269,16 +275,16 @@ describe('Calendar', function() {
     });
 
     describe('initialized with wrong range where `minDate` > `maxDate`', function() {
-        it('should throw a DateRangeError.', function() {
+        it('should throw a DateRangeException.', function() {
             try {
                 var calendar = new Calendar({
                     data: {
                         minDate: today_7,
                         maxDate: today_2
                     }
-                }).$inject(document.body);
+                });
             } catch (e) {
-                except(e.type).to.be('DateRangeException');
+                except(e).to.be.a(Calendar.DateRangeException);
             }
         });
     });

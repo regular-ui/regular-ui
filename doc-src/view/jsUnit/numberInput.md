@@ -5,6 +5,15 @@
 
 ```xml
 <numberInput />
+<numberInput value=6 />
+```
+
+#### 禁用组件
+
+<div class="m-example"></div>
+
+```xml
+<numberInput disabled={true} />
 ```
 
 #### 最大值和最小值
@@ -13,4 +22,32 @@
 
 ```xml
 <numberInput min=5 max=8 />
+```
+
+#### 数据绑定
+
+<div class="m-example"></div>
+
+```xml
+<numberInput value={number} />
+<numberInput value={number} min=5 max=12 />
+```
+
+#### 事件
+
+请打开浏览器的控制台查看结果。
+
+<div class="m-example"></div>
+
+```xml
+<numberInput on-change={this.log('on-change:', '$event.value:', $event.value)} />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    log: function() {
+        console.log.apply(console, arguments);
+    }
+});
 ```
