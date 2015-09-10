@@ -40,14 +40,5 @@
 <div class="m-example"></div>
 
 ```xml
-<numberInput on-change={this.log('on-change:', '$event.value:', $event.value)} />
-```
-
-```javascript
-var component = new RGUI.Component({
-    template: template,
-    log: function() {
-        console.log.apply(console, arguments);
-    }
-});
+<numberInput on-change={console.log('on-change:', '$event.value:', $event.value)} />
 ```

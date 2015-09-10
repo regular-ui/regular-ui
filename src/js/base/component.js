@@ -28,7 +28,8 @@ var Component = Regular.extend({
             readonly: false,
             disabled: false,
             visible: true,
-            'class': ''
+            'class': '',
+            console: console
         });
         this.supr();
     }

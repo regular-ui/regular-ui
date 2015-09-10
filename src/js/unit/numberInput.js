@@ -45,7 +45,7 @@ var NumberInput = Input2.extend({
 
             // 如果超出数值范围，则设置为范围边界的数值
             var isOutOfRange = this.isOutOfRange(newValue);
-            if(isOutOfRange)
+            if(isOutOfRange !== false)
                 return this.data.value = isOutOfRange;
 
             /**
@@ -63,7 +63,7 @@ var NumberInput = Input2.extend({
 
             // 如果超出数值范围，则设置为范围边界的数值
             var isOutOfRange = this.isOutOfRange(this.data.value);
-            if(isOutOfRange)
+            if(isOutOfRange !== false)
                 return this.data.value = isOutOfRange;
         });
     },
@@ -86,11 +86,16 @@ var NumberInput = Input2.extend({
      * @return {boolean|number} 如果没有超出数值范围，则返回false；如果超出数值范围，则返回范围边界的数值
      */
     isOutOfRange: function(value) {
-        var min = this.data.min;
-        var max = this.data.max;
+        var min = +this.data.min;
+        var max = +this.data.max;
 
         // min && value < min && min，先判断是否为空，再判断是否超出数值范围，如果超出则返回范围边界的数值
-        return (!isNaN(min) && value < min && min) || (!isNaN(max) && value > max && max);
+        if(!isNaN(min) && value < min)
+            return min;
+        else if(!isNaN(max) && value > max)
+            return max;
+        else
+            return false;
     }
 }).filter({
     number: {
@@ -110,7 +115,7 @@ var NumberInput = Input2.extend({
 
 NumberInput.NumberRangeException = function(min, max) {
     this.type = 'NumberRangeException';
-    this.message = 'Wrong number range where `min` is ' + min + ' and `max` is ' + max + '.';
+    this.message = 'Wrong Number Range where `min` is ' + min + ' and `max` is ' + max + '!';
 }
 
 NumberInput.NumberRangeException.prototype.toString = function() {

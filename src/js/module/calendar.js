@@ -222,7 +222,7 @@ var Calendar = Component.extend({
 
 Calendar.DateRangeException = function(minDate, maxDate) {
     this.type = 'DateRangeException';
-    this.message = 'Wrong date range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + ' .';
+    this.message = 'Wrong Date Range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + '!';
 }
 
 Calendar.DateRangeException.prototype.toString = function() {

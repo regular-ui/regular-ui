@@ -253,6 +253,7 @@ describe('Calendar', function() {
         describe('#isOutOfRange(date)', function() {
             it('should return true if out of range.', function() {
                 except(calendar.isOutOfRange(today)).to.be.ok();
+                except(calendar.isOutOfRange(today).toDateString()).to.be(today_2.toDateString());
             });
 
             it('should return false if in the range.', function() {

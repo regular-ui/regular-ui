@@ -70,15 +70,6 @@ var component = new RGUI.Component({
 
 ```xml
 <calendar
-    on-select={this.log('on-select:', '$event.date:', $event.date)}
-    on-change={this.log('on-change:', '$event.date:', $event.date)} />
-```
-
-```javascript
-var component = new RGUI.Component({
-    template: template,
-    log: function() {
-        console.log.apply(console, arguments);
-    }
-});
+    on-select={console.log('on-select:', '$event.date:', $event.date)}
+    on-change={console.log('on-change:', '$event.date:', $event.date)} />
 ```

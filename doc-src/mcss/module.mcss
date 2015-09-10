@@ -143,6 +143,10 @@
     margin-left: 20px;
 }
 
+.u-timepicker + .u-timepicker {
+    margin-left: 20px;
+}
+
 .u-courceitem {
     img {
         max-width: 100%;

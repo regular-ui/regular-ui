@@ -218,11 +218,30 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-string">&quot;15:45&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">禁用组件</h4>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<h4 id="-">日期范围</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">minTime</span>=<span class="cm-string">&quot;12:00&quot;</span> <span class="cm-attribute">maxTime</span>=<span class="cm-string">&quot;14:45&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<h4 id="-">数据绑定</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-attribute">{time}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-attribute">{time}</span> <span class="cm-attribute">minTime</span>=<span class="cm-string">&quot;18:00&quot;</span> <span class="cm-attribute">maxTime</span>=<span class="cm-string">&quot;19:30&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前选择的日期为：{time}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">事件</h4>
+<p>请打开浏览器的控制台查看结果。</p>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.time:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.time)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -246,6 +265,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.time</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;00:00&#39;</code></td><td>当前的时间值</td></tr>
             
+            <tr><td class="f-wsn"><code>data.minTime</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;00:00&#39;</code></td><td>最小时间</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.maxTime</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;23:59&#39;</code></td><td>最大时间</td></tr>
+            
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
             
             <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
@@ -260,6 +283,24 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-options"></div>
 
 
+    <h4>Methods</h4>
+    
+    <h5>timePicker.isOutOfRange(time)</h5>
+    <p>是否超出规定的时间范围</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>time</code></td><td class="f-wsn">Time</td><td class="f-wsn"></td><td>待测的时间</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+
 <div id="j-methods"></div>
 
 
@@ -268,6 +309,24 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 <div id="j-inheritedMethods"></div>
 
+
+    <h4>Events</h4>
+    
+    <h5>timePicker.$on('change')</h5>
+    <p>时间改变时触发</p>
+    <table>
+        <thead>
+            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>time</code></td><td class="f-wsn">object</td><td class="f-wsn">改变后的时间</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
 
 <div id="j-events"></div>
 
@@ -354,6 +413,7 @@ var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <timePicker />
+<timePicker time="15:45" />
     */})
 var component = new RGUI.Component({
     template: template,
@@ -363,6 +423,35 @@ var component = new RGUI.Component({
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <timePicker disabled={true} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<timePicker minTime="12:00" maxTime="14:45" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<timePicker time={time} />
+<timePicker time={time} minTime="18:00" maxTime="19:30" />
+<p>当前选择的日期为：{time}</p>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<timePicker on-change={console.log('on-change:', '$event.time:', $event.time)} />
     */})
 var component = new RGUI.Component({
     template: template,

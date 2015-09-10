@@ -17,6 +17,12 @@ describe('NumberInput', function() {
                 except(numberInput.data.value).to.be(5);
             });
         });
+
+        describe('#isOutOfRange(date)', function() {
+            it('should return false with any value.', function() {
+                except(numberInput.isOutOfRange(5)).not.to.be.ok();
+            });
+        });
     });
 
     describe('initialized with string-type `value`', function() {
@@ -77,6 +83,37 @@ describe('NumberInput', function() {
             numberInput.$update();
 
             except(numberInput.data.value).to.be(5);
+        });
+
+        describe('#isOutOfRange(date)', function() {
+            it('should return true if out of range.', function() {
+                except(numberInput.isOutOfRange(0)).to.be.ok();
+                except(numberInput.isOutOfRange(0)).to.be(2);
+            });
+
+            it('should return false if in the range.', function() {
+                except(numberInput.isOutOfRange(4)).not.to.be.ok();
+            });
+        });
+    });
+
+    // For Zero-is-Falsy situation.
+    describe('initialized where `min` is 0 and `max` is 5', function() {
+        var numberInput = new NumberInput({
+            data: {
+                min: 0,
+                max: 5
+            }
+        });
+
+        describe('#isOutOfRange(date)', function() {
+            it('should return true if out of range.', function() {
+                except(numberInput.isOutOfRange(-2)).to.be(0);
+            });
+
+            it('should return false if in the range.', function() {
+                except(numberInput.isOutOfRange(4)).not.to.be.ok();
+            });
         });
     });
 
