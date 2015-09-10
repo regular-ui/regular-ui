@@ -11,7 +11,7 @@ function parse(filepath) {
         type: /^@(class|method|event)\s+(.+?)(?:\s+(.+?))?$/,
         method: /^(.+?)\((.*)\)$/,
         map: /^@(extend|version)\s+(.+?)$/,
-        flag: /^@(public|private|static|override)$/,
+        flag: /^@(public|private|static|override|ignore)$/,
         param: /^@param\s+\{(.+?)(?:=(.*?))?\}\s+(.+?)(?:\s+(.+?))?$/,
         property: /^@property\s+\{(.+?)\}\s+(.+?)(?:\s+(.+?))?$/,
         author: /^@author\s+(.+?)$/,

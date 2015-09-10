@@ -120,6 +120,17 @@ describe('Calendar', function() {
                 except(calendar.isOutOfRange(today_7)).not.to.be.ok();
             });
         });
+
+        describe('#on-change', function() {
+            // 暂时没有好方法
+            xit('should not emit if date is not changed.', function() {
+                calendar.$on('change', function() {
+                    except().fail();
+                });
+                calendar.data.date = new Date();
+                calendar.$update();
+            });
+        });
     });
 
     describe('initialized with string-type `date`', function() {

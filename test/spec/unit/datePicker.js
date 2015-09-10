@@ -177,7 +177,7 @@ describe('DatePicker', function() {
                         maxDate: today_2
                     }
                 });
-            } catch (e) {
+            } catch(e) {
                 except(e).to.be.a(Calendar.DateRangeException);
             }
         });

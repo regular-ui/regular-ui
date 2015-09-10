@@ -76,7 +76,7 @@ describe('TimePicker', function() {
                         maxTime: '10:00'
                     }
                 });
-            } catch (e) {
+            } catch(e) {
                 except(e).to.be.a(TimePicker.TimeRangeException);
             }
         });

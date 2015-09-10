@@ -53,7 +53,7 @@ var component = new RGUI.Component({
 
 ```xml
 <datePicker
+    on-toggle={console.log('on-toggle:', '$event.open:', $event.open)}
     on-select={console.log('on-select:', '$event.date:', $event.date)}
-    on-change={console.log('on-change:', '$event.date:', $event.date)}
-    on-toggle={console.log('on-toggle:', '$event.open:', $event.open)} />
+    on-change={console.log('on-change:', '$event.date:', $event.date)} />
 ```

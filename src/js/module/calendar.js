@@ -82,10 +82,6 @@ var Calendar = Component.extend({
 
             if(newValue == 'Invalid Date')
                 return this.data.minDate = null;
-
-            var minDate = new Date((newValue/MS_OF_DAY>>0)*MS_OF_DAY);
-            if(newValue - minDate !== 0)
-                return this.data.minDate = minDate;
         });
 
         this.$watch('maxDate', function(newValue, oldValue) {
@@ -97,17 +93,14 @@ var Calendar = Component.extend({
 
             if(newValue == 'Invalid Date')
                 return this.data.maxDate = null;
-
-            var maxDate = new Date((newValue/MS_OF_DAY>>0)*MS_OF_DAY);
-            if(newValue - maxDate !== 0)
-                return this.data.maxDate = maxDate;
         });
 
         this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
             if(!(minDate && minDate instanceof Date || maxDate && maxDate instanceof Date))
                 return;
 
-            if(minDate && maxDate && minDate - maxDate > 0)
+            if(minDate && maxDate)
+                if(minDate/MS_OF_DAY>>0 > maxDate/MS_OF_DAY>>0)
                     throw new Calendar.DateRangeException(minDate, maxDate);
             
             // 如果超出日期范围，则设置为范围边界的日期
@@ -214,6 +207,10 @@ var Calendar = Component.extend({
     isOutOfRange: function(date) {
         var minDate = this.data.minDate;
         var maxDate = this.data.maxDate;
+
+        // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
+        var minDate = minDate && new Date((minDate/MS_OF_DAY>>0)*MS_OF_DAY);
+        var maxDate = maxDate && new Date((maxDate/MS_OF_DAY>>0)*MS_OF_DAY);
 
         // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
         return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);

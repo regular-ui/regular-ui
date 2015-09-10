@@ -27,6 +27,7 @@
 <% if(methods.length) { %>
     <h4>Methods</h4>
     <% methods.forEach(function(method) { %>
+    <% if(method.ignore) return; %>
     <h5><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
     <p><%= method.description %></p>
     <table>
@@ -50,6 +51,7 @@
 <% if(staticMethods.length) { %>
     <h4>Static Methods</h4>
     <% staticMethods.forEach(function(method) { %>
+    <% if(method.ignore) return; %>
     <h5><%= class_.name %>.<%= method.name %>(<%= method.body %>)</h5>
     <p><%= method.description %></p>
     <table>
@@ -73,6 +75,7 @@
 <% if(inheritedMethods.length) { %>
     <h4>Inherited Methods</h4>
     <% inheritedMethods.forEach(function(method) { %>
+    <% if(method.ignore) return; %>
     <% if(!method.overridden) { %>
         <h5><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
         <p><%= method.description %></p>
@@ -100,6 +103,7 @@
 <% if(events.length) { %>
     <h4>Events</h4>
     <% events.forEach(function(event) { %>
+    <% if(event.ignore) return; %>
     <h5><%= class_.lowerName %>.$on('<%= event.name %>')</h5>
     <p><%= event.description %></p>
     <table>
@@ -123,6 +127,7 @@
 <% if(inheritedEvents.length) { %>
     <h4>Inherited Events</h4>
     <% inheritedEvents.forEach(function(event) { %>
+    <% if(event.ignore) return; %>
     <% if(!event.overridden) { %>
         <h5><%= class_.lowerName %>.$on('<%= event.name %>')</h5>
         <p><%= event.description %></p>

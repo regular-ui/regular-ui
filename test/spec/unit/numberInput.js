@@ -126,7 +126,7 @@ describe('NumberInput', function() {
                         max: 7
                     }
                 });
-            } catch (e) {
+            } catch(e) {
                 except(e).to.be.a(NumberInput.NumberRangeException);
             }
         });
