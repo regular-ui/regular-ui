@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var webpack = require('gulp-webpack');
 var webpackConfig = require('../webpack.config.js');
 var rename = require('gulp-rename');
+var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
@@ -27,6 +28,8 @@ webpackConfig2.watch = true;
 
 gulp.task('doc-watch-js', function(done) {
     return gulp.src('./src/js/index.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
         .pipe(webpack(webpackConfig2))
         .pipe(rename({suffix: '.min'}))
         // .pipe(uglify()) // watch的时候不压缩了

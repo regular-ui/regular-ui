@@ -7,7 +7,7 @@
 
 'use strict';
 
-var RGUI = {}
+var RGUI = {};
 
 /**
  * base

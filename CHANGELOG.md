@@ -1,6 +1,6 @@
 # Change Log
 
-### v0.1.0 - 2015-08-31
+### v0.1.1 - 2015-08-31
 
 - [added] doc/start/quickStart, doc/start/developer
 - [updated] package dependencies
