@@ -3,16 +3,12 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-
-
 @import "../../core/unit/select2.mcss";
-
-
 
 // Component:       `u-select2`
 // ========================================================================
 
-.u-dropdown-select2 {
+.u-select2 {
     min-width: 220px;
 
     .dropdown_hd {
@@ -37,7 +33,7 @@
 }
 
 /* Disabled */
-.u-dropdown-select2.z-dis {
+.u-select2.z-dis {
     .dropdown_hd {
         background: fade($gray-light, 0.75, true);
         color: fade($inverse, 0.75, true);

@@ -1,53 +1,50 @@
-// Name:            Tab
+// Name:            Tabs
 // Description:     选项卡
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-@import "../../core/module/tab.mcss";
+@import "../../core/module/tabs.mcss";
 
 // Variables:
 // ========================================================================
 
-$m-tab_hd_li_border-width = 1px;
-$m-tab_hd_li_margin = 2px;
-$m-tab_hd_li_padding-horizontal = 25px;
-$m-tab_hd_li-hover_background = mix($brand-secondary, white, 10%);
-$m-tab-vertical_hd_li_width = 120px;
+$m-tabs_hd_li_border-width = 1px;
+$m-tabs_hd_li_margin = 5px;
+$m-tabs_hd_li_padding-horizontal = 12px;
+$m-tabs-vertical_hd_li_width = 120px;
 
 
 
 // Component:       `m-tab`
 // ========================================================================
 
-.m-tab {
-    .tab_hd {
+.m-tabs {
+    .tabs_hd {
         > li {
-            padding: 0 $m-tab_hd_li_padding-horizontal;
-            $line-height: 42px;
-            border: $m-tab_hd_li_border-width solid transparent;
-            font-weight: bold;
+            padding: 0 $m-tabs_hd_li_padding-horizontal;
+            $line-height: 36px;
+            border: $m-tabs_hd_li_border-width solid transparent;
             border-bottom-width: 0;
             color: $brand-primary;
-            margin-bottom: -$m-tab_hd_li_border-width;
-            $border-radius: $border-radius-base $border-radius-base 0 0;
+            margin-bottom: -$m-tabs_hd_li_border-width;
         }
 
         > li + li {
-            margin-left: $m-tab_hd_li_margin;
+            margin-left: $m-tabs_hd_li_margin;
         }
         
         > li:hover,    // - Apply hover style also to focus state
         > li:focus {
-            background: $m-tab_hd_li-hover_background;
+            background: #f5f5f5;
             color: l-adjust($brand-primary, -10%);
-            border-color: $m-tab_hd_li-hover_background;
+            border-color: #f5f5f5;
         }
 
         > li.z-crt {
             background: white;
             color: #444;
             border-color: #ddd;
-            padding-bottom: $m-tab_hd_li_border-width;
+            padding-bottom: $m-tabs_hd_li_border-width;
         }
 
         > li.z-dis {
@@ -57,16 +54,15 @@ $m-tab-vertical_hd_li_width = 120px;
         }
     }
 
-    .tab_bd {
-        border: $m-tab_hd_li_border-width solid #ddd;
+    .tabs_bd {
+        border: $m-tabs_hd_li_border-width solid #ddd;
         padding: 20px;
-        $border-radius: 0 0 $border-radius-base $border-radius-base;
     }
 }
 
 /* Disabled */
-.m-tab.z-dis {
-    .tab_hd {
+.m-tabs.z-dis {
+    .tabs_hd {
         > li:not(.z-crt) {
             background: none;
             color: #999;
@@ -77,11 +73,11 @@ $m-tab-vertical_hd_li_width = 120px;
 
 
 
-// Extends:         `m-tab-center`
+// Extends:         `m-tabs-center`
 // ========================================================================
 
-.m-tab-center {
-    .tab_hd {
+.m-tabs-center {
+    .tabs_hd {
         position: relative;
         float: left;
         left: 50%;
@@ -93,69 +89,67 @@ $m-tab-vertical_hd_li_width = 120px;
     }
 }
 
-.m-tab-left {
+.m-tabs-left {
     position: relative;
 
-    .tab_hd {
+    .tabs_hd {
         position: absolute;
         left: 0;
-        width: $m-tab-vertical_hd_li_width;
+        width: $m-tabs-vertical_hd_li_width;
 
         > li {
             float: none;
-            border: $m-tab_hd_li_border-width solid transparent;
+            border: $m-tabs_hd_li_border-width solid transparent;
             border-right-width: 0;
             margin-bottom: 0;
         }
 
         > li + li {
             margin-left: 0;
-            margin-top: $m-tab_hd_li_margin;
+            margin-top: $m-tabs_hd_li_margin;
         }
 
         > li.z-crt {
             padding-bottom: 0;
-            margin-right: -$m-tab_hd_li_border-width;
+            margin-right: -$m-tabs_hd_li_border-width;
         }
     }
 
-    .tab_bd {
-        margin-left: $m-tab-vertical_hd_li_width;
+    .tabs_bd {
+        margin-left: $m-tabs-vertical_hd_li_width;
         min-height: 200px;
-        $border-radius: 0 $border-radius-base $border-radius-base 0;
     }
 }
 
-.m-tab-right {
+.m-tabs-right {
     position: relative;
 
-    .tab_hd {
+    .tabs_hd {
         position: absolute;
         right: 0;
-        width: $m-tab-vertical_hd_li_width;
+        width: $m-tabs-vertical_hd_li_width;
 
         > li {
             float: none;
-            border: $m-tab_hd_li_border-width solid transparent;
+            border: $m-tabs_hd_li_border-width solid transparent;
             border-left-width: 0;
             margin-bottom: 0;
         }
 
         > li + li {
             margin-left: 0;
-            margin-top: $m-tab_hd_li_margin;
+            margin-top: $m-tabs_hd_li_margin;
         }
 
         > li.z-crt {
             padding-bottom: 0;
-            padding-left: $m-tab_hd_li_padding-horizontal + 1px;
-            margin-left: -$m-tab_hd_li_border-width;
+            padding-left: $m-tabs_hd_li_padding-horizontal + 1px;
+            margin-left: -$m-tabs_hd_li_border-width;
         }
     }
 
-    .tab_bd {
-        margin-right: $m-tab-vertical_hd_li_width;
+    .tabs_bd {
+        margin-right: $m-tabs-vertical_hd_li_width;
         min-height: 200px;
-        $border-radius: $border-radius-base 0 0 $border-radius-base;
     }
 }

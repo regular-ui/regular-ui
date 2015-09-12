@@ -10,7 +10,6 @@
 var Dropdown = require('./dropdown.js');
 var template = require('text!./suggest.html');
 var _ = require('../base/util.js');
-var ListView = require('../module/listView.js');
 
 /**
  * @class Suggest
@@ -123,12 +122,12 @@ var Suggest = Dropdown.extend({
         if(!value && this.data.minLength)
             return false;
 
-        if(this.data.matchType == 'all')
+        if(this.data.matchType === 'all')
             return item.name.indexOf(value) >= 0;
-        else if(this.data.matchType == 'start')
-            return item.name.slice(0, value.length) == value;
-        else if(this.data.matchType == 'end')
-            return item.name.slice(-value.length) == value;
+        else if(this.data.matchType === 'start')
+            return item.name.slice(0, value.length) === value;
+        else if(this.data.matchType === 'end')
+            return item.name.slice(-value.length) === value;
     }
 });
 

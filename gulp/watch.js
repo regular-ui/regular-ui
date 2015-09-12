@@ -28,12 +28,16 @@ webpackConfig2.watch = true;
 
 gulp.task('doc-watch-js', function(done) {
     return gulp.src('./src/js/index.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'))
         .pipe(webpack(webpackConfig2))
         .pipe(rename({suffix: '.min'}))
         // .pipe(uglify()) // watch的时候不压缩了
         .pipe(gulp.dest('./doc/js'));
+});
+
+gulp.task('doc-watch-jshint', function(done) {
+    return gulp.src('./src/js/**/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
 });
 
 gulp.task('doc-watch-css', function(done) {
@@ -57,6 +61,7 @@ gulp.task('doc-watch-css', function(done) {
 gulp.task('doc-watch', function() {
     gulp.watch('doc-src/assets/**', ['doc-watch-copy']);
     gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['doc-watch-css']);
+    // gulp.watch('src/js/**/*.js', ['doc-watch-jshint']);
     gulp.watch(['src/js/**/*.js', 'doc-src/view/**', 'doc-src/sitemap.json'], ['doc-build']);
 });
 

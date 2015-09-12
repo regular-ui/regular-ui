@@ -8,7 +8,7 @@
 // Extends:
 // ========================================================================
 
-.u-dropdown-datetimepicker {
+.u-datetimepicker {
     .dropdown_bd {
         // width: 320px;
 
@@ -43,4 +43,4 @@
 }
 
 /* Disabled */
-.u-dropdown-datetimepicker.z-dis {}
+.u-datetimepicker.z-dis {}

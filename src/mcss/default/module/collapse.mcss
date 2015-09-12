@@ -1,20 +1,12 @@
-// Name:            Accordion
+// Name:            Collapse
 // Description:     手风琴
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-
+@import "../../core/module/collapse.mcss";
 
 // Component:
 // ========================================================================
 
-.m-accordion {
-    $user-select: none;
-
-    .m-panel {
-        .panel_hd {
-            cursor: pointer;
-            // border-bottom: none;
-        }
-    }
+.m-collapse {
 }

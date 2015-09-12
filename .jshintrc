@@ -1,8 +1,8 @@
 {
     "bitwise": false,
+    "camelcase": true,
     "curly": false,
     "eqeqeq": true,
-    "es5": true,
     "forin": true,
     "funcscope": true,
     "immed": true,
@@ -19,7 +19,9 @@
     "undef": true,
     "unused": true,
     "strict": false,
+    "trailing": true,
 
+    "asi": true,
     "debug": true,
     "plusplus": false,
 

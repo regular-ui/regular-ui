@@ -2,7 +2,7 @@
 
 var filter = {};
 
-filter.format = function() {
+filter.format = (function() {
     function fix(str) {
         str = '' + (String(str) || '');
         return str.length <= 1? '0' + str : str;
@@ -26,7 +26,7 @@ filter.format = function() {
             return maps[capture]? maps[capture](value): '';
         });
     }
-}();
+}());
 
 filter.average = function(array, key) {
     array = array || [];

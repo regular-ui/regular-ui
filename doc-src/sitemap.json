@@ -85,8 +85,8 @@
             "lowerName": "jsModule",
             "cnName": "JS模块",
             "children": [
-                {"name": "Tab", "lowerName": "tab", "cnName": "选项卡", "group": "导航类", "completed": true},
-                {"name": "Accordion", "lowerName": "accordion", "cnName": "手风琴", "group": "导航类", "completed": true},
+                {"name": "Tabs", "lowerName": "tabs", "cnName": "选项卡", "group": "导航类", "completed": true},
+                {"name": "Collapse", "lowerName": "collapse", "cnName": "折叠面板", "group": "导航类", "completed": true},
                 {"name": "Pager", "lowerName": "pager", "cnName": "分页器", "group": "导航类", "completed": true},
                 {"name": "Menubar", "lowerName": "menubar", "cnName": "菜单", "group": "导航类", "hidden": true},
 

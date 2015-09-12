@@ -1,6 +1,6 @@
 /**
  * ------------------------------------------------------------
- * Accordion       选项卡
+ * Collapse       选项卡
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -8,30 +8,30 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('text!./accordion.html');
-var itemTemplate = require('text!./accordionPane.html');
+var template = require('text!./collapse.html');
+var itemTemplate = require('text!./panel.html');
 var _ = require('../base/util.js');
 
 /**
- * @class Accordion
+ * @class Collapse
  * @extend Component
  * @param {object}                  options.data                    绑定属性
- * @param {boolean=true}            options.data.collapse           是否只能同时展开一个
+ * @param {boolean=false}           options.data.accordion          是否每次只展开一个
  * @param {boolean=false}           options.data.readonly           是否只读
  * @param {boolean=false}           options.data.disabled           是否禁用
  * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
-var Accordion = Component.extend({
-    name: 'accordion',
+var Collapse = Component.extend({
+    name: 'collapse',
     template: template,
     /**
      * @protected
      */
     config: function() {
         _.extend(this.data, {
-            panes: [],
-            collapse: true
+            panels: [],
+            accordion: false
         });
         this.supr();
     }
@@ -43,8 +43,8 @@ var Accordion = Component.extend({
      */
 });
 
-var AccordionPane = Component.extend({
-    name: 'accordionPane',
+var Panel = Component.extend({
+    name: 'panel',
     template: itemTemplate,
     /**
      * @protected
@@ -52,17 +52,16 @@ var AccordionPane = Component.extend({
     config: function() {
         _.extend(this.data, {
             title: '',
-            open: false,
-            disabled: false
+            open: false
         });
         this.supr();
 
         if(this.$outer)
-            this.$outer.data.panes.push(this);
+            this.$outer.data.panels.push(this);
     },
     toggle: function(open) {
-        if(open && this.$outer.data.collapse) {
-            this.$outer.data.panes.forEach(function(pane) {
+        if(open && this.$outer.data.accordion) {
+            this.$outer.data.panels.forEach(function(pane) {
                 pane.data.open = false;
             });
         }
@@ -71,4 +70,4 @@ var AccordionPane = Component.extend({
     }
 });
 
-module.exports = Accordion;
+module.exports = Collapse;

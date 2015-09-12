@@ -5,10 +5,10 @@
 
 @import "../../core/unit/menu.mcss";
 
-// Component:       `u-dropdown-menu`
+// Component:       `u-menu`
 // ========================================================================
 
-.u-dropdown-menu {
+.u-menu {
     .menu_list {
         min-width: $formctrl_min-width;
     }

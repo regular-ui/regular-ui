@@ -121,7 +121,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <ul>
 <li><p>为了防止组件内部类名的污染，并且为了好识别，使用<code>_</code>来做连字符。</p>
 <p>后代选择器的类名定义为组件名+<code>_</code>+后代选择器的含义。</p>
-<p>如用：<code>.m-tab .tab_hd</code>、<code>.m-calendar .calendar_hd</code>，而不用：<code>.m-tab .hd</code>、<code>.m-calendar .hd</code></p>
+<p>如用：<code>.m-tabs .tabs_hd</code>、<code>.m-calendar .calendar_hd</code>，而不用：<code>.m-tabs .hd</code>、<code>.m-calendar .hd</code></p>
 </li>
 <li><p>为了防止组件内部语义化标签的污染，使用<code>&gt;</code>来进行限制选择</p>
 <p>如用：<code>.m-list&gt;li</code>，而不用：<code>.m-list li</code></p>
@@ -299,7 +299,7 @@ var themeSelect = new RGUI.Select2({
     localStorage['selectedTheme'] = $event.selected.name;
 });
 
-// 生成tab
+// 生成tabs
 (function() {
     var $examples = document.getElementsByClassName('m-example');
 
@@ -336,11 +336,11 @@ var themeSelect = new RGUI.Select2({
 
         new RGUI.Component({
             template: RGUI._.multiline(function(){/*
-<tab>
+<tabs>
     {#list source as item}
-    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
+    <tab title={item.title}><div r-html={item.content}></div></tab>
     {/list}
-</tab>
+</tabs>
             */}),
             data: {
                 source: source

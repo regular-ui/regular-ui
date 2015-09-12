@@ -1,6 +1,6 @@
 /**
  * ------------------------------------------------------------
- * Tab       选项卡
+ * Tabs       选项卡
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -8,11 +8,11 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('text!./tab.html');
+var template = require('text!./tabs.html');
 var _ = require('../base/util.js');
 
 /**
- * @class Tab
+ * @class Tabs
  * @extend Component
  * @param {object}                  options.data                    绑定属性
  * @param {boolean=false}           options.data.readonly           是否只读
@@ -20,15 +20,15 @@ var _ = require('../base/util.js');
  * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class
  */
-var Tab = Component.extend({
-    name: 'tab',
+var Tabs = Component.extend({
+    name: 'tabs',
     template: template,
     /**
      * @protected
      */
     config: function() {
         _.extend(this.data, {
-            source: [],
+            tabs: [],
             selected: null
         });
         this.supr();
@@ -40,7 +40,7 @@ var Tab = Component.extend({
      * @return {void}
      */
     select: function(item) {
-        if(item.disabled || this.data.readonly || this.data.disabled)
+        if(this.data.readonly || this.data.disabled || item.data.disabled)
             return;
 
         this.data.selected = item;
@@ -54,26 +54,24 @@ var Tab = Component.extend({
     }
 });
 
-var TabPane = Component.extend({
-    name: 'tabPane',
-    template: '<div r-hide={this.$outer.data.selected.tab != this}>{#include this.$body}</div>',
+var Tab = Component.extend({
+    name: 'tab',
+    template: '<div r-hide={this.$outer.data.selected != this}>{#include this.$body}</div>',
     /**
      * @protected
      */
-    config: function() { 
-        if(this.$outer) {
-            var source = this.$outer.data.source;
-            var item = {
-                title: this.data.title,
-                disabled: this.data.disabled,
-                tab: this
-            };
-            source.push(item);
+    config: function() {
+        _.extend(this.data, {
+            title: ''
+        });
+        this.supr();
 
-            if(!this.$outer.data.selected)
-                this.$outer.data.selected = item;
-        }
+        if(this.$outer)
+            this.$outer.data.tabs.push(this);
+
+        if(!this.$outer.data.selected)
+            this.$outer.data.selected = this;
     }
 });
 
-module.exports = Tab;
+module.exports = Tabs;

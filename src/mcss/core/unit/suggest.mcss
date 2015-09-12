@@ -8,7 +8,7 @@
 // Extends:
 // ========================================================================
 
-.u-dropdown-suggest {}
+.u-suggest {}
 
 /* Disabled */
-.u-dropdown-suggest.z-dis {}
+.u-suggest.z-dis {}

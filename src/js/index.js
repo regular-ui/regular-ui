@@ -51,8 +51,8 @@ RGUI.Gotop = require('./unit/gotop.js');
  * jsModule
  */
 // 导航类
-RGUI.Tab = require('./module/tab.js');
-RGUI.Accordion = require('./module/accordion.js');
+RGUI.Tabs = require('./module/tabs.js');
+RGUI.Collapse = require('./module/collapse.js');
 RGUI.Pager = require('./module/pager.js');
 RGUI.Menubar = require('./module/menubar.js');
 

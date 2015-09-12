@@ -8,7 +8,7 @@
 // Component:       `u-numberinput`
 // ========================================================================
 
-.u-input2-numberinput {
+.u-numberinput {
     .u-btn {
         right: 4px;
         top: 4px;

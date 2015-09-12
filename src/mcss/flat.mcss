@@ -93,8 +93,8 @@ $reset-normalize();
 // ========================================================================
 
 /* 导航类 */
-@import "flat/module/tab.mcss";
-@import "default/module/accordion.mcss";
+@import "flat/module/tabs.mcss";
+@import "default/module/collapse.mcss";
 @import "flat/module/pager.mcss";
 
 /* 窗口类 */

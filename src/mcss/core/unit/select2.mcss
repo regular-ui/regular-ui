@@ -8,7 +8,7 @@
 // Extends:
 // ========================================================================
 
-.u-dropdown-select2 {
+.u-select2 {
     $user-select: none;
     // - 防止select2在文字为空时飘起来
     vertical-align: bottom;
@@ -28,7 +28,7 @@
 }
 
 /* Disabled */
-.u-dropdown-select2.z-dis {
+.u-select2.z-dis {
     .dropdown_hd {
         cursor: not-allowed;
     }

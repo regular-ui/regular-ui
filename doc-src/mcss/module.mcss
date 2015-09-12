@@ -254,7 +254,7 @@ $m-navbar-current_background-color = $brand-primary;
     width: 192px;
     margin-left: 20px;
 
-    .u-dropdown-select2 {
+    .u-select2 {
         vertical-align: baseline;
     }
 
@@ -274,7 +274,7 @@ $m-navbar-current_background-color = $brand-primary;
     }
 }
 
-.m-tab {
+.m-tabs {
     margin: 0.5em 0;
 }
 

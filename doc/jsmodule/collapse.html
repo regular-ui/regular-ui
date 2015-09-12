@@ -70,7 +70,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <li class="sidebar_group"><span>导航类</span></li>
         
-        <li><a href="../jsmodule/tab.html">选项卡<small> Tab</small>
+        <li><a href="../jsmodule/tabs.html">选项卡<small> Tabs</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
@@ -78,7 +78,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li class="z-crt"><a href="../jsmodule/accordion.html">手风琴<small> Accordion</small>
+        <li class="z-crt"><a href="../jsmodule/collapse.html">折叠面板<small> Collapse</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
@@ -173,28 +173,28 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>手风琴<small> Accordion</small></h2>
+        <h2>折叠面板<small> Collapse</small></h2>
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordion</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordion</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">collapse</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel2&quot;</span> <span class="cm-attribute">open</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">collapse</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<h4 id="-">同时展开多个</h4>
+<h4 id="-">每次只展开一个</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordion</span> <span class="cm-attribute">collapse</span>=<span class="cm-attribute">{false}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">accordionPane</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;accordion4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordionPane</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">accordion</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">collapse</span> <span class="cm-attribute">accordion</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">collapse</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">禁用</h4>
 <p>待完成。。。</p>
@@ -202,13 +202,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <h3>API</h3>
 
 <h4>Class</h4>
-<h5>Accordion</h5>
+<h5>Collapse</h5>
 <p>继承自<strong>Component</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Accordion()</h5>
+<h5>new Collapse()</h5>
 <table>
     <thead>
         <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
@@ -218,7 +218,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.collapse</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否只能同时展开一个</td></tr>
+            <tr><td class="f-wsn"><code>data.accordion</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否每次只展开一个</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
             
@@ -273,7 +273,7 @@ var themeSelect = new RGUI.Select2({
     localStorage['selectedTheme'] = $event.selected.name;
 });
 
-// 生成tab
+// 生成tabs
 (function() {
     var $examples = document.getElementsByClassName('m-example');
 
@@ -310,11 +310,11 @@ var themeSelect = new RGUI.Select2({
 
         new RGUI.Component({
             template: RGUI._.multiline(function(){/*
-<tab>
+<tabs>
     {#list source as item}
-    <tabPane title={item.title}><div r-html={item.content}></div></tabPane>
+    <tab title={item.title}><div r-html={item.content}></div></tab>
     {/list}
-</tab>
+</tabs>
             */}),
             data: {
                 source: source
@@ -327,12 +327,12 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<accordion>
-    <accordionPane title="accordion1">content1</accordionPane>
-    <accordionPane title="accordion2">content2</accordionPane>
-    <accordionPane title="accordion3">content3</accordionPane>
-    <accordionPane title="accordion4">content4</accordionPane>
-</accordion>
+<collapse>
+    <panel title="panel1">content1</panel>
+    <panel title="panel2" open={true}>content2</panel>
+    <panel title="panel3">content3</panel>
+    <panel title="panel4">content4</panel>
+</collapse>
     */})
 var component = new RGUI.Component({
     template: template,
@@ -341,12 +341,12 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<accordion collapse={false}>
-    <accordionPane title="accordion1">content1</accordionPane>
-    <accordionPane title="accordion2">content2</accordionPane>
-    <accordionPane title="accordion3">content3</accordionPane>
-    <accordionPane title="accordion4">content4</accordionPane>
-</accordion>
+<collapse accordion={true}>
+    <panel title="panel1">content1</panel>
+    <panel title="panel2">content2</panel>
+    <panel title="panel3">content3</panel>
+    <panel title="panel4">content4</panel>
+</collapse>
     */})
 var component = new RGUI.Component({
     template: template,
