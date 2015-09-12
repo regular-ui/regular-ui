@@ -3197,8 +3197,10 @@ body{
 }
 .u-tip{
 	font-size:12px;
-	padding:2px 6px;
+	padding:4px;
 	background:#f4f4f4;
+	-moz-border-radius:3px;
+	border-radius:3px;
 }
 .u-tip-info{
 	background:#ebf7fd;

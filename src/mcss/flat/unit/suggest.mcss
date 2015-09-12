@@ -1,0 +1,22 @@
+// Name:            Suggest
+// Description:     自动提示
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/suggest.mcss";
+
+// Extends:
+// ========================================================================
+
+.u-suggest {
+    .dropdown_bd {
+        .m-listview {
+            max-height: 200px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
+}
+
+/* Disabled */
+.u-suggest.z-dis {}

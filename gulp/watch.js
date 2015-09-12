@@ -41,8 +41,6 @@ gulp.task('doc-watch-jshint', function(done) {
 });
 
 gulp.task('doc-watch-css', function(done) {
-    var themes = ['default', 'flat', 'bootstrap'];
-
     var gulpCSS = function(theme) {
         // Should Merge
         return gulp.src('./doc-src/mcss/' + theme + '.mcss')
@@ -55,7 +53,7 @@ gulp.task('doc-watch-css', function(done) {
             .pipe(gulp.dest('./doc/css'));
     }
     
-    return gulpCSS(themes[0]) && gulpCSS(themes[1]) && gulpCSS(themes[2]);
+    return gulp.THEMES.map(gulpCSS).pop();
 });
 
 gulp.task('doc-watch', function() {

@@ -39,8 +39,6 @@ gulp.task('dist-js', function(done) {
 });
 
 gulp.task('dist-css', function(done) {
-    var themes = ['default', 'flat', 'bootstrap'];
-
     var gulpCSS = function(theme) {
         return gulp.src('./src/mcss/' + theme + '.mcss')
             .pipe(mcss({
@@ -54,7 +52,7 @@ gulp.task('dist-css', function(done) {
             .pipe(gulp.dest('./dist/css'));
     }
     
-    return gulpCSS(themes[0]) && gulpCSS(themes[1]) && gulpCSS(themes[2]);
+    return gulp.THEMES.map(gulpCSS).pop();
 });
 
 gulp.task('dist', function(done) {

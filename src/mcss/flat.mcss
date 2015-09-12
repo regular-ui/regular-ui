@@ -28,15 +28,15 @@ $reset-normalize();
 @import "flat/unit/button.mcss";
 @import "flat/unit/buttonGroup.mcss";
 @import "flat/unit/color.mcss";
-@import "bootstrap/unit/text.mcss";
-@import "default/unit/tip.mcss";
-@import "bootstrap/unit/badge.mcss";
+@import "flat/unit/text.mcss";
+@import "flat/unit/tip.mcss";
+@import "flat/unit/badge.mcss";
 @import "flat/unit/message.mcss";
 @import "flat/unit/image.mcss";
-// @import "default/unit/thumbnail.mcss";
+// @import "flat/unit/thumbnail.mcss";
 @import "flat/unit/formCtrl.mcss";
-@import "bootstrap/unit/formItem.mcss";
-@import "default/unit/formGroup.mcss";
+@import "flat/unit/formItem.mcss";
+@import "flat/unit/formGroup.mcss";
 
 
 
@@ -44,20 +44,20 @@ $reset-normalize();
 // ========================================================================
 
 /* 导航类 */
-@import "default/module/navbar.mcss";
-@import "bootstrap/module/crumb.mcss";
-@import "default/module/sidebar.mcss";
-@import "default/module/toolbar.mcss";
+@import "flat/module/navbar.mcss";
+@import "flat/module/crumb.mcss";
+@import "flat/module/sidebar.mcss";
+@import "flat/module/toolbar.mcss";
 
 /* 文章类 */
-@import "default/module/article.mcss";
-@import "default/module/comment.mcss";
+@import "flat/module/article.mcss";
+@import "flat/module/comment.mcss";
 
 /* 布局类 */
-@import "bootstrap/module/list.mcss";
-@import "bootstrap/module/table.mcss";
+@import "flat/module/list.mcss";
+@import "flat/module/table.mcss";
 @import "flat/module/panel.mcss";
-@import "bootstrap/module/form.mcss";
+@import "flat/module/form.mcss";
 
 
 
@@ -69,23 +69,23 @@ $reset-normalize();
 @import "flat/unit/menu.mcss";
 
 /* 数据类 */
-@import "default/unit/input2.mcss";
+@import "flat/unit/input2.mcss";
 @import "flat/unit/numberInput.mcss";
 @import "flat/unit/check2.mcss";
 @import "flat/unit/radio2.mcss";
 @import "core/unit/unitGroup.mcss";
 @import "flat/unit/select2.mcss";
-@import "default/unit/suggest.mcss";
+@import "flat/unit/suggest.mcss";
 @import "core/unit/uploader.mcss";
 
 /* 日期类 */
 @import "flat/unit/timePicker.mcss";
 @import "flat/unit/datePicker.mcss";
-@import "default/unit/dateTimePicker.mcss";
+@import "flat/unit/dateTimePicker.mcss";
 
 /* 其他 */
 @import "flat/unit/progress.mcss";
-@import "default/unit/gotop.mcss";
+@import "flat/unit/gotop.mcss";
 
 
 
@@ -94,18 +94,18 @@ $reset-normalize();
 
 /* 导航类 */
 @import "flat/module/tabs.mcss";
-@import "default/module/collapse.mcss";
+@import "flat/module/collapse.mcss";
 @import "flat/module/pager.mcss";
 
 /* 窗口类 */
-@import "default/module/notify.mcss";
+@import "flat/module/notify.mcss";
 @import "flat/module/modal.mcss";
 
 /* 数据类 */
 @import "flat/module/listView.mcss";
-@import "default/module/gridView.mcss";
+@import "flat/module/gridView.mcss";
 @import "flat/module/treeView.mcss";
-@import "default/module/tableView.mcss";
+@import "flat/module/tableView.mcss";
 
 /* 上传类 */
 //
@@ -114,4 +114,4 @@ $reset-normalize();
 @import "flat/module/calendar.mcss";
 
 /* 编辑器类 */
-@import "default/module/editor.mcss";
+@import "flat/module/editor.mcss";

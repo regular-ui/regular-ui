@@ -1,0 +1,31 @@
+// Name:            Text
+// Description:     文本
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/text.mcss";
+
+// Variables:
+// ========================================================================
+
+.u-text {}
+
+
+
+// Size Extends:
+// ========================================================================
+
+$u-text-extend_size(sm, 12px, 16px);
+$u-text-extend_size(lg, 18px, 24px);
+
+
+
+// Color Extends:
+// ========================================================================
+
+$u-text-extend_color(primary, $brand-primary);
+$u-text-extend_color(success, $status-success_color);
+$u-text-extend_color(warning, $status-warning_color);
+$u-text-extend_color(error, $status-error_color);
+$u-text-extend_color(inverse, $inverse);
+$u-text-extend_color(muted, $gray-light);

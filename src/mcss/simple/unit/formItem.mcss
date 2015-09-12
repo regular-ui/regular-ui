@@ -1,0 +1,33 @@
+// Name:            FormItem
+// Description:     表单项
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/formItem.mcss";
+
+// Component:       `u-formitem`
+// ========================================================================
+
+.u-formitem {
+    line-height: $formctrl_height;
+
+    .formitem_rqr {
+        color: $brand-error;
+    }
+
+    .formitem_tip {
+        font-size: 12px;
+        background: #f4f4f4;
+        padding: 2px 6px;
+    }
+}
+
+.u-formitem-block {
+    .formitem_tt {
+        width: 100px;
+    }
+
+    .formitem_ct {
+        margin-left: 116px;
+    }
+}

@@ -29,14 +29,14 @@ $reset-normalize();
 @import "bootstrap/unit/buttonGroup.mcss";
 @import "bootstrap/unit/color.mcss";
 @import "bootstrap/unit/text.mcss";
-@import "default/unit/tip.mcss";
+@import "bootstrap/unit/tip.mcss";
 @import "bootstrap/unit/badge.mcss";
 @import "bootstrap/unit/message.mcss";
 @import "bootstrap/unit/image.mcss";
-// @import "default/unit/thumbnail.mcss";
+// @import "bootstrap/unit/thumbnail.mcss";
 @import "bootstrap/unit/formCtrl.mcss";
 @import "bootstrap/unit/formItem.mcss";
-@import "default/unit/formGroup.mcss";
+@import "bootstrap/unit/formGroup.mcss";
 
 
 
@@ -44,14 +44,14 @@ $reset-normalize();
 // ========================================================================
 
 /* 导航类 */
-@import "default/module/navbar.mcss";
+@import "bootstrap/module/navbar.mcss";
 @import "bootstrap/module/crumb.mcss";
-@import "default/module/sidebar.mcss";
-@import "default/module/toolbar.mcss";
+@import "bootstrap/module/sidebar.mcss";
+@import "bootstrap/module/toolbar.mcss";
 
 /* 文章类 */
-@import "default/module/article.mcss";
-@import "default/module/comment.mcss";
+@import "bootstrap/module/article.mcss";
+@import "bootstrap/module/comment.mcss";
 
 /* 布局类 */
 @import "bootstrap/module/list.mcss";
@@ -68,13 +68,13 @@ $reset-normalize();
 @import "bootstrap/unit/menu.mcss";
 
 /* 表单类 */
-@import "default/unit/input2.mcss";
+@import "bootstrap/unit/input2.mcss";
 @import "bootstrap/unit/numberInput.mcss";
-@import "default/unit/check2.mcss";
-@import "default/unit/radio2.mcss";
+@import "bootstrap/unit/check2.mcss";
+@import "bootstrap/unit/radio2.mcss";
 @import "core/unit/unitGroup.mcss";
-@import "default/unit/select2.mcss";
-@import "default/unit/suggest.mcss";
+@import "bootstrap/unit/select2.mcss";
+@import "bootstrap/unit/suggest.mcss";
 @import "core/unit/uploader.mcss";
 
 /* 日期类 */
@@ -83,7 +83,7 @@ $reset-normalize();
 
 /* 其他 */
 @import "bootstrap/unit/progress.mcss";
-@import "default/unit/gotop.mcss";
+@import "bootstrap/unit/gotop.mcss";
 
 
 
@@ -92,18 +92,18 @@ $reset-normalize();
 
 /* 导航类 */
 @import "bootstrap/module/tabs.mcss";
-@import "default/module/collapse.mcss";
+@import "bootstrap/module/collapse.mcss";
 @import "bootstrap/module/pager.mcss";
 
 /* 窗口类 */
-@import "default/module/notify.mcss";
+@import "bootstrap/module/notify.mcss";
 @import "bootstrap/module/modal.mcss";
 
 /* 数据类 */
 @import "bootstrap/module/listView.mcss";
-@import "default/module/gridView.mcss";
-@import "default/module/treeView.mcss";
-@import "default/module/tableView.mcss";
+@import "bootstrap/module/gridView.mcss";
+@import "bootstrap/module/treeView.mcss";
+@import "bootstrap/module/tableView.mcss";
 
 /* 上传类 */
 //
@@ -112,4 +112,4 @@ $reset-normalize();
 @import "bootstrap/module/calendar.mcss";
 
 /* 编辑器类 */
-@import "default/module/editor.mcss";
+@import "bootstrap/module/editor.mcss";

@@ -1,4 +1,4 @@
-var except = require('expect.js');
+var expect = require('expect.js');
 var Calendar = require('../../../src/js/module/calendar.js');
 
 describe('Calendar', function() {
@@ -18,11 +18,11 @@ describe('Calendar', function() {
         var calendar = new Calendar();
         
         it('should select today by default.', function() {
-            except(calendar.data.date - today).to.be(0);
+            expect(calendar.data.date - today).to.be(0);
         });
 
         it('should output `_days` of this month.', function() {
-            except(calendar.data._days.length >= 28).to.be.ok();
+            expect(calendar.data._days.length >= 28).to.be.ok();
         });
 
         describe('#select(date)', function() {
@@ -31,7 +31,7 @@ describe('Calendar', function() {
                 calendar.select(date);
                 calendar.$update();
 
-                except(calendar.data.date - date).to.be(0);
+                expect(calendar.data.date - date).to.be(0);
             });
 
             it('should update `_days` after select next month.', function() {
@@ -39,8 +39,8 @@ describe('Calendar', function() {
                 calendar.select(date);
                 calendar.$update();
 
-                except(calendar.data.date - date).to.be(0);
-                except(isInCurrentMonth(calendar, date)).to.be.ok();
+                expect(calendar.data.date - date).to.be(0);
+                expect(isInCurrentMonth(calendar, date)).to.be.ok();
             });
         });
 
@@ -53,7 +53,7 @@ describe('Calendar', function() {
                 calendar.addMonth(1);
                 calendar.$update();
 
-                except(calendar.data.date - new Date('2015-09-30')).to.be(0);
+                expect(calendar.data.date - new Date('2015-09-30')).to.be(0);
             });
 
             it('should be "2015-08-31" instead of "2015-07-01" after "2015-08-31" added -2 monthes.', function() {
@@ -64,7 +64,7 @@ describe('Calendar', function() {
                 calendar.addMonth(-2);
                 calendar.$update();
 
-                except(calendar.data.date - new Date('2015-06-30')).to.be(0);
+                expect(calendar.data.date - new Date('2015-06-30')).to.be(0);
             });
 
             it('should be "2016-02-29" instead of "2016-03-01" after "2015-12-31" added 2 monthes.', function() {
@@ -75,7 +75,7 @@ describe('Calendar', function() {
                 calendar.addMonth(2);
                 calendar.$update();
 
-                except(calendar.data.date - new Date('2016-02-29')).to.be(0);
+                expect(calendar.data.date - new Date('2016-02-29')).to.be(0);
             });
         });
 
@@ -88,7 +88,7 @@ describe('Calendar', function() {
                 calendar.addYear(1);
                 calendar.$update();
 
-                except(calendar.data.date - new Date('2017-02-28')).to.be(0);
+                expect(calendar.data.date - new Date('2017-02-28')).to.be(0);
             });
 
             it('should be "2013-02-28" instead of "2013-03-01" after "2016-02-29" added -3 years.', function() {
@@ -99,7 +99,7 @@ describe('Calendar', function() {
                 calendar.addYear(-3);
                 calendar.$update();
 
-                except(calendar.data.date - new Date('2013-02-28')).to.be(0);
+                expect(calendar.data.date - new Date('2013-02-28')).to.be(0);
             });
         });
 
@@ -111,13 +111,13 @@ describe('Calendar', function() {
                 calendar.goToday();
                 calendar.$update();
 
-                except(calendar.data.date - today).to.be(0);
+                expect(calendar.data.date - today).to.be(0);
             });
         });
 
         describe('#isOutOfRange(date)', function() {
             it('should return false with any date.', function() {
-                except(calendar.isOutOfRange(today_7)).not.to.be.ok();
+                expect(calendar.isOutOfRange(today_7)).not.to.be.ok();
             });
         });
 
@@ -125,7 +125,7 @@ describe('Calendar', function() {
             // 暂时没有好方法
             xit('should not emit if date is not changed.', function() {
                 calendar.$on('change', function() {
-                    except().fail();
+                    expect().fail();
                 });
                 calendar.data.date = new Date();
                 calendar.$update();
@@ -141,12 +141,12 @@ describe('Calendar', function() {
         });
         
         it('should convert `date` property from string-type to Date-type.', function() {
-            except(calendar.data.date).to.be.a(Date);
-            except(calendar.data.date - new Date('2008-08-08')).to.be(0);
+            expect(calendar.data.date).to.be.a(Date);
+            expect(calendar.data.date - new Date('2008-08-08')).to.be(0);
         });
 
         it('should output `_days` of this month.', function() {
-            except(calendar.data._days.length >= 28).to.be.ok();
+            expect(calendar.data._days.length >= 28).to.be.ok();
         });
     });
 
@@ -158,11 +158,11 @@ describe('Calendar', function() {
         });
         
         it('should select this day.', function() {
-            except(calendar.data.date - today_2).to.be(0);
+            expect(calendar.data.date - today_2).to.be(0);
         });
 
         it('should output `_days` of this month.', function() {
-            except(calendar.data._days.length >= 28).to.be.ok();
+            expect(calendar.data._days.length >= 28).to.be.ok();
         });
 
 
@@ -170,7 +170,7 @@ describe('Calendar', function() {
             calendar.data.minDate = today_7;
             calendar.$update();
 
-            except(calendar.data.date.toDateString()).to.be(today_7.toDateString());
+            expect(calendar.data.date.toDateString()).to.be(today_7.toDateString());
         });
     });
 
@@ -182,11 +182,11 @@ describe('Calendar', function() {
         });
         
         it('should select today by default.', function() {
-            except(calendar.data.date - today).to.be(0);
+            expect(calendar.data.date - today).to.be(0);
         });
 
         it('should output `_days` of this month.', function() {
-            except(calendar.data._days.length >= 28).to.be.ok();
+            expect(calendar.data._days.length >= 28).to.be.ok();
         });
 
         describe('#select(date)', function() {
@@ -197,7 +197,7 @@ describe('Calendar', function() {
                 calendar.select(date);
                 calendar.$update();
 
-                except(calendar.data.date).to.be(oldDate);
+                expect(calendar.data.date).to.be(oldDate);
             });
         });
 
@@ -208,7 +208,7 @@ describe('Calendar', function() {
                 calendar.addMonth(1);
                 calendar.$update();
 
-                except(calendar.data.date).to.be(oldDate);
+                expect(calendar.data.date).to.be(oldDate);
             });
         });
 
@@ -219,7 +219,7 @@ describe('Calendar', function() {
                 calendar.addYear(3);
                 calendar.$update();
 
-                except(calendar.data.date).to.be(oldDate);
+                expect(calendar.data.date).to.be(oldDate);
             });
         });
 
@@ -233,7 +233,7 @@ describe('Calendar', function() {
                 calendar.goToday();
                 calendar.$update();
 
-                except(calendar.data.date).to.be(oldDate);
+                expect(calendar.data.date).to.be(oldDate);
             });
         });
     });
@@ -247,28 +247,28 @@ describe('Calendar', function() {
         });
         
         it('should select the boundary date if out of range.', function() {
-            except(calendar.data.date.toDateString()).to.be(today_2.toDateString());
+            expect(calendar.data.date.toDateString()).to.be(today_2.toDateString());
         });
 
         it('should output `_days` of this month.', function() {
-            except(calendar.data._days.length >= 28).to.be.ok();
+            expect(calendar.data._days.length >= 28).to.be.ok();
         });
 
         it('should check if out of the range after set a new `date` value.', function() {
             calendar.data.date = new Date(+new Date + 16*MS_OF_DAY);
             calendar.$update();
 
-            except(calendar.data.date.toDateString()).to.be(today_7.toDateString());
+            expect(calendar.data.date.toDateString()).to.be(today_7.toDateString());
         });
 
         describe('#isOutOfRange(date)', function() {
             it('should return true if out of range.', function() {
-                except(calendar.isOutOfRange(today)).to.be.ok();
-                except(calendar.isOutOfRange(today).toDateString()).to.be(today_2.toDateString());
+                expect(calendar.isOutOfRange(today)).to.be.ok();
+                expect(calendar.isOutOfRange(today).toDateString()).to.be(today_2.toDateString());
             });
 
             it('should return false if in the range.', function() {
-                except(calendar.isOutOfRange(new Date(+new Date + 3*MS_OF_DAY))).not.to.be.ok();
+                expect(calendar.isOutOfRange(new Date(+new Date + 3*MS_OF_DAY))).not.to.be.ok();
             });
         });
     });
@@ -282,7 +282,7 @@ describe('Calendar', function() {
         });
         
         it('should select the boundary date if out of range.', function() {
-            except(calendar.data.date - new Date('2008-08-16')).to.be(0);
+            expect(calendar.data.date - new Date('2008-08-16')).to.be(0);
         });
     });
 
@@ -296,7 +296,7 @@ describe('Calendar', function() {
                     }
                 });
             } catch (e) {
-                except(e).to.be.a(Calendar.DateRangeException);
+                expect(e).to.be.a(Calendar.DateRangeException);
             }
         });
     });
