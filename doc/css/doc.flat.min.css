@@ -4861,6 +4861,9 @@ html.z-modal,html.z-modal body{
 	margin:0.15em 0;
 	letter-spacing:normal;
 }
+.m-example-hidden + .m-tabs,.m-example-hidden ~ pre{
+	display:none;
+}
 .g-top{
 	height:50px;
 	background:#08382f;

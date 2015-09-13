@@ -286,3 +286,7 @@ $m-navbar-current_background-color = $brand-primary;
         letter-spacing: normal;
     }
 }
+
+.m-example-hidden + .m-tabs, .m-example-hidden ~ pre {
+    display: none;
+}

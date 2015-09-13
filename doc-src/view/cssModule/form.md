@@ -6,22 +6,22 @@
 ```html
 <form class="m-form">
     <div class="u-formitem">
-        <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
+        <label class="formitem_tt">用户名<span class="formitem_rqr">&#42;</span>：</label>
         <span class="formitem_ct">
             <input class="u-input">
             <span class="formitem_tip">4~12个字符，包括字母、数字、下划线</span>
         </span>
     </div>
     <div class="u-formitem">
-        <label class="formitem_tt">设置密码<span class="formitem_rqr">*</span>：</label>
+        <label class="formitem_tt">设置密码<span class="formitem_rqr">&#42;</span>：</label>
         <span class="formitem_ct"><input class="u-input" type="password"></span>
     </div>
     <div class="u-formitem">
-        <label class="formitem_tt">确认密码<span class="formitem_rqr">*</span>：</label>
+        <label class="formitem_tt">确认密码<span class="formitem_rqr">&#42;</span>：</label>
         <span class="formitem_ct"><input class="u-input" type="password"></span>
     </div>
     <div class="u-formitem">
-        <label class="formitem_tt">验证码<span class="formitem_rqr">*</span>：</label>
+        <label class="formitem_tt">验证码<span class="formitem_rqr">&#42;</span>：</label>
         <span class="formitem_ct">
             <input class="u-input">
             <img src="../img/verifyCode.jpg">
@@ -47,11 +47,11 @@
     <fieldset>
         <legend>基本信息</legend>
         <div class="u-formitem">
-            <label class="formitem_tt">姓名<span class="formitem_rqr">*</span>：</label>
+            <label class="formitem_tt">姓名<span class="formitem_rqr">&#42;</span>：</label>
             <span class="formitem_ct"><input class="u-input"></span>
         </div>
         <div class="u-formitem">
-            <label class="formitem_tt">性别<span class="formitem_rqr">*</span>：</label>
+            <label class="formitem_tt">性别<span class="formitem_rqr">&#42;</span>：</label>
             <span class="formitem_ct">
                 <span class="u-unitgroup">
                     <label><input type="radio" name="gender"> 男</label>
@@ -64,14 +64,14 @@
             <span class="formitem_ct"><input class="u-input"></span>
         </div>
         <div class="u-formitem">
-            <label class="formitem_tt">身份证号码<span class="formitem_rqr">*</span>：</label>
+            <label class="formitem_tt">身份证号码<span class="formitem_rqr">&#42;</span>：</label>
             <span class="formitem_ct"><input class="u-input"></span>
         </div>
     </fieldset>
     <fieldset>
         <legend>联系方式</legend>
         <div class="u-formitem">
-            <label class="formitem_tt">手机号码<span class="formitem_rqr">*</span>：</label>
+            <label class="formitem_tt">手机号码<span class="formitem_rqr">&#42;</span>：</label>
             <span class="formitem_ct"><input class="u-input"></span>
         </div>
         <div class="u-formitem">
@@ -86,7 +86,7 @@
     <fieldset>
         <legend>教育背景</legend>
         <div class="u-formitem">
-            <label class="formitem_tt">最高学历<span class="formitem_rqr">*</span>：</label>
+            <label class="formitem_tt">最高学历<span class="formitem_rqr">&#42;</span>：</label>
             <span class="formitem_ct">
                 <select class="u-select">
                     <option>请选择</option>
@@ -98,11 +98,11 @@
             </span>
         </div>
         <div class="u-formitem">
-            <label class="formitem_tt">毕业院校<span class="formitem_rqr">*</span>：</label>
+            <label class="formitem_tt">毕业院校<span class="formitem_rqr">&#42;</span>：</label>
             <span class="formitem_ct"><input class="u-input"></span>
         </div>
         <div class="u-formitem">
-            <label class="formitem_tt">专业<span class="formitem_rqr">*</span>：</label>
+            <label class="formitem_tt">专业<span class="formitem_rqr">&#42;</span>：</label>
             <span class="formitem_ct"><input class="u-input"></span>
         </div>
     </fieldset>

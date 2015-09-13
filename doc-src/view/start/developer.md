@@ -45,7 +45,7 @@ new Calendar().$inject('#app');
 <div class="u-message u-message-warning">
     <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在打包时需要<code>require</code>有<code>text!</code>插件来引入模板。<br>
     <ul>
-        <li>使用webpack打包时，先安装<code>text-loader</code>：<code>npm install text-loader</code>。</li>
+        <li>使用webpack打包时，先安装<code>npm install text-loader</code>。</li>
     </ul>
 </div>
 

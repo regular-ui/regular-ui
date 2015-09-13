@@ -53,29 +53,29 @@ Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。
 
 ##### 组件名
 
-- button: btn
-- image: img
-- formControl: formCtrl
-- breadCrumb: crumb
-- markdownEditor: markEditor
+- `button` => `btn`
+- `image` => `img`
+- `formControl` => `formCtrl`
+- `breadCrumb` => `crumb`
+- `markdownEditor` => `markEditor`
 
 ##### 类名
 
-- head: hd
-- body: bd
-- foot: ft
+- `head` => `hd`
+- `body` => `bd`
+- `foot` => `ft`
 
 ##### 状态名
 
-- active: act
-- disabled: dis
-- current: crt
-- selected: sel
+- `active` => `act`
+- `disabled` => `dis`
+- `current` => `crt`
+- `selected` => `sel`
 
 ##### 扩展样式名
 
-- extra small: xs
-- small: sm
-- medium: md
-- large: lg
-- extra large: xl
+- `extra small` => `xs`
+- `small` => `sm`
+- `medium` => `md`
+- `large` => `lg`
+- `extra large` => `xl`

@@ -175,7 +175,79 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <article class="m-article">
         
         <h3 id="js-">JS模块一览</h3>
-<p>正在建设中。。。</p>
+<div class="m-example m-example-hidden"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabs</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab3&quot;</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabs</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pager</span> <span class="cm-attribute">current</span>=<span class="cm-string">&quot;6&quot;</span> <span class="cm-attribute">total</span>=<span class="cm-string">&quot;11&quot;</span> <span class="cm-attribute">position</span>=<span class="cm-string">&quot;left&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-info&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;info&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;success&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Success<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-warning&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;warning&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Warning<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showMessage(</span><span class="cm-stringcm-error">&#39;error&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Error<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Modal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showAlert()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Alert<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showConfirm()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Confirm<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{treeSource}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ],
+        <span class="cm-property">treeSource</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+                ]},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
+            ]},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
+            ]}
+        ],
+    },
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">type</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-variable-2">type</span> <span class="cm-operator">+</span> <span class="cm-string">&#39; message.&#39;</span>, <span class="cm-variable-2">type</span>);
+    },
+    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">var</span> <span class="cm-def">modal</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>({
+            <span class="cm-property">data</span>: {
+                <span class="cm-property">title</span>: <span class="cm-string">&#39;Modal标题&#39;</span>,
+                <span class="cm-property">content</span>: <span class="cm-string">&#39;Modal内容&#39;</span>
+            }
+        });
+    },
+    <span class="cm-property">showAlert</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">alert</span>(<span class="cm-string">&#39;Alert内容&#39;</span>);
+    },
+    <span class="cm-property">showConfirm</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">confirm</span>(<span class="cm-string">&#39;Confirm内容&#39;</span>);
+    }
+});
+</code></pre>
 
         
     </article>
@@ -256,6 +328,80 @@ var themeSelect = new RGUI.Select2({
 </script>
 <script>
 var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<p>
+<tabs>
+    <tab title="tab1">content1</tab>
+    <tab title="tab2">content2</tab>
+    <tab title="tab3" disabled={true}>content3</tab>
+    <tab title="tab4">content4</tab>
+</tabs>
+</p>
+<p>
+<pager current="6" total="11" position="left" />
+</p>
+<p>
+<button class="u-btn u-btn-info" on-click={this.showMessage('info')}>Info</button>
+<button class="u-btn u-btn-success" on-click={this.showMessage('success')}>Success</button>
+<button class="u-btn u-btn-warning" on-click={this.showMessage('warning')}>Warning</button>
+<button class="u-btn u-btn-error" on-click={this.showMessage('error')}>Error</button>
+<button class="u-btn u-btn-primary" on-click={this.showModal()}>Modal</button>
+<button class="u-btn u-btn-error" on-click={this.showAlert()}>Alert</button>
+<button class="u-btn u-btn-success" on-click={this.showConfirm()}>Confirm</button>
+</p>
+<p>
+<treeView source={treeSource} />
+</p>
+<p>
+<calendar />
+</p>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ],
+        treeSource: [
+            {name: '节点1', children: [
+                {name: '节点1.1'},
+                {name: '节点1.2', children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
+                ]},
+                {name: '节点1.3'},
+                {name: '节点1.4'},
+            ]},
+            {name: '节点2'},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
+            ]}
+        ],
+    },
+    showMessage: function(type) {
+        RGUI.Notify.show(type + ' message.', type);
+    },
+    showModal: function() {
+        var modal = new RGUI.Modal({
+            data: {
+                title: 'Modal标题',
+                content: 'Modal内容'
+            }
+        });
+    },
+    showAlert: function() {
+        RGUI.Modal.alert('Alert内容');
+    },
+    showConfirm: function() {
+        RGUI.Modal.confirm('Confirm内容');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

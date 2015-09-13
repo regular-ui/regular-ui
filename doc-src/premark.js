@@ -1,5 +1,5 @@
 var rule = {
-    example: /<div class="m-example"><\/div>([\s\S]+?)(?:##|$)/g,
+    example: /<div class="m-example(?:.*?)"><\/div>([\s\S]+?)(?:##|$)/g,
     pre: /```(.+?)\n([\s\S]+?)\n```/g
 }
 

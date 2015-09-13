@@ -105,9 +105,11 @@ regular-ui
         |— core           # 主题内核
         |— default        # Default主题
         |— flat           # Flat主题
+        |— simple         # Simple主题
         |-- bootstrap.mcss # Bootstrap主题引导文件
         |-- default.mcss   # Default主题引导文件
         |-- flat.mcss      # Flat主题引导文件
+        |-- simple.mcss    # Simple主题引导文件
 ```
 
 #### `regular-ui/doc-src`目录
