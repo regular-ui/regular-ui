@@ -63,7 +63,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var RGUI = {}
+	var RGUI = {};
 
 	/**
 	 * base
@@ -92,38 +92,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	RGUI.Select2 = __webpack_require__(32);
 	RGUI.TreeSelect = __webpack_require__(34);
 	RGUI.Suggest = __webpack_require__(39);
-	RGUI.Uploader = __webpack_require__(43);
+	RGUI.Uploader = __webpack_require__(41);
 
 	// 日期类
-	RGUI.DatePicker = __webpack_require__(45);
-	RGUI.TimePicker = __webpack_require__(49);
-	RGUI.DateTimePicker = __webpack_require__(51);
+	RGUI.DatePicker = __webpack_require__(43);
+	RGUI.TimePicker = __webpack_require__(47);
+	RGUI.DateTimePicker = __webpack_require__(49);
 
 	// 其他
-	RGUI.Progress = __webpack_require__(53);
-	RGUI.Gotop = __webpack_require__(55);
+	RGUI.Progress = __webpack_require__(51);
+	RGUI.Gotop = __webpack_require__(53);
 
 	/**
 	 * jsModule
 	 */
 	// 导航类
-	RGUI.Tab = __webpack_require__(57);
-	RGUI.Accordion = __webpack_require__(59);
-	RGUI.Pager = __webpack_require__(62);
-	RGUI.Menubar = __webpack_require__(64);
+	RGUI.Tabs = __webpack_require__(55);
+	RGUI.Collapse = __webpack_require__(57);
+	RGUI.Pager = __webpack_require__(60);
+	RGUI.Menubar = __webpack_require__(62);
 
 	// 窗口类
 	RGUI.Notify = __webpack_require__(9);
-	RGUI.Modal = __webpack_require__(66);
+	RGUI.Modal = __webpack_require__(64);
 
 	// 数据类
-	RGUI.ListView = __webpack_require__(41);
+	RGUI.ListView = __webpack_require__(66);
 	RGUI.GridView = __webpack_require__(68);
 	RGUI.TreeView = __webpack_require__(36);
 	RGUI.TableView = __webpack_require__(70);
 
 	// 日期类
-	RGUI.Calendar = __webpack_require__(47);
+	RGUI.Calendar = __webpack_require__(45);
 
 	// 上传类
 	//
@@ -175,7 +175,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            readonly: false,
 	            disabled: false,
 	            visible: true,
-	            'class': ''
+	            'class': '',
+	            console: console
 	        });
 	        this.supr();
 	    }
@@ -219,7 +220,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var filter = {};
 
-	filter.format = function() {
+	filter.format = (function() {
 	    function fix(str) {
 	        str = '' + (String(str) || '');
 	        return str.length <= 1? '0' + str : str;
@@ -243,7 +244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return maps[capture]? maps[capture](value): '';
 	        });
 	    }
-	}();
+	}());
 
 	filter.average = function(array, key) {
 	    array = array || [];
@@ -1308,6 +1309,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            Dropdown.opens.push(this);
 	        else if(!open && index >= 0)
 	            Dropdown.opens.splice(index, 1);
+
+	        /**
+	         * @event toggle  展开/收起时触发
+	         * @property {object} open 展开/收起状态
+	         */
+	        this.$emit('toggle', {
+	            open: open
+	        });
 	    }
 	});
 
@@ -1449,7 +1458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-dropdown-menu {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '多级菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <menuList source={source} visible={true} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-menu {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '多级菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <menuList source={source} visible={true} />\n    </div>\n</div>"
 
 /***/ },
 /* 15 */
@@ -2415,11 +2424,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @class NumberInput
 	 * @extend Input2
 	 * @param {object}                  options.data                    绑定属性
-	 * @param {string=''}               options.data.value              输入框的值
+	 * @param {string=0}                options.data.value              输入框的值
 	 * @param {string=''}               options.data.type               输入框的类型
-	 * @param {string=''}               options.data.placeholder        占位符
-	 * @param {number=null}             options.data.min                最小值
-	 * @param {number=null}             options.data.max                最大值
+	 * @param {number=undefined}        options.data.min                最小值
+	 * @param {number=undefined}        options.data.max                最大值
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
@@ -2436,34 +2444,69 @@ return /******/ (function(modules) { // webpackBootstrap
 	            value: 0,
 	            // @inherited type: '',
 	            // @inherited placeholder: '',
-	            min: null,
-	            max: null
+	            min: undefined,
+	            max: undefined
 	        });
 	        this.supr();
 
 	        this.$watch('value', function(newValue, oldValue) {
-	            if(this.data.max !== null && this.data.value > this.data.max)
-	                this.data.value = this.data.max;
-	            if(this.data.min !== null && this.data.value < this.data.min)
-	                this.data.value = this.data.min;
+	            // 字符类型自动转为数字类型
+	            if(typeof newValue === 'string')
+	                return this.data.value = +newValue;
 
-	            if(newValue != oldValue)
-	                this.$emit('change', {
-	                    value: newValue
-	                });
+	            // 如果超出数值范围，则设置为范围边界的数值
+	            var isOutOfRange = this.isOutOfRange(newValue);
+	            if(isOutOfRange !== false)
+	                return this.data.value = isOutOfRange;
+
+	            /**
+	             * @event change 数值改变时触发
+	             * @property {number} value 改变后的数值
+	             */
+	            this.$emit('change', {
+	                value: newValue
+	            });
+	        });
+
+	        this.$watch(['min', 'max'], function(min, max) {
+	            if(!isNaN(min) && !isNaN(max) && min - max > 0)
+	                throw new NumberInput.NumberRangeException(min, max);
+
+	            // 如果超出数值范围，则设置为范围边界的数值
+	            var isOutOfRange = this.isOutOfRange(this.data.value);
+	            if(isOutOfRange !== false)
+	                return this.data.value = isOutOfRange;
 	        });
 	    },
-	    increase: function() {
-	        if(this.data.readonly || this.data.disabled)
+	    /**
+	     * @method add(value) 调整数值
+	     * @public
+	     * @param  {number=0} value 加/减的值
+	     * @return {void}
+	     */
+	    add: function(value) {
+	        if(this.data.readonly || this.data.disabled || !value)
 	            return;
 
-	        this.data.value++;
+	        this.data.value += value;
 	    },
-	    decrease: function() {
-	        if(this.data.readonly || this.data.disabled)
-	            return;
+	    /**
+	     * @method isOutOfRange(value) 是否超出规定的数值范围
+	     * @public
+	     * @param {number} value 待测的值
+	     * @return {boolean|number} 如果没有超出数值范围，则返回false；如果超出数值范围，则返回范围边界的数值
+	     */
+	    isOutOfRange: function(value) {
+	        var min = +this.data.min;
+	        var max = +this.data.max;
 
-	        this.data.value--;
+	        // min && value < min && min，先判断是否为空，再判断是否超出数值范围，如果超出则返回范围边界的数值
+	        if(!isNaN(min) && value < min)
+	            return min;
+	        else if(!isNaN(max) && value > max)
+	            return max;
+	        else
+	            return false;
 	    }
 	}).filter({
 	    number: {
@@ -2474,11 +2517,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return value;
 	        },
 	        set: function(value) {
-	            return +value || 0;
+	            // return (value.replace(/[^0-9\-\.]/g, ''));
+	            return +value;
 	            // return +(value.replace(/[^\d\.\-]/g, '')) || 0;
 	        }
 	    }
 	});
+
+	NumberInput.NumberRangeException = function(min, max) {
+	    this.type = 'NumberRangeException';
+	    this.message = 'Wrong Number Range where `min` is ' + min + ' and `max` is ' + max + '!';
+	}
+
+	NumberInput.NumberRangeException.prototype.toString = function() {
+	    return this.message;
+	}
 
 	module.exports = NumberInput;
 
@@ -2486,7 +2539,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-input2 u-input2-numberinput {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value | number} placeholder={placeholder} disabled={disabled} readonly={readonly}>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.increase()}><i class=\"u-icon u-icon-caret-up\"></i></a>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.decrease()}><i class=\"u-icon u-icon-caret-down\"></i></a>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-input2 u-numberinput {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value | number} placeholder={placeholder} disabled={disabled} readonly={readonly}>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(1)}><i class=\"u-icon u-icon-caret-up\"></i></a>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(-1)}><i class=\"u-icon u-icon-caret-down\"></i></a>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
 
 /***/ },
 /* 22 */
@@ -2852,7 +2905,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-dropdown-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <span>{selected ? selected.name : placeholder}</span>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item} } on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <span>{selected ? selected.name : placeholder}</span>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item} } on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 34 */
@@ -2910,7 +2963,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 35 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-dropdown-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />\n    </div>\n</div>"
 
 /***/ },
 /* 36 */
@@ -3108,7 +3161,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Dropdown = __webpack_require__(11);
 	var template = __webpack_require__(40);
 	var _ = __webpack_require__(3);
-	var ListView = __webpack_require__(41);
 
 	/**
 	 * @class Suggest
@@ -3119,7 +3171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string=''}               options.data.value              文本框中的值
-	 * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+	 * @param {string='请输入'}         options.data.placeholder        文本框的占位文字
 	 * @param {number=0}                options.data.minLength          最小提示长度。当输入长度>=该值后开始提示
 	 * @param {string='all'}            options.data.matchType          匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
 	 * @param {boolean=false}           options.data.strict             是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
@@ -3221,12 +3273,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if(!value && this.data.minLength)
 	            return false;
 
-	        if(this.data.matchType == 'all')
+	        if(this.data.matchType === 'all')
 	            return item.name.indexOf(value) >= 0;
-	        else if(this.data.matchType == 'start')
-	            return item.name.slice(0, value.length) == value;
-	        else if(this.data.matchType == 'end')
-	            return item.name.slice(-value.length) == value;
+	        else if(this.data.matchType === 'start')
+	            return item.name.slice(0, value.length) === value;
+	        else if(this.data.matchType === 'end')
+	            return item.name.slice(-value.length) === value;
 	    }
 	});
 
@@ -3236,84 +3288,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 40 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-dropdown-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ------------------------------------------------------------
-	 * ListView  列表视图
-	 * @author   sensen(rainforest92@126.com)
-	 * ------------------------------------------------------------
-	 */
-
-	'use strict';
-
-	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(42);
-	var _ = __webpack_require__(3);
-
-	/**
-	 * @class ListView
-	 * @param {object}                  options.data                    绑定属性
-	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
-	 * @param {string}                  options.data.source[].name      每项的内容
-	 * @param {object=null}             options.data.selected           当前选择项
-	 * @param {string=null}             options.data.itemTemplate       单项模板
-	 * @param {boolean=false}           options.data.readonly           是否只读
-	 * @param {boolean=false}           options.data.disabled           是否禁用
-	 * @param {boolean=true}            options.data.visible            是否显示
-	 * @param {string=''}               options.data.class              补充class
-	 * @param {object}                  options.service                 数据服务
-	 */
-	var ListView = SourceComponent.extend({
-	    name: 'listView',
-	    template: template,
-	    /**
-	     * @protected
-	     */
-	    config: function() {
-	        _.extend(this.data, {
-	            // @inherited source: [],
-	            selected: null,
-	            itemTemplate: null
-	        });
-	        this.supr();
-	    },
-	    /**
-	     * @method select(item) 选择某一项
-	     * @public
-	     * @param  {object} item 选择项
-	     * @return {void}
-	     */
-	    select: function(item) {
-	        if(this.data.readonly || this.data.disabled || item.disabled)
-	            return;
-
-	        this.data.selected = item;
-	        /**
-	         * @event select 选择某一项时触发
-	         * @property {object} selected 当前选择项
-	         */
-	        this.$emit('select', {
-	            selected: item
-	        });
-	    }
-	});
-
-	module.exports = ListView;
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	module.exports = "<ul class=\"m-listview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>\n    {/list}\n</ul>"
-
-/***/ },
-/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3326,7 +3304,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(44);
+	var template = __webpack_require__(42);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3438,13 +3416,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Uploader;
 
 /***/ },
-/* 44 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-uploader {@(class)}\" r-hide={!visible}>\n\t<div on-click={this.upload()}>\n\t\t{#if this.$body}\n\t\t\t{#inc this.$body}\n    \t{#else}\n    \t\t<a class=\"u-btn\">{title || '上传'}</a>\n\t\t{/if}\n    </div>\n    <form method=\"POST\" action={url} target=\"iframe{_id}\" enctype={contentType} ref=\"form\">\n        <input type=\"file\" name=\"file\" ref=\"file\" on-change={this.submit()}>\n        {#list Object.keys(data) as key}\n        <input type=\"hidden\" name={key} value={data[key]}>\n        {/list}\n    </form>\n    <iframe name=\"iframe{_id}\" on-load={this.cbUpload()} ref=\"iframe\">\n    </iframe>\n</div>"
 
 /***/ },
-/* 45 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3455,20 +3433,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Dropdown = __webpack_require__(11);
-	var template = __webpack_require__(46);
+	var template = __webpack_require__(44);
 	var _ = __webpack_require__(3);
 
 	var filter = __webpack_require__(4);
-	var Calendar = __webpack_require__(47);
+	var Calendar = __webpack_require__(45);
+	var MS_OF_DAY = 24*3600*1000;
 
 	/**
 	 * @class DatePicker
 	 * @extend Dropdown
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object=null}             options.data.date               当前选择的日期
-	 * @param {string='请输入'}         options.data.placeholder        文本框默认文字
-	 * @param {Date=null}               options.data.minDate            最小日期，如果为空则不限制
-	 * @param {Date=null}               options.data.maxDate            最大日期，如果为空则不限制
+	 * @param {string='请输入'}         options.data.placeholder        文本框的占位文字
+	 * @param {Date|string=null}        options.data.minDate            最小日期，如果为空则不限制
+	 * @param {Date|string=null}        options.data.maxDate            最大日期，如果为空则不限制
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
@@ -3486,9 +3465,77 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // @inherited open: false,
 	            minDate: null,
 	            maxDate: null,
-	            placeholder: '请输入'
+	            placeholder: '请输入',
+	            date: null,
+	            _date: undefined
 	        });
 	        this.supr();
+
+	        this.$watch('date', function(newValue, oldValue) {
+	            // 字符类型自动转为日期类型
+	            if(typeof newValue === 'string')
+	                return this.data.date = new Date(newValue);
+
+	            // 如果newValue为非法日期，则置为空 
+	            if(newValue == 'Invalid Date')
+	                return this.data.date = null;
+
+	            // 如果不为空并且超出日期范围，则设置为范围边界的日期
+	            if(newValue) {
+	                var isOutOfRange = this.isOutOfRange(newValue);
+	                if(isOutOfRange)
+	                    return this.data.date = isOutOfRange;
+	            }
+
+	            if(newValue && (!this.data._date || this.data._date.toDateString() !== newValue.toDateString()))
+	                this.data._date = new Date(newValue);
+
+	            /**
+	             * @event change 日期改变时触发
+	             * @property {object} date 改变后的日期
+	             */
+	            this.$emit('change', {
+	                date: newValue
+	            });
+	        });
+
+	        this.$watch('minDate', function(newValue, oldValue) {
+	            if(!newValue)
+	                return;
+
+	            if(typeof newValue === 'string')
+	                return this.data.minDate = new Date(newValue);
+
+	            if(newValue == 'Invalid Date')
+	                return this.data.minDate = null;
+	        });
+
+	        this.$watch('maxDate', function(newValue, oldValue) {
+	            if(!newValue)
+	                return;
+
+	            if(typeof newValue === 'string')
+	                return this.data.maxDate = new Date(newValue);
+
+	            if(newValue == 'Invalid Date')
+	                return this.data.maxDate = null;
+	        });
+
+	        this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
+	            if(!(minDate && minDate instanceof Date || maxDate && maxDate instanceof Date))
+	                return;
+
+	            if(minDate && maxDate)
+	                if(minDate/MS_OF_DAY>>0 > maxDate/MS_OF_DAY>>0)
+	                    throw new Calendar.DateRangeException(minDate, maxDate);
+
+	            // 如果不为空并且超出日期范围，则设置为范围边界的日期
+	            if(this.data.date) {
+	                var isOutOfRange = this.isOutOfRange(this.data.date);
+	                if(isOutOfRange)
+	                    return this.data.date = isOutOfRange;
+	            }
+	        });
 	    },
 	    /**
 	     * @method select(date) 选择一个日期
@@ -3497,6 +3544,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	    select: function(date) {
+	        if(this.data.readonly || this.data.disabled || this.isOutOfRange(date))
+	            return;
+
+	        this.data.date = date;
+
 	        /**
 	         * @event select 选择某一项时触发
 	         * @property {object} date 当前选择项
@@ -3504,27 +3556,53 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.$emit('select', {
 	            date: date
 	        });
+
 	        this.toggle(false);
 	    },
-	    input: function($event) {
-	        var date = new Date($event.target.value);
+	    /**
+	     * @method _input($event) 输入日期
+	     * @private
+	     * @param  {object} $event
+	     * @return {void}
+	     */
+	    _input: function($event) {
+	        var value = $event.target.value;
+	        var date = value ? new Date(value) : null;
+
 	        if(date != 'Invalid Date')
 	            this.data.date = date;
 	        else
 	            $event.target.value = filter.format(this.data.date, 'yyyy-MM-dd');
+	    },
+	    /**
+	     * @method isOutOfRange(date) 是否超出规定的日期范围
+	     * @public
+	     * @param {Date} date 待测的日期
+	     * @return {boolean|Date} 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
+	     */
+	    isOutOfRange: function(date) {
+	        var minDate = this.data.minDate;
+	        var maxDate = this.data.maxDate;
+
+	        // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
+	        var minDate = minDate && new Date((minDate/MS_OF_DAY>>0)*MS_OF_DAY);
+	        var maxDate = maxDate && new Date((maxDate/MS_OF_DAY>>0)*MS_OF_DAY);
+
+	        // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
+	        return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
 	    }
 	});
 
 	module.exports = DatePicker;
 
 /***/ },
-/* 46 */
+/* 44 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-dropdown-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this.input($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
 
 /***/ },
-/* 47 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3537,7 +3615,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(48);
+	var template = __webpack_require__(46);
 	var _ = __webpack_require__(3);
 
 	var MS_OF_DAY = 24*3600*1000;
@@ -3546,9 +3624,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @class Calendar
 	 * @extend Component
 	 * @param {object}                  options.data                    绑定属性
-	 * @param {Date=null}               options.data.date               当前选择的日期
-	 * @param {Date=null}               options.data.minDate            最小日期，如果为空则不限制
-	 * @param {Date=null}               options.data.maxDate            最大日期，如果为空则不限制
+	 * @param {Date|string=TODAY}       options.data.date               当前选择的日期
+	 * @param {Date|string=null}        options.data.minDate            最小日期，如果为空则不限制
+	 * @param {Date|string=null}        options.data.maxDate            最大日期，如果为空则不限制
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
@@ -3570,32 +3648,88 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.supr();
 
 	        this.$watch('date', function(newValue, oldValue) {
-	            if(newValue && oldValue && newValue.getFullYear() === oldValue.getFullYear() && newValue.getMonth() === oldValue.getMonth())
-	                return;
+	            // 字符类型自动转为日期类型
+	            if(typeof newValue === 'string')
+	                return this.data.date = new Date(newValue);
 
-	            // if(newValue && this.isOutOfRange(newValue))
-	            //     this.data.date = this.data.minDate || this.data.maxDate;
-	            
-	            this.update();
+	            // 如果newValue为空或非法日期， 则自动转到今天
+	            if(!newValue || newValue == 'Invalid Date')
+	                return this.data.date = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
+
+	            // 如果超出日期范围，则设置为范围边界的日期
+	            var isOutOfRange = this.isOutOfRange(newValue);
+	            if(isOutOfRange) {
+	                this.data.date = isOutOfRange;
+
+	                // 防止第二次刷新同月
+	                this._update();
+	                return;
+	            }
+
+	            if(!oldValue || !oldValue.getFullYear)
+	                this._update();
+	            else if(newValue.getFullYear() !== oldValue.getFullYear() || newValue.getMonth() !== oldValue.getMonth())
+	                this._update();
+
+	            /**
+	             * @event change 日期改变时触发
+	             * @property {object} date 改变后的日期
+	             */
+	            this.$emit('change', {
+	                date: newValue
+	            });
 	        });
 
-	        if(!this.data.date)
-	            this.goToday();
+	        this.$watch('minDate', function(newValue, oldValue) {
+	            if(!newValue)
+	                return;
+
+	            if(typeof newValue === 'string')
+	                return this.data.minDate = new Date(newValue);
+
+	            if(newValue == 'Invalid Date')
+	                return this.data.minDate = null;
+	        });
+
+	        this.$watch('maxDate', function(newValue, oldValue) {
+	            if(!newValue)
+	                return;
+
+	            if(typeof newValue === 'string')
+	                return this.data.maxDate = new Date(newValue);
+
+	            if(newValue == 'Invalid Date')
+	                return this.data.maxDate = null;
+	        });
+
+	        this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
+	            if(!(minDate && minDate instanceof Date || maxDate && maxDate instanceof Date))
+	                return;
+
+	            if(minDate && maxDate)
+	                if(minDate/MS_OF_DAY>>0 > maxDate/MS_OF_DAY>>0)
+	                    throw new Calendar.DateRangeException(minDate, maxDate);
+	            
+	            // 如果超出日期范围，则设置为范围边界的日期
+	            var isOutOfRange = this.isOutOfRange(this.data.date);
+	            if(isOutOfRange)
+	                this.data.date = isOutOfRange;
+	        });
 	    },
 	    /**
-	     * @method update() 日期改变后更新日历
+	     * @method _update() 日期改变后更新日历
 	     * @private
 	     * @return {void}
 	     */
-	    update: function() {
+	    _update: function() {
 	        this.data._days = [];
 	        
 	        var date = this.data.date;
 	        var month = date.getMonth();
 	        var mfirst = new Date(date); mfirst.setDate(1);
-	        var mfirstTime = mfirst.getTime();
+	        var mfirstTime = +mfirst;
 	        var nfirst = new Date(mfirst); nfirst.setMonth(month + 1); nfirst.setDate(1);
-	        var nfirstTime = nfirst.getTime();
+	        var nfirstTime = +nfirst;
 	        var lastTime = nfirstTime + ((7 - nfirst.getDay())%7 - 1)*MS_OF_DAY;
 	        var num = - mfirst.getDay();
 	        var tmpTime, tmp;
@@ -3616,7 +3750,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 
 	        var date = new Date(this.data.date);
+	        var oldMonth = date.getMonth();
 	        date.setFullYear(date.getFullYear() + year);
+	        if(date.getMonth() != oldMonth)
+	            date.setDate(0);
 	        this.data.date = date;
 	    },
 	    /**
@@ -3630,7 +3767,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 
 	        var date = new Date(this.data.date);
-	        date.setMonth(date.getMonth() + month);
+	        var correctMonth = date.getMonth() + month;
+	        date.setMonth(correctMonth);
+	        // 如果跳月，则置为上一个月
+	        if((date.getMonth() - correctMonth)%12)
+	            date.setDate(0);
 	        this.data.date = date;
 	    },
 	    /**
@@ -3659,42 +3800,60 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	    goToday: function() {
-	        this.data.date = new Date((new Date().getTime()/MS_OF_DAY>>0)*MS_OF_DAY);
+	        if(this.data.readonly || this.data.disabled)
+	            return;
+
+	        this.data.date = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
 	    },
 	    /**
-	     * @method isOutOfRange 是否超出日期范围
-	     * @param {Date} day 某一天
-	     * @return {void}
+	     * @method isOutOfRange(date) 是否超出规定的日期范围
+	     * @public
+	     * @param {Date} date 待测的日期
+	     * @return {boolean|Date} 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
 	     */
-	    isOutOfRange: function(day) {
-	        var minDate = this.data.minDate ? new Date((this.data.minDate.getTime()/MS_OF_DAY>>0)*MS_OF_DAY) : null;
-	        var maxDate = this.data.maxDate ? new Date((this.data.maxDate.getTime()/MS_OF_DAY>>0)*MS_OF_DAY) : null;
+	    isOutOfRange: function(date) {
+	        var minDate = this.data.minDate;
+	        var maxDate = this.data.maxDate;
 
-	        return (minDate && day < minDate) || (maxDate && day > maxDate);
+	        // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
+	        var minDate = minDate && new Date((minDate/MS_OF_DAY>>0)*MS_OF_DAY);
+	        var maxDate = maxDate && new Date((maxDate/MS_OF_DAY>>0)*MS_OF_DAY);
+
+	        // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
+	        return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
 	    }
 	});
+
+	Calendar.DateRangeException = function(minDate, maxDate) {
+	    this.type = 'DateRangeException';
+	    this.message = 'Wrong Date Range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + '!';
+	}
+
+	Calendar.DateRangeException.prototype.toString = function() {
+	    return this.message;
+	}
 
 	module.exports = Calendar;
 
 /***/ },
-/* 48 */
+/* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-calendar {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"calendar_hd\">\n        <span class=\"calendar_prev\">\n            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>\n        </span>\n        <span>{date | format: 'yyyy-MM'}</span>\n        <span class=\"calendar_next\">\n            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>\n        </span>\n    </div>\n    <div class=\"calendar_bd\">\n        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>\n        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-muted': date.getMonth() !== day.getMonth(), 'z-dis': this.isOutOfRange(day)} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>\n        {#inc this.$body}\n    </div>\n</div>"
+	module.exports = "<div class=\"u-calendar {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"calendar_hd\">\n        <span class=\"calendar_prev\">\n            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>\n        </span>\n        <span>{date | format: 'yyyy-MM'}</span>\n        <span class=\"calendar_next\">\n            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>\n        </span>\n    </div>\n    <div class=\"calendar_bd\">\n        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>\n        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-muted': date.getMonth() !== day.getMonth(), 'z-dis': !!this.isOutOfRange(day)} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 49 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * ------------------------------------------------------------
-	 * TimePicker 日期选择
+	 * TimePicker 时间选择
 	 * @author   sensen(rainforest92@126.com)
 	 * ------------------------------------------------------------
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(50);
+	var template = __webpack_require__(48);
 	var _ = __webpack_require__(3);
 	var NumberInput = __webpack_require__(20);
 
@@ -3703,6 +3862,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend Component
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string='00:00'}          options.data.time               当前的时间值
+	 * @param {string='00:00'}          options.data.minTime            最小时间
+	 * @param {string='23:59'}          options.data.maxTime            最大时间
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
@@ -3718,40 +3879,97 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _.extend(this.data, {
 	            time: '00:00',
 	            hour: 0,
-	            minute: 0
+	            minute: 0,
+	            minTime: '00:00',
+	            maxTime: '23:59'
 	        });
 	        this.supr();
 
 	        this.$watch('time', function(newValue, oldValue) {
-	            if(newValue && newValue != oldValue) {
-	                time = newValue.split(':');
-	                this.data.hour = +time[0];
-	                this.data.minute = +time[1];
+	            if(!newValue)
+	                throw new TimePicker.TimeFormatException(newValue);
 
-	                this.$emit('change', {
-	                    time: newValue
-	                })
-	            }
+	            // 如果超出时间范围，则设置为范围边界的时间
+	            var isOutOfRange = this.isOutOfRange(newValue);
+	            if(isOutOfRange)
+	                return this.data.time = isOutOfRange;
+
+	            time = newValue.split(':');
+	            this.data.hour = +time[0];
+	            this.data.minute = +time[1];
+
+	            /**
+	             * @event change 时间改变时触发
+	             * @property {object} time 改变后的时间
+	             */
+	            this.$emit('change', {
+	                time: newValue
+	            });
 	        });
 
 	        this.$watch(['hour', 'minute'], function(hour, minute) {
-	            hour = '' + hour;
-	            minute = '' + minute;
+	            hour += '';
+	            minute += '';
 	            this.data.time = (hour.length > 1 ? hour : '0' + hour) + ':' + (minute.length > 1 ? minute : '0' + minute);
 	        });
+
+	        this.$watch(['minTime', 'maxTime'], function(minTime, maxTime) {
+	            if(!minTime)
+	                throw new TimePicker.TimeFormatException(minTime);
+	            if(!maxTime)
+	                throw new TimePicker.TimeFormatException(maxTime);
+
+	            if(minTime > maxTime)
+	                    throw new TimePicker.TimeRangeException(minTime, maxTime);
+	            
+	            // 如果超出时间范围，则设置为范围边界的时间
+	            var isOutOfRange = this.isOutOfRange(this.data.time);
+	            if(isOutOfRange)
+	                this.data.time = isOutOfRange;
+	        });
+	    },
+	    /**
+	     * @method isOutOfRange(time) 是否超出规定的时间范围
+	     * @public
+	     * @param {Time} time 待测的时间
+	     * @return {boolean|Time} 如果没有超出时间范围，则返回false；如果超出时间范围，则返回范围边界的时间
+	     */
+	    isOutOfRange: function(time) {
+	        var minTime = this.data.minTime;
+	        var maxTime = this.data.maxTime;
+
+	        // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
+	        return (minTime && time < minTime && minTime) || (maxTime && time > maxTime && maxTime);
 	    }
 	});
+
+	TimePicker.TimeFormatException = function(time) {
+	    this.message = 'Wrong Time Format: ' + time + '!';
+	}
+
+	TimePicker.TimeFormatException.prototype.toString = function() {
+	    return this.message;
+	}
+
+	TimePicker.TimeRangeException = function(minTime, maxTime) {
+	    this.type = 'TimeRangeException';
+	    this.message = 'Wrong Time Range where `minTime` is ' + minTime + ' and `maxTime` is ' + maxTime + '!';
+	}
+
+	TimePicker.TimeRangeException.prototype.toString = function() {
+	    return this.message;
+	}
 
 	module.exports = TimePicker;
 
 /***/ },
-/* 50 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"u-timepicker {@(class)}\" r-hide={!visible}>\n\t<numberInput min=\"0\" max=\"23\" format=\"00\" value={hour} disabled={disabled} readonly={readonly} />\n\t<span>:</span>\n\t<numberInput min=\"0\" max=\"59\" format=\"00\" value={minute} disabled={disabled} readonly={readonly} />\n</span>"
 
 /***/ },
-/* 51 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3761,78 +3979,185 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ------------------------------------------------------------
 	 */
 
-	var DatePicker = __webpack_require__(45);
-	var template = __webpack_require__(52);
+	var Dropdown = __webpack_require__(11);
+	var DatePicker = __webpack_require__(43);
+	var template = __webpack_require__(50);
 	var _ = __webpack_require__(3);
-	var TimePicker = __webpack_require__(49);
 
 	var filter = __webpack_require__(4);
+	var Calendar = __webpack_require__(45);
+	var TimePicker = __webpack_require__(47);
 
 	/**
 	 * @class DateTimePicker
-	 * @extend DatePicker
+	 * @extend Dropdown
 	 * @param {object}                  options.data                    绑定属性
-	 * @param {object=null}             options.data.date               当前选择的日期
-	 * @param {string='请输入'}         options.data.placeholder        文本框默认文字
+	 * @param {object=null}             options.data.date               当前选择的日期时间
+	 * @param {string='请输入'}         options.data.placeholder        文本框的占位文字
+	 * @param {Date|string=null}        options.data.minDate            最小日期时间，如果为空则不限制
+	 * @param {Date|string=null}        options.data.maxDate            最大日期时间，如果为空则不限制
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
 	 * @param {string=''}               options.data.class              补充class
 	 */
-	var DateTimePicker = DatePicker.extend({
+	var DateTimePicker = Dropdown.extend({
 	    name: 'dateTimePicker',
 	    template: template,
+	    /**
+	     * @protected
+	     */
 	    config: function() {   
 	        _.extend(this.data, {
 	            // @inherited source: [],
 	            // @inherited open: false,
-	            // @inherited placeholder: '请输入',
+	            minDate: null,
+	            maxDate: null,
+	            placeholder: '请输入',
 	            date: null,
 	            _date: undefined,
-	            _time: '00:00'
+	            _time: undefined
 	        });
 	        this.supr();
 
 	        this.$watch('date', function(newValue, oldValue) {
-	            if(newValue && newValue != 'Invalid Date' && newValue - oldValue !== 0) {
+	            // 字符类型自动转为日期类型
+	            if(typeof newValue === 'string')
+	                return this.data.date = new Date(newValue);
+
+	            // 如果newValue为非法日期，则置为空 
+	            if(newValue == 'Invalid Date')
+	                return this.data.date = null;
+
+	            // 如果不为空并且超出日期范围，则设置为范围边界的日期
+	            if(newValue) {
+	                var isOutOfRange = this.isOutOfRange(newValue);
+	                if(isOutOfRange)
+	                    return this.data.date = isOutOfRange;
+	            }
+
+	            if(newValue && newValue - oldValue !== 0) {
+	                this.data.date.setSeconds(0);
+	                this.data.date.setMilliseconds(0);
 	                this.data._date = new Date(newValue);
 	                this.data._time = filter.format(newValue, 'HH:mm');
 	            }
+
+	            /**
+	             * @event change 日期时间改变时触发
+	             * @property {object} date 改变后的日期时间
+	             */
+	            this.$emit('change', {
+	                date: newValue
+	            });
 	        });
 
-	        this.$watch(['_date', '_time'], function(_date, _time) {
-	            if(_date && _time) {
-	                var date = new Date(this.data._date);
-	                var time = this.data._time.split(':');
-	                date.setHours(time[0]);
-	                date.setMinutes(time[1]);
-	                date.setSeconds(0);
-	                date.setMilliseconds(0);
-	                this.data.date = date;
+	        this.$watch('minDate', function(newValue, oldValue) {
+	            if(!newValue)
+	                return;
+
+	            if(typeof newValue === 'string')
+	                return this.data.minDate = new Date(newValue);
+
+	            if(newValue == 'Invalid Date')
+	                return this.data.minDate = null;
+	        });
+
+	        this.$watch('maxDate', function(newValue, oldValue) {
+	            if(!newValue)
+	                return;
+
+	            if(typeof newValue === 'string')
+	                return this.data.maxDate = new Date(newValue);
+
+	            if(newValue == 'Invalid Date')
+	                return this.data.maxDate = null;
+	        });
+
+	        this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
+	            if(!(minDate && minDate instanceof Date || maxDate && maxDate instanceof Date))
+	                return;
+
+	            if(minDate && maxDate && minDate - maxDate > 0)
+	                    throw new Calendar.DateRangeException(minDate, maxDate);
+
+	            // 如果不为空并且超出日期范围，则设置为范围边界的日期
+	            if(this.data.date) {
+	                var isOutOfRange = this.isOutOfRange(this.data.date);
+	                if(isOutOfRange)
+	                    return this.data.date = isOutOfRange;
 	            }
 	        });
 	    },
-	    input: function($event) {
-	        var date = new Date($event.target.value);
-	        if(date != 'Invalid Date') {
-	            date.setSeconds(0);
-	            date.setMilliseconds(0);
+	    /**
+	     * @method _update(date, time) 日期或时间改变后更新日期时间
+	     * @private
+	     * @return {void}
+	     */
+	    _update: function(date, time) {
+	        if(!time)
+	            return this.data._time = '00:00';
+
+	        date = new Date(date);
+	        time = time.split(':');
+	        date.setHours(time[0]);
+	        date.setMinutes(time[1]);
+	        this.data.date = date;
+
+
+	    },
+	    /**
+	     * @method select()
+	     * @public
+	     * @ignore
+	     */
+	    select: function() {
+	        /**
+	         * @event select
+	         * @public
+	         * @ignore
+	         */
+	    },
+	    /**
+	     * @method _input($event) 输入日期
+	     * @private
+	     * @param  {object} $event
+	     * @return {void}
+	     */
+	    _input: function($event) {
+	        var value = $event.target.value;
+	        var date = value ? new Date(value) : null;
+
+	        if(date != 'Invalid Date')
 	            this.data.date = date;
-	        } else
+	        else
 	            $event.target.value = filter.format(this.data.date, 'yyyy-MM-dd HH:mm');
+	    },
+	    /**
+	     * @method isOutOfRange(date) 是否超出规定的日期时间范围
+	     * @public
+	     * @param {Date} date 待测的日期时间
+	     * @return {boolean|Date} 如果没有超出日期时间范围，则返回false；如果超出日期时间范围，则返回范围边界的日期时间
+	     */
+	    isOutOfRange: function(date) {
+	        var minDate = this.data.minDate;
+	        var maxDate = this.data.maxDate;
+
+	        // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期时间。
+	        return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
 	    }
 	});
 
 	module.exports = DateTimePicker;
 
 /***/ },
-/* 52 */
+/* 50 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-dropdown-datepicker u-dropdown-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this.input($event)} ref=\"input\" disabled={disabled} {#if readonly}readonly=\"readonly\"{/if}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date}>\n            <timePicker time={_time} />\n        </calendar>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>\n            <timePicker time={_time} on-change={this._update(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
 
 /***/ },
-/* 53 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3845,7 +4170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(54);
+	var template = __webpack_require__(52);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3883,13 +4208,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Progress;
 
 /***/ },
-/* 54 */
+/* 52 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-progress u-progress-{@(size)} u-progress-{@(type)} {@(class)}\" r-class={ {'u-progress-striped': striped, 'z-act': active} } r-hide={!visible}>\n    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + '%' : text) : ''}</div>\n</div>"
 
 /***/ },
-/* 55 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3902,7 +4227,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(56);
+	var template = __webpack_require__(54);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3940,18 +4265,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Gotop;
 
 /***/ },
-/* 56 */
+/* 54 */
 /***/ function(module, exports) {
 
 	module.exports = "<a class=\"u-gotop u-gotop-{position} {@(class)}\" on-click={this.gotop()}><i class=\"u-icon u-icon-arrow-up\"></i></a>"
 
 /***/ },
-/* 57 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * ------------------------------------------------------------
-	 * Tab       选项卡
+	 * Tabs       选项卡
 	 * @author   sensen(rainforest92@126.com)
 	 * ------------------------------------------------------------
 	 */
@@ -3959,11 +4284,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(58);
+	var template = __webpack_require__(56);
 	var _ = __webpack_require__(3);
 
 	/**
-	 * @class Tab
+	 * @class Tabs
 	 * @extend Component
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {boolean=false}           options.data.readonly           是否只读
@@ -3971,15 +4296,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {boolean=true}            options.data.visible            是否显示
 	 * @param {string=''}               options.data.class              补充class
 	 */
-	var Tab = Component.extend({
-	    name: 'tab',
+	var Tabs = Component.extend({
+	    name: 'tabs',
 	    template: template,
 	    /**
 	     * @protected
 	     */
 	    config: function() {
 	        _.extend(this.data, {
-	            source: [],
+	            tabs: [],
 	            selected: null
 	        });
 	        this.supr();
@@ -3991,7 +4316,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	    select: function(item) {
-	        if(item.disabled || this.data.readonly || this.data.disabled)
+	        if(this.data.readonly || this.data.disabled || item.data.disabled)
 	            return;
 
 	        this.data.selected = item;
@@ -4005,43 +4330,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	});
 
-	var TabPane = Component.extend({
-	    name: 'tabPane',
-	    template: '<div r-hide={this.$outer.data.selected.tab != this}>{#include this.$body}</div>',
+	var Tab = Component.extend({
+	    name: 'tab',
+	    template: '<div r-hide={this.$outer.data.selected != this}>{#include this.$body}</div>',
 	    /**
 	     * @protected
 	     */
-	    config: function() { 
-	        if(this.$outer) {
-	            var source = this.$outer.data.source;
-	            var item = {
-	                title: this.data.title,
-	                disabled: this.data.disabled,
-	                tab: this
-	            };
-	            source.push(item);
+	    config: function() {
+	        _.extend(this.data, {
+	            title: ''
+	        });
+	        this.supr();
 
-	            if(!this.$outer.data.selected)
-	                this.$outer.data.selected = item;
-	        }
+	        if(this.$outer)
+	            this.$outer.data.tabs.push(this);
+
+	        if(!this.$outer.data.selected)
+	            this.$outer.data.selected = this;
 	    }
 	});
 
-	module.exports = Tab;
+	module.exports = Tabs;
 
 /***/ },
-/* 58 */
+/* 56 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-tab {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <ul class=\"tab_hd\">\n        {#list source as item}\n        <li r-class={ {'z-crt': item == selected, 'z-dis': item.disabled} } on-click={this.select(item)}>{item.title}</li>\n        {/list}\n    </ul>\n    <div class=\"tab_bd\">\n        {#inc this.$body}\n    </div>\n</div>"
+	module.exports = "<div class=\"m-tabs {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <ul class=\"tabs_hd\">\n        {#list tabs as item}\n        <li r-class={ {'z-crt': item == selected, 'z-dis': item.data.disabled} } on-click={this.select(item)}>{item.data.title}</li>\n        {/list}\n    </ul>\n    <div class=\"tabs_bd\">\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 59 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * ------------------------------------------------------------
-	 * Accordion       选项卡
+	 * Collapse       选项卡
 	 * @author   sensen(rainforest92@126.com)
 	 * ------------------------------------------------------------
 	 */
@@ -4049,30 +4372,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(60);
-	var itemTemplate = __webpack_require__(61);
+	var template = __webpack_require__(58);
+	var itemTemplate = __webpack_require__(59);
 	var _ = __webpack_require__(3);
 
 	/**
-	 * @class Accordion
+	 * @class Collapse
 	 * @extend Component
 	 * @param {object}                  options.data                    绑定属性
-	 * @param {boolean=true}            options.data.collapse           是否只能同时展开一个
+	 * @param {boolean=false}           options.data.accordion          是否每次只展开一个
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
 	 * @param {string=''}               options.data.class              补充class
 	 */
-	var Accordion = Component.extend({
-	    name: 'accordion',
+	var Collapse = Component.extend({
+	    name: 'collapse',
 	    template: template,
 	    /**
 	     * @protected
 	     */
 	    config: function() {
 	        _.extend(this.data, {
-	            panes: [],
-	            collapse: true
+	            panels: [],
+	            accordion: false
 	        });
 	        this.supr();
 	    }
@@ -4084,8 +4407,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	});
 
-	var AccordionPane = Component.extend({
-	    name: 'accordionPane',
+	var Panel = Component.extend({
+	    name: 'panel',
 	    template: itemTemplate,
 	    /**
 	     * @protected
@@ -4093,17 +4416,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    config: function() {
 	        _.extend(this.data, {
 	            title: '',
-	            open: false,
-	            disabled: false
+	            open: false
 	        });
 	        this.supr();
 
 	        if(this.$outer)
-	            this.$outer.data.panes.push(this);
+	            this.$outer.data.panels.push(this);
 	    },
 	    toggle: function(open) {
-	        if(open && this.$outer.data.collapse) {
-	            this.$outer.data.panes.forEach(function(pane) {
+	        if(open && this.$outer.data.accordion) {
+	            this.$outer.data.panels.forEach(function(pane) {
 	                pane.data.open = false;
 	            });
 	        }
@@ -4112,22 +4434,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	});
 
-	module.exports = Accordion;
+	module.exports = Collapse;
+
+/***/ },
+/* 58 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"m-collapse {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#inc this.$body}\n</div>"
+
+/***/ },
+/* 59 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"m-panel\">\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#include this.$body}\n        </div>\n    </div>\n</div>"
 
 /***/ },
 /* 60 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"m-accordion {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#inc this.$body}\n</div>"
-
-/***/ },
-/* 61 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"m-panel\">\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div class=\"panel_bd\" r-hide={!open}>\n        {#include this.$body}\n    </div>\n</div>"
-
-/***/ },
-/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4138,7 +4460,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(63);
+	var template = __webpack_require__(61);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4221,13 +4543,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Pager;
 
 /***/ },
-/* 63 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"m-pager m-pager-{@(position)} {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <li class=\"pager_prev\" r-class={ {'z-dis' : current <= 1} } on-click={this.select(current - 1)}><a>上一页</a></li>\n    {#if total - middle > side * 2 + 1}\n        {#list 1..side as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _start > side + 1}<li><span>...</span></li>{/if}\n        {#list _start.._end as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _end < total - side}<li><span>...</span></li>{/if}\n        {#list (total - side + 1)..total as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {#else}\n        {#list 1..total as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {/if}\n    <li class=\"pager_next\" r-class={ {'z-dis' : current >= total} } on-click={this.select(current + 1)}><a>下一页</a></li>\n</ul>"
 
 /***/ },
-/* 64 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4240,7 +4562,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(65);
+	var template = __webpack_require__(63);
 	var _ = __webpack_require__(3);
 	var Menu = __webpack_require__(13);
 
@@ -4276,13 +4598,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Menubar;
 
 /***/ },
-/* 65 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n    {#list source as item}\n    <menu name={item.name} source={item.children} />\n    {/list}\n</div>\n"
 
 /***/ },
-/* 66 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4295,7 +4617,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(67);
+	var template = __webpack_require__(65);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4422,10 +4744,84 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 67 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-modal {@(class)}\" on-keyup={this.keyup($event)} r-hide={!visible}>\n    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>\n        <div class=\"modal_hd\">\n            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>\n            <h3 class=\"modal_title\">{title}</h3>\n        </div>\n        <div class=\"modal_bd\">\n            {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}\n        </div>\n        <div class=\"modal_ft\">\n            {#if okButton}\n            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? '确定' : okButton}</button>\n            {/if}\n            {#if cancelButton}\n            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>\n            {/if}\n        </div>\n    </div>\n</div>"
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * ListView  列表视图
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var SourceComponent = __webpack_require__(5);
+	var template = __webpack_require__(67);
+	var _ = __webpack_require__(3);
+
+	/**
+	 * @class ListView
+	 * @param {object}                  options.data                    绑定属性
+	 * @param {object[]=[]}             options.data.source             数据源
+	 * @param {number}                  options.data.source[].id        每项的id
+	 * @param {string}                  options.data.source[].name      每项的内容
+	 * @param {object=null}             options.data.selected           当前选择项
+	 * @param {string=null}             options.data.itemTemplate       单项模板
+	 * @param {boolean=false}           options.data.readonly           是否只读
+	 * @param {boolean=false}           options.data.disabled           是否禁用
+	 * @param {boolean=true}            options.data.visible            是否显示
+	 * @param {string=''}               options.data.class              补充class
+	 * @param {object}                  options.service                 数据服务
+	 */
+	var ListView = SourceComponent.extend({
+	    name: 'listView',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            // @inherited source: [],
+	            selected: null,
+	            itemTemplate: null
+	        });
+	        this.supr();
+	    },
+	    /**
+	     * @method select(item) 选择某一项
+	     * @public
+	     * @param  {object} item 选择项
+	     * @return {void}
+	     */
+	    select: function(item) {
+	        if(this.data.readonly || this.data.disabled || item.disabled)
+	            return;
+
+	        this.data.selected = item;
+	        /**
+	         * @event select 选择某一项时触发
+	         * @property {object} selected 当前选择项
+	         */
+	        this.$emit('select', {
+	            selected: item
+	        });
+	    }
+	});
+
+	module.exports = ListView;
+
+/***/ },
+/* 67 */
+/***/ function(module, exports) {
+
+	module.exports = "<ul class=\"m-listview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>\n    {/list}\n</ul>"
 
 /***/ },
 /* 68 */
