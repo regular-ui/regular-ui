@@ -22,12 +22,7 @@ If your patch **changes the API or fixes a bug** please use one of the following
 - `[removed] ...`
 - `[updated] ...`
 
-That ensures the subject line of your commit makes it into the auto-generated changelog. Do not use these tags if your change doesn't fix a bug and doesn't
-change the public API.
-
-### Using `[updated]` with development dependencies updates
-
-Use `[updated]` if dependency or 4dev-dependency has impact on the resulting code or API.
+Use `[updated]` if dependency or dev-dependency has impact on the resulting code or API.
 
 ## Docs
 
