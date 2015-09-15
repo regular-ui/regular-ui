@@ -17,19 +17,24 @@ var mcss = require('../lib/gulp-mcss.js');
  * ------------------------------------------------------------
  */
 
-gulp.task('dist-clean', function(done) {
+gulp.task('dist-clean', function() {
     return gulp.src('./dist', {read: false}).pipe(rm());
 });
 
-gulp.task('dist-copy', function(done) {
-    return gulp.src('./src/font/**').pipe(gulp.dest('./dist/font'))
-        && gulp.src([
-            './node_modules/regularjs/dist/regular.min.js',
-            './node_modules/marked/marked.min.js'
-        ]).pipe(gulp.dest('./dist/vendor'))
+gulp.task('dist-copy-font', function() {
+    return gulp.src('./src/font/**').pipe(gulp.dest('./dist/font'));
 });
 
-gulp.task('dist-js', function(done) {
+gulp.task('dist-copy-vendor', function() {
+    return gulp.src([
+        './node_modules/regularjs/dist/regular.min.js',
+        './node_modules/marked/marked.min.js'
+    ]).pipe(gulp.dest('./dist/vendor'));
+});
+
+gulp.task('dist-copy', ['dist-copy-font', 'dist-copy-vendor']);
+
+gulp.task('dist-js', function() {
     return gulp.src('./src/js/index.js')
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('./dist/js'))
@@ -38,7 +43,7 @@ gulp.task('dist-js', function(done) {
         .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('dist-css', function(done) {
+gulp.task('dist-css', function() {
     var gulpCSS = function(theme) {
         return gulp.src('./src/mcss/' + theme + '.mcss')
             .pipe(mcss({
@@ -66,7 +71,7 @@ gulp.task('dist', function(done) {
  * ------------------------------------------------------------
  */
 
-gulp.task('bower-clean', function(done) {
+gulp.task('bower-clean', function() {
     return gulp.src([
         '../regular-ui-bower/*',
         '!../regular-ui-bower/bower.json',
@@ -74,13 +79,13 @@ gulp.task('bower-clean', function(done) {
     ], {read: false}).pipe(rm({force: true}));
 });
 
-gulp.task('bower-copy', function(done) {
+gulp.task('bower-copy', function() {
     return gulp.src('./dist/**').pipe(gulp.dest('../regular-ui-bower'))
     && gulp.src('./src/js/**').pipe(gulp.dest('../regular-ui-bower/js-common'))
     && gulp.src('./src/mcss/**').pipe(gulp.dest('../regular-ui-bower/mcss'));
 });
 
-gulp.task('bower-js-amd', function(done) {
+gulp.task('bower-js-amd', function() {
     return gulp.src('./src/js/**/*.html').pipe(gulp.dest('../regular-ui-bower/js-amd'))
         && gulp.src('./src/js/**/*.js')
         .pipe(requireConvert())

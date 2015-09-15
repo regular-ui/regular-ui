@@ -17,20 +17,28 @@ var buildAll = require('../doc-src/buildAll.js');
  * ------------------------------------------------------------
  */
 
-gulp.task('doc-clean', function(done) {
+gulp.task('doc-clean', function() {
     return gulp.src('./doc', {read: false}).pipe(rm());
 });
 
-gulp.task('doc-copy', function(done) {
-    return gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc'))
-        && gulp.src('./src/font/**').pipe(gulp.dest('./doc/font'))
-        && gulp.src([
-            './node_modules/regularjs/dist/regular.min.js',
-            './node_modules/marked/marked.min.js'
-        ]).pipe(gulp.dest('./doc/vendor'));
+gulp.task('doc-copy-assets', function() {
+    return gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc'));
 });
 
-gulp.task('doc-js', function(done) {
+gulp.task('doc-copy-font', function() {
+    return gulp.src('./src/font/**').pipe(gulp.dest('./doc/font'));
+});
+
+gulp.task('doc-copy-vendor', function() {
+    return gulp.src([
+        './node_modules/regularjs/dist/regular.min.js',
+        './node_modules/marked/marked.min.js'
+    ]).pipe(gulp.dest('./doc/vendor'));
+});
+
+gulp.task('doc-copy', ['doc-copy-assets', 'doc-copy-font', 'doc-copy-vendor']);
+
+gulp.task('doc-js', function() {
     return gulp.src('./src/js/index.js')
         .pipe(webpack(webpackConfig))
         .pipe(rename({suffix: '.min'}))
@@ -38,7 +46,7 @@ gulp.task('doc-js', function(done) {
         .pipe(gulp.dest('./doc/js'));
 });
 
-gulp.task('doc-css', function(done) {
+gulp.task('doc-css', function() {
     var gulpCSS = function(theme) {
         // Should Merge
         return gulp.src('./src/mcss/' + theme + '.mcss')
@@ -78,17 +86,17 @@ gulp.task('doc', function(done) {
  * ------------------------------------------------------------
  */
 
-gulp.task('page-clean', function(done) {
+gulp.task('page-clean', function() {
     return gulp.src([
         '../regular-ui.github.io/*',
         '!../regular-ui.github.io/README.md'
     ], {read: false}).pipe(rm({force: true}));
 });
 
-gulp.task('page-copy', function(done) {
+gulp.task('page-copy', function() {
     return gulp.src('./doc/**').pipe(gulp.dest('../regular-ui.github.io'));
 });
 
 gulp.task('page', function(done) {
-    sequence(['doc', 'page-clean'], 'page-copy', done);
+    sequence(['doc', 'page-clean'], ['page-copy'], done);
 });
