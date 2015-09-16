@@ -112,7 +112,6 @@ requirejs.config({
 require(['module/calendar'], function(Calendar) {
     new Calendar().$inject('#app');
 });
-</script>
 ```
 
 <div class="u-message u-message-warning">

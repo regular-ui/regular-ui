@@ -18,6 +18,12 @@ $media-lg-max-width =                   1220px - 1;
 $gray-base = #777;
 $brand-primary = #3498db;
 
+$font-family-sans-serif = "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+$font-family-serif = Georgia, "Times New Roman", Times, SimSun, "FontAwesome", serif; //FangSong, STFangSong
+$font-family-monospace = Monaco, Menlo, Consolas, "Courier New", "FontAwesome", monospace;
+$font-family-kai = Georgia, "Times New Roman", Times, Kai, "Kaiti SC", KaiTi, BiauKai, "FontAwesome", serif;
+
+
 /* Form Controls */
 $formctrl_padding = 4px 6px;
 $formctrl-sm_padding = 3px 3px;

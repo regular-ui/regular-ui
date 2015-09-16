@@ -16,7 +16,7 @@ html {
 }
 
 body {
-    font: 14px/1.6 'Microsoft YaHei';
+    font: 14px/1.6 $font-family-sans-serif;
     background: white;
     color: #333;
 }

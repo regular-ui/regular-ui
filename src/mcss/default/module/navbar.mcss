@@ -9,29 +9,32 @@
 // ========================================================================
 
 .m-navbar {
-    background: mix($brand-primary, black, 30%); // #eee
+    background: $brand-secondary;
     color: white; // #444
 
     > li {
 
         > a, > span {
-            min-width: 100px;
+            min-width: 108px;
             // padding: 0 15px;
-            $line-height: 50px;
-            color: white;
-            $transition: background 0.3s;
+            $line-height: 60px;
+            color: rgba(255, 255, 255, 0.75);
+            $transition: color 0.3s;
         }
     }
 
     > li:hover > a {
-        background: mix(mix($brand-primary, black, 30%), white, 85%);
+        color: white;
     }
 
     > li:active > a {
-        background: mix($brand-primary, black, 20%);
+        // background: mix($brand-primary, black, 20%);
     }
 
     > li.z-crt > a {
-        background: $brand-primary;
+        height: 58px;
+        border-bottom: 2px solid white;
+        color: white;
+        // background: $brand-primary;
     }
 }

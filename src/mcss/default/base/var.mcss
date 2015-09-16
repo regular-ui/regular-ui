@@ -9,7 +9,8 @@
 // ========================================================================
 
 /* Brand Colors */
-$brand-primary =                        #3498db;
+$brand-primary =                        #009cef;  //#3498db;
+$brand-secondary =                      #39c1e6;
 $brand-info   =                         #3498db;
 $brand-success =                        #8cc14c;
 $brand-warning =                        #faa732;

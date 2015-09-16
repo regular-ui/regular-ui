@@ -58,6 +58,7 @@ $reset-normalize();
 @import "default/module/table.mcss";
 @import "default/module/panel.mcss";
 @import "default/module/form.mcss";
+@import "default/module/footer.mcss";
 
 
 
