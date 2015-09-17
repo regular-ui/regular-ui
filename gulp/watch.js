@@ -17,7 +17,7 @@ var mcss = require('../lib/gulp-mcss.js');
  * ------------------------------------------------------------
  */
 
-gulp.task('doc-watch-copy', function(done) {
+gulp.task('doc-watch-copy', function() {
     return gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc'));
 })
 
@@ -26,7 +26,7 @@ for(var key in webpackConfig)
     webpackConfig2[key] = webpackConfig[key];
 webpackConfig2.watch = true;
 
-gulp.task('doc-watch-js', function(done) {
+gulp.task('doc-watch-js', function() {
     return gulp.src('./src/js/index.js')
         .pipe(webpack(webpackConfig2))
         .pipe(rename({suffix: '.min'}))
@@ -34,13 +34,13 @@ gulp.task('doc-watch-js', function(done) {
         .pipe(gulp.dest('./doc/js'));
 });
 
-gulp.task('doc-watch-jshint', function(done) {
+gulp.task('doc-watch-jshint', function() {
     return gulp.src('./src/js/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('doc-watch-css', function(done) {
+gulp.task('doc-watch-css', function() {
     var gulpCSS = function(theme) {
         // Should Merge
         return gulp.src('./doc-src/mcss/' + theme + '.mcss')

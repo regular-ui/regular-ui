@@ -3,12 +3,12 @@
 // var mocha = require('gulp-mocha');
 // var karma = require('gulp-karma');
 
-// gulp.task('mocha', function(done) {
+// gulp.task('mocha', function() {
 //     return gulp.src('./test/spec/**/*.js', {read: false})
 //         .pipe(mocha())
 // });
 
-// gulp.task('karma', function(done) {
+// gulp.task('karma', function() {
 //     return gulp.src('./test/spec/**/*.js', {read: false})
 //         .pipe(karma({
 //             configFile: 'karma.conf.js',
