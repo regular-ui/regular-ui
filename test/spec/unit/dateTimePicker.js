@@ -1,4 +1,4 @@
-var except = require('expect.js');
+var expect = require('expect.js');
 var DateTimePicker = require('../../../src/js/unit/dateTimePicker.js');
 var Calendar = require('../../../src/js/module/calendar.js');
 
@@ -25,13 +25,13 @@ describe('DateTimePicker', function() {
         });
 
         it('should convert `date` property from string-type to Date-type.', function() {
-            except(dateTimePicker.data.date).to.be.a(Date);
-            except(dateTimePicker.data.date - new Date('2012-12-21 14:45')).to.be(0);
+            expect(dateTimePicker.data.date).to.be.a(Date);
+            expect(dateTimePicker.data.date - new Date('2012-12-21 14:45')).to.be(0);
         });
 
         it('should sync `date` property to Calendar and TimePicker components.', function() {
-            except(dateTimePicker.data._date.toDateString()).to.be(dateTimePicker.data.date.toDateString());
-            except(dateTimePicker.data._time).to.be(dateTimePicker.data.date.toTimeString().slice(0, 5));
+            expect(dateTimePicker.data._date.toDateString()).to.be(dateTimePicker.data.date.toDateString());
+            expect(dateTimePicker.data._time).to.be(dateTimePicker.data.date.toTimeString().slice(0, 5));
         });
     });
 
@@ -43,8 +43,8 @@ describe('DateTimePicker', function() {
         });
         
         it('should sync `date` property to Calendar and TimePicker components.', function() {
-            except(dateTimePicker.data._date.toDateString()).to.be(dateTimePicker.data.date.toDateString());
-            except(dateTimePicker.data._time).to.be(dateTimePicker.data.date.toTimeString().slice(0, 5));
+            expect(dateTimePicker.data._date.toDateString()).to.be(dateTimePicker.data.date.toDateString());
+            expect(dateTimePicker.data._time).to.be(dateTimePicker.data.date.toTimeString().slice(0, 5));
         });
 
 
@@ -52,7 +52,7 @@ describe('DateTimePicker', function() {
             dateTimePicker.data.minDate = today_7;
             dateTimePicker.$update();
 
-            except(dateTimePicker.data.date - today_7).to.be(0);
+            expect(dateTimePicker.data.date - today_7).to.be(0);
         });
     });
 
@@ -68,16 +68,16 @@ describe('DateTimePicker', function() {
             dateTimePicker.data.date = new Date(+new Date + 16*MS_OF_DAY);
             dateTimePicker.$update();
 
-            except(dateTimePicker.data.date - today_7).to.be(0);
+            expect(dateTimePicker.data.date - today_7).to.be(0);
         });
 
         describe('#isOutOfRange(date)', function() {
             it('should return true if out of range.', function() {
-                except(dateTimePicker.isOutOfRange(now)).to.be.ok();
+                expect(dateTimePicker.isOutOfRange(now)).to.be.ok();
             });
 
             it('should return false if in the range.', function() {
-                except(dateTimePicker.isOutOfRange(new Date(+new Date + 3*MS_OF_DAY))).not.to.be.ok();
+                expect(dateTimePicker.isOutOfRange(new Date(+new Date + 3*MS_OF_DAY))).not.to.be.ok();
             });
         });
     });
@@ -91,8 +91,8 @@ describe('DateTimePicker', function() {
         });
         
         it('should convert `minDate` and `maxDate` property from string-type to Date-type.', function() {
-            except(dateTimePicker.data.minDate).to.be.a(Date);
-            except(dateTimePicker.data.maxDate).to.be.a(Date);
+            expect(dateTimePicker.data.minDate).to.be.a(Date);
+            expect(dateTimePicker.data.maxDate).to.be.a(Date);
         });
     });
 
@@ -106,7 +106,7 @@ describe('DateTimePicker', function() {
                     }
                 });
             } catch(e) {
-                except(e).to.be.a(Calendar.DateRangeException);
+                expect(e).to.be.a(Calendar.DateRangeException);
             }
         });
     });

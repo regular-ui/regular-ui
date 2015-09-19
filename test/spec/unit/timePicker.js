@@ -1,4 +1,4 @@
-var except = require('expect.js');
+var expect = require('expect.js');
 var TimePicker = require('../../../src/js/unit/timePicker.js');
 
 describe('TimePicker', function() {
@@ -6,14 +6,14 @@ describe('TimePicker', function() {
         var timePicker = new TimePicker();
 
         it('should set `time` to be "00:00".', function() {
-            except(timePicker.data.time).to.be('00:00');
-            except(timePicker.data.hour).to.be(0);
-            except(timePicker.data.minute).to.be(0);
+            expect(timePicker.data.time).to.be('00:00');
+            expect(timePicker.data.hour).to.be(0);
+            expect(timePicker.data.minute).to.be(0);
         });
 
         describe('#isOutOfRange(time)', function() {
             it('should return false with any time.', function() {
-                except(timePicker.isOutOfRange('12:45')).not.to.be.ok();
+                expect(timePicker.isOutOfRange('12:45')).not.to.be.ok();
             });
         });
     });
@@ -26,7 +26,7 @@ describe('TimePicker', function() {
         });
 
         it('should show correct time.', function() {
-            except(timePicker.data.time).to.be('18:45');
+            expect(timePicker.data.time).to.be('18:45');
         });
     });
 
@@ -39,30 +39,30 @@ describe('TimePicker', function() {
         });
 
         it('should select the boundary time if out of range.', function() {
-            except(timePicker.data.time).to.be('12:00');
+            expect(timePicker.data.time).to.be('12:00');
         });
 
         it('should check if out of the range after set a new `time` value.', function() {
             timePicker.data.time = '18:00'
             timePicker.$update();
 
-            except(timePicker.data.time).to.be('14:45');
+            expect(timePicker.data.time).to.be('14:45');
         });
 
         it('should check if out of the range after set a new `minTime` or `maxTime` value.', function() {
             timePicker.data.maxTime = '14:00'
             timePicker.$update();
 
-            except(timePicker.data.time).to.be('14:00');
+            expect(timePicker.data.time).to.be('14:00');
         });
 
         describe('#isOutOfRange(time)', function() {
             it('should return true if out of range.', function() {
-                except(timePicker.isOutOfRange('18:00')).to.be.ok();
+                expect(timePicker.isOutOfRange('18:00')).to.be.ok();
             });
 
             it('should return false if in the range.', function() {
-                except(timePicker.isOutOfRange('13:00')).not.to.be.ok();
+                expect(timePicker.isOutOfRange('13:00')).not.to.be.ok();
             });
         });
     });
@@ -77,7 +77,7 @@ describe('TimePicker', function() {
                     }
                 });
             } catch(e) {
-                except(e).to.be.a(TimePicker.TimeRangeException);
+                expect(e).to.be.a(TimePicker.TimeRangeException);
             }
         });
     });

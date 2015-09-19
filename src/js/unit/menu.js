@@ -17,7 +17,6 @@ var _ = require('../base/util.js');
  * @param {object}                  options.data                    绑定属性
  * @param {string=''}               options.data.title              按钮文字
  * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {boolean=false}           options.data.source[].disabled  禁用此项
  * @param {boolean=false}           options.data.source[].divider   设置此项分隔线

@@ -55,6 +55,7 @@ module.exports = {
         'RadioGroup': {type: 'js', category: 'unit', lowerName: 'radioGroup', requires: ['FormControl', 'UnitGroup', 'Radio2']},
         'Radio2Group': {type: 'js', category: 'unit', lowerName: 'radio2Group', requires: ['RadioGroup']},
         'Select2': {type: 'css+js', category: 'unit', lowerName: 'select2', requires: ['Dropdown']},
+        'Select2Group': {type: 'js', category: 'unit', lowerName: 'select2Group', requires: ['Select2']},
         'TreeSelect': {type: 'js', category: 'unit', lowerName: 'treeSelect', requires: ['Select2', 'TreeView']},
         'Suggest': {type: 'css+js', category: 'unit', lowerName: 'suggest', requires: ['Dropdown']},
         'Uploader': {type: 'css+js', category: 'unit', lowerName: 'uploader'},

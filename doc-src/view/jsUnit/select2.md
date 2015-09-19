@@ -20,11 +20,12 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用组件
+#### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
 ```xml
+<select2 source={source} />
 <select2 source={source} disabled={true} />
 ```
 
@@ -35,7 +36,7 @@ var component = new RGUI.Component({
         source: [
             {name: '选项1'},
             {name: '选项2'},
-            {name: '选项3'}
+            {name: '选项3（禁用）', disabled: true}
         ]
     }
 });
@@ -84,6 +85,53 @@ var component = new RGUI.Component({
                 success: success
             });
         }
+    }
+});
+```
+
+#### 数据绑定
+
+<div class="m-example"></div>
+
+```xml
+<select2 source={source} selected={selected} /> 当前的选择项：{selected ? selected.name : 'null'}
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+```
+
+#### 事件
+
+请打开浏览器的控制台查看结果。
+
+<div class="m-example"></div>
+
+```xml
+<select2 source={source}
+    on-toggle={console.log('on-toggle:', '$event.open:', $event.open)}
+    on-select={console.log('on-select:', '$event.selected:', $event.selected)}
+    on-change={console.log('on-change:', '$event.selected:', $event.selected)} />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
     }
 });
 ```

@@ -16,7 +16,6 @@ var _ = require('../base/util.js');
  * @extend SourceComponent
  * @param {object}                  options.data                    绑定属性
  * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {boolean=true}            options.data.visible            是否显示
  * @param {string=''}               options.data.class              补充class

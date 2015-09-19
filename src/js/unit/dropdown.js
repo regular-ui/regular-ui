@@ -15,7 +15,6 @@ var _ = require('../base/util.js');
  * @param {object}                  options.data                    绑定属性
  * @param {string=''}               options.data.title              按钮文字
  * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {boolean=false}           options.data.source[].disabled  禁用此项
  * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
@@ -39,26 +38,6 @@ var Dropdown = SourceComponent.extend({
             open: false
         });
         this.supr();
-    },
-    /**
-     * @method select(item) 选择某一项
-     * @public
-     * @param  {object} item 选择项
-     * @return {void}
-     */
-    select: function(item) {
-        if(this.data.disabled || item.disabled || item.divider)
-            return;
-
-        //this.data.selected = item;
-        /**
-         * @event select 选择某一项时触发
-         * @property {object} selected 当前选择项
-         */
-        this.$emit('select', {
-            selected: item
-        });
-        this.toggle(false);
     },
     /**
      * @method toggle(open) 在展开/收起状态之间切换
@@ -86,6 +65,26 @@ var Dropdown = SourceComponent.extend({
         this.$emit('toggle', {
             open: open
         });
+    },
+    /**
+     * @method select(item) 选择某一项
+     * @public
+     * @param  {object} item 选择项
+     * @return {void}
+     */
+    select: function(item) {
+        if(this.data.disabled || (item && (item.disabled || item.divider)))
+            return;
+
+        /**
+         * @event select 选择某一项时触发
+         * @property {object} selected 当前选择项
+         */
+        this.$emit('select', {
+            selected: item
+        });
+
+        this.toggle(false);
     }
 });
 

@@ -16,7 +16,6 @@ var _ = require('../base/util.js');
  * @extend SourceComponent
  * @param {object}                  options.data                    绑定属性
  * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {object[]=[]}             options.data.field              字段集
  * @param {string}                  options.data.field[].key        每个字段的key

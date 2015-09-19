@@ -31,7 +31,7 @@
 ```xml
 <timePicker time={time} />
 <timePicker time={time} minTime="18:00" maxTime="19:30" />
-<p>当前选择的日期为：{time}</p>
+<p>当前选择的时间为：{time}</p>
 ```
 
 #### 事件

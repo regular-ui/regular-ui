@@ -1,3 +1,8 @@
+var fs = require('fs');
+
+if(!fs.existsSync('../structure.customized.js'))
+    return;
+
 var gulp = require('gulp');
 
 var webpack = require('gulp-webpack');
