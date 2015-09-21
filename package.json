@@ -1,7 +1,7 @@
 {
   "name": "regular-ui",
   "description": "Regular UI is a set of front-end components built with RegularJS.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Sensen <rainforest92@126.com>",
   "main": "./dist/js/regular-ui.min.js",
   "repository": "git://github.com/regular-ui/regular-ui.git",

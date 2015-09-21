@@ -7,9 +7,9 @@ module.exports = function customize(structure, type, theme) {
         var appends = [];
 
         if(type === 'css') {
-            appends.push('@import "' + theme + '/base/var.mcss";');
-            appends.push('@import "' + theme + '/base/base.mcss";');
-            appends.push('@import "' + theme + '/base/effect.mcss";');
+            appends.push('@import "./' + theme + '/base/var.mcss";');
+            appends.push('@import "./' + theme + '/base/base.mcss";');
+            appends.push('@import "./' + theme + '/base/effect.mcss";');
         }
 
         for(var key in components) {
@@ -32,8 +32,6 @@ module.exports = function customize(structure, type, theme) {
                 
                 if(!fs.existsSync(fullpath))
                     throw 'Error: Cannot find ' + fullpath + '.';
-
-                filepath = './' + filepath;
             } else {
                 filepath = theme + '/' + component.category + '/' + component.lowerName +'.mcss';
                 fullpath = './src/mcss/' + filepath;
@@ -48,9 +46,10 @@ module.exports = function customize(structure, type, theme) {
                 }
 
             }
+            filepath = './' + filepath;
 
             if(type === 'js')
-                appends.push('exports.' + key + ' =  require("' + filepath + '");');
+                appends.push('exports.' + key + ' = require("' + filepath + '");');
             else
                 appends.push('@import "' + filepath + '";');
         }

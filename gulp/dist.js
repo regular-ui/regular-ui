@@ -10,7 +10,6 @@ var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
 
 var structure = require('../structure.js');
-var customize = require('./gulp-customize.js');
 var mcss = require('../lib/gulp-mcss.js');
 
 /**
@@ -37,10 +36,7 @@ gulp.task('dist-copy-vendor', function() {
 gulp.task('dist-copy', ['dist-copy-font', 'dist-copy-vendor']);
 
 gulp.task('dist-js', function() {
-    return gulp.src('./src/js/head.js')
-        .pipe(customize(structure, 'js'))
-        .pipe(rename('index.js'))
-        .pipe(gulp.dest('./src/js'))
+    return gulp.src('./src/js/index.js')
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('./dist/js'))
         .pipe(rename({suffix: '.min'}))
@@ -50,10 +46,7 @@ gulp.task('dist-js', function() {
 
 gulp.task('dist-css', function() {
     var gulpCSS = function(theme) {
-        return gulp.src('./src/mcss/head.mcss')
-            .pipe(customize(structure, 'css', theme))
-            .pipe(rename(theme + '.mcss'))
-            .pipe(gulp.dest('./src/mcss'))
+        return gulp.src('./src/mcss/' + theme + '.mcss')
             .pipe(mcss({
                 pathes: ["./node_modules"],
                 importCSS: true

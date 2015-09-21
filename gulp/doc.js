@@ -9,7 +9,6 @@ var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
 
 var structure = require('../structure.js');
-var customize = require('./gulp-customize.js');
 var mcss = require('../lib/gulp-mcss.js');
 var buildAll = require('../doc-src/buildAll.js');
 
@@ -41,22 +40,16 @@ gulp.task('doc-copy-vendor', function() {
 gulp.task('doc-copy', ['doc-copy-assets', 'doc-copy-font', 'doc-copy-vendor']);
 
 gulp.task('doc-js', function() {
-    return gulp.src('./src/js/head.js')
-        .pipe(customize(structure, 'js'))
-        .pipe(rename('index.js'))
-        .pipe(gulp.dest('./src/js'))
+    return gulp.src('./src/js/index.js')
         .pipe(webpack(webpackConfig))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('./doc/js'));
 });
 
-gulp.task('doc-css-mcss', function() {
+gulp.task('doc-css', function() {
     var gulpCSS = function(theme) {
-        return gulp.src('./src/mcss/head.mcss')
-            .pipe(customize(structure, 'css', theme))
-            .pipe(rename(theme + '.mcss'))
-            .pipe(gulp.dest('./src/mcss'))
+        return gulp.src('./src/mcss/' + theme + '.mcss')
             .pipe(mcss({
                 pathes: ["./node_modules"],
                 importCSS: true
@@ -65,14 +58,7 @@ gulp.task('doc-css-mcss', function() {
             .pipe(rename({suffix: '.min'}))
             .pipe(minifycss())
             .pipe(gulp.dest('./doc/css'))
-    }
-
-    return structure.themes.map(gulpCSS).pop();
-});
-
-gulp.task('doc-css', ['doc-css-mcss'], function() {
-    var gulpCSS = function(theme) {
-        return gulp.src('./doc-src/mcss/' + theme + '.mcss')
+            && gulp.src('./doc-src/mcss/' + theme + '.mcss')
             .pipe(mcss({
                 pathes: ["./node_modules"],
                 importCSS: true

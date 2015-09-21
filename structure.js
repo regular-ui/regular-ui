@@ -39,6 +39,10 @@ module.exports = {
         'Form': {type: 'css', category: 'module', lowerName: 'form'},
 
         /**
+         * JS Base
+         */
+        'ajax': {type: 'js', category: 'base', lowerName: 'ajax'},
+        /**
          * JS Unit
          */
         /* 导航类 */

@@ -2,7 +2,6 @@
 
 gulp bower
 gulp page
-# git commit -am 
 npm version $1 #/git commit -m '0.1.0'
 npm publish
 git push origin v$1

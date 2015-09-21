@@ -10,8 +10,8 @@ var sitemap = require('./sitemap.json');
  */
 function buildAll(callback) {
     // 动态加载，require有缓存
-    // var sitemap = fs.readFileSync(__dirname + '/sitemap.json', {encoding: 'utf8'});
-    // sitemap = JSON.parse(sitemap);
+    var sitemap = fs.readFileSync(__dirname + '/sitemap.json', {encoding: 'utf8'});
+    sitemap = JSON.parse(sitemap);
     // 加载common中的模板
     var template = {
         head: fs.readFileSync(__dirname + '/view/common/head.ejs', {encoding: 'utf8'}),
