@@ -210,6 +210,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/loading.html">加载中<small> Loading</small>
+        
+            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -245,7 +253,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 ]},
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;化学&#39;</span>}
             ]},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工科&#39;</span>, <span class="cm-property">children</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工学&#39;</span>, <span class="cm-property">children</span>: [
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机科学与技术&#39;</span>, <span class="cm-property">children</span>: [
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机系统结构&#39;</span>},
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机软件与理论&#39;</span>},
@@ -286,7 +294,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 ]},
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;化学&#39;</span>}
             ]},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工科&#39;</span>, <span class="cm-property">children</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工学&#39;</span>, <span class="cm-property">children</span>: [
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机科学与技术&#39;</span>, <span class="cm-property">children</span>: [
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机系统结构&#39;</span>},
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机软件与理论&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
@@ -304,7 +312,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
-<h4 id="-">设置或取消默认项</h4>
+<h4 id="-">设置默认项</h4>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">placeholders</span>=<span class="cm-attribute">{[</span><span class="cm-stringcm-error">&#39;学科门类&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;一级学科&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;二级学科&#39;</span><span class="cm-attribute">]}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -313,7 +321,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">source</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;理学&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>, <span class="cm-property">children</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;理学&#39;</span>, <span class="cm-property">children</span>: [
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;物理学&#39;</span>, <span class="cm-property">children</span>: [
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;理论物理&#39;</span>},
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;凝聚态物理&#39;</span>},
@@ -326,18 +334,18 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 ]},
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;化学&#39;</span>}
             ]},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工科&#39;</span>, <span class="cm-property">children</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工学&#39;</span>, <span class="cm-property">children</span>: [
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机科学与技术&#39;</span>, <span class="cm-property">children</span>: [
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机系统结构&#39;</span>},
-                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机软件与理论&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机软件与理论&#39;</span>},
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机应用技术&#39;</span>}
                 ]},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;软件工程&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;软件工程&#39;</span>},
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;机械工程&#39;</span>, <span class="cm-property">children</span>: [
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;机械制造及其自动化&#39;</span>},
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;机械电子工程&#39;</span>},
-                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;机械设计及理论&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
-                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;车辆工程&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>}
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;机械设计及理论&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;车辆工程&#39;</span>}
                 ]}
             ]}
         ]
@@ -345,7 +353,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 });
 </code></pre>
 <h4 id="-">远程数据</h4>
-<p><em>待完善。。。</em></p>
+<p><em>待完成……</em></p>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -388,7 +396,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 ]},
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;化学&#39;</span>}
             ]},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工科&#39;</span>, <span class="cm-property">children</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工学&#39;</span>, <span class="cm-property">children</span>: [
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机科学与技术&#39;</span>, <span class="cm-property">children</span>: [
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机系统结构&#39;</span>},
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机软件与理论&#39;</span>},
@@ -431,7 +439,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 ]},
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;化学&#39;</span>}
             ]},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工科&#39;</span>, <span class="cm-property">children</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;工学&#39;</span>, <span class="cm-property">children</span>: [
                 {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机科学与技术&#39;</span>, <span class="cm-property">children</span>: [
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机系统结构&#39;</span>},
                     {<span class="cm-property">name</span>: <span class="cm-string">&#39;计算机软件与理论&#39;</span>},
@@ -646,7 +654,7 @@ var component = new RGUI.Component({
                 ]},
                 {name: '化学'}
             ]},
-            {name: '工科', children: [
+            {name: '工学', children: [
                 {name: '计算机科学与技术', children: [
                     {name: '计算机系统结构'},
                     {name: '计算机软件与理论'},
@@ -687,7 +695,7 @@ var component = new RGUI.Component({
                 ]},
                 {name: '化学'}
             ]},
-            {name: '工科', children: [
+            {name: '工学', children: [
                 {name: '计算机科学与技术', children: [
                     {name: '计算机系统结构'},
                     {name: '计算机软件与理论', disabled: true},
@@ -714,7 +722,7 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {name: '理学', disabled: true, children: [
+            {name: '理学', children: [
                 {name: '物理学', children: [
                     {name: '理论物理'},
                     {name: '凝聚态物理'},
@@ -727,18 +735,18 @@ var component = new RGUI.Component({
                 ]},
                 {name: '化学'}
             ]},
-            {name: '工科', children: [
+            {name: '工学', children: [
                 {name: '计算机科学与技术', children: [
                     {name: '计算机系统结构'},
-                    {name: '计算机软件与理论', disabled: true},
+                    {name: '计算机软件与理论'},
                     {name: '计算机应用技术'}
                 ]},
-                {name: '软件工程', disabled: true},
+                {name: '软件工程'},
                 {name: '机械工程', children: [
                     {name: '机械制造及其自动化'},
                     {name: '机械电子工程'},
-                    {name: '机械设计及理论', disabled: true},
-                    {name: '车辆工程', disabled: true}
+                    {name: '机械设计及理论'},
+                    {name: '车辆工程'}
                 ]}
             ]}
         ]
@@ -788,7 +796,7 @@ var component = new RGUI.Component({
                 ]},
                 {name: '化学'}
             ]},
-            {name: '工科', children: [
+            {name: '工学', children: [
                 {name: '计算机科学与技术', children: [
                     {name: '计算机系统结构'},
                     {name: '计算机软件与理论'},
@@ -830,7 +838,7 @@ var component = new RGUI.Component({
                 ]},
                 {name: '化学'}
             ]},
-            {name: '工科', children: [
+            {name: '工学', children: [
                 {name: '计算机科学与技术', children: [
                     {name: '计算机系统结构'},
                     {name: '计算机软件与理论'},

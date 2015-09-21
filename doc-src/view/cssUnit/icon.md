@@ -9,4 +9,4 @@
 <i class="u-icon u-icon-html5"></i>
 ```
 
-其他图标请参见[Font Awesome](http://fortawesome.github.com/Font-Awesome)，图标总览，待完成……
+其他图标请参见[Font Awesome](http://fortawesome.github.com/Font-Awesome)，图标总览，*待完成……*

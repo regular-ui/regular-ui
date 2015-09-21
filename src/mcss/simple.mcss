@@ -41,6 +41,7 @@ $reset-normalize();
 @import "simple/unit/timePicker.mcss";
 @import "simple/unit/dateTimePicker.mcss";
 @import "simple/unit/progress.mcss";
+@import "core/unit/loading.mcss";
 @import "simple/unit/gotop.mcss";
 @import "simple/module/tabs.mcss";
 @import "simple/module/collapse.mcss";

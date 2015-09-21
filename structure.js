@@ -65,6 +65,7 @@ module.exports = {
         'DateTimePicker': {type: 'css+js', category: 'unit', lowerName: 'dateTimePicker', requires: ['Dropdown', 'Calendar', 'TimePicker']},
         /* 其他 */
         'Progress': {type: 'css+js', category: 'unit', lowerName: 'progress'},
+        'Loading': {type: 'css+js', category: 'unit', lowerName: 'loading'},
         'Gotop': {type: 'css+js', category: 'unit', lowerName: 'gotop'},
 
         /**

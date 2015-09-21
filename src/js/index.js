@@ -30,6 +30,7 @@ exports.DatePicker =  require("./unit/datePicker.js");
 exports.TimePicker =  require("./unit/timePicker.js");
 exports.DateTimePicker =  require("./unit/dateTimePicker.js");
 exports.Progress =  require("./unit/progress.js");
+exports.Loading =  require("./unit/loading.js");
 exports.Gotop =  require("./unit/gotop.js");
 exports.Tabs =  require("./module/tabs.js");
 exports.Collapse =  require("./module/collapse.js");

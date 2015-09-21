@@ -7,7 +7,7 @@
 		exports["RGUI"] = factory(require("regularjs"), require("marked"));
 	else
 		root["RGUI"] = factory(root["Regular"], root["marked"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_69__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_76__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -67,35 +67,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Component = __webpack_require__(2);
 	exports.SourceComponent = __webpack_require__(5);
 	exports._ = __webpack_require__(3);
-	exports.Dropdown =  __webpack_require__(6);
-	exports.Menu =  __webpack_require__(8);
-	exports.Input2 =  __webpack_require__(11);
-	exports.NumberInput =  __webpack_require__(15);
-	exports.Check2 =  __webpack_require__(17);
-	exports.CheckGroup =  __webpack_require__(19);
-	exports.Check2Group =  __webpack_require__(21);
-	exports.RadioGroup =  __webpack_require__(23);
-	exports.Radio2Group =  __webpack_require__(25);
-	exports.Select2 =  __webpack_require__(27);
-	exports.TreeSelect =  __webpack_require__(29);
-	exports.Suggest =  __webpack_require__(34);
-	exports.Uploader =  __webpack_require__(36);
-	exports.DatePicker =  __webpack_require__(38);
-	exports.TimePicker =  __webpack_require__(42);
-	exports.DateTimePicker =  __webpack_require__(44);
-	exports.Progress =  __webpack_require__(46);
-	exports.Gotop =  __webpack_require__(48);
-	exports.Tabs =  __webpack_require__(50);
-	exports.Collapse =  __webpack_require__(52);
-	exports.Pager =  __webpack_require__(55);
-	exports.Notify =  __webpack_require__(57);
-	exports.Modal =  __webpack_require__(59);
-	exports.ListView =  __webpack_require__(61);
-	exports.TreeView =  __webpack_require__(31);
-	exports.Calendar =  __webpack_require__(40);
-	exports.Editor =  __webpack_require__(63);
-	exports.HTMLEditor =  __webpack_require__(65);
-	exports.MarkEditor =  __webpack_require__(67);
+	exports.ajax = __webpack_require__(6);
+	exports.Dropdown =  __webpack_require__(11);
+	exports.Menu =  __webpack_require__(13);
+	exports.Input2 =  __webpack_require__(16);
+	exports.NumberInput =  __webpack_require__(20);
+	exports.Check2 =  __webpack_require__(22);
+	exports.CheckGroup =  __webpack_require__(24);
+	exports.Check2Group =  __webpack_require__(26);
+	exports.RadioGroup =  __webpack_require__(28);
+	exports.Radio2Group =  __webpack_require__(30);
+	exports.Select2 =  __webpack_require__(32);
+	exports.Select2Group =  __webpack_require__(34);
+	exports.TreeSelect =  __webpack_require__(36);
+	exports.Suggest =  __webpack_require__(41);
+	exports.Uploader =  __webpack_require__(43);
+	exports.DatePicker =  __webpack_require__(45);
+	exports.TimePicker =  __webpack_require__(49);
+	exports.DateTimePicker =  __webpack_require__(51);
+	exports.Progress =  __webpack_require__(53);
+	exports.Loading =  __webpack_require__(55);
+	exports.Gotop =  __webpack_require__(57);
+	exports.Tabs =  __webpack_require__(59);
+	exports.Collapse =  __webpack_require__(61);
+	exports.Pager =  __webpack_require__(64);
+	exports.Notify =  __webpack_require__(9);
+	exports.Modal =  __webpack_require__(66);
+	exports.ListView =  __webpack_require__(68);
+	exports.TreeView =  __webpack_require__(38);
+	exports.Calendar =  __webpack_require__(47);
+	exports.Editor =  __webpack_require__(70);
+	exports.HTMLEditor =  __webpack_require__(72);
+	exports.MarkEditor =  __webpack_require__(74);
 
 /***/ },
 /* 1 */
@@ -303,6 +306,893 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var reqwest = __webpack_require__(7);
+	var ajax = {};
+	// var eventEmitter = new require('events').EventEmitter();
+	// var ajax = {
+	//     $on: eventEmitter.on,
+	//     $off: eventEmitter.removeListener,
+	//     $emit: eventEmitter.emit
+	// };
+
+	var Notify = __webpack_require__(9);
+
+	ajax.request = function(opt) {
+	    var noop = function(){};
+	    var oldError = opt.error || noop,
+	        oldSuccess = opt.success || noop,
+	        oldComplete = opt.complete || noop;
+
+	    opt.data = opt.data || {};
+
+	    if(!opt.contentType && opt.method && opt.method.toLowerCase() !== 'get')
+	        opt.contentType = 'application/json';
+	    else
+	        opt.data.timestamp = +new Date;
+
+	    if(opt.contentType === 'application/json') {
+	        opt.data = JSON.stringify(opt.data);
+	    }
+
+	    //ajax.$emit('start', opt);
+	    opt.success = function(data) {
+	        //ajax.$emit('success', data);
+
+	        if(!data.success) {
+	            Notify.error(data.message);
+	            oldError(data.result, data);
+	            return;
+	        }
+	        
+	        oldSuccess(data.result, data);
+	    }
+
+	    opt.error = function(data) {
+	        //ajax.$emit('error', data);
+	        oldError(data.result, data);
+	    }
+
+	    opt.complete = function(data) {
+	        //ajax.$emit('complete', data);
+	        oldComplete(data.result, data);
+	    }
+
+	    reqwest(opt);
+	}
+
+	ajax.get = function(url, success) {
+	    ajax.request({
+	        url: url,
+	        method: 'get',
+	        success: success
+	    });
+	}
+
+	ajax.post = function(url, data, success) {
+	    ajax.request({
+	        url: url,
+	        method: 'post',
+	        type: 'json',
+	        success: success
+	    })
+	}
+
+	module.exports = ajax;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  * Reqwest! A general purpose XHR connection manager
+	  * license MIT (c) Dustin Diaz 2014
+	  * https://github.com/ded/reqwest
+	  */
+
+	!function (name, context, definition) {
+	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	  else context[name] = definition()
+	}('reqwest', this, function () {
+
+	  var context = this
+
+	  if (context.hasOwnProperty('window')) {
+	    var doc = document
+	      , byTag = 'getElementsByTagName'
+	      , head = doc[byTag]('head')[0]
+	  } else {
+	    var XHR2
+	    try {
+	      XHR2 = __webpack_require__(8)
+	    } catch (ex) {
+	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
+	    }
+	  }
+
+
+	  var httpsRe = /^http/
+	    , protocolRe = /(^\w+):\/\//
+	    , twoHundo = /^(20\d|1223)$/ //http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
+	    , readyState = 'readyState'
+	    , contentType = 'Content-Type'
+	    , requestedWith = 'X-Requested-With'
+	    , uniqid = 0
+	    , callbackPrefix = 'reqwest_' + (+new Date())
+	    , lastValue // data stored by the most recent JSONP callback
+	    , xmlHttpRequest = 'XMLHttpRequest'
+	    , xDomainRequest = 'XDomainRequest'
+	    , noop = function () {}
+
+	    , isArray = typeof Array.isArray == 'function'
+	        ? Array.isArray
+	        : function (a) {
+	            return a instanceof Array
+	          }
+
+	    , defaultHeaders = {
+	          'contentType': 'application/x-www-form-urlencoded'
+	        , 'requestedWith': xmlHttpRequest
+	        , 'accept': {
+	              '*':  'text/javascript, text/html, application/xml, text/xml, */*'
+	            , 'xml':  'application/xml, text/xml'
+	            , 'html': 'text/html'
+	            , 'text': 'text/plain'
+	            , 'json': 'application/json, text/javascript'
+	            , 'js':   'application/javascript, text/javascript'
+	          }
+	      }
+
+	    , xhr = function(o) {
+	        // is it x-domain
+	        if (o['crossOrigin'] === true) {
+	          var xhr = context[xmlHttpRequest] ? new XMLHttpRequest() : null
+	          if (xhr && 'withCredentials' in xhr) {
+	            return xhr
+	          } else if (context[xDomainRequest]) {
+	            return new XDomainRequest()
+	          } else {
+	            throw new Error('Browser does not support cross-origin requests')
+	          }
+	        } else if (context[xmlHttpRequest]) {
+	          return new XMLHttpRequest()
+	        } else if (XHR2) {
+	          return new XHR2()
+	        } else {
+	          return new ActiveXObject('Microsoft.XMLHTTP')
+	        }
+	      }
+	    , globalSetupOptions = {
+	        dataFilter: function (data) {
+	          return data
+	        }
+	      }
+
+	  function succeed(r) {
+	    var protocol = protocolRe.exec(r.url)
+	    protocol = (protocol && protocol[1]) || context.location.protocol
+	    return httpsRe.test(protocol) ? twoHundo.test(r.request.status) : !!r.request.response
+	  }
+
+	  function handleReadyState(r, success, error) {
+	    return function () {
+	      // use _aborted to mitigate against IE err c00c023f
+	      // (can't read props on aborted request objects)
+	      if (r._aborted) return error(r.request)
+	      if (r._timedOut) return error(r.request, 'Request is aborted: timeout')
+	      if (r.request && r.request[readyState] == 4) {
+	        r.request.onreadystatechange = noop
+	        if (succeed(r)) success(r.request)
+	        else
+	          error(r.request)
+	      }
+	    }
+	  }
+
+	  function setHeaders(http, o) {
+	    var headers = o['headers'] || {}
+	      , h
+
+	    headers['Accept'] = headers['Accept']
+	      || defaultHeaders['accept'][o['type']]
+	      || defaultHeaders['accept']['*']
+
+	    var isAFormData = typeof FormData === 'function' && (o['data'] instanceof FormData);
+	    // breaks cross-origin requests with legacy browsers
+	    if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith']
+	    if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType']
+	    for (h in headers)
+	      headers.hasOwnProperty(h) && 'setRequestHeader' in http && http.setRequestHeader(h, headers[h])
+	  }
+
+	  function setCredentials(http, o) {
+	    if (typeof o['withCredentials'] !== 'undefined' && typeof http.withCredentials !== 'undefined') {
+	      http.withCredentials = !!o['withCredentials']
+	    }
+	  }
+
+	  function generalCallback(data) {
+	    lastValue = data
+	  }
+
+	  function urlappend (url, s) {
+	    return url + (/\?/.test(url) ? '&' : '?') + s
+	  }
+
+	  function handleJsonp(o, fn, err, url) {
+	    var reqId = uniqid++
+	      , cbkey = o['jsonpCallback'] || 'callback' // the 'callback' key
+	      , cbval = o['jsonpCallbackName'] || reqwest.getcallbackPrefix(reqId)
+	      , cbreg = new RegExp('((^|\\?|&)' + cbkey + ')=([^&]+)')
+	      , match = url.match(cbreg)
+	      , script = doc.createElement('script')
+	      , loaded = 0
+	      , isIE10 = navigator.userAgent.indexOf('MSIE 10.0') !== -1
+
+	    if (match) {
+	      if (match[3] === '?') {
+	        url = url.replace(cbreg, '$1=' + cbval) // wildcard callback func name
+	      } else {
+	        cbval = match[3] // provided callback func name
+	      }
+	    } else {
+	      url = urlappend(url, cbkey + '=' + cbval) // no callback details, add 'em
+	    }
+
+	    context[cbval] = generalCallback
+
+	    script.type = 'text/javascript'
+	    script.src = url
+	    script.async = true
+	    if (typeof script.onreadystatechange !== 'undefined' && !isIE10) {
+	      // need this for IE due to out-of-order onreadystatechange(), binding script
+	      // execution to an event listener gives us control over when the script
+	      // is executed. See http://jaubourg.net/2010/07/loading-script-as-onclick-handler-of.html
+	      script.htmlFor = script.id = '_reqwest_' + reqId
+	    }
+
+	    script.onload = script.onreadystatechange = function () {
+	      if ((script[readyState] && script[readyState] !== 'complete' && script[readyState] !== 'loaded') || loaded) {
+	        return false
+	      }
+	      script.onload = script.onreadystatechange = null
+	      script.onclick && script.onclick()
+	      // Call the user callback with the last value stored and clean up values and scripts.
+	      fn(lastValue)
+	      lastValue = undefined
+	      head.removeChild(script)
+	      loaded = 1
+	    }
+
+	    // Add the script to the DOM head
+	    head.appendChild(script)
+
+	    // Enable JSONP timeout
+	    return {
+	      abort: function () {
+	        script.onload = script.onreadystatechange = null
+	        err({}, 'Request is aborted: timeout', {})
+	        lastValue = undefined
+	        head.removeChild(script)
+	        loaded = 1
+	      }
+	    }
+	  }
+
+	  function getRequest(fn, err) {
+	    var o = this.o
+	      , method = (o['method'] || 'GET').toUpperCase()
+	      , url = typeof o === 'string' ? o : o['url']
+	      // convert non-string objects to query-string form unless o['processData'] is false
+	      , data = (o['processData'] !== false && o['data'] && typeof o['data'] !== 'string')
+	        ? reqwest.toQueryString(o['data'])
+	        : (o['data'] || null)
+	      , http
+	      , sendWait = false
+
+	    // if we're working on a GET request and we have data then we should append
+	    // query string to end of URL and not post data
+	    if ((o['type'] == 'jsonp' || method == 'GET') && data) {
+	      url = urlappend(url, data)
+	      data = null
+	    }
+
+	    if (o['type'] == 'jsonp') return handleJsonp(o, fn, err, url)
+
+	    // get the xhr from the factory if passed
+	    // if the factory returns null, fall-back to ours
+	    http = (o.xhr && o.xhr(o)) || xhr(o)
+
+	    http.open(method, url, o['async'] === false ? false : true)
+	    setHeaders(http, o)
+	    setCredentials(http, o)
+	    if (context[xDomainRequest] && http instanceof context[xDomainRequest]) {
+	        http.onload = fn
+	        http.onerror = err
+	        // NOTE: see
+	        // http://social.msdn.microsoft.com/Forums/en-US/iewebdevelopment/thread/30ef3add-767c-4436-b8a9-f1ca19b4812e
+	        http.onprogress = function() {}
+	        sendWait = true
+	    } else {
+	      http.onreadystatechange = handleReadyState(this, fn, err)
+	    }
+	    o['before'] && o['before'](http)
+	    if (sendWait) {
+	      setTimeout(function () {
+	        http.send(data)
+	      }, 200)
+	    } else {
+	      http.send(data)
+	    }
+	    return http
+	  }
+
+	  function Reqwest(o, fn) {
+	    this.o = o
+	    this.fn = fn
+
+	    init.apply(this, arguments)
+	  }
+
+	  function setType(header) {
+	    // json, javascript, text/plain, text/html, xml
+	    if (header.match('json')) return 'json'
+	    if (header.match('javascript')) return 'js'
+	    if (header.match('text')) return 'html'
+	    if (header.match('xml')) return 'xml'
+	  }
+
+	  function init(o, fn) {
+
+	    this.url = typeof o == 'string' ? o : o['url']
+	    this.timeout = null
+
+	    // whether request has been fulfilled for purpose
+	    // of tracking the Promises
+	    this._fulfilled = false
+	    // success handlers
+	    this._successHandler = function(){}
+	    this._fulfillmentHandlers = []
+	    // error handlers
+	    this._errorHandlers = []
+	    // complete (both success and fail) handlers
+	    this._completeHandlers = []
+	    this._erred = false
+	    this._responseArgs = {}
+
+	    var self = this
+
+	    fn = fn || function () {}
+
+	    if (o['timeout']) {
+	      this.timeout = setTimeout(function () {
+	        timedOut()
+	      }, o['timeout'])
+	    }
+
+	    if (o['success']) {
+	      this._successHandler = function () {
+	        o['success'].apply(o, arguments)
+	      }
+	    }
+
+	    if (o['error']) {
+	      this._errorHandlers.push(function () {
+	        o['error'].apply(o, arguments)
+	      })
+	    }
+
+	    if (o['complete']) {
+	      this._completeHandlers.push(function () {
+	        o['complete'].apply(o, arguments)
+	      })
+	    }
+
+	    function complete (resp) {
+	      o['timeout'] && clearTimeout(self.timeout)
+	      self.timeout = null
+	      while (self._completeHandlers.length > 0) {
+	        self._completeHandlers.shift()(resp)
+	      }
+	    }
+
+	    function success (resp) {
+	      var type = o['type'] || resp && setType(resp.getResponseHeader('Content-Type')) // resp can be undefined in IE
+	      resp = (type !== 'jsonp') ? self.request : resp
+	      // use global data filter on response text
+	      var filteredResponse = globalSetupOptions.dataFilter(resp.responseText, type)
+	        , r = filteredResponse
+	      try {
+	        resp.responseText = r
+	      } catch (e) {
+	        // can't assign this in IE<=8, just ignore
+	      }
+	      if (r) {
+	        switch (type) {
+	        case 'json':
+	          try {
+	            resp = context.JSON ? context.JSON.parse(r) : eval('(' + r + ')')
+	          } catch (err) {
+	            return error(resp, 'Could not parse JSON in response', err)
+	          }
+	          break
+	        case 'js':
+	          resp = eval(r)
+	          break
+	        case 'html':
+	          resp = r
+	          break
+	        case 'xml':
+	          resp = resp.responseXML
+	              && resp.responseXML.parseError // IE trololo
+	              && resp.responseXML.parseError.errorCode
+	              && resp.responseXML.parseError.reason
+	            ? null
+	            : resp.responseXML
+	          break
+	        }
+	      }
+
+	      self._responseArgs.resp = resp
+	      self._fulfilled = true
+	      fn(resp)
+	      self._successHandler(resp)
+	      while (self._fulfillmentHandlers.length > 0) {
+	        resp = self._fulfillmentHandlers.shift()(resp)
+	      }
+
+	      complete(resp)
+	    }
+
+	    function timedOut() {
+	      self._timedOut = true
+	      self.request.abort()
+	    }
+
+	    function error(resp, msg, t) {
+	      resp = self.request
+	      self._responseArgs.resp = resp
+	      self._responseArgs.msg = msg
+	      self._responseArgs.t = t
+	      self._erred = true
+	      while (self._errorHandlers.length > 0) {
+	        self._errorHandlers.shift()(resp, msg, t)
+	      }
+	      complete(resp)
+	    }
+
+	    this.request = getRequest.call(this, success, error)
+	  }
+
+	  Reqwest.prototype = {
+	    abort: function () {
+	      this._aborted = true
+	      this.request.abort()
+	    }
+
+	  , retry: function () {
+	      init.call(this, this.o, this.fn)
+	    }
+
+	    /**
+	     * Small deviation from the Promises A CommonJs specification
+	     * http://wiki.commonjs.org/wiki/Promises/A
+	     */
+
+	    /**
+	     * `then` will execute upon successful requests
+	     */
+	  , then: function (success, fail) {
+	      success = success || function () {}
+	      fail = fail || function () {}
+	      if (this._fulfilled) {
+	        this._responseArgs.resp = success(this._responseArgs.resp)
+	      } else if (this._erred) {
+	        fail(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+	      } else {
+	        this._fulfillmentHandlers.push(success)
+	        this._errorHandlers.push(fail)
+	      }
+	      return this
+	    }
+
+	    /**
+	     * `always` will execute whether the request succeeds or fails
+	     */
+	  , always: function (fn) {
+	      if (this._fulfilled || this._erred) {
+	        fn(this._responseArgs.resp)
+	      } else {
+	        this._completeHandlers.push(fn)
+	      }
+	      return this
+	    }
+
+	    /**
+	     * `fail` will execute when the request fails
+	     */
+	  , fail: function (fn) {
+	      if (this._erred) {
+	        fn(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+	      } else {
+	        this._errorHandlers.push(fn)
+	      }
+	      return this
+	    }
+	  , 'catch': function (fn) {
+	      return this.fail(fn)
+	    }
+	  }
+
+	  function reqwest(o, fn) {
+	    return new Reqwest(o, fn)
+	  }
+
+	  // normalize newline variants according to spec -> CRLF
+	  function normalize(s) {
+	    return s ? s.replace(/\r?\n/g, '\r\n') : ''
+	  }
+
+	  function serial(el, cb) {
+	    var n = el.name
+	      , t = el.tagName.toLowerCase()
+	      , optCb = function (o) {
+	          // IE gives value="" even where there is no value attribute
+	          // 'specified' ref: http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-862529273
+	          if (o && !o['disabled'])
+	            cb(n, normalize(o['attributes']['value'] && o['attributes']['value']['specified'] ? o['value'] : o['text']))
+	        }
+	      , ch, ra, val, i
+
+	    // don't serialize elements that are disabled or without a name
+	    if (el.disabled || !n) return
+
+	    switch (t) {
+	    case 'input':
+	      if (!/reset|button|image|file/i.test(el.type)) {
+	        ch = /checkbox/i.test(el.type)
+	        ra = /radio/i.test(el.type)
+	        val = el.value
+	        // WebKit gives us "" instead of "on" if a checkbox has no value, so correct it here
+	        ;(!(ch || ra) || el.checked) && cb(n, normalize(ch && val === '' ? 'on' : val))
+	      }
+	      break
+	    case 'textarea':
+	      cb(n, normalize(el.value))
+	      break
+	    case 'select':
+	      if (el.type.toLowerCase() === 'select-one') {
+	        optCb(el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null)
+	      } else {
+	        for (i = 0; el.length && i < el.length; i++) {
+	          el.options[i].selected && optCb(el.options[i])
+	        }
+	      }
+	      break
+	    }
+	  }
+
+	  // collect up all form elements found from the passed argument elements all
+	  // the way down to child elements; pass a '<form>' or form fields.
+	  // called with 'this'=callback to use for serial() on each element
+	  function eachFormElement() {
+	    var cb = this
+	      , e, i
+	      , serializeSubtags = function (e, tags) {
+	          var i, j, fa
+	          for (i = 0; i < tags.length; i++) {
+	            fa = e[byTag](tags[i])
+	            for (j = 0; j < fa.length; j++) serial(fa[j], cb)
+	          }
+	        }
+
+	    for (i = 0; i < arguments.length; i++) {
+	      e = arguments[i]
+	      if (/input|select|textarea/i.test(e.tagName)) serial(e, cb)
+	      serializeSubtags(e, [ 'input', 'select', 'textarea' ])
+	    }
+	  }
+
+	  // standard query string style serialization
+	  function serializeQueryString() {
+	    return reqwest.toQueryString(reqwest.serializeArray.apply(null, arguments))
+	  }
+
+	  // { 'name': 'value', ... } style serialization
+	  function serializeHash() {
+	    var hash = {}
+	    eachFormElement.apply(function (name, value) {
+	      if (name in hash) {
+	        hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]])
+	        hash[name].push(value)
+	      } else hash[name] = value
+	    }, arguments)
+	    return hash
+	  }
+
+	  // [ { name: 'name', value: 'value' }, ... ] style serialization
+	  reqwest.serializeArray = function () {
+	    var arr = []
+	    eachFormElement.apply(function (name, value) {
+	      arr.push({name: name, value: value})
+	    }, arguments)
+	    return arr
+	  }
+
+	  reqwest.serialize = function () {
+	    if (arguments.length === 0) return ''
+	    var opt, fn
+	      , args = Array.prototype.slice.call(arguments, 0)
+
+	    opt = args.pop()
+	    opt && opt.nodeType && args.push(opt) && (opt = null)
+	    opt && (opt = opt.type)
+
+	    if (opt == 'map') fn = serializeHash
+	    else if (opt == 'array') fn = reqwest.serializeArray
+	    else fn = serializeQueryString
+
+	    return fn.apply(null, args)
+	  }
+
+	  reqwest.toQueryString = function (o, trad) {
+	    var prefix, i
+	      , traditional = trad || false
+	      , s = []
+	      , enc = encodeURIComponent
+	      , add = function (key, value) {
+	          // If value is a function, invoke it and return its value
+	          value = ('function' === typeof value) ? value() : (value == null ? '' : value)
+	          s[s.length] = enc(key) + '=' + enc(value)
+	        }
+	    // If an array was passed in, assume that it is an array of form elements.
+	    if (isArray(o)) {
+	      for (i = 0; o && i < o.length; i++) add(o[i]['name'], o[i]['value'])
+	    } else {
+	      // If traditional, encode the "old" way (the way 1.3.2 or older
+	      // did it), otherwise encode params recursively.
+	      for (prefix in o) {
+	        if (o.hasOwnProperty(prefix)) buildParams(prefix, o[prefix], traditional, add)
+	      }
+	    }
+
+	    // spaces should be + according to spec
+	    return s.join('&').replace(/%20/g, '+')
+	  }
+
+	  function buildParams(prefix, obj, traditional, add) {
+	    var name, i, v
+	      , rbracket = /\[\]$/
+
+	    if (isArray(obj)) {
+	      // Serialize array item.
+	      for (i = 0; obj && i < obj.length; i++) {
+	        v = obj[i]
+	        if (traditional || rbracket.test(prefix)) {
+	          // Treat each array item as a scalar.
+	          add(prefix, v)
+	        } else {
+	          buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add)
+	        }
+	      }
+	    } else if (obj && obj.toString() === '[object Object]') {
+	      // Serialize object item.
+	      for (name in obj) {
+	        buildParams(prefix + '[' + name + ']', obj[name], traditional, add)
+	      }
+
+	    } else {
+	      // Serialize scalar item.
+	      add(prefix, obj)
+	    }
+	  }
+
+	  reqwest.getcallbackPrefix = function () {
+	    return callbackPrefix
+	  }
+
+	  // jQuery and Zepto compatibility, differences can be remapped here so you can call
+	  // .ajax.compat(options, callback)
+	  reqwest.compat = function (o, fn) {
+	    if (o) {
+	      o['type'] && (o['method'] = o['type']) && delete o['type']
+	      o['dataType'] && (o['type'] = o['dataType'])
+	      o['jsonpCallback'] && (o['jsonpCallbackName'] = o['jsonpCallback']) && delete o['jsonpCallback']
+	      o['jsonp'] && (o['jsonpCallback'] = o['jsonp'])
+	    }
+	    return new Reqwest(o, fn)
+	  }
+
+	  reqwest.ajaxSetup = function (options) {
+	    options = options || {}
+	    for (var k in options) {
+	      globalSetupOptions[k] = options[k]
+	    }
+	  }
+
+	  return reqwest
+	});
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	module.exports = XMLHttpRequest;
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * Notify    通知
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var Component = __webpack_require__(2);
+	var template = __webpack_require__(10);
+	var _ = __webpack_require__(3);
+
+	/**
+	 * @class Notify
+	 * @extend Component
+	 * @param {object}                  options.data                    监听数据
+	 * @param {string='topcenter'}      options.data.position           通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
+	 * @param {number=2000}             options.data.duration           每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+	 * @param {boolean=true}            options.data.visible            是否显示
+	 * @param {string=''}               options.data.class              补充class
+	 */
+	var Notify = Component.extend({
+	    name: 'notify',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            messages: [],
+	            position: 'topcenter',
+	            duration: 2000
+	        });
+	        this.supr();
+	    },
+	    /**
+	     * @protected
+	     */
+	    init: function() {
+	        this.supr();
+	        // 证明不是内嵌组件
+	        if(this.$root === this)
+	            this.$inject(document.body);
+	    },
+	    /**
+	     * @method show(text[,type][,duration]) 弹出一个消息
+	     * @public
+	     * @param  {string=''} text 消息内容
+	     * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
+	     * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+	     * @return {void}
+	     */
+	    show: function(text, type, duration) {
+	        var message = {
+	            text: text,
+	            type: type,
+	            duration: duration >= 0 ? duration : this.data.duration
+	        };
+	        this.data.messages.unshift(message);
+	        this.$update();
+
+	        if(+message.duration)
+	            this.$timeout(this.close.bind(this, message), +message.duration);
+
+	        /**
+	         * @event show 弹出一个消息时触发
+	         * @property {object} message 弹出的消息对象
+	         */
+	        this.$emit('show', {
+	            message: message
+	        });
+	    },
+	    /**
+	     * @method close(message) 关闭某条消息
+	     * @public
+	     * @param  {object} message 需要关闭的消息对象
+	     * @return {void}
+	     */
+	    close: function(message) {
+	        var index = this.data.messages.indexOf(message);
+	        this.data.messages.splice(index, 1);
+	        this.$update();
+	        /**
+	         * @event close 关闭某条消息时触发
+	         * @property {object} message 关闭了的消息对象
+	         */
+	        this.$emit('close', {
+	            message: message
+	        });
+	    },
+	    /**
+	     * @method closeAll() 关闭所有消息
+	     * @public
+	     * @return {void}
+	     */
+	    closeAll: function() {
+	        this.$update('messages', []);
+	    }
+	}).use('$timeout');
+
+
+	/**
+	 * 直接初始化一个实例
+	 * @type {Notify}
+	 */
+	var notify = new Notify();
+	Notify.notify = notify;
+
+	/**
+	 * @method show(text[,type][,duration]) 弹出一个消息
+	 * @static
+	 * @public
+	 * @param  {string=''} text 消息内容
+	 * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
+	 * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+	 * @return {void}
+	 */
+	Notify.show = function() {
+	    notify.show.apply(notify, arguments);
+	}
+	/**
+	 * @method [info|success|warning|error](text) 弹出特殊类型的消息
+	 * @static
+	 * @public
+	 * @param  {string=''} text 消息内容
+	 * @return {void}
+	 */
+	var types = ['success', 'warning', 'info', 'error'];
+	types.forEach(function(type) {
+	    Notify[type] = function(text) {
+	        Notify.show(text, type);
+	    }
+	});
+	/**
+	 * @method close(message) 关闭某条消息
+	 * @static
+	 * @public
+	 * @param  {object} message 需要关闭的消息对象
+	 * @return {void}
+	 */
+	Notify.close = function() {
+	    notify.close.apply(notify, arguments);
+	}
+	/**
+	 * @method closeAll() 关闭所有消息
+	 * @static
+	 * @public
+	 * @return {void}
+	 */
+	Notify.closeAll = function() {
+	    notify.closeAll.apply(notify, arguments);
+	}
+
+	module.exports = Notify;
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"m-notify m-notify-{@(position)} {@(class)}\" r-hide={!visible}>\n    {#list messages as message}\n    <div class=\"u-message u-message-{@(message.type)}\" r-animation=\"on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\">\n        <a class=\"message_close\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>\n        <i class=\"message_icon u-icon u-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i>\n        {@(message.text)}\n    </div>\n    {/list}\n</div>"
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/**
 	 * ------------------------------------------------------------
 	 * Dropdown  下拉菜单
@@ -311,7 +1201,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(7);
+	var template = __webpack_require__(12);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -320,7 +1210,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string=''}               options.data.title              按钮文字
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.source[].disabled  禁用此项
 	 * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
@@ -344,26 +1233,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            open: false
 	        });
 	        this.supr();
-	    },
-	    /**
-	     * @method select(item) 选择某一项
-	     * @public
-	     * @param  {object} item 选择项
-	     * @return {void}
-	     */
-	    select: function(item) {
-	        if(this.data.disabled || item.disabled || item.divider)
-	            return;
-
-	        //this.data.selected = item;
-	        /**
-	         * @event select 选择某一项时触发
-	         * @property {object} selected 当前选择项
-	         */
-	        this.$emit('select', {
-	            selected: item
-	        });
-	        this.toggle(false);
 	    },
 	    /**
 	     * @method toggle(open) 在展开/收起状态之间切换
@@ -391,6 +1260,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.$emit('toggle', {
 	            open: open
 	        });
+	    },
+	    /**
+	     * @method select(item) 选择某一项
+	     * @public
+	     * @param  {object} item 选择项
+	     * @return {void}
+	     */
+	    select: function(item) {
+	        if(this.data.disabled || (item && (item.disabled || item.divider)))
+	            return;
+
+	        /**
+	         * @event select 选择某一项时触发
+	         * @property {object} selected 当前选择项
+	         */
+	        this.$emit('select', {
+	            selected: item
+	        });
+
+	        this.toggle(false);
 	    }
 	});
 
@@ -415,13 +1304,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Dropdown;
 
 /***/ },
-/* 7 */
+/* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '下拉菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '下拉菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 8 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -431,10 +1320,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ------------------------------------------------------------
 	 */
 
-	var Dropdown = __webpack_require__(6);
+	var Dropdown = __webpack_require__(11);
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(9);
-	var hierarchicalTemplate = __webpack_require__(10);
+	var template = __webpack_require__(14);
+	var hierarchicalTemplate = __webpack_require__(15);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -443,7 +1332,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string=''}               options.data.title              按钮文字
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.source[].disabled  禁用此项
 	 * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
@@ -529,19 +1417,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Menu;
 
 /***/ },
-/* 9 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-menu {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '多级菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <menuList source={source} visible={true} />\n    </div>\n</div>"
 
 /***/ },
-/* 10 */
+/* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<ul class=\"m-listview menu_list\" r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} }>\n        <div class=\"menu_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon u-icon-caret-right\"></i>\n            {/if}\n            <div class=\"menu_itemname\" title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<menuList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
+	module.exports = "<ul class=\"m-listview menu_list\" r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} }>\n        <div class=\"menu_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon u-icon-caret-right\"></i>\n            {/if}\n            <div class=\"menu_itemname\" title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<menuList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
 
 /***/ },
-/* 11 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -552,9 +1440,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(12);
+	var template = __webpack_require__(17);
 	var _ = __webpack_require__(3);
-	var validator = __webpack_require__(13);
+	var validator = __webpack_require__(18);
 
 	/**
 	 * @class Input2
@@ -595,13 +1483,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Input2;
 
 /***/ },
-/* 12 */
+/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-input2 {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value} placeholder={placeholder} disabled={disabled} readonly={readonly} on-keyup={this.validate(value, rules)}>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-input2 {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value} placeholder={placeholder} readonly={readonly} disabled={disabled} on-keyup={this.validate(value, rules)}>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
 
 /***/ },
-/* 13 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -613,7 +1501,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var vali = __webpack_require__(14);
+	var vali = __webpack_require__(19);
 	var validator = {}
 
 	/**
@@ -685,7 +1573,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = validator;
 
 /***/ },
-/* 14 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -1480,7 +2368,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 15 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1490,8 +2378,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ------------------------------------------------------------
 	 */
 
-	var Input2 = __webpack_require__(11);
-	var template = __webpack_require__(16);
+	var Input2 = __webpack_require__(16);
+	var template = __webpack_require__(21);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -1610,13 +2498,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = NumberInput;
 
 /***/ },
-/* 16 */
+/* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-input2 u-numberinput {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value | number} placeholder={placeholder} disabled={disabled} readonly={readonly}>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(1)}><i class=\"u-icon u-icon-caret-up\"></i></a>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(-1)}><i class=\"u-icon u-icon-caret-down\"></i></a>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-input2 u-numberinput {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value | number} placeholder={placeholder} readonly={readonly} disabled={disabled}>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(1)}><i class=\"u-icon u-icon-caret-up\"></i></a>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(-1)}><i class=\"u-icon u-icon-caret-down\"></i></a>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
 
 /***/ },
-/* 17 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1629,7 +2517,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(18);
+	var template = __webpack_require__(23);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -1682,13 +2570,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Check2;
 
 /***/ },
-/* 18 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = "<label class=\"u-check2 {@(class)}\" r-class={ {'z-dis': disabled, 'z-chk': checked, 'z-part': checked === null, 'u-check2-block': block} } r-hide={!visible} title={name} on-click={this.check(!checked)}><div class=\"check2_box\"><i class=\"u-icon u-icon-check\"></i></div> {name}</label>"
 
 /***/ },
-/* 19 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1701,7 +2589,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(20);
+	var template = __webpack_require__(25);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -1709,7 +2597,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend SourceComponent
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.block              多行显示
 	 * @param {boolean=false}           options.data.readonly           是否只读
@@ -1736,13 +2623,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = CheckGroup;
 
 /***/ },
-/* 20 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {@(class)}\" r-hide={!visible}>\n    {#list source as item}\n    <label class=\"u-check2\" r-class={ {'z-dis': disabled, 'u-check2-block': block} } title={item.name}><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>\n    {/list}\n</div>"
 
 /***/ },
-/* 21 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1754,17 +2641,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var CheckGroup = __webpack_require__(19);
-	var template = __webpack_require__(22);
+	var CheckGroup = __webpack_require__(24);
+	var template = __webpack_require__(27);
 	var _ = __webpack_require__(3);
-	var Check2 = __webpack_require__(17);
+	var Check2 = __webpack_require__(22);
 
 	/**
 	 * @class Check2Group
 	 * @extend CheckGroup
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.block              多行显示
 	 * @param {boolean=false}           options.data.readonly           是否只读
@@ -1781,13 +2667,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Check2Group;
 
 /***/ },
-/* 22 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {@(class)}\" r-hide={!visible}>\n    {#list source as item}\n    <check2 name={item.name} checked={item.checked} disabled={disabled} block={block} />\n    {/list}\n</div>"
 
 /***/ },
-/* 23 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1800,7 +2686,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(24);
+	var template = __webpack_require__(29);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -1808,7 +2694,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend SourceComponent
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.seleced            当前选择项
 	 * @param {boolean=false}           options.data.block              多行显示
@@ -1856,13 +2741,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = RadioGroup;
 
 /***/ },
-/* 24 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {@(class)}\" r-hide={!visible}>\n    {#list source as item}\n    <label class=\"u-radio2\" r-class={ {'z-dis': disabled, 'u-radio2-block': block} } title={item.name} on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>\n    {/list}\n</div>"
 
 /***/ },
-/* 25 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1874,8 +2759,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var RadioGroup = __webpack_require__(23);
-	var template = __webpack_require__(26);
+	var RadioGroup = __webpack_require__(28);
+	var template = __webpack_require__(31);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -1883,7 +2768,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend RadioGroup
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.seleced            当前选择项
 	 * @param {boolean=false}           options.data.block              多行显示
@@ -1901,13 +2785,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Radio2Group;
 
 /***/ },
-/* 26 */
+/* 31 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {@(class)}\" r-hide={!visible}>\n    {#list source as item}\n    <label class=\"u-radio2\" r-class={ {'z-dis': disabled, 'z-sel': item === selected, 'u-radio2-block': block} } title={item.name} on-click={this.select(item)}><div class=\"radio2_box\"><i class=\"u-icon u-icon-radio\"></i></div> {item.name}</label>\n    {/list}\n</div>"
 
 /***/ },
-/* 27 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1919,8 +2803,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var Dropdown = __webpack_require__(6);
-	var template = __webpack_require__(28);
+	var Dropdown = __webpack_require__(11);
+	var template = __webpack_require__(33);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -1928,7 +2812,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend Dropdown
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string='请选择'}         options.data.placeholder        默认项的文字
@@ -1952,6 +2835,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            placeholder: '请选择'
 	        });
 	        this.supr();
+
+	        this.$watch('selected', function(newValue, oldValue) {
+	            /**
+	             * @event change 选择项改变时触发
+	             * @property {object} selected 改变后的选择项
+	             */
+	            this.$emit('change', {
+	                selected: newValue
+	            });
+	        });
+
+	        this.$watch('source', function(newValue, oldValue) {
+	            if(!newValue || newValue.indexOf(this.data.selected) < 0)
+	                this.data.selected = null;
+	        });
 	    },
 	    /**
 	     * @method select(item) 选择某一项
@@ -1960,8 +2858,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	    select: function(item) {
-	        this.$update('selected', item);
-	        //this.data.selected = item;
+	        if(this.data.readonly || this.data.disabled || (item && (item.disabled || item.divider)))
+	            return;
+
+	        this.data.selected = item;
+	        
 	        /**
 	         * @event select 选择某一项时触发
 	         * @property {object} selected 当前选择项
@@ -1969,6 +2870,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.$emit('select', {
 	            selected: item
 	        });
+
 	        this.toggle(false);
 	    },
 	});
@@ -1976,13 +2878,116 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Select2;
 
 /***/ },
-/* 28 */
+/* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <span>{selected ? selected.name : placeholder}</span>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item} } on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <span>{selected ? selected.name : placeholder}</span>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 29 */
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * Select2Group 多级选择
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var Component = __webpack_require__(2);
+	var template = __webpack_require__(35);
+	var _ = __webpack_require__(3);
+
+	/**
+	 * @class Select2Group
+	 * @extend Component
+	 * @param {object}                  options.data                    绑定属性
+	 * @param {object[]=[]}             options.data.source             数据源
+	 * @param {string}                  options.data.source[].name      每项的内容
+	 * @param {object=null}             options.data.selected           最后的选择项
+	 * @param {object[]=[]}             options.data.selectedItems      所有的选择项
+	 * @param {string[]=[]}             options.data.placeholders       默认项的文字
+	 * @param {boolean=false}           options.data.readonly           是否只读
+	 * @param {boolean=false}           options.data.disabled           是否禁用
+	 * @param {boolean=true}            options.data.visible            是否显示
+	 * @param {string=''}               options.data.class              补充class
+	 * @param {object}                  options.service                 数据服务
+	 */
+	var Select2Group = Component.extend({
+	    name: 'select2Group',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            // @inherited source: [],
+	            depth: 1,
+	            sources: [],
+	            selected: null,
+	            selectedItems: [],
+	            placeholders: []
+	        });
+	        this.supr();
+
+	        this.$watch('selected', function(newValue, oldValue) {
+	            /**
+	             * @event change 最后的选择项改变时触发
+	             * @property {object} selected 最后的选择项
+	             * @property {object} selectedItems 所有的选择项
+	             */
+	            this.$emit('change', {
+	                selected: newValue,
+	                selectedItems: this.data.selectedItems
+	            });
+	        });
+
+	        this.data.sources[0] = this.data.source;
+	    },
+	    /**
+	     * @private
+	     */
+	    select: function(item, level) {
+	        if(this.data.readonly || this.data.disabled || (item && (item.disabled || item.divider)))
+	            return;
+
+	        this.data.sources[level + 1] = item ? item.children : undefined;
+	        for(var i = level + 2; i < this.data.depth; i++)
+	            this.data.sources[i] = undefined;
+
+	        /**
+	         * @event select 选择某一项时触发
+	         * @property {object} selected 当前选择项
+	         * @property {object} level 当前选择的层级
+	         */
+	        this.$emit('select', {
+	            selected: item,
+	            level: level
+	        });
+	    },
+	    /**
+	     * @private
+	     */
+	    change: function(item, index) {
+	        if(index === this.data.depth - 1)
+	            this.data.selected = item;
+
+	        this.data.selectedItems[index] = item;
+	    }
+	});
+
+	module.exports = Select2Group;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"u-select2Group {@(class)}\" r-hide={!visible}>\n    {#list 0..(depth - 1) as i}\n    <select2 source={sources[i]} readonly={readonly} disabled={disabled} placeholder={placeholders[i] || '请选择'} on-select={this.select($event.selected, i)} on-change={this.change($event.selected, i)} />\n    {/list}\n</div>"
+
+/***/ },
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1994,17 +2999,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var Select2 = __webpack_require__(27);
-	var template = __webpack_require__(30);
+	var Select2 = __webpack_require__(32);
+	var template = __webpack_require__(37);
 	var _ = __webpack_require__(3);
-	var Treeview = __webpack_require__(31);
+	var Treeview = __webpack_require__(38);
 
 	/**
 	 * @class TreeSelect
 	 * @extend Select2
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string='请选择'}         options.data.placeholder        默认项的文字
@@ -2034,13 +3038,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeSelect;
 
 /***/ },
-/* 30 */
+/* 37 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />\n    </div>\n</div>"
 
 /***/ },
-/* 31 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2053,8 +3057,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(32);
-	var hierarchicalTemplate = __webpack_require__(33);
+	var template = __webpack_require__(39);
+	var hierarchicalTemplate = __webpack_require__(40);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -2062,7 +3066,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend SourceComponent
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {boolean=false}           options.data.hierarchical       是否分级动态加载，需要service
@@ -2208,19 +3211,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeView;
 
 /***/ },
-/* 32 */
+/* 39 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-treeview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <treeViewList source={source} visible={true} />\n</div>"
 
 /***/ },
-/* 33 */
+/* 40 */
 /***/ function(module, exports) {
 
-	module.exports = "<ul class=\"treeview_list\" r-hide={!visible}>\n    {#list source as item}\n    <li>\n        <div class=\"treeview_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon\" r-class={ {'u-icon-caret-right': !item.open, 'u-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>\n            {/if}\n            <div class=\"treeview_itemname\" r-class={ {'z-sel': this.$ancestor.data.selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
+	module.exports = "<ul class=\"treeview_list\" r-hide={!visible}>\n    {#list source as item}\n    <li>\n        <div class=\"treeview_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon\" r-class={ {'u-icon-caret-right': !item.open, 'u-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>\n            {/if}\n            <div class=\"treeview_itemname\" r-class={ {'z-sel': this.$ancestor.data.selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
 
 /***/ },
-/* 34 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2232,8 +3235,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var Dropdown = __webpack_require__(6);
-	var template = __webpack_require__(35);
+	var Dropdown = __webpack_require__(11);
+	var template = __webpack_require__(42);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -2241,7 +3244,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend Dropdown
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string=''}               options.data.value              文本框中的值
@@ -2359,13 +3361,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Suggest;
 
 /***/ },
-/* 35 */
+/* 42 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 36 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2378,7 +3380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(37);
+	var template = __webpack_require__(44);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -2490,13 +3492,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Uploader;
 
 /***/ },
-/* 37 */
+/* 44 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-uploader {@(class)}\" r-hide={!visible}>\n\t<div on-click={this.upload()}>\n\t\t{#if this.$body}\n\t\t\t{#inc this.$body}\n    \t{#else}\n    \t\t<a class=\"u-btn\">{title || '上传'}</a>\n\t\t{/if}\n    </div>\n    <form method=\"POST\" action={url} target=\"iframe{_id}\" enctype={contentType} ref=\"form\">\n        <input type=\"file\" name=\"file\" ref=\"file\" on-change={this.submit()}>\n        {#list Object.keys(data) as key}\n        <input type=\"hidden\" name={key} value={data[key]}>\n        {/list}\n    </form>\n    <iframe name=\"iframe{_id}\" on-load={this.cbUpload()} ref=\"iframe\">\n    </iframe>\n</div>"
+	module.exports = "<div class=\"u-uploader {@(class)}\" r-hide={!visible}>\n    <div on-click={this.upload()}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '上传'}</a>\n        {/if}\n    </div>\n    <form method=\"POST\" action={url} target=\"iframe{_id}\" enctype={contentType} ref=\"form\">\n        <input type=\"file\" name=\"file\" ref=\"file\" on-change={this.submit()}>\n        {#list Object.keys(data) as key}\n        <input type=\"hidden\" name={key} value={data[key]}>\n        {/list}\n    </form>\n    <iframe name=\"iframe{_id}\" on-load={this.cbUpload()} ref=\"iframe\">\n    </iframe>\n</div>"
 
 /***/ },
-/* 38 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2506,12 +3508,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ------------------------------------------------------------
 	 */
 
-	var Dropdown = __webpack_require__(6);
-	var template = __webpack_require__(39);
+	var Dropdown = __webpack_require__(11);
+	var template = __webpack_require__(46);
 	var _ = __webpack_require__(3);
 
 	var filter = __webpack_require__(4);
-	var Calendar = __webpack_require__(40);
+	var Calendar = __webpack_require__(47);
 	var MS_OF_DAY = 24*3600*1000;
 
 	/**
@@ -2670,13 +3672,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = DatePicker;
 
 /***/ },
-/* 39 */
+/* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
 
 /***/ },
-/* 40 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2689,7 +3691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(41);
+	var template = __webpack_require__(48);
 	var _ = __webpack_require__(3);
 
 	var MS_OF_DAY = 24*3600*1000;
@@ -2910,13 +3912,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Calendar;
 
 /***/ },
-/* 41 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-calendar {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"calendar_hd\">\n        <span class=\"calendar_prev\">\n            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>\n        </span>\n        <span>{date | format: 'yyyy-MM'}</span>\n        <span class=\"calendar_next\">\n            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>\n        </span>\n    </div>\n    <div class=\"calendar_bd\">\n        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>\n        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-muted': date.getMonth() !== day.getMonth(), 'z-dis': !!this.isOutOfRange(day)} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 42 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2927,9 +3929,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(43);
+	var template = __webpack_require__(50);
 	var _ = __webpack_require__(3);
-	var NumberInput = __webpack_require__(15);
+	var NumberInput = __webpack_require__(20);
 
 	/**
 	 * @class TimePicker
@@ -3037,13 +4039,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TimePicker;
 
 /***/ },
-/* 43 */
+/* 50 */
 /***/ function(module, exports) {
 
-	module.exports = "<span class=\"u-timepicker {@(class)}\" r-hide={!visible}>\n\t<numberInput min=\"0\" max=\"23\" format=\"00\" value={hour} disabled={disabled} readonly={readonly} />\n\t<span>:</span>\n\t<numberInput min=\"0\" max=\"59\" format=\"00\" value={minute} disabled={disabled} readonly={readonly} />\n</span>"
+	module.exports = "<span class=\"u-timepicker {@(class)}\" r-hide={!visible}>\n\t<numberInput min=\"0\" max=\"23\" format=\"00\" value={hour} readonly={readonly} disabled={disabled} />\n\t<span>:</span>\n\t<numberInput min=\"0\" max=\"59\" format=\"00\" value={minute} readonly={readonly} disabled={disabled} />\n</span>"
 
 /***/ },
-/* 44 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3053,14 +4055,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ------------------------------------------------------------
 	 */
 
-	var Dropdown = __webpack_require__(6);
-	var DatePicker = __webpack_require__(38);
-	var template = __webpack_require__(45);
+	var Dropdown = __webpack_require__(11);
+	var DatePicker = __webpack_require__(45);
+	var template = __webpack_require__(52);
 	var _ = __webpack_require__(3);
 
 	var filter = __webpack_require__(4);
-	var Calendar = __webpack_require__(40);
-	var TimePicker = __webpack_require__(42);
+	var Calendar = __webpack_require__(47);
+	var TimePicker = __webpack_require__(49);
 
 	/**
 	 * @class DateTimePicker
@@ -3225,13 +4227,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = DateTimePicker;
 
 /***/ },
-/* 45 */
+/* 52 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>\n            <timePicker time={_time} on-change={this._update(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>\n            <timePicker time={_time} on-change={this._update(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
 
 /***/ },
-/* 46 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3244,7 +4246,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(47);
+	var template = __webpack_require__(54);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3282,13 +4284,121 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Progress;
 
 /***/ },
-/* 47 */
+/* 54 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-progress u-progress-{@(size)} u-progress-{@(type)} {@(class)}\" r-class={ {'u-progress-striped': striped, 'z-act': active} } r-hide={!visible}>\n    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + '%' : text) : ''}</div>\n</div>"
 
 /***/ },
-/* 48 */
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * Loading   加载中
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var Component = __webpack_require__(2);
+	var template = __webpack_require__(56);
+	var _ = __webpack_require__(3);
+
+	/**
+	 * @class Loading
+	 * @param {object}                  options.data                    绑定属性
+	 * @param {boolean=false}           options.data.static             是否嵌入文档流
+	 * @param {boolean=false}           options.data.disabled           是否禁用
+	 * @param {boolean=true}            options.data.visible            是否显示
+	 * @param {string=''}               options.data.class              补充class
+	 */
+	var Loading = Component.extend({
+	    name: 'loading',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            'static': false,
+	            visible: false
+	        });
+	        this.supr();
+	    },
+	    /**
+	     * @protected
+	     */
+	    init: function() {
+	        this.supr();
+	        // 证明不是内嵌组件
+	        if(this.$root === this)
+	            this.$inject(document.body);
+	    },
+	    /**
+	     * @method show() 显示组件
+	     * @public
+	     * @return {void}
+	     */
+	    show: function() {
+	        if(this.data.disabled)
+	            return;
+
+	        this.data.visible = true;
+	        this.$update();
+	    },
+	    /**
+	     * @method show() 隐藏组件
+	     * @public
+	     * @return {void}
+	     */
+	    hide: function() {
+	        if(this.data.disabled)
+	            return;
+
+	        this.data.visible = false;
+	        this.$update();
+	    }
+	});
+
+	/**
+	 * 直接初始化一个实例
+	 * @type {Loading}
+	 */
+	var loading = new Loading();
+	Loading.loading = loading;
+
+	/**
+	 * @method show() 显示加载中
+	 * @static
+	 * @public
+	 * @return {void}
+	 */
+	Loading.show = function() {
+	    loading.show();
+	}
+
+	/**
+	 * @method hide() 隐藏加载中
+	 * @static
+	 * @public
+	 * @return {void}
+	 */
+	Loading.hide = function() {
+	    loading.hide();
+	}
+
+	module.exports = Loading;
+
+/***/ },
+/* 56 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"u-loading {@(class)}\" r-class={ {'u-loading-static': static} } r-hide={!visible}>\n    {#if this.$body}\n        {#inc this.$body}\n    {#else}\n        <i class=\"u-icon u-icon-spinner u-icon-spin\"></i>\n    {/if}\n</div>"
+
+/***/ },
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3301,13 +4411,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(49);
+	var template = __webpack_require__(58);
 	var _ = __webpack_require__(3);
 
 	/**
 	 * @class Gotop
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string='bottomright'}    options.data.position           组件的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
+	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
 	 * @param {string=''}               options.data.class              补充class
 	 */
@@ -3329,7 +4440,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	    gotop: function() {
-	        if(this.data.readonly || this.data.disabled)
+	        if(this.data.disabled)
 	            return;
 
 	        document.body.scrollTop = 0;
@@ -3339,13 +4450,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Gotop;
 
 /***/ },
-/* 49 */
+/* 58 */
 /***/ function(module, exports) {
 
-	module.exports = "<a class=\"u-gotop u-gotop-{position} {@(class)}\" on-click={this.gotop()}><i class=\"u-icon u-icon-arrow-up\"></i></a>"
+	module.exports = "<a class=\"u-gotop u-gotop-{position} {@(class)}\" r-hide={!visible} on-click={this.gotop()}>\n    {#if this.$body}\n        {#inc this.$body}\n    {#else}\n        <i class=\"u-icon u-icon-arrow-up\"></i>\n    {/if}\n</a>"
 
 /***/ },
-/* 50 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3358,7 +4469,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(51);
+	var template = __webpack_require__(60);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3406,7 +4517,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Tab = Component.extend({
 	    name: 'tab',
-	    template: '<div r-hide={this.$outer.data.selected != this}>{#include this.$body}</div>',
+	    template: '<div r-hide={this.$outer.data.selected != this}>{#inc this.$body}</div>',
 	    /**
 	     * @protected
 	     */
@@ -3427,13 +4538,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Tabs;
 
 /***/ },
-/* 51 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-tabs {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <ul class=\"tabs_hd\">\n        {#list tabs as item}\n        <li r-class={ {'z-crt': item == selected, 'z-dis': item.data.disabled} } on-click={this.select(item)}>{item.data.title}</li>\n        {/list}\n    </ul>\n    <div class=\"tabs_bd\">\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 52 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3446,8 +4557,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(53);
-	var itemTemplate = __webpack_require__(54);
+	var template = __webpack_require__(62);
+	var itemTemplate = __webpack_require__(63);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3511,19 +4622,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Collapse;
 
 /***/ },
-/* 53 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-collapse {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#inc this.$body}\n</div>"
 
 /***/ },
-/* 54 */
+/* 63 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-panel\">\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#include this.$body}\n        </div>\n    </div>\n</div>"
+	module.exports = "<div class=\"m-panel\">\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#inc this.$body}\n        </div>\n    </div>\n</div>"
 
 /***/ },
-/* 55 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3534,7 +4645,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(56);
+	var template = __webpack_require__(65);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3617,179 +4728,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Pager;
 
 /***/ },
-/* 56 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"m-pager m-pager-{@(position)} {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <li class=\"pager_prev\" r-class={ {'z-dis' : current <= 1} } on-click={this.select(current - 1)}><a>上一页</a></li>\n    {#if total - middle > side * 2 + 1}\n        {#list 1..side as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _start > side + 1}<li><span>...</span></li>{/if}\n        {#list _start.._end as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _end < total - side}<li><span>...</span></li>{/if}\n        {#list (total - side + 1)..total as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {#else}\n        {#list 1..total as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {/if}\n    <li class=\"pager_next\" r-class={ {'z-dis' : current >= total} } on-click={this.select(current + 1)}><a>下一页</a></li>\n</ul>"
 
 /***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ------------------------------------------------------------
-	 * Notify    通知
-	 * @author   sensen(rainforest92@126.com)
-	 * ------------------------------------------------------------
-	 */
-
-	'use strict';
-
-	var Component = __webpack_require__(2);
-	var template = __webpack_require__(58);
-	var _ = __webpack_require__(3);
-
-	/**
-	 * @class Notify
-	 * @extend Component
-	 * @param {object}                  options.data                    监听数据
-	 * @param {string='topcenter'}      options.data.position           通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
-	 * @param {number=2000}             options.data.duration           每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
-	 * @param {boolean=true}            options.data.visible            是否显示
-	 * @param {string=''}               options.data.class              补充class
-	 */
-	var Notify = Component.extend({
-	    name: 'notify',
-	    template: template,
-	    /**
-	     * @protected
-	     */
-	    config: function() {
-	        _.extend(this.data, {
-	            messages: [],
-	            position: 'topcenter',
-	            duration: 2000
-	        });
-	        this.supr();
-	    },
-	    /**
-	     * @protected
-	     */
-	    init: function() {
-	        this.supr();
-	        // 证明不是内嵌组件
-	        if(this.$root === this)
-	            this.$inject(document.body);
-	    },
-	    /**
-	     * @method show(text[,type][,duration]) 弹出一个消息
-	     * @public
-	     * @param  {string=''} text 消息内容
-	     * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
-	     * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
-	     * @return {void}
-	     */
-	    show: function(text, type, duration) {
-	        var message = {
-	            text: text,
-	            type: type,
-	            duration: duration >= 0 ? duration : this.data.duration
-	        };
-	        this.data.messages.unshift(message);
-	        this.$update();
-
-	        if(+message.duration)
-	            this.$timeout(this.close.bind(this, message), +message.duration);
-
-	        /**
-	         * @event show 弹出一个消息时触发
-	         * @property {object} message 弹出的消息对象
-	         */
-	        this.$emit('show', {
-	            message: message
-	        });
-	    },
-	    /**
-	     * @method close(message) 关闭某条消息
-	     * @public
-	     * @param  {object} message 需要关闭的消息对象
-	     * @return {void}
-	     */
-	    close: function(message) {
-	        var index = this.data.messages.indexOf(message);
-	        this.data.messages.splice(index, 1);
-	        this.$update();
-	        /**
-	         * @event close 关闭某条消息时触发
-	         * @property {object} message 关闭了的消息对象
-	         */
-	        this.$emit('close', {
-	            message: message
-	        });
-	    },
-	    /**
-	     * @method closeAll() 关闭所有消息
-	     * @public
-	     * @return {void}
-	     */
-	    closeAll: function() {
-	        this.$update('messages', []);
-	    }
-	}).use('$timeout');
-
-
-	/**
-	 * 直接初始化一个实例
-	 * @type {Notify}
-	 */
-	var notify = new Notify();
-	Notify.notify = notify;
-
-	/**
-	 * @method show(text[,type][,duration]) 弹出一个消息
-	 * @static
-	 * @public
-	 * @param  {string=''} text 消息内容
-	 * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
-	 * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
-	 * @return {void}
-	 */
-	Notify.show = function() {
-	    notify.show.apply(notify, arguments);
-	}
-	/**
-	 * @method [info|success|warning|error](text) 弹出特殊类型的消息
-	 * @static
-	 * @public
-	 * @param  {string=''} text 消息内容
-	 * @return {void}
-	 */
-	var types = ['success', 'warning', 'info', 'error'];
-	types.forEach(function(type) {
-	    Notify[type] = function(text) {
-	        Notify.show(text, type);
-	    }
-	});
-	/**
-	 * @method close(message) 关闭某条消息
-	 * @static
-	 * @public
-	 * @param  {object} message 需要关闭的消息对象
-	 * @return {void}
-	 */
-	Notify.close = function() {
-	    notify.close.apply(notify, arguments);
-	}
-	/**
-	 * @method closeAll() 关闭所有消息
-	 * @static
-	 * @public
-	 * @return {void}
-	 */
-	Notify.closeAll = function() {
-	    notify.closeAll.apply(notify, arguments);
-	}
-
-	module.exports = Notify;
-
-/***/ },
-/* 58 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"m-notify m-notify-{@(position)} {@(class)}\" r-hide={!visible}>\n    {#list messages as message}\n    <div class=\"u-message u-message-{@(message.type)}\" r-animation=\"on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\">\n        <a class=\"message_close\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>\n        <i class=\"message_icon u-icon u-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i>\n        {@(message.text)}\n    </div>\n    {/list}\n</div>"
-
-/***/ },
-/* 59 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3802,7 +4747,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(60);
+	var template = __webpack_require__(67);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3929,13 +4874,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 60 */
+/* 67 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-modal {@(class)}\" on-keyup={this.keyup($event)} r-hide={!visible}>\n    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>\n        <div class=\"modal_hd\">\n            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>\n            <h3 class=\"modal_title\">{title}</h3>\n        </div>\n        <div class=\"modal_bd\">\n            {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}\n        </div>\n        <div class=\"modal_ft\">\n            {#if okButton}\n            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? '确定' : okButton}</button>\n            {/if}\n            {#if cancelButton}\n            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>\n            {/if}\n        </div>\n    </div>\n</div>"
+	module.exports = "<div class=\"m-modal {@(class)}\" on-keyup={this.keyup($event)} r-hide={!visible}>\n    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>\n        <div class=\"modal_hd\">\n            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>\n            <h3 class=\"modal_title\">{title}</h3>\n        </div>\n        <div class=\"modal_bd\">\n            {#if contentTemplate}{#inc @(contentTemplate)}{#else}{content}{/if}\n        </div>\n        <div class=\"modal_ft\">\n            {#if okButton}\n            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? '确定' : okButton}</button>\n            {/if}\n            {#if cancelButton}\n            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>\n            {/if}\n        </div>\n    </div>\n</div>"
 
 /***/ },
-/* 61 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3948,14 +4893,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(62);
+	var template = __webpack_require__(69);
 	var _ = __webpack_require__(3);
 
 	/**
 	 * @class ListView
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string=null}             options.data.itemTemplate       单项模板
@@ -4003,13 +4947,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ListView;
 
 /***/ },
-/* 62 */
+/* 69 */
 /***/ function(module, exports) {
 
-	module.exports = "<ul class=\"m-listview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>\n    {/list}\n</ul>"
+	module.exports = "<ul class=\"m-listview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n    {/list}\n</ul>"
 
 /***/ },
-/* 63 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4022,7 +4966,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(64);
+	var template = __webpack_require__(71);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4103,13 +5047,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 64 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = ""
 
 /***/ },
-/* 65 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4122,7 +5066,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(66);
+	var template = __webpack_require__(73);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4316,13 +5260,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 66 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-editor {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"editor_preview\" r-html={html}></div>\n    <ul class=\"m-toolbar editor_toolbar\" r-class={ {'z-dis': disabled} }>\n        <li><a title=\"加粗\" on-click={this.bold()}><i class=\"u-icon u-icon-bold\"></i></a></li>\n        <li><a title=\"斜体\" on-click={this.italic()}><i class=\"u-icon u-icon-italic\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"引用\" on-click={this.quote()}><i class=\"u-icon u-icon-quote\"></i></a></li>\n        <li><a title=\"无序列表\" on-click={this.ul()}><i class=\"u-icon u-icon-list-ul\"></i></a></li>\n        <li><a title=\"有序列表\" on-click={this.ol()}><i class=\"u-icon u-icon-list-ol\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"链接\" on-click={this.link()}><i class=\"u-icon u-icon-link\"></i></a></li>\n        <li><a title=\"图片\" on-click={this.image()}><i class=\"u-icon u-icon-image\"></i></a></li>\n    </ul>\n    <textarea class=\"editor_textarea\" r-model={content} ref=\"textarea\" readonly={readonly} disabled={disabled}></textarea>\n</div>\n<uploader visible={false} url={imageUrl} extensions={extensions} ref=\"uploader\" on-success={this.uploaderSuccess($event)} on-error={this.uploaderError($event)} />"
 
 /***/ },
-/* 67 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4335,10 +5279,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(68);
+	var template = __webpack_require__(75);
 	var _ = __webpack_require__(3);
 
-	var marked = __webpack_require__(69);
+	var marked = __webpack_require__(76);
 
 	/**
 	 * @class MarkEditor
@@ -4542,16 +5486,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 68 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-editor {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"editor_preview\" r-html={html}></div>\n    <ul class=\"m-toolbar editor_toolbar\" r-class={ {'z-dis': disabled} }>\n        <li><a title=\"加粗\" on-click={this.bold()}><i class=\"u-icon u-icon-bold\"></i></a></li>\n        <li><a title=\"斜体\" on-click={this.italic()}><i class=\"u-icon u-icon-italic\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"引用\" on-click={this.quote()}><i class=\"u-icon u-icon-quote\"></i></a></li>\n        <li><a title=\"无序列表\" on-click={this.ul()}><i class=\"u-icon u-icon-list-ul\"></i></a></li>\n        <li><a title=\"有序列表\" on-click={this.ol()}><i class=\"u-icon u-icon-list-ol\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"链接\" on-click={this.link()}><i class=\"u-icon u-icon-link\"></i></a></li>\n        <li><a title=\"图片\" on-click={this.image()}><i class=\"u-icon u-icon-image\"></i></a></li>\n        <li class=\"f-fr\"><a title=\"帮助\" href=\"http://www.jianshu.com/p/7bd23251da0a\" target=\"_blank\"><i class=\"u-icon u-icon-info\"></i></a></li>\n    </ul>\n    <textarea class=\"editor_textarea\" r-model={content} ref=\"textarea\" readonly={readonly} disabled={disabled}></textarea>\n</div>\n<uploader visible={false} url={imageUrl} extensions={extensions} ref=\"uploader\" on-success={this.uploaderSuccess($event)} on-error={this.uploaderError($event)} />"
 
 /***/ },
-/* 69 */
+/* 76 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_69__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_76__;
 
 /***/ }
 /******/ ])

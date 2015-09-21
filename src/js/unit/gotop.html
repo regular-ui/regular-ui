@@ -1,1 +1,7 @@
-<a class="u-gotop u-gotop-{position} {@(class)}" on-click={this.gotop()}><i class="u-icon u-icon-arrow-up"></i></a>
+<a class="u-gotop u-gotop-{position} {@(class)}" r-hide={!visible} on-click={this.gotop()}>
+    {#if this.$body}
+        {#inc this.$body}
+    {#else}
+        <i class="u-icon u-icon-arrow-up"></i>
+    {/if}
+</a>

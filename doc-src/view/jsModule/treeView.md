@@ -90,6 +90,8 @@ var component = new RGUI.Component({
 
 #### 分级加载
 
+*待完成……*
+
 <div class="m-example"></div>
 
 ```xml

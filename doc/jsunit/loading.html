@@ -210,7 +210,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li><a href="../jsunit/loading.html">加载中<small> Loading</small>
+        <li class="z-crt"><a href="../jsunit/loading.html">加载中<small> Loading</small>
         
             <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
         
@@ -228,71 +228,168 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h3 id="js-">JS组件一览</h3>
-<div class="m-example m-example-hidden"></div>
+        <h2>加载中<small> Loading</small></h2>
+        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">menu</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;Suggest&quot;</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{suggestSource}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">datePicker</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;DatePicker&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dateTimePicker</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;DateTimePicker&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">check2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">radio2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;success&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;warning&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Loading<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">data</span>: {
-        <span class="cm-property">source</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
-        ],
-        <span class="cm-property">treeSource</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>, <span class="cm-property">children</span>: [
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1.1&#39;</span>},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1.2&#39;</span>, <span class="cm-property">children</span>: [
-                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1.2.1&#39;</span>},
-                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1.2.2&#39;</span>}
-                ]},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1.3&#39;</span>},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1.4&#39;</span>},
-            ]},
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;选项3&#39;</span>, <span class="cm-variable">children</span>: [
-                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;选项3.1&#39;</span>},
-                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;选项3.2&#39;</span>}
-            ]}
-        ],
-        <span class="cm-property">suggestSource</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
-        ]
+    <span class="cm-property">load</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Loading</span>.<span class="cm-property">show</span>();
+        <span class="cm-variable">setTimeout</span>(<span class="cm-keyword">function</span>() {
+            <span class="cm-variable">RGUI</span>.<span class="cm-property">Loading</span>.<span class="cm-property">hide</span>();
+        }, <span class="cm-number">2000</span>);
+    }
+});
+</code></pre>
+<h4 id="-">嵌入文档流</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    Loading <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">load</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">show</span>();
+        <span class="cm-variable">setTimeout</span>(<span class="cm-keyword">function</span>() {
+            <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">hide</span>();
+        }.<span class="cm-property">bind</span>(<span class="cm-keyword">this</span>), <span class="cm-number">3000</span>);
+    }
+});
+</code></pre>
+<h4 id="-">自定义</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Loading<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/loading.gif&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">loading</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">load</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">show</span>();
+        <span class="cm-variable">setTimeout</span>(<span class="cm-keyword">function</span>() {
+            <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">hide</span>();
+        }.<span class="cm-property">bind</span>(<span class="cm-keyword">this</span>), <span class="cm-number">6000</span>);
     }
 });
 </code></pre>
 
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Loading</h5>
+<p>继承自<strong></strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Loading()</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
         
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.static</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否嵌入文档流</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+    <h4>Methods</h4>
+    
+    
+    <h5>loading.show()</h5>
+    <p>显示组件</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>loading.show()</h5>
+    <p>隐藏组件</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+
+<div id="j-methods"></div>
+
+
+    <h4>Static Methods</h4>
+    
+    
+    <h5>Loading.show()</h5>
+    <p>显示加载中</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>Loading.hide()</h5>
+    <p>隐藏加载中</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-inheritedMethods"></div>
+
+
+<div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div>    </div>
 </div>
@@ -373,63 +470,50 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<p>
-<dropdown source={source} />
-<menu source={source} />
-<select2 source={source} />
-<numberInput />
-</p>
-<p>
-<suggest placeholder="Suggest" source={suggestSource} />
-<datePicker placeholder="DatePicker" />
-<dateTimePicker placeholder="DateTimePicker" />
-</p>
-<p>
-<check2Group source={source} />
-<radio2Group source={source} />
-</p>
-<p>
-<progress percent="36" />
-<progress percent="25" type="success" />
-<progress percent="50" type="warning" />
-<progress percent="75" type="error" />
-</p>
+<button class="u-btn u-btn-primary" on-click={this.load()}>Loading</button>
     */})
 var component = new RGUI.Component({
     template: template,
-    data: {
-        source: [
-            {name: '选项1'},
-            {name: '选项2'},
-            {name: '选项3'}
-        ],
-        treeSource: [
-            {name: '选项1', children: [
-                {name: '选项1.1'},
-                {name: '选项1.2', children: [
-                    {name: '选项1.2.1'},
-                    {name: '选项1.2.2'}
-                ]},
-                {name: '选项1.3'},
-                {name: '选项1.4'},
-            ]},
-            {name: '选项2'},
-            {name: '选项3', children: [
-                {name: '选项3.1'},
-                {name: '选项3.2'}
-            ]}
-        ],
-        suggestSource: [
-            {name: 'abandon'},
-            {name: 'about'},
-            {name: 'absent'},
-            {name: 'bread'},
-            {name: 'break'},
-            {name: 'brief'},
-            {name: 'calendar'},
-            {name: 'cancel'},
-            {name: 'column'}
-        ]
+    load: function() {
+        RGUI.Loading.show();
+        setTimeout(function() {
+            RGUI.Loading.hide();
+        }, 2000);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-success" on-click={this.load()}>
+    Loading <loading ref="loading" static={true} />
+</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    load: function() {
+        this.$refs.loading.show();
+        setTimeout(function() {
+            this.$refs.loading.hide();
+        }.bind(this), 3000);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-error" on-click={this.load()}>Loading</button>
+<loading ref="loading" static={true}>
+    <img src="../img/loading.gif">
+</loading>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    load: function() {
+        this.$refs.loading.show();
+        setTimeout(function() {
+            this.$refs.loading.hide();
+        }.bind(this), 6000);
     }
 });
     component.$inject($$(".m-example")[index]);

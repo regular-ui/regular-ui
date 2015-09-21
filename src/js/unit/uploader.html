@@ -1,10 +1,10 @@
 <div class="u-uploader {@(class)}" r-hide={!visible}>
-	<div on-click={this.upload()}>
-		{#if this.$body}
-			{#inc this.$body}
-    	{#else}
-    		<a class="u-btn">{title || '上传'}</a>
-		{/if}
+    <div on-click={this.upload()}>
+        {#if this.$body}
+            {#inc this.$body}
+        {#else}
+            <a class="u-btn">{title || '上传'}</a>
+        {/if}
     </div>
     <form method="POST" action={url} target="iframe{_id}" enctype={contentType} ref="form">
         <input type="file" name="file" ref="file" on-change={this.submit()}>
