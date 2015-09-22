@@ -5,7 +5,7 @@
             <h3 class="modal_title">{title}</h3>
         </div>
         <div class="modal_bd">
-            {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}
+            {#if contentTemplate}{#inc @(contentTemplate)}{#else}{content}{/if}
         </div>
         <div class="modal_ft">
             {#if okButton}

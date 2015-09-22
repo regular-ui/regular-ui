@@ -17,7 +17,6 @@ var _ = require('../base/util.js');
  * @extend SourceComponent
  * @param {object}                  options.data                    绑定属性
  * @param {object[]=[]}             options.data.source             数据源
- * @param {number}                  options.data.source[].id        每项的id
  * @param {string}                  options.data.source[].name      每项的内容
  * @param {object=null}             options.data.selected           当前选择项
  * @param {boolean=false}           options.data.hierarchical       是否分级动态加载，需要service

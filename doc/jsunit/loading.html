@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="j-themeCSS">
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+var relativePath = '../';
+var themes = [
+    {name: 'simple'},
+    {name: 'default'},
+    {name: 'flat'},
+    {name: 'bootstrap'}
+];
+
+var selectedTheme;
+if(localStorage['selectedTheme']) {
+    for(var i = 0; i < themes.length; i++)
+        if(themes[i].name === localStorage['selectedTheme']) {
+            selectedTheme = themes[i];
+            break;
+        }
+} else {
+    selectedTheme = themes[1];
+}
+
+var themeCSS = document.getElementById('j-themeCSS');
+themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+</script>
+<body>
+<div class="g-top">
+    <div class="g-topc">
+        <h1 class="m-logo">
+            <a href="/">Regular UI</a>
+        </h1>
+        <ul class="m-navbar f-fr">
+            
+            
+            <li><a href="../start/index.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            
+            
+            <li class="z-crt"><a href="../jsunit/index.html">JS元件</a></li>
+            
+            
+            <li><a href="../jsmodule/index.html">JS模块</a></li>
+            
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        <li class="sidebar_group"><span>导航类</span></li>
+        
+        <li><a href="../jsunit/dropdown.html">下拉菜单<small> Dropdown</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/menu.html">多级菜单<small> Menu</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>表单类</span></li>
+        
+        <li><a href="../jsunit/input2.html">输入扩展<small> Input2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li><a href="../jsunit/check2.html">多选按钮<small> Check2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/checkgroup.html">多选组<small> CheckGroup</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/radiogroup.html">单选组<small> RadioGroup</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/select2.html">选择扩展<small> Select2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/select2group.html">多级选择<small> Select2Group</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/suggest.html">自动提示<small> Suggest</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        
+        
+        <li><a href="../jsunit/uploader.html">上传<small> Uploader</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>日期类</span></li>
+        
+        <li><a href="../jsunit/datepicker.html">日期选择<small> DatePicker</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/timepicker.html">时间选择<small> TimePicker</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/datetimepicker.html">日期时间选择<small> DateTimePicker</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        
+        <li class="sidebar_group"><span>其他</span></li>
+        
+        <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li class="z-crt"><a href="../jsunit/loading.html">加载中<small> Loading</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>加载中<small> Loading</small></h2>
+        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Loading<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">load</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Loading</span>.<span class="cm-property">show</span>();
+        <span class="cm-variable">setTimeout</span>(<span class="cm-keyword">function</span>() {
+            <span class="cm-variable">RGUI</span>.<span class="cm-property">Loading</span>.<span class="cm-property">hide</span>();
+        }, <span class="cm-number">2000</span>);
+    }
+});
+</code></pre>
+<h4 id="-">嵌入文档流</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    Loading <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">load</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">show</span>();
+        <span class="cm-variable">setTimeout</span>(<span class="cm-keyword">function</span>() {
+            <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">hide</span>();
+        }.<span class="cm-property">bind</span>(<span class="cm-keyword">this</span>), <span class="cm-number">3000</span>);
+    }
+});
+</code></pre>
+<h4 id="-">自定义</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Loading<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/loading.gif&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">loading</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">load</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">show</span>();
+        <span class="cm-variable">setTimeout</span>(<span class="cm-keyword">function</span>() {
+            <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">loading</span>.<span class="cm-property">hide</span>();
+        }.<span class="cm-property">bind</span>(<span class="cm-keyword">this</span>), <span class="cm-number">6000</span>);
+    }
+});
+</code></pre>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Loading</h5>
+<p>继承自<strong></strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Loading()</h5>
+<table>
+    <thead>
+        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.static</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否嵌入文档流</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+    <h4>Methods</h4>
+    
+    
+    <h5>loading.show()</h5>
+    <p>显示组件</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>loading.show()</h5>
+    <p>隐藏组件</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+
+<div id="j-methods"></div>
+
+
+    <h4>Static Methods</h4>
+    
+    
+    <h5>Loading.show()</h5>
+    <p>显示加载中</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>Loading.hide()</h5>
+    <p>隐藏加载中</p>
+    <table>
+        <thead>
+            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+    </table>
+    
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-inheritedMethods"></div>
+
+
+<div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
+    </article>
+</div>    </div>
+</div>
+<div class="g-ft">
+    <footer class="m-footer">
+        <p>
+            <a href="https://github.com/regular-ui/regular-ui" target="_blank">GitHub</a> |
+            <a href="https://github.com/regular-ui/regular-ui/issues" target="_blank">Issues</a> |
+            <a href="https://github.com/regular-ui/regular-ui/releases" target="_blank">ChangeLog</a> |
+            <a href="https://github.com/regular-ui/regular-ui/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a>
+        </p>
+        <p>Licensed under <a href="https://github.com/regular-ui/regular-ui/blob/master/LICENSE" target="_blank">MIT license</a>.</p>
+    </footer>
+</div>
+<a href="#" class="m-gotop"></a>
+<script src="../vendor/regular.min.js"></script>
+<script src="../vendor/marked.min.js"></script>
+<script src="../js/regular-ui.min.js"></script>
+<script>
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
+var themeSelect = new RGUI.Select2({
+    data: {
+        source: themes,
+        selected: selectedTheme,
+        placeholder: null,
+        'class': 'u-select2-nav'
+    }
+}).$inject('#j-themeSelect')
+  .$on('select', function($event) {
+    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+    localStorage['selectedTheme'] = $event.selected.name;
+});
+
+// 生成tabs
+(function() {
+    var $examples = document.getElementsByClassName('m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+            if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
+                source.push({title: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-html') {
+                source.push({title: 'html', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({title: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tabs>
+    {#list source as item}
+    <tab title={item.title}><div r-html={item.content}></div></tab>
+    {/list}
+</tabs>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
+</script>
+<script>
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-primary" on-click={this.load()}>Loading</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    load: function() {
+        RGUI.Loading.show();
+        setTimeout(function() {
+            RGUI.Loading.hide();
+        }, 2000);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-success" on-click={this.load()}>
+    Loading <loading ref="loading" static={true} />
+</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    load: function() {
+        this.$refs.loading.show();
+        setTimeout(function() {
+            this.$refs.loading.hide();
+        }.bind(this), 3000);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-error" on-click={this.load()}>Loading</button>
+<loading ref="loading" static={true}>
+    <img src="../img/loading.gif">
+</loading>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    load: function() {
+        this.$refs.loading.show();
+        setTimeout(function() {
+            this.$refs.loading.hide();
+        }.bind(this), 6000);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+</script>
+</body>
+</html>

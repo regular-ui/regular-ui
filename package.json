@@ -1,7 +1,7 @@
 {
   "name": "regular-ui",
   "description": "Regular UI is a set of front-end components built with RegularJS.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Sensen <rainforest92@126.com>",
   "main": "./dist/js/regular-ui.min.js",
   "repository": "git://github.com/regular-ui/regular-ui.git",
@@ -24,9 +24,9 @@
   "dependencies": {
     "marked": "^0.3.5",
     "mass": "^0.1.0",
-    "mcss": "^0.5.0",
+    "mcss": "git://github.com/leeluolee/mcss.git#bugfix/extend",
     "regularjs": "git://github.com/regularjs/regular.git#next",
-    "reqwest": "^2.0.2",
+    "reqwest": "2.0.0",
     "validator": "^4.0.5",
     "xhr2": "^0.1.3"
   },
@@ -49,14 +49,14 @@
     "html-browserify": "0.0.6",
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.0",
-    "karma-common-js": "^0.2.2",
-    "karma-commonjs": "0.0.13",
+    "karma-common-js": "git://github.com/rainfore/karma-common-js.git",
     "karma-coverage": "^0.5.1",
     "karma-mocha": "^0.2.0",
     "markextend": "0.0.2",
     "mocha": "^2.3.0",
     "run-sequence": "^1.1.1",
     "text-loader": "0.0.1",
+    "through2": "^2.0.0",
     "webpack": "^1.12.0"
   }
 }

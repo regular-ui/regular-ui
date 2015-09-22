@@ -1,5 +1,5 @@
 <label class="u-input2 u-numberinput {@(class)}" r-hide={!visible}>
-    <input class="u-input u-input-{type}" r-model={value | number} placeholder={placeholder} disabled={disabled} readonly={readonly}>
+    <input class="u-input u-input-{type}" r-model={value | number} placeholder={placeholder} readonly={readonly} disabled={disabled}>
     <a class="u-btn" r-class={ {'z-dis': disabled} } on-click={this.add(1)}><i class="u-icon u-icon-caret-up"></i></a>
     <a class="u-btn" r-class={ {'z-dis': disabled} } on-click={this.add(-1)}><i class="u-icon u-icon-caret-down"></i></a>
 </label>

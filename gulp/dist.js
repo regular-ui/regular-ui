@@ -9,6 +9,7 @@ var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
 
+var structure = require('../structure.js');
 var mcss = require('../lib/gulp-mcss.js');
 
 /**
@@ -57,7 +58,7 @@ gulp.task('dist-css', function() {
             .pipe(gulp.dest('./dist/css'));
     }
     
-    return gulp.THEMES.map(gulpCSS).pop();
+    return structure.themes.map(gulpCSS).pop();
 });
 
 gulp.task('dist', function(done) {

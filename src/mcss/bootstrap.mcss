@@ -1,115 +1,55 @@
-// Name:            Bootstrap Theme
-// Author:          sensen(rainforest92@126.com)
-// Description:     Bootstrap Theme
-// ========================================================================
-
-
-
-// Base
-// ========================================================================
-
-$theme_name = "bootstrap";
 @import "mass/mass/index.mcss";
 $reset-normalize();
 
-@import "core/base/function.mcss";
-@import "core/base/helper.mcss";
-@import "core/base/font-awesome.css";
-
-@import "bootstrap/base/var.mcss";
-@import "bootstrap/base/base.mcss";
-@import "bootstrap/base/effect.mcss";
-
-
-
-// CSS Unit
-// ========================================================================
-
-@import "bootstrap/unit/button.mcss";
-@import "bootstrap/unit/buttonGroup.mcss";
-@import "bootstrap/unit/color.mcss";
-@import "bootstrap/unit/text.mcss";
-@import "bootstrap/unit/tip.mcss";
-@import "bootstrap/unit/badge.mcss";
-@import "bootstrap/unit/message.mcss";
-@import "bootstrap/unit/image.mcss";
-// @import "bootstrap/unit/thumbnail.mcss";
-@import "bootstrap/unit/formCtrl.mcss";
-@import "bootstrap/unit/formItem.mcss";
-@import "bootstrap/unit/formGroup.mcss";
-
-
-
-// CSS Module
-// ========================================================================
-
-/* 导航类 */
-@import "bootstrap/module/navbar.mcss";
-@import "bootstrap/module/crumb.mcss";
-@import "bootstrap/module/sidebar.mcss";
-@import "bootstrap/module/toolbar.mcss";
-
-/* 文章类 */
-@import "bootstrap/module/article.mcss";
-@import "bootstrap/module/comment.mcss";
-
-/* 布局类 */
-@import "bootstrap/module/list.mcss";
-@import "bootstrap/module/table.mcss";
-@import "bootstrap/module/panel.mcss";
-@import "bootstrap/module/form.mcss";
-
-
-// JS Unit
-// ========================================================================
-
-/* 导航类 */
-@import "bootstrap/unit/dropdown.mcss";
-@import "bootstrap/unit/menu.mcss";
-
-/* 表单类 */
-@import "bootstrap/unit/input2.mcss";
-@import "bootstrap/unit/numberInput.mcss";
-@import "bootstrap/unit/check2.mcss";
-@import "bootstrap/unit/radio2.mcss";
-@import "core/unit/unitGroup.mcss";
-@import "bootstrap/unit/select2.mcss";
-@import "bootstrap/unit/suggest.mcss";
-@import "core/unit/uploader.mcss";
-
-/* 日期类 */
-@import "bootstrap/unit/timePicker.mcss";
-@import "bootstrap/unit/dateTimePicker.mcss";
-
-/* 其他 */
-@import "bootstrap/unit/progress.mcss";
-@import "bootstrap/unit/gotop.mcss";
-
-
-
-// JS Module
-// ========================================================================
-
-/* 导航类 */
-@import "bootstrap/module/tabs.mcss";
-@import "bootstrap/module/collapse.mcss";
-@import "bootstrap/module/pager.mcss";
-
-/* 窗口类 */
-@import "bootstrap/module/notify.mcss";
-@import "bootstrap/module/modal.mcss";
-
-/* 数据类 */
-@import "bootstrap/module/listView.mcss";
-@import "bootstrap/module/gridView.mcss";
-@import "bootstrap/module/treeView.mcss";
-@import "bootstrap/module/tableView.mcss";
-
-/* 上传类 */
-//
-
-/* 日期类 */
-@import "bootstrap/module/calendar.mcss";
-
-/* 编辑器类 */
-@import "bootstrap/module/editor.mcss";
+@import "./core/base/function.mcss";
+@import "./core/base/helper.mcss";
+@import "./core/base/font-awesome.css";
+@import "./bootstrap/base/var.mcss";
+@import "./bootstrap/base/base.mcss";
+@import "./bootstrap/base/effect.mcss";
+@import "./bootstrap/unit/button.mcss";
+@import "./bootstrap/unit/buttonGroup.mcss";
+@import "./bootstrap/unit/color.mcss";
+@import "./bootstrap/unit/text.mcss";
+@import "./bootstrap/unit/badge.mcss";
+@import "./bootstrap/unit/tip.mcss";
+@import "./bootstrap/unit/message.mcss";
+@import "./bootstrap/unit/image.mcss";
+@import "./bootstrap/unit/formCtrl.mcss";
+@import "./bootstrap/unit/formItem.mcss";
+@import "./bootstrap/unit/formGroup.mcss";
+@import "./bootstrap/module/navbar.mcss";
+@import "./bootstrap/module/sidebar.mcss";
+@import "./bootstrap/module/toolbar.mcss";
+@import "./bootstrap/module/crumb.mcss";
+@import "./bootstrap/module/article.mcss";
+@import "./bootstrap/module/comment.mcss";
+@import "./bootstrap/module/list.mcss";
+@import "./bootstrap/module/table.mcss";
+@import "./bootstrap/module/panel.mcss";
+@import "./bootstrap/module/form.mcss";
+@import "./core/module/footer.mcss";
+@import "./bootstrap/unit/dropdown.mcss";
+@import "./bootstrap/unit/menu.mcss";
+@import "./bootstrap/unit/input2.mcss";
+@import "./bootstrap/unit/numberInput.mcss";
+@import "./bootstrap/unit/check2.mcss";
+@import "./bootstrap/unit/radio2.mcss";
+@import "./core/unit/unitGroup.mcss";
+@import "./bootstrap/unit/select2.mcss";
+@import "./bootstrap/unit/suggest.mcss";
+@import "./core/unit/uploader.mcss";
+@import "./bootstrap/unit/timePicker.mcss";
+@import "./bootstrap/unit/dateTimePicker.mcss";
+@import "./bootstrap/unit/progress.mcss";
+@import "./core/unit/loading.mcss";
+@import "./bootstrap/unit/gotop.mcss";
+@import "./bootstrap/module/tabs.mcss";
+@import "./bootstrap/module/collapse.mcss";
+@import "./bootstrap/module/pager.mcss";
+@import "./bootstrap/module/notify.mcss";
+@import "./bootstrap/module/modal.mcss";
+@import "./bootstrap/module/listView.mcss";
+@import "./bootstrap/module/treeView.mcss";
+@import "./bootstrap/module/calendar.mcss";
+@import "./bootstrap/module/editor.mcss";

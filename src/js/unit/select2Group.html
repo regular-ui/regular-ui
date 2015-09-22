@@ -1,0 +1,5 @@
+<div class="u-select2Group {@(class)}" r-hide={!visible}>
+    {#list 0..(depth - 1) as i}
+    <select2 source={sources[i]} readonly={readonly} disabled={disabled} placeholder={placeholders[i] || '请选择'} on-select={this.select($event.selected, i)} on-change={this.change($event.selected, i)} />
+    {/list}
+</div>

@@ -7,7 +7,7 @@
 		exports["RGUI"] = factory(require("regularjs"), require("marked"));
 	else
 		root["RGUI"] = factory(root["Regular"], root["marked"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_78__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_76__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -63,77 +63,42 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var RGUI = {};
-
-	/**
-	 * base
-	 */
-	RGUI.Regular = __webpack_require__(1);
-	RGUI.Component = __webpack_require__(2);
-	RGUI.SourceComponent = __webpack_require__(5);
-	RGUI._ = __webpack_require__(3);
-	RGUI.ajax = __webpack_require__(6);
-
-	/**
-	 * jsUnit
-	 */
-	// 导航类
-	RGUI.Dropdown = __webpack_require__(11);
-	RGUI.Menu = __webpack_require__(13);
-
-	// 表单类
-	RGUI.Input2 = __webpack_require__(16);
-	RGUI.NumberInput = __webpack_require__(20);
-	RGUI.Check2 = __webpack_require__(22);
-	RGUI.CheckGroup = __webpack_require__(24);
-	RGUI.Check2Group = __webpack_require__(26);
-	RGUI.RadioGroup = __webpack_require__(28);
-	RGUI.Radio2Group = __webpack_require__(30);
-	RGUI.Select2 = __webpack_require__(32);
-	RGUI.TreeSelect = __webpack_require__(34);
-	RGUI.Suggest = __webpack_require__(39);
-	RGUI.Uploader = __webpack_require__(41);
-
-	// 日期类
-	RGUI.DatePicker = __webpack_require__(43);
-	RGUI.TimePicker = __webpack_require__(47);
-	RGUI.DateTimePicker = __webpack_require__(49);
-
-	// 其他
-	RGUI.Progress = __webpack_require__(51);
-	RGUI.Gotop = __webpack_require__(53);
-
-	/**
-	 * jsModule
-	 */
-	// 导航类
-	RGUI.Tabs = __webpack_require__(55);
-	RGUI.Collapse = __webpack_require__(57);
-	RGUI.Pager = __webpack_require__(60);
-	RGUI.Menubar = __webpack_require__(62);
-
-	// 窗口类
-	RGUI.Notify = __webpack_require__(9);
-	RGUI.Modal = __webpack_require__(64);
-
-	// 数据类
-	RGUI.ListView = __webpack_require__(66);
-	RGUI.GridView = __webpack_require__(68);
-	RGUI.TreeView = __webpack_require__(36);
-	RGUI.TableView = __webpack_require__(70);
-
-	// 日期类
-	RGUI.Calendar = __webpack_require__(45);
-
-	// 上传类
-	//
-
-	// 编辑器类
-	RGUI.Editor = __webpack_require__(72);
-	RGUI.HTMLEditor = __webpack_require__(74);
-	RGUI.MarkEditor = __webpack_require__(76);
-
-	module.exports = RGUI;
+	exports.Regular = __webpack_require__(1);
+	exports.Component = __webpack_require__(2);
+	exports.SourceComponent = __webpack_require__(5);
+	exports._ = __webpack_require__(3);
+	exports.ajax = __webpack_require__(6);
+	exports.Dropdown = __webpack_require__(11);
+	exports.Menu = __webpack_require__(13);
+	exports.Input2 = __webpack_require__(16);
+	exports.NumberInput = __webpack_require__(20);
+	exports.Check2 = __webpack_require__(22);
+	exports.CheckGroup = __webpack_require__(24);
+	exports.Check2Group = __webpack_require__(26);
+	exports.RadioGroup = __webpack_require__(28);
+	exports.Radio2Group = __webpack_require__(30);
+	exports.Select2 = __webpack_require__(32);
+	exports.Select2Group = __webpack_require__(34);
+	exports.TreeSelect = __webpack_require__(36);
+	exports.Suggest = __webpack_require__(41);
+	exports.Uploader = __webpack_require__(43);
+	exports.DatePicker = __webpack_require__(45);
+	exports.TimePicker = __webpack_require__(49);
+	exports.DateTimePicker = __webpack_require__(51);
+	exports.Progress = __webpack_require__(53);
+	exports.Loading = __webpack_require__(55);
+	exports.Gotop = __webpack_require__(57);
+	exports.Tabs = __webpack_require__(59);
+	exports.Collapse = __webpack_require__(61);
+	exports.Pager = __webpack_require__(64);
+	exports.Notify = __webpack_require__(9);
+	exports.Modal = __webpack_require__(66);
+	exports.ListView = __webpack_require__(68);
+	exports.TreeView = __webpack_require__(38);
+	exports.Calendar = __webpack_require__(47);
+	exports.Editor = __webpack_require__(70);
+	exports.HTMLEditor = __webpack_require__(72);
+	exports.MarkEditor = __webpack_require__(74);
 
 /***/ },
 /* 1 */
@@ -422,7 +387,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	  * Reqwest! A general purpose XHR connection manager
-	  * license MIT (c) Dustin Diaz 2015
+	  * license MIT (c) Dustin Diaz 2014
 	  * https://github.com/ded/reqwest
 	  */
 
@@ -434,7 +399,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  var context = this
 
-	  if ('window' in context) {
+	  if (context.hasOwnProperty('window')) {
 	    var doc = document
 	      , byTag = 'getElementsByTagName'
 	      , head = doc[byTag]('head')[0]
@@ -673,7 +638,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function setType(header) {
 	    // json, javascript, text/plain, text/html, xml
-	    if (header === null) return undefined; //In case of no content-type.
 	    if (header.match('json')) return 'json'
 	    if (header.match('javascript')) return 'js'
 	    if (header.match('text')) return 'html'
@@ -1246,7 +1210,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string=''}               options.data.title              按钮文字
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.source[].disabled  禁用此项
 	 * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
@@ -1270,26 +1233,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            open: false
 	        });
 	        this.supr();
-	    },
-	    /**
-	     * @method select(item) 选择某一项
-	     * @public
-	     * @param  {object} item 选择项
-	     * @return {void}
-	     */
-	    select: function(item) {
-	        if(this.data.disabled || item.disabled || item.divider)
-	            return;
-
-	        //this.data.selected = item;
-	        /**
-	         * @event select 选择某一项时触发
-	         * @property {object} selected 当前选择项
-	         */
-	        this.$emit('select', {
-	            selected: item
-	        });
-	        this.toggle(false);
 	    },
 	    /**
 	     * @method toggle(open) 在展开/收起状态之间切换
@@ -1317,6 +1260,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.$emit('toggle', {
 	            open: open
 	        });
+	    },
+	    /**
+	     * @method select(item) 选择某一项
+	     * @public
+	     * @param  {object} item 选择项
+	     * @return {void}
+	     */
+	    select: function(item) {
+	        if(this.data.disabled || (item && (item.disabled || item.divider)))
+	            return;
+
+	        /**
+	         * @event select 选择某一项时触发
+	         * @property {object} selected 当前选择项
+	         */
+	        this.$emit('select', {
+	            selected: item
+	        });
+
+	        this.toggle(false);
 	    }
 	});
 
@@ -1344,7 +1307,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '下拉菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '下拉菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 13 */
@@ -1369,7 +1332,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string=''}               options.data.title              按钮文字
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.source[].disabled  禁用此项
 	 * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
@@ -1464,7 +1426,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<ul class=\"m-listview menu_list\" r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} }>\n        <div class=\"menu_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon u-icon-caret-right\"></i>\n            {/if}\n            <div class=\"menu_itemname\" title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<menuList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
+	module.exports = "<ul class=\"m-listview menu_list\" r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} }>\n        <div class=\"menu_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon u-icon-caret-right\"></i>\n            {/if}\n            <div class=\"menu_itemname\" title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<menuList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
 
 /***/ },
 /* 16 */
@@ -1524,7 +1486,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-input2 {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value} placeholder={placeholder} disabled={disabled} readonly={readonly} on-keyup={this.validate(value, rules)}>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-input2 {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value} placeholder={placeholder} readonly={readonly} disabled={disabled} on-keyup={this.validate(value, rules)}>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
 
 /***/ },
 /* 18 */
@@ -2539,7 +2501,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-input2 u-numberinput {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value | number} placeholder={placeholder} disabled={disabled} readonly={readonly}>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(1)}><i class=\"u-icon u-icon-caret-up\"></i></a>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(-1)}><i class=\"u-icon u-icon-caret-down\"></i></a>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-input2 u-numberinput {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value | number} placeholder={placeholder} readonly={readonly} disabled={disabled}>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(1)}><i class=\"u-icon u-icon-caret-up\"></i></a>\n    <a class=\"u-btn\" r-class={ {'z-dis': disabled} } on-click={this.add(-1)}><i class=\"u-icon u-icon-caret-down\"></i></a>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
 
 /***/ },
 /* 22 */
@@ -2635,7 +2597,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend SourceComponent
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.block              多行显示
 	 * @param {boolean=false}           options.data.readonly           是否只读
@@ -2690,7 +2651,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend CheckGroup
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {boolean=false}           options.data.block              多行显示
 	 * @param {boolean=false}           options.data.readonly           是否只读
@@ -2734,7 +2694,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend SourceComponent
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.seleced            当前选择项
 	 * @param {boolean=false}           options.data.block              多行显示
@@ -2809,7 +2768,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend RadioGroup
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.seleced            当前选择项
 	 * @param {boolean=false}           options.data.block              多行显示
@@ -2854,7 +2812,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend Dropdown
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string='请选择'}         options.data.placeholder        默认项的文字
@@ -2878,6 +2835,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            placeholder: '请选择'
 	        });
 	        this.supr();
+
+	        this.$watch('selected', function(newValue, oldValue) {
+	            /**
+	             * @event change 选择项改变时触发
+	             * @property {object} selected 改变后的选择项
+	             */
+	            this.$emit('change', {
+	                selected: newValue
+	            });
+	        });
+
+	        this.$watch('source', function(newValue, oldValue) {
+	            if(!newValue || newValue.indexOf(this.data.selected) < 0)
+	                this.data.selected = null;
+	        });
 	    },
 	    /**
 	     * @method select(item) 选择某一项
@@ -2886,8 +2858,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	    select: function(item) {
-	        this.$update('selected', item);
-	        //this.data.selected = item;
+	        if(this.data.readonly || this.data.disabled || (item && (item.disabled || item.divider)))
+	            return;
+
+	        this.data.selected = item;
+	        
 	        /**
 	         * @event select 选择某一项时触发
 	         * @property {object} selected 当前选择项
@@ -2895,6 +2870,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.$emit('select', {
 	            selected: item
 	        });
+
 	        this.toggle(false);
 	    },
 	});
@@ -2905,10 +2881,113 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <span>{selected ? selected.name : placeholder}</span>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item} } on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <span>{selected ? selected.name : placeholder}</span>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * Select2Group 多级选择
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var Component = __webpack_require__(2);
+	var template = __webpack_require__(35);
+	var _ = __webpack_require__(3);
+
+	/**
+	 * @class Select2Group
+	 * @extend Component
+	 * @param {object}                  options.data                    绑定属性
+	 * @param {object[]=[]}             options.data.source             数据源
+	 * @param {string}                  options.data.source[].name      每项的内容
+	 * @param {object=null}             options.data.selected           最后的选择项
+	 * @param {object[]=[]}             options.data.selectedItems      所有的选择项
+	 * @param {string[]=[]}             options.data.placeholders       默认项的文字
+	 * @param {boolean=false}           options.data.readonly           是否只读
+	 * @param {boolean=false}           options.data.disabled           是否禁用
+	 * @param {boolean=true}            options.data.visible            是否显示
+	 * @param {string=''}               options.data.class              补充class
+	 * @param {object}                  options.service                 数据服务
+	 */
+	var Select2Group = Component.extend({
+	    name: 'select2Group',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            // @inherited source: [],
+	            depth: 1,
+	            sources: [],
+	            selected: null,
+	            selectedItems: [],
+	            placeholders: []
+	        });
+	        this.supr();
+
+	        this.$watch('selected', function(newValue, oldValue) {
+	            /**
+	             * @event change 最后的选择项改变时触发
+	             * @property {object} selected 最后的选择项
+	             * @property {object} selectedItems 所有的选择项
+	             */
+	            this.$emit('change', {
+	                selected: newValue,
+	                selectedItems: this.data.selectedItems
+	            });
+	        });
+
+	        this.data.sources[0] = this.data.source;
+	    },
+	    /**
+	     * @private
+	     */
+	    select: function(item, level) {
+	        if(this.data.readonly || this.data.disabled || (item && (item.disabled || item.divider)))
+	            return;
+
+	        this.data.sources[level + 1] = item ? item.children : undefined;
+	        for(var i = level + 2; i < this.data.depth; i++)
+	            this.data.sources[i] = undefined;
+
+	        /**
+	         * @event select 选择某一项时触发
+	         * @property {object} selected 当前选择项
+	         * @property {object} level 当前选择的层级
+	         */
+	        this.$emit('select', {
+	            selected: item,
+	            level: level
+	        });
+	    },
+	    /**
+	     * @private
+	     */
+	    change: function(item, index) {
+	        if(index === this.data.depth - 1)
+	            this.data.selected = item;
+
+	        this.data.selectedItems[index] = item;
+	    }
+	});
+
+	module.exports = Select2Group;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"u-select2Group {@(class)}\" r-hide={!visible}>\n    {#list 0..(depth - 1) as i}\n    <select2 source={sources[i]} readonly={readonly} disabled={disabled} placeholder={placeholders[i] || '请选择'} on-select={this.select($event.selected, i)} on-change={this.change($event.selected, i)} />\n    {/list}\n</div>"
+
+/***/ },
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2921,16 +3000,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Select2 = __webpack_require__(32);
-	var template = __webpack_require__(35);
+	var template = __webpack_require__(37);
 	var _ = __webpack_require__(3);
-	var Treeview = __webpack_require__(36);
+	var Treeview = __webpack_require__(38);
 
 	/**
 	 * @class TreeSelect
 	 * @extend Select2
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string='请选择'}         options.data.placeholder        默认项的文字
@@ -2960,13 +3038,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeSelect;
 
 /***/ },
-/* 35 */
+/* 37 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />\n    </div>\n</div>"
 
 /***/ },
-/* 36 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2979,8 +3057,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(37);
-	var hierarchicalTemplate = __webpack_require__(38);
+	var template = __webpack_require__(39);
+	var hierarchicalTemplate = __webpack_require__(40);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -2988,7 +3066,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend SourceComponent
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {boolean=false}           options.data.hierarchical       是否分级动态加载，需要service
@@ -3134,19 +3211,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeView;
 
 /***/ },
-/* 37 */
+/* 39 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-treeview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <treeViewList source={source} visible={true} />\n</div>"
 
 /***/ },
-/* 38 */
+/* 40 */
 /***/ function(module, exports) {
 
-	module.exports = "<ul class=\"treeview_list\" r-hide={!visible}>\n    {#list source as item}\n    <li>\n        <div class=\"treeview_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon\" r-class={ {'u-icon-caret-right': !item.open, 'u-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>\n            {/if}\n            <div class=\"treeview_itemname\" r-class={ {'z-sel': this.$ancestor.data.selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
+	module.exports = "<ul class=\"treeview_list\" r-hide={!visible}>\n    {#list source as item}\n    <li>\n        <div class=\"treeview_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon\" r-class={ {'u-icon-caret-right': !item.open, 'u-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>\n            {/if}\n            <div class=\"treeview_itemname\" r-class={ {'z-sel': this.$ancestor.data.selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
 
 /***/ },
-/* 39 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3159,7 +3236,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Dropdown = __webpack_require__(11);
-	var template = __webpack_require__(40);
+	var template = __webpack_require__(42);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3167,7 +3244,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extend Dropdown
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string=''}               options.data.value              文本框中的值
@@ -3285,13 +3361,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Suggest;
 
 /***/ },
-/* 40 */
+/* 42 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 41 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3304,7 +3380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(42);
+	var template = __webpack_require__(44);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -3416,13 +3492,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Uploader;
 
 /***/ },
-/* 42 */
+/* 44 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-uploader {@(class)}\" r-hide={!visible}>\n\t<div on-click={this.upload()}>\n\t\t{#if this.$body}\n\t\t\t{#inc this.$body}\n    \t{#else}\n    \t\t<a class=\"u-btn\">{title || '上传'}</a>\n\t\t{/if}\n    </div>\n    <form method=\"POST\" action={url} target=\"iframe{_id}\" enctype={contentType} ref=\"form\">\n        <input type=\"file\" name=\"file\" ref=\"file\" on-change={this.submit()}>\n        {#list Object.keys(data) as key}\n        <input type=\"hidden\" name={key} value={data[key]}>\n        {/list}\n    </form>\n    <iframe name=\"iframe{_id}\" on-load={this.cbUpload()} ref=\"iframe\">\n    </iframe>\n</div>"
+	module.exports = "<div class=\"u-uploader {@(class)}\" r-hide={!visible}>\n    <div on-click={this.upload()}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '上传'}</a>\n        {/if}\n    </div>\n    <form method=\"POST\" action={url} target=\"iframe{_id}\" enctype={contentType} ref=\"form\">\n        <input type=\"file\" name=\"file\" ref=\"file\" on-change={this.submit()}>\n        {#list Object.keys(data) as key}\n        <input type=\"hidden\" name={key} value={data[key]}>\n        {/list}\n    </form>\n    <iframe name=\"iframe{_id}\" on-load={this.cbUpload()} ref=\"iframe\">\n    </iframe>\n</div>"
 
 /***/ },
-/* 43 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3433,11 +3509,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Dropdown = __webpack_require__(11);
-	var template = __webpack_require__(44);
+	var template = __webpack_require__(46);
 	var _ = __webpack_require__(3);
 
 	var filter = __webpack_require__(4);
-	var Calendar = __webpack_require__(45);
+	var Calendar = __webpack_require__(47);
 	var MS_OF_DAY = 24*3600*1000;
 
 	/**
@@ -3596,13 +3672,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = DatePicker;
 
 /***/ },
-/* 44 */
+/* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
 
 /***/ },
-/* 45 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3615,7 +3691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(46);
+	var template = __webpack_require__(48);
 	var _ = __webpack_require__(3);
 
 	var MS_OF_DAY = 24*3600*1000;
@@ -3836,13 +3912,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Calendar;
 
 /***/ },
-/* 46 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-calendar {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"calendar_hd\">\n        <span class=\"calendar_prev\">\n            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>\n        </span>\n        <span>{date | format: 'yyyy-MM'}</span>\n        <span class=\"calendar_next\">\n            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>\n        </span>\n    </div>\n    <div class=\"calendar_bd\">\n        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>\n        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-muted': date.getMonth() !== day.getMonth(), 'z-dis': !!this.isOutOfRange(day)} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 47 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3853,7 +3929,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(48);
+	var template = __webpack_require__(50);
 	var _ = __webpack_require__(3);
 	var NumberInput = __webpack_require__(20);
 
@@ -3963,13 +4039,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TimePicker;
 
 /***/ },
-/* 48 */
+/* 50 */
 /***/ function(module, exports) {
 
-	module.exports = "<span class=\"u-timepicker {@(class)}\" r-hide={!visible}>\n\t<numberInput min=\"0\" max=\"23\" format=\"00\" value={hour} disabled={disabled} readonly={readonly} />\n\t<span>:</span>\n\t<numberInput min=\"0\" max=\"59\" format=\"00\" value={minute} disabled={disabled} readonly={readonly} />\n</span>"
+	module.exports = "<span class=\"u-timepicker {@(class)}\" r-hide={!visible}>\n\t<numberInput min=\"0\" max=\"23\" format=\"00\" value={hour} readonly={readonly} disabled={disabled} />\n\t<span>:</span>\n\t<numberInput min=\"0\" max=\"59\" format=\"00\" value={minute} readonly={readonly} disabled={disabled} />\n</span>"
 
 /***/ },
-/* 49 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3980,13 +4056,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Dropdown = __webpack_require__(11);
-	var DatePicker = __webpack_require__(43);
-	var template = __webpack_require__(50);
+	var DatePicker = __webpack_require__(45);
+	var template = __webpack_require__(52);
 	var _ = __webpack_require__(3);
 
 	var filter = __webpack_require__(4);
-	var Calendar = __webpack_require__(45);
-	var TimePicker = __webpack_require__(47);
+	var Calendar = __webpack_require__(47);
+	var TimePicker = __webpack_require__(49);
 
 	/**
 	 * @class DateTimePicker
@@ -4151,13 +4227,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = DateTimePicker;
 
 /***/ },
-/* 50 */
+/* 52 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" disabled={disabled} readonly={readonly}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>\n            <timePicker time={_time} on-change={this._update(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>\n            <timePicker time={_time} on-change={this._update(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
 
 /***/ },
-/* 51 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4170,7 +4246,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(52);
+	var template = __webpack_require__(54);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4208,13 +4284,121 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Progress;
 
 /***/ },
-/* 52 */
+/* 54 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-progress u-progress-{@(size)} u-progress-{@(type)} {@(class)}\" r-class={ {'u-progress-striped': striped, 'z-act': active} } r-hide={!visible}>\n    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + '%' : text) : ''}</div>\n</div>"
 
 /***/ },
-/* 53 */
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * Loading   加载中
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var Component = __webpack_require__(2);
+	var template = __webpack_require__(56);
+	var _ = __webpack_require__(3);
+
+	/**
+	 * @class Loading
+	 * @param {object}                  options.data                    绑定属性
+	 * @param {boolean=false}           options.data.static             是否嵌入文档流
+	 * @param {boolean=false}           options.data.disabled           是否禁用
+	 * @param {boolean=true}            options.data.visible            是否显示
+	 * @param {string=''}               options.data.class              补充class
+	 */
+	var Loading = Component.extend({
+	    name: 'loading',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            'static': false,
+	            visible: false
+	        });
+	        this.supr();
+	    },
+	    /**
+	     * @protected
+	     */
+	    init: function() {
+	        this.supr();
+	        // 证明不是内嵌组件
+	        if(this.$root === this)
+	            this.$inject(document.body);
+	    },
+	    /**
+	     * @method show() 显示组件
+	     * @public
+	     * @return {void}
+	     */
+	    show: function() {
+	        if(this.data.disabled)
+	            return;
+
+	        this.data.visible = true;
+	        this.$update();
+	    },
+	    /**
+	     * @method show() 隐藏组件
+	     * @public
+	     * @return {void}
+	     */
+	    hide: function() {
+	        if(this.data.disabled)
+	            return;
+
+	        this.data.visible = false;
+	        this.$update();
+	    }
+	});
+
+	/**
+	 * 直接初始化一个实例
+	 * @type {Loading}
+	 */
+	var loading = new Loading();
+	Loading.loading = loading;
+
+	/**
+	 * @method show() 显示加载中
+	 * @static
+	 * @public
+	 * @return {void}
+	 */
+	Loading.show = function() {
+	    loading.show();
+	}
+
+	/**
+	 * @method hide() 隐藏加载中
+	 * @static
+	 * @public
+	 * @return {void}
+	 */
+	Loading.hide = function() {
+	    loading.hide();
+	}
+
+	module.exports = Loading;
+
+/***/ },
+/* 56 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"u-loading {@(class)}\" r-class={ {'u-loading-static': static} } r-hide={!visible}>\n    {#if this.$body}\n        {#inc this.$body}\n    {#else}\n        <i class=\"u-icon u-icon-spinner u-icon-spin\"></i>\n    {/if}\n</div>"
+
+/***/ },
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4227,13 +4411,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(54);
+	var template = __webpack_require__(58);
 	var _ = __webpack_require__(3);
 
 	/**
 	 * @class Gotop
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string='bottomright'}    options.data.position           组件的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
+	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
 	 * @param {string=''}               options.data.class              补充class
 	 */
@@ -4255,7 +4440,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	    gotop: function() {
-	        if(this.data.readonly || this.data.disabled)
+	        if(this.data.disabled)
 	            return;
 
 	        document.body.scrollTop = 0;
@@ -4265,13 +4450,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Gotop;
 
 /***/ },
-/* 54 */
+/* 58 */
 /***/ function(module, exports) {
 
-	module.exports = "<a class=\"u-gotop u-gotop-{position} {@(class)}\" on-click={this.gotop()}><i class=\"u-icon u-icon-arrow-up\"></i></a>"
+	module.exports = "<a class=\"u-gotop u-gotop-{position} {@(class)}\" r-hide={!visible} on-click={this.gotop()}>\n    {#if this.$body}\n        {#inc this.$body}\n    {#else}\n        <i class=\"u-icon u-icon-arrow-up\"></i>\n    {/if}\n</a>"
 
 /***/ },
-/* 55 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4284,7 +4469,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(56);
+	var template = __webpack_require__(60);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4332,7 +4517,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Tab = Component.extend({
 	    name: 'tab',
-	    template: '<div r-hide={this.$outer.data.selected != this}>{#include this.$body}</div>',
+	    template: '<div r-hide={this.$outer.data.selected != this}>{#inc this.$body}</div>',
 	    /**
 	     * @protected
 	     */
@@ -4353,13 +4538,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Tabs;
 
 /***/ },
-/* 56 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-tabs {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <ul class=\"tabs_hd\">\n        {#list tabs as item}\n        <li r-class={ {'z-crt': item == selected, 'z-dis': item.data.disabled} } on-click={this.select(item)}>{item.data.title}</li>\n        {/list}\n    </ul>\n    <div class=\"tabs_bd\">\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 57 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4372,8 +4557,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(58);
-	var itemTemplate = __webpack_require__(59);
+	var template = __webpack_require__(62);
+	var itemTemplate = __webpack_require__(63);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4437,19 +4622,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Collapse;
 
 /***/ },
-/* 58 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-collapse {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#inc this.$body}\n</div>"
 
 /***/ },
-/* 59 */
+/* 63 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-panel\">\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#include this.$body}\n        </div>\n    </div>\n</div>"
+	module.exports = "<div class=\"m-panel\">\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#inc this.$body}\n        </div>\n    </div>\n</div>"
 
 /***/ },
-/* 60 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4460,7 +4645,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(61);
+	var template = __webpack_require__(65);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4543,68 +4728,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Pager;
 
 /***/ },
-/* 61 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"m-pager m-pager-{@(position)} {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <li class=\"pager_prev\" r-class={ {'z-dis' : current <= 1} } on-click={this.select(current - 1)}><a>上一页</a></li>\n    {#if total - middle > side * 2 + 1}\n        {#list 1..side as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _start > side + 1}<li><span>...</span></li>{/if}\n        {#list _start.._end as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _end < total - side}<li><span>...</span></li>{/if}\n        {#list (total - side + 1)..total as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {#else}\n        {#list 1..total as i}\n        <li r-class={ {'z-crt': current == i} } on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {/if}\n    <li class=\"pager_next\" r-class={ {'z-dis' : current >= total} } on-click={this.select(current + 1)}><a>下一页</a></li>\n</ul>"
 
 /***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ------------------------------------------------------------
-	 * Menubar  列表视图
-	 * @author   sensen(rainforest92@126.com)
-	 * ------------------------------------------------------------
-	 */
-
-	'use strict';
-
-	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(63);
-	var _ = __webpack_require__(3);
-	var Menu = __webpack_require__(13);
-
-	/**
-	 * @class Menubar
-	 * @param {object}                  options.data                    绑定属性
-	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
-	 * @param {string}                  options.data.source[].name      每项的内容
-	 * @param {object=null}             options.data.selected           当前选择项
-	 * @param {string=null}             options.data.itemTemplate       单项模板
-	 * @param {boolean=false}           options.data.readonly           是否只读
-	 * @param {boolean=false}           options.data.disabled           是否禁用
-	 * @param {boolean=true}            options.data.visible            是否显示
-	 * @param {string=''}               options.data.class              补充class
-	 * @param {object}                  options.service                 数据服务
-	 */
-	var Menubar = SourceComponent.extend({
-	    name: 'menubar',
-	    template: template,
-	    /**
-	     * @protected
-	     */
-	    config: function() {
-	        _.extend(this.data, {
-	            // @inherited source: [],
-	            itemTemplate: null
-	        });
-	        this.supr();
-	    }
-	});
-
-	module.exports = Menubar;
-
-/***/ },
-/* 63 */
-/***/ function(module, exports) {
-
-	module.exports = "<div>\n    {#list source as item}\n    <menu name={item.name} source={item.children} />\n    {/list}\n</div>\n"
-
-/***/ },
-/* 64 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4617,7 +4747,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(65);
+	var template = __webpack_require__(67);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -4744,13 +4874,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 65 */
+/* 67 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-modal {@(class)}\" on-keyup={this.keyup($event)} r-hide={!visible}>\n    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>\n        <div class=\"modal_hd\">\n            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>\n            <h3 class=\"modal_title\">{title}</h3>\n        </div>\n        <div class=\"modal_bd\">\n            {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}\n        </div>\n        <div class=\"modal_ft\">\n            {#if okButton}\n            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? '确定' : okButton}</button>\n            {/if}\n            {#if cancelButton}\n            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>\n            {/if}\n        </div>\n    </div>\n</div>"
+	module.exports = "<div class=\"m-modal {@(class)}\" on-keyup={this.keyup($event)} r-hide={!visible}>\n    <div class=\"modal_dialog\" {#if width}style=\"width: {width}px\"{/if}>\n        <div class=\"modal_hd\">\n            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>\n            <h3 class=\"modal_title\">{title}</h3>\n        </div>\n        <div class=\"modal_bd\">\n            {#if contentTemplate}{#inc @(contentTemplate)}{#else}{content}{/if}\n        </div>\n        <div class=\"modal_ft\">\n            {#if okButton}\n            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)}>{okButton === true ? '确定' : okButton}</button>\n            {/if}\n            {#if cancelButton}\n            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>\n            {/if}\n        </div>\n    </div>\n</div>"
 
 /***/ },
-/* 66 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4763,14 +4893,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(67);
+	var template = __webpack_require__(69);
 	var _ = __webpack_require__(3);
 
 	/**
 	 * @class ListView
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
 	 * @param {string}                  options.data.source[].name      每项的内容
 	 * @param {object=null}             options.data.selected           当前选择项
 	 * @param {string=null}             options.data.itemTemplate       单项模板
@@ -4818,163 +4947,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ListView;
 
 /***/ },
-/* 67 */
-/***/ function(module, exports) {
-
-	module.exports = "<ul class=\"m-listview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</li>\n    {/list}\n</ul>"
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ------------------------------------------------------------
-	 * GridView  网格视图
-	 * @author   sensen(rainforest92@126.com)
-	 * ------------------------------------------------------------
-	 */
-
-	'use strict';
-
-	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(69);
-	var _ = __webpack_require__(3);
-
-	/**
-	 * @class GridView
-	 * @extend SourceComponent
-	 * @param {object}                  options.data                    绑定属性
-	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
-	 * @param {string}                  options.data.source[].name      每项的内容
-	 * @param {boolean=true}            options.data.visible            是否显示
-	 * @param {string=''}               options.data.class              补充class
-	 * @param {object}                  options.service                 数据服务
-	 */
-	var GridView = SourceComponent.extend({
-	    name: 'gridView',
-	    template: template,
-	    /**
-	     * @protected
-	     */
-	    config: function() {
-	        _.extend(this.data, {
-	            // @inherited source: []
-	        });
-	        this.supr();
-	    }
-	});
-
-	module.exports = GridView;
-
-/***/ },
 /* 69 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-gridview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#list source as item}\n    <div class=\"gridview_item\" r-class={ {'z-sel': selected === item} }>{#if @(itemTemplate)}{#include @(itemTemplate)}{#else}{item.name}{/if}</div>\n    {/list}\n</div>"
+	module.exports = "<ul class=\"m-listview {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    {#list source as item}\n    <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n    {/list}\n</ul>"
 
 /***/ },
 /* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * ------------------------------------------------------------
-	 * TableView 表格视图
-	 * @author   sensen(rainforest92@126.com)
-	 * ------------------------------------------------------------
-	 */
-
-	'use strict';
-
-	var SourceComponent = __webpack_require__(5);
-	var template = __webpack_require__(71);
-	var _ = __webpack_require__(3);
-
-	/**
-	 * @class TableView
-	 * @extend SourceComponent
-	 * @param {object}                  options.data                    绑定属性
-	 * @param {object[]=[]}             options.data.source             数据源
-	 * @param {number}                  options.data.source[].id        每项的id
-	 * @param {string}                  options.data.source[].name      每项的内容
-	 * @param {object[]=[]}             options.data.field              字段集
-	 * @param {string}                  options.data.field[].key        每个字段的key
-	 * @param {string}                  options.data.field[].name       每个字段在表头显示的文字，如果没有则显示key
-	 * @param {boolean=false}           options.data.striped            是否显示条纹
-	 * @param {boolean=false}           options.data.hover              是否每行在hover时显示样式
-	 * @param {boolean=true}            options.data.visible            是否显示
-	 * @param {string=''}               options.data.class              补充class
-	 * @param {object}                  options.service                 数据服务
-	 */
-	var TableView = SourceComponent.extend({
-	    name: 'tableView',
-	    template: template,
-	    /**
-	     * @protected
-	     */
-	    config: function() {
-	        _.extend(this.data, {
-	            // @inherited source: [],
-	            fields: [],
-	            striped: false,
-	            hover: false,
-	            // TODO: 暂不考虑多字段排序
-	            order: {
-	                by: null,
-	                desc: false
-	            }
-	        });
-	        this.supr();
-	    },
-	    /**
-	     * @method sort(field) 按照某个字段排序
-	     * @public
-	     * @param  {object} field 排序字段
-	     * @return {void}
-	     */
-	    sort: function(field) {
-	        if(!field.sortable)
-	            return;
-
-	        var order = this.data.order;
-
-	        if(order.by === field.key)
-	            order.desc = !order.desc;
-	        else {
-	            order.by = field.key;
-	            order.desc = false;
-	        }
-
-	        if(this.service)
-	            this.$updateSource();
-	        else {
-	            this.data.source.sort(function(a, b) {
-	                if(order.desc)
-	                    return a[order.by] < b[order.by];
-	                else
-	                    return a[order.by] > b[order.by];
-	            });
-	        }
-	        /**
-	         * @event sort 按照某个字段排序时触发
-	         * @property {object} field 排序字段
-	         */
-	        this.$emit('sort', {
-	            field: field
-	        });
-	    }
-	});
-
-	module.exports = TableView;
-
-/***/ },
-/* 71 */
-/***/ function(module, exports) {
-
-	module.exports = "<table class=\"m-table m-tableview {@(class)}\" r-class={ {'m-table-striped': striped, 'm-table-hover': hover} } r-hide={!visible}>\n    <thead>\n        <tr>\n            {#list fields as field}\n            <th r-class={ {'tableview_sortable': field.sortable} } on-click={this.sort(field)}>\n                {field.name || field.key}\n                {#if field.sortable}\n                    <i class=\"u-icon {order.by === field.key ? (order.desc ? 'u-icon-sort-desc' : 'u-icon-sort-asc') : 'u-icon-sort'}\"></i>\n                {/if}\n            </th>\n            {/list}\n        </tr>\n    </thead>\n    <tbody>\n        {#list source as item}\n        <tr>\n            {#list fields as field}\n            <td>{item[field.key]}</td>\n            {/list}\n        </tr>\n        {/list}\n    </tbody>\n</table>"
-
-/***/ },
-/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4987,7 +4966,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(73);
+	var template = __webpack_require__(71);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -5068,13 +5047,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 73 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = ""
 
 /***/ },
-/* 74 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5087,7 +5066,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(75);
+	var template = __webpack_require__(73);
 	var _ = __webpack_require__(3);
 
 	/**
@@ -5281,13 +5260,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 75 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-editor {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"editor_preview\" r-html={html}></div>\n    <ul class=\"m-toolbar editor_toolbar\" r-class={ {'z-dis': disabled} }>\n        <li><a title=\"加粗\" on-click={this.bold()}><i class=\"u-icon u-icon-bold\"></i></a></li>\n        <li><a title=\"斜体\" on-click={this.italic()}><i class=\"u-icon u-icon-italic\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"引用\" on-click={this.quote()}><i class=\"u-icon u-icon-quote\"></i></a></li>\n        <li><a title=\"无序列表\" on-click={this.ul()}><i class=\"u-icon u-icon-list-ul\"></i></a></li>\n        <li><a title=\"有序列表\" on-click={this.ol()}><i class=\"u-icon u-icon-list-ol\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"链接\" on-click={this.link()}><i class=\"u-icon u-icon-link\"></i></a></li>\n        <li><a title=\"图片\" on-click={this.image()}><i class=\"u-icon u-icon-image\"></i></a></li>\n    </ul>\n    <textarea class=\"editor_textarea\" r-model={content} ref=\"textarea\" readonly={readonly} disabled={disabled}></textarea>\n</div>\n<uploader visible={false} url={imageUrl} extensions={extensions} ref=\"uploader\" on-success={this.uploaderSuccess($event)} on-error={this.uploaderError($event)} />"
 
 /***/ },
-/* 76 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5300,10 +5279,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(77);
+	var template = __webpack_require__(75);
 	var _ = __webpack_require__(3);
 
-	var marked = __webpack_require__(78);
+	var marked = __webpack_require__(76);
 
 	/**
 	 * @class MarkEditor
@@ -5507,16 +5486,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 77 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-editor {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible}>\n    <div class=\"editor_preview\" r-html={html}></div>\n    <ul class=\"m-toolbar editor_toolbar\" r-class={ {'z-dis': disabled} }>\n        <li><a title=\"加粗\" on-click={this.bold()}><i class=\"u-icon u-icon-bold\"></i></a></li>\n        <li><a title=\"斜体\" on-click={this.italic()}><i class=\"u-icon u-icon-italic\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"引用\" on-click={this.quote()}><i class=\"u-icon u-icon-quote\"></i></a></li>\n        <li><a title=\"无序列表\" on-click={this.ul()}><i class=\"u-icon u-icon-list-ul\"></i></a></li>\n        <li><a title=\"有序列表\" on-click={this.ol()}><i class=\"u-icon u-icon-list-ol\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"链接\" on-click={this.link()}><i class=\"u-icon u-icon-link\"></i></a></li>\n        <li><a title=\"图片\" on-click={this.image()}><i class=\"u-icon u-icon-image\"></i></a></li>\n        <li class=\"f-fr\"><a title=\"帮助\" href=\"http://www.jianshu.com/p/7bd23251da0a\" target=\"_blank\"><i class=\"u-icon u-icon-info\"></i></a></li>\n    </ul>\n    <textarea class=\"editor_textarea\" r-model={content} ref=\"textarea\" readonly={readonly} disabled={disabled}></textarea>\n</div>\n<uploader visible={false} url={imageUrl} extensions={extensions} ref=\"uploader\" on-success={this.uploaderSuccess($event)} on-error={this.uploaderError($event)} />"
 
 /***/ },
-/* 78 */
+/* 76 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_78__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_76__;
 
 /***/ }
 /******/ ])

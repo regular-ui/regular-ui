@@ -1,4 +1,4 @@
-var except = require('expect.js');
+var expect = require('expect.js');
 var NumberInput = require('../../../src/js/unit/numberInput.js');
 
 describe('NumberInput', function() {
@@ -6,7 +6,7 @@ describe('NumberInput', function() {
         var numberInput = new NumberInput();
 
         it('should set `value` to be 0.', function() {
-            except(numberInput.data.value).to.be(0);
+            expect(numberInput.data.value).to.be(0);
         });
 
         describe('#add(value)', function() {
@@ -14,13 +14,13 @@ describe('NumberInput', function() {
                 numberInput.add(5);
                 numberInput.$update();
 
-                except(numberInput.data.value).to.be(5);
+                expect(numberInput.data.value).to.be(5);
             });
         });
 
         describe('#isOutOfRange(date)', function() {
             it('should return false with any value.', function() {
-                except(numberInput.isOutOfRange(5)).not.to.be.ok();
+                expect(numberInput.isOutOfRange(5)).not.to.be.ok();
             });
         });
     });
@@ -33,7 +33,7 @@ describe('NumberInput', function() {
         });
         
         it('should convert `date` property from string-type to Number-type.', function() {
-            except(numberInput.data.value).to.be(6);
+            expect(numberInput.data.value).to.be(6);
         });
     });
 
@@ -45,7 +45,7 @@ describe('NumberInput', function() {
         });
         
         it('should set `value` to be 0.', function() {
-            except(numberInput.data.value).to.be(0);
+            expect(numberInput.data.value).to.be(0);
         });
 
         describe('#add(value)', function() {
@@ -54,7 +54,7 @@ describe('NumberInput', function() {
                 numberInput.add();
                 numberInput.$update();
 
-                except(numberInput.data.value).to.be(oldValue);
+                expect(numberInput.data.value).to.be(oldValue);
             });
         });
     });
@@ -68,31 +68,31 @@ describe('NumberInput', function() {
         });
 
         it('should select the boundary value if out of range.', function() {
-            except(numberInput.data.value).to.be(2);
+            expect(numberInput.data.value).to.be(2);
         });
 
         it('should check if out of the range after set a new `value`.', function() {
             numberInput.data.value = 18;
             numberInput.$update();
 
-            except(numberInput.data.value).to.be(7);
+            expect(numberInput.data.value).to.be(7);
         });
 
         it('should check if out of the range after set a new `minValue` or `maxValue`.', function() {
             numberInput.data.max = 5;
             numberInput.$update();
 
-            except(numberInput.data.value).to.be(5);
+            expect(numberInput.data.value).to.be(5);
         });
 
         describe('#isOutOfRange(date)', function() {
             it('should return true if out of range.', function() {
-                except(numberInput.isOutOfRange(0)).to.be.ok();
-                except(numberInput.isOutOfRange(0)).to.be(2);
+                expect(numberInput.isOutOfRange(0)).to.be.ok();
+                expect(numberInput.isOutOfRange(0)).to.be(2);
             });
 
             it('should return false if in the range.', function() {
-                except(numberInput.isOutOfRange(4)).not.to.be.ok();
+                expect(numberInput.isOutOfRange(4)).not.to.be.ok();
             });
         });
     });
@@ -108,11 +108,11 @@ describe('NumberInput', function() {
 
         describe('#isOutOfRange(date)', function() {
             it('should return true if out of range.', function() {
-                except(numberInput.isOutOfRange(-2)).to.be(0);
+                expect(numberInput.isOutOfRange(-2)).to.be(0);
             });
 
             it('should return false if in the range.', function() {
-                except(numberInput.isOutOfRange(4)).not.to.be.ok();
+                expect(numberInput.isOutOfRange(4)).not.to.be.ok();
             });
         });
     });
@@ -127,7 +127,7 @@ describe('NumberInput', function() {
                     }
                 });
             } catch(e) {
-                except(e).to.be.a(NumberInput.NumberRangeException);
+                expect(e).to.be.a(NumberInput.NumberRangeException);
             }
         });
     });

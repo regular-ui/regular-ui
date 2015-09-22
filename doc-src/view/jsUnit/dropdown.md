@@ -143,3 +143,49 @@ var component = new RGUI.Component({
     }
 });
 ```
+
+#### 数据绑定
+
+<div class="m-example"></div>
+
+```xml
+<dropdown source={source} open={open} /> 当前切换的状态：{open}
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+```
+
+#### 事件
+
+请打开浏览器的控制台查看结果。
+
+<div class="m-example"></div>
+
+```xml
+<dropdown source={source}
+    on-toggle={console.log('on-toggle:', '$event.open:', $event.open)}
+    on-select={console.log('on-select:', '$event.selected:', $event.selected)} />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+```

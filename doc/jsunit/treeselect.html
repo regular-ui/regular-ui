@@ -138,6 +138,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/select2group.html">多级选择<small> Select2Group</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li class="z-crt"><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -195,6 +203,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <li class="sidebar_group"><span>其他</span></li>
         
         <li><a href="../jsunit/progress.html">进度条<small> Progress</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/loading.html">加载中<small> Loading</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
@@ -331,8 +347,6 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
             
-            <tr><td class="f-wsn"><code>data.source[].id</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>每项的id</td></tr>
-            
             <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
             
             <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
@@ -385,24 +399,6 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
     
-        <h5>treeSelect.select(item)</h5>
-        <p>选择某一项</p>
-        <table>
-            <thead>
-                <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
-            </thead>
-            <tbody>
-                
-                    
-                    <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
-                    
-                
-            </tbody>
-        </table>
-    
-    
-    
-    
         <h5>treeSelect.toggle(open)</h5>
         <p>在展开/收起状态之间切换</p>
         <table>
@@ -413,6 +409,24 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                     
                     <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起</td></tr>
+                    
+                
+            </tbody>
+        </table>
+    
+    
+    
+    
+        <h5>treeSelect.select(item)</h5>
+        <p>选择某一项</p>
+        <table>
+            <thead>
+                <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    
+                    <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择项</td></tr>
                     
                 
             </tbody>
@@ -446,8 +460,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
     
-        <h5>treeSelect.$on('select')</h5>
-        <p>选择某一项时触发</p>
+        <h5>treeSelect.$on('change')</h5>
+        <p>选择项改变时触发</p>
         <table>
             <thead>
                 <tr><th>属性</th><th>类型</th><th>描述</th></tr>
@@ -455,7 +469,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <tbody>
                 
                     
-                    <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+                    <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">改变后的选择项</td></tr>
                     
                 
             </tbody>
@@ -492,6 +506,24 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                     
                     <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">object</td><td class="f-wsn">展开/收起状态</td></tr>
+                    
+                
+            </tbody>
+        </table>
+    
+    
+    
+    
+        <h5>treeSelect.$on('select')</h5>
+        <p>选择某一项时触发</p>
+        <table>
+            <thead>
+                <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    
+                    <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
                     
                 
             </tbody>

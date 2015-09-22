@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
 
+var structure = require('../structure.js');
 var mcss = require('../lib/gulp-mcss.js');
 var buildAll = require('../doc-src/buildAll.js');
 
@@ -48,7 +49,6 @@ gulp.task('doc-js', function() {
 
 gulp.task('doc-css', function() {
     var gulpCSS = function(theme) {
-        // Should Merge
         return gulp.src('./src/mcss/' + theme + '.mcss')
             .pipe(mcss({
                 pathes: ["./node_modules"],
@@ -68,7 +68,7 @@ gulp.task('doc-css', function() {
             .pipe(gulp.dest('./doc/css'));
     }
     
-    return gulp.THEMES.map(gulpCSS).pop();
+    return structure.themes.map(gulpCSS).pop();
 });
 
 gulp.task('doc-build', function(done) {

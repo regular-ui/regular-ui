@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
 
+var structure = require('../structure.js');
 var mcss = require('../lib/gulp-mcss.js');
 
 /**
@@ -40,7 +41,31 @@ gulp.task('doc-watch-jshint', function() {
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('doc-watch-css', function() {
+// gulp.task('doc-watch-css', function() {
+//     var gulpCSS = function(theme) {
+//         // Should Merge
+//         return gulp.src('./doc-src/mcss/' + theme + '.mcss')
+//             .pipe(mcss({
+//                 pathes: ["./node_modules"],
+//                 importCSS: true
+//             }))
+//             .pipe(rename('doc.' + theme + '.min.css'))
+//             // .pipe(minifycss()) // watch的时候不压缩了
+//             .pipe(gulp.dest('./doc/css'));
+//     }
+    
+//     return structure.themes.map(gulpCSS).pop();
+// });
+
+// 分主题监听
+function doc_watch_css(event) {
+    var themes = structure.themes.filter(function(theme) {
+        return event.path.indexOf(theme) >= 0;
+    });
+
+    if(!themes.length)
+        themes = structure.themes;
+
     var gulpCSS = function(theme) {
         // Should Merge
         return gulp.src('./doc-src/mcss/' + theme + '.mcss')
@@ -50,15 +75,19 @@ gulp.task('doc-watch-css', function() {
             }))
             .pipe(rename('doc.' + theme + '.min.css'))
             // .pipe(minifycss()) // watch的时候不压缩了
-            .pipe(gulp.dest('./doc/css'));
+            .pipe(gulp.dest('./doc/css'))
+            .on('end', function() {
+                console.log('[' + new Date().toTimeString().split(' ')[0] + ']', 'Finished \'doc-watch-css\':', theme);
+            });
     }
     
-    return gulp.THEMES.map(gulpCSS).pop();
-});
+    console.log('[' + new Date().toTimeString().split(' ')[0] + ']', 'Starting \'doc-watch-css\':', themes);
+    return themes.map(gulpCSS).pop();
+}
 
 gulp.task('doc-watch', function() {
     gulp.watch('doc-src/assets/**', ['doc-watch-copy']);
-    gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], ['doc-watch-css']);
+    gulp.watch(['src/mcss/**', 'doc-src/mcss/**'], doc_watch_css);
     // gulp.watch('src/js/**/*.js', ['doc-watch-jshint']);
     gulp.watch(['src/js/**/*.js', 'doc-src/view/**', 'doc-src/sitemap.json'], ['doc-build']);
 });

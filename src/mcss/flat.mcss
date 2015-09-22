@@ -1,117 +1,55 @@
-// Name:            Default Theme
-// Author:          sensen(rainforest92@126.com)
-// Description:     Default Theme
-// ========================================================================
-
-
-
-// Base
-// ========================================================================
-
-$theme_name = "flat";
 @import "mass/mass/index.mcss";
 $reset-normalize();
 
-@import "core/base/function.mcss";
-@import "core/base/helper.mcss";
-@import "core/base/font-awesome.css";
-
-@import "flat/base/var.mcss";
-@import "flat/base/base.mcss";
-@import "flat/base/effect.mcss";
-
-
-
-// CSS Unit
-// ========================================================================
-
-@import "flat/unit/button.mcss";
-@import "flat/unit/buttonGroup.mcss";
-@import "flat/unit/color.mcss";
-@import "flat/unit/text.mcss";
-@import "flat/unit/tip.mcss";
-@import "flat/unit/badge.mcss";
-@import "flat/unit/message.mcss";
-@import "flat/unit/image.mcss";
-// @import "flat/unit/thumbnail.mcss";
-@import "flat/unit/formCtrl.mcss";
-@import "flat/unit/formItem.mcss";
-@import "flat/unit/formGroup.mcss";
-
-
-
-// CSS Module
-// ========================================================================
-
-/* 导航类 */
-@import "flat/module/navbar.mcss";
-@import "flat/module/crumb.mcss";
-@import "flat/module/sidebar.mcss";
-@import "flat/module/toolbar.mcss";
-
-/* 文章类 */
-@import "flat/module/article.mcss";
-@import "flat/module/comment.mcss";
-
-/* 布局类 */
-@import "flat/module/list.mcss";
-@import "flat/module/table.mcss";
-@import "flat/module/panel.mcss";
-@import "flat/module/form.mcss";
-
-
-
-// JS Unit
-// ========================================================================
-
-/* 导航类 */
-@import "flat/unit/dropdown.mcss";
-@import "flat/unit/menu.mcss";
-
-/* 数据类 */
-@import "flat/unit/input2.mcss";
-@import "flat/unit/numberInput.mcss";
-@import "flat/unit/check2.mcss";
-@import "flat/unit/radio2.mcss";
-@import "core/unit/unitGroup.mcss";
-@import "flat/unit/select2.mcss";
-@import "flat/unit/suggest.mcss";
-@import "core/unit/uploader.mcss";
-
-/* 日期类 */
-@import "flat/unit/timePicker.mcss";
-@import "flat/unit/datePicker.mcss";
-@import "flat/unit/dateTimePicker.mcss";
-
-/* 其他 */
-@import "flat/unit/progress.mcss";
-@import "flat/unit/gotop.mcss";
-
-
-
-// JS Module
-// ========================================================================
-
-/* 导航类 */
-@import "flat/module/tabs.mcss";
-@import "flat/module/collapse.mcss";
-@import "flat/module/pager.mcss";
-
-/* 窗口类 */
-@import "flat/module/notify.mcss";
-@import "flat/module/modal.mcss";
-
-/* 数据类 */
-@import "flat/module/listView.mcss";
-@import "flat/module/gridView.mcss";
-@import "flat/module/treeView.mcss";
-@import "flat/module/tableView.mcss";
-
-/* 上传类 */
-//
-
-/* 日期类 */
-@import "flat/module/calendar.mcss";
-
-/* 编辑器类 */
-@import "flat/module/editor.mcss";
+@import "./core/base/function.mcss";
+@import "./core/base/helper.mcss";
+@import "./core/base/font-awesome.css";
+@import "./flat/base/var.mcss";
+@import "./flat/base/base.mcss";
+@import "./flat/base/effect.mcss";
+@import "./flat/unit/button.mcss";
+@import "./flat/unit/buttonGroup.mcss";
+@import "./flat/unit/color.mcss";
+@import "./flat/unit/text.mcss";
+@import "./flat/unit/badge.mcss";
+@import "./flat/unit/tip.mcss";
+@import "./flat/unit/message.mcss";
+@import "./flat/unit/image.mcss";
+@import "./flat/unit/formCtrl.mcss";
+@import "./flat/unit/formItem.mcss";
+@import "./flat/unit/formGroup.mcss";
+@import "./flat/module/navbar.mcss";
+@import "./flat/module/sidebar.mcss";
+@import "./flat/module/toolbar.mcss";
+@import "./flat/module/crumb.mcss";
+@import "./flat/module/article.mcss";
+@import "./flat/module/comment.mcss";
+@import "./flat/module/list.mcss";
+@import "./flat/module/table.mcss";
+@import "./flat/module/panel.mcss";
+@import "./flat/module/form.mcss";
+@import "./core/module/footer.mcss";
+@import "./flat/unit/dropdown.mcss";
+@import "./flat/unit/menu.mcss";
+@import "./flat/unit/input2.mcss";
+@import "./flat/unit/numberInput.mcss";
+@import "./flat/unit/check2.mcss";
+@import "./flat/unit/radio2.mcss";
+@import "./core/unit/unitGroup.mcss";
+@import "./flat/unit/select2.mcss";
+@import "./flat/unit/suggest.mcss";
+@import "./core/unit/uploader.mcss";
+@import "./flat/unit/timePicker.mcss";
+@import "./flat/unit/dateTimePicker.mcss";
+@import "./flat/unit/progress.mcss";
+@import "./core/unit/loading.mcss";
+@import "./flat/unit/gotop.mcss";
+@import "./flat/module/tabs.mcss";
+@import "./flat/module/collapse.mcss";
+@import "./flat/module/pager.mcss";
+@import "./flat/module/notify.mcss";
+@import "./flat/module/modal.mcss";
+@import "./flat/module/listView.mcss";
+@import "./flat/module/treeView.mcss";
+@import "./flat/module/calendar.mcss";
+@import "./flat/module/editor.mcss";

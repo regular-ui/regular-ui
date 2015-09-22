@@ -138,6 +138,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/select2group.html">多级选择<small> Select2Group</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../jsunit/treeselect.html">树型选择<small> TreeSelect</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -202,6 +210,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/loading.html">加载中<small> Loading</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../jsunit/gotop.html">回到顶部<small> Gotop</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -236,7 +252,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-attribute">{time}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-attribute">{time}</span> <span class="cm-attribute">minTime</span>=<span class="cm-string">&quot;18:00&quot;</span> <span class="cm-attribute">maxTime</span>=<span class="cm-string">&quot;19:30&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前选择的日期为：{time}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前选择的时间为：{time}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">事件</h4>
 <p>请打开浏览器的控制台查看结果。</p>
@@ -454,7 +470,7 @@ var component = new RGUI.Component({
     var template = RGUI._.multiline(function(){/*
 <timePicker time={time} />
 <timePicker time={time} minTime="18:00" maxTime="19:30" />
-<p>当前选择的日期为：{time}</p>
+<p>当前选择的时间为：{time}</p>
     */})
 var component = new RGUI.Component({
     template: template,
