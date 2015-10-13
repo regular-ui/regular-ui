@@ -9,7 +9,7 @@
 // ========================================================================
 
 .m-footer {
-    padding: 40px 0;
+    padding: 40px 0 80px;
     text-align: center;
     background: #262626;
     color: #777;
@@ -22,5 +22,10 @@
 
     a:hover {
         color: #eee;
+    }
+
+    .footer_logo {
+        display: block;
+        margin: 15px 0 25px;
     }
 }

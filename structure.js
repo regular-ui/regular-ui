@@ -11,6 +11,7 @@ module.exports = {
          */
         'Button': {type: 'css', category: 'unit', lowerName: 'button'},
         'ButtonGroup': {type: 'css', category: 'unit', lowerName: 'buttonGroup', requires: ['Button']},
+        'Icon': {type: 'css', category: 'unit', lowerName: 'icon'},
         'Color': {type: 'css', category: 'unit', lowerName: 'color'},
         'Text': {type: 'css', category: 'unit', lowerName: 'text'},
         'Badge': {type: 'css', category: 'unit', lowerName: 'badge'},
@@ -37,6 +38,7 @@ module.exports = {
         'Table': {type: 'css', category: 'module', lowerName: 'table'},
         'Panel': {type: 'css', category: 'module', lowerName: 'panel'},
         'Form': {type: 'css', category: 'module', lowerName: 'form'},
+        'Header': {type: 'css', category: 'module', lowerName: 'header'},
         'Footer': {type: 'css', category: 'module', lowerName: 'footer'},
 
         /**

@@ -22,8 +22,8 @@ gulp.task('dist-clean', function() {
     return gulp.src('./dist', {read: false}).pipe(rm());
 });
 
-gulp.task('dist-copy-font', function() {
-    return gulp.src('./src/font/**').pipe(gulp.dest('./dist/font'));
+gulp.task('dist-copy-fonts', function() {
+    return gulp.src('./node_modules/font-awesome/fonts/**').pipe(gulp.dest('./dist/fonts'));
 });
 
 gulp.task('dist-copy-vendor', function() {
@@ -33,7 +33,7 @@ gulp.task('dist-copy-vendor', function() {
     ]).pipe(gulp.dest('./dist/vendor'));
 });
 
-gulp.task('dist-copy', ['dist-copy-font', 'dist-copy-vendor']);
+gulp.task('dist-copy', ['dist-copy-fonts', 'dist-copy-vendor']);
 
 gulp.task('dist-js', function() {
     return gulp.src('./src/js/index.js')

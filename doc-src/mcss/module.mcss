@@ -1,5 +1,8 @@
 .m-logo {
-    display: none;
+    margin: 0;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 60px;
 }
 
 .m-article {
@@ -289,4 +292,23 @@ $m-navbar-current_background-color = $brand-primary;
 
 .m-example-hidden + .m-tabs, .m-example-hidden ~ pre {
     display: none;
+}
+
+.m-part {
+    $box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    // margin: 25px 0 40px;
+    padding: 20px;
+    
+    h2 {
+        // margin-top: 15px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    p {
+        text-indent: 2em;
+    }
 }

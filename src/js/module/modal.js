@@ -62,7 +62,6 @@ var Modal = Component.extend({
             result: result
         });
         result ? this.ok() : this.cancel();
-        this.destroy();
     },
     /**
      * @override

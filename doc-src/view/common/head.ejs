@@ -8,8 +8,8 @@
 <meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
 <meta name="description" content="Regular UI">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<%= relativePath %>img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="<%= relativePath %>img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
@@ -38,9 +38,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <body>
 <div class="g-top">
     <div class="g-topc">
-        <h1 class="m-logo">
-            <a href="/">Regular UI</a>
-        </h1>
+        <a class="m-logo" href="<%= relativePath %>index.html"><img src="<%= relativePath %>img/logo-v1.0-long-48.png" /></a>
         <ul class="m-navbar f-fr">
             <% mainnavs.forEach(function(item) { %>
             <% if(item.hidden) return; %>
@@ -50,5 +48,3 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         </ul>
     </div>
 </div>
-<div class="g-bd">
-    <div class="g-bdc">

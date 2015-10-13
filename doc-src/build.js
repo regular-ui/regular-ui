@@ -83,10 +83,26 @@ function build(path, sitemap, template) {
             break;
         }
 
-    // 根据./view目录下的markdown文件生成文档
-    var md = __dirname + '/view/' + path + '.md';
-    if(fs.existsSync(md)) {
-        var markdown = fs.readFileSync(md) + '';
+    // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API
+    if(level[0].slice(0, 2) === 'js') {
+        var jsFile = __dirname + '/../src/js/' + level[0].slice(2, 20).toLowerCase() + '/' + level[1] + '.js';
+        if(fs.existsSync(jsFile))
+            data.api = jsdoc.render(jsFile, template.jsApi);
+    }
+
+    var tpl = template.head + '<div class="g-bd"><div class="g-bdc">' + template.sidebar + template.main + '</div></div>' + template.foot;
+
+    var htmlPath = __dirname + '/view/' + path + '.html';
+    var ejsPath = __dirname + '/view/' + path + '.ejs';
+    var mdPath = __dirname + '/view/' + path + '.md';
+    
+    if(fs.existsSync(htmlPath))
+        tpl = template.head + fs.readFileSync(htmlPath) + template.foot;
+    else if(fs.existsSync(ejsPath))
+        tpl = template.head + fs.readFileSync(ejsPath) + template.foot;
+    else if(fs.existsSync(mdPath)) {
+        // 根据./view目录下的markdown文件生成文档
+        var markdown = fs.readFileSync(mdPath) + '';
 
         if(level[0].slice(0, 2) === 'js') {
             // 根据markdown文件中的示例代码直接生成js脚本
@@ -99,15 +115,7 @@ function build(path, sitemap, template) {
         data.article = markextend(markdown);
     }
 
-    // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API
-    if(level[0].slice(0, 2) === 'js') {
-        var jsFile = __dirname + '/../src/js/' + level[0].slice(2, 20).toLowerCase() + '/' + level[1] + '.js';
-        if(fs.existsSync(jsFile))
-            data.api = jsdoc.render(jsFile, template.jsApi);
-    }
-
     // 渲染HTML文件
-    var tpl = template.head + template.sidebar + template.main + template.foot;
     var html = ejs.render(tpl, data);
 
     var filepath = __dirname + '/../doc/' + path.toLowerCase() + '.html';

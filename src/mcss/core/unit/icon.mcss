@@ -1,0 +1,11 @@
+.u-icon {
+    line-height: inherit;
+    /* */
+    width: 1em;
+    /* */
+    text-align: center;
+    /* */
+    /*vertical-align: middle;*/
+    /* */
+    /*margin-top: -2px;*/
+}

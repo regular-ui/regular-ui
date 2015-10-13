@@ -8,8 +8,8 @@
 <meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
 <meta name="description" content="Regular UI">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<link rel="icon" href="/global/img/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/global/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
@@ -38,9 +38,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <body>
 <div class="g-top">
     <div class="g-topc">
-        <h1 class="m-logo">
-            <a href="/">Regular UI</a>
-        </h1>
+        <a class="m-logo" href="index.html"><img src="img/logo-v1.0-long-48.png" /></a>
         <ul class="m-navbar f-fr">
             
             
@@ -61,67 +59,62 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <li id="j-themeSelect"></li>
         </ul>
     </div>
+</div><div class="g-bd">
+    <header class="m-header">
+        <img class="header_logo" src="img/logo-v1.0-256.png" />
+        <h1>Regular UI<sup>v0.1</sup></h1>
+        <h2>一款基于RegularJS的前端组件库</h2>
+        <p>
+            <a class="u-btn u-btn-primary u-btn-lg" href="start/quickstart.html">快速开始</a>
+            <a class="u-btn u-btn-lg" target="_blank" href="https://github.com/regular-ui/regular-ui-bower/releases/latest">下载最新版</a>
+        </p>
+        <p></p>
+    </header>
+    <div class="g-bdc g-bdc-index">
+        <div class="m-part">
+            <h2><i class="u-icon u-icon-gg"></i> 组件化</h2>
+            <p>Regular UI包含20多个CSS组件和30多个JS组件，可以快速构建内容丰富、功能复杂的页面，大幅提升开发效率。</p>
+        </div>
+        <div class="m-part">
+            <h2><i class="u-icon u-icon-tablet"></i> 响应式</h2>
+            <p>此处正在装逼。。。</p>
+        </div>
+        <div class="m-part">
+            <h2><i class="u-icon u-icon-magic"></i> 可定制</h2>
+            <p>组件中可以定制需要的模板，方便扩展；打包时可以选择需要的组件，减小Regular UI文件的体积；还可以根据主题内核，轻松定制自己喜欢的主题样式。</p>
+        </div>
+        <div class="m-part">
+            <h2><i class="u-icon u-icon"></i> ES6</h2>
+            <p>此处正在装逼。。。</p>
+        </div>
+        <div class="m-part">
+            <h2><i class="u-icon u-icon"></i> RegularJS</h2>
+            <p>RegularJS是一款轻便的基于动态模板实现的用于构建数据驱动型组件的新一代类库。Regular UI的JS文件只依赖RegularJS。</p>
+        </div>
+        <div class="m-part">
+            <h2><i class="u-icon u-icon"></i> SASS</h2>
+            <p>此处正在装逼。。。</p>
+        </div>
+    </div>
 </div>
-<div class="g-bd">
-    <div class="g-bdc"><div class="g-sd">
-    <ul class="m-sidebar">
-        
-        
-        
-        
-        <li><a href="start/quickstart.html">快速开始<small> QuickStart</small>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="start/developer.html">开发者<small> Developer</small>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="start/structure.html">项目结构<small> Structure</small>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="start/rule.html">规范<small> Rule</small>
-        
-        </a></li>
-        
-        
-        
-        <li><a href="start/todo.html">后续开发<small> Todo</small>
-        
-        </a></li>
-        
-    </ul>
-</div><div class="g-mn">
-    <article class="m-article">
-        
-        <h2 id="regular-ui">Regular UI</h2>
-<p>Regular UI是基于<a href="https://github.com/regularjs/regular">RegularJS</a>的前端组件库。</p>
-<p><a class="u-btn u-btn-primary u-btn-lg" target="_blank" href="https://github.com/regular-ui/regular-ui-bower/releases/latest">下载Regular UI 0.1</a>
-<a class="u-btn u-btn-success u-btn-lg" href="start/quickstart.html">开始使用</a></p>
-<h4 id="-">特点</h4>
-<ul>
-<li>模块化</li>
-<li>易扩展</li>
-<li>响应式</li>
-<li>可定制</li>
-</ul>
-<h4 id="-">开源</h4>
-<p><a href="https://github.com/regular-ui/regular-ui">GitHub</a> | <a href="https://github.com/regular-ui/regular-ui/issues">Issues</a> | <a href="https://github.com/regular-ui/regular-ui/blob/master/CHANGELOG.md">Changelog</a></p>
-<p>Licensed under MIT license.</p>
-
-        
-    </article>
-</div>    </div>
-</div>
-<div class="g-ft">
+<div class="g-bd g-bd-dark">
+    <div class="g-bdc">
+        <!--div class="m-part">
+            <h2><i class="u-icon u-icon-gg"></i> 组件化</h2>
+            <p>Regular UI包含20多个CSS组件和30多个JS组件，可以快速构建内容丰富、功能复杂的页面，大幅提升开发效率。</p>
+        </div>
+        <div class="m-part">
+            <h2><i class="u-icon u-icon-gg"></i> 响应式</h2>
+            <p>此处正在装逼。。。</p>
+        </div>
+        <div class="m-part">
+            <h2><i class="u-icon u-icon-gg"></i> 可定制</h2>
+            <p>组件中可以定制自己需要的模板，方便扩展；打包时可以选择自己需要的组件，减小Regular UI文件的体积；还可以根据主题内核，轻松定制自己喜欢的主题样式。</p>
+        </div-->
+    </div>
+</div><div class="g-ft">
     <footer class="m-footer">
+        <p><a href="index.html" class="footer_logo"><img src="img/logo-v1.0-64.png" /></p>
         <p>
             <a href="https://github.com/regular-ui/regular-ui" target="_blank">GitHub</a> |
             <a href="https://github.com/regular-ui/regular-ui/issues" target="_blank">Issues</a> |

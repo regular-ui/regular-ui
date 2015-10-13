@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-if(!fs.existsSync('../structure.customized.js'))
+if(!fs.existsSync('./structure.customized.js'))
     return;
 
 var gulp = require('gulp');

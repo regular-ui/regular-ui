@@ -1,5 +1,10 @@
 // Grid
 .g-top {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 5;
     height: $m-navbar_height;
     background: $m-navbar_background-color;
 }
@@ -10,6 +15,7 @@
 }
 
 .g-hd {
+    margin-top: $m-navbar_height;
     height: 200px;
     background: #f4f4f4;
 }
@@ -20,12 +26,26 @@
 }
 
 .g-bd {
-    margin-top: 40px;
+    margin-top: $m-navbar_height;
+    // margin-top: 40px;
+}
+
+.g-bd + .g-bd {
+    margin-top: 0;
 }
 
 .g-bdc {
     width: 960px;
     margin: 0 auto;
+    padding: 40px;
+}
+
+.g-bdc-index {
+    // margin: 30px auto;
+}
+
+.g-bd-dark {
+    background: #eee;
 }
 
 .g-sd {
