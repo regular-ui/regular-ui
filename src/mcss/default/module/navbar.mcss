@@ -5,11 +5,17 @@
 
 @import "../../core/module/navbar.mcss";
 
+// Varibles:
+// ========================================================================
+
+$m-navbar_height = 60px;
+$m-navbar_background = $brand-secondary;
+
 // Component:       `m-navbar`
 // ========================================================================
 
 .m-navbar {
-    background: $brand-secondary;
+    background: $m-navbar_background;
     color: white; // #444
 
     > li {
@@ -17,7 +23,7 @@
         > a, > span {
             min-width: 108px;
             // padding: 0 15px;
-            $line-height: 60px;
+            $line-height: $m-navbar_height;
             color: rgba(255, 255, 255, 0.75);
             $transition: color 0.3s;
         }

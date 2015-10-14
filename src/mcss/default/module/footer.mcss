@@ -3,29 +3,29 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-
+@import "../../core/module/footer.mcss";
 
 // Component:       `m-footer`
 // ========================================================================
 
-.m-footer {
-    padding: 40px 0 80px;
-    text-align: center;
-    background: #262626;
-    color: #777;
-    font-size: 12px;
+// .m-footer {
+//     padding: 40px 0 80px;
+//     text-align: center;
+//     background: #262626;
+//     color: #777;
+//     font-size: 12px;
 
-    a {
-        color: #ccc;
-        text-decoration: none;
-    }
+//     a {
+//         color: #ccc;
+//         text-decoration: none;
+//     }
 
-    a:hover {
-        color: #eee;
-    }
+//     a:hover {
+//         color: #eee;
+//     }
 
-    .footer_logo {
-        display: block;
-        margin: 15px 0 25px;
-    }
-}
+//     .footer_logo {
+//         display: block;
+//         margin: 15px 0 25px;
+//     }
+// }

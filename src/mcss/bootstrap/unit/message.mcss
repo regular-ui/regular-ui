@@ -51,7 +51,7 @@ $u-message-extend_color = ($name, $background, $color, $border_) {
     }
 }
 
-$u-message-extend_color(info, $status-info_background, $status-info_color, $status-info_border);
-$u-message-extend_color(success, $status-success_background, $status-success_color, $status-success_border);
-$u-message-extend_color(warning, $status-warning_background, $status-warning_color, $status-warning_border);
-$u-message-extend_color(error, $status-error_background, $status-error_color, $status-error_border);
+$u-message-extend_color(info, $state-info_background, $state-info_color, $state-info_border);
+$u-message-extend_color(success, $state-success_background, $state-success_color, $state-success_border);
+$u-message-extend_color(warning, $state-warning_background, $state-warning_color, $state-warning_border);
+$u-message-extend_color(error, $state-error_background, $state-error_color, $state-error_border);

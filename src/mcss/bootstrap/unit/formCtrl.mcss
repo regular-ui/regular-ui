@@ -99,9 +99,9 @@ $formctrl-extend_color = ($name, $background, $color, $border_) {
 
 }
 
-$formctrl-extend_color(success, $status-success_background, $status-success_color, $status-success_color);
-$formctrl-extend_color(warning, $status-warning_background, $status-warning_color, $status-warning_color);
-$formctrl-extend_color(error, $status-error_background, $status-error_color, $status-error_color);
+$formctrl-extend_color(success, $state-success_background, $state-success_color, $state-success_color);
+$formctrl-extend_color(warning, $state-warning_background, $state-warning_color, $state-warning_color);
+$formctrl-extend_color(error, $state-error_background, $state-error_color, $state-error_color);
 
 
 

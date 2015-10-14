@@ -72,18 +72,18 @@ $border-radius-lg =          6px;
 $border-radius-xl =          6px;
 
 
-$status-info_color =                #31708f;
-$status-info_background =           #d9edf7;
-$status-info_border =              l-adjust(h-adjust($status-info_background, -10), -7%);
+$state-info_color =                #31708f;
+$state-info_background =           #d9edf7;
+$state-info_border =              l-adjust(h-adjust($state-info_background, -10), -7%);
 
-$status-success_color =             #3c763d;
-$status-success_background =        #dff0d8;
-$status-success_border =           l-adjust(h-adjust($status-success_background, -10), -5%);
+$state-success_color =             #3c763d;
+$state-success_background =        #dff0d8;
+$state-success_border =           l-adjust(h-adjust($state-success_background, -10), -5%);
 
-$status-warning_color =             #8a6d3b;
-$status-warning_background =        #fcf8e3;
-$status-warning_border =           l-adjust(h-adjust($status-warning_background, -10), -5%);
+$state-warning_color =             #8a6d3b;
+$state-warning_background =        #fcf8e3;
+$state-warning_border =           l-adjust(h-adjust($state-warning_background, -10), -5%);
 
-$status-error_color =              #a94442;
-$status-error_background =         #f2dede;
-$status-error_border =            l-adjust(h-adjust($status-error_background, -10), -5%);
+$state-error_color =              #a94442;
+$state-error_background =         #f2dede;
+$state-error_border =            l-adjust(h-adjust($state-error_background, -10), -5%);

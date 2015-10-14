@@ -79,7 +79,7 @@ ins {
 
 mark {
     padding: .2em;
-    background: $status-warning_background;
+    background: $state-warning_background;
     color: #444;
 }
 
