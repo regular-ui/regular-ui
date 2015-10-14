@@ -23,7 +23,7 @@ $u-text-extend_size(lg, 18px, 24px);
 // Color Extends:
 // ========================================================================
 
-$u-text-extend_color(primary, $brand-primary);
+$u-text-extend_color(primary, $brand-secondary);
 $u-text-extend_color(success, $state-success_color);
 $u-text-extend_color(warning, $state-warning_color);
 $u-text-extend_color(error, $state-error_color);

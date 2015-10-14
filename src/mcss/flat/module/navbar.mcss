@@ -9,7 +9,8 @@
 // ========================================================================
 
 $m-navbar_height = 60px;
-$m-navbar_background = $brand-secondary;
+$m-navbar_background = $brand-primary;
+$m-navbar_li-hover_color = mix($brand-secondary, white, 80%);
 
 // Component:       `m-navbar`
 // ========================================================================
@@ -25,19 +26,20 @@ $m-navbar_background = $brand-secondary;
             // padding: 0 15px;
             $line-height: $m-navbar_height;
             color: white;
-            $transition: background 0.3s;
+            $transition: color 0.3s;
         }
     }
 
     > li:hover > a {
-        background: mix(mix($brand-primary, black, 30%), white, 85%);
+        // background: mix($brand-secondary, white, 85%);
+        color: $m-navbar_li-hover_color;
     }
 
     > li:active > a {
-        background: mix($brand-primary, black, 20%);
+        color: $m-navbar_li-hover_color;
     }
 
     > li.z-crt > a {
-        background: $brand-primary;
+        color: $m-navbar_li-hover_color;
     }
 }

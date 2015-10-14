@@ -14,7 +14,7 @@
     .dropdown_hd {
         padding: 0 0 0 15px;
         $line-height: 40px;
-        background: $brand-primary;
+        background: $brand-secondary;
         color: white;
         $border-radius: $border-radius-base;
         -webkit-font-smoothing: subpixel-antialiased;
@@ -28,7 +28,7 @@
     }
 
     .dropdown_hd:hover {
-        background: mix($brand-primary, white, 80%);
+        background: mix($brand-secondary, white, 80%);
     }
 }
 

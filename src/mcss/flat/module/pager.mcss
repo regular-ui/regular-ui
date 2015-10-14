@@ -23,24 +23,24 @@ $m-pager_li_a_size = 41px;
             $line-height: $m-pager_li_a_size;
             font-size: 14px;
             color: white;
-            background: mix($brand-secondary, white, 20%);
+            background: mix($brand-primary, white, 20%);
             // border: 1px solid #ddd;
             $transition: background .25s ease-out;
         }
 
         > a:hover, > a:focus {
-            background: $brand-primary;
+            background: $brand-secondary;
             color: white;
         }
 
         > a:active {
-            background: $brand-primary;
+            background: $brand-secondary;
             color: white;
         }
     }
 
     >li.z-crt > a {
-        background: $brand-primary;
+        background: $brand-secondary;
         color: white;
     }
 
@@ -51,7 +51,7 @@ $m-pager_li_a_size = 41px;
 
     > li + li {
         > a, > span {
-            border-left: 2px solid mix(mix($brand-secondary, white, 20%), white, 66%);
+            border-left: 2px solid mix(mix($brand-primary, white, 20%), white, 66%);
         }
     }
 

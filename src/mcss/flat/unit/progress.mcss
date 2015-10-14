@@ -14,11 +14,11 @@
 
 .u-progress {
     $line-height: 14px;
-    background: mix($brand-secondary, white, 10%);
+    background: mix($brand-primary, white, 10%);
     $border-radius: 14px;
 
     .progress_bar {
-        background: $brand-primary;
+        background: $brand-secondary;
         font-size: 12px;
         color: #fff;
         $transition: width .6s ease;

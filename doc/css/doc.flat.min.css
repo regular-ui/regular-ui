@@ -2255,7 +2255,7 @@ a{
 	text-decoration:none;
 	cursor:pointer;
 	background:transparent;
-	color:#1abc9c;
+	color:#34495e;
 }
 a:hover{
 	text-decoration:underline;
@@ -3582,18 +3582,18 @@ input.u-check:disabled,input.u-radio:disabled{
 	height:60px;
 	line-height:60px;
 	color:#fff;
-	-webkit-transition:background 0.3s;
-	-moz-transition:background 0.3s;
-	transition:background 0.3s;
+	-webkit-transition:color 0.3s;
+	-moz-transition:color 0.3s;
+	transition:color 0.3s;
 }
 .m-navbar >li:hover>a{
-	background:#2d564e;
+	color:#48c9b0;
 }
 .m-navbar >li:active>a{
-	background:#05261f;
+	color:#48c9b0;
 }
 .m-navbar >li.z-crt>a{
-	background:#1abc9c;
+	color:#48c9b0;
 }
 .m-sidebar >li >a,.m-sidebar >li >span{
 	display:block;
@@ -3832,6 +3832,26 @@ input.u-check:disabled,input.u-radio:disabled{
 .m-form >.u-formitem,.m-form fieldset>.u-formitem{
 	margin-bottom:1em;
 }
+.m-header{
+	padding:20px 0 80px;
+	text-align:center;
+	height:400px;
+	-webkit-font-smoothing:antialiased;
+}
+.m-header h1{
+	font:48px "Roboto",sans-serif;
+	margin:0;
+	margin-top:40px;
+	margin-left:20px;
+}
+.m-header h1 >sup{
+	top:0.1em;
+	vertical-align:top;
+	font-size:16px;
+}
+.m-header h2{
+	font:18px Helvetica,Arial,sans-serif;
+}
 .m-footer{
 	padding:40px 0 80px;
 	text-align:center;
@@ -3849,6 +3869,9 @@ input.u-check:disabled,input.u-radio:disabled{
 .m-footer .footer_logo{
 	display:block;
 	margin:15px 0 25px;
+}
+.m-footer{
+	background:#34495e;
 }
 .u-dropdown{
 	display:inline-block;
@@ -4888,7 +4911,7 @@ html.z-modal,html.z-modal body{
 .m-article >h3{
 	font-size:16px;
 	margin:1.5em 0 1em;
-	color:#1abc9c;
+	color:#34495e;
 }
 .m-article >h4{
 	font-size:14px;
@@ -4898,7 +4921,7 @@ html.z-modal,html.z-modal body{
 }
 .m-article >h4:before{
 	content:"";
-	border-left:3px solid #1abc9c;
+	border-left:3px solid #34495e;
 	margin-right:8px;
 }
 .m-article >h3 + h4{
@@ -4966,7 +4989,7 @@ html.z-modal,html.z-modal body{
 	color:#999;
 }
 .m-sidebar >li .u-icon-success-circle{
-	color:#1abc9c;
+	color:#34495e;
 }
 .m-sidebar >li .u-icon-info-circle{
 	color:#f1c40f;
@@ -4991,6 +5014,8 @@ html.z-modal,html.z-modal body{
 .u-select2-theme .dropdown_hd{
 	width:34.64px;
 	height:20px;
+	line-height:20px;
+	padding:0;
 	position:relative;
 	top:-1px;
 	border:none;
@@ -5029,12 +5054,14 @@ html.z-modal,html.z-modal body{
 	position:relative;
 	z-index:1;
 	font-size:inherit;
-	top:-4px;
+	width:auto;
+	border:none;
 }
 .u-select2-theme .dropdown_hd .u-icon:before{
 	content:"\f1fc";
 }
 .u-select2-theme .dropdown_hd:hover{
+	background:rgba(255,255,255,0.25);
 	color:#fff;
 }
 .u-select2-theme .dropdown_bd{
@@ -5059,6 +5086,7 @@ html.z-modal,html.z-modal body{
 	border:none;
 	-moz-border-radius:0;
 	border-radius:0;
+	min-width:initial;
 }
 .u-select2-theme .dropdown_bd .m-listview >li{
 	padding:0 8px;

@@ -60,8 +60,8 @@ $gray-light =                $silver;
 $inverse =                   white;
 
 // Brand Colors
-$brand-primary =             $turquoise;
-$brand-secondary =           $wet-asphalt;
+$brand-secondary =             $turquoise;
+$brand-primary =           $wet-asphalt;
 $brand-info =                $peter-river;
 $brand-success =             $emerald;
 $brand-warning =             $sun-flower;
@@ -104,24 +104,24 @@ $formctrl-xl_font-size = 22px;
 $formctrl_min-width = 160px;
 
 $formctrl_background = white;
-$formctrl_color = $brand-secondary;
+$formctrl_color = $brand-primary;
 $formctrl_border = 2px solid $gray-light;
 
 $formctrl-focus_background = $formctrl_background;
 $formctrl-focus_color = $formctrl_color;
-$formctrl-focus_border = $brand-primary;
+$formctrl-focus_border = $brand-secondary;
 
 $formctrl-disabled_background = mix($gray, white, 10%);;
 $formctrl-disabled_color = mix($gray, white, 40%);
 $formctrl-disabled_border = mix($gray, white, 40%);
 
-$formctrl_placeholder_color = s-adjust(l-adjust($brand-secondary, 45%), -15%);
+$formctrl_placeholder_color = s-adjust(l-adjust($brand-primary, 45%), -15%);
 
 $formctrl_item_padding = 0 10px;
 $formctrl_item-hover_background = #eee;
-$formctrl_item-hover_color = $brand-secondary;
+$formctrl_item-hover_color = $brand-primary;
 $formctrl_item-hover_border = null;
 
-$formctrl_item-selected_background = $brand-primary;
+$formctrl_item-selected_background = $brand-secondary;
 $formctrl_item-selected_color = white;
 $formctrl_item-selected_border = null;

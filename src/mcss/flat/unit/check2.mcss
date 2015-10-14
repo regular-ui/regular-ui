@@ -38,13 +38,13 @@ $u-check2_box_size = 20px;
 
 /* Hover */
 .u-check2:hover {
-    color: $brand-primary;
+    color: $brand-secondary;
 }
 
 /* Checked */
 .u-check2.z-chk {
     .check2_box {
-        background: $brand-primary;
+        background: $brand-secondary;
     }
 }
 

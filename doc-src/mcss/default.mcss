@@ -3,12 +3,3 @@
 @import 'module.mcss';
 @import 'grid.mcss';
 @import 'codemirror.mcss';
-
-.g-top {
-    height: 60px;
-    background: $brand-secondary;
-}
-
-.g-ft {
-    background: #262626;
-}

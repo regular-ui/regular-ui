@@ -13,9 +13,9 @@
 // ========================================================================
 
 .m-listview {
-    background: $brand-secondary;
+    background: $brand-primary;
     color: white;
-    border: 3px solid $brand-secondary;
+    border: 3px solid $brand-primary;
     $border-radius: $border-radius-lg;
 
     > li {
@@ -29,12 +29,12 @@
     }
 
     > li:hover {
-        background: $brand-primary;
+        background: $brand-secondary;
         color: white;
     }
 
     > li.z-sel {
-        background: $brand-primary;
+        background: $brand-secondary;
         color: white;
     }
 

@@ -227,7 +227,8 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
 
     .dropdown_hd {
         width: $u-select2-theme_hd_width-half * 2;
-        height: $u-select2-theme_hd_height-half * 2;
+        $line-height: $u-select2-theme_hd_height-half * 2;
+        padding: 0;
         position: relative;
         top: -1px;
         border: none;
@@ -267,7 +268,8 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
             position: relative;
             z-index: 1;
             font-size: inherit;
-            top: -4px;
+            width: auto;
+            border: none;
 
             &:before {
                 content: "\f1fc";
@@ -276,6 +278,7 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
     }
 
     .dropdown_hd:hover {
+        background: $u-select2-theme_background;
         color: white;
         // background: $u-select2-theme-hover_background;
 
@@ -306,6 +309,7 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
             color: $u-select2-theme_color;
             border: none;
             $border-radius: 0;
+            min-width: initial;
 
             > li {
                 padding: 0 8px;

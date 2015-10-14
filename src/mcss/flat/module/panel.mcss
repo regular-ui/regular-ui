@@ -40,7 +40,7 @@
 // Color Extends:
 // ========================================================================
 
-$m-panel-extend_color(primary, $brand-primary, #fff, $brand-primary);
+$m-panel-extend_color(primary, $brand-secondary, #fff, $brand-secondary);
 $m-panel-extend_color(info, $brand-info, #fff, $brand-info);
 $m-panel-extend_color(success, $brand-success, #fff, $brand-success);
 $m-panel-extend_color(warning, $brand-warning, #fff, $brand-warning);

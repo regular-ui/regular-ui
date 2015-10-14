@@ -13,9 +13,9 @@
 // ========================================================================
 
 .m-treeview {
-    background: $brand-secondary;
+    background: $brand-primary;
     color: white;
-    border: 3px solid $brand-secondary;
+    border: 3px solid $brand-primary;
     $border-radius: $border-radius-lg;
 
     .treeview_item {
@@ -31,12 +31,12 @@
     }
 
     .treeview_itemname:hover {
-        background: $brand-primary;
+        background: $brand-secondary;
         color: white;
     }
 
     .treeview_itemname.z-sel {
-        background: $brand-primary;
+        background: $brand-secondary;
         color: white;
     }
 

@@ -11,7 +11,7 @@
 $m-tabs_hd_li_border-width = 1px;
 $m-tabs_hd_li_margin = 2px;
 $m-tabs_hd_li_padding-horizontal = 25px;
-$m-tabs_hd_li-hover_background = mix($brand-secondary, white, 10%);
+$m-tabs_hd_li-hover_background = mix($brand-primary, white, 10%);
 $m-tabs-vertical_hd_li_width = 120px;
 
 
@@ -27,7 +27,7 @@ $m-tabs-vertical_hd_li_width = 120px;
             border: $m-tabs_hd_li_border-width solid transparent;
             font-weight: bold;
             border-bottom-width: 0;
-            color: $brand-primary;
+            color: $brand-secondary;
             margin-bottom: -$m-tabs_hd_li_border-width;
             $border-radius: $border-radius-base $border-radius-base 0 0;
         }
@@ -39,7 +39,7 @@ $m-tabs-vertical_hd_li_width = 120px;
         > li:hover,    // - Apply hover style also to focus state
         > li:focus {
             background: $m-tabs_hd_li-hover_background;
-            color: l-adjust($brand-primary, -10%);
+            color: l-adjust($brand-secondary, -10%);
             border-color: $m-tabs_hd_li-hover_background;
         }
 

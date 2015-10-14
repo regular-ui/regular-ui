@@ -69,8 +69,8 @@ $u-btn-extend_color = ($name, $background) {
 
 }
 
-$u-btn-extend_color(primary, $brand-primary);
-$u-btn-extend_color(secondary, $brand-secondary);
+$u-btn-extend_color(primary, $brand-secondary);
+$u-btn-extend_color(secondary, $brand-primary);
 $u-btn-extend_color(info, $brand-info);
 $u-btn-extend_color(success, $brand-success);
 $u-btn-extend_color(warning, $brand-warning);
