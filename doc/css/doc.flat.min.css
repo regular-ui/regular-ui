@@ -5067,7 +5067,7 @@ html.z-modal,html.z-modal body{
 .u-select2-theme .dropdown_bd{
 	top:37px;
 	right:0;
-	min-width:90px;
+	min-width:100px;
 }
 .u-select2-theme .dropdown_bd:before{
 	content:"";

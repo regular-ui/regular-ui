@@ -14,7 +14,7 @@
     .dropdown_hd {
         height: $formctrl_height;
         line-height: $formctrl_height - 2;
-        padding: 0 index($formctrl_padding, 0);
+        padding: 0 index($formctrl_padding, 1);
         background: $formctrl_background;
         color: $formctrl_color;
         $border: $formctrl_border;

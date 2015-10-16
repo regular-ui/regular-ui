@@ -290,7 +290,7 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
     .dropdown_bd {
         top: 37px;
         right: 0;
-        min-width: 90px;
+        min-width: 100px;
 
         &:before {
             content: '';

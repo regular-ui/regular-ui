@@ -12,6 +12,7 @@ exports.Component = require('./base/component.js');
 exports.SourceComponent = require('./base/sourceComponent.js');
 exports._ = require('./base/util.js');
 exports.ajax = require("./base/ajax.js");
+exports.validator = require("./base/validator.js");
 exports.Dropdown = require("./unit/dropdown.js");
 exports.Menu = require("./unit/menu.js");
 exports.Input2 = require("./unit/input2.js");

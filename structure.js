@@ -45,6 +45,7 @@ module.exports = {
          * JS Base
          */
         'ajax': {type: 'js', category: 'base', lowerName: 'ajax'},
+        'validator': {type: 'js', category: 'base', lowerName: 'validator'},
         /**
          * JS Unit
          */

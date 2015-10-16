@@ -3243,6 +3243,9 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-menu li>.menu_list{
 	margin-top:-1px;
 }
+.u-input2 + .u-tip{
+	margin-left:5px;
+}
 .u-numberinput{
 	display:inline-block;
 	position:relative;
@@ -3253,9 +3256,6 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-numberinput .u-btn{
 	position:absolute;
-}
-.u-input2 + .u-tip{
-	margin-left:5px;
 }
 .u-numberinput .u-btn{
 	right:2px;
@@ -3401,7 +3401,7 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-select2 .dropdown_hd{
 	height:30px;
 	line-height:28px;
-	padding:0 4px;
+	padding:0 6px;
 	background:#fff;
 	color:#444;
 	border:1px solid #ddd;
@@ -4251,7 +4251,7 @@ html.z-modal,html.z-modal body{
 .u-select2-theme .dropdown_bd{
 	top:37px;
 	right:0;
-	min-width:90px;
+	min-width:100px;
 }
 .u-select2-theme .dropdown_bd:before{
 	content:"";

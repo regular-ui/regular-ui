@@ -230,7 +230,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{[</span><span class="cm-stringcm-error">&#39;简单选项1&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;简单选项2&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;简单选项3&#39;</span><span class="cm-attribute">]}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -239,6 +240,26 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ]
+    }
+});
+</code></pre>
+<h4 id="-selected-value-key-"><code>selected</code>, <code>value</code>和<code>key</code></h4>
+<p><code>selected</code>表示当前选择项，<code>value</code>表示当前选择值。<code>key</code>表示数据项的键，默认为<code>&#39;id&#39;</code>。</p>
+<p>它们三者的关系如下：<code>selected[key] == value</code>。其中，<code>selected</code>和<code>value</code>是联动的，当一项变化时会同时改变另一项。</p>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{source[0]}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">key</span>=<span class="cm-string">&quot;name&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;选项3&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
         ]
     }
 });
@@ -261,6 +282,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 });
 </code></pre>
 <h4 id="-">设置或取消默认项</h4>
+<p>如果<code>placeholder</code>为空，刚开始将会自动选中第一项。</p>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;全部&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
@@ -280,7 +302,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">远程数据</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;2&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -300,15 +322,15 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">数据绑定</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{selected}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span> 当前的选择项：{selected ? selected.name : &#39;null&#39;}
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{selected}</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{value}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span> 当前选择项：{selected ? selected.name : &#39;null&#39;}，当前选择值：{value || &#39;null&#39;}
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">source</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+            {<span class="cm-property">id</span>: <span class="cm-number">1</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
         ]
     }
 });
@@ -320,7 +342,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span>
     <span class="cm-attribute">on-toggle</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-toggle:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.open:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.open)}</span>
     <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-select:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.selected:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.selected)}</span>
-    <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.selected:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.selected)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+    <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -357,9 +379,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
             
-            <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择项</td></tr>
+            <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>undefined</code></td><td>当前选择项</td></tr>
             
-            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请选择&#39;</code></td><td>默认项的文字</td></tr>
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>undefined</code></td><td>当前选择值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.key</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>&#39;id&#39;</code></td><td>数据项的键</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请选择&#39;</code></td><td>默认项的文字，如果`placeholder`为空并且没有选择项时，将会自动选中第一项。</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
             
@@ -600,6 +626,7 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
+<select2 source={['简单选项1', '简单选项2', '简单选项3']} />
 <select2 source={source} />
     */})
 var component = new RGUI.Component({
@@ -609,6 +636,24 @@ var component = new RGUI.Component({
             {name: '选项1'},
             {name: '选项2'},
             {name: '选项3'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select2 source={source} selected={source[0]} />
+<select2 source={source} value=2 />
+<select2 source={source} key="name" value="选项3" />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {id: 1, name: '选项1'},
+            {id: 2, name: '选项2'},
+            {id: 3, name: '选项3'}
         ]
     }
 });
@@ -650,7 +695,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2 service={@(this.service)} />
+<select2 service={@(this.service)} value="2" />
     */})
 var component = new RGUI.Component({
     template: template,
@@ -670,15 +715,15 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2 source={source} selected={selected} /> 当前的选择项：{selected ? selected.name : 'null'}
+<select2 source={source} selected={selected} value={value} /> 当前选择项：{selected ? selected.name : 'null'}，当前选择值：{value || 'null'}
     */})
 var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {name: '选项1'},
-            {name: '选项2'},
-            {name: '选项3'}
+            {id: 1, name: '选项1'},
+            {id: 2, name: '选项2'},
+            {id: 3, name: '选项3'}
         ]
     }
 });
@@ -689,7 +734,7 @@ var component = new RGUI.Component({
 <select2 source={source}
     on-toggle={console.log('on-toggle:', '$event.open:', $event.open)}
     on-select={console.log('on-select:', '$event.selected:', $event.selected)}
-    on-change={console.log('on-change:', '$event.selected:', $event.selected)} />
+    on-change={console.log('on-change:', '$event:', $event)} />
     */})
 var component = new RGUI.Component({
     template: template,

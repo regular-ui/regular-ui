@@ -26,27 +26,28 @@ validator.validate = function(value, rules) {
     rules.forEach(function(rule) {
         rule.success = true;
 
-        if(rule.type === 'is') {
+        if(rule.type === 'is')
             rule.success = rule.reg.test(value);
-        } else if(rule.type === 'isRequired') {
+        else if(rule.type === 'isRequired')
             rule.success = !!value;
-        } else if(rule.type === 'isFilled') {
-            rule.success = !!value && value.trim();
-        } else if(rule.type === 'isEmail') {
+        else if(rule.type === 'isFilled')
+            rule.success = !!value && (value + '').trim();
+        else if(rule.type === 'isEmail')
             rule.success = vali.isEmail(value);
-        } else if(rule.type === 'isURL') {
+        else if(rule.type === 'isMobilePhone')
+            rule.success = vali.isMobilePhone(value, 'zh-CN');
+        else if(rule.type === 'isURL')
             rule.success = vali.isURL(value);
-        } else if(rule.type === 'isNumber') {
+        else if(rule.type === 'isNumber')
             rule.success = vali.isInt(value);
-        } else if(rule.type === 'isInt') {
+        else if(rule.type === 'isInt')
             rule.success = vali.isInt(value);
-        } else if(rule.type === 'isFloat') {
+        else if(rule.type === 'isFloat')
             rule.success = vali.isFloat(value);
-        } else if(rule.type === 'isLength') {
+        else if(rule.type === 'isLength')
             rule.success = vali.isLength(value, rule.min, rule.max);
-        } else {
+        else
             rule.success = rule.method(value);
-        }
 
         if(!rule.success && result.success) {
             result.success = false;
