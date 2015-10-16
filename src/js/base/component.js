@@ -36,7 +36,14 @@ var Component = Regular.extend({
 })
 .filter(filter)
 .directive({
+    'r-show': function(elem, value) {
+        this.$watch(value, function(newValue, oldValue) {
+            if(!newValue == !oldValue)
+                return;
 
+            elem.style.display = newValue ? 'block' : '';
+        });
+    }
 });
 
 if (!Array.prototype.find) {

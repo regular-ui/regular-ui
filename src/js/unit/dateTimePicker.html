@@ -2,7 +2,7 @@
     <div class="dropdown_hd">
         <input class="u-input u-input-full" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref="input" readonly={readonly} disabled={disabled}>
     </div>
-    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+    <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>
             <timePicker time={_time} on-change={this._update(_date, _time)} />
         </calendar>

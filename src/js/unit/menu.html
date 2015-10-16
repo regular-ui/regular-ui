@@ -6,7 +6,7 @@
             <a class="u-btn">{title || '多级菜单'} <i class="u-icon u-icon-caret-down"></i></a>
         {/if}
     </div>
-    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+    <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <menuList source={source} visible={true} />
     </div>
 </div>

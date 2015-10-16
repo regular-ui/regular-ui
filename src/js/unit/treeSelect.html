@@ -3,7 +3,7 @@
         <i class="u-icon u-icon-caret-down"></i>
         <span>{selected ? selected.name : placeholder}</span>
     </div>
-    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+    <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />
     </div>
 </div>
