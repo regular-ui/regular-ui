@@ -47,7 +47,7 @@ var Notify = Component.extend({
      * @method show(text[,state][,duration]) 弹出一个消息
      * @public
      * @param  {string=''} text 消息内容
-     * @param  {string=null} state 消息类型，可选参数：`info`、`success`、`warning`、`error`
+     * @param  {string=null} state 消息状态，可选参数：`info`、`success`、`warning`、`error`
      * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
      * @return {void}
      */
@@ -112,7 +112,7 @@ Notify.notify = notify;
  * @static
  * @public
  * @param  {string=''} text 消息内容
- * @param  {string=null} state 消息类型，可选参数：`info`、`success`、`warning`、`error`
+ * @param  {string=null} state 消息状态，可选参数：`info`、`success`、`warning`、`error`
  * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
  * @return {void}
  */

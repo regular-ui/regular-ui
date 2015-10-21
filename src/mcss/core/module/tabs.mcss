@@ -30,6 +30,10 @@
 
     .tabs_bd {
         clear: both;
+
+        > * {
+            display: none;
+        }
     }
 }
 

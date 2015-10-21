@@ -1,4 +1,6 @@
 <label class="u-input2 {@(class)}" r-hide={!visible}>
-    <input class="u-input u-input-{type}" r-model={value} placeholder={placeholder} readonly={readonly} disabled={disabled} on-keyup={this.validate(value, rules)}>
+    <input class="u-input u-input-{state} u-input-{size} u-input-{width}"
+        type={type} placeholder={placeholder} maxlength={maxlength} readonly={readonly} disabled={disabled}
+        r-model={value} {#if validating}on-keyup={this.validate(value, rules)}{/if}>
 </label>
-{#if tip}<span class="u-tip u-tip-{type}">{tip}</span>{/if}
+{#if tip}<span class="u-tip u-tip-{state}">{tip}</span>{/if}

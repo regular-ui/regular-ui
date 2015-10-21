@@ -1,4 +1,4 @@
-<div class="m-panel">
+<div class="m-panel {@(class)}" r-hide={!visible}>
     <div class="panel_hd" on-click={this.toggle(!open)}>{title}</div>
     <div r-hide={!open} style="overflow: hidden" r-animation="on: enter; class: animated slideInY; on: leave; class: animated slideOutY;">
         <div class="panel_bd">

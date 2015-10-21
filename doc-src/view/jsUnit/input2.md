@@ -4,7 +4,7 @@
 <div class="m-example"></div>
 
 ```xml
-<input2 rules={rules} />
+<label>邮箱：<input2 rules={rules} validating={true} /></label>
 ```
 
 ```javascript
@@ -12,8 +12,8 @@ var component = new RGUI.Component({
     template: template,
     data: {
         rules: [
-            {type: 'isRequired', message: '请输入字符！'},
-            {type: 'isLength', min: 5, max: 8, message: '请输入5-8个字符！'}
+            {type: 'isFilled', message: '请输入邮箱！'},
+            {type: 'isEmail', message: '请输入正确的邮箱！'}
         ]
     }
 });

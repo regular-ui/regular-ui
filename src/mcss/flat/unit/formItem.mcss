@@ -9,8 +9,6 @@
 // ========================================================================
 
 .u-formitem {
-    line-height: $formctrl_height;
-
     .formitem_rqr {
         color: $brand-error;
     }
@@ -25,6 +23,7 @@
 
 .u-formitem-block {
     .formitem_tt {
+        line-height: $formctrl_height;
         width: 100px;
     }
 

@@ -222,10 +222,11 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
 }
 
 .u-select2-theme {
-    min-width: inherit;
+    width: inherit;
     vertical-align: middle;
 
     .dropdown_hd {
+        overflow: visible;
         width: $u-select2-theme_hd_width-half * 2;
         $line-height: $u-select2-theme_hd_height-half * 2;
         padding: 0;

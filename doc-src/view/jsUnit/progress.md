@@ -12,9 +12,9 @@
 <div class="m-example"></div>
 
 ```xml
-<progress percent="25" type="success" />
-<progress percent="50" type="warning" />
-<progress percent="75" type="error" />
+<progress percent="25" state="success" />
+<progress percent="50" state="warning" />
+<progress percent="75" state="error" />
 ```
 
 #### 尺寸扩展
@@ -40,5 +40,5 @@
 <div class="m-example"></div>
 
 ```xml
-<progress percent="72" type="error" striped={true} active={true} />
+<progress percent="72" state="error" striped={true} active={true} />
 ```

@@ -13,6 +13,7 @@
     // border-collapse: collapse;
     // border-spacing: 0;
     // - Block element behavior.
+    table-layout: fixed;
     width: 100%;
 
     caption {}

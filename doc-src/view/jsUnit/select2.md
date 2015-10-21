@@ -26,7 +26,7 @@ var component = new RGUI.Component({
 
 `selected`表示当前选择项，`value`表示当前选择值。`key`表示数据项的键，默认为`'id'`。
 
-它们三者的关系如下：`selected[key] == value`。其中，`selected`和`value`是联动的，当一项变化时会同时改变另一项。
+它们三者的关系如下：`selected[key] == value`。其中`selected`和`value`是联动的，当一项变化时会同时改变另一项。
 
 <div class="m-example"></div>
 

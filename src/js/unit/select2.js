@@ -73,8 +73,8 @@ var Select2 = Dropdown.extend({
 
         this.$watch('source', function(newValue, oldValue) {
             // console.log('source', newValue);
-            if(newValue === undefined)
-                return;
+            if(!newValue)
+                return this.data.selected = newValue;
 
             if(newValue.length && (typeof newValue[0] === 'string' || typeof newValue[0] === 'number'))
                 return this.data.source = newValue.map(function(name, index) {

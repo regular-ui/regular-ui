@@ -3,4 +3,3 @@ $reset-normalize();
 
 @import "./core/base/function.mcss";
 @import "./core/base/helper.mcss";
-@import "./core/base/font-awesome.css";

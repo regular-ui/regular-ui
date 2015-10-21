@@ -45,7 +45,6 @@ module.exports = {
          * JS Base
          */
         'ajax': {type: 'js', category: 'base', lowerName: 'ajax'},
-        'validator': {type: 'js', category: 'base', lowerName: 'validator'},
         /**
          * JS Unit
          */
@@ -98,5 +97,7 @@ module.exports = {
         'Editor': {type: 'css+js', category: 'module', lowerName: 'editor'},
         'HTMLEditor': {type: 'js', category: 'module', lowerName: 'htmlEditor'},
         'MarkEditor': {type: 'js', category: 'module', lowerName: 'markEditor'},
+        /* 其他 */
+        'Validation': {type: 'js', category: 'module', lowerName: 'validation'}
     }
 }

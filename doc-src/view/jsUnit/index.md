@@ -20,9 +20,9 @@
 </p>
 <p>
 <progress percent="36" />
-<progress percent="25" type="success" />
-<progress percent="50" type="warning" />
-<progress percent="75" type="error" />
+<progress percent="25" state="success" />
+<progress percent="50" state="warning" />
+<progress percent="75" state="error" />
 </p>
 ```
 
