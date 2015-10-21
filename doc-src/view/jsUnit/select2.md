@@ -1,4 +1,5 @@
 ### 示例
+
 #### 基本形式
 
 <div class="m-example"></div>
@@ -30,7 +31,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<select2 source={source} selected={source[0]} />
+<select2 source={source} selected={selected} />
 <select2 source={source} value=2 />
 <select2 source={source} key="name" value="选项3" />
 ```
@@ -44,6 +45,9 @@ var component = new RGUI.Component({
             {id: 2, name: '选项2'},
             {id: 3, name: '选项3'}
         ]
+    },
+    config: function() {
+        this.data.selected = this.data.source[0];
     }
 });
 ```
@@ -165,3 +169,12 @@ var component = new RGUI.Component({
     }
 });
 ```
+
+
+<!-- #### Test
+
+<!- div class="m-example"></div>
+
+```! xml
+<select2 source={['很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项']} />
+``` -->

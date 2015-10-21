@@ -276,7 +276,7 @@ table{
 	word-wrap:break-word;
 	word-break:break-all;
 }
-.f-toe{
+.f-toe,.u-select2 .dropdown_hd,.m-listview >li{
 	overflow:hidden;
 	word-wrap:normal;
 	white-space:nowrap;
@@ -4115,6 +4115,9 @@ input.u-check:disabled,input.u-radio:disabled{
 	padding:0;
 	overflow:hidden;
 }
+.u-menu .m-listview>li{
+	overflow:visible;
+}
 .u-menu li{
 	position:relative;
 }
@@ -4296,11 +4299,18 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-select2 .dropdown_bd{
 	clear:both;
 }
+.u-select2 .m-listview{
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.u-select2 .m-treeview{
+	overflow:auto;
+}
 .u-select2.z-dis .dropdown_hd{
 	cursor:not-allowed;
 }
 .u-select2{
-	min-width:160px;
+	width:160px;
 }
 .u-select2 .dropdown_hd{
 	height:34px;
@@ -4310,20 +4320,23 @@ input.u-check:disabled,input.u-radio:disabled{
 	color:#555;
 	border:1px solid #ccc;
 }
-.u-select2 .dropdown_bd .m-listview{
+.u-select2 .m-listview,.u-select2 .m-treeview{
 	max-height:200px;
-	overflow-x:hidden;
-	overflow-y:auto;
 }
 .u-select2.z-dis .dropdown_hd{
 	background:#eee;
 	border:1px solid #ccc;
 	color:#999;
 }
-.u-suggest .dropdown_bd .m-listview{
-	max-height:200px;
+.u-suggest .m-listview{
 	overflow-x:hidden;
 	overflow-y:auto;
+}
+.u-suggest .m-treeview{
+	overflow:auto;
+}
+.u-suggest .m-listview,.u-suggest .m-treeview{
+	max-height:200px;
 }
 .u-uploader{
 	display:inline-block;

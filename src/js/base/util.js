@@ -5,7 +5,7 @@ var Regular = require('regularjs');
 var _ = {
     extend: function(o1, o2, override) {
         for(var i in o2)
-            if(override || o1[i] === undefined)
+            if(o2.hasOwnProperty(i) && (override || o1[i] === undefined))
                 o1[i] = o2[i]
         return o1;
     },

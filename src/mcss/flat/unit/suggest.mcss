@@ -9,12 +9,8 @@
 // ========================================================================
 
 .u-suggest {
-    .dropdown_bd {
-        .m-listview {
-            max-height: 200px;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
+    .m-listview, .m-treeview {
+        max-height: 320px;
     }
 }
 

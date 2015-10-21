@@ -3,13 +3,13 @@
         {#if this.$body}
             {#inc this.$body}
         {#else}
-            <a class="u-btn">{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+            <a class="u-btn" title={title || '下拉菜单'}>{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
         {/if}
     </div>
     <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <ul class="m-listview">
             {#list source as item}
-            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>
+            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>
             {/list}
         </ul>
     </div>

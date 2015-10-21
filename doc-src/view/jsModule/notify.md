@@ -32,8 +32,8 @@ var component = new RGUI.Component({
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showMessage: function(type) {
-        RGUI.Notify.show(type + ' message.', type);
+    showMessage: function(state) {
+        RGUI.Notify.show(state + ' message.', state);
     }
 });
 ```

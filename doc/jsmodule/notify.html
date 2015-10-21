@@ -196,8 +196,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">type</span>) {
-        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-variable-2">type</span> <span class="cm-operator">+</span> <span class="cm-string">&#39; message.&#39;</span>, <span class="cm-variable-2">type</span>);
+    <span class="cm-property">showMessage</span>: <span class="cm-keyword">function</span>(<span class="cm-def">state</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">show</span>(<span class="cm-variable-2">state</span> <span class="cm-operator">+</span> <span class="cm-string">&#39; message.&#39;</span>, <span class="cm-variable-2">state</span>);
     }
 });
 </code></pre>
@@ -296,7 +296,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Methods</h4>
     
     
-    <h5>notify.show(text[, type][, duration])</h5>
+    <h5>notify.show(text[, state][, duration])</h5>
     <p>弹出一个消息</p>
     <table>
         <thead>
@@ -307,7 +307,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
                 
-                <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+                <tr><td class="f-wsn"><code>state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
                 
                 <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
                 
@@ -352,7 +352,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Static Methods</h4>
     
     
-    <h5>Notify.show(text[, type][, duration])</h5>
+    <h5>Notify.show(text[, state][, duration])</h5>
     <p>弹出一个消息</p>
     <table>
         <thead>
@@ -363,7 +363,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>text</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>消息内容</td></tr>
                 
-                <tr><td class="f-wsn"><code>type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
+                <tr><td class="f-wsn"><code>state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td>消息类型，可选参数：`info`、`success`、`warning`、`error`</td></tr>
                 
                 <tr><td class="f-wsn"><code>duration</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>notify.duration</code></td><td>该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。</td></tr>
                 
@@ -570,8 +570,8 @@ var component = new RGUI.Component({
     */})
 var component = new RGUI.Component({
     template: template,
-    showMessage: function(type) {
-        RGUI.Notify.show(type + ' message.', type);
+    showMessage: function(state) {
+        RGUI.Notify.show(state + ' message.', state);
     }
 });
     component.$inject($$(".m-example")[index]);

@@ -44,17 +44,17 @@ var Notify = Component.extend({
             this.$inject(document.body);
     },
     /**
-     * @method show(text[,type][,duration]) 弹出一个消息
+     * @method show(text[,state][,duration]) 弹出一个消息
      * @public
      * @param  {string=''} text 消息内容
-     * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
+     * @param  {string=null} state 消息类型，可选参数：`info`、`success`、`warning`、`error`
      * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
      * @return {void}
      */
-    show: function(text, type, duration) {
+    show: function(text, state, duration) {
         var message = {
             text: text,
-            type: type,
+            state: state,
             duration: duration >= 0 ? duration : this.data.duration
         };
         this.data.messages.unshift(message);
@@ -102,17 +102,17 @@ var Notify = Component.extend({
 
 /**
  * 直接初始化一个实例
- * @type {Notify}
+ * @state {Notify}
  */
 var notify = new Notify();
 Notify.notify = notify;
 
 /**
- * @method show(text[,type][,duration]) 弹出一个消息
+ * @method show(text[,state][,duration]) 弹出一个消息
  * @static
  * @public
  * @param  {string=''} text 消息内容
- * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
+ * @param  {string=null} state 消息类型，可选参数：`info`、`success`、`warning`、`error`
  * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
  * @return {void}
  */
@@ -126,10 +126,10 @@ Notify.show = function() {
  * @param  {string=''} text 消息内容
  * @return {void}
  */
-var types = ['success', 'warning', 'info', 'error'];
-types.forEach(function(type) {
-    Notify[type] = function(text) {
-        Notify.show(text, type);
+var states = ['success', 'warning', 'info', 'error'];
+states.forEach(function(state) {
+    Notify[state] = function(text) {
+        Notify.show(text, state);
     }
 });
 /**

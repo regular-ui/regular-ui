@@ -6,7 +6,7 @@
         <ul class="m-listview">
             {#list source as item}
             {#if this.filter(item)}
-                <li on-click={this.select(item)}>{item.name}</li>
+                <li title={item.name} on-click={this.select(item)}>{item.name}</li>
             {/if}
             {/list}
         </ul>

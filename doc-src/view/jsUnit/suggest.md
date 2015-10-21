@@ -194,3 +194,39 @@ var component = new RGUI.Component({
     }
 });
 ```
+
+<!-- #### Test
+
+<!- div class="m-example"></div>
+
+```! xml
+<suggest source={source} />
+```
+
+```! javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'},
+            {name: 'abandon'},
+            {name: 'about'},
+            {name: 'absent'},
+            {name: 'bread'},
+            {name: 'break'},
+            {name: 'brief'},
+            {name: 'calendar'},
+            {name: 'cancel'},
+            {name: 'column'}
+        ]
+    }
+});
+``` -->

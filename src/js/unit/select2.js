@@ -73,9 +73,8 @@ var Select2 = Dropdown.extend({
 
         this.$watch('source', function(newValue, oldValue) {
             // console.log('source', newValue);
-            // 默认source不能传null
-            // if(!newValue)
-            //     return this.data.source = [];
+            if(newValue === undefined)
+                return;
 
             if(newValue.length && (typeof newValue[0] === 'string' || typeof newValue[0] === 'number'))
                 return this.data.source = newValue.map(function(name, index) {

@@ -9,7 +9,7 @@
 // ========================================================================
 
 .u-select2 {
-    min-width: 220px;
+    width: 220px;
 
     .dropdown_hd {
         padding: 0 0 0 15px;
@@ -29,6 +29,10 @@
 
     .dropdown_hd:hover {
         background: mix($brand-secondary, white, 80%);
+    }
+
+    .m-listview, .m-treeview {
+        max-height: 320px;
     }
 }
 

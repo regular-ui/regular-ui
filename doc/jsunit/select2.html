@@ -249,7 +249,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <p>它们三者的关系如下：<code>selected[key] == value</code>。其中，<code>selected</code>和<code>value</code>是联动的，当一项变化时会同时改变另一项。</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{source[0]}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{selected}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">key</span>=<span class="cm-string">&quot;name&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;选项3&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
@@ -261,6 +261,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             {<span class="cm-property">id</span>: <span class="cm-number">2</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
             {<span class="cm-property">id</span>: <span class="cm-number">3</span>, <span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
         ]
+    },
+    <span class="cm-property">config</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">selected</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">source</span>[<span class="cm-number">0</span>];
     }
 });
 </code></pre>
@@ -355,7 +358,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
+<!-- #### Test
 
+<!- div class="m-example"></div>
+
+```! xml
+<select2 source={['很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项']} />
+``` -->
         <h3>API</h3>
 
 <h4>Class</h4>
@@ -643,7 +652,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2 source={source} selected={source[0]} />
+<select2 source={source} selected={selected} />
 <select2 source={source} value=2 />
 <select2 source={source} key="name" value="选项3" />
     */})
@@ -655,6 +664,9 @@ var component = new RGUI.Component({
             {id: 2, name: '选项2'},
             {id: 3, name: '选项3'}
         ]
+    },
+    config: function() {
+        this.data.selected = this.data.source[0];
     }
 });
     component.$inject($$(".m-example")[index]);

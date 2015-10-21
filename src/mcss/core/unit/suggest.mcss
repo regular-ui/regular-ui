@@ -8,7 +8,16 @@
 // Extends:
 // ========================================================================
 
-.u-suggest {}
+.u-suggest {
+    .m-listview {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .m-treeview {
+        overflow: auto;
+    }
+}
 
 /* Disabled */
 .u-suggest.z-dis {}

@@ -276,7 +276,7 @@ table{
 	word-wrap:break-word;
 	word-break:break-all;
 }
-.f-toe{
+.f-toe,.u-select2 .dropdown_hd,.m-listview >li{
 	overflow:hidden;
 	word-wrap:normal;
 	white-space:nowrap;
@@ -3209,6 +3209,9 @@ input.u-check:disabled,input.u-radio:disabled{
 	background:#e5e5e5;
 	overflow:hidden;
 }
+.u-menu .m-listview>li{
+	overflow:visible;
+}
 .u-menu li{
 	position:relative;
 }
@@ -3389,6 +3392,13 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-select2 .dropdown_bd{
 	clear:both;
 }
+.u-select2 .m-listview{
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.u-select2 .m-treeview{
+	overflow:auto;
+}
 .u-select2.z-dis .dropdown_hd{
 	cursor:not-allowed;
 }
@@ -3412,6 +3422,13 @@ input.u-check:disabled,input.u-radio:disabled{
 	background:#f5f5f5;
 	border:1px solid #ddd;
 	color:#999;
+}
+.u-suggest .m-listview{
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.u-suggest .m-treeview{
+	overflow:auto;
 }
 .u-suggest .dropdown_bd .m-listview{
 	max-height:200px;

@@ -9,7 +9,7 @@
 // ========================================================================
 
 .u-select2 {
-    min-width: 160px;
+    width: 160px;
 
     .dropdown_hd {
         height: $formctrl_height;
@@ -22,12 +22,8 @@
 
     .dropdown_hd:hover {}
 
-    .dropdown_bd {
-        .m-listview {
-            max-height: 200px;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
+    .m-listview, .m-treeview {
+        max-height: 200px;
     }
 }
 

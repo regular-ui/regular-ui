@@ -16,6 +16,7 @@
     .dropdown_hd {
         $box-sizing: border-box;
         cursor: pointer;
+        @extend .f-toe;
 
         .u-icon {
             float: right;
@@ -24,6 +25,16 @@
 
     .dropdown_bd {
         clear: both;
+
+    }
+
+    .m-listview {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .m-treeview {
+        overflow: auto;
     }
 }
 

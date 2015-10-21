@@ -92,7 +92,11 @@ var Dropdown = SourceComponent.extend({
 Dropdown.opens = [];
 
 _.dom.on(document.body, 'click', function(e) {
-    Dropdown.opens.forEach(function(dropdown) {
+    Dropdown.opens.forEach(function(dropdown, index) {
+        // 如果已经被销毁，刚从列表中移除
+        if(!dropdown.$refs)
+            return Dropdown.opens.splice(index, 1);
+
         // 这个地方不能用stopPropagation来处理，因为展开一个dropdown的同时要收起其他dropdown
         var element = dropdown.$refs.element;
         var element2 = e.target;
