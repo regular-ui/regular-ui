@@ -1,28 +1,48 @@
 #!/usr/bin/env bash
 
-gulp bower
-gulp page
-# don't use npm version $1
-modify package.json
+if [ ! $1 ];then
+    echo "Please input a version!"
+    exit 1
+elif [ ${1:0:1} != "v" ];then
+    version="v$1"
+else
+    version="$1"
+fi
+echo ""
+echo "The new version is \"$version\"."
+echo "--------------------------------"
+echo "Are you sure to continue? (y/n)"
+read char
+if [ $char != "y" ];then
+    exit 0
+fi
+
+echo ""
+echo "Starting to deploy and release..."
+echo ""
+
+# gulp bower
+# gulp page
+# ./bin/version $version
 git add -A .
-git commit -m $1
+git commit -m $version
 git checkout master
 git merge develop
 git push --all
-git tag $1
-git push origin $1
-npm publish
-cd ../regular-ui-bower
-git add -A .
-git commit -m $1
-git push
-git tag $1
-git push origin $1
-cd ../regular-ui.github.io
-git add -A .
-git commit -m $1
-git push
-git tag $1
-git push origin $1
-cd ../regular-ui
-git checkout develop
+git tag $version
+git push origin $version
+# npm publish
+# cd ../regular-ui-bower
+# git add -A .
+# git commit -m $version
+# git push
+# git tag $version
+# git push origin $version
+# cd ../regular-ui.github.io
+# git add -A .
+# git commit -m $version
+# git push
+# git tag $version
+# git push origin $version
+# cd ../regular-ui
+# git checkout develop

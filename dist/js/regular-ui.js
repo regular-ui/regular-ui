@@ -99,6 +99,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Editor = __webpack_require__(70);
 	exports.HTMLEditor = __webpack_require__(72);
 	exports.MarkEditor = __webpack_require__(74);
+	exports.Validation = __webpack_require__(18);
 
 /***/ },
 /* 1 */
@@ -148,8 +149,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	})
 	.filter(filter)
 	.directive({
+	    'r-show': function(elem, value) {
+	        this.$watch(value, function(newValue, oldValue) {
+	            if(!newValue == !oldValue)
+	                return;
 
-	})
+	            elem.style.display = newValue ? 'block' : '';
+	        });
+	    }
+	});
+
+	if (!Array.prototype.find) {
+	    Array.prototype.find = function(predicate) {
+	        if (this === null)
+	            throw new TypeError('Array.prototype.find called on null or undefined');
+
+	        if (typeof predicate !== 'function')
+	            throw new TypeError('predicate must be a function');
+
+	        var list = Object(this);
+	        var length = list.length >>> 0;
+	        var thisArg = arguments[1];
+	        var value;
+
+	        for (var i = 0; i < length; i++) {
+	            value = list[i];
+	            if (predicate.call(thisArg, value, i, list))
+	                return value;
+	        }
+	        
+	        return undefined;
+	    };
+	}
 
 	module.exports = Component;
 
@@ -164,7 +195,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = {
 	    extend: function(o1, o2, override) {
 	        for(var i in o2)
-	            if(override || o1[i] === undefined)
+	            if(o2.hasOwnProperty(i) && (override || o1[i] === undefined))
 	                o1[i] = o2[i]
 	        return o1;
 	    },
@@ -387,7 +418,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	  * Reqwest! A general purpose XHR connection manager
-	  * license MIT (c) Dustin Diaz 2014
+	  * license MIT (c) Dustin Diaz 2015
 	  * https://github.com/ded/reqwest
 	  */
 
@@ -399,7 +430,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  var context = this
 
-	  if (context.hasOwnProperty('window')) {
+	  if ('window' in context) {
 	    var doc = document
 	      , byTag = 'getElementsByTagName'
 	      , head = doc[byTag]('head')[0]
@@ -499,7 +530,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      || defaultHeaders['accept'][o['type']]
 	      || defaultHeaders['accept']['*']
 
-	    var isAFormData = typeof FormData === 'function' && (o['data'] instanceof FormData);
+	    var isAFormData = typeof FormData !== 'undefined' && (o['data'] instanceof FormData);
 	    // breaks cross-origin requests with legacy browsers
 	    if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith']
 	    if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType']
@@ -638,6 +669,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function setType(header) {
 	    // json, javascript, text/plain, text/html, xml
+	    if (header === null) return undefined; //In case of no content-type.
 	    if (header.match('json')) return 'json'
 	    if (header.match('javascript')) return 'js'
 	    if (header.match('text')) return 'html'
@@ -1020,8 +1052,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 8 */
 /***/ function(module, exports) {
 
-	module.exports = XMLHttpRequest;
-
+	/* (ignored) */
 
 /***/ },
 /* 9 */
@@ -1073,17 +1104,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.$inject(document.body);
 	    },
 	    /**
-	     * @method show(text[,type][,duration]) 弹出一个消息
+	     * @method show(text[,state][,duration]) 弹出一个消息
 	     * @public
 	     * @param  {string=''} text 消息内容
-	     * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
+	     * @param  {string=null} state 消息状态，可选参数：`info`、`success`、`warning`、`error`
 	     * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
 	     * @return {void}
 	     */
-	    show: function(text, type, duration) {
+	    show: function(text, state, duration) {
 	        var message = {
 	            text: text,
-	            type: type,
+	            state: state,
 	            duration: duration >= 0 ? duration : this.data.duration
 	        };
 	        this.data.messages.unshift(message);
@@ -1131,17 +1162,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * 直接初始化一个实例
-	 * @type {Notify}
+	 * @state {Notify}
 	 */
 	var notify = new Notify();
 	Notify.notify = notify;
 
 	/**
-	 * @method show(text[,type][,duration]) 弹出一个消息
+	 * @method show(text[,state][,duration]) 弹出一个消息
 	 * @static
 	 * @public
 	 * @param  {string=''} text 消息内容
-	 * @param  {string=null} type 消息类型，可选参数：`info`、`success`、`warning`、`error`
+	 * @param  {string=null} state 消息状态，可选参数：`info`、`success`、`warning`、`error`
 	 * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
 	 * @return {void}
 	 */
@@ -1155,10 +1186,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param  {string=''} text 消息内容
 	 * @return {void}
 	 */
-	var types = ['success', 'warning', 'info', 'error'];
-	types.forEach(function(type) {
-	    Notify[type] = function(text) {
-	        Notify.show(text, type);
+	var states = ['success', 'warning', 'info', 'error'];
+	states.forEach(function(state) {
+	    Notify[state] = function(text) {
+	        Notify.show(text, state);
 	    }
 	});
 	/**
@@ -1187,7 +1218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-notify m-notify-{@(position)} {@(class)}\" r-hide={!visible}>\n    {#list messages as message}\n    <div class=\"u-message u-message-{@(message.type)}\" r-animation=\"on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\">\n        <a class=\"message_close\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>\n        <i class=\"message_icon u-icon u-icon-{@(message.type)}-circle\" r-hide={@(!message.type)}></i>\n        {@(message.text)}\n    </div>\n    {/list}\n</div>"
+	module.exports = "<div class=\"m-notify m-notify-{@(position)} {@(class)}\" r-hide={!visible}>\n    {#list messages as message}\n    <div class=\"u-message u-message-{@(message.state)}\" r-animation=\"on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\">\n        <a class=\"message_close\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>\n        <i class=\"message_icon u-icon u-icon-{@(message.state)}-circle\" r-hide={@(!message.state)}></i>\n        {@(message.text)}\n    </div>\n    {/list}\n</div>"
 
 /***/ },
 /* 11 */
@@ -1287,7 +1318,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	Dropdown.opens = [];
 
 	_.dom.on(document.body, 'click', function(e) {
-	    Dropdown.opens.forEach(function(dropdown) {
+	    Dropdown.opens.forEach(function(dropdown, index) {
+	        // 如果已经被销毁，刚从列表中移除
+	        if(!dropdown.$refs)
+	            return Dropdown.opens.splice(index, 1);
+
 	        // 这个地方不能用stopPropagation来处理，因为展开一个dropdown的同时要收起其他dropdown
 	        var element = dropdown.$refs.element;
 	        var element2 = e.target;
@@ -1307,7 +1342,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '下拉菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\" title={title || '下拉菜单'}>{title || '下拉菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            <li r-class={ {'z-dis': item.disabled, 'dropdown_divider': item.divider} } title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 13 */
@@ -1420,7 +1455,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-menu {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '多级菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <menuList source={source} visible={true} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-menu {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\" title={title || '下拉菜单'}>{title || '多级菜单'} <i class=\"u-icon u-icon-caret-down\"></i></a>\n        {/if}\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <menuList source={source} visible={true} />\n    </div>\n</div>"
 
 /***/ },
 /* 15 */
@@ -1442,16 +1477,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Component = __webpack_require__(2);
 	var template = __webpack_require__(17);
 	var _ = __webpack_require__(3);
-	var validator = __webpack_require__(18);
+	var Validation = __webpack_require__(18);
 
 	/**
 	 * @class Input2
 	 * @extend Component
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {string=''}               options.data.value              输入框的值
-	 * @param {string=''}               options.data.type               输入框的类型
+	 * @param {string=''}               options.data.state              输入框的状态
 	 * @param {string=''}               options.data.placeholder        占位符
 	 * @param {object[]=[]}             options.data.rules              验证规则
+	 * @param {boolean=false}           options.data.validating         是否实时验证
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
@@ -1466,17 +1502,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	    config: function() {
 	        _.extend(this.data, {
 	            value: '',
-	            type: '',
+	            state: '',
+	            unit: '',
 	            placeholder: '',
-	            rules: []
+	            rules: [],
+	            validating: false
 	        });
 	        this.supr();
+
+	        var $outer = this.$outer;
+	        if($outer && $outer instanceof Validation) {
+	            $outer.controls.push(this);
+
+	            this.$on('destroy', function() {
+	                var index = $outer.controls.indexOf(this);
+	                $outer.controls.splice(index, 1);
+	            });
+	        }
 	    },
-	    validate: function(value, rules) {
-	        var result = validator.validate(value, rules);
+	    /**
+	     * @method validate() 根据`rules`验证组件的值是否正确
+	     * @public
+	     * @return {object} result 结果
+	     */
+	    validate: function() {
+	        var value = this.data.value;
+	        var rules = this.data.rules;
+	        var result = Validation.validate(value, rules);
 	        
-	        this.data.type = result.success ? 'success' : 'error';
+	        this.data.state = result.success ? 'success' : 'error';
 	        this.data.tip = result.message;
+
+	        return result;
 	    }
 	});
 
@@ -1486,7 +1543,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-input2 {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{type}\" r-model={value} placeholder={placeholder} readonly={readonly} disabled={disabled} on-keyup={this.validate(value, rules)}>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-input2 {@(class)}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{state} u-input-{size} u-input-{width}\"\n        type={type} placeholder={placeholder} maxlength={maxlength} readonly={readonly} disabled={disabled}\n        r-model={value} {#if validating}on-keyup={this.validate(value, rules)}{/if}>\n    {#if unit}<span class=\"input2_unit\">{unit}</span>{/if}\n</label>\n{#if tip}<span class=\"u-tip u-tip-{state}\">{tip}</span>{/if}"
 
 /***/ },
 /* 18 */
@@ -1494,24 +1551,60 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * ------------------------------------------------------------
-	 * Validator 表单验证
+	 * Validation  表单验证
 	 * @author   sensen(rainforest92@126.com)
 	 * ------------------------------------------------------------
 	 */
 
 	'use strict';
 
-	var vali = __webpack_require__(19);
-	var validator = {}
+	var Component = __webpack_require__(2);
+	var _ = __webpack_require__(3);
+	var validator = __webpack_require__(19);
 
 	/**
-	 * 235235
-	rules = [
-	    {type: 'isRequired', min: 2, max: 5
-	]
-	*/
+	 * @class Validation
+	 * @extend Component
+	 * @param {object}                  options.data                    绑定属性
+	 */
+	var Validation = Component.extend({
+	    name: 'validation',
+	    template: '{#inc this.$body}',
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        this.controls = [];
 
-	validator.validate = function(value, rules) {
+	        _.extend(this.data, {});
+	        this.supr();
+	    },
+	    /**
+	     * @method validate() 验证所有表单组件
+	     * @public
+	     * @return {object} conclusion 结论
+	     */
+	    validate: function() {
+	        var conclusion = {
+	            results: [],
+	            success: true,
+	            message: ''
+	        };
+
+	        this.controls.forEach(function(control) {
+	            var result = control.validate();
+	            conclusion.results.push(result);
+	            if(!result.success) {
+	                conclusion.success = false;
+	                conclusion.message = conclusion.message || result.message;
+	            }
+	        });
+
+	        return conclusion;
+	    }
+	});
+
+	Validation.validate = function(value, rules) {
 	    var result = {
 	        success: true,
 	        message: ''
@@ -1520,27 +1613,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	    rules.forEach(function(rule) {
 	        rule.success = true;
 
-	        if(rule.type === 'is') {
+	        if(rule.type === 'is')
 	            rule.success = rule.reg.test(value);
-	        } else if(rule.type === 'isRequired') {
+	        else if(rule.type === 'isRequired')
 	            rule.success = !!value;
-	        } else if(rule.type === 'isFilled') {
-	            rule.success = !!value && value.trim();
-	        } else if(rule.type === 'isEmail') {
-	            rule.success = vali.isEmail(value);
-	        } else if(rule.type === 'isURL') {
-	            rule.success = vali.isURL(value);
-	        } else if(rule.type === 'isNumber') {
-	            rule.success = vali.isInt(value);
-	        } else if(rule.type === 'isInt') {
-	            rule.success = vali.isInt(value);
-	        } else if(rule.type === 'isFloat') {
-	            rule.success = vali.isFloat(value);
-	        } else if(rule.type === 'isLength') {
-	            rule.success = vali.isLength(value, rule.min, rule.max);
-	        } else {
+	        else if(rule.type === 'isFilled')
+	            rule.success = !!value && (value + '').trim();
+	        else if(rule.type === 'isEmail')
+	            rule.success = validator.isEmail(value);
+	        else if(rule.type === 'isMobilePhone')
+	            rule.success = validator.isMobilePhone(value, 'zh-CN');
+	        else if(rule.type === 'isURL')
+	            rule.success = validator.isURL(value);
+	        else if(rule.type === 'isNumber')
+	            rule.success = validator.isInt(value);
+	        else if(rule.type === 'isInt')
+	            rule.success = validator.isInt(value);
+	        else if(rule.type === 'isFloat')
+	            rule.success = validator.isFloat(value);
+	        else if(rule.type === 'isLength')
+	            rule.success = validator.isLength(value, rule.min, rule.max);
+	        else
 	            rule.success = rule.method(value);
-	        }
 
 	        if(!rule.success && result.success) {
 	            result.success = false;
@@ -1551,26 +1645,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return result;
 	}
 
-	validator.validateForm = function(data, fields) {
-	    var conclusion = {
-	        results: {},
-	        success: true,
-	        message: ''
-	    }
-	    
-	    for(var key in fields) {
-	        var rules = fields[key];
-	        if(!rules)
-	            continue;
-	        var value = data[key];
-
-	        conclusion.results[key] = validator.validate(value, rules);
-	    }
-
-	    return conclusion;
-	}
-
-	module.exports = validator;
+	module.exports = Validation;
 
 /***/ },
 /* 19 */
@@ -1611,7 +1686,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    'use strict';
 
-	    validator = { version: '4.0.5' };
+	    validator = { version: '4.2.0' };
 
 	    var emailUserPart = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~]+$/i;
 	    var quotedEmailUser = /^([\s\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e]|(\\[\x01-\x09\x0b\x0c\x0d-\x7f]))*$/i;
@@ -1658,6 +1733,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var phones = {
 	      'zh-CN': /^(\+?0?86\-?)?1[345789]\d{9}$/,
+	      'zh-TW': /^(\+?886\-?|0)?9\d{8}$/,
 	      'en-ZA': /^(\+?27|0)\d{9}$/,
 	      'en-AU': /^(\+?61|0)4\d{8}$/,
 	      'en-HK': /^(\+?852\-?)?[569]\d{3}\-?\d{4}$/,
@@ -1667,7 +1743,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      'en-GB': /^(\+?44|0)7\d{9}$/,
 	      'en-US': /^(\+?1)?[2-9]\d{2}[2-9](?!11)\d{6}$/,
 	      'en-ZM': /^(\+26)?09[567]\d{7}$/,
-	      'ru-RU': /^(\+?7|8)?9\d{9}$/
+	      'ru-RU': /^(\+?7|8)?9\d{9}$/,
+	      'nb-NO': /^(\+?47)?[49]\d{7}$/,
+	      'nn-NO': /^(\+?47)?[49]\d{7}$/
 	    };
 
 	    // from http://goo.gl/0ejHHW
@@ -1698,10 +1776,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            input = input.toString();
 	        } else if (input === null || typeof input === 'undefined' || (isNaN(input) && !input.length)) {
 	            input = '';
-	        } else if (typeof input !== 'string') {
-	            input += '';
 	        }
-	        return input;
+	        return '' + input;
 	    };
 
 	    validator.toDate = function (date) {
@@ -2017,7 +2093,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    validator.isFloat = function (str, options) {
 	        options = options || {};
-	        return str !== '' && float.test(str) && (!options.hasOwnProperty('min') || str >= options.min) && (!options.hasOwnProperty('max') || str <= options.max);
+	        if (str === '' || str === '.') {
+	            return false;
+	        }
+	        return float.test(str) && (!options.hasOwnProperty('min') || str >= options.min) && (!options.hasOwnProperty('max') || str <= options.max);
 	    };
 
 	    validator.isDivisibleBy = function (str, num) {
@@ -2044,8 +2123,62 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return pattern && pattern.test(str);
 	    };
 
+	    function getTimezoneOffset(str) {
+	        var iso8601Parts = str.match(iso8601);
+	        if (!iso8601Parts) {
+	            return new Date().getTimezoneOffset();
+	        }
+	        var timezone = iso8601Parts[21];
+	        if (!timezone || timezone === 'z' || timezone === 'Z') {
+	            return 0;
+	        }
+	        var sign = iso8601Parts[22], hours, minutes;
+	        if (timezone.indexOf(':') !== -1) {
+	            hours = parseInt(iso8601Parts[23]);
+	            minutes = parseInt(iso8601Parts[24]);
+	        } else {
+	            hours = 0;
+	            minutes = parseInt(iso8601Parts[23]);
+	        }
+	        return (hours * 60 + minutes) * (sign === '-' ? 1 : -1);
+	    }
+
 	    validator.isDate = function (str) {
-	        return !isNaN(Date.parse(str));
+	        var normalizedDate = new Date((new Date(str)).toUTCString());
+	        var utcDay = String(normalizedDate.getUTCDate());
+	        // normalizedDate is in the user's timezone. Apply the input
+	        // timezone offset to the date so that the year and day match
+	        // the input
+	        var timezoneDifference = normalizedDate.getTimezoneOffset() -
+	            getTimezoneOffset(str);
+	        normalizedDate = new Date(normalizedDate.getTime() +
+	            60000 * timezoneDifference);
+	        var regularDay = String(normalizedDate.getDate());
+	        var dayOrYear, dayOrYearMatches, year;
+	        if (isNaN(Date.parse(normalizedDate))) {
+	            return false;
+	        }
+	        //check for valid double digits that could be late days
+	        //check for all matches since a string like '12/23' is a valid date
+	        //ignore everything with nearby colons
+	        dayOrYearMatches = str.match(/(^|[^:\d])[23]\d([^:\d]|$)/g);
+	        if (!dayOrYearMatches) {
+	            return true;
+	        }
+	        dayOrYear = dayOrYearMatches.map(function(digitString) {
+	            return digitString.match(/\d+/g)[0];
+	        }).join('/');
+	        year = String(normalizedDate.getFullYear()).slice(-2);
+	        //local date and UTC date can differ, but both are valid, so check agains both
+	        if (dayOrYear === regularDay || dayOrYear === utcDay || dayOrYear === year) {
+	            return true;
+	        } else if ((dayOrYear === (regularDay + '/' + year)) || (dayOrYear === (year + '/' + regularDay))) {
+	            return true;
+	        } else if ((dayOrYear === (utcDay + '/' + year)) || (dayOrYear === (year + '/' + utcDay))) {
+	            return true;
+	        } else {
+	            return false;
+	        }
 	    };
 
 	    validator.isAfter = function (str, date) {
@@ -2057,7 +2190,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    validator.isBefore = function (str, date) {
 	        var comparison = validator.toDate(date || new Date())
 	          , original = validator.toDate(str);
-	        return original && comparison && original < comparison;
+	        return !!(original && comparison && original < comparison);
 	    };
 
 	    validator.isIn = function (str, options) {
@@ -2813,8 +2946,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                    绑定属性
 	 * @param {object[]=[]}             options.data.source             数据源
 	 * @param {string}                  options.data.source[].name      每项的内容
-	 * @param {object=null}             options.data.selected           当前选择项
-	 * @param {string='请选择'}         options.data.placeholder        默认项的文字
+	 * @param {object=undefined}        options.data.selected           当前选择项
+	 * @param {object=undefined}        options.data.value              当前选择值
+	 * @param {object='id'}             options.data.key                数据项的键
+	 * @param {string='请选择'}         options.data.placeholder        默认项的文字，如果`placeholder`为空并且没有选择项时，将会自动选中第一项。
 	 * @param {boolean=false}           options.data.readonly           是否只读
 	 * @param {boolean=false}           options.data.disabled           是否禁用
 	 * @param {boolean=true}            options.data.visible            是否显示
@@ -2831,24 +2966,62 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _.extend(this.data, {
 	            // @inherited source: [],
 	            // @inherited open: false
-	            selected: null,
+	            selected: undefined,
+	            key: 'id',
+	            value: undefined,
 	            placeholder: '请选择'
 	        });
 	        this.supr();
 
 	        this.$watch('selected', function(newValue, oldValue) {
+	            // console.log('selected', newValue);
+	            this.data.value = newValue ? newValue[this.data.key] : newValue;
+
 	            /**
 	             * @event change 选择项改变时触发
 	             * @property {object} selected 改变后的选择项
 	             */
 	            this.$emit('change', {
-	                selected: newValue
+	                selected: newValue,
+	                key: this.data.key,
+	                value: this.data.value
 	            });
 	        });
 
+	        this.$watch('value', function(newValue, oldValue) {
+	            // console.log('value', newValue);
+	            if(newValue === undefined || newValue === null)
+	                return this.data.selected = newValue;
+	            else if(this.data.source) {
+	                if(!this.data.selected || this.data.selected[this.data.key] !== newValue)
+	                    this.data.selected = this.data.source.find(function(item) {
+	                        return item[this.data.key] == newValue;
+	                    }, this);
+	            }
+	        });
+
 	        this.$watch('source', function(newValue, oldValue) {
-	            if(!newValue || newValue.indexOf(this.data.selected) < 0)
-	                this.data.selected = null;
+	            // console.log('source', newValue);
+	            if(!newValue)
+	                return this.data.selected = newValue;
+
+	            if(newValue.length && (typeof newValue[0] === 'string' || typeof newValue[0] === 'number'))
+	                return this.data.source = newValue.map(function(name, index) {
+	                    return {id: index, name: name};
+	                });
+
+
+	            if(this.data.value !== undefined && this.data.value !== null) {
+	                this.data.selected = newValue.find(function(item) {
+	                    return item[this.data.key] == this.data.value;
+	                }, this);
+	            } else if(this.data.selected && newValue.indexOf(this.data.selected) < 0)
+	                this.data.selected = undefined;
+
+	            // 当placeholder为空时，自动选择第一项
+	            if(!this.data.placeholder && !this.data.selected) {
+	                this.data.selected = newValue[0];
+	            }
 	        });
 	    },
 	    /**
@@ -2881,7 +3054,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <span>{selected ? selected.name : placeholder}</span>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': selected === null} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" title={selected ? selected.name : placeholder} on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li r-class={ {'z-sel': !selected} } on-click={this.select(null)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{item.name}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 34 */
@@ -3041,7 +3214,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 37 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-select2 {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" title={selected ? selected.name : placeholder} on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />\n    </div>\n</div>"
 
 /***/ },
 /* 38 */
@@ -3364,7 +3537,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 42 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-suggest {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} r-model={value} on-focus={this.input($event)} on-keyup={this.input($event)} on-blur={this.uninput($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li title={item.name} on-click={this.select(item)}>{item.name}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 43 */
@@ -3675,7 +3848,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
 
 /***/ },
 /* 47 */
@@ -4230,7 +4403,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 52 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-dropdown u-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-hide={!open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>\n            <timePicker time={_time} on-change={this._update(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
+	module.exports = "<div class=\"u-dropdown u-datetimepicker {@(class)}\" r-class={ {'z-dis': disabled} } r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} on-focus={this.toggle(true)} on-change={this._input($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._update($event.date, _time)}>\n            <timePicker time={_time} on-change={this._update(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
 
 /***/ },
 /* 53 */
@@ -4256,7 +4429,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {number=36}               options.data.percent            百分比
 	 * @param {string|boolean=true}     options.data.text               在进度条中是否显示百分比。值为`string`时显示该段文字。
 	 * @param {string=null}             options.data.size               进度条的尺寸
-	 * @param {string=null}             options.data.type               进度条的类型，改变显示颜色
+	 * @param {string=null}             options.data.state              进度条的状态
 	 * @param {boolean=false}           options.data.striped            是否显示条纹
 	 * @param {boolean=false}           options.data.active             进度条是否为激活状态，当`striped`为`true`时，进度条显示动画
 	 * @param {boolean=true}            options.data.visible            是否显示
@@ -4273,7 +4446,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            percent: 36,
 	            text: true,
 	            size: null,
-	            type: null,
+	            state: null,
 	            striped: false,
 	            active: false
 	        });
@@ -4287,7 +4460,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 54 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-progress u-progress-{@(size)} u-progress-{@(type)} {@(class)}\" r-class={ {'u-progress-striped': striped, 'z-act': active} } r-hide={!visible}>\n    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + '%' : text) : ''}</div>\n</div>"
+	module.exports = "<div class=\"u-progress u-progress-{@(size)} u-progress-{@(state)} {@(class)}\" r-class={ {'u-progress-striped': striped, 'z-act': active} } r-hide={!visible}>\n    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + '%' : text) : ''}</div>\n</div>"
 
 /***/ },
 /* 55 */
@@ -4517,7 +4690,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Tab = Component.extend({
 	    name: 'tab',
-	    template: '<div r-hide={this.$outer.data.selected != this}>{#inc this.$body}</div>',
+	    template: '<div r-show={this.$outer.data.selected === this}>{#inc this.$body}</div>',
 	    /**
 	     * @protected
 	     */
@@ -4631,7 +4804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 63 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-panel\">\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#inc this.$body}\n        </div>\n    </div>\n</div>"
+	module.exports = "<div class=\"m-panel {@(class)}\" r-hide={!visible}>\n    <div class=\"panel_hd\" on-click={this.toggle(!open)}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#inc this.$body}\n        </div>\n    </div>\n</div>"
 
 /***/ },
 /* 64 */
@@ -4801,7 +4974,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            result: result
 	        });
 	        result ? this.ok() : this.cancel();
-	        this.destroy();
 	    },
 	    /**
 	     * @override
