@@ -11,7 +11,7 @@
 .m-listview {
     background: $formctrl_background;
     color: $formctrl_color;
-    border: $formctrl_border;
+    $border: $formctrl_border;
 
     > li {
         padding: $formctrl_item_padding;

@@ -20,7 +20,7 @@ $u-calendar_item_height = 28px;
     width: $u-calendar_item_width * 7 + 2 * 7;
     padding: 4px;
     background: white;
-    border: $formctrl_border;
+    $border: $formctrl_border;
     $border-radius: $border-radius-lg;
 
     .calendar_item {

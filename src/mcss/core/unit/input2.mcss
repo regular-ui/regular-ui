@@ -8,4 +8,12 @@
 // Component:       `u-input2`
 // ========================================================================
 
-.u-input2 {}
+.u-input2 {
+    position: relative;
+
+    .input2_unit {
+        position: absolute;
+        top: - $formctrl_border-width-base;
+        right: index($formctrl_padding, 1) + $formctrl_border-width-base;
+    }
+}

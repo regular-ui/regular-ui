@@ -34,6 +34,7 @@ var Input2 = Component.extend({
         _.extend(this.data, {
             value: '',
             state: '',
+            unit: '',
             placeholder: '',
             rules: [],
             validating: false

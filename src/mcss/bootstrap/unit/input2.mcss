@@ -3,7 +3,7 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-@import "../../core/unit/numberInput.mcss";
+@import "../../core/unit/input2.mcss";
 
 // Component:       `u-input2`
 // ========================================================================

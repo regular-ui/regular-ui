@@ -23,7 +23,7 @@
     // - Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports.
     // max-width: 100%;
     padding: $formctrl_padding;
-    border: $formctrl_border;
+    $border: $formctrl_border;
     color: $formctrl_color;
     background: $formctrl_background;
     // - Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
@@ -72,7 +72,7 @@ $formctrl-extend_size(sm, $formctrl-sm_padding, $formctrl-sm_height, $formctrl-s
 $formctrl-extend_size(lg, $formctrl-lg_padding, $formctrl-lg_height, $formctrl-lg_font-size, $border-radius-lg);
 
 $formctrl-extend_width(xs, 40px);
-$formctrl-extend_width(sm, 130px);
+$formctrl-extend_width(sm, 100px);
 $formctrl-extend_width(lg, 200px);
 $formctrl-extend_width(xl, 500px);
 

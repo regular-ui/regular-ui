@@ -47,7 +47,7 @@ $formctrl_min-width = 160px;
 
 $formctrl_background = white;
 $formctrl_color = $gray;
-$formctrl_border = 1px solid #ccc;
+$formctrl_border = #ccc;
 
 $formctrl-focus_background = $formctrl_background;
 $formctrl-focus_color = $formctrl_color;

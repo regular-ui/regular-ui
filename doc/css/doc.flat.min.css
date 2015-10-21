@@ -3459,10 +3459,10 @@ input.u-check:disabled,input.u-radio:disabled{
 	border-radius:6px;
 }
 .u-input-xsw,.u-select-xsw{
-	width:40px;
+	width:60px;
 }
 .u-input-smw,.u-select-smw{
-	width:130px;
+	width:140px;
 }
 .u-input-lgw,.u-select-lgw{
 	width:200px;
@@ -3963,6 +3963,17 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-menu .menu_itemname>a{
 	color:inherit;
 }
+.u-input2{
+	position:relative;
+}
+.u-input2 .input2_unit{
+	position:absolute;
+	top:-1px;
+	right:13px;
+}
+.u-input2 + .u-tip{
+	margin-left:5px;
+}
 .u-numberinput{
 	display:inline-block;
 	position:relative;
@@ -3973,9 +3984,6 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-numberinput .u-btn{
 	position:absolute;
-}
-.u-input2 + .u-tip{
-	margin-left:5px;
 }
 .u-numberinput .u-btn{
 	right:4px;
@@ -5304,4 +5312,10 @@ html.z-modal,html.z-modal body{
 }
 .cm-property{
 	color:#df9516;
+}
+.m-sidebar >li .u-icon-success-circle{
+	color:#1abc9c;
+}
+.m-sidebar >li .u-icon-info-circle{
+	color:#f1c40f;
 }

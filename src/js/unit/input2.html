@@ -2,5 +2,6 @@
     <input class="u-input u-input-{state} u-input-{size} u-input-{width}"
         type={type} placeholder={placeholder} maxlength={maxlength} readonly={readonly} disabled={disabled}
         r-model={value} {#if validating}on-keyup={this.validate(value, rules)}{/if}>
+    {#if unit}<span class="input2_unit">{unit}</span>{/if}
 </label>
 {#if tip}<span class="u-tip u-tip-{state}">{tip}</span>{/if}

@@ -453,7 +453,50 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
+<!-- #### Test
 
+<!- div class="m-example"></div>
+
+```! xml
+<select2Group source={source} />
+```
+
+```! javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '理学', children: [
+                {name: '物理学', children: [
+                    {name: '理论物理'},
+                    {name: '凝聚态物理'},
+                    {name: '材料物理'}
+                ]},
+                {name: '数学', children: [
+                    {name: '基础数学'},
+                    {name: '计算数学'},
+                    {name: '应用数学'}
+                ]},
+                {name: '化学'}
+            ]},
+            {name: '工学', children: [
+                {name: '计算机科学与技术', children: [
+                    {name: '计算机系统结构'},
+                    {name: '计算机软件与理论'},
+                    {name: '计算机应用技术'}
+                ]},
+                {name: '软件工程'},
+                {name: '机械工程', children: [
+                    {name: '机械制造及其自动化'},
+                    {name: '机械电子工程'},
+                    {name: '机械设计及理论'},
+                    {name: '车辆工程'}
+                ]}
+            ]}
+        ]
+    }
+});
+``` -->
         <h3>API</h3>
 
 <h4>Class</h4>
@@ -466,7 +509,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h5>new Select2Group()</h5>
 <table>
     <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
     </thead>
     <tbody>
         
@@ -515,7 +558,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <p>最后的选择项改变时触发</p>
     <table>
         <thead>
-            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
         </thead>
         <tbody>
             
@@ -533,7 +576,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <p>选择某一项时触发</p>
     <table>
         <thead>
-            <tr><th>属性</th><th>类型</th><th>描述</th></tr>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
         </thead>
         <tbody>
             

@@ -3683,7 +3683,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	width:40px;
 }
 .u-input-smw,.u-select-smw{
-	width:130px;
+	width:100px;
 }
 .u-input-lgw,.u-select-lgw{
 	width:200px;
@@ -4161,6 +4161,17 @@ input.u-check:disabled,input.u-radio:disabled{
 	margin-top:-1px;
 	margin-left:3px;
 }
+.u-input2{
+	position:relative;
+}
+.u-input2 .input2_unit{
+	position:absolute;
+	top:-1px;
+	right:13px;
+}
+.u-input2 + .u-tip{
+	margin-left:5px;
+}
 .u-numberinput{
 	display:inline-block;
 	position:relative;
@@ -4171,9 +4182,6 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-numberinput .u-btn{
 	position:absolute;
-}
-.u-input2 + .u-tip{
-	margin-left:5px;
 }
 .u-numberinput .u-btn{
 	right:2px;

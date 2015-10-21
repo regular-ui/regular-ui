@@ -228,9 +228,20 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
+<p>大部分属性的用法与<code>&lt;input&gt;</code>一致。</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>邮箱：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-attribute">validating</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>密码：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;password&quot;</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">6</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入密码&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">单位</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>速度：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">width</span>=<span class="cm-string">&quot;smw&quot;</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;340&quot;</span> <span class="cm-attribute">unit</span>=<span class="cm-string">&quot;m/s&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">验证</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>邮箱：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">20</span> <span class="cm-attribute">validating</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -255,7 +266,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h5>new Input2()</h5>
 <table>
     <thead>
-        <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
     </thead>
     <tbody>
         
@@ -293,7 +304,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <p>根据`rules`验证组件的值是否正确</p>
     <table>
         <thead>
-            <tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr>
+            <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
         </thead>
         <tbody>
             
@@ -404,7 +415,25 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<label>邮箱：<input2 rules={rules} validating={true} /></label>
+<label>密码：<input2 type="password" maxlength=6 placeholder="请输入密码" /></label>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<label>速度：<input2 width="smw" value="340" unit="m/s" /></label>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<label>邮箱：<input2 rules={rules} maxlength=20 validating={true} /></label>
     */})
 var component = new RGUI.Component({
     template: template,
