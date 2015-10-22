@@ -14,10 +14,10 @@ var filter = require('./filter.js');
 /**
  * @class Component
  * @extend Regular
- * @param {boolean=false}           options.data.readonly           是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {boolean=false}           options.data.readonly            => 是否只读
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var Component = Regular.extend({
     /**
@@ -32,6 +32,13 @@ var Component = Regular.extend({
             console: console
         });
         this.supr();
+    },
+    /**
+     * @protected
+     */
+    reset: function() {
+        this.data = {};
+        this.config();
     }
 })
 .filter(filter)
@@ -43,6 +50,11 @@ var Component = Regular.extend({
 
             elem.style.display = newValue ? 'block' : '';
         });
+    },
+    'r-autofocus': function(elem, value) {
+        setTimeout(function() {
+            elem.focus();
+        }, 0);
     }
 });
 

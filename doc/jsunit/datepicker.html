@@ -281,28 +281,28 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h5>new DatePicker()</h5>
 <table>
     <thead>
-        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        <tr><th width="26%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="16%">数据流向</th><th width="26%">描述</th></tr>
     </thead>
     <tbody>
         
             
-            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"> = </td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td>当前选择的日期</td></tr>
+            <tr><td class="f-wsn"><code>data.date</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td class="f-tac">&lt;=&gt;</td><td>当前选择的日期</td></tr>
             
-            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请输入&#39;</code></td><td>文本框的占位文字</td></tr>
+            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请输入&#39;</code></td><td class="f-tac"> =&gt;</td><td>文本框的占位文字</td></tr>
             
-            <tr><td class="f-wsn"><code>data.minDate</code></td><td class="f-wsn">Date | string</td><td class="f-wsn"><code>null</code></td><td>最小日期，如果为空则不限制</td></tr>
+            <tr><td class="f-wsn"><code>data.minDate</code></td><td class="f-wsn">Date | string</td><td class="f-wsn"><code>null</code></td><td class="f-tac"> =&gt;</td><td>最小日期，如果为空则不限制</td></tr>
             
-            <tr><td class="f-wsn"><code>data.maxDate</code></td><td class="f-wsn">Date | string</td><td class="f-wsn"><code>null</code></td><td>最大日期，如果为空则不限制</td></tr>
+            <tr><td class="f-wsn"><code>data.maxDate</code></td><td class="f-wsn">Date | string</td><td class="f-wsn"><code>null</code></td><td class="f-tac"> =&gt;</td><td>最大日期，如果为空则不限制</td></tr>
             
-            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否只读</td></tr>
             
-            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否禁用</td></tr>
             
-            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac"> =&gt;</td><td>是否显示</td></tr>
             
-            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac"> =&gt;</td><td>补充class</td></tr>
             
         
     </tbody>
@@ -313,7 +313,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Methods</h4>
     
     
-    <h5>datePicker.select(date)</h5>
+    <h5>
+        
+        <div>datePicker.select(date)</div>
+    </h5>
     <p>选择一个日期</p>
     <table>
         <thead>
@@ -326,10 +329,21 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
             
         </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无返回值</td></tr>
+            
+        </tbody>
     </table>
     
     
-    <h5>datePicker.isOutOfRange(date)</h5>
+    <h5>
+        
+        <div>datePicker.isOutOfRange(date)</div>
+    </h5>
     <p>是否超出规定的日期范围</p>
     <table>
         <thead>
@@ -340,6 +354,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>date</code></td><td class="f-wsn">Date</td><td class="f-wsn"></td><td>待测的日期</td></tr>
                 
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-wsn"><code>如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期</code></td><td class="f-wsn">boolean | Date</td><td colspan="2"></td></tr>
             
         </tbody>
     </table>
@@ -355,7 +377,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
     
-        <h5>datePicker.toggle(open)</h5>
+        <h5>
+            
+            <div>datePicker.toggle(open)</div>
+        </h5>
         <p>在展开/收起状态之间切换</p>
         <table>
             <thead>
@@ -368,17 +393,31 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                     
                 
             </tbody>
+            <thead>
+                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-tac" colspan="4">无返回值</td></tr>
+                
+            </tbody>
         </table>
     
     
     
     
-        <h5><span class="u-text u-text-muted">@override</span> <del>datePicker.select(item)</del></h5>
+        <h5>
+            <div class="u-text u-text-muted">@override</div>
+            <div><del>datePicker.select(item)</del></div>
+        </h5>
     
     
     
     
-        <h5>datePicker.$updateSource()</h5>
+        <h5>
+            <div class="u-text u-text-muted">@deprecated</div>
+            <div>datePicker.$updateSource()</div>
+        </h5>
         <p>从service中更新数据源</p>
         <table>
             <thead>
@@ -387,6 +426,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <tbody>
                 
                     <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                
+            </tbody>
+            <thead>
+                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-wsn"><code>this</code></td><td class="f-wsn">SourceComponent</td><td colspan="2"></td></tr>
                 
             </tbody>
         </table>
@@ -456,7 +503,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
     
-        <h5><span class="u-text u-text-muted">@override</span> <del>datePicker.$on('select')</del></h5>
+        <h5>
+            <div class="u-text u-text-muted">@override</div>
+            <div><del>datePicker.$on('select')</del></div>
+        </h5>
     
     
 

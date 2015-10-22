@@ -12,20 +12,23 @@ var _ = require('../base/util.js');
 /**
  * @class Pager
  * @extend Component
- * @param {object}                  options.data                    监听数据
- * @param {number=1}                options.data.current            当前页
- * @param {total=11}                options.data.total              总页数
- * @param {string='center'}         options.data.position           分页的位置，可选参数：`center`、`left`、`right`
- * @param {middle=5}                options.data.middle             当页数较多时，中间显示的页数
- * @param {side=2}                  options.data.side               当页数较多时，两端显示的页数
- * @param {boolean=false}           options.data.readonly           是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {number=1}                options.data.current            <=> 当前页
+ * @param {total=11}                options.data.total               => 总页数
+ * @param {string='center'}         options.data.position            => 分页的位置，可选参数：`center`、`left`、`right`
+ * @param {middle=5}                options.data.middle              => 当页数较多时，中间显示的页数
+ * @param {side=2}                  options.data.side                => 当页数较多时，两端显示的页数
+ * @param {boolean=false}           options.data.readonly            => 是否只读
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var Pager = Component.extend({
     name: 'pager',
     template: template,
+    /**
+     * @protected
+     */
     config: function() {
         _.extend(this.data, {
             current: 1,

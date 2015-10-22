@@ -14,7 +14,7 @@ var validator = require('validator');
 /**
  * @class Validation
  * @extend Component
- * @param {object}                  options.data                    绑定属性
+ * @param {object}                  options.data                     =  绑定属性
  */
 var Validation = Component.extend({
     name: 'validation',
@@ -65,9 +65,9 @@ Validation.validate = function(value, rules) {
         if(rule.type === 'is')
             rule.success = rule.reg.test(value);
         else if(rule.type === 'isRequired')
-            rule.success = !!value;
+            rule.success = !!validator.toString(value);
         else if(rule.type === 'isFilled')
-            rule.success = !!value && (value + '').trim();
+            rule.success = !!validator.toString(value).trim();
         else if(rule.type === 'isEmail')
             rule.success = validator.isEmail(value);
         else if(rule.type === 'isMobilePhone')

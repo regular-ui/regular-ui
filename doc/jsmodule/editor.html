@@ -201,26 +201,12 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h5>new Editor()</h5>
 <table>
     <thead>
-        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        <tr><th width="26%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="16%">数据流向</th><th width="26%">描述</th></tr>
     </thead>
     <tbody>
         
             
-            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性 | Binding Properties</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.title</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;提示&#39;</code></td><td>对话框标题 | Title of Dialog</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.content</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>对话框内容</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.okButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示确定按钮。值为`string`时显示该段文字。</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.cancelButton</code></td><td class="f-wsn">string | boolean</td><td class="f-wsn"><code>false</code></td><td>是否显示取消按钮。值为`string`时显示该段文字。</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.width</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>null</code></td><td>对话框宽度。值为否定时宽度为CSS设置的宽度。</td></tr>
-            
-            <tr><td class="f-wsn"><code>ok</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击确定的时候执行</td></tr>
-            
-            <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn"></td><td>当点击取消的时候执行</td></tr>
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"> = </td><td>绑定属性 | Binding Properties</td></tr>
             
         
     </tbody>
@@ -231,7 +217,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Methods</h4>
     
     
-    <h5>editor.close(result)</h5>
+    <h5>
+        
+        <div>editor.close(result)</div>
+    </h5>
     <p>关闭模态对话框</p>
     <table>
         <thead>
@@ -242,6 +231,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>点击确定还是取消</td></tr>
                 
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无返回值</td></tr>
             
         </tbody>
     </table>
@@ -283,7 +280,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         </thead>
         <tbody>
             
-                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                <tr><td class="f-tac" colspan="4">无属性</td></tr>
             
         </tbody>
     </table>
@@ -297,7 +294,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         </thead>
         <tbody>
             
-                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                <tr><td class="f-tac" colspan="4">无属性</td></tr>
             
         </tbody>
     </table>

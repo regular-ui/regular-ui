@@ -14,17 +14,17 @@ var _ = require('../base/util.js');
 /**
  * @class TableView
  * @extend SourceComponent
- * @param {object}                  options.data                    绑定属性
- * @param {object[]=[]}             options.data.source             数据源
- * @param {string}                  options.data.source[].name      每项的内容
- * @param {object[]=[]}             options.data.field              字段集
- * @param {string}                  options.data.field[].key        每个字段的key
- * @param {string}                  options.data.field[].name       每个字段在表头显示的文字，如果没有则显示key
- * @param {boolean=false}           options.data.striped            是否显示条纹
- * @param {boolean=false}           options.data.hover              是否每行在hover时显示样式
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
- * @param {object}                  options.service                 数据服务
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {object[]=[]}             options.data.source             <=> 数据源
+ * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {object[]=[]}             options.data.field               => 字段集
+ * @param {string}                  options.data.field[].key         => 每个字段的key
+ * @param {string}                  options.data.field[].name        => 每个字段在表头显示的文字，如果没有则显示key
+ * @param {boolean=false}           options.data.striped             => 是否显示条纹
+ * @param {boolean=false}           options.data.hover               => 是否每行在hover时显示样式
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
+ * @param {object}                  options.service                 @=> 数据服务
  */
 var TableView = SourceComponent.extend({
     name: 'tableView',

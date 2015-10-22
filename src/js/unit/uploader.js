@@ -14,15 +14,15 @@ var _ = require('../base/util.js');
 /**
  * @class Uploader
  * @extend Component
- * @param {object}                  options.data                    绑定属性
- * @param {string=''}               options.data.title              按钮文字
- * @param {string=''}               options.data.url                上传路径
- * @param {string='json'}           options.data.dataType           数据类型
- * @param {object}                  options.data.data               附加数据
- * @param {string|string[]=''}      options.data.extensions         可上传的扩展名，如果为空，则表示可上传任何文件类型
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {string=''}               options.data.title               => 按钮文字
+ * @param {string=''}               options.data.url                 => 上传路径
+ * @param {string='json'}           options.data.dataType            => 数据类型
+ * @param {object}                  options.data.data                => 附加数据
+ * @param {string|string[]=''}      options.data.extensions          => 可上传的扩展名，如果为空，则表示可上传任何文件类型
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var Uploader = Component.extend({
     name: 'uploader',
@@ -112,6 +112,11 @@ var Uploader = Component.extend({
 
         this.$refs.file.value = '';
     },
+    /**
+     * @method extensionError() 返回错误
+     * @private
+     * @return {string} string 错误
+     */
     extensionError:　function() {
         return '只能上传' + this.data.extensions.join(', ')　+ '类型的文件！';
     },

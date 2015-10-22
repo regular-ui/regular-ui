@@ -16,12 +16,12 @@ var marked = require('marked');
 /**
  * @class MarkEditor
  * @extend Component
- * @param {object}                  options.data                    绑定属性 | Binding Properties
- * @param {string=''}               options.data.content            编辑器内容
- * @param {boolean=false}           options.data.readonly           是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性 | Binding Properties
+ * @param {string=''}               options.data.content            <=> 编辑器内容
+ * @param {boolean=false}           options.data.readonly            => 是否只读
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var MarkEditor = Component.extend({
     name: 'markEditor',

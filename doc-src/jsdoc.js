@@ -11,8 +11,9 @@ function parse(filepath) {
         type: /^@(class|method|event)\s+(.+?)(?:\s+(.+?))?$/,
         method: /^(.+?)\((.*)\)$/,
         map: /^@(extend|version)\s+(.+?)$/,
-        flag: /^@(public|private|static|override|ignore)$/,
-        param: /^@param\s+\{(.+?)(?:=(.*?))?\}\s+(.+?)(?:\s+(.+?))?$/,
+        flag: /^@(public|private|static|override|ignore|deprecated)$/,
+        param: /^@param\s+\{(.+?)(?:=(.*?))?\}\s+(.+?)(?:\s+(.=.))?(?:\s+(.+?))?$/,
+        return_: /^@return\s+\{(.+?)\}\s+(.+?)(?:\s+(.+?))?$/,
         property: /^@property\s+\{(.+?)\}\s+(.+?)(?:\s+(.+?))?$/,
         author: /^@author\s+(.+?)$/,
     }
@@ -26,6 +27,7 @@ function parse(filepath) {
         var token = {
             type: null,
             params: [],
+            return_: null,
             properties: []
         };
         var lines = cap[1].split('\n');
@@ -71,13 +73,22 @@ function parse(filepath) {
                     name: cap2[3].replace(/^options\./, ''),
                     type: cap2[1].replace(/\|/g, ' | '),
                     default_: cap2[2],
-                    description: cap2[4]
+                    bindWay: cap2[4],
+                    description: cap2[5]
                 });
+            }
+
+            if(cap2 = rule.return_.exec(line)) {
+                token.return_ = {
+                    name: cap2[2],
+                    type: cap2[1].replace(/\|/g, ' | '),
+                    description: cap2[3]
+                };
             }
 
             if(cap2 = rule.property.exec(line)) {
                 token.properties.push({
-                    name: cap2[2].replace(/^options\./, ''),
+                    name: cap2[2],
                     type: cap2[1].replace(/\|/g, ' | '),
                     description: cap2[3]
                 });

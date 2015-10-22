@@ -218,30 +218,30 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h5>new Pager()</h5>
 <table>
     <thead>
-        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        <tr><th width="26%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="16%">数据流向</th><th width="26%">描述</th></tr>
     </thead>
     <tbody>
         
             
-            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>监听数据</td></tr>
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"> = </td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.current</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>1</code></td><td>当前页</td></tr>
+            <tr><td class="f-wsn"><code>data.current</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>1</code></td><td class="f-tac">&lt;=&gt;</td><td>当前页</td></tr>
             
-            <tr><td class="f-wsn"><code>data.total</code></td><td class="f-wsn">total</td><td class="f-wsn"><code>11</code></td><td>总页数</td></tr>
+            <tr><td class="f-wsn"><code>data.total</code></td><td class="f-wsn">total</td><td class="f-wsn"><code>11</code></td><td class="f-tac"> =&gt;</td><td>总页数</td></tr>
             
-            <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;center&#39;</code></td><td>分页的位置，可选参数：`center`、`left`、`right`</td></tr>
+            <tr><td class="f-wsn"><code>data.position</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;center&#39;</code></td><td class="f-tac"> =&gt;</td><td>分页的位置，可选参数：`center`、`left`、`right`</td></tr>
             
-            <tr><td class="f-wsn"><code>data.middle</code></td><td class="f-wsn">middle</td><td class="f-wsn"><code>5</code></td><td>当页数较多时，中间显示的页数</td></tr>
+            <tr><td class="f-wsn"><code>data.middle</code></td><td class="f-wsn">middle</td><td class="f-wsn"><code>5</code></td><td class="f-tac"> =&gt;</td><td>当页数较多时，中间显示的页数</td></tr>
             
-            <tr><td class="f-wsn"><code>data.side</code></td><td class="f-wsn">side</td><td class="f-wsn"><code>2</code></td><td>当页数较多时，两端显示的页数</td></tr>
+            <tr><td class="f-wsn"><code>data.side</code></td><td class="f-wsn">side</td><td class="f-wsn"><code>2</code></td><td class="f-tac"> =&gt;</td><td>当页数较多时，两端显示的页数</td></tr>
             
-            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否只读</td></tr>
             
-            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否禁用</td></tr>
             
-            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac"> =&gt;</td><td>是否显示</td></tr>
             
-            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac"> =&gt;</td><td>补充class</td></tr>
             
         
     </tbody>
@@ -252,7 +252,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Methods</h4>
     
     
-    <h5>pager.select(page)</h5>
+    <h5>
+        
+        <div>pager.select(page)</div>
+    </h5>
     <p>选择某一页</p>
     <table>
         <thead>
@@ -263,6 +266,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>page</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>选择页</td></tr>
                 
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无返回值</td></tr>
             
         </tbody>
     </table>

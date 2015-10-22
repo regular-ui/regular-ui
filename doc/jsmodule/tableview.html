@@ -270,32 +270,32 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h5>new TableView()</h5>
 <table>
     <thead>
-        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        <tr><th width="26%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="16%">数据流向</th><th width="26%">描述</th></tr>
     </thead>
     <tbody>
         
             
-            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"> = </td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>数据源</td></tr>
+            <tr><td class="f-wsn"><code>data.source</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">&lt;=&gt;</td><td>数据源</td></tr>
             
-            <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每项的内容</td></tr>
+            <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td class="f-tac"> =&gt;</td><td>每项的内容</td></tr>
             
-            <tr><td class="f-wsn"><code>data.field</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td>字段集</td></tr>
+            <tr><td class="f-wsn"><code>data.field</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac"> =&gt;</td><td>字段集</td></tr>
             
-            <tr><td class="f-wsn"><code>data.field[].key</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每个字段的key</td></tr>
+            <tr><td class="f-wsn"><code>data.field[].key</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td class="f-tac"> =&gt;</td><td>每个字段的key</td></tr>
             
-            <tr><td class="f-wsn"><code>data.field[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td>每个字段在表头显示的文字，如果没有则显示key</td></tr>
+            <tr><td class="f-wsn"><code>data.field[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td class="f-tac"> =&gt;</td><td>每个字段在表头显示的文字，如果没有则显示key</td></tr>
             
-            <tr><td class="f-wsn"><code>data.striped</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否显示条纹</td></tr>
+            <tr><td class="f-wsn"><code>data.striped</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否显示条纹</td></tr>
             
-            <tr><td class="f-wsn"><code>data.hover</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否每行在hover时显示样式</td></tr>
+            <tr><td class="f-wsn"><code>data.hover</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否每行在hover时显示样式</td></tr>
             
-            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac"> =&gt;</td><td>是否显示</td></tr>
             
-            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac"> =&gt;</td><td>补充class</td></tr>
             
-            <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>数据服务</td></tr>
+            <tr><td class="f-wsn"><code>service</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">@=&gt;</td><td>数据服务</td></tr>
             
         
     </tbody>
@@ -306,7 +306,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Methods</h4>
     
     
-    <h5>tableView.sort(field)</h5>
+    <h5>
+        
+        <div>tableView.sort(field)</div>
+    </h5>
     <p>按照某个字段排序</p>
     <table>
         <thead>
@@ -317,6 +320,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>field</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>排序字段</td></tr>
                 
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无返回值</td></tr>
             
         </tbody>
     </table>
@@ -332,7 +343,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
     
-        <h5>tableView.$updateSource()</h5>
+        <h5>
+            <div class="u-text u-text-muted">@deprecated</div>
+            <div>tableView.$updateSource()</div>
+        </h5>
         <p>从service中更新数据源</p>
         <table>
             <thead>
@@ -341,6 +355,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <tbody>
                 
                     <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                
+            </tbody>
+            <thead>
+                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-wsn"><code>this</code></td><td class="f-wsn">SourceComponent</td><td colspan="2"></td></tr>
                 
             </tbody>
         </table>

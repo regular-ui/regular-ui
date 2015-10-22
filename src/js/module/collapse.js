@@ -15,12 +15,12 @@ var _ = require('../base/util.js');
 /**
  * @class Collapse
  * @extend Component
- * @param {object}                  options.data                    绑定属性
- * @param {boolean=false}           options.data.accordion          是否每次只展开一个
- * @param {boolean=false}           options.data.readonly           是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {boolean=false}           options.data.accordion           => 是否每次只展开一个
+ * @param {boolean=false}           options.data.readonly            => 是否只读
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var Collapse = Component.extend({
     name: 'collapse',

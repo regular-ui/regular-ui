@@ -10,15 +10,15 @@
 <h5>new <%= class_.name %>()</h5>
 <table>
     <thead>
-        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        <tr><th width="26%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="16%">数据流向</th><th width="26%">描述</th></tr>
     </thead>
     <tbody>
         <% if(class_.params.length) { %>
             <% class_.params.forEach(function(param) { %>
-            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td><%= param.description %></td></tr>
+            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td class="f-tac"><%= param.bindWay %></td><td><%= param.description %></td></tr>
             <% }); %>
         <% } else { %>
-            <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            <tr><td class="f-tac" colspan="5">无参数</td></tr>
         <% } %>
     </tbody>
 </table>
@@ -28,7 +28,10 @@
     <h4>Methods</h4>
     <% methods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
-    <h5><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
+    <h5>
+        <% if(method.deprecated) { %><div class="u-text u-text-muted">@deprecated</div><% } %>
+        <div><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</div>
+    </h5>
     <p><%= method.description %></p>
     <table>
         <thead>
@@ -43,6 +46,16 @@
                 <tr><td class="f-tac" colspan="4">无参数</td></tr>
             <% } %>
         </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            <% if(method.return_ && method.return_.type !== 'void') { %>
+                <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%= method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
+            <% } else { %>
+                <tr><td class="f-tac" colspan="4">无返回值</td></tr>
+            <% } %>
+        </tbody>
     </table>
     <% }); %>
 <% } %>
@@ -52,7 +65,10 @@
     <h4>Static Methods</h4>
     <% staticMethods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
-    <h5><%= class_.name %>.<%= method.name %>(<%= method.body %>)</h5>
+    <h5>
+        <% if(method.deprecated) { %><div class="u-text u-text-muted">@deprecated</div><% } %>
+        <div><%= class_.name %>.<%= method.name %>(<%= method.body %>)</div>
+    </h5>
     <p><%= method.description %></p>
     <table>
         <thead>
@@ -65,6 +81,16 @@
                 <% }); %>
             <% } else { %>
                 <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            <% } %>
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            <% if(method.return_ && method.return_.type !== 'void') { %>
+                <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%= method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
+            <% } else { %>
+                <tr><td class="f-tac" colspan="4">无返回值</td></tr>
             <% } %>
         </tbody>
     </table>
@@ -77,7 +103,10 @@
     <% inheritedMethods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
     <% if(!method.overridden) { %>
-        <h5><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
+        <h5>
+            <% if(method.deprecated) { %><div class="u-text u-text-muted">@deprecated</div><% } %>
+            <div><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</div>
+        </h5>
         <p><%= method.description %></p>
         <table>
             <thead>
@@ -92,9 +121,22 @@
                     <tr><td class="f-tac" colspan="4">无参数</td></tr>
                 <% } %>
             </tbody>
+            <thead>
+                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+            </thead>
+            <tbody>
+                <% if(method.return_ && method.return_.type !== 'void') { %>
+                    <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%= method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
+                <% } else { %>
+                    <tr><td class="f-tac" colspan="4">无返回值</td></tr>
+                <% } %>
+            </tbody>
         </table>
     <% } else { %>
-        <h5><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</del></h5>
+        <h5>
+            <div class="u-text u-text-muted">@override</div>
+            <div><del><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</del></div>
+        </h5>
     <% } %>
     <% }); %>
 <% } %>
@@ -116,7 +158,7 @@
                 <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
                 <% }); %>
             <% } else { %>
-                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                <tr><td class="f-tac" colspan="4">无属性</td></tr>
             <% } %>
         </tbody>
     </table>
@@ -141,12 +183,15 @@
                     <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
                     <% }); %>
                 <% } else { %>
-                    <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                    <tr><td class="f-tac" colspan="4">无属性</td></tr>
                 <% } %>
             </tbody>
         </table>
     <% } else { %>
-        <h5><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.$on('<%= event.name %>')</del></h5>
+        <h5>
+            <div class="u-text u-text-muted">@override</div>
+            <div><del><%= class_.lowerName %>.$on('<%= event.name %>')</del></div>
+        </h5>
     <% } %>
     <% }); %>
 <% } %>

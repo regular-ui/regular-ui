@@ -16,14 +16,14 @@ var MS_OF_DAY = 24*3600*1000;
 /**
  * @class Calendar
  * @extend Component
- * @param {object}                  options.data                    绑定属性
- * @param {Date|string=TODAY}       options.data.date               当前选择的日期
- * @param {Date|string=null}        options.data.minDate            最小日期，如果为空则不限制
- * @param {Date|string=null}        options.data.maxDate            最大日期，如果为空则不限制
- * @param {boolean=false}           options.data.readonly           是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {Date|string=TODAY}       options.data.date               <=> 当前选择的日期
+ * @param {Date|string=null}        options.data.minDate             => 最小日期，如果为空则不限制
+ * @param {Date|string=null}        options.data.maxDate             => 最大日期，如果为空则不限制
+ * @param {boolean=false}           options.data.readonly            => 是否只读
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var Calendar = Component.extend({
     name: 'calendar',
@@ -136,7 +136,7 @@ var Calendar = Component.extend({
      * @method addYear(year) 调整年份
      * @public
      * @param  {number=0} year 加/减的年份
-     * @return {void}
+     * @return {Date} date 计算后的日期
      */
     addYear: function(year) {
         if(this.data.readonly || this.data.disabled || !year)
@@ -147,13 +147,14 @@ var Calendar = Component.extend({
         date.setFullYear(date.getFullYear() + year);
         if(date.getMonth() != oldMonth)
             date.setDate(0);
-        this.data.date = date;
+        
+        return this.data.date = date;
     },
     /**
      * @method addMonth(month) 调整月份
      * @public
      * @param  {number=0} month 加/减的月份
-     * @return {void}
+     * @return {Date} date 计算后的日期
      */
     addMonth: function(month) {
         if(this.data.readonly || this.data.disabled || !month)
@@ -165,7 +166,8 @@ var Calendar = Component.extend({
         // 如果跳月，则置为上一个月
         if((date.getMonth() - correctMonth)%12)
             date.setDate(0);
-        this.data.date = date;
+        
+        return this.data.date = date;
     },
     /**
      * @method select(date) 选择一个日期

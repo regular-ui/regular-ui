@@ -14,13 +14,13 @@ var _ = require('../base/util.js');
 /**
  * @class Modal
  * @extend Component
- * @param {object}                  options.data                    绑定属性 | Binding Properties
- * @param {string='提示'}           options.data.title              对话框标题 | Title of Dialog
- * @param {string=''}               options.data.content            对话框内容
- * @param {string|boolean=true}     options.data.okButton           是否显示确定按钮。值为`string`时显示该段文字。
- * @param {string|boolean=false}    options.data.cancelButton       是否显示取消按钮。值为`string`时显示该段文字。
- * @param {number=null}             options.data.width              对话框宽度。值为否定时宽度为CSS设置的宽度。
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性 | Binding Properties
+ * @param {string='提示'}           options.data.title               => 对话框标题 | Title of Dialog
+ * @param {string=''}               options.data.content             => 对话框内容
+ * @param {string|boolean=true}     options.data.okButton            => 是否显示确定按钮。值为`string`时显示该段文字。
+ * @param {string|boolean=false}    options.data.cancelButton        => 是否显示取消按钮。值为`string`时显示该段文字。
+ * @param {number=null}             options.data.width               => 对话框宽度。值为否定时宽度为CSS设置的宽度。
+ * @param {string=''}               options.data.class               => 补充class
  */
 var Modal = Component.extend({
     name: 'modal',
@@ -48,7 +48,7 @@ var Modal = Component.extend({
             this.$inject(document.body);
     },
     /**
-     * @method close(result) 关闭模态对话框
+     * @method close(result) 关闭对话框
      * @public
      * @param  {boolean} result 点击确定还是取消
      * @return {void}
@@ -64,7 +64,9 @@ var Modal = Component.extend({
         result ? this.ok() : this.cancel();
     },
     /**
-     * @override
+     * @method ok() 确定对话框
+     * @public
+     * @return {void}
      */
     ok: function() {
         /**
@@ -75,7 +77,9 @@ var Modal = Component.extend({
         this.destroy();
     },
     /**
-     * @override
+     * @method cancel() 取消对话框
+     * @public
+     * @return {void}
      */
     cancel: function() {
         /**
@@ -85,6 +89,9 @@ var Modal = Component.extend({
 
         this.destroy();
     },
+    /**
+     * @private
+     */
     keyup: function($event) {
         if($event.which == 13)
             this.ok();
@@ -97,7 +104,7 @@ var Modal = Component.extend({
  * @public
  * @param  {string=''} content 对话框内容
  * @param  {string='提示'} title 对话框标题
- * @return {void}
+ * @return {Modal} modal 返回该对话框
  */
 Modal.alert = function(content, title, okButton) {
     var modal = new Modal({
@@ -107,6 +114,7 @@ Modal.alert = function(content, title, okButton) {
             okButton: okButton
         }
     });
+
     return modal;
 }
 
@@ -116,7 +124,7 @@ Modal.alert = function(content, title, okButton) {
  * @public
  * @param  {string=''} content 对话框内容
  * @param  {string='提示'} title 对话框标题
- * @return {void}
+ * @return {Modal} modal 返回该对话框
  */
 Modal.confirm = function(content, title, okButton, cancelButton) {
     var modal = new Modal({
@@ -127,6 +135,7 @@ Modal.confirm = function(content, title, okButton, cancelButton) {
             cancelButton: cancelButton || true
         }
     });
+    
     return modal;
 }
 

@@ -12,18 +12,18 @@ var _ = require('../base/util.js');
 /**
  * @class Dropdown
  * @extend SourceComponent
- * @param {object}                  options.data                    绑定属性
- * @param {string=''}               options.data.title              按钮文字
- * @param {object[]=[]}             options.data.source             数据源
- * @param {string}                  options.data.source[].name      每项的内容
- * @param {boolean=false}           options.data.source[].disabled  禁用此项
- * @param {boolean=false}           options.data.source[].divider   设置此项分隔线
- * @param {string=null}             options.data.itemTemplate       单项模板
- * @param {boolean=false}           options.data.open               当前为展开/收起状态
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
- * @param {object}                  options.service                 数据服务
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {string=''}               options.data.title               => 按钮文字
+ * @param {object[]=[]}             options.data.source             <=> 数据源
+ * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
+ * @param {boolean=false}           options.data.source[].divider    => 设置此项分隔线
+ * @param {string=null}             options.data.itemTemplate       @=> 单项模板
+ * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
+ * @param {object}                  options.service                 @=> 数据服务
  */
 var Dropdown = SourceComponent.extend({
     name: 'dropdown',

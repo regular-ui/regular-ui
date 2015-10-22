@@ -12,15 +12,15 @@ var _ = require('../base/util.js');
 /**
  * @class NumberInput
  * @extend Input2
- * @param {object}                  options.data                    绑定属性
- * @param {string=0}                options.data.value              输入框的值
- * @param {string=''}               options.data.type               输入框的类型
- * @param {number=undefined}        options.data.min                最小值
- * @param {number=undefined}        options.data.max                最大值
- * @param {boolean=false}           options.data.readonly           是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {string=0}                options.data.value              <=> 输入框的值
+ * @param {string=''}               options.data.state              <=> 输入框的状态
+ * @param {number=undefined}        options.data.min                 => 最小值
+ * @param {number=undefined}        options.data.max                 => 最大值
+ * @param {boolean=false}           options.data.readonly            => 是否只读
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var NumberInput = Input2.extend({
     name: 'numberInput',
@@ -31,7 +31,7 @@ var NumberInput = Input2.extend({
     config: function() {
         _.extend(this.data, {
             value: 0,
-            // @inherited type: '',
+            // @inherited state: '',
             // @inherited placeholder: '',
             min: undefined,
             max: undefined
@@ -71,13 +71,13 @@ var NumberInput = Input2.extend({
      * @method add(value) 调整数值
      * @public
      * @param  {number=0} value 加/减的值
-     * @return {void}
+     * @return {number} value 计算后的值
      */
     add: function(value) {
         if(this.data.readonly || this.data.disabled || !value)
             return;
 
-        this.data.value += value;
+        return this.data.value += value;
     },
     /**
      * @method isOutOfRange(value) 是否超出规定的数值范围

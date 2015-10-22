@@ -13,14 +13,14 @@ var NumberInput = require('./numberInput.js');
 /**
  * @class TimePicker
  * @extend Component
- * @param {object}                  options.data                    绑定属性
- * @param {string='00:00'}          options.data.time               当前的时间值
- * @param {string='00:00'}          options.data.minTime            最小时间
- * @param {string='23:59'}          options.data.maxTime            最大时间
- * @param {boolean=false}           options.data.readonly           是否只读
- * @param {boolean=false}           options.data.disabled           是否禁用
- * @param {boolean=true}            options.data.visible            是否显示
- * @param {string=''}               options.data.class              补充class
+ * @param {object}                  options.data                     =  绑定属性
+ * @param {string='00:00'}          options.data.time               <=> 当前的时间值
+ * @param {string='00:00'}          options.data.minTime             => 最小时间
+ * @param {string='23:59'}          options.data.maxTime             => 最大时间
+ * @param {boolean=false}           options.data.readonly            => 是否只读
+ * @param {boolean=false}           options.data.disabled            => 是否禁用
+ * @param {boolean=true}            options.data.visible             => 是否显示
+ * @param {string=''}               options.data.class               => 补充class
  */
 var TimePicker = Component.extend({
     name: 'timePicker',

@@ -1,4 +1,4 @@
-<div class="u-unitgroup {@(class)}" r-hide={!visible}>
+<div class="u-unitgroup {class}" r-hide={!visible}>
     {#list source as item}
     <label class="u-radio2" r-class={ {'z-dis': disabled, 'u-radio2-block': block} } title={item.name} on-click={this.select(item)}><input type="radio" class="u-radio" name={_radioGroupId} disabled={disabled}> {item.name}</label>
     {/list}

@@ -268,28 +268,28 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h5>new NumberInput()</h5>
 <table>
     <thead>
-        <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        <tr><th width="26%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="16%">数据流向</th><th width="26%">描述</th></tr>
     </thead>
     <tbody>
         
             
-            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td>绑定属性</td></tr>
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"> = </td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>0</code></td><td>输入框的值</td></tr>
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>0</code></td><td class="f-tac">&lt;=&gt;</td><td>输入框的值</td></tr>
             
-            <tr><td class="f-wsn"><code>data.type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>输入框的类型</td></tr>
+            <tr><td class="f-wsn"><code>data.state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">&lt;=&gt;</td><td>输入框的状态</td></tr>
             
-            <tr><td class="f-wsn"><code>data.min</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>undefined</code></td><td>最小值</td></tr>
+            <tr><td class="f-wsn"><code>data.min</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>undefined</code></td><td class="f-tac"> =&gt;</td><td>最小值</td></tr>
             
-            <tr><td class="f-wsn"><code>data.max</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>undefined</code></td><td>最大值</td></tr>
+            <tr><td class="f-wsn"><code>data.max</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>undefined</code></td><td class="f-tac"> =&gt;</td><td>最大值</td></tr>
             
-            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否只读</td></tr>
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否只读</td></tr>
             
-            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td>是否禁用</td></tr>
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac"> =&gt;</td><td>是否禁用</td></tr>
             
-            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td>是否显示</td></tr>
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac"> =&gt;</td><td>是否显示</td></tr>
             
-            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td>补充class</td></tr>
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac"> =&gt;</td><td>补充class</td></tr>
             
         
     </tbody>
@@ -300,7 +300,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Methods</h4>
     
     
-    <h5>numberInput.add(value)</h5>
+    <h5>
+        
+        <div>numberInput.add(value)</div>
+    </h5>
     <p>调整数值</p>
     <table>
         <thead>
@@ -313,10 +316,21 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
             
         </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-wsn"><code>value</code></td><td class="f-wsn">number</td><td colspan="2">计算后的值</td></tr>
+            
+        </tbody>
     </table>
     
     
-    <h5>numberInput.isOutOfRange(value)</h5>
+    <h5>
+        
+        <div>numberInput.isOutOfRange(value)</div>
+    </h5>
     <p>是否超出规定的数值范围</p>
     <table>
         <thead>
@@ -327,6 +341,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>value</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td>待测的值</td></tr>
                 
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-wsn"><code>如果没有超出数值范围，则返回false；如果超出数值范围，则返回范围边界的数值</code></td><td class="f-wsn">boolean | number</td><td colspan="2"></td></tr>
             
         </tbody>
     </table>
@@ -342,7 +364,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
     
-        <h5>numberInput.validate()</h5>
+        <h5>
+            
+            <div>numberInput.validate()</div>
+        </h5>
         <p>根据`rules`验证组件的值是否正确</p>
         <table>
             <thead>
@@ -351,6 +376,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <tbody>
                 
                     <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                
+            </tbody>
+            <thead>
+                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">object</td><td colspan="2">结果</td></tr>
                 
             </tbody>
         </table>
