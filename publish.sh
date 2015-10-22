@@ -8,6 +8,7 @@ elif [ ${1:0:1} != "v" ];then
 else
     version="$1"
 fi
+
 echo ""
 echo "The new version is \"$version\"."
 echo "--------------------------------"
@@ -18,12 +19,12 @@ if [ $char != "y" ];then
 fi
 
 echo ""
-echo "Starting to deploy and release..."
+echo "Starting to deploy and publish..."
 echo ""
 
-# gulp bower
-# gulp page
-# ./bin/version $version
+gulp bower
+gulp page
+./bin/version $version
 git add -A .
 git commit -m $version
 git checkout master
@@ -31,18 +32,18 @@ git merge develop
 git push --all
 git tag $version
 git push origin $version
-# npm publish
-# cd ../regular-ui-bower
-# git add -A .
-# git commit -m $version
-# git push
-# git tag $version
-# git push origin $version
-# cd ../regular-ui.github.io
-# git add -A .
-# git commit -m $version
-# git push
-# git tag $version
-# git push origin $version
-# cd ../regular-ui
-# git checkout develop
+npm publish
+cd ../regular-ui-bower
+git add -A .
+git commit -m $version
+git push
+git tag $version
+git push origin $version
+cd ../regular-ui.github.io
+git add -A .
+git commit -m $version
+git push
+git tag $version
+git push origin $version
+cd ../regular-ui
+git checkout develop
