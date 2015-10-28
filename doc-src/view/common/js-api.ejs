@@ -10,12 +10,12 @@
 <h5>new <%= class_.name %>()</h5>
 <table>
     <thead>
-        <tr><th width="26%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="16%">数据流向</th><th width="26%">描述</th></tr>
+        <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
     </thead>
     <tbody>
         <% if(class_.params.length) { %>
             <% class_.params.forEach(function(param) { %>
-            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td class="f-tac"><%= param.bindWay %></td><td><%= param.description %></td></tr>
+            <tr><td class="f-wsn"><code><%= param.name %></code></td><td class="f-wsn"><%= param.type %></td><td class="f-wsn"><% if(param.default_) { %><code><%= param.default_ %></code><% } %></td><td class="f-tac"><% if(param.bindWay !== ' = ') { %>outer <%= param.bindWay %> inner<% } else { %><% } %></td><td><%= param.description %></td></tr>
             <% }); %>
         <% } else { %>
             <tr><td class="f-tac" colspan="5">无参数</td></tr>

@@ -83,7 +83,7 @@ var NumberInput = Input2.extend({
      * @method isOutOfRange(value) 是否超出规定的数值范围
      * @public
      * @param {number} value 待测的值
-     * @return {boolean|number} 如果没有超出数值范围，则返回false；如果超出数值范围，则返回范围边界的数值
+     * @return {boolean|number} number 如果没有超出数值范围，则返回false；如果超出数值范围，则返回范围边界的数值
      */
     isOutOfRange: function(value) {
         var min = +this.data.min;

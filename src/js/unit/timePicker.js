@@ -85,7 +85,7 @@ var TimePicker = Component.extend({
      * @method isOutOfRange(time) 是否超出规定的时间范围
      * @public
      * @param {Time} time 待测的时间
-     * @return {boolean|Time} 如果没有超出时间范围，则返回false；如果超出时间范围，则返回范围边界的时间
+     * @return {boolean|Time} time 如果没有超出时间范围，则返回false；如果超出时间范围，则返回范围边界的时间
      */
     isOutOfRange: function(time) {
         var minTime = this.data.minTime;

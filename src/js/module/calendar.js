@@ -204,7 +204,7 @@ var Calendar = Component.extend({
      * @method isOutOfRange(date) 是否超出规定的日期范围
      * @public
      * @param {Date} date 待测的日期
-     * @return {boolean|Date} 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
+     * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
      */
     isOutOfRange: function(date) {
         var minDate = this.data.minDate;
