@@ -7,7 +7,7 @@
         {/if}
     </div>
     <form method="POST" action={url} target="iframe{_id}" enctype={contentType} ref="form">
-        <input type="file" name="file" ref="file" on-change={this.submit()}>
+        <input type="file" name={name} ref="file" on-change={this.submit()}>
         {#list Object.keys(data) as key}
         <input type="hidden" name={key} value={data[key]}>
         {/list}

@@ -19,6 +19,7 @@ var _ = require('../base/util.js');
  * @param {string=''}               options.data.url                 => 上传路径
  * @param {string='json'}           options.data.dataType            => 数据类型
  * @param {object}                  options.data.data                => 附加数据
+ * @param {string='file'}           options.data.name                => 上传文件的name
  * @param {string|string[]=''}      options.data.extensions          => 可上传的扩展名，如果为空，则表示可上传任何文件类型
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -37,6 +38,7 @@ var Uploader = Component.extend({
             contentType: 'multipart/form-data',
             dataType: 'json',
             data: {},
+            name: 'file',
             extensions: null,
             _id: new Date().getTime()
         });
@@ -66,7 +68,9 @@ var Uploader = Component.extend({
                 extensions = extensions.split(',');
             
             if(extensions.indexOf(ext) === -1)
-                return this.$emit('error', this.extensionError());
+                return this.$emit('error', {
+                    message: this.extensionError()
+                });
         }
 
         this.$emit('sending', this.data.data);
@@ -86,11 +90,13 @@ var Uploader = Component.extend({
                 xml.responseXML = iframe.contentDocument.document.XMLDocument?iframe.contentDocument.document.XMLDocument : iframe.contentDocument.document;
             }
         } catch(e) {
-            console.log(e);
+            this.$emit('error', e);
         }
 
         if(!xml.responseText)
-            return;
+            return this.$emit('error', {
+                message: 'No responseText!'
+            });
 
         function uploadHttpData(r, type) {
             var data = (type == 'xml' || !type) ? r.responseXML : r.responseText;
