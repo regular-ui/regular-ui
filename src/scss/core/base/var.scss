@@ -1,0 +1,64 @@
+// Name:            Variables
+// Description:     变量
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Variables:
+// ========================================================================
+
+/* Dimension */
+$media-xs-max-width:                   480px - 1;
+$media-sm-max-width:                   768px - 1;
+$media-md-max-width:                   960px - 1;
+$media-lg-max-width:                   1220px - 1;
+
+/* Brand Colors */
+$gray-base: #777;
+$brand-primary: #3498db;
+
+$font-family-sans-serif: "Lucida Grande", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times, SimSun, "FontAwesome", serif; //FangSong, STFangSong
+$font-family-monospace: Monaco, Menlo, Consolas, "Courier New", "FontAwesome", monospace;
+$font-family-kai: Georgia, "Times New Roman", Times, Kai, "Kaiti SC", KaiTi, BiauKai, "FontAwesome", serif;
+
+
+/* Form Controls */
+$formctrl_padding: 4px 6px;
+$formctrl-sm_padding: 3px 3px;
+$formctrl-lg_padding: 8px 6px;
+
+$formctrl_height: 30px;
+$formctrl-sm_height: 25px;
+$formctrl-lg_height: 40px;
+
+$formctrl-sm_font-size: 12px;
+$formctrl-lg_font-size: 16px;
+
+$formctrl_min-width: 120px;
+
+$formctrl_background: white;
+$formctrl_color: #444;
+$formctrl_border: #ddd;
+$formctrl_border-width-base: 1px;
+
+$formctrl-focus_background: #f5fbfe;
+$formctrl-focus_color: #444;
+$formctrl-focus_border: #99baca;
+
+$formctrl-disabled_background: #f5f5f5;
+$formctrl-disabled_color: #999;
+$formctrl-disabled_border: #ddd;
+
+$formctrl_placeholder_color: #999;
+
+
+$formctrl_item_padding: 0 10px;
+$formctrl_item-hover_background: #eee;
+$formctrl_item-hover_color: #444;
+$formctrl_item-hover_border: null;
+
+$formctrl_item-selected_background: $brand-primary;
+$formctrl_item-selected_color: white;
+$formctrl_item-selected_border: null;

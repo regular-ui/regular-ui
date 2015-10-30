@@ -31,7 +31,7 @@
 // Description:     颜色扩展
 // ========================================================================
 
-$u-message-extend_color = ($name, $background, $color) {
+$u-message-extend_color = ($name, $background, $color = null) {
     .u-message-#{$name} {
         background: $background;
         @if($color) {

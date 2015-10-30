@@ -1,0 +1,30 @@
+// Name:            TableView
+// Description:     表格视图
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-tableview`
+// ========================================================================
+
+.m-tableview {
+    .tableview_sortable {
+        cursor: pointer;
+        @include user-select(none);
+
+        .u-icon-sort-asc, .u-icon-sort-desc {
+            position: relative;
+        }
+
+        .u-icon-sort-asc:after, .u-icon-sort-desc:after {
+            content: "\f0dc";
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            width: 100%;
+        }
+      
+        .u-icon-sort {}
+    }
+}

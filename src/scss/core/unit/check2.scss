@@ -1,0 +1,64 @@
+// Name:            Check2
+// Description:     多选按钮
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-check2`
+// ========================================================================
+
+.u-check2 {
+    cursor: pointer;
+    @include user-select(none);
+
+    .check2_box {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        vertical-align: middle;
+        margin-bottom: 2px;
+
+        .u-icon {
+            display: none;
+        }
+    }
+}
+
+/* Checked */
+.u-check2.z-chk {
+    .check2_box {
+        .u-icon {
+            display: inline-block;
+        }
+    }
+}
+
+/* Indetermined */
+.u-check2.z-part {
+    .check2_box {
+        .u-icon {
+            display: inline-block;
+            &:before {
+                content: "\f0c8";
+            }
+        }
+    }
+}
+
+/* Disabled */
+.u-check2.z-dis {
+    cursor: not-allowed;
+
+    .check2_box {}
+}
+
+
+
+// Extends:         `u-check2-block`
+// ========================================================================
+
+.u-check2-block {
+    display: block;
+}

@@ -1,0 +1,19 @@
+// Name:            NumberInput
+// Description:     数字输入
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `u-numberinput`
+// ========================================================================
+
+.u-numberinput {
+    display: inline-block;
+    position: relative;
+    @include user-select(none);
+
+    .u-btn {
+        position: absolute;
+    }
+}

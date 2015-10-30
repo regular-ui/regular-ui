@@ -15,23 +15,23 @@
 //     overflow: hidden;
 // }
 
-$-generate(slideInX, ($prefix){
-  0% {height: 0;}
-  100% {height: 50px; }
-});
-$-generate(slideInY, ($prefix){
-  0% {height: 0;}
-  100% {height: 50px; }
-});
+// $-generate(slideInX, ($prefix){
+//   0% {height: 0;}
+//   100% {height: 50px; }
+// });
+// $-generate(slideInY, ($prefix){
+//   0% {height: 0;}
+//   100% {height: 50px; }
+// });
 
-$-generate(slideOutX, ($prefix){
-  0% {height: 50px;}
-  100% {height: 0;}
-});
+// $-generate(slideOutX, ($prefix){
+//   0% {height: 50px;}
+//   100% {height: 0;}
+// });
 
-$-generate(slideOutY, ($prefix){
-  0% {height: 50px;}
-  100% {height: 0;}
-});
+// $-generate(slideOutY, ($prefix){
+//   0% {height: 50px;}
+//   100% {height: 0;}
+// });
 
 .animated {}

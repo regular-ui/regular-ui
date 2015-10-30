@@ -51,7 +51,7 @@ a:focus {
 
 h1, h2, h3, h4, h5, h6 {}
 
-$hx-extend_size = ($number, $font-size, $line-height_) {
+$hx-extend_size = ($number, $font-size, $line-height_ = null) {
 
 h#{$number} {
     font-size: $font-size;

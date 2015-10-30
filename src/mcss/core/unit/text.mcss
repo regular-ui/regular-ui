@@ -15,7 +15,7 @@
 // Size Extends:
 // ========================================================================
 
-$u-text-extend_size = ($name, $font-size, $line-height_) {
+$u-text-extend_size = ($name, $font-size, $line-height_ = null) {
 
 .u-text-#{$name} {
     font-size: $font-size;
@@ -29,7 +29,7 @@ $u-text-extend_size = ($name, $font-size, $line-height_) {
 // Color Extends:
 // ========================================================================
 
-$u-text-extend_color = ($name, $color) {
+$u-text-extend_color = ($name, $color = null) {
 
 .u-text-#{$name} {
     color: $color;

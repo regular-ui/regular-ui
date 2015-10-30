@@ -1,0 +1,65 @@
+// Name:            Button
+// Description:     按钮
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/button.scss";
+
+// Variables:
+// ========================================================================
+
+$u-btn_color: #444;
+
+
+
+// Component:       `u-btn`
+// ========================================================================
+
+.u-btn {
+    padding: 0 12px;
+    @include line-height(30px);
+    background: #eee;
+    color: $u-btn_color;
+}
+
+/* Hover */
+.u-btn:hover,
+.u-btn:focus {
+    background: #f5f5f5;
+    color: $u-btn_color;
+}
+
+/* Active */
+.u-btn:active,
+.u-btn.z-act {
+    background: #ddd;
+    color: $u-btn_color;
+}
+
+
+
+// Size Extends:
+// ========================================================================
+
+@include u-btn-extend_size(xs, 6px, 20px, 12px);
+@include u-btn-extend_size(sm, 10px, 25px, 12px);
+@include u-btn-extend_size(lg, 15px, 40px, 16px);
+
+
+
+// Color Extends:
+// ========================================================================
+
+@include u-btn-extend_color(primary, $brand-primary, mix($brand-primary, white, 90%), mix($brand-primary, black, 90%), white);
+@include u-btn-extend_color(info, $brand-info, mix($brand-info, white, 90%), mix($brand-info, black, 90%), white);
+@include u-btn-extend_color(success, $brand-success, #8ec73b, #72ae41, white);
+@include u-btn-extend_color(error, $brand-error, #e4354f, #c91032, white);
+
+
+
+/* Disabled */
+.u-btn:disabled,
+.u-btn.z-dis {
+    background: #f5f5f5;
+    color: #999;
+}

@@ -34,7 +34,7 @@ $u-message_color = white;
 // Color Extends:       `u-message-info`, `u-message-success`, `u-message-warning`, `u-message-error`
 // ========================================================================
 
-$u-message-extend_color = ($name, $background, $color) {
+$u-message-extend_color = ($name, $background, $color = null) {
     .u-message-#{$name} {
         background: $background;
         @if($color) {

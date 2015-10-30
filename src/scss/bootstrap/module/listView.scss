@@ -1,0 +1,54 @@
+// Name:            ListBox
+// Description:     列表框
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/listView.scss";
+
+// Component:       `m-listview`
+// ========================================================================
+
+.m-listview {
+    background: $formctrl_background;
+    color: $formctrl_color;
+    padding-top: 1px;
+
+    > li {
+        padding: 5px 10px;
+        // padding: 10px 15px;
+        @include border($formctrl_border);
+        margin-top: -1px;
+    }
+
+    > li:first-child {
+        @include border-radius($border-radius-base $border-radius-base 0 0);
+    }
+
+    > li:last-child {
+        @include border-radius(0 0 $border-radius-base $border-radius-base);
+    }
+
+    > li:hover {
+        background: $formctrl_item-hover_background;
+        color: $formctrl_item-hover_color;
+    }
+
+    > li.z-sel {
+        background: $formctrl_item-selected_background;
+        color: $formctrl_item-selected_color;
+    }
+
+    > li.z-dis {
+        background: $gray-lighter;
+        color: $gray-light;
+    }
+}
+
+.m-listview.z-dis {
+    background: $gray-lighter;
+
+    > li {
+        background: $gray-lighter;
+        color: $gray-light;
+    }
+}

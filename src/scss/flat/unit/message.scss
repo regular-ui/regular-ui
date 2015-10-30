@@ -1,0 +1,55 @@
+// Name:            Message
+// Description:     消息条
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/message.scss";
+
+// Variables:
+// ========================================================================
+
+$u-message_color: white;
+
+
+
+// Component:       `u-message`
+// ========================================================================
+
+.u-message {
+    padding: 10px 15px;
+    background: $brand-primary;
+    color: $u-message_color;
+    @include border-radius($border-radius-base);
+
+    .message_close {
+        color: fade_out($u-message_color, 1 - 0.75);
+        &:hover {
+            color: $u-message_color;
+        }
+    }
+}
+
+
+
+// Color Extends:       `u-message-info`, `u-message-success`, `u-message-warning`, `u-message-error`
+// ========================================================================
+
+@mixin u-message-extend_color($name, $background, $color: null) {
+    .u-message-#{$name} {
+        background: $background;
+        @if($color) {
+            color: $color;
+            .message_close {
+                color: fade_out($color, 1 - 0.75);
+                &:hover {
+                    color: $color;
+                }
+            }
+        }
+    }
+}
+
+@include u-message-extend_color(info, $brand-secondary);
+@include u-message-extend_color(success, $brand-success);
+@include u-message-extend_color(warning, $brand-warning);
+@include u-message-extend_color(error, $brand-error);

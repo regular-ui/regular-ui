@@ -1,0 +1,35 @@
+// Name:            Table
+// Description:     表格
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/table.scss";
+
+// Component:       `m-table`
+// ========================================================================
+
+.m-table {
+    caption {
+        color: #999;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 4px 8px;
+        @include border(#ddd);
+    }
+}
+
+
+
+// Extends:         `m-table-striped`, `m-table-hover`
+// Description:     尺寸和颜色扩展函数
+// ========================================================================
+// 
+.m-table-striped {
+    tbody tr:nth-of-type(odd) {background: #f5f5f5;}
+}
+
+.m-table-hover {
+    tbody tr:hover {background: #eee;}
+}

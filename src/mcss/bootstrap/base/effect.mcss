@@ -15,13 +15,13 @@ $bounceOut();
 $fadeInX();
 $fadeInY(-10px);
 $fadeOutY(-10px);
-$flipInY();
-$flipOutY();
+// $flipInY();
+// $flipOutY();
 $pulse();
-$slideInX();
-$slideInY();
-$slideOutX();
-$slideOutY();
+// $slideInX();
+// $slideInY();
+// $slideOutX();
+// $slideOutY();
 
 .animated {
     $animation-duration: 0.2s;

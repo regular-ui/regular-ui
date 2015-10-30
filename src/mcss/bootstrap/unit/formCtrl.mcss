@@ -35,7 +35,7 @@
         background: $formctrl-focus_background;
         color: $formctrl-focus_color;
         border-color: $formctrl-focus_border;
-        $box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px a-adjust($formctrl-focus_border, .6, true);
+        $box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px fade($formctrl-focus_border, .6, true);
     }
 
     &:disabled {

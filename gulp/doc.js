@@ -7,9 +7,9 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var mcss = require('gulp_mcss');
 
 var structure = require('../structure.js');
-var mcss = require('../lib/gulp-mcss.js');
 var buildAll = require('../doc-src/buildAll.js');
 
 /**

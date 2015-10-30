@@ -1,0 +1,24 @@
+// Name:            DropDown
+// Description:     下拉菜单
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/dropdown.scss";
+
+// Component:       `u-dropdown`
+// ========================================================================
+
+.u-dropdown {
+    .dropdown_bd {
+        min-width: $formctrl_min-width;
+        // margin-top: -1px;
+
+        li.dropdown_divider {
+            margin: 6px 0;
+            padding: 0;
+            height: 1px;
+            background: #e5e5e5;
+            overflow: hidden;
+        }
+    }
+}

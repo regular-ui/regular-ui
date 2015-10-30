@@ -1,0 +1,15 @@
+// Name:            Input2
+// Description:     输入扩展
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/input2.scss";
+
+// Component:       `u-input2`
+// ========================================================================
+
+.u-input2 {}
+
+.u-input2 + .u-tip {
+    margin-left: 5px;
+}

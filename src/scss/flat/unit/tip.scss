@@ -1,0 +1,25 @@
+// Name:            Tip
+// Description:     小提示
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/tip.scss";
+
+// Component:       `u-tip`
+// ========================================================================
+
+.u-tip {
+	font-size: 12px;
+    padding: 2px 6px;
+    background: #f4f4f4;
+}
+
+
+
+// Color Extends:
+// ========================================================================
+
+@include u-tip-extend_color(info, #ebf7fd, #2d7091);
+@include u-tip-extend_color(success, #f2fae3, #659f13);
+@include u-tip-extend_color(warning, #fffceb, #e28327);
+@include u-tip-extend_color(error, #fff1f0, #d85030);

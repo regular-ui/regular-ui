@@ -1,0 +1,44 @@
+// Name:            Panel
+// Description:     面板
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/panel.scss";
+
+// Component:       `m-panel`
+// ========================================================================
+
+.m-panel {
+    background: #f7f7f7;
+    color: #444;
+
+    .panel_hd {
+        padding: 5px 15px;
+        background: #eee;
+        color: #444;
+        // border-bottom: 1px solid #ddd;
+        font-weight: bold;
+    }
+
+    .panel_bd {
+        padding: 5px 15px;
+    }
+
+    .panel_ft {
+        padding: 5px 15px;
+        background: #eee;
+        color: #444;
+        // border-top: 1px solid #ddd;
+    }
+
+    .panel_img {
+
+    }
+}
+
+
+
+// Color Extends:
+// ========================================================================
+
+@include m-panel-extend_color(primary, #ebf7fd, #2d7091, #2d7091);

@@ -8,10 +8,10 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var mcss = require('gulp_mcss');
 
 var structure = require('../structure.js');
 var customize = require('./gulp-customize.js');
-var mcss = require('../lib/gulp-mcss.js');
 
 /**
  * ------------------------------------------------------------

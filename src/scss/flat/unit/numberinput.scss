@@ -1,0 +1,24 @@
+// Name:            NumberInput
+// Description:     数字输入
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/numberInput.scss";
+
+// Component:       `u-numberinput`
+// ========================================================================
+
+.u-numberinput {
+    .u-btn {
+        right: 4px;
+        top: 4px;
+        width: 26px;
+        @include line-height(16px);
+        padding: 0 4px;
+    }
+
+    .u-btn + .u-btn {
+        top: auto;
+        bottom: 4px;
+    }
+}

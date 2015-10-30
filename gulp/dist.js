@@ -8,9 +8,10 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var mcss = require('gulp_mcss');
+var mcss2scss = require('mcss2scss/src/gulp');
 
 var structure = require('../structure.js');
-var mcss = require('../lib/gulp-mcss.js');
 
 /**
  * ------------------------------------------------------------
@@ -61,8 +62,14 @@ gulp.task('dist-css', function() {
     return structure.themes.map(gulpCSS).pop();
 });
 
+gulp.task('dist-mcss2scss', function() {
+    return gulp.src('./src/mcss/**')
+        .pipe(mcss2scss({mass: true}))
+        .pipe(gulp.dest('./src/scss'));
+});
+
 gulp.task('dist', function(done) {
-    sequence('dist-clean', ['dist-copy', 'dist-js', 'dist-css'], done);
+    sequence('dist-clean', ['dist-copy', 'dist-js', 'dist-css', 'dist-mcss2scss'], done);
 });
 
 /**

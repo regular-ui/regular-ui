@@ -1,0 +1,16 @@
+// Name:            Crumb
+// Description:     面包屑
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/module/crumb.scss";
+
+// Component:       `m-crumb`
+// ========================================================================
+
+.m-crumb {
+    > li + li:before {
+        content: '/';
+        margin: 0 8px;
+    }
+}

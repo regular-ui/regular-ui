@@ -1,0 +1,45 @@
+// Name:            Progress
+// Description:     进度条
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+@import "../../core/unit/progress.scss";
+
+// Component:       `u-progress`
+// ========================================================================
+
+.u-progress {
+    @include line-height(20px);
+    background: #eee;
+
+    .progress_bar {
+        background: $brand-primary; // #00a8e6;
+        font-size: 12px;
+        color: #fff;
+        @include transition(width .6s ease);
+    }
+}
+
+
+
+// Size Extends:       `u-progress-xs`, `u-progress-sm`
+// ========================================================================
+
+@include u-progress-extend_size(xs, 3px);
+@include u-progress-extend_size(sm, 6px);
+
+
+
+// Color Extends:       `u-progress-success`, `u-progress-warning`, `u-progress-error`
+// ========================================================================
+
+@include u-progress_bar-extend_color(success, $brand-success);
+@include u-progress_bar-extend_color(warning, $brand-warning);
+@include u-progress_bar-extend_color(error, $brand-error);
+
+
+
+// Extends:         `u-progress-striped`
+// ========================================================================
+
+@include u-progress-striped();

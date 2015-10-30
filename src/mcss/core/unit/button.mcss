@@ -53,7 +53,7 @@
 // Size Extends:
 // ========================================================================
 
-$u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size, $border-radius_) {
+$u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size = null, $border-radius_ = null) {
 
 .u-btn-#{$name} {
     padding: 0 $padding-horizontal;
@@ -69,7 +69,7 @@ $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size, $border-r
 // Color Extends:
 // ========================================================================
 
-$u-btn-extend_color = ($name, $background, $hover_background, $active_background, $color) {
+$u-btn-extend_color = ($name, $background, $hover_background, $active_background, $color = null) {
 
 .u-btn-#{$name} {
     background: $background;

@@ -89,7 +89,7 @@ input.u-radio:disabled {
 // Size Extends:
 // ========================================================================
 
-$formctrl-extend_size = ($name, $padding, $height, $font-size, $border-radius_) {
+$formctrl-extend_size = ($name, $padding, $height, $font-size = null, $border-radius_ = null) {
 
 .u-input-#{$name}, .u-select-#{$name} {
     padding: $padding;

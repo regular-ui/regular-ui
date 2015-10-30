@@ -1,0 +1,59 @@
+// Name:            Gotop
+// Description:     回到顶部
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Variables
+// ========================================================================
+
+$u-gotop_z-index: 1050;
+$u-gotop_position: 30px;
+$u-gotop_size: 50px;
+
+
+
+// Component:       `u-gotop`
+// ========================================================================
+
+.u-gotop {
+    position: fixed;
+    display: block;
+    text-align: center;
+
+    z-index: $u-gotop_z-index;
+    top: $u-gotop_position;
+    left: $u-gotop_position;
+}
+
+
+
+// Position Extend:
+// Description:     位置扩展
+// ========================================================================
+
+.u-gotop-topright,
+.u-gotop-bottomright  {
+    left: auto;
+    right: $u-gotop_position;
+}
+
+.u-gotop-topcenter,
+.u-gotop-bottomcenter {
+    left: 50%;
+    margin-left: ($u-gotop_size / -2);
+}
+
+.u-gotop-bottomleft,
+.u-gotop-bottomright,
+.u-gotop-bottomcenter {
+    top: auto;
+    bottom: $u-gotop_position;
+}
+
+
+/* Static */
+.u-gotop-static {
+    position: static;
+}

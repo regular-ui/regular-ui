@@ -1,0 +1,16 @@
+// Name:            GridView
+// Description:     网格视图
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-gridview`
+// ========================================================================
+.m-gridview {
+    @include clearfix();
+
+    .gridview_item {
+        float: left;
+    }
+}
