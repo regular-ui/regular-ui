@@ -44,7 +44,7 @@ gulp.task('customize-css', function() {
             .pipe(rename(theme + '.customized.mcss'))
             .pipe(gulp.dest('./src/mcss'))
             .pipe(mcss({
-                pathes: ["./node_modules"],
+                pathes: ['./node_modules'],
                 importCSS: true
             }))
             .pipe(rename('regular-ui.' + theme + '.customized.css'))
@@ -54,7 +54,7 @@ gulp.task('customize-css', function() {
             .pipe(gulp.dest('./dist/css'));
     }
     
-    return structure.themes.map(gulpCSS).pop();
+    return all(structure.themes.map(gulpCSS));
 });
 
 gulp.task('customize', ['customize-js', 'customize-css']);

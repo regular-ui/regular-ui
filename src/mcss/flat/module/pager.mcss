@@ -45,7 +45,7 @@ $m-pager_li_a_size = 41px;
     }
 
     >li.z-dis > a {
-        background: #E2E6E9;
+        background: #e2e6e9;
         color: white;
     }
 
@@ -68,7 +68,7 @@ $m-pager_li_a_size = 41px;
 .m-pager.z-dis {
     > li {
         > a, > span {
-            background: #E2E6E9;
+            background: #e2e6e9;
             color: white;
         }
     }

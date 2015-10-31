@@ -7,6 +7,7 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var all = require('gulp-all');
 var mcss = require('gulp_mcss');
 
 var structure = require('../structure.js');
@@ -46,7 +47,7 @@ gulp.task('doc-watch-jshint', function() {
 //         // Should Merge
 //         return gulp.src('./doc-src/mcss/' + theme + '.mcss')
 //             .pipe(mcss({
-//                 pathes: ["./node_modules"],
+//                 pathes: ['./node_modules'],
 //                 importCSS: true
 //             }))
 //             .pipe(rename('doc.' + theme + '.min.css'))
@@ -70,7 +71,7 @@ function doc_watch_css(event) {
         // Should Merge
         return gulp.src('./doc-src/mcss/' + theme + '.mcss')
             .pipe(mcss({
-                pathes: ["./node_modules"],
+                pathes: ['./node_modules'],
                 importCSS: true
             }))
             .pipe(rename('doc.' + theme + '.min.css'))
@@ -82,7 +83,7 @@ function doc_watch_css(event) {
     }
     
     console.log('[' + new Date().toTimeString().split(' ')[0] + ']', 'Starting \'doc-watch-css\':', themes);
-    return themes.map(gulpCSS).pop();
+    return all(themes.map(gulpCSS));
 }
 
 gulp.task('doc-watch', function() {

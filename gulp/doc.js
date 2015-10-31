@@ -7,6 +7,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var all = require('gulp-all');
 var mcss = require('gulp_mcss');
 
 var structure = require('../structure.js');
@@ -22,22 +23,16 @@ gulp.task('doc-clean', function() {
     return gulp.src('./doc', {read: false}).pipe(rm());
 });
 
-gulp.task('doc-copy-assets', function() {
-    return gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc'));
+gulp.task('doc-copy', function() {
+    all(
+        gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc')),
+        gulp.src('./node_modules/font-awesome/fonts/**').pipe(gulp.dest('./doc/fonts')),
+        gulp.src([
+            './node_modules/regularjs/dist/regular.min.js',
+            './node_modules/marked/marked.min.js'
+        ]).pipe(gulp.dest('./doc/vendor'))
+    );
 });
-
-gulp.task('doc-copy-fonts', function() {
-    return gulp.src('./node_modules/font-awesome/fonts/**').pipe(gulp.dest('./doc/fonts'));
-});
-
-gulp.task('doc-copy-vendor', function() {
-    return gulp.src([
-        './node_modules/regularjs/dist/regular.min.js',
-        './node_modules/marked/marked.min.js'
-    ]).pipe(gulp.dest('./doc/vendor'));
-});
-
-gulp.task('doc-copy', ['doc-copy-assets', 'doc-copy-fonts', 'doc-copy-vendor']);
 
 gulp.task('doc-js', function() {
     return gulp.src('./src/js/index.js')
@@ -49,26 +44,28 @@ gulp.task('doc-js', function() {
 
 gulp.task('doc-css', function() {
     var gulpCSS = function(theme) {
-        return gulp.src('./src/mcss/' + theme + '.mcss')
-            .pipe(mcss({
-                pathes: ["./node_modules"],
-                importCSS: true
-            }))
-            .pipe(rename('regular-ui.' + theme + '.css'))
-            .pipe(rename({suffix: '.min'}))
-            .pipe(minifycss())
-            .pipe(gulp.dest('./doc/css'))
-            && gulp.src('./doc-src/mcss/' + theme + '.mcss')
-            .pipe(mcss({
-                pathes: ["./node_modules"],
-                importCSS: true
-            }))
-            .pipe(rename('doc.' + theme + '.min.css'))
-            .pipe(minifycss())
-            .pipe(gulp.dest('./doc/css'));
+        return [
+            gulp.src('./src/mcss/' + theme + '.mcss')
+                .pipe(mcss({
+                    pathes: ['./node_modules'],
+                    importCSS: true
+                }))
+                .pipe(rename('regular-ui.' + theme + '.css'))
+                .pipe(rename({suffix: '.min'}))
+                .pipe(minifycss())
+                .pipe(gulp.dest('./doc/css')),
+            gulp.src('./doc-src/mcss/' + theme + '.mcss')
+                .pipe(mcss({
+                    pathes: ['./node_modules'],
+                    importCSS: true
+                }))
+                .pipe(rename('doc.' + theme + '.min.css'))
+                .pipe(minifycss())
+                .pipe(gulp.dest('./doc/css'))
+        ];
     }
     
-    return structure.themes.map(gulpCSS).pop();
+    return all(Array.prototype.concat.apply([], structure.themes.map(gulpCSS)));
 });
 
 gulp.task('doc-build', function(done) {

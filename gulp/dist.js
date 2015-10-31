@@ -8,6 +8,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var all = require('gulp-all');
 var mcss = require('gulp_mcss');
 var mcss2scss = require('mcss2scss/src/gulp');
 
@@ -20,21 +21,21 @@ var structure = require('../structure.js');
  */
 
 gulp.task('dist-clean', function() {
-    return gulp.src('./dist', {read: false}).pipe(rm());
+    return all(
+        gulp.src('./dist', {read: false}).pipe(rm()),
+        gulp.src('./src/scss', {read: false}).pipe(rm())
+    )
 });
 
-gulp.task('dist-copy-fonts', function() {
-    return gulp.src('./node_modules/font-awesome/fonts/**').pipe(gulp.dest('./dist/fonts'));
+gulp.task('dist-copy', function() {
+    return all(
+        gulp.src('./node_modules/font-awesome/fonts/**').pipe(gulp.dest('./dist/fonts')),
+        gulp.src([
+            './node_modules/regularjs/dist/regular.min.js',
+            './node_modules/marked/marked.min.js'
+        ]).pipe(gulp.dest('./dist/vendor'))
+    );
 });
-
-gulp.task('dist-copy-vendor', function() {
-    return gulp.src([
-        './node_modules/regularjs/dist/regular.min.js',
-        './node_modules/marked/marked.min.js'
-    ]).pipe(gulp.dest('./dist/vendor'));
-});
-
-gulp.task('dist-copy', ['dist-copy-fonts', 'dist-copy-vendor']);
 
 gulp.task('dist-js', function() {
     return gulp.src('./src/js/index.js')
@@ -49,7 +50,7 @@ gulp.task('dist-css', function() {
     var gulpCSS = function(theme) {
         return gulp.src('./src/mcss/' + theme + '.mcss')
             .pipe(mcss({
-                pathes: ["./node_modules"],
+                pathes: ['./node_modules'],
                 importCSS: true
             }))
             .pipe(rename('regular-ui.' + theme + '.css'))
@@ -59,13 +60,13 @@ gulp.task('dist-css', function() {
             .pipe(gulp.dest('./dist/css'));
     }
     
-    return structure.themes.map(gulpCSS).pop();
+    return all(structure.themes.map(gulpCSS));
 });
 
 gulp.task('dist-mcss2scss', function() {
     return gulp.src('./src/mcss/**')
         .pipe(mcss2scss({mass: true}))
-        .pipe(gulp.dest('./src/scss'));
+        .pipe(gulp.dest('./dist/scss'));
 });
 
 gulp.task('dist', function(done) {
@@ -88,16 +89,20 @@ gulp.task('bower-clean', function() {
 });
 
 gulp.task('bower-copy', function() {
-    return gulp.src('./dist/**').pipe(gulp.dest('../regular-ui-bower'))
-    && gulp.src('./src/js/**').pipe(gulp.dest('../regular-ui-bower/js-common'))
-    && gulp.src('./src/mcss/**').pipe(gulp.dest('../regular-ui-bower/mcss'));
+    return all(
+        gulp.src('./dist/**').pipe(gulp.dest('../regular-ui-bower')),
+        gulp.src('./src/js/**').pipe(gulp.dest('../regular-ui-bower/js-common')),
+        gulp.src('./src/mcss/**').pipe(gulp.dest('../regular-ui-bower/mcss'))
+    );
 });
 
 gulp.task('bower-js-amd', function() {
-    return gulp.src('./src/js/**/*.html').pipe(gulp.dest('../regular-ui-bower/js-amd'))
-        && gulp.src('./src/js/**/*.js')
-        .pipe(requireConvert())
-        .pipe(gulp.dest('../regular-ui-bower/js-amd'));
+    return all(
+        gulp.src('./src/js/**/*.html').pipe(gulp.dest('../regular-ui-bower/js-amd')),
+        gulp.src('./src/js/**/*.js')
+            .pipe(requireConvert())
+            .pipe(gulp.dest('../regular-ui-bower/js-amd'))
+    );
 });
 
 gulp.task('bower', function(done) {

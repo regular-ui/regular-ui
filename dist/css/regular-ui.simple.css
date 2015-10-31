@@ -3619,9 +3619,6 @@ input.u-check:disabled,input.u-radio:disabled{
 .m-tabs .tabs_bd{
 	clear:both;
 }
-.m-tabs .tabs_bd >*{
-	display:none;
-}
 .m-tabs.z-dis .tabs_hd >li{
 	cursor:not-allowed;
 }

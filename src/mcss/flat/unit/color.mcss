@@ -32,6 +32,6 @@ $u-color-extend_color(success, $brand-success);
 $u-color-extend_color(warning, $brand-warning);
 $u-color-extend_color(error, $brand-error);
 $u-color-extend_color(secondary, $brand-primary);
-$u-color-extend_color(gray, $gray);
+$u-color-extend_color('gray', $gray);
 $u-color-extend_color(graylight, $gray-light);
 $u-color-extend_color(inverse, $inverse);

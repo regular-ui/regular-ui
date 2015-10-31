@@ -8,6 +8,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var all = require('gulp-all');
 var mcss = require('gulp_mcss');
 
 var structure = require('../structure.js');
@@ -33,8 +34,8 @@ gulp.task('all-css', function() {
             .pipe(rename(theme + '.mcss'))
             .pipe(gulp.dest('./src/mcss'));
     }
-    
-    return structure.themes.map(gulpCSS).pop();
+
+    return all(structure.themes.map(gulpCSS));
 });
 
 gulp.task('all', ['all-js', 'all-css']);

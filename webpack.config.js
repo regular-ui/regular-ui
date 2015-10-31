@@ -10,7 +10,7 @@ module.exports = {
             amd: "Regular",
             commonjs: "regularjs",
             commonjs2: "regularjs"
-        },
-        'marked': 'marked'
+        }
+        //'marked': 'marked'
     }
 }
