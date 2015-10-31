@@ -11,6 +11,7 @@
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
+<link rel="stylesheet" href="../css/index.min.css">
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
@@ -33,7 +34,7 @@ if(localStorage['selectedTheme']) {
 }
 
 var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+themeCSS.href = window.relativePath + 'css/regular-ui.' + selectedTheme.name + '.min.css';
 </script>
 <body>
 <div class="g-top">
@@ -226,7 +227,7 @@ var themeSelect = new RGUI.Select2({
     }
 }).$inject('#j-themeSelect')
   .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+    themeCSS.href = window.relativePath + 'css/regular-ui.' + $event.selected.name + '.min.css';
     localStorage['selectedTheme'] = $event.selected.name;
 });
 

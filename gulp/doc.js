@@ -55,15 +55,8 @@ gulp.task('doc-css', function() {
                 importCSS: true
             }))
             .pipe(rename('regular-ui.' + theme + '.css'))
-            .pipe(rename({suffix: '.min'}))
-            .pipe(minifycss())
             .pipe(gulp.dest('./doc/css'))
-            && gulp.src('./doc-src/mcss/' + theme + '.mcss')
-            .pipe(mcss({
-                pathes: ["./node_modules"],
-                importCSS: true
-            }))
-            .pipe(rename('doc.' + theme + '.min.css'))
+            .pipe(rename({suffix: '.min'}))
             .pipe(minifycss())
             .pipe(gulp.dest('./doc/css'));
     }
@@ -71,12 +64,23 @@ gulp.task('doc-css', function() {
     return structure.themes.map(gulpCSS).pop();
 });
 
+gulp.task('doc-css-doc', function() {
+    return gulp.src('./doc-src/mcss/index.mcss')
+        .pipe(mcss({
+            pathes: ["./node_modules"],
+            importCSS: true
+        }))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(minifycss())
+        .pipe(gulp.dest('./doc/css'));
+});
+
 gulp.task('doc-build', function(done) {
     return buildAll(done);
 });
 
 gulp.task('doc', function(done) {
-    sequence('doc-clean', 'doc-copy', ['doc-js', 'doc-css', 'doc-build'], done);
+    sequence('doc-clean', 'doc-copy', ['doc-js', 'doc-css', 'doc-css-doc', 'doc-build'], done);
 });
 
 /**

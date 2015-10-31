@@ -24,7 +24,7 @@
     >h3 {
         font-size: 16px;
         margin: 1.5em 0 1em;
-        color: $brand-primary;
+        // color: $brand-primary;
     }
 
     >h4 {
@@ -36,7 +36,7 @@
         &:before {
             //display: inline-block;
             content: '';
-            border-left: 3px solid $brand-primary;
+            // border-left: 3px solid $brand-primary;
             margin-right: 8px;
         }
     }
@@ -172,11 +172,11 @@
     }
 
     > li .u-icon-success-circle {
-        color: $brand-primary;
+        // color: $brand-primary;
     }
 
     > li .u-icon-info-circle {
-        @if($brand-warning) {color: $brand-warning;}
+        // @if($brand-warning) {color: $brand-warning;}
     }
 }
 
@@ -186,7 +186,7 @@
     }
 
     .u-icon-folder, .u-icon-folder-open {
-        color: $brand-warning;
+        // color: $brand-warning;
     }
 
     .u-icon-file-text {
