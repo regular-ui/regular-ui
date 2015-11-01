@@ -28,8 +28,20 @@
     // transition: opacity 0.15s linear;
     // ? Deactivate browser history navigation in IE11
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
+    text-align: center;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
 
     .modal_dialog {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+
         .modal_hd {
             .modal_title {
                 margin: 0;

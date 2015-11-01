@@ -85,8 +85,7 @@ bower install regular-ui
 requirejs.config({
     baseUrl: 'bower_components/regular-ui',
     paths: {
-        Regular: 'vendor/regular.min',
-        marked: 'vendor/marked.min'
+        Regular: 'vendor/regular.min'
     }
 });
 

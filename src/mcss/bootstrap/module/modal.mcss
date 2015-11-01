@@ -18,7 +18,6 @@ $m-modal_dialog_border = rgba(0, 0, 0, .2);
     background: fade(black, 0.6, true);
 
     .modal_dialog {
-        margin: 10% auto;
         width: 600px;
         background: white;
         $border: $m-modal_dialog_border; // #999
