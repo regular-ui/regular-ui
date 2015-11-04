@@ -1,6 +1,6 @@
-<div class="m-modal {class}" on-keyup={this.keyup($event)} r-hide={!visible}>
-    <div class="modal_dialog" {#if width}style="width: {width}px"{/if}>
-        <div class="modal_hd">
+<div class="m-modal {class}" on-mousemove={this._onMouseMove($event)} on-mouseup={this._onMouseUp($event)} on-keyup={this.keyup($event)} r-hide={!visible}>
+    <div class="modal_dialog" ref="modalDialog">
+        <div class="modal_hd" on-mousedown={this._onMouseDown($event)} r-class={ {'z-draggable': draggable} }>
             <a class="modal_close" on-click={this.close(!cancelButton)}><i class="u-icon u-icon-close"></i></a>
             <h3 class="modal_title">{title}</h3>
         </div>

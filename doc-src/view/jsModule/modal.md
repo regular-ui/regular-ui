@@ -58,3 +58,26 @@ var component = new RGUI.Component({
     }
 });
 ```
+
+#### 拖动
+
+<div class="m-example"></div>
+
+```xml
+<button class="u-btn u-btn-primary" on-click={this.showModal()}>Draggable</button>
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        var modal = new RGUI.Modal({
+            data: {
+                title: 'Modal标题',
+                content: 'Modal内容',
+                draggable: true
+            }
+        });
+    }
+});
+```

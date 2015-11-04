@@ -27,6 +27,7 @@
     "mass": "^0.1.0",
     "mcss": "^0.5.1",
     "mcss2scss": "git://github.com/rainfore/mcss2scss.git",
+    "mass2scss": "git://github.com/rainfore/mass2scss.git",
     "regularjs": "^0.4.0",
     "reqwest": "^2.0.5",
     "validator": "^4.2.0",

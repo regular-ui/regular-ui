@@ -19,7 +19,7 @@ var _ = require('../base/util.js');
  * @param {string=''}               options.data.content             => 对话框内容
  * @param {string|boolean=true}     options.data.okButton            => 是否显示确定按钮。值为`string`时显示该段文字。
  * @param {string|boolean=false}    options.data.cancelButton        => 是否显示取消按钮。值为`string`时显示该段文字。
- * @param {number=null}             options.data.width               => 对话框宽度。值为否定时宽度为CSS设置的宽度。
+ * @param {boolean=false}           options.data.draggable           => 是否可以拖拽对话框
  * @param {string=''}               options.data.class               => 补充class
  */
 var Modal = Component.extend({
@@ -34,7 +34,7 @@ var Modal = Component.extend({
             content: '',
             okButton: true,
             cancelButton: false,
-            width: null
+            draggable: false
         });
         this.supr();
     },
@@ -95,6 +95,48 @@ var Modal = Component.extend({
     keyup: function($event) {
         if($event.which == 13)
             this.ok();
+    },
+    _onMouseDown: function($event) {
+        if(!this.data.draggable)
+            return;
+
+        var dialog = this.$refs.modalDialog;
+        var dragging = {
+            origin: this,
+            left: dialog.offsetLeft,
+            top: dialog.offsetTop,
+            pageX: $event.pageX,
+            pageY: $event.pageY
+        }
+
+        dialog.style.position = 'absolute';
+        dialog.style.left = dragging.left + 'px';
+        dialog.style.top = dragging.top + 'px';
+
+        this._dragging = dragging;
+
+        this.$emit('dragstart', dragging);
+    },
+    _onMouseMove: function($event) {
+        if(this.data.draggable && this._dragging && $event.which == 1) {
+            var dialog = this.$refs.modalDialog;
+            this._dragging.left += $event.pageX - this._dragging.pageX;
+            this._dragging.top += $event.pageY - this._dragging.pageY;
+            this._dragging.pageX = $event.pageX;
+            this._dragging.pageY = $event.pageY;
+
+            dialog.style.left = this._dragging.left + 'px';
+            dialog.style.top = this._dragging.top + 'px';
+        }
+    },
+    _onMouseUp: function($event) {
+        if(this.data.draggable && this._dragging) {
+            this._dragging = null;
+
+            this.$emit('dragend', {
+                source: this
+            });
+        }
     }
 });
 

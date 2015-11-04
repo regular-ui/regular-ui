@@ -29,6 +29,7 @@
     // ? Deactivate browser history navigation in IE11
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
     text-align: center;
+    overflow: hidden;
 
     &:before {
         content: '';
@@ -53,6 +54,11 @@
 
                 &:hover {}
             }
+        }
+
+        .modal_hd.z-draggable {
+            $user-select: none;
+            cursor: move;
         }
 
         .modal_bd {}

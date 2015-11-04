@@ -21,7 +21,7 @@ var structure = require('../structure.js');
 
 gulp.task('doc-watch-copy', function() {
     return gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc'));
-})
+});
 
 var webpackConfig2 = {};
 for(var key in webpackConfig)

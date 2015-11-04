@@ -21,8 +21,6 @@ ajax.request = function(opt) {
 
     if(!opt.contentType && opt.method && opt.method.toLowerCase() !== 'get')
         opt.contentType = 'application/json';
-    else
-        opt.data.timestamp = +new Date;
 
     if(opt.contentType === 'application/json') {
         opt.data = JSON.stringify(opt.data);
@@ -31,14 +29,14 @@ ajax.request = function(opt) {
     //ajax.$emit('start', opt);
     opt.success = function(data) {
         //ajax.$emit('success', data);
-
-        if(!data.success) {
-            Notify.error(data.message);
-            oldError(data.result, data);
-            return;
-        }
-        
-        oldSuccess(data.result, data);
+        if(data.code || data.success) {
+            if(data.code != 200 && !data.success) {
+                Notify.error(data.message);
+                oldError(data.error, data.message, data.code);
+            } else
+                oldSuccess(data.result, data.message, data.code);
+        } else
+            oldSuccess(data);
     }
 
     opt.error = function(data) {

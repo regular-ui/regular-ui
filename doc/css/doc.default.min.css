@@ -3843,6 +3843,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	-webkit-overflow-scrolling:touch;
 	touch-action:cross-slide-y pinch-zoom double-tap-zoom;
 	text-align:center;
+	overflow:hidden;
 }
 .m-modal:before{
 	content:"";
@@ -3861,6 +3862,9 @@ input.u-check:disabled,input.u-radio:disabled{
 .m-modal .modal_dialog .modal_hd .modal_close{
 	float:right;
 	margin:-6px -4px 0 0;
+}
+.m-modal .modal_dialog .modal_hd.z-draggable{
+	cursor:move;
 }
 @media (max-width: 767px){
 	.m-modal .modal_dialog{
