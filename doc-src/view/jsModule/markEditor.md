@@ -12,5 +12,5 @@
 <div class="m-example"></div>
 
 ```xml
-<markEditor disabled={true} />
+<markEditor disabled />
 ```

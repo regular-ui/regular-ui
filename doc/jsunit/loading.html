@@ -94,6 +94,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/textarea2.html">多行输入扩展<small> TextArea2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -247,7 +255,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-    Loading <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+    Loading <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
@@ -264,7 +272,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.load()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Loading<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">loading</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;loading&quot;</span> <span class="cm-attribute">static</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;../img/loading.gif&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tagcm-error">loading</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
 </code></pre>
@@ -535,7 +543,7 @@ var component = new RGUI.Component({
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <button class="u-btn u-btn-success" on-click={this.load()}>
-    Loading <loading ref="loading" static={true} />
+    Loading <loading ref="loading" static />
 </button>
     */})
 var component = new RGUI.Component({
@@ -552,7 +560,7 @@ var component = new RGUI.Component({
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <button class="u-btn u-btn-error" on-click={this.load()}>Loading</button>
-<loading ref="loading" static={true}>
+<loading ref="loading" static>
     <img src="../img/loading.gif">
 </loading>
     */})

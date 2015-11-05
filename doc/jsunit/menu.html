@@ -94,6 +94,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/textarea2.html">多行输入扩展<small> TextArea2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -286,7 +294,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">menu</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">menu</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">menu</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -749,7 +757,7 @@ var component = new RGUI.Component({
 (function(index) {
     var template = RGUI._.multiline(function(){/*
 <menu source={source} />
-<menu source={source} disabled={true} />
+<menu source={source} disabled />
     */})
 var component = new RGUI.Component({
     template: template,

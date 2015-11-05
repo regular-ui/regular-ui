@@ -12,5 +12,5 @@
 <div class="m-example"></div>
 
 ```xml
-<check2 name="多选按钮" disabled={true} />
+<check2 name="多选按钮" disabled />
 ```

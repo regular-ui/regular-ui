@@ -4182,7 +4182,7 @@
 
 	  for(var i = 0, len = attrs.length; i < len; i++){
 	    var attr = attrs[i];
-	    // consider disabled   equlasto  disabled={true}
+	    // consider disabled   equlasto  disabled
 	    var value = this._touchExpr(attr.value === undefined? true: attr.value);
 	    if(value.constant) value = attr.value = value.get(this);
 	    if(attr.value && attr.value.constant === true){

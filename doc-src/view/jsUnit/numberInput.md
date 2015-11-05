@@ -13,7 +13,7 @@
 <div class="m-example"></div>
 
 ```xml
-<numberInput disabled={true} />
+<numberInput disabled />
 ```
 
 #### 最大值和最小值

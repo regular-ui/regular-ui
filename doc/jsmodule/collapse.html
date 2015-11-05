@@ -197,7 +197,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">每次只展开一个</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">collapse</span> <span class="cm-attribute">accordion</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">collapse</span> <span class="cm-attribute">accordion</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -357,7 +357,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<collapse accordion={true}>
+<collapse accordion>
     <panel title="panel1">content1</panel>
     <panel title="panel2">content2</panel>
     <panel title="panel3">content3</panel>

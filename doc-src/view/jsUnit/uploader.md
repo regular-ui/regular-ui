@@ -30,7 +30,7 @@
 <div class="m-example"></div>
 
 ```xml
-<uploader url="/api/upload" disabled={true} />
+<uploader url="/api/upload" disabled />
 ```
 
 #### 文件类型限制

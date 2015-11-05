@@ -20,9 +20,11 @@ var _ = require('../base/util.js');
  * @param {object=null}             options.data.selected           <=> 当前选择项
  * @param {string=''}               options.data.value              <=> 文本框中的值
  * @param {string='请输入'}         options.data.placeholder         => 文本框的占位文字
- * @param {number=0}                options.data.minLength           => 最小提示长度。当输入长度>=该值后开始提示
+ * @param {number}                  options.data.maxlength           => 文本框的最大长度
+ * @param {number=0}                options.data.start               => 开始提示长度。当输入长度>=该值后开始提示
  * @param {string='all'}            options.data.matchType           => 匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict              => 是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
+ * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -42,10 +44,12 @@ var Suggest = Dropdown.extend({
             selected: null,
             value: '',
             placeholder: '请输入',
-            minLength: 0,
+            maxlength: undefined,
+            start: 0,
             delay: 300,
             matchType: 'all',
-            strict: false
+            strict: false,
+            autofocus: false
         });
         this.supr();
     },
@@ -104,7 +108,7 @@ var Suggest = Dropdown.extend({
     input: function($event) {
         var value = this.data.value;
 
-        if(value.length >= this.data.minLength) {
+        if(value.length >= this.data.start) {
             this.toggle(true);
             if(this.service)
                 this.$updateSource();
@@ -129,7 +133,7 @@ var Suggest = Dropdown.extend({
     filter: function(item) {
         var value = this.data.value;
 
-        if(!value && this.data.minLength)
+        if(!value && this.data.start)
             return false;
 
         if(this.data.matchType === 'all')

@@ -28,7 +28,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<radioGroup source={source} disabled={true} />
+<radioGroup source={source} disabled />
 ```
 
 ```javascript
@@ -77,7 +77,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<radioGroup source={source} block={true} />
+<radioGroup source={source} block />
 ```
 
 ```javascript

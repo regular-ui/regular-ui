@@ -25,7 +25,7 @@ var component = new RGUI.Component({
 
 ```xml
 <button class="u-btn u-btn-success" on-click={this.load()}>
-    Loading <loading ref="loading" static={true} />
+    Loading <loading ref="loading" static />
 </button>
 ```
 
@@ -47,7 +47,7 @@ var component = new RGUI.Component({
 
 ```xml
 <button class="u-btn u-btn-error" on-click={this.load()}>Loading</button>
-<loading ref="loading" static={true}>
+<loading ref="loading" static>
     <img src="../img/loading.gif">
 </loading>
 ```

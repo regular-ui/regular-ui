@@ -13,7 +13,7 @@
 <div class="m-example"></div>
 
 ```xml
-<calendar disabled={true} />
+<calendar disabled />
 ```
 
 #### 日期范围

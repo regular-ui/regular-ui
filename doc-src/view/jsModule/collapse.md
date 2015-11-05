@@ -17,7 +17,7 @@
 <div class="m-example"></div>
 
 ```xml
-<collapse accordion={true}>
+<collapse accordion>
     <panel title="panel1">content1</panel>
     <panel title="panel2">content2</panel>
     <panel title="panel3">content3</panel>

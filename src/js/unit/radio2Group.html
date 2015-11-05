@@ -1,5 +1,5 @@
 <div class="u-unitgroup {class}" r-hide={!visible}>
     {#list source as item}
-    <label class="u-radio2" r-class={ {'z-dis': disabled, 'z-sel': item === selected, 'u-radio2-block': block} } title={item.name} on-click={this.select(item)}><div class="radio2_box"><i class="u-icon u-icon-radio"></i></div> {item.name}</label>
+    <label class="u-radio2" title={item.name} z-sel={item === selected} z-dis={disabled} r-class={ {'u-radio2-block': block} } on-click={this.select(item)}><div class="radio2_box"><i class="u-icon u-icon-radio"></i></div> {item.name}</label>
     {/list}
 </div>

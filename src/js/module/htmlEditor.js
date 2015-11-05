@@ -16,6 +16,8 @@ var _ = require('../base/util.js');
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性 | Binding Properties
  * @param {string=''}               options.data.content            <=> 编辑器内容
+ * @param {number}                  options.data.maxlength           => 文本框的最大长度
+ * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -29,7 +31,9 @@ var HTMLEditor = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
-            content: ''
+            content: '',
+            maxlength: undefined,
+            autofocus: false
         });
         this.supr();
     },

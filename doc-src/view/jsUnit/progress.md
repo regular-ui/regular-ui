@@ -32,7 +32,7 @@
 <div class="m-example"></div>
 
 ```xml
-<progress percent="36" striped={true} />
+<progress percent="36" striped />
 ```
 
 #### 条纹动画
@@ -40,5 +40,5 @@
 <div class="m-example"></div>
 
 ```xml
-<progress percent="72" state="error" striped={true} active={true} />
+<progress percent="72" state="error" striped active />
 ```

@@ -25,7 +25,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<listView source={source} disabled={true} />
+<listView source={source} disabled />
 ```
 
 ```javascript

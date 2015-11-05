@@ -53,6 +53,7 @@ module.exports = {
         'Menu': {type: 'css+js', category: 'unit', lowerName: 'menu', requires: ['Dropdown']},
         /* 表单类 */
         'Input2': {type: 'css+js', category: 'unit', lowerName: 'input2', requires: ['FormControl', 'Tip']},
+        'TextArea2': {type: 'css+js', category: 'unit', lowerName: 'textarea2', requires: ['FormControl', 'Tip']},
         'NumberInput': {type: 'css+js', category: 'unit', lowerName: 'numberInput', requires: ['Input2']},
         'Check2': {type: 'css+js', category: 'unit', lowerName: 'check2'},
         'Radio2': {type: 'css', category: 'unit', lowerName: 'radio2'},

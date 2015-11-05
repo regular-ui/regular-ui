@@ -12,5 +12,5 @@
 <div class="m-example"></div>
 
 ```xml
-<htmlEditor disabled={true} />
+<htmlEditor disabled />
 ```

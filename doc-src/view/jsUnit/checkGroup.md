@@ -28,7 +28,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<checkGroup source={source} disabled={true} />
+<checkGroup source={source} disabled />
 ```
 
 ```javascript
@@ -52,7 +52,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<checkGroup source={source} block={true} />
+<checkGroup source={source} block />
 ```
 
 ```javascript

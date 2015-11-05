@@ -1,4 +1,4 @@
-<div class="u-calendar {class}" r-class={ {'z-dis': disabled} } r-hide={!visible}>
+<div class="u-calendar {class}" z-dis={disabled} r-hide={!visible}>
     <div class="calendar_hd">
         <span class="calendar_prev">
             <span class="calendar_item" on-click={this.addYear(-1)}><i class="u-icon u-icon-angle-double-left"></i></span>
@@ -12,7 +12,7 @@
     </div>
     <div class="calendar_bd">
         <div class="calendar_week"><span class="calendar_item">日</span><span class="calendar_item">一</span><span class="calendar_item">二</span><span class="calendar_item">三</span><span class="calendar_item">四</span><span class="calendar_item">五</span><span class="calendar_item">六</span></div>
-        <div class="calendar_day">{#list _days as day}<span class="calendar_item" r-class={ {'z-sel': date.toDateString() === day.toDateString(), 'z-muted': date.getMonth() !== day.getMonth(), 'z-dis': !!this.isOutOfRange(day)} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
+        <div class="calendar_day">{#list _days as day}<span class="calendar_item" z-sel={date.toDateString() === day.toDateString()} z-dis={!!this.isOutOfRange(day)} r-class={ {'z-muted': date.getMonth() !== day.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>
         {#inc this.$body}
     </div>
 </div>

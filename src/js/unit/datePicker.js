@@ -21,6 +21,7 @@ var MS_OF_DAY = 24*3600*1000;
  * @param {string='请输入'}         options.data.placeholder         => 文本框的占位文字
  * @param {Date|string=null}        options.data.minDate             => 最小日期，如果为空则不限制
  * @param {Date|string=null}        options.data.maxDate             => 最大日期，如果为空则不限制
+ * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -40,7 +41,8 @@ var DatePicker = Dropdown.extend({
             maxDate: null,
             placeholder: '请输入',
             date: null,
-            _date: undefined
+            _date: undefined,
+            autofocus: false
         });
         this.supr();
 

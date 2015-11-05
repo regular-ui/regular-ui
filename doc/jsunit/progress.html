@@ -94,6 +94,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/textarea2.html">多行输入扩展<small> TextArea2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -250,12 +258,12 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">条纹</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;36&quot;</span> <span class="cm-attribute">striped</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <h4 id="-">条纹动画</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;72&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-attribute">striped</span>=<span class="cm-attribute">{true}</span> <span class="cm-attribute">active</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;72&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-attribute">striped</span> <span class="cm-attribute">active</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 
         <h3>API</h3>
@@ -431,7 +439,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<progress percent="36" striped={true} />
+<progress percent="36" striped />
     */})
 var component = new RGUI.Component({
     template: template,
@@ -440,7 +448,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<progress percent="72" state="error" striped={true} active={true} />
+<progress percent="72" state="error" striped active />
     */})
 var component = new RGUI.Component({
     template: template,

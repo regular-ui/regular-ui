@@ -33,6 +33,7 @@ $reset-normalize();
 @import "./flat/unit/dropdown.mcss";
 @import "./flat/unit/menu.mcss";
 @import "./flat/unit/input2.mcss";
+@import "./core/unit/textarea2.mcss";
 @import "./flat/unit/numberInput.mcss";
 @import "./flat/unit/check2.mcss";
 @import "./flat/unit/radio2.mcss";

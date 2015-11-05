@@ -50,7 +50,7 @@ var component = new RGUI.Component({
 
 ```xml
 <p><select2Group source={source} depth=3 /></p>
-<p><select2Group source={source} depth=3 disabled={true} /></p>
+<p><select2Group source={source} depth=3 disabled /></p>
 ```
 
 ```javascript

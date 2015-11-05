@@ -13,10 +13,11 @@ var _ = require('../base/util.js');
  * @class NumberInput
  * @extend Input2
  * @param {object}                  options.data                     =  绑定属性
- * @param {string=0}                options.data.value              <=> 输入框的值
- * @param {string=''}               options.data.state              <=> 输入框的状态
- * @param {number=undefined}        options.data.min                 => 最小值
- * @param {number=undefined}        options.data.max                 => 最大值
+ * @param {string=0}                options.data.value              <=> 文本框的值
+ * @param {string=''}               options.data.state              <=> 文本框的状态
+ * @param {number}                  options.data.min                 => 最小值
+ * @param {number}                  options.data.max                 => 最大值
+ * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -34,7 +35,8 @@ var NumberInput = Input2.extend({
             // @inherited state: '',
             // @inherited placeholder: '',
             min: undefined,
-            max: undefined
+            max: undefined,
+            autofocus: false
         });
         this.supr();
 

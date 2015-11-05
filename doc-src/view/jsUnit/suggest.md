@@ -31,7 +31,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<suggest source={source} disabled={true} />
+<suggest source={source} disabled />
 ```
 
 ```javascript
@@ -80,14 +80,14 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 最小提示长度
+#### 开始提示长度
 
-当输入长度>=`minLength`属性后开始提示。
+当输入长度>=`start`属性后开始提示。
 
 <div class="m-example"></div>
 
 ```xml
-<suggest source={source} placeholder="输入2个字符后开始提示" minLength="2" />
+<suggest source={source} placeholder="输入2个字符后开始提示" start="2" />
 ```
 
 ```javascript
@@ -146,7 +146,7 @@ var component = new RGUI.Component({
 
 ```xml
 <p><suggest source={source} placeholder="非严格模式" value={value1} /> {value1}</p>
-<p><suggest source={source} placeholder="严格模式" strict={true} value={value2} /> {value2}</p>
+<p><suggest source={source} placeholder="严格模式" strict value={value2} /> {value2}</p>
 ```
 
 ```javascript

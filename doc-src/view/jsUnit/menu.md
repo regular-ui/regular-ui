@@ -69,7 +69,7 @@ var component = new RGUI.Component({
 
 ```xml
 <menu source={source} />
-<menu source={source} disabled={true} />
+<menu source={source} disabled />
 ```
 
 ```javascript

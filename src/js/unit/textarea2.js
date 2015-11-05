@@ -1,25 +1,23 @@
 /**
  * ------------------------------------------------------------
- * Input2   输入扩展
+ * TextArea2   输入扩展
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
 
 var Component = require('../base/component.js');
-var template = require('text!./input2.html');
+var template = require('text!./textarea2.html');
 var _ = require('../base/util.js');
 var Validation = require('../module/validation.js');
 
 /**
- * @class Input2
+ * @class TextArea2
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
  * @param {string=''}               options.data.value              <=> 文本框的值
- * @param {string=''}               options.data.type                => 文本框的类型
  * @param {string=''}               options.data.placeholder         => 占位符
  * @param {string=''}               options.data.state              <=> 文本框的状态
  * @param {number}                  options.data.maxlength           => 文本框的最大长度
- * @param {string=''}               options.data.unit                => 单位
  * @param {object[]=[]}             options.data.rules               => 验证规则
  * @param {boolean=false}           options.data.validating          => 是否实时验证
  * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
@@ -28,8 +26,8 @@ var Validation = require('../module/validation.js');
  * @param {boolean=true}            options.data.visible             => 是否显示
  * @param {string=''}               options.data.class               => 补充class
  */
-var Input2 = Component.extend({
-    name: 'input2',
+var TextArea2 = Component.extend({
+    name: 'textarea2',
     template: template,
     /**
      * @protected
@@ -37,11 +35,9 @@ var Input2 = Component.extend({
     config: function() {
         _.extend(this.data, {
             value: '',
-            type: '',
             placeholder: '',
             state: '',
             maxlength: undefined,
-            unit: '',
             rules: [],
             validating: false,
             autofocus: false
@@ -75,4 +71,4 @@ var Input2 = Component.extend({
     }
 });
 
-module.exports = Input2;
+module.exports = TextArea2;

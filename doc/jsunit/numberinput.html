@@ -94,6 +94,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/textarea2.html">多行输入扩展<small> TextArea2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li class="z-crt"><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -237,7 +245,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">禁用组件</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <h4 id="-">最大值和最小值</h4>
 <div class="m-example"></div>
@@ -276,13 +284,15 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>0</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>输入框的值</td></tr>
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>0</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>文本框的值</td></tr>
             
-            <tr><td class="f-wsn"><code>data.state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>输入框的状态</td></tr>
+            <tr><td class="f-wsn"><code>data.state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>文本框的状态</td></tr>
             
-            <tr><td class="f-wsn"><code>data.min</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>undefined</code></td><td class="f-tac">outer  =&gt; inner</td><td>最小值</td></tr>
+            <tr><td class="f-wsn"><code>data.min</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>最小值</td></tr>
             
-            <tr><td class="f-wsn"><code>data.max</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>undefined</code></td><td class="f-tac">outer  =&gt; inner</td><td>最大值</td></tr>
+            <tr><td class="f-wsn"><code>data.max</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>最大值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.autofocus</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否自动获得焦点</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否只读</td></tr>
             
@@ -515,7 +525,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<numberInput disabled={true} />
+<numberInput disabled />
     */})
 var component = new RGUI.Component({
     template: template,

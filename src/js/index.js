@@ -15,6 +15,7 @@ exports.ajax = require("./base/ajax.js");
 exports.Dropdown = require("./unit/dropdown.js");
 exports.Menu = require("./unit/menu.js");
 exports.Input2 = require("./unit/input2.js");
+exports.TextArea2 = require("./unit/textarea2.js");
 exports.NumberInput = require("./unit/numberInput.js");
 exports.Check2 = require("./unit/check2.js");
 exports.CheckGroup = require("./unit/checkGroup.js");

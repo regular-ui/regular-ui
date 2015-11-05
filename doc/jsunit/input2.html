@@ -94,6 +94,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsunit/textarea2.html">多行输入扩展<small> TextArea2</small>
+        
+            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
+        
+        </a></li>
+        
+        
+        
         <li><a href="../jsunit/numberinput.html">数字输入<small> NumberInput</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
@@ -232,7 +240,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <p>大部分属性的用法与<code>&lt;input&gt;</code>一致。</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>密码：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;password&quot;</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">6</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入密码&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>密码：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">type</span>=<span class="cm-string">&quot;password&quot;</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">6</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入密码&quot;</span> <span class="cm-attribute">autofocus</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">单位</h4>
 <div class="m-example"></div>
@@ -242,7 +250,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">验证</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>邮箱：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">20</span> <span class="cm-attribute">validating</span>=<span class="cm-attribute">{true}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>邮箱：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">input2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">20</span> <span class="cm-attribute">validating</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -274,15 +282,23 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>输入框的值</td></tr>
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>文本框的值</td></tr>
             
-            <tr><td class="f-wsn"><code>data.state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>输入框的状态</td></tr>
+            <tr><td class="f-wsn"><code>data.type</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>文本框的类型</td></tr>
             
             <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>占位符</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>文本框的状态</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.maxlength</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>文本框的最大长度</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.unit</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>单位</td></tr>
             
             <tr><td class="f-wsn"><code>data.rules</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer  =&gt; inner</td><td>验证规则</td></tr>
             
             <tr><td class="f-wsn"><code>data.validating</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否实时验证</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.autofocus</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否自动获得焦点</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否只读</td></tr>
             
@@ -427,7 +443,7 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<label>密码：<input2 type="password" maxlength=6 placeholder="请输入密码" /></label>
+<label>密码：<input2 type="password" maxlength=6 placeholder="请输入密码" autofocus /></label>
     */})
 var component = new RGUI.Component({
     template: template,
@@ -445,7 +461,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<label>邮箱：<input2 rules={rules} maxlength=20 validating={true} /></label>
+<label>邮箱：<input2 rules={rules} maxlength=20 validating /></label>
     */})
 var component = new RGUI.Component({
     template: template,

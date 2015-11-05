@@ -94,7 +94,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li><a href="../jsunit/textarea2.html">多行输入扩展<small> TextArea2</small>
+        <li class="z-crt"><a href="../jsunit/textarea2.html">多行输入扩展<small> TextArea2</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
@@ -233,10 +233,119 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>滑动器<small> Slider</small></h2>
+        <h2>多行输入扩展<small> TextArea2</small></h2>
         
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<p>大部分属性的用法与<code>&lt;textarea&gt;</code>一致。</p>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>备注：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">textarea2</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;请输入备注&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">验证</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>邮箱：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">textarea2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">20</span> <span class="cm-attribute">validating</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">rules</span>: [
+            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isFilled&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入邮箱！&#39;</span>},
+            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isEmail&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入正确的邮箱！&#39;</span>}
+        ]
+    }
+});
+</code></pre>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>TextArea2</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new TextArea2()</h5>
+<table>
+    <thead>
+        <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
+    </thead>
+    <tbody>
         
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>文本框的值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>占位符</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.state</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>文本框的状态</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.maxlength</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>文本框的最大长度</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.rules</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer  =&gt; inner</td><td>验证规则</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.validating</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否实时验证</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.autofocus</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否自动获得焦点</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否只读</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>补充class</td></tr>
+            
         
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+    <h4>Methods</h4>
+    
+    
+    <h5>
+        
+        <div>textArea2.validate()</div>
+    </h5>
+    <p>根据`rules`验证组件的值是否正确</p>
+    <table>
+        <thead>
+            <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">object</td><td colspan="2">结果</td></tr>
+            
+        </tbody>
+    </table>
+    
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-inheritedMethods"></div>
+
+
+<div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div></div></div><div class="g-ft">
     <footer class="m-footer">
@@ -322,7 +431,31 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<label>备注：<textarea2 placeholder="请输入备注" /></label>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<label>邮箱：<textarea2 rules={rules} maxlength=20 validating /></label>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        rules: [
+            {type: 'isFilled', message: '请输入邮箱！'},
+            {type: 'isEmail', message: '请输入正确的邮箱！'}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

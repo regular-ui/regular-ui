@@ -36,7 +36,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<treeView source={source} disabled={true} />
+<treeView source={source} disabled />
 ```
 
 ```javascript
@@ -95,7 +95,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<treeView service={@(this.service)} hierarchical={true} />
+<treeView service={@(this.service)} hierarchical />
 ```
 
 ```javascript
@@ -119,7 +119,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<treeView service={@(this.service)} hierarchical={true} itemTemplate={@(this.itemTemplate)} />
+<treeView service={@(this.service)} hierarchical itemTemplate={@(this.itemTemplate)} />
 ```
 
 ```javascript

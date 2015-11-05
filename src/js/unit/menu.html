@@ -1,4 +1,4 @@
-<div class="u-dropdown u-menu {class}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
+<div class="u-dropdown u-menu {class}" z-dis={disabled} r-hide={!visible} ref="element">
     <div class="dropdown_hd" on-click={this.toggle(!open)}>
         {#if this.$body}
             {#inc this.$body}
@@ -7,6 +7,6 @@
         {/if}
     </div>
     <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
-        <menuList source={source} visible={true} />
+        <menuList source={source} visible />
     </div>
 </div>

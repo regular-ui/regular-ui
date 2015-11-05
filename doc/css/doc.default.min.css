@@ -3864,6 +3864,10 @@ input.u-check:disabled,input.u-radio:disabled{
 	margin:-6px -4px 0 0;
 }
 .m-modal .modal_dialog .modal_hd.z-draggable{
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
 	cursor:move;
 }
 @media (max-width: 767px){

@@ -30,5 +30,5 @@
 <div class="m-example"></div>
 
 ```xml
-<pager current="6" total="11" disabled={true} />
+<pager current="6" total="11" disabled />
 ```

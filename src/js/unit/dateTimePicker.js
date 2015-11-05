@@ -22,6 +22,7 @@ var TimePicker = require('./timePicker.js');
  * @param {string='请输入'}         options.data.placeholder         => 文本框的占位文字
  * @param {Date|string=null}        options.data.minDate             => 最小日期时间，如果为空则不限制
  * @param {Date|string=null}        options.data.maxDate             => 最大日期时间，如果为空则不限制
+ * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -42,7 +43,8 @@ var DateTimePicker = Dropdown.extend({
             placeholder: '请输入',
             date: null,
             _date: undefined,
-            _time: undefined
+            _time: undefined,
+            autofocus: false
         });
         this.supr();
 

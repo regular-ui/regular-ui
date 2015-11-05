@@ -1,13 +1,13 @@
-<div class="u-dropdown u-select2 {class}" r-class={ {'z-dis': disabled} } r-hide={!visible} ref="element">
+<div class="u-dropdown u-select2 {class}" z-dis={disabled} r-hide={!visible} ref="element">
     <div class="dropdown_hd" title={selected ? selected.name : placeholder} on-click={this.toggle(!open)}>
         <i class="u-icon u-icon-caret-down"></i>
         <span>{selected ? selected.name : placeholder}</span>
     </div>
     <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <ul class="m-listview">
-            {#if placeholder}<li r-class={ {'z-sel': !selected} } on-click={this.select(null)}>{placeholder}</li>{/if}
+            {#if placeholder}<li z-sel={!selected} on-click={this.select(null)}>{placeholder}</li>{/if}
             {#list source as item}
-            <li r-class={ {'z-sel': selected === item, 'z-dis': item.disabled} } title={item.name} on-click={this.select(item)}>{item.name}</li>
+            <li z-sel={selected === item} z-dis={item.disabled} title={item.name} on-click={this.select(item)}>{item.name}</li>
             {/list}
         </ul>
     </div>

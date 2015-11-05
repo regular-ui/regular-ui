@@ -7,7 +7,7 @@
 <tabs>
     <tab title="tab1">content1</tab>
     <tab title="tab2">content2</tab>
-    <tab title="tab3" disabled={true}>content3</tab>
+    <tab title="tab3" disabled>content3</tab>
     <tab title="tab4">content4</tab>
 </tabs>
 </p>

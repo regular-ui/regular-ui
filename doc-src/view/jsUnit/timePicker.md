@@ -13,7 +13,7 @@
 <div class="m-example"></div>
 
 ```xml
-<timePicker disabled={true} />
+<timePicker disabled />
 ```
 
 #### 日期范围

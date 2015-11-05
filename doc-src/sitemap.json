@@ -59,6 +59,7 @@
                 {"name": "Menu", "lowerName": "menu", "cnName": "多级菜单", "group": "导航类", "completed": true},
 
                 {"name": "Input2", "lowerName": "input2", "cnName": "输入扩展", "group": "表单类", "completed": true},
+                {"name": "TextArea2", "lowerName": "textarea2", "cnName": "多行输入扩展", "group": "表单类", "completed": true},
                 {"name": "NumberInput", "lowerName": "numberInput", "cnName": "数字输入", "group": "表单类", "completed": true},
                 {"name": "TelInput", "lowerName": "telInput", "cnName": "电话输入", "group": "表单类", "hidden": true},
                 {"name": "Check2", "lowerName": "check2", "cnName": "多选按钮", "group": "表单类", "completed": true},
