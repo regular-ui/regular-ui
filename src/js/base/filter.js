@@ -1,8 +1,6 @@
 'use strict';
 
-var filter = {};
-
-filter.format = (function() {
+exports.format = (function() {
     function fix(str) {
         str = '' + (String(str) || '');
         return str.length <= 1? '0' + str : str;
@@ -28,11 +26,11 @@ filter.format = (function() {
     }
 }());
 
-filter.average = function(array, key) {
+exports.average = function(array, key) {
     array = array || [];
-    return array.length? filter.total(array, key) / array.length : 0;
+    return array.length? exports.total(array, key) / array.length : 0;
 }
-filter.total = function(array, key) {
+exports.total = function(array, key) {
     var total = 0;
     if(!array) return;
     array.forEach(function( item ){
@@ -41,11 +39,9 @@ filter.total = function(array, key) {
     return total;
 }
 
-filter.filter = function(array, filterFn) {
+exports.filter = function(array, filterFn) {
     if(!array || !array.length) return;
     return array.filter(function(item, index){
         return filterFn(item, index);
     })
 }
-
-module.exports = filter;

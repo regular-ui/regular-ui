@@ -6,7 +6,7 @@
 ```xml
 <collapse>
     <panel title="panel1">content1</panel>
-    <panel title="panel2" open={true}>content2</panel>
+    <panel title="panel2" open>content2</panel>
     <panel title="panel3">content3</panel>
     <panel title="panel4">content4</panel>
 </collapse>

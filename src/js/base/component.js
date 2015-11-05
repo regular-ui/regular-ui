@@ -10,6 +10,7 @@
 var Regular = require('regularjs');
 var _ = require('./util.js');
 var filter = require('./filter.js');
+var directive = require('./directive.js');
 
 /**
  * @class Component
@@ -42,21 +43,7 @@ var Component = Regular.extend({
     }
 })
 .filter(filter)
-.directive({
-    'r-show': function(elem, value) {
-        this.$watch(value, function(newValue, oldValue) {
-            if(!newValue == !oldValue)
-                return;
-
-            elem.style.display = newValue ? 'block' : '';
-        });
-    },
-    'r-autofocus': function(elem, value) {
-        setTimeout(function() {
-            elem.focus();
-        }, 0);
-    }
-});
+.directive(directive);
 
 if (!Array.prototype.find) {
     Array.prototype.find = function(predicate) {

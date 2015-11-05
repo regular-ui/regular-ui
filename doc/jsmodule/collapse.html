@@ -189,7 +189,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">collapse</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel2&quot;</span> <span class="cm-attribute">open</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel2&quot;</span> <span class="cm-attribute">open</span><span class="cm-tagcm-bracketcm-error">&gt;</span>content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">panel</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;panel4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">panel</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">collapse</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -345,7 +345,7 @@ var index = 0;
     var template = RGUI._.multiline(function(){/*
 <collapse>
     <panel title="panel1">content1</panel>
-    <panel title="panel2" open={true}>content2</panel>
+    <panel title="panel2" open>content2</panel>
     <panel title="panel3">content3</panel>
     <panel title="panel4">content4</panel>
 </collapse>

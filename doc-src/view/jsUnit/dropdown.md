@@ -47,7 +47,7 @@ var component = new RGUI.Component({
 
 ```xml
 <dropdown source={source} />
-<dropdown source={source} disabled={true} />
+<dropdown source={source} disabled />
 ```
 
 ```javascript
