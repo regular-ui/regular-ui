@@ -99,6 +99,8 @@ module.exports = {
         'HTMLEditor': {type: 'js', category: 'module', lowerName: 'htmlEditor'},
         'MarkEditor': {type: 'js', category: 'module', lowerName: 'markEditor'},
         /* 其他 */
-        'Validation': {type: 'js', category: 'module', lowerName: 'validation'}
+        'Validation': {type: 'js', category: 'module', lowerName: 'validation'},
+        'Draggable': {type: 'css+js', category: 'module', lowerName: 'draggable'},
+        'Droppable': {type: 'js', category: 'module', lowerName: 'droppable'}
     }
 }

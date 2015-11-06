@@ -45,3 +45,5 @@ exports.Editor = require("./module/editor.js");
 exports.HTMLEditor = require("./module/htmlEditor.js");
 exports.MarkEditor = require("./module/markEditor.js");
 exports.Validation = require("./module/validation.js");
+exports.Draggable = require("./module/draggable.js");
+exports.Droppable = require("./module/droppable.js");

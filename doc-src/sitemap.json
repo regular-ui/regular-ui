@@ -118,7 +118,9 @@
                 {"name": "AudioPlayer", "lowerName": "audioPlayer", "cnName": "音频播放器", "group": "播放器类", "hidden": true, "new": true},
                 {"name": "VideoPlayer", "lowerName": "videoPlayer", "cnName": "视频播放器", "group": "播放器类", "hidden": true, "new": true},
 
-                {"name": "Validation", "lowerName": "validation", "cnName": "表单验证", "group": "其他", "completed": true}
+                {"name": "Validation", "lowerName": "validation", "cnName": "表单验证", "group": "其他", "completed": true},
+                {"name": "Draggable", "lowerName": "draggable", "cnName": "拖拽", "group": "其他", "completed": true},
+                {"name": "Droppable", "lowerName": "droppable", "cnName": "放置", "group": "其他", "completed": true}
             ]
         }
     ]

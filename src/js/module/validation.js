@@ -15,6 +15,7 @@ var validator = require('validator');
  * @class Validation
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
+ * @param {boolean=false}           options.data.disabled            => 是否禁用。当禁用时验证始终通过。
  */
 var Validation = Component.extend({
     name: 'validation',
@@ -34,6 +35,12 @@ var Validation = Component.extend({
      * @return {object} conclusion 结论
      */
     validate: function() {
+        if(this.data.disabled)
+            return {
+                success: true,
+                message: 'Validation is disabled.'
+            }
+
         var conclusion = {
             results: [],
             success: true,

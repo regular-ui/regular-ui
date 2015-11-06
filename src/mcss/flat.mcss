@@ -55,3 +55,4 @@ $reset-normalize();
 @import "./flat/module/treeView.mcss";
 @import "./flat/module/calendar.mcss";
 @import "./flat/module/editor.mcss";
+@import "./core/module/draggable.mcss";

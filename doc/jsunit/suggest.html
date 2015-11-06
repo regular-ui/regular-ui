@@ -303,10 +303,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 });
 </code></pre>
 <h4 id="-">开始提示长度</h4>
-<p>当输入长度&gt;=<code>start</code>属性后开始提示。</p>
+<p>当输入长度&gt;=<code>startLength</code>属性后开始提示。</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;输入2个字符后开始提示&quot;</span> <span class="cm-attribute">start</span>=<span class="cm-string">&quot;2&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;输入2个字符后开始提示&quot;</span> <span class="cm-attribute">startLength</span>=<span class="cm-string">&quot;2&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -460,7 +460,7 @@ var component = new RGUI.Component({
             
             <tr><td class="f-wsn"><code>data.maxlength</code></td><td class="f-wsn">number</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>文本框的最大长度</td></tr>
             
-            <tr><td class="f-wsn"><code>data.start</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td class="f-tac">outer  =&gt; inner</td><td>开始提示长度。当输入长度&gt;=该值后开始提示</td></tr>
+            <tr><td class="f-wsn"><code>data.startLength</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>0</code></td><td class="f-tac">outer  =&gt; inner</td><td>开始提示长度。当输入长度&gt;=该值后开始提示</td></tr>
             
             <tr><td class="f-wsn"><code>data.matchType</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;all&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾</td></tr>
             
@@ -808,7 +808,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<suggest source={source} placeholder="输入2个字符后开始提示" start="2" />
+<suggest source={source} placeholder="输入2个字符后开始提示" startLength="2" />
     */})
 var component = new RGUI.Component({
     template: template,

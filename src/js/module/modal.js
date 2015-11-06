@@ -11,6 +11,8 @@ var Component = require('../base/component.js');
 var template = require('text!./modal.html');
 var _ = require('../base/util.js');
 
+var Draggable = require('../module/draggable.js');
+
 /**
  * @class Modal
  * @extend Component
@@ -96,47 +98,24 @@ var Modal = Component.extend({
         if($event.which == 13)
             this.ok();
     },
-    _onMouseDown: function($event) {
-        if(!this.data.draggable)
-            return;
+    _onDragStart: function($event) {
+        var proxy = this.$refs.modalDialog;
+        proxy.style.left = proxy.offsetLeft + 'px';
+        proxy.style.top = proxy.offsetTop + 'px';
+        proxy.style.zIndex = '1000';
+        proxy.style.position = 'absolute';
 
-        var dialog = this.$refs.modalDialog;
-        var dragging = {
-            origin: this,
-            left: dialog.offsetLeft,
-            top: dialog.offsetTop,
-            pageX: $event.pageX,
-            pageY: $event.pageY
-        }
-
-        dialog.style.position = 'absolute';
-        dialog.style.left = dragging.left + 'px';
-        dialog.style.top = dragging.top + 'px';
-
-        this._dragging = dragging;
-
-        this.$emit('dragstart', dragging);
+        this.data.dragging = true;
     },
-    _onMouseMove: function($event) {
-        if(this.data.draggable && this._dragging && $event.which == 1) {
-            var dialog = this.$refs.modalDialog;
-            this._dragging.left += $event.pageX - this._dragging.pageX;
-            this._dragging.top += $event.pageY - this._dragging.pageY;
-            this._dragging.pageX = $event.pageX;
-            this._dragging.pageY = $event.pageY;
+    _onDrag: function($event) {
+        var detail = $event.event.detail;
 
-            dialog.style.left = this._dragging.left + 'px';
-            dialog.style.top = this._dragging.top + 'px';
-        }
+        var proxy = this.$refs.modalDialog;
+        proxy.style.left = proxy.offsetLeft + detail.deltaX + 'px';
+        proxy.style.top = proxy.offsetTop + detail.deltaY + 'px';
     },
-    _onMouseUp: function($event) {
-        if(this.data.draggable && this._dragging) {
-            this._dragging = null;
-
-            this.$emit('dragend', {
-                source: this
-            });
-        }
+    _onDragEnd: function($event) {
+        this.data.dragging = false;
     }
 });
 

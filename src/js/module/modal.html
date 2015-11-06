@@ -1,6 +1,6 @@
-<div class="m-modal {class}" on-mousemove={this._onMouseMove($event)} on-mouseup={this._onMouseUp($event)} on-keyup={this.keyup($event)} r-hide={!visible}>
+<div class="m-modal {class}" on-keyup={this.keyup($event)} r-hide={!visible}>
     <div class="modal_dialog" ref="modalDialog">
-        <div class="modal_hd" on-mousedown={this._onMouseDown($event)} r-class={ {'z-draggable': draggable} }>
+        <div class="modal_hd" {#if draggable}r-draggable r-class={ {'z-draggable': draggable} } on-dragstart={this._onDragStart($event)} on-drag={this._onDrag($event)} on-dragend={this._onDragEnd($event)}{/if}>
             <a class="modal_close" on-click={this.close(!cancelButton)}><i class="u-icon u-icon-close"></i></a>
             <h3 class="modal_title">{title}</h3>
         </div>

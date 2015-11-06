@@ -4489,13 +4489,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	float:right;
 	margin:-6px -4px 0 0;
 }
-.m-modal .modal_dialog .modal_hd.z-draggable{
-	-webkit-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
-	user-select:none;
-	cursor:move;
-}
 @media (max-width: 767px){
 	.m-modal .modal_dialog{
 		width:auto;
@@ -4806,6 +4799,20 @@ html.z-modal,html.z-modal body{
 .m-editor.z-dis .editor_textarea{
 	background:#f4f6f6;
 	color:#d5dbdb;
+}
+.m-draggable{
+	display:inline-block;
+}
+.m-draggable .draggable_proxy{
+	display:inline-block;
+}
+.z-draggable{
+	cursor:move;
+	cursor:-webkit-grab;
+}
+.z-dragging{
+	cursor:move;
+	cursor:-webkit-grabbing;
 }
 .m-logo{
 	margin:0;

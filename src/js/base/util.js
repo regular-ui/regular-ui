@@ -8,25 +8,38 @@ var _ = {
     multiline: function(func) {
         var reg = /^function\s*\(\)\s*\{\s*\/\*+\s*([\s\S]*)\s*\*+\/\s*\}$/;
         return reg.exec(func)[1];
+    },
+    noop: function(){}
+}
+
+_.dom.emit = function(elem, eventName, data) {
+    if(elem.dispatchEvent) {
+        var event = new CustomEvent(eventName, {detail: data});
+        elem.dispatchEvent(event);
+    } else {
+        var event = document.createEventObject();
+        event.detail = data;
+        elem.fireEvent('on' + eventName, event);
     }
 }
 
-_.dom.getPosition = function(elem) {
+_.dom.getPosition = function(elem, fixed) {
     var doc = elem && elem.ownerDocument,
         docElem = doc.documentElement,
-        body = doc.body, 
+        body = doc.body;
 
-        box = elem.getBoundingClientRect ? elem.getBoundingClientRect() : { top: 0, left: 0 },
+    var box = elem.getBoundingClientRect ? elem.getBoundingClientRect() : { top: 0, left: 0 };
 
-        clientTop = docElem.clientTop || body.clientTop || 0,
-        clientLeft = docElem.clientLeft || body.clientLeft || 0,
-        scrollTop = window.pageYOffset || docElem.scrollTop,
+    var clientTop = docElem.clientTop || body.clientTop || 0,
+        clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+    if(fixed)
+        return {top: box.top - clientTop, left: box.left - clientLeft};
+
+    var scrollTop = window.pageYOffset || docElem.scrollTop,
         scrollLeft = window.pageXOffset || docElem.scrollLeft;
 
-    return {
-        top: box.top + scrollTop - clientTop,
-        left: box.left + scrollLeft - clientLeft
-    }
+    return {top: box.top + scrollTop - clientTop, left: box.left + scrollLeft - clientLeft}
 }
 
 _.dom.getOffset = function(elem) {
@@ -36,8 +49,8 @@ _.dom.getOffset = function(elem) {
     return {width: width, height: height}
 }
 
-_.dom.getDimension = function(elem) {
-    return _.extend(_.dom.getOffset(elem), _.dom.getPosition(elem));
+_.dom.getDimension = function(elem, fixed) {
+    return _.extend(_.dom.getOffset(elem), _.dom.getPosition(elem, fixed));
 }
 
 _.dom.isInRect = function(position, dimension) {
@@ -47,6 +60,14 @@ _.dom.isInRect = function(position, dimension) {
         && (position.left < dimension.left + dimension.width)
         && position.top > dimension.top
         && (position.top < dimension.top + dimension.height);
+}
+
+_.dom.once = function(elem, ev, handle) {
+    function real() {
+        handle.apply(this, arguments);
+        _.dom.off(elem, ev, real);
+    }
+    _.dom.on(elem, ev, real);
 }
 
 module.exports = _;

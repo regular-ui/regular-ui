@@ -56,11 +56,6 @@
             }
         }
 
-        .modal_hd.z-draggable {
-            $user-select: none;
-            cursor: move;
-        }
-
         .modal_bd {}
 
         .modal_ft {

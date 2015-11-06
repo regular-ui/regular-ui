@@ -187,7 +187,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li><a href="../jsmodule/droppable.html">放置<small> Droppable</small>
+        <li class="z-crt"><a href="../jsmodule/droppable.html">放置<small> Droppable</small>
         
             <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
         
@@ -197,10 +197,56 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>窗口<small> Window</small></h2>
+        <h2>放置<small> Droppable</small></h2>
         
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>test<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">droppable</span> <span class="cm-attribute">on-dragenter</span>=<span class="cm-attribute">{text</span> = <span class="cm-string">&#39;enter&#39;</span><span class="cm-attribute">}</span> <span class="cm-attribute">on-dragleave</span>=<span class="cm-attribute">{text</span> = <span class="cm-string">&#39;leave&#39;</span><span class="cm-attribute">}</span> <span class="cm-attribute">on-dragover</span>=<span class="cm-attribute">{text</span> = <span class="cm-string">&#39;over&#39;</span><span class="cm-attribute">}</span> <span class="cm-attribute">on-drop</span>=<span class="cm-attribute">{text</span> = <span class="cm-string">&#39;drop&#39;</span><span class="cm-attribute">}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{text || &#39;null&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">droppable</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Droppable</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Droppable()</h5>
+<table>
+    <thead>
+        <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
+    </thead>
+    <tbody>
         
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否禁用</td></tr>
+            
         
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-inheritedMethods"></div>
+
+
+<div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
     </article>
 </div></div></div><div class="g-ft">
     <footer class="m-footer">
@@ -286,7 +332,17 @@ var themeSelect = new RGUI.Select2({
 })();
 </script>
 <script>
-
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<draggable>test</draggable>
+<droppable on-dragenter={text = 'enter'} on-dragleave={text = 'leave'} on-dragover={text = 'over'} on-drop={text = 'drop'}>{text || 'null'}</droppable>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
 </script>
 </body>
 </html>

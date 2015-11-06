@@ -82,12 +82,12 @@ var component = new RGUI.Component({
 
 #### 开始提示长度
 
-当输入长度>=`start`属性后开始提示。
+当输入长度>=`startLength`属性后开始提示。
 
 <div class="m-example"></div>
 
 ```xml
-<suggest source={source} placeholder="输入2个字符后开始提示" start="2" />
+<suggest source={source} placeholder="输入2个字符后开始提示" startLength="2" />
 ```
 
 ```javascript

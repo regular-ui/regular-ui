@@ -21,7 +21,7 @@ var _ = require('../base/util.js');
  * @param {string=''}               options.data.value              <=> 文本框中的值
  * @param {string='请输入'}         options.data.placeholder         => 文本框的占位文字
  * @param {number}                  options.data.maxlength           => 文本框的最大长度
- * @param {number=0}                options.data.start               => 开始提示长度。当输入长度>=该值后开始提示
+ * @param {number=0}                options.data.startLength         => 开始提示长度。当输入长度>=该值后开始提示
  * @param {string='all'}            options.data.matchType           => 匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict              => 是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
  * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
@@ -45,7 +45,7 @@ var Suggest = Dropdown.extend({
             value: '',
             placeholder: '请输入',
             maxlength: undefined,
-            start: 0,
+            startLength: 0,
             delay: 300,
             matchType: 'all',
             strict: false,
@@ -108,7 +108,7 @@ var Suggest = Dropdown.extend({
     input: function($event) {
         var value = this.data.value;
 
-        if(value.length >= this.data.start) {
+        if(value.length >= this.data.startLength) {
             this.toggle(true);
             if(this.service)
                 this.$updateSource();
@@ -133,12 +133,12 @@ var Suggest = Dropdown.extend({
     filter: function(item) {
         var value = this.data.value;
 
-        if(!value && this.data.start)
+        if(!value && this.data.startLength)
             return false;
 
         if(this.data.matchType === 'all')
             return item.name.indexOf(value) >= 0;
-        else if(this.data.matchType === 'start')
+        else if(this.data.matchType === 'startLength')
             return item.name.slice(0, value.length) === value;
         else if(this.data.matchType === 'end')
             return item.name.slice(-value.length) === value;

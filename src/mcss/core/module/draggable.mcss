@@ -1,0 +1,27 @@
+// Name:            Draggable
+// Description:     拖拽
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:
+// ========================================================================
+
+.m-draggable {
+    display: inline-block;
+
+    .draggable_proxy {
+        display: inline-block;
+    }
+}
+
+.z-draggable {
+    cursor: move;
+    cursor: -webkit-grab;
+}
+
+.z-dragging {
+    cursor: move;
+    cursor: -webkit-grabbing;
+}
