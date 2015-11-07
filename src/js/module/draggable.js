@@ -8,23 +8,21 @@
 'use strict';
 
 var Component = require('../base/component.js');
-var template = require('text!./draggable.html');
 var _ = require('../base/util.js');
-
 var dragDrop = require('./dragDrop.js');
 
 /**
  * @class Draggable
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
- * @param {string|HTMLElement|function='auto'}  options.data.image               => 拖拽时的图像
+ * @param {string|HTMLElement|function='auto'}  options.data.image  @=> 拖拽时的图像
  * @param {string}                  options.data.effect              => 效果
  * @param {object}                  options.data.data                => 拖拽时需要传递的数据
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  */
 var Draggable = Component.extend({
     name: 'draggable',
-    template: template,
+    template: '{#inc this.$body}',
     /**
      * @protected
      */
@@ -36,23 +34,37 @@ var Draggable = Component.extend({
         });
         this.supr();
     },
+    init: function() {
+        // 修改内部DOM元素
+        var inner = _.dom.element(this);
+        _.dom.on(inner, 'dragstart', this._onDragStart.bind(this));
+        _.dom.on(inner, 'drag', this._onDrag.bind(this));
+        _.dom.on(inner, 'dragend', this._onDragEnd.bind(this));
+
+        this.$watch('disabled', function(newValue) {
+            inner.draggable = !newValue;
+        });
+        this.supr();
+    },
     _getImage: function() {
         if(typeof this.data.image === 'function')
             return this.data.image();
         else if(this.data.image instanceof HTMLElement)
             return this.data.image;
-        else if(this.data.image === 'auto')
-            return null;
-        else if(this.data.image === 'self')
-            return this.$refs.self;
-        else if(this.data.image === 'empty') {
+        else if(this.data.image instanceof Draggable.Image) {
+            var image = _.dom.on(this.data.image);
+            image.style.position = 'fixed';
+            image.style.left = '-5000px;'
+            document.body.appendChild(image);
+        } else if(this.data.image === 'empty') {
             var empty = document.createElement('span');
             empty.innerHTML = '&nbsp;';
             empty.style.position = 'fixed';
             empty.style.left = '-5000px;'
             document.body.appendChild(empty);
             return empty;
-        }
+        } else if(this.data.image === 'auto')
+            return null;
     },
     _onDragStart: function($event) {
         var e = $event.event;
@@ -60,7 +72,7 @@ var Draggable = Component.extend({
         // 处理DataTransfer
         var image = this._getImage();
         if(image)
-            e.dataTransfer.setDragImage(image, 0, 0);
+            e.dataTransfer.setDragImage(image, 0, 0);    // @TODO x, y
         if(this.data.effect)
             e.dataTransfer.effectAllowed = this.data.effect;
 
@@ -108,14 +120,16 @@ Draggable.Image = Component.extend({
     name: 'draggable.image',
     template: '<div ref="self">{#inc this.$body}</div>',
     node: _.noop,
+    config: function() {
+        _.extend(this.data, {
+            x: 0,
+            y: 0
+        });
+        this.supr();
+    },
     init: function() {
-        if(this.$outer instanceof Draggable) {
-            var self = this.$refs.self;
-            self.style.position = 'fixed';
-            self.style.left = '-5000px;'
-            document.body.appendChild(self);
-            this.$outer.data.image = self;
-        }
+        if(this.$outer instanceof Draggable)
+            this.$outer.data.image = this.$refs.self;
     }
 })
 
