@@ -56,6 +56,30 @@ var ListView = SourceComponent.extend({
         this.$emit('select', {
             selected: item
         });
+    },
+    _onDragStart: function($event) {},
+    _onDragEnter: function($event) {
+        var target = $event.target;
+        _.dom.addClass(target, 'z-dragover');
+    },
+    _onDragOver: function($event) {},
+    _onDragLeave: function($event) {
+        var target = $event.target;
+        _.dom.delClass(target, 'z-dragover');
+    },
+    _onDrop: function($event, item, position) {
+        var target = $event.target;
+        _.dom.delClass(target, 'z-dragover');
+
+        var oldItem = $event.data;
+        var oldIndex = this.data.source.indexOf(oldItem);
+        var index = this.data.source.indexOf(item);
+
+        if(position === 'bottom')
+            index++;
+
+        this.data.source.splice(oldIndex, 1);
+        this.data.source.splice(index, 0, oldItem);
     }
 });
 

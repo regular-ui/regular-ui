@@ -276,7 +276,7 @@ table{
 	word-wrap:break-word;
 	word-break:break-all;
 }
-.f-toe,.u-select2 .dropdown_hd,.m-listview >li{
+.f-toe,.u-select2 .dropdown_hd{
 	overflow:hidden;
 	word-wrap:normal;
 	white-space:nowrap;
@@ -3911,10 +3911,33 @@ html.z-modal,html.z-modal body{
 }
 .m-listview >li{
 	cursor:pointer;
+	position:relative;
 }
 .m-listview >li.z-dis{
 	cursor:not-allowed;
 	background:none;
+}
+.m-listview .listview_droppable{
+	position:absolute;
+	left:0;
+	right:0;
+	z-index:2;
+}
+.m-listview .listview_droppable-top{
+	top:0;
+	height:50%;
+}
+.m-listview .listview_droppable-top.z-dragover{
+	border-top:2px solid #009cef;
+	margin-top:-1px;
+}
+.m-listview .listview_droppable-bottom{
+	bottom:0;
+	height:50%;
+}
+.m-listview .listview_droppable-bottom.z-dragover{
+	border-bottom:2px solid #009cef;
+	margin-bottom:-1px;
 }
 .m-listview.z-dis >li{
 	cursor:not-allowed;

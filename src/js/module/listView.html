@@ -1,5 +1,15 @@
 <ul class="m-listview {class}" z-dis={disabled} r-hide={!visible}>
     {#list source as item}
-    <li title={item.name} z-sel={selected === item} z-dis={item.disabled} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>
+    <draggable on-dragstart={this._onDragStart($event)} data={item}>
+    <li title={item.name} z-sel={selected === item} z-dis={item.disabled} on-click={this.select(item)}>
+        <droppable on-dragenter={this._onDragEnter($event)} on-dragover={this._onDragOver($event)} on-dragleave={this._onDragLeave($event)} on-drop={this._onDrop($event, item, 'top')}>
+        <div class="listview_droppable listview_droppable-top"></div>
+        </droppable>
+        {#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}
+        <droppable on-dragenter={this._onDragEnter($event)} on-dragover={this._onDragOver($event)} on-dragleave={this._onDragLeave($event)} on-drop={this._onDrop($event, item, 'bottom')}>
+        <div class="listview_droppable listview_droppable-bottom"></div>
+        </droppable>
+    </li>
+    </draggable>
     {/list}
 </ul>
