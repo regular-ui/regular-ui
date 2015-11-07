@@ -1,1 +1,1 @@
-<div class="m-droppable {class}" ref="self" z-dis={disabled} r-class={ {'z-dropover': dropover} } r-droppable on-dragenter="dragenter" on-dragover="dragover" on-dragleave="dragleave" on-drop="drop">{#inc this.$body}</div>
+<div class="m-droppable {class}" ref="self" z-dis={disabled} r-class={ {'z-dropover': dropover} } on-dragenter={this._onDragEnter($event)} on-dragover={this._onDragOver($event)} on-dragleave={this._onDragLeave($event)} on-drop={this._onDrop($event)}>{#inc this.$body}</div>

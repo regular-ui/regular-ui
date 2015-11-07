@@ -69,114 +69,114 @@ exports['r-attr'] = function(elem, value) {
     }, true);
 }
 
-var dragDropMgr = {
-    dragData: null,
-    isDragging: function() {return !!this.dragData}
-}
+// var dragDropMgr = {
+//     dragData: null,
+//     isDragging: function() {return !!this.dragData}
+// }
 
-exports['r-draggable'] = function(elem, value) {
-    var onMouseDown = function($event) {
-        $event.preventDefault();
+// exports['r-draggable'] = function(elem, value) {
+//     var onMouseDown = function($event) {
+//         $event.preventDefault();
 
-        _.dom.on(document.body, 'mousemove', onMouseMove);
-        _.dom.on(document.body, 'mouseup', onMouseUp);
+//         _.dom.on(document.body, 'mousemove', onMouseMove);
+//         _.dom.on(document.body, 'mouseup', onMouseUp);
 
-        dragDropMgr.dragData = {
-            dragging: false,
-            pageX: $event.pageX,
-            pageY: $event.pageY,
-            source: elem,
-            data: typeof value === 'object' ? this.$get(value) : value,
-            cancel: cancel
-        }
-    }.bind(this);
+//         dragDropMgr.dragData = {
+//             dragging: false,
+//             pageX: $event.pageX,
+//             pageY: $event.pageY,
+//             source: elem,
+//             data: typeof value === 'object' ? this.$get(value) : value,
+//             cancel: cancel
+//         }
+//     }.bind(this);
 
-    var onMouseMove = function($event) {
-        if(!dragDropMgr.dragData)
-            return;
+//     var onMouseMove = function($event) {
+//         if(!dragDropMgr.dragData)
+//             return;
 
-        $event.preventDefault();
-        if(dragDropMgr.dragData.dragging === false) {
-            dragDropMgr.dragData.dragging = true;
+//         $event.preventDefault();
+//         if(dragDropMgr.dragData.dragging === false) {
+//             dragDropMgr.dragData.dragging = true;
 
-            _.dom.emit(elem, 'dragstart', dragDropMgr.dragData);
-        } else {
-            dragDropMgr.dragData.deltaX = $event.pageX - dragDropMgr.dragData.pageX;
-            dragDropMgr.dragData.deltaY = $event.pageY - dragDropMgr.dragData.pageY;
-            dragDropMgr.dragData.pageX = $event.pageX;
-            dragDropMgr.dragData.pageY = $event.pageY;
+//             _.dom.emit(elem, 'dragstart', dragDropMgr.dragData);
+//         } else {
+//             dragDropMgr.dragData.deltaX = $event.pageX - dragDropMgr.dragData.pageX;
+//             dragDropMgr.dragData.deltaY = $event.pageY - dragDropMgr.dragData.pageY;
+//             dragDropMgr.dragData.pageX = $event.pageX;
+//             dragDropMgr.dragData.pageY = $event.pageY;
 
-            _.dom.emit(elem, 'drag', dragDropMgr.dragData);
-        }
-    }.bind(this);
+//             _.dom.emit(elem, 'drag', dragDropMgr.dragData);
+//         }
+//     }.bind(this);
 
-    var onMouseUp = function($event) {
-        if(!dragDropMgr.dragData)
-            return;
+//     var onMouseUp = function($event) {
+//         if(!dragDropMgr.dragData)
+//             return;
 
-        $event.preventDefault();
-        _.dom.emit(elem, 'dragend', dragDropMgr.dragData);
-        cancel();
-    }.bind(this);
+//         $event.preventDefault();
+//         _.dom.emit(elem, 'dragend', dragDropMgr.dragData);
+//         cancel();
+//     }.bind(this);
 
-    var cancel = function() {
-        _.dom.on(document.body, 'mousemove', onMouseMove);
-        _.dom.on(document.body, 'mouseup', onMouseUp);
-        dragDropMgr.dragData = null;
-    }
+//     var cancel = function() {
+//         _.dom.on(document.body, 'mousemove', onMouseMove);
+//         _.dom.on(document.body, 'mouseup', onMouseUp);
+//         dragDropMgr.dragData = null;
+//     }
 
-    _.dom.on(elem, 'mousedown', onMouseDown);
-}
+//     _.dom.on(elem, 'mousedown', onMouseDown);
+// }
 
-exports['r-droppable'] = function(elem, value) {
-    var onMouseEnter = function($event) {
-        if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
-            return;
+// exports['r-droppable'] = function(elem, value) {
+//     var onMouseEnter = function($event) {
+//         if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
+//             return;
 
-        $event.preventDefault();
+//         $event.preventDefault();
 
-        console.log($event.target);
-        _.dom.emit(elem, 'dragenter', {
-            pageX: $event.pageX,
-            pageY: $event.pageY,
-            source: elem
-        });
-    }.bind(this);
+//         console.log($event.target);
+//         _.dom.emit(elem, 'dragenter', {
+//             pageX: $event.pageX,
+//             pageY: $event.pageY,
+//             source: elem
+//         });
+//     }.bind(this);
 
-    var onMouseOver = function($event) {
-        if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
-            return;
+//     var onMouseOver = function($event) {
+//         if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
+//             return;
 
-        $event.preventDefault();
-        _.dom.emit(elem, 'dragover', {
-            pageX: $event.pageX,
-            pageY: $event.pageY,
-            source: elem
-        });
-    }.bind(this);
+//         $event.preventDefault();
+//         _.dom.emit(elem, 'dragover', {
+//             pageX: $event.pageX,
+//             pageY: $event.pageY,
+//             source: elem
+//         });
+//     }.bind(this);
 
-    var onMouseLeave = function($event) {
-        if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
-            return;
+//     var onMouseLeave = function($event) {
+//         if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
+//             return;
 
-        $event.preventDefault();
-        _.dom.emit(elem, 'dragleave', {
-            pageX: $event.pageX,
-            pageY: $event.pageY,
-            source: elem
-        });
-    }.bind(this);
+//         $event.preventDefault();
+//         _.dom.emit(elem, 'dragleave', {
+//             pageX: $event.pageX,
+//             pageY: $event.pageY,
+//             source: elem
+//         });
+//     }.bind(this);
 
-    var onMouseUp = function($event) {
-        if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
-            return;
+//     var onMouseUp = function($event) {
+//         if(!dragDropMgr.dragData || !dragDropMgr.dragData.dragging)
+//             return;
 
-        $event.preventDefault();
-        _.dom.emit(elem, 'drop', dragDropMgr.dragData);
-    }.bind(this);
+//         $event.preventDefault();
+//         _.dom.emit(elem, 'drop', dragDropMgr.dragData);
+//     }.bind(this);
 
-    _.dom.on(elem, 'mouseenter', onMouseEnter);
-    _.dom.on(elem, 'mouseover', onMouseOver);
-    _.dom.on(elem, 'mouseleave', onMouseLeave);
-    _.dom.on(elem, 'mouseup', onMouseUp);
-}
+//     _.dom.on(elem, 'mouseenter', onMouseEnter);
+//     _.dom.on(elem, 'mouseover', onMouseOver);
+//     _.dom.on(elem, 'mouseleave', onMouseLeave);
+//     _.dom.on(elem, 'mouseup', onMouseUp);
+// }

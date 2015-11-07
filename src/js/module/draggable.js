@@ -11,10 +11,15 @@ var Component = require('../base/component.js');
 var template = require('text!./draggable.html');
 var _ = require('../base/util.js');
 
+var dragDrop = require('./dragDrop.js');
+
 /**
  * @class Draggable
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
+ * @param {string|HTMLElement|function='auto'}  options.data.image               => 拖拽时的图像
+ * @param {string}                  options.data.effect              => 效果
+ * @param {object}                  options.data.data                => 拖拽时需要传递的数据
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  */
 var Draggable = Component.extend({
@@ -25,56 +30,93 @@ var Draggable = Component.extend({
      */
     config: function() {
         _.extend(this.data, {
-            dragging: false,
-            proxy: 'clone',
-            revert: true
+            image: 'auto',
+            effect: undefined,
+            data: null
         });
         this.supr();
     },
-    _getProxy: function() {
-        if(typeof this.data.proxy === 'function')
-            return this.data.proxy();
-        else if(this.data.proxy instanceof HTMLElement)
-            return this.data.proxy;
-        else if(this.data.proxy === 'clone')
-            return this.$refs.self.cloneNode(true);
-        else if(this.data.proxy === 'self')
+    _getImage: function() {
+        if(typeof this.data.image === 'function')
+            return this.data.image();
+        else if(this.data.image instanceof HTMLElement)
+            return this.data.image;
+        else if(this.data.image === 'auto')
+            return null;
+        else if(this.data.image === 'self')
             return this.$refs.self;
+        else if(this.data.image === 'empty') {
+            var empty = document.createElement('span');
+            empty.innerHTML = '&nbsp;';
+            empty.style.position = 'fixed';
+            empty.style.left = '-5000px;'
+            document.body.appendChild(empty);
+            return empty;
+        }
     },
     _onDragStart: function($event) {
-        var dimension = _.dom.getDimension(this.$refs.self, 'fixed');
-        var proxy = this._proxy = this._getProxy();
-        proxy.style.left = dimension.left + 'px';
-        proxy.style.top = dimension.top + 'px';
-        proxy.style.zIndex = '2000';
-        proxy.style.position = 'fixed';
+        var e = $event.event;
 
-        document.body.appendChild(proxy);
-        this.data.dragging = true;
+        // 处理DataTransfer
+        var image = this._getImage();
+        if(image)
+            e.dataTransfer.setDragImage(image, 0, 0);
+        if(this.data.effect)
+            e.dataTransfer.effectAllowed = this.data.effect;
+
+        dragDrop.data = this.data.data;
+        dragDrop.screenX = e.clientX;
+        dragDrop.screenY = e.clientY;
+
+        // emit事件
+        var eventData = _.extend(_.extend({
+            data: dragDrop.data
+        }, $event), e);
+        this.$emit('dragstart', eventData);
     },
     _onDrag: function($event) {
-        var detail = $event.event.detail;
+        var e = $event.event;
 
-        var proxy = this._proxy;
-        proxy.style.left = proxy.offsetLeft + detail.deltaX + 'px';
-        proxy.style.top = proxy.offsetTop + detail.deltaY + 'px';
+        // 拖拽结束时会监听到一个都为0的事件
+        if(e.clientX === 0 && e.clientY === 0 && e.screenX === 0 && e.screenY === 0)
+            return;
+
+        dragDrop.movementX = e.clientX - dragDrop.screenX;
+        dragDrop.movementY = e.clientY - dragDrop.screenY;
+        dragDrop.screenX = e.clientX;
+        dragDrop.screenY = e.clientY;
+
+        // emit事件
+        var eventData = _.extend(_.extend({
+            data: dragDrop.data,
+            movementX: dragDrop.movementX,
+            movementY: dragDrop.movementY
+        }, $event), e);
+        this.$emit('drag', eventData);
     },
     _onDragEnd: function($event) {
-        var proxy = this._proxy;
-        document.body.removeChild(proxy);
-        this.data.dragging = false;
+        var e = $event.event;
+
+        dragDrop.data = null;
+
+        var eventData = _.extend(_.extend({}, $event), e);
+        this.$emit('dragend', eventData);
     }
 });
 
-Draggable.Proxy = Component.extend({
-    name: 'draggable.proxy',
-    template: '<div ref="proxy">{#inc this.$body}</div>',
+Draggable.Image = Component.extend({
+    name: 'draggable.image',
+    template: '<div ref="self">{#inc this.$body}</div>',
+    node: _.noop,
     init: function() {
         if(this.$outer instanceof Draggable) {
-            this.$outer.data.proxy = this.$refs.proxy;
+            var self = this.$refs.self;
+            self.style.position = 'fixed';
+            self.style.left = '-5000px;'
+            document.body.appendChild(self);
+            this.$outer.data.image = self;
         }
-    },
-    node: function(){}
+    }
 })
 
 module.exports = Draggable;

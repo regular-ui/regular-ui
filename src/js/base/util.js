@@ -3,14 +3,21 @@
 var Regular = require('regularjs');
 
 var _ = {
-    extend: Regular.util.extend,
+    noop: Regular.util.noop,
     dom: Regular.dom,
     multiline: function(func) {
         var reg = /^function\s*\(\)\s*\{\s*\/\*+\s*([\s\S]*)\s*\*+\/\s*\}$/;
         return reg.exec(func)[1];
     },
-    noop: function(){}
 }
+
+_.extend = function(o1, o2, override, hasOwnProperty) {
+    for(var i in o2)
+        if((!hasOwnProperty || o2.hasOwnProperty(i)) && (override || o1[i] === undefined))
+            o1[i] = o2[i]
+    return o1;
+}
+
 
 _.dom.emit = function(elem, eventName, data) {
     if(elem.dispatchEvent) {
