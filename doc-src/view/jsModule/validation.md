@@ -4,8 +4,8 @@
 <div class="m-example"></div>
 
 ```xml
-<validation ref="validation">
 <form class="m-form">
+<validation ref="validation">
     <div class="u-formitem">
         <label class="formitem_tt">用户名<span class="formitem_rqr">*</span>：</label>
         <span class="formitem_ct">
@@ -36,8 +36,8 @@
     <div class="u-formitem">
         <span class="formitem_ct"><a class="u-btn u-btn-primary" on-click={this.submit()}>立即注册</a></span>
     </div>
-</form>
 </validation>
+</form>
 ```
 
 ```javascript

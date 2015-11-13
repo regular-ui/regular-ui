@@ -104,18 +104,11 @@ var Modal = Component.extend({
         proxy.style.top = proxy.offsetTop + 'px';
         proxy.style.zIndex = '1000';
         proxy.style.position = 'absolute';
-
-        this.data.dragging = true;
     },
     _onDrag: function($event) {
-        var detail = $event.event.detail;
-
         var proxy = this.$refs.modalDialog;
-        proxy.style.left = proxy.offsetLeft + detail.deltaX + 'px';
-        proxy.style.top = proxy.offsetTop + detail.deltaY + 'px';
-    },
-    _onDragEnd: function($event) {
-        this.data.dragging = false;
+        proxy.style.left = proxy.offsetLeft + $event.movementX + 'px';
+        proxy.style.top = proxy.offsetTop + $event.movementY + 'px';
     }
 });
 

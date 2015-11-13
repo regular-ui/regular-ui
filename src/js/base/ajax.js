@@ -12,10 +12,9 @@ var ajax = {};
 var Notify = require('../module/notify.js');
 
 ajax.request = function(opt) {
-    var noop = function(){};
-    var oldError = opt.error || noop,
-        oldSuccess = opt.success || noop,
-        oldComplete = opt.complete || noop;
+    var oldError = opt.error,
+        oldSuccess = opt.success,
+        oldComplete = opt.complete;
 
     opt.data = opt.data || {};
 
@@ -31,41 +30,45 @@ ajax.request = function(opt) {
         //ajax.$emit('success', data);
         if(data.code || data.success) {
             if(data.code != 200 && !data.success) {
-                Notify.error(data.message);
-                oldError(data.error, data.message, data.code);
+                if(oldError)
+                    oldError(data.error, data.message, data.code);
+                else
+                    Notify.error(data.message);
             } else
-                oldSuccess(data.result, data.message, data.code);
+                oldSuccess && oldSuccess(data.result, data.message, data.code);
         } else
-            oldSuccess(data);
+            oldSuccess && oldSuccess(data);
     }
 
     opt.error = function(data) {
         //ajax.$emit('error', data);
-        oldError(data.result, data);
+        oldError && oldError(data.result, data);
     }
 
     opt.complete = function(data) {
         //ajax.$emit('complete', data);
-        oldComplete(data.result, data);
+        oldComplete && oldComplete(data.result, data);
     }
 
     reqwest(opt);
 }
 
-ajax.get = function(url, success) {
+ajax.get = function(url, success, error) {
     ajax.request({
         url: url,
         method: 'get',
-        success: success
+        success: success,
+        error: error
     });
 }
 
-ajax.post = function(url, data, success) {
+ajax.post = function(url, data, success, error) {
     ajax.request({
         url: url,
         method: 'post',
         type: 'json',
-        success: success
+        success: success,
+        error: error
     })
 }
 

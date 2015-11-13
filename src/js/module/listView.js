@@ -11,6 +11,9 @@ var SourceComponent = require('../base/sourceComponent.js');
 var template = require('text!./listView.html');
 var _ = require('../base/util.js');
 
+var Draggable = require('../module/draggable.js');
+var Droppable = require('../module/droppable.js');
+
 /**
  * @class ListView
  * @param {object}                  options.data                     =  绑定属性
@@ -34,7 +37,8 @@ var ListView = SourceComponent.extend({
         _.extend(this.data, {
             // @inherited source: [],
             selected: null,
-            itemTemplate: null
+            itemTemplate: null,
+            dragDrop: false
         });
         this.supr();
     },
@@ -57,29 +61,60 @@ var ListView = SourceComponent.extend({
             selected: item
         });
     },
-    _onDragStart: function($event) {},
     _onDragEnter: function($event) {
-        var target = $event.target;
-        _.dom.addClass(target, 'z-dragover');
+        if($event.data.root !== this.data.source)
+            $event.cancel = true;
     },
-    _onDragOver: function($event) {},
+    _onDragOver: function($event) {
+        if($event.data.root !== this.data.source)
+            $event.cancel = true;
+
+        var target = $event.target;
+        _.dom.delClass(target, 'z-dragover-before');
+        _.dom.delClass(target, 'z-dragover-after');
+
+        var dimension = _.dom.getDimension(target);
+        if($event.clientY < dimension.top + dimension.height/2)
+            _.dom.addClass(target, 'z-dragover-before');
+        else
+            _.dom.addClass(target, 'z-dragover-after');
+    },
     _onDragLeave: function($event) {
-        var target = $event.target;
-        _.dom.delClass(target, 'z-dragover');
+        // var target = $event.target;
+        // _.dom.delClass(target, 'z-dragover-before');
+        // _.dom.delClass(target, 'z-dragover-after');
     },
-    _onDrop: function($event, item, position) {
+    _onDrop: function($event, item) {
         var target = $event.target;
-        _.dom.delClass(target, 'z-dragover');
+        _.dom.delClass(target, 'z-dragover-before');
+        _.dom.delClass(target, 'z-dragover-after');
 
-        var oldItem = $event.data;
+        if(item === $event.data.item)
+            return $event.stopPropagation();
+
+        var dimension = _.dom.getDimension(target);
+
+        var oldItem = $event.data.item;
         var oldIndex = this.data.source.indexOf(oldItem);
-        var index = this.data.source.indexOf(item);
-
-        if(position === 'bottom')
-            index++;
-
         this.data.source.splice(oldIndex, 1);
+
+        var index = this.data.source.indexOf(item);
+        if($event.clientY >= dimension.top + dimension.height/2)
+            index++;
         this.data.source.splice(index, 0, oldItem);
+
+        $event.stopPropagation();
+    },
+    _onDragOver2: function($event) {
+        // if($event.data.root !== this.data.source)
+        //     return $event.dataTransfer.dropEffect = 'none';
+    },
+    _onDrop2: function($event) {
+        console.log('drop2');
+        var oldItem = $event.data.item;
+        var oldIndex = this.data.source.indexOf(oldItem);
+        this.data.source.splice(oldIndex, 1);
+        this.data.source.push(oldItem);
     }
 });
 

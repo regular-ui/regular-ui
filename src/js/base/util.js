@@ -30,7 +30,7 @@ _.dom.emit = function(elem, eventName, data) {
     }
 }
 
-_.dom.getPosition = function(elem, fixed) {
+_.dom.getPosition = function(elem) {
     var doc = elem && elem.ownerDocument,
         docElem = doc.documentElement,
         body = doc.body;
@@ -40,20 +40,16 @@ _.dom.getPosition = function(elem, fixed) {
     var clientTop = docElem.clientTop || body.clientTop || 0,
         clientLeft = docElem.clientLeft || body.clientLeft || 0;
 
-    if(fixed)
-        return {top: box.top - clientTop, left: box.left - clientLeft};
+    return {top: box.top - clientTop, left: box.left - clientLeft};
 
-    var scrollTop = window.pageYOffset || docElem.scrollTop,
-        scrollLeft = window.pageXOffset || docElem.scrollLeft;
+    // var scrollTop = window.pageYOffset || docElem.scrollTop,
+    //     scrollLeft = window.pageXOffset || docElem.scrollLeft;
 
-    return {top: box.top + scrollTop - clientTop, left: box.left + scrollLeft - clientLeft}
+    // return {top: box.top + scrollTop - clientTop, left: box.left + scrollLeft - clientLeft}
 }
 
 _.dom.getOffset = function(elem) {
-    var width = elem.offsetWidth;
-    var height = elem.offsetHeight;
-
-    return {width: width, height: height}
+    return {width: elem.clientWidth, height: elem.clientHeight}
 }
 
 _.dom.getDimension = function(elem, fixed) {

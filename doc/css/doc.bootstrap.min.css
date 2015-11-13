@@ -4525,6 +4525,14 @@ input.u-check:disabled,input.u-radio:disabled{
 	float:right;
 	margin:-6px -4px 0 0;
 }
+.m-modal .modal_dialog .modal_hd.z-draggable{
+	cursor:move;
+	cursor:-webkit-grab;
+}
+.m-modal .modal_dialog .modal_hd.z-draggable{
+	cursor:move;
+	cursor:-webkit-grabbing;
+}
 @media (max-width: 767px){
 	.m-modal .modal_dialog{
 		width:auto;
@@ -4587,6 +4595,15 @@ html.z-modal,html.z-modal body{
 	-ms-user-select:none;
 	user-select:none;
 }
+.m-listview.z-dragover:after{
+	content:"";
+	display:block;
+	position:relative;
+	z-index:1;
+	border-top:2px solid #337ab7;
+	top:-1px;
+	margin-bottom:-2px;
+}
 .m-listview >li{
 	cursor:pointer;
 	position:relative;
@@ -4595,27 +4612,25 @@ html.z-modal,html.z-modal body{
 	cursor:not-allowed;
 	background:none;
 }
-.m-listview .listview_droppable{
+.m-listview >li.z-dragover.z-dragover-before:before{
+	content:"";
+	display:block;
 	position:absolute;
 	left:0;
 	right:0;
 	z-index:2;
-}
-.m-listview .listview_droppable-top{
-	top:0;
-	height:50%;
-}
-.m-listview .listview_droppable-top.z-dragover{
+	top:-1px;
 	border-top:2px solid #337ab7;
-	margin-top:-1px;
 }
-.m-listview .listview_droppable-bottom{
-	bottom:0;
-	height:50%;
-}
-.m-listview .listview_droppable-bottom.z-dragover{
-	border-bottom:2px solid #337ab7;
-	margin-bottom:-1px;
+.m-listview >li.z-dragover.z-dragover-after:after{
+	content:"";
+	display:block;
+	position:absolute;
+	left:0;
+	right:0;
+	z-index:2;
+	bottom:-1px;
+	border-top:2px solid #337ab7;
 }
 .m-listview.z-dis >li{
 	cursor:not-allowed;
@@ -4842,20 +4857,6 @@ html.z-modal,html.z-modal body{
 .m-editor.z-dis .editor_textarea{
 	background:#eee;
 	color:#999;
-}
-.m-draggable{
-	display:inline-block;
-}
-.m-draggable .draggable_proxy{
-	display:inline-block;
-}
-.z-draggable{
-	cursor:move;
-	cursor:-webkit-grab;
-}
-.z-dragging{
-	cursor:move;
-	cursor:-webkit-grabbing;
 }
 .m-logo{
 	margin:0;

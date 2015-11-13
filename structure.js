@@ -100,7 +100,7 @@ module.exports = {
         'MarkEditor': {type: 'js', category: 'module', lowerName: 'markEditor'},
         /* 其他 */
         'Validation': {type: 'js', category: 'module', lowerName: 'validation'},
-        'Draggable': {type: 'css+js', category: 'module', lowerName: 'draggable'},
+        'Draggable': {type: 'js', category: 'module', lowerName: 'draggable'},
         'Droppable': {type: 'js', category: 'module', lowerName: 'droppable'}
     }
 }

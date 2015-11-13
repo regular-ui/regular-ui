@@ -56,6 +56,16 @@
             }
         }
 
+        .modal_hd.z-draggable {
+            cursor: move;
+            cursor: -webkit-grab;
+        }
+
+        .modal_hd.z-draggable {
+            cursor: move;
+            cursor: -webkit-grabbing;
+        }
+
         .modal_bd {}
 
         .modal_ft {

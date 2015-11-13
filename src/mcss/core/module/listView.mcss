@@ -13,6 +13,18 @@
     $box-sizing: border-box;
     $user-select: none;
 
+    &.z-dragover {
+        &:after {
+            content: '';
+            display: block;
+            position: relative;
+            z-index: 1;
+            border-top: 2px solid $brand-primary;
+            top: -1px;
+            margin-bottom: -2px;
+        }
+    }
+
     > li {
         // @extend .f-toe;
         cursor: pointer;
@@ -29,43 +41,59 @@
     }
 
 
-    .listview_droppable {
-        position: absolute;
-        left: 0;
-        right: 0;
-        z-index: 2;
-        // background: rgba(0, 0, 0, 0.2);
-    }
+    // .listview_droppable {
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     z-index: 2;
+    //     // background: rgba(0, 0, 0, 0.2);
+    // }
 
-    .listview_droppable-top {
-        top: 0;
-        height: 50%;
+    // .listview_droppable-top {
+    //     top: 0;
+    //     height: 50%;
 
-        &.z-dragover {
-            border-top: 2px solid $brand-primary;
-            margin-top: -1px;
+    //     &.z-dragover {
+    //         border-top: 2px solid $brand-primary;
+    //         margin-top: -1px;
+    //     }
+    // }
+
+    // .listview_droppable-bottom {
+    //     bottom: 0;
+    //     height: 50%;
+
+    //     &.z-dragover {
+    //         border-bottom: 2px solid $brand-primary;
+    //         margin-bottom: -1px;
+    //     }
+    // }
+
+    > li.z-dragover.z-dragover-before {
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            top: -1px;
+            border-top: 2px solid $brand-primary;   
         }
     }
 
-    .listview_droppable-bottom {
-        bottom: 0;
-        height: 50%;
-
-        &.z-dragover {
-            border-bottom: 2px solid $brand-primary;
-            margin-bottom: -1px;
+    > li.z-dragover.z-dragover-after {
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            bottom: -1px;
+            border-top: 2px solid $brand-primary;   
         }
     }
-
-    // > li.z-dragover-top {
-    //     border-top: 2px solid $brand-primary;
-    //     margin-top: -2px;
-    // }
-
-    // > li.z-dragover-bottom {
-    //     border-bottom: 2px solid $brand-primary;
-    //     margin-bottom: -2px;
-    // }
 }
 
 .m-listview.z-dis {

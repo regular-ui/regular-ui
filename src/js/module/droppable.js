@@ -35,6 +35,7 @@ var Droppable = Component.extend({
     init: function() {
         // 修改内部DOM元素
         var inner = _.dom.element(this);
+        _.dom.addClass(inner, 'z-droppable');
         _.dom.on(inner, 'dragenter', this._onDragEnter.bind(this));
         _.dom.on(inner, 'dragover', this._onDragOver.bind(this));
         _.dom.on(inner, 'dragleave', this._onDragLeave.bind(this));
@@ -43,20 +44,32 @@ var Droppable = Component.extend({
         this.supr();
     },
     _onDragEnter: function($event) {
+        if(dragDrop.cancel)
+            return;
+
         var e = $event.event;
 
         if(this.data.effect)
             e.dataTransfer.dropEffect = this.data.effect;
         if(this.data.disabled)
-            return e.dataTransfer.dropEffect = 'none';
+            return dragDrop.cancel = true;
 
         // emit事件
         var eventData = _.extend(_.extend({
-            data: dragDrop.data
+            data: dragDrop.data,
+            cancel: dragDrop.cancel
         }, $event), e);
         this.$emit('dragenter', eventData);
+
+        if(eventData.cancel)
+            return dragDrop.cancel = eventData.cancel;
+
+        _.dom.addClass(e.target, 'z-dragover');
     },
     _onDragOver: function($event) {
+        if(dragDrop.cancel)
+            return;
+
         $event.preventDefault();
         var e = $event.event;
 
@@ -65,12 +78,20 @@ var Droppable = Component.extend({
 
         // emit事件
         var eventData = _.extend(_.extend({
-            data: dragDrop.data
+            data: dragDrop.data,
+            cancel: dragDrop.cancel
         }, $event), e);
         this.$emit('dragover', eventData);
+
+        if(eventData.cancel)
+            return dragDrop.cancel = eventData.cancel;
     },
     _onDragLeave: function($event) {
         var e = $event.event;
+        _.dom.delClass(e.target, 'z-dragover');
+
+        if(dragDrop.cancel)
+            return dragDrop.cancel = false;
 
         // emit事件
         var eventData = _.extend(_.extend({
@@ -80,6 +101,12 @@ var Droppable = Component.extend({
     },
     _onDrop: function($event) {
         var e = $event.event;
+        _.dom.delClass(e.target, 'z-dragover');
+
+        if(dragDrop.cancel)
+            return dragDrop.cancel = false;
+
+        $event.preventDefault();
 
         this.data.data = dragDrop.data;
         this.$update();
