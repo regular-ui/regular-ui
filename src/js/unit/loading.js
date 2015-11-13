@@ -9,7 +9,7 @@
 
 var Component = require('../base/component.js');
 var template = require('text!./loading.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 /**
  * @class Loading

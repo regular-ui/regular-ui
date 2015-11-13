@@ -10,7 +10,7 @@
 var SourceComponent = require('../base/sourceComponent.js');
 var template = require('text!./treeView.html');
 var hierarchicalTemplate = require('text!./treeViewList.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 /**
  * @class TreeView

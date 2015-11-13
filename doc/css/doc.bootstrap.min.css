@@ -4527,11 +4527,6 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .m-modal .modal_dialog .modal_hd.z-draggable{
 	cursor:move;
-	cursor:-webkit-grab;
-}
-.m-modal .modal_dialog .modal_hd.z-draggable{
-	cursor:move;
-	cursor:-webkit-grabbing;
 }
 @media (max-width: 767px){
 	.m-modal .modal_dialog{
@@ -5067,10 +5062,6 @@ html.z-modal,html.z-modal body{
 }
 .m-tabs{
 	margin:0.5em 0;
-}
-.m-example .u-color{
-	margin:0.15em 0;
-	letter-spacing:normal;
 }
 .m-example-hidden + .m-tabs,.m-example-hidden ~ pre{
 	display:none;

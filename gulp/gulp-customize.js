@@ -27,12 +27,20 @@ module.exports = function customize(structure, type, theme) {
             // Check file exists.
             var filepath, fullpath, corepath, fullCorepath;
             if(type === 'js') {
-                filepath = component.category + '/' + component.lowerName +'.js';
-                fullpath = './src/js/' + filepath;
+                if(component.path) {
+                    filepath = component.path;
+                    fullpath = './node_modules/' + filepath + '.js';
+                } else {
+                    filepath = component.category + '/' + component.lowerName +'.js';
+                    fullpath = './src/js/' + filepath;
+                    filepath = './' + filepath;
+                }
                 
                 if(!fs.existsSync(fullpath))
                     throw 'Error: Cannot find ' + fullpath + '.';
             } else {
+                // @TODO node_modules
+
                 filepath = theme + '/' + component.category + '/' + component.lowerName +'.mcss';
                 fullpath = './src/mcss/' + filepath;
                 corepath = 'core/' + component.category + '/' + component.lowerName +'.mcss';
@@ -45,8 +53,8 @@ module.exports = function customize(structure, type, theme) {
                         filepath = corepath;
                 }
 
+                filepath = './' + filepath;
             }
-            filepath = './' + filepath;
 
             if(type === 'js')
                 appends.push('exports.' + key + ' = require("' + filepath + '");');

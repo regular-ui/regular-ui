@@ -9,9 +9,9 @@
 
 var Component = require('../base/component.js');
 var template = require('text!./modal.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
-var Draggable = require('../module/draggable.js');
+var Draggable = require('regular-ui-dragdrop/src/js/util/draggable');
 
 /**
  * @class Modal
@@ -99,16 +99,16 @@ var Modal = Component.extend({
             this.ok();
     },
     _onDragStart: function($event) {
-        var proxy = this.$refs.modalDialog;
-        proxy.style.left = proxy.offsetLeft + 'px';
-        proxy.style.top = proxy.offsetTop + 'px';
-        proxy.style.zIndex = '1000';
-        proxy.style.position = 'absolute';
+        var dialog = this.$refs.modalDialog;
+        dialog.style.left = dialog.offsetLeft + 'px';
+        dialog.style.top = dialog.offsetTop + 'px';
+        dialog.style.zIndex = '1000';
+        dialog.style.position = 'absolute';
     },
     _onDrag: function($event) {
-        var proxy = this.$refs.modalDialog;
-        proxy.style.left = proxy.offsetLeft + $event.movementX + 'px';
-        proxy.style.top = proxy.offsetTop + $event.movementY + 'px';
+        var dialog = this.$refs.modalDialog;
+        dialog.style.left = dialog.offsetLeft + $event.movementX + 'px';
+        dialog.style.top = dialog.offsetTop + $event.movementY + 'px';
     }
 });
 

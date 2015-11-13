@@ -7,7 +7,7 @@
 
 var Input2 = require('./input2.js');
 var template = require('text!./numberInput.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 /**
  * @class NumberInput

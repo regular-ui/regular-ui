@@ -9,7 +9,7 @@
 
 var Dropdown = require('./dropdown.js');
 var template = require('text!./select2.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 /**
  * @class Select2

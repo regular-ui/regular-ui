@@ -8,7 +8,7 @@
 var Dropdown = require('./dropdown.js');
 var DatePicker = require('./datePicker.js');
 var template = require('text!./dateTimePicker.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 var filter = require('../base/filter.js');
 var Calendar = require('../module/calendar.js');

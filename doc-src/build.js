@@ -86,6 +86,13 @@ function build(path, sitemap, template) {
     // 如果是JS组件，使用jsdoc解析../src目录下的js代码生成API
     if(level[0].slice(0, 2) === 'js') {
         var jsFile = __dirname + '/../src/js/' + level[0].slice(2, 20).toLowerCase() + '/' + level[1] + '.js';
+
+        // @TODO
+        if(level[1] === 'validation')
+            jsFile = __dirname + '/../src/js/util/validation.js';
+        else if(level[1] === 'draggable' || level[1] === 'droppable')
+            jsFile = __dirname + '/../node_modules/regular-ui-dragdrop/src/js/util/' + level[1] + '.js';
+
         if(fs.existsSync(jsFile))
             data.api = jsdoc.render(jsFile, template.jsApi);
     }

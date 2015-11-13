@@ -7,8 +7,8 @@
 
 var Component = require('../base/component.js');
 var template = require('text!./input2.html');
-var _ = require('../base/util.js');
-var Validation = require('../module/validation.js');
+var _ = require('../base/_.js');
+var Validation = require('../util/validation.js');
 
 /**
  * @class Input2

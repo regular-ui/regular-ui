@@ -203,35 +203,22 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">effect</span>=<span class="cm-string">&quot;all&quot;</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;1&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>test<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;success&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;error&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-error&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">effect</span>=<span class="cm-string">&quot;move&quot;</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;2&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>test<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">effect</span>=<span class="cm-string">&quot;link&quot;</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;3&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>test<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">droppable</span> <span class="cm-attribute">effect</span>=<span class="cm-string">&quot;move&quot;</span> <span class="cm-attribute">data</span>=<span class="cm-attribute">{dropData}</span><span class="cm-tagcm-bracketcm-error">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>{dropData || &#39;null&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">droppable</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">droppable</span> <span class="cm-attribute">data</span>=<span class="cm-attribute">{dropData}</span><span class="cm-tagcm-bracketcm-error">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-{dropData || &#39;primary&#39;}&quot;</span><span class="cm-tagcm-bracket">&gt;</span>放到这里<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">droppable</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>
-});
-</code></pre>
-<h4 id="-">基本形式</h4>
-<div class="m-example"></div>
-
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">effect</span>=<span class="cm-string">&quot;copy&quot;</span> <span class="cm-attribute">on-dragstart</span>=<span class="cm-attribute">{console.log($event)}</span> <span class="cm-attribute">on-dragend</span>=<span class="cm-attribute">{console.log($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>test<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">droppable</span> <span class="cm-attribute">on-dragover</span>=<span class="cm-attribute">{console.log($event)}</span> <span class="cm-attribute">on-drop</span>=<span class="cm-attribute">{text</span> = <span class="cm-string">&#39;drop&#39;</span><span class="cm-attribute">}</span><span class="cm-tagcm-bracketcm-error">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>{text || &#39;null&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">droppable</span><span class="cm-tagcm-bracket">&gt;</span>
-</code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>
-});
-</code></pre>
+<h4 id="-">列表排序</h4>
+<p><em>待完成……</em></p>
+<h4 id="-">拖放文件</h4>
+<p><em>待完成……</em></p>
 
         <h3>API</h3>
 
 <h4>Class</h4>
 <h5>Droppable</h5>
-<p>继承自<strong>Component</strong>。</p>
+<p>继承自<strong>Regular</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -246,7 +233,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.effect</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>效果</td></tr>
+            <tr><td class="f-wsn"><code>data.effect</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>效果（与浏览器的dropEffect一致）。可选的值有`none`、`copy`、`move`、`link`。</td></tr>
             
             <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer &lt;=  inner</td><td>拖放后传递过来的数据</td></tr>
             
@@ -359,27 +346,14 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<draggable effect="all" data="1"><span>test</span></draggable>
+<draggable data="success"><div class="u-color u-color-success">拖我</div></draggable>
+<draggable data="warning"><div class="u-color u-color-warning">拖我</div></draggable>
+<draggable data="error"><div class="u-color u-color-error">拖我</div></draggable>
 <p></p>
-<draggable effect="move" data="2"><span>test</span></draggable>
-<p></p>
-<draggable effect="link" data="3"><span>test</span></draggable>
-<p></p>
-<droppable effect="move" data={dropData}><div>{dropData || 'null'}</div></droppable>
+<droppable data={dropData}><div class="u-color u-color-{dropData || 'primary'}">放到这里</div></droppable>
     */})
 var component = new RGUI.Component({
-    template: template
-});
-    component.$inject($$(".m-example")[index]);
-})(index++);
-(function(index) {
-    var template = RGUI._.multiline(function(){/*
-<draggable effect="copy" on-dragstart={console.log($event)} on-dragend={console.log($event)}><span>test</span>
-</draggable>
-<droppable on-dragover={console.log($event)} on-drop={text = 'drop'}><span>{text || 'null'}</span></droppable>
-    */})
-var component = new RGUI.Component({
-    template: template
+    template: template,
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

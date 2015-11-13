@@ -9,7 +9,7 @@
 
 var SourceComponent = require('../base/sourceComponent.js');
 var template = require('text!./radioGroup.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 /**
  * @class RadioGroup

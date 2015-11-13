@@ -10,4 +10,4 @@
 exports.Regular = require('regularjs');
 exports.Component = require('./base/component.js');
 exports.SourceComponent = require('./base/sourceComponent.js');
-exports._ = require('./base/util.js');
+exports._ = require('./base/_.js');

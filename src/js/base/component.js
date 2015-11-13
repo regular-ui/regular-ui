@@ -8,7 +8,7 @@
 'use strict';
 
 var Regular = require('regularjs');
-var _ = require('./util.js');
+var _ = require('./_.js');
 var filter = require('./filter.js');
 var directive = require('./directive.js');
 

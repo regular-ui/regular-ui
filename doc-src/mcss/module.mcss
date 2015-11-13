@@ -340,10 +340,10 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
 .m-example {
     // letter-spacing: -.3em;
 
-    .u-color {
-        margin: .15em 0;
-        letter-spacing: normal;
-    }
+    // .u-color {
+    //     margin: .15em 0;
+    //     letter-spacing: normal;
+    // }
 }
 
 .m-example-hidden + .m-tabs, .m-example-hidden ~ pre {

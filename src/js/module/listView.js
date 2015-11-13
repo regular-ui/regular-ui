@@ -9,10 +9,10 @@
 
 var SourceComponent = require('../base/sourceComponent.js');
 var template = require('text!./listView.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
-var Draggable = require('../module/draggable.js');
-var Droppable = require('../module/droppable.js');
+var Draggable = require('regular-ui-dragdrop/src/js/util/draggable');
+var Droppable = require('regular-ui-dragdrop/src/js/util/droppable');
 
 /**
  * @class ListView

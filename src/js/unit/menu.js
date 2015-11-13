@@ -9,7 +9,7 @@ var Dropdown = require('./dropdown.js');
 var SourceComponent = require('../base/sourceComponent.js');
 var template = require('text!./menu.html');
 var hierarchicalTemplate = require('text!./menuList.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 /**
  * @class  Menu

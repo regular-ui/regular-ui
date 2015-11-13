@@ -203,14 +203,48 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>test<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">修改图像</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable.image</span> <span class="cm-attribute">x</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">y</span>=<span class="cm-string">&quot;50&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable.image</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">自定义</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">image</span>=<span class="cm-string">&quot;empty&quot;</span> <span class="cm-attribute">effect</span>=<span class="cm-string">&quot;none&quot;</span> <span class="cm-attribute">on-dragstart</span>=<span class="cm-attribute">{this._onDragStart($event)}</span> <span class="cm-attribute">on-drag</span>=<span class="cm-attribute">{this._onDrag($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-primary&quot;</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;block&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">_onDragStart</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-keyword">var</span> <span class="cm-def">block</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">block</span>;
+        <span class="cm-keyword">var</span> <span class="cm-def">position</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">_</span>.<span class="cm-property">dom</span>.<span class="cm-property">getPosition</span>(<span class="cm-variable-2">block</span>);
+        <span class="cm-variable-2">block</span>.<span class="cm-property">style</span>.<span class="cm-property">left</span> <span class="cm-operator">=</span> <span class="cm-variable-2">position</span>.<span class="cm-property">left</span> <span class="cm-operator">+</span> <span class="cm-string">&#39;px&#39;</span>;
+        <span class="cm-variable-2">block</span>.<span class="cm-property">style</span>.<span class="cm-property">top</span> <span class="cm-operator">=</span> <span class="cm-variable-2">position</span>.<span class="cm-property">top</span> <span class="cm-operator">+</span> <span class="cm-string">&#39;px&#39;</span>;
+        <span class="cm-variable-2">block</span>.<span class="cm-property">style</span>.<span class="cm-property">zIndex</span> <span class="cm-operator">=</span> <span class="cm-string">&#39;1000&#39;</span>;
+        <span class="cm-variable-2">block</span>.<span class="cm-property">style</span>.<span class="cm-property">position</span> <span class="cm-operator">=</span> <span class="cm-string">&#39;fixed&#39;</span>;
+    },
+    <span class="cm-property">_onDrag</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-keyword">var</span> <span class="cm-def">block</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">block</span>;
+        <span class="cm-variable-2">block</span>.<span class="cm-property">style</span>.<span class="cm-property">left</span> <span class="cm-operator">=</span> <span class="cm-variable-2">block</span>.<span class="cm-property">offsetLeft</span> <span class="cm-operator">+</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">movementX</span> <span class="cm-operator">+</span> <span class="cm-string">&#39;px&#39;</span>;
+        <span class="cm-variable-2">block</span>.<span class="cm-property">style</span>.<span class="cm-property">top</span> <span class="cm-operator">=</span> <span class="cm-variable-2">block</span>.<span class="cm-property">offsetTop</span> <span class="cm-operator">+</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">movementY</span> <span class="cm-operator">+</span> <span class="cm-string">&#39;px&#39;</span>;
+    }
+});
 </code></pre>
 
         <h3>API</h3>
 
 <h4>Class</h4>
 <h5>Draggable</h5>
-<p>继承自<strong>Component</strong>。</p>
+<p>继承自<strong>Regular</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -225,9 +259,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.image</code></td><td class="f-wsn">string | HTMLElement | function</td><td class="f-wsn"><code>&#39;auto&#39;</code></td><td class="f-tac">outer @=&gt; inner</td><td>拖拽时的图像</td></tr>
+            <tr><td class="f-wsn"><code>data.image</code></td><td class="f-wsn">string | Dragable.Image | function</td><td class="f-wsn"><code>&#39;auto&#39;</code></td><td class="f-tac">outer @=&gt; inner</td><td>拖拽时的图像。值为`auto`拖拽时，复制一个拖拽元素的图像（浏览器的默认设置），值为`empty`拖拽时不显示图像，可以用`&lt;draggable.image&gt;`自定义图像。也可以直接传入一个函数，要求返回{image: 图像元素, x: 横向偏移, y: 纵向偏移}。</td></tr>
             
-            <tr><td class="f-wsn"><code>data.effect</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>效果</td></tr>
+            <tr><td class="f-wsn"><code>data.effect</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>效果（与浏览器的effectAllowed一致）。可选的值有`none`、`uninitialized`、`all`、`copy`、`move`、`link`、`copyLink`、`copyMove`、`linkMove`。</td></tr>
             
             <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>拖拽时需要传递的数据</td></tr>
             
@@ -340,10 +374,48 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<draggable>test</draggable>
+<draggable><div class="u-color u-color-primary">拖我</div></draggable>
     */})
 var component = new RGUI.Component({
     template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<draggable>
+    <div class="u-color u-color-primary">拖我</div>
+    <draggable.image x="50" y="50">
+        <div class="u-color u-color-success">拖我</div>
+    </draggable.image>
+</draggable>
+    */})
+var component = new RGUI.Component({
+    template: template,
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<draggable image="empty" effect="none" on-dragstart={this._onDragStart($event)} on-drag={this._onDrag($event)}>
+    <div class="u-color u-color-primary" ref="block">拖我</div>
+</draggable>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    _onDragStart: function($event) {
+        var block = this.$refs.block;
+        var position = RGUI._.dom.getPosition(block);
+        block.style.left = position.left + 'px';
+        block.style.top = position.top + 'px';
+        block.style.zIndex = '1000';
+        block.style.position = 'fixed';
+    },
+    _onDrag: function($event) {
+        var block = this.$refs.block;
+        block.style.left = block.offsetLeft + $event.movementX + 'px';
+        block.style.top = block.offsetTop + $event.movementY + 'px';
+    }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

@@ -9,7 +9,7 @@
 
 var Component = require('../base/component.js');
 var template = require('text!./editor.html');
-var _ = require('../base/util.js');
+var _ = require('../base/_.js');
 
 /**
  * @class Editor

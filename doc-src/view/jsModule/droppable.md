@@ -4,33 +4,17 @@
 <div class="m-example"></div>
 
 ```xml
-<draggable effect="all" data="1"><span>test</span></draggable>
+<draggable data="success"><div class="u-color u-color-success">拖我</div></draggable>
+<draggable data="warning"><div class="u-color u-color-warning">拖我</div></draggable>
+<draggable data="error"><div class="u-color u-color-error">拖我</div></draggable>
 <p></p>
-<draggable effect="move" data="2"><span>test</span></draggable>
-<p></p>
-<draggable effect="link" data="3"><span>test</span></draggable>
-<p></p>
-<droppable effect="move" data={dropData}><div>{dropData || 'null'}</div></droppable>
+<droppable data={dropData}><div class="u-color u-color-{dropData || 'primary'}">放到这里</div></droppable>
 ```
 
-```javascript
-var component = new RGUI.Component({
-    template: template
-});
-```
+#### 列表排序
 
-#### 基本形式
+*待完成……*
 
-<div class="m-example"></div>
+#### 拖放文件
 
-```xml
-<draggable effect="copy" on-dragstart={console.log($event)} on-dragend={console.log($event)}><span>test</span>
-</draggable>
-<droppable on-dragover={console.log($event)} on-drop={text = 'drop'}><span>{text || 'null'}</span></droppable>
-```
-
-```javascript
-var component = new RGUI.Component({
-    template: template
-});
-```
+*待完成……*
