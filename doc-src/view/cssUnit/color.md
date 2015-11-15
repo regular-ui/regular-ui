@@ -11,10 +11,10 @@
 <div class="u-color u-color-success">Success</div>
 <div class="u-color u-color-warning">Warning</div>
 <div class="u-color u-color-error">Error</div>
-<div class="u-color">Default</div>
+```
+
+<!-- div class="u-color">Default</div>
 <div class="u-color u-color-secondary">Secondary</div>
 <div class="u-color u-color-gray">Gray</div>
 <div class="u-color u-color-graylight">GrayLight</div>
-<div class="u-color u-color-inverse">Inverse</div>
-```
-
+<div class="u-color u-color-inverse">Inverse</div -->

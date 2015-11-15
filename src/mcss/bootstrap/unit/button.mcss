@@ -9,8 +9,8 @@
 // ========================================================================
 
 $u-btn_background = white;
-$u-btn_color = #333;
-$u-btn_border = #ccc;
+$u-btn_color = $color-base;
+$u-btn_border = $border-base;
 
 
 
@@ -48,9 +48,10 @@ $u-btn_border = #ccc;
 // Size Extends:
 // ========================================================================
 
-$u-btn-extend_size(xs, 5px, 15px, 12px, $border-radius-xs);
+$u-btn-extend_size(xs, 5px, 16px, 12px, $border-radius-xs);
 $u-btn-extend_size(sm, 10px, 22px, 12px, $border-radius-sm);
-$u-btn-extend_size(lg, 16px, 38px, 18px, $border-radius-lg);
+$u-btn-extend_size(lg, 16px, 35px, 16px, $border-radius-lg);
+$u-btn-extend_size(xl, 18px, 42px, 18px, $border-radius-xl);
 
 
 
@@ -58,29 +59,27 @@ $u-btn-extend_size(lg, 16px, 38px, 18px, $border-radius-lg);
 // ========================================================================
 
 $u-btn-extend_color = ($name, $background) {
+    .u-btn-#{$name} {
+        background: $background;
+        color: white;
+        $border: l-adjust($background, -5%);
+    }
 
-.u-btn-#{$name} {
-    background: $background;
-    color: white;
-    $border: l-adjust($background, -5%);
-}
+    /* Hover */
+    .u-btn-#{$name}:hover,
+    .u-btn-#{$name}:focus {
+        background: l-adjust($background, -10%);
+        color: white;
+        $border: l-adjust($background, -17%);
+    }
 
-/* Hover */
-.u-btn-#{$name}:hover,
-.u-btn-#{$name}:focus {
-    background: l-adjust($background, -10%);
-    color: white;
-    $border: l-adjust($background, -17%);
-}
-
-/* Active */
-.u-btn-#{$name}:active,
-.u-btn-#{$name}.z-act {
-    background: l-adjust($background, -10%);
-    color: white;
-    $border: l-adjust($background, -30%);
-}
-
+    /* Active */
+    .u-btn-#{$name}:active,
+    .u-btn-#{$name}.z-act {
+        background: l-adjust($background, -10%);
+        color: white;
+        $border: l-adjust($background, -30%);
+    }
 }
 
 $u-btn-extend_color(primary, $brand-primary);

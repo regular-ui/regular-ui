@@ -25,9 +25,7 @@
 // ========================================================================
 
 $u-img-extend_size = ($name, $width) {
-
-.u-img-#{$name} {
-    width: $width;
-}
-
+    .u-img-#{$name} {
+        width: $width;
+    }
 }

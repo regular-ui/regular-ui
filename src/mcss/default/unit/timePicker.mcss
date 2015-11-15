@@ -10,6 +10,7 @@
 
 .u-timepicker {
     .u-input {
-        width: 52px;
+        width: 56px;
+        padding: 6px;
     }
 }

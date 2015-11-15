@@ -5,5 +5,8 @@
 
 @import "../../core/unit/buttonGroup.mcss";
 
-// Component:       `u-btngroup`
+// Extends:
 // ========================================================================
+
+$u-btngroup-horizontal($border-width-base);
+$u-btngroup-vertical($border-width-base);

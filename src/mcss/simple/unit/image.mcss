@@ -5,20 +5,13 @@
 
 @import "../../core/unit/image.mcss";
 
-// Component:       `u-img`
-// ========================================================================
-
-.u-img {}
-
-
-
 // Border:
 // ========================================================================
 
 .u-img-border {
     padding: 4px;
-    $border: #ddd;
-    background: #fff;
+    $border: $border-base;
+    background: white;
 }
 
 

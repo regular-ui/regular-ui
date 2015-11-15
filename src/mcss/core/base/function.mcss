@@ -39,7 +39,7 @@
 .f-lsn{list-style:none;margin:0;padding:0;}
 // @extend .f-lsi;
 .f-lsi{
-    letter-spacing: -.307em;
+    letter-spacing: -4px; // -.307em;
     
     > * {
         letter-spacing: normal;

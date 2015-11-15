@@ -85,43 +85,47 @@ $state-error_background =            #f2dede;
 $state-error_border =        l-adjust(h-adjust($state-error_background, -10), -5%);
 
 
+$border-base = $brand-primary;
+
+
 /* Form Controls */
-$formctrl_padding = 6px 12px;
-$formctrl-xs_padding = 1px 5px;
-$formctrl-sm_padding = 5px 10px;
-$formctrl-lg_padding = 10px 16px;
+$u-formctrl_padding = 6px 12px;
+$u-formctrl-xs_padding = 1px 5px;
+$u-formctrl-sm_padding = 5px 10px;
+$u-formctrl-lg_padding = 10px 16px;
 
-$formctrl_height = 42px;
-$formctrl-sm_height = 35px;
-$formctrl-lg_height = 45px;
-$formctrl-xg_height = 53px;
+$u-formctrl_height = 42px;
+$u-formctrl-sm_height = 35px;
+$u-formctrl-lg_height = 45px;
+$u-formctrl-xg_height = 53px;
 
-$formctrl-sm_font-size = 13px;
-$formctrl_font-size = 15px;
-$formctrl-lg_font-size = 17px;
-$formctrl-xl_font-size = 22px;
+$u-formctrl-sm_font-size = 13px;
+$u-formctrl_font-size = 15px;
+$u-formctrl-lg_font-size = 17px;
+$u-formctrl-xl_font-size = 22px;
 
-$formctrl_min-width = 160px;
+$u-formctrl_min-width = 160px;
 
-$formctrl_background = white;
-$formctrl_color = $brand-primary;
-$formctrl_border = 2px solid $gray-light;
+$u-formctrl_background = white;
+$u-formctrl_color = $brand-primary;
+$u-formctrl_border = 2px solid $gray-light;
+$u-formctrl_border-width-base = 2px;
 
-$formctrl-focus_background = $formctrl_background;
-$formctrl-focus_color = $formctrl_color;
-$formctrl-focus_border = $brand-secondary;
+$u-formctrl-focus_background = $u-formctrl_background;
+$u-formctrl-focus_color = $u-formctrl_color;
+$u-formctrl-focus_border = $brand-secondary;
 
-$formctrl-disabled_background = mix($gray, white, 10%);;
-$formctrl-disabled_color = mix($gray, white, 40%);
-$formctrl-disabled_border = mix($gray, white, 40%);
+$u-formctrl-disabled_background = mix($gray, white, 10%);;
+$u-formctrl-disabled_color = mix($gray, white, 40%);
+$u-formctrl-disabled_border = mix($gray, white, 40%);
 
-$formctrl_placeholder_color = s-adjust(l-adjust($brand-primary, 45%), -15%);
+$u-formctrl_placeholder_color = s-adjust(l-adjust($brand-primary, 45%), -15%);
 
-$formctrl_item_padding = 0 10px;
-$formctrl_item-hover_background = #eee;
-$formctrl_item-hover_color = $brand-primary;
-$formctrl_item-hover_border = null;
+$u-formctrl_item_padding = 0 10px;
+$u-formctrl_item-hover_background = #eee;
+$u-formctrl_item-hover_color = $brand-primary;
+$u-formctrl_item-hover_border = null;
 
-$formctrl_item-selected_background = $brand-secondary;
-$formctrl_item-selected_color = white;
-$formctrl_item-selected_border = null;
+$u-formctrl_item-selected_background = $brand-secondary;
+$u-formctrl_item-selected_color = white;
+$u-formctrl_item-selected_border = null;

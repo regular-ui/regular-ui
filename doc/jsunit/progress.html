@@ -244,16 +244,19 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">颜色扩展</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;success&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;warning&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;info&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;success&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;warning&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;100&quot;</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">尺寸扩展</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;25&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;xs&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;50&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;sm&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;75&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;20&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;xs&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;40&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;sm&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;60&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;80&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;lg&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-string">&quot;100&quot;</span> <span class="cm-attribute">size</span>=<span class="cm-string">&quot;xl&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <h4 id="-">条纹</h4>
 <div class="m-example"></div>
@@ -417,9 +420,10 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<progress percent="25" state="success" />
-<progress percent="50" state="warning" />
-<progress percent="75" state="error" />
+<progress percent="25" state="info" />
+<progress percent="50" state="success" />
+<progress percent="75" state="warning" />
+<progress percent="100" state="error" />
     */})
 var component = new RGUI.Component({
     template: template,
@@ -428,9 +432,11 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<progress percent="25" size="xs" />
-<progress percent="50" size="sm" />
-<progress percent="75" />
+<progress percent="20" size="xs" />
+<progress percent="40" size="sm" />
+<progress percent="60" />
+<progress percent="80" size="lg" />
+<progress percent="100" size="xl" />
     */})
 var component = new RGUI.Component({
     template: template,

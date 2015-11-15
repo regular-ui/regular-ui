@@ -28,20 +28,16 @@
 // ========================================================================
 
 $u-progress-extend_size = ($name, $height) {
-
-.u-progress-#{$name} {
-    height: $height;
-}
-
+    .u-progress-#{$name} {
+        $line-height: $height;
+        @if($name == 'sm' || $name == 'xs') {text-indent: -2000px;}
+    }
 }
 
 $u-progress_bar-extend_color = ($name, $background) {
-
-.u-progress-#{$name} .progress_bar {
-    /* Public */
-    background-color: $background;
-}
-
+    .u-progress-#{$name} .progress_bar {
+        background-color: $background;
+    }
 }
 
 
@@ -50,20 +46,18 @@ $u-progress_bar-extend_color = ($name, $background) {
 // ========================================================================
 
 $u-progress-striped = ($background-size = 30px) {
+    .u-progress-striped .progress_bar {
+        background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-size: $background-size $background-size;
+    }
 
-.u-progress-striped .progress_bar {
-    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-size: $background-size $background-size;
-}
+    .u-progress-striped.z-act .progress_bar {
+        $animation: u-progress-striped 2s linear infinite;
+    }
 
-.u-progress-striped.z-act .progress_bar {
-    $animation: u-progress-striped 2s linear infinite;
-}
-
-$keyframes(u-progress-striped, {
-    0% {background-position: 0 0;}
-    100% {background-position: $background-size 0;}
-});
-
+    $keyframes(u-progress-striped, {
+        0% {background-position: 0 0;}
+        100% {background-position: $background-size 0;}
+    });
 }

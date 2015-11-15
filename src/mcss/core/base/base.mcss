@@ -52,12 +52,10 @@ a:focus {
 h1, h2, h3, h4, h5, h6 {}
 
 $hx-extend_size = ($number, $font-size, $line-height_ = null) {
-
-h#{$number} {
-    font-size: $font-size;
-    @if($line-height_) {line-height: $line-height_;}
-}
-
+    h#{$number} {
+        font-size: $font-size;
+        @if($line-height_) {line-height: $line-height_;}
+    }
 }
 
 

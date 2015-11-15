@@ -31,18 +31,10 @@
 // Description:     颜色扩展
 // ========================================================================
 
-$u-message-extend_color = ($name, $background, $color = null) {
+$u-message-extend_color = ($name, $background, $color = null, $border_ = null) {
     .u-message-#{$name} {
         background: $background;
-        @if($color) {
-            color: $color;
-            .message_close {
-                color: fade($color, 0.75, true);
-                &:hover {
-                    color: $color;
-                }
-            }
-        }
-        $border: fade($color, 0.3, true);
+        @if($color) {color: $color;}
+        @if($border_) {$border: $border_;}
     }
 }

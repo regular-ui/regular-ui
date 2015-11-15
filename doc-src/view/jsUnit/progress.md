@@ -12,9 +12,10 @@
 <div class="m-example"></div>
 
 ```xml
-<progress percent="25" state="success" />
-<progress percent="50" state="warning" />
-<progress percent="75" state="error" />
+<progress percent="25" state="info" />
+<progress percent="50" state="success" />
+<progress percent="75" state="warning" />
+<progress percent="100" state="error" />
 ```
 
 #### 尺寸扩展
@@ -22,9 +23,11 @@
 <div class="m-example"></div>
 
 ```xml
-<progress percent="25" size="xs" />
-<progress percent="50" size="sm" />
-<progress percent="75" />
+<progress percent="20" size="xs" />
+<progress percent="40" size="sm" />
+<progress percent="60" />
+<progress percent="80" size="lg" />
+<progress percent="100" size="xl" />
 ```
 
 #### 条纹

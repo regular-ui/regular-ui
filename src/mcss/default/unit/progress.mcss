@@ -10,12 +10,12 @@
 
 .u-progress {
     $line-height: 20px;
-    background: #eee;
+    background: $background-base;
 
     .progress_bar {
         background: $brand-primary; // #00a8e6;
-        font-size: 12px;
-        color: #fff;
+        font-size: $font-size-sm;
+        color: white;
         $transition: width .6s ease;
     }
 }
@@ -26,13 +26,16 @@
 // ========================================================================
 
 $u-progress-extend_size(xs, 3px);
-$u-progress-extend_size(sm, 6px);
+$u-progress-extend_size(sm, 8px);
+$u-progress-extend_size(lg, 28px);
+$u-progress-extend_size(xl, 40px);
 
 
 
 // Color Extends:       `u-progress-success`, `u-progress-warning`, `u-progress-error`
 // ========================================================================
 
+$u-progress_bar-extend_color(info, $brand-info);
 $u-progress_bar-extend_color(success, $brand-success);
 $u-progress_bar-extend_color(warning, $brand-warning);
 $u-progress_bar-extend_color(error, $brand-error);
@@ -42,4 +45,4 @@ $u-progress_bar-extend_color(error, $brand-error);
 // Extends:         `u-progress-striped`
 // ========================================================================
 
-$u-progress-striped();
+$u-progress-striped(40px);

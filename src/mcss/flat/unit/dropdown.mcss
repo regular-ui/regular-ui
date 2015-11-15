@@ -14,7 +14,7 @@
 
 .u-dropdown {
     .dropdown_bd {
-        // min-width: $formctrl_min-width;
+        // min-width: $u-formctrl_min-width;
         margin-top: 12px;
 
         &:before {
@@ -38,7 +38,7 @@
         }
 
         .m-listview {
-            min-width: $formctrl_min-width;
+            min-width: $u-formctrl_min-width;
 
             > li > a {
                 color: inherit;

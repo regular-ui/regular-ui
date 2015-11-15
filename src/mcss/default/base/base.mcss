@@ -43,7 +43,7 @@ p {}
 // ========================================================================
 
 hr {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $brand-default;
 }
 
 
@@ -70,7 +70,7 @@ small { font-size: 80%; }
 code {
     padding: 0 3px;
     font-size: 12px;
-    background: #f7f7f7;
+    background: #fafafa;
     color: #d05;
 }
 
@@ -79,8 +79,8 @@ kbd {
     padding: 2px 3px;
     font-size: 12px;
     color: #e74c3c;
-    background: #f7f7f7;
-    border-bottom: 2px solid #ddd;
+    background: #fafafa;
+    border-bottom: 2px solid #eee;
     // $box-shadow: 0 2px 2px #ccc;
 }
 
@@ -95,8 +95,8 @@ abbr[title] {
 
 blockquote {
     padding: 4px 16px;
-    background: #f4f4f4;
-    border-left: 4px solid #ddd;
+    background: #fafafa;
+    border-left: 4px solid #eee;
 }
 
 
@@ -107,9 +107,10 @@ blockquote {
 pre {
     padding: 6px 12px;
     font-size: 12px;
-    background: #f7f7f7;
+    background: #fafafa;
     color: #333;
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
+    $border-radius: $border-radius-base;
 
     code {}
 }

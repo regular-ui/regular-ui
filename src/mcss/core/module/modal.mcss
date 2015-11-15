@@ -42,34 +42,34 @@
         display: inline-block;
         vertical-align: middle;
         text-align: left;
+    }
 
-        .modal_hd {
-            .modal_title {
-                margin: 0;
-            }
+    .modal_hd {}
 
-            .modal_close {
-                float: right;
-                margin: -6px -4px 0 0;
+    .modal_title {
+        margin: 0;
+    }
 
-                &:hover {}
-            }
-        }
+    .modal_close {
+        float: right;
+        margin: -6px -4px 0 0;
 
-        .modal_hd.z-draggable {
-            cursor: move;
-        }
+        &:hover {}
+    }
 
-        // .modal_hd.z-dragging {
-        //     cursor: move;
-        //     cursor: -webkit-grabbing;
-        // }
+    .modal_hd.z-draggable {
+        cursor: move;
+    }
 
-        .modal_bd {}
+    // .modal_hd.z-dragging {
+    //     cursor: move;
+    //     cursor: -webkit-grabbing;
+    // }
 
-        .modal_ft {
-            .u-btn {}
-        }
+    .modal_bd {}
+
+    .modal_ft {
+        .u-btn {}
     }
 
     // - Phone landscape and smaller

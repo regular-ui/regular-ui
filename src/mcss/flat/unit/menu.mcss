@@ -10,7 +10,7 @@
 
 .u-menu {
     .menu_list {
-        min-width: $formctrl_min-width;
+        min-width: $u-formctrl_min-width;
     }
 
     li > .menu_list {

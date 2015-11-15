@@ -8,8 +8,6 @@
 // Variables:
 // ========================================================================
 
-$u-btn_color = #444;
-
 
 
 // Component:       `u-btn`
@@ -17,23 +15,37 @@ $u-btn_color = #444;
 
 .u-btn {
     padding: 0 12px;
-    $line-height: 30px;
-    background: #eee;
-    color: $u-btn_color;
+    $line-height: $height-base;
+    
+    background: $background-base;
+    color: $color-base;
+    $border: $border-base;
+    $border-radius: $border-radius-base;
 }
 
 /* Hover */
 .u-btn:hover,
 .u-btn:focus {
-    background: #f5f5f5;
-    color: $u-btn_color;
+    background: $brand-default-dark;
+    $border: $brand-default-darker;
 }
 
 /* Active */
 .u-btn:active,
 .u-btn.z-act {
-    background: #ddd;
-    color: $u-btn_color;
+    background: $brand-default-dark;
+
+    $box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+/* Disabled */
+.u-btn:disabled,
+.u-btn.z-dis {
+    background: #fff;
+    $border: #ccc;
+
+    opacity: .65;
+    $box-shadow: none;
 }
 
 
@@ -41,25 +53,18 @@ $u-btn_color = #444;
 // Size Extends:
 // ========================================================================
 
-$u-btn-extend_size(xs, 6px, 20px, 12px);
-$u-btn-extend_size(sm, 10px, 25px, 12px);
-$u-btn-extend_size(lg, 15px, 40px, 16px);
+$u-btn-extend_size(xs, 5px, $height-xs, $font-size-xs);
+$u-btn-extend_size(sm, 10px, $height-sm, $font-size-sm);
+$u-btn-extend_size(lg, 16px, $height-lg, $font-size-lg);
+$u-btn-extend_size(xl, 20px, $height-xl, $font-size-xl);
 
 
 
 // Color Extends:
 // ========================================================================
 
-$u-btn-extend_color(primary, $brand-primary, mix($brand-primary, white, 90%), mix($brand-primary, black, 90%), white);
-$u-btn-extend_color(info, $brand-info, mix($brand-info, white, 90%), mix($brand-info, black, 90%), white);
-$u-btn-extend_color(success, $brand-success, #8ec73b, #72ae41, white);
-$u-btn-extend_color(error, $brand-error, #e4354f, #c91032, white);
-
-
-
-/* Disabled */
-.u-btn:disabled,
-.u-btn.z-dis {
-    background: #f5f5f5;
-    color: #999;
-}
+$u-btn-extend_color(primary, $brand-primary, $brand-primary-darker, $brand-primary-darker, white, $brand-primary-darker);
+$u-btn-extend_color(info, $brand-info, $brand-info-darker, $brand-info-darker, white, $brand-info-darker);
+$u-btn-extend_color(success, $brand-success, $brand-success-darker, $brand-success-darker, white, $brand-success-darker);
+$u-btn-extend_color(warning, $brand-warning, $brand-warning-darker, $brand-warning-darker, white, $brand-warning-darker);
+$u-btn-extend_color(error, $brand-error, $brand-error-darker, $brand-error-darker, white, $brand-error-darker);

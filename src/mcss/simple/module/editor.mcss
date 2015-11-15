@@ -43,7 +43,7 @@
 
 .m-editor.z-dis {
     .editor_textarea {
-        background: $formctrl-disabled_background;
-        color: $formctrl-disabled_color;
+        background: $u-formctrl-disabled_background;
+        color: $u-formctrl-disabled_color;
     }
 }

@@ -11,7 +11,8 @@
 .u-tip {
 	font-size: 12px;
     padding: 0 6px;
-    background: #f4f4f4;
+    background: $background-base;
+    $border-radius: $border-radius-sm;
 }
 
 
@@ -19,7 +20,7 @@
 // Color Extends:
 // ========================================================================
 
-$u-tip-extend_color(info, #ebf7fd, #2d7091);
-$u-tip-extend_color(success, #f2fae3, #659f13);
-$u-tip-extend_color(warning, #fffceb, #e28327);
-$u-tip-extend_color(error, #fff1f0, #d85030);
+$u-tip-extend_color(info, $brand-info-lighter, $brand-info);
+$u-tip-extend_color(success, $brand-success-lighter, $brand-success);
+$u-tip-extend_color(warning, $brand-warning-lighter, $brand-warning);
+$u-tip-extend_color(error, $brand-error-lighter, $brand-error);

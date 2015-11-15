@@ -4,9 +4,11 @@
 <div class="m-example"></div>
 
 ```html
+<span class="u-text u-text-xs">超小号文本</span>
 <span class="u-text u-text-sm">小号文本</span>
-<span class="u-text">正常文本</span>
+<span>正常文本</span>
 <span class="u-text u-text-lg">大号文本</span>
+<span class="u-text u-text-xl">超大号文本</span>
 ```
 
 #### 颜色扩展
@@ -14,7 +16,7 @@
 <div class="m-example"></div>
 
 ```html
-<span class="u-text">Default</span>
+<span>Default</span>
 <span class="u-text u-text-primary">Primary</span>
 <span class="u-text u-text-success">Success</span>
 <span class="u-text u-text-warning">Warning</span>
@@ -54,12 +56,12 @@
 
 *待完成……*
 
-#### 文本换行
+#### 文本省略和换行
 
 <div class="m-example"></div>
 
 ```html
- 
+<div class="f-toe" style="width:100px;">这是一段很长很长的文字</div>
 ```
 
 *待完成……*

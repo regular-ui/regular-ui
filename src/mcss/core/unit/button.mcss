@@ -48,20 +48,24 @@
 .u-btn:active,
 .u-btn.z-act {}
 
+/* Disabled */
+.u-btn:disabled,
+.u-btn.z-dis {
+    cursor: not-allowed;
+}
+
 
 
 // Size Extends:
 // ========================================================================
 
 $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size = null, $border-radius_ = null) {
-
-.u-btn-#{$name} {
-    padding: 0 $padding-horizontal;
-    $line-height: $height;
-    @if($font-size) {font-size: $font-size;}
-    @if($border-radius_) {$border-radius: $border-radius_;}
-}
-
+    .u-btn-#{$name} {
+        padding: 0 $padding-horizontal;
+        $line-height: $height;
+        @if($font-size) {font-size: $font-size;}
+        @if($border-radius_) {$border-radius: $border-radius_;}
+    }
 }
 
 
@@ -69,33 +73,36 @@ $u-btn-extend_size = ($name, $padding-horizontal, $height, $font-size = null, $b
 // Color Extends:
 // ========================================================================
 
-$u-btn-extend_color = ($name, $background, $hover_background, $active_background, $color = null) {
+$u-btn-extend_color = ($name, $background, $hover_background, $active_background, $color = null, $border_ = null) {
+    .u-btn-#{$name} {
+        background: $background;
+        @if($color) {color: $color;}
+        @if($border_) {$border: $border_;}
+    }
 
-.u-btn-#{$name} {
-    background: $background;
-    @if($color) {color: $color;}
-}
+    /* Hover */
+    .u-btn-#{$name}:hover,
+    .u-btn-#{$name}:focus {
+        background: $hover_background;
+        @if($color) {color: $color;}
+        @if($border_) {$border: $border_;}
+    }
 
-/* Hover */
-.u-btn-#{$name}:hover,
-.u-btn-#{$name}:focus {
-    background: $hover_background;
-    @if($color) {color: $color;}
-}
+    /* Active */
+    .u-btn-#{$name}:active,
+    .u-btn-#{$name}.z-act {
+        background: $active_background;
+        @if($color) {color: $color;}
+        @if($border_) {$border: $border_;}
+    }
 
-/* Active */
-.u-btn-#{$name}:active,
-.u-btn-#{$name}.z-act {
-    background: $active_background;
-    @if($color) {color: $color;}
-}
-
-}
-
-/* Disabled */
-.u-btn:disabled,
-.u-btn.z-dis {
-    cursor: not-allowed;
+    /* Disabled */
+    .u-btn-#{$name}:disabled,
+    .u-btn-#{$name}.z-dis {
+        background: $background;
+        @if($color) {color: $color;}
+        @if($border_) {$border: $border_;}
+    }
 }
 
 
@@ -105,6 +112,6 @@ $u-btn-extend_color = ($name, $background, $hover_background, $active_background
 
 .u-btn-block {
     display: block;
-    // 为了`button`标签
+    // - 为了`button`标签
     width: 100%;
 }

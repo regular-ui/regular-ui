@@ -5,18 +5,13 @@
 
 @import "../../core/unit/text.mcss";
 
-// Variables:
-// ========================================================================
-
-.u-text {}
-
-
-
 // Size Extends:
 // ========================================================================
 
+$u-text-extend_size(xs, 10px, 12px);
 $u-text-extend_size(sm, 12px, 16px);
-$u-text-extend_size(lg, 18px, 24px);
+$u-text-extend_size(lg, 20px, 24px);
+$u-text-extend_size(xl, 24px, 32px);
 
 
 
@@ -24,8 +19,8 @@ $u-text-extend_size(lg, 18px, 24px);
 // ========================================================================
 
 $u-text-extend_color(primary, $brand-secondary);
-$u-text-extend_color(success, $state-success_color);
-$u-text-extend_color(warning, $state-warning_color);
-$u-text-extend_color(error, $state-error_color);
+$u-text-extend_color(success, $brand-success);
+$u-text-extend_color(warning, $brand-warning);
+$u-text-extend_color(error, $brand-error);
 $u-text-extend_color(inverse, $inverse);
 $u-text-extend_color(muted, $gray-light);

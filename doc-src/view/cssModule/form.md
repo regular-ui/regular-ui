@@ -9,7 +9,7 @@
         <label class="formitem_tt">用户名<span class="formitem_rqr">&#42;</span>：</label>
         <span class="formitem_ct">
             <input class="u-input">
-            <span class="formitem_tip">4~12个字符，包括字母、数字、下划线</span>
+            <span class="u-tip">4~12个字符，包括字母、数字、下划线</span>
         </span>
     </div>
     <div class="u-formitem">

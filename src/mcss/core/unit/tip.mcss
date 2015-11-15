@@ -18,10 +18,8 @@
 // ========================================================================
 
 $u-tip-extend_color = ($name, $background, $color) {
-
-.u-tip-#{$name} {
-    background: $background;
-    color: $color;
-}
-
+    .u-tip-#{$name} {
+        background: $background;
+        color: $color;
+    }
 }

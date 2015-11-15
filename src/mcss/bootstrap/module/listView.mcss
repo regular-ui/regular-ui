@@ -9,14 +9,14 @@
 // ========================================================================
 
 .m-listview {
-    background: $formctrl_background;
-    color: $formctrl_color;
+    background: $u-formctrl_background;
+    color: $u-formctrl_color;
     padding-top: 1px;
 
     > li {
         padding: 5px 10px;
         // padding: 10px 15px;
-        $border: $formctrl_border;
+        $border: $u-formctrl_border;
         margin-top: -1px;
     }
 
@@ -29,13 +29,13 @@
     }
 
     > li:hover {
-        background: $formctrl_item-hover_background;
-        color: $formctrl_item-hover_color;
+        background: $u-formctrl_item-hover_background;
+        color: $u-formctrl_item-hover_color;
     }
 
     > li.z-sel {
-        background: $formctrl_item-selected_background;
-        color: $formctrl_item-selected_color;
+        background: $u-formctrl_item-selected_background;
+        color: $u-formctrl_item-selected_color;
     }
 
     > li.z-dis {

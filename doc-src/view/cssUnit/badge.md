@@ -15,6 +15,7 @@
 <div class="m-example"></div>
 
 ```html
+<span class="u-badge u-badge-primary">Primary</span>
 <span class="u-badge u-badge-info">Info</span>
 <span class="u-badge u-badge-success">Success</span>
 <span class="u-badge u-badge-warning">Warning</span>
@@ -26,6 +27,7 @@
 <div class="m-example"></div>
 
 ```html
-<span class="u-badge u-badge-success u-badge-number">1</span>
-<span class="u-badge u-badge-error u-badge-number">7</span>
+<span class="u-badge u-badge-info u-badge-number">1</span>
+<span class="u-badge u-badge-warning u-badge-number">7</span>
+<span class="u-badge u-badge-error u-badge-number">256</span>
 ```

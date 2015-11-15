@@ -9,35 +9,35 @@
 // ========================================================================
 
 .m-treeview {
-    background: $formctrl_background;
-    color: $formctrl_color;
-    $border: $formctrl_border;
+    background: $u-formctrl_background;
+    color: $u-formctrl_color;
+    $border: $u-formctrl_border;
 
     .treeview_itemname {
         padding: 0 4px;
     }
 
     .treeview_itemname:hover {
-        background: $formctrl_item-hover_background;
-        color: $formctrl_item-hover_color;
+        background: $u-formctrl_item-hover_background;
+        color: $u-formctrl_item-hover_color;
     }
 
     .treeview_itemname.z-sel {
-        background: $formctrl_item-selected_background;
-        color: $formctrl_item-selected_color;
+        background: $u-formctrl_item-selected_background;
+        color: $u-formctrl_item-selected_color;
     }
 
     .treeview_itemname.z-dis {
         background: none;
-        color: $formctrl-disabled_color;
+        color: $u-formctrl-disabled_color;
     }
 }
 
 .m-treeview.z-dis {
-    background: $formctrl-disabled_background;
+    background: $u-formctrl-disabled_background;
     
     .treeview_itemname {
         background: none;
-        color: $formctrl-disabled_color;
+        color: $u-formctrl-disabled_color;
     }
 }

@@ -52,12 +52,9 @@
 <div class="m-example"></div>
 
 ```html
-<input class="u-input u-input-xsw" value="Extra Small Width">
 <input class="u-input u-input-smw" value="Small Width">
 <input class="u-input" value="Normal Width">
 <input class="u-input u-input-lgw" value="Large Width">
-<input class="u-input u-input-xlw" value="Extra Large Width">
-
 ```
 
 #### 颜色扩展

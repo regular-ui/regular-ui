@@ -15,44 +15,44 @@
 .u-select,
 .u-textarea {
     $placeholder({
-        color: $formctrl_placeholder_color;
+        color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
         opacity: 1;
     });
 
     // - Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports.
     // max-width: 100%;
-    padding: $formctrl_padding;
-    $border: $formctrl_border;
-    color: $formctrl_color;
-    background: $formctrl_background;
+    padding: $u-formctrl_padding;
+    $border: $u-formctrl_border;
+    color: $u-formctrl_color;
+    background: $u-formctrl_background;
     
     // -webkit-transition: all linear 0.2s;
     // transition: all linear 0.2s;
 
     &:focus {
-        background: $formctrl-focus_background;
-        color: $formctrl-focus_color;
+        background: $u-formctrl-focus_background;
+        color: $u-formctrl-focus_color;
     }
 
     &:disabled {
-        $border: $formctrl-disabled_border;
-        background: $formctrl-disabled_background;
-        color: $formctrl-disabled_color;
+        $border: $u-formctrl-disabled_border;
+        background: $u-formctrl-disabled_background;
+        color: $u-formctrl-disabled_color;
 
         // $placeholder({
-        //     color:$formctrl-disabled_color;
+        //     color:$u-formctrl-disabled_color;
         // });
     }
 }
 
 .u-input {
-    height: $formctrl_height;
+    height: $u-formctrl_height;
 }
 
 .u-select {
-    height: $formctrl_height;
-    min-width: $formctrl_min-width;
+    height: $u-formctrl_height;
+    min-width: $u-formctrl_min-width;
 }
 
 .u-textarea {
@@ -65,21 +65,21 @@
 // Size Extends:
 // ========================================================================
 
-$formctrl-extend_size(sm, $formctrl-sm_padding, $formctrl-sm_height, $formctrl-sm_font-size);
-$formctrl-extend_size(lg, $formctrl-lg_padding, $formctrl-lg_height, $formctrl-lg_font-size);
+$u-formctrl-extend_size(sm, $u-formctrl-sm_padding, $u-formctrl-sm_height, $u-formctrl-sm_font-size);
+$u-formctrl-extend_size(lg, $u-formctrl-lg_padding, $u-formctrl-lg_height, $u-formctrl-lg_font-size);
 
-$formctrl-extend_width(xs, 40px);
-$formctrl-extend_width(sm, 100px);
-$formctrl-extend_width(lg, 200px);
-$formctrl-extend_width(xl, 500px);
+$u-formctrl-extend_width(xs, 40px);
+$u-formctrl-extend_width(sm, 100px);
+$u-formctrl-extend_width(lg, 200px);
+$u-formctrl-extend_width(xl, 500px);
 
 
 
 // Color Extends:
 // ========================================================================
 
-$formctrl-extend_color(success, #fafff2, #659f13, #8ec73b);
-$formctrl-extend_color(error, #fff7f8, #d85030, #dc8d99);
+$u-formctrl-extend_color(success, #fafff2, #659f13, #8ec73b);
+$u-formctrl-extend_color(error, #fff7f8, #d85030, #dc8d99);
 
 
 

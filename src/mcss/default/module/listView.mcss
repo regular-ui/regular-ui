@@ -9,35 +9,38 @@
 // ========================================================================
 
 .m-listview {
-    background: $formctrl_background;
-    color: $formctrl_color;
-    $border: $formctrl_border;
+    padding: 5px 0;
+    background: $u-formctrl_background;
+    color: $u-formctrl_color;
+    $border-radius: $border-radius-lg;
+    $border: $u-formctrl_border;
 
     > li {
-        padding: $formctrl_item_padding;
+        padding: $u-formctrl_item_padding;
+        color: #777;
     }
 
     > li:hover {
-        background: $formctrl_item-hover_background;
-        color: $formctrl_item-hover_color;
+        background: $u-formctrl_item-hover_background;
+        color: $u-formctrl_item-hover_color;
     }
 
     > li.z-sel {
-        background: $formctrl_item-selected_background;
-        color: $formctrl_item-selected_color;
+        background: $u-formctrl_item-selected_background;
+        color: $u-formctrl_item-selected_color;
     }
 
     > li.z-dis {
         background: none;
-        color: $formctrl-disabled_color;
+        color: $u-formctrl-disabled_color;
     }
 }
 
 .m-listview.z-dis {
-    background: $formctrl-disabled_background;
+    background: $u-formctrl-disabled_background;
 
     > li {
-        background: $formctrl-disabled_background;
-        color: $formctrl-disabled_color;
+        background: $u-formctrl-disabled_background;
+        color: $u-formctrl-disabled_color;
     }
 }

@@ -52,7 +52,7 @@
     width: 229px;
     float: left;
     min-height: 400px;
-    border-right: 1px solid #eee;
+    border-right: 1px solid #f4f4f4;
     margin-bottom: 60px;
 }
 

@@ -40,10 +40,6 @@
 
 .u-input {}
 
-.u-input-full {
-    width: 100%;
-}
-
 .u-select {
     // - Address inconsistent `text-transform` inheritance which is only inherit in Firefox
     text-transform: none;
@@ -55,10 +51,6 @@
         font-weight: bold;
         // - NOTE: Both declarations don't work in Chrome, Safari and Opera.
     }
-}
-
-.u-select-full {
-    width: 100%;
 }
 
 .u-textarea {
@@ -89,23 +81,19 @@ input.u-radio:disabled {
 // Size Extends:
 // ========================================================================
 
-$formctrl-extend_size = ($name, $padding, $height, $font-size = null, $border-radius_ = null) {
-
-.u-input-#{$name}, .u-select-#{$name} {
-    padding: $padding;
-    height: $height;
-    @if($font-size) {font-size: $font-size;}
-    @if($border-radius_) {$border-radius: $border-radius_;}
+$u-formctrl-extend_size = ($name, $padding, $height, $font-size = null, $border-radius_ = null) {
+    .u-input-#{$name}, .u-select-#{$name} {
+        padding: $padding;
+        height: $height;
+        @if($font-size) {font-size: $font-size;}
+        @if($border-radius_) {$border-radius: $border-radius_;}
+    }
 }
 
-}
-
-$formctrl-extend_width = ($name, $width) {
-
-.u-input-#{$name}w, .u-select-#{$name}w {
-    width: $width;
-}
-
+$u-formctrl-extend_width = ($name, $width) {
+    .u-input-#{$name}w, .u-select-#{$name}w {
+        width: $width;
+    }
 }
 
 
@@ -113,14 +101,38 @@ $formctrl-extend_width = ($name, $width) {
 // Color Extends:
 // ========================================================================
 
-$formctrl-extend_color = ($name, $background, $color, $border_) {
-
-.u-input.u-input-#{$name},
-.u-select.u-select-#{$name},
-.u-textarea.u-textarea-#{$name} {
-    background: $background;
-    color: $color;
-    border-color: $border_;
+$u-formctrl-extend_color = ($name, $background = null, $color, $border_) {
+    .u-input.u-input-#{$name},
+    .u-select.u-select-#{$name},
+    .u-textarea.u-textarea-#{$name} {
+        @if($background) {background: $background;}
+        color: $color;
+        border-color: $border_;
+    }
 }
 
+
+
+// Block Extends:
+// ========================================================================
+
+.u-input-block,
+.u-select-block,
+.u-textarea-block {
+    display: block;
+    width: 100%;
+}
+
+$u-formctrl-blank = ($border-color) {
+    .u-input.u-input-blank,
+    .u-select.u-select-blank,
+    .u-textarea.u-textarea-blank {
+        border-color: transparent;
+        border-style: dashed;
+        background: none;
+
+        &:focus {
+            border-color: $border-color;
+        }
+    }
 }

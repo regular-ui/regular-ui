@@ -20,12 +20,10 @@
 ```html
 <button class="u-btn">Default</button>
 <button class="u-btn u-btn-primary">Primary</button>
-<button class="u-btn u-btn-secondary">Secondary</button>
 <button class="u-btn u-btn-info">Info</button>
 <button class="u-btn u-btn-success">Success</button>
 <button class="u-btn u-btn-warning">Warning</button>
 <button class="u-btn u-btn-error">Error</button>
-<button class="u-btn u-btn-inverse">Inverse</button>
 ```
 
 #### 尺寸扩展
@@ -54,10 +52,10 @@
 
 ```html
 <button class="u-btn z-dis">Disabled</button>
-<button class="u-btn u-btn-primary" disabled>Button</button>
 <a class="u-btn z-dis">Link</a>
-<input class="u-btn" type="button" value="Input" disabled>
-<input class="u-btn" type="submit" value="Submit" disabled>
+<button class="u-btn u-btn-primary" disabled>Button</button>
+<input class="u-btn u-btn-success" type="button" value="Input" disabled>
+<input class="u-btn u-btn-error" type="submit" value="Submit" disabled>
 ```
 
 #### 整行

@@ -37,7 +37,7 @@
 <div class="m-example"></div>
 
 ```xml
-<tabs class="m-tab-center">
+<tabs class="m-tabs-center">
     <tab title="tab1">content1</tab>
     <tab title="tab2">content2</tab>
     <tab title="tab3">content3</tab>
@@ -50,7 +50,7 @@
 <div class="m-example"></div>
 
 ```xml
-<tabs class="m-tab-left">
+<tabs class="m-tabs-left">
     <tab title="tab1">content1</tab>
     <tab title="tab2">content2</tab>
     <tab title="tab3">content3</tab>
@@ -63,7 +63,7 @@
 <div class="m-example"></div>
 
 ```xml
-<tabs class="m-tab-right">
+<tabs class="m-tabs-right">
     <tab title="tab1">content1</tab>
     <tab title="tab2">content2</tab>
     <tab title="tab3">content3</tab>

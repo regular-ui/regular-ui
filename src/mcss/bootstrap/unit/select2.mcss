@@ -12,12 +12,12 @@
     width: 160px;
 
     .dropdown_hd {
-        height: $formctrl_height;
-        line-height: $formctrl_height - 2;
-        padding: 0 index($formctrl_padding, 0);
-        background: $formctrl_background;
-        color: $formctrl_color;
-        $border: $formctrl_border;
+        height: $u-formctrl_height;
+        line-height: $u-formctrl_height - 2;
+        padding: 0 index($u-formctrl_padding, 0);
+        background: $u-formctrl_background;
+        color: $u-formctrl_color;
+        $border: $u-formctrl_border;
     }
 
     .dropdown_hd:hover {}
@@ -30,8 +30,8 @@
 /* Disabled */
 .u-select2.z-dis {
     .dropdown_hd {
-        background: $formctrl-disabled_background;
-        $border: $formctrl-disabled_border;
-        color: $formctrl-disabled_color;
+        background: $u-formctrl-disabled_background;
+        $border: $u-formctrl-disabled_border;
+        color: $u-formctrl-disabled_color;
     }
 }

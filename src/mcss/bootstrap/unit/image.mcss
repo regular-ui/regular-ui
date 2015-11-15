@@ -19,8 +19,8 @@
 
 .u-img-border {
     padding: 4px;
-    $border: #ddd;
-    background: #fff;
+    $border: $border-base;
+    background: white;
 }
 
 
