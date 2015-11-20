@@ -558,7 +558,7 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tabs
 (function() {
-    var $examples = document.getElementsByClassName('m-example');
+    var $examples = $$('.m-example');
 
     for(var i = 0; i < $examples.length; i++) {
         var $example = $examples[i];
@@ -614,7 +614,7 @@ var index = 0;
 <datePicker date="2008-08-08" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -623,7 +623,7 @@ var component = new RGUI.Component({
 <datePicker disabled />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -648,7 +648,7 @@ var component = new RGUI.Component({
 <p>当前选择的日期为：{date | format: 'yyyy-MM-dd'}</p>
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -660,7 +660,7 @@ var component = new RGUI.Component({
     on-change={console.log('on-change:', '$event.date:', $event.date)} />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

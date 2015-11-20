@@ -382,7 +382,7 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tabs
 (function() {
-    var $examples = document.getElementsByClassName('m-example');
+    var $examples = $$('.m-example');
 
     for(var i = 0; i < $examples.length; i++) {
         var $example = $examples[i];
@@ -437,7 +437,7 @@ var index = 0;
 <label>备注：<textarea2 placeholder="请输入备注" /></label>
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

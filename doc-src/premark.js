@@ -36,7 +36,7 @@ function buildScript(content) {
             strings.push(example.javascript);
         else {
             strings.push('var component = new RGUI.Component({');
-            strings.push('    template: template,');
+            strings.push('    template: template');
             strings.push('});');
         }
         strings.push('    component.$inject($$(".m-example")[index]);');

@@ -19,7 +19,6 @@ $m-tabs-vertical_hd_li_width = 120px;
 // ========================================================================
 
 .m-tabs {
-    background: white;
     $border-radius: 3px;
 
     .tabs_hd {
@@ -59,6 +58,7 @@ $m-tabs-vertical_hd_li_width = 120px;
     }
 
     .tabs_bd {
+        background: white;
         border-top: $border-width-base solid $m-tabs_hd_border;
         padding: 20px;
         $box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);

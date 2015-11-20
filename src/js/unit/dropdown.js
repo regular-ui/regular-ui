@@ -93,6 +93,10 @@ Dropdown.opens = [];
 
 _.dom.on(document.body, 'click', function(e) {
     Dropdown.opens.forEach(function(dropdown, index) {
+        // for IE8
+        if(!dropdown)
+            return;
+
         // 如果已经被销毁，刚从列表中移除
         if(!dropdown.$refs)
             return Dropdown.opens.splice(index, 1);

@@ -384,7 +384,7 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tabs
 (function() {
-    var $examples = document.getElementsByClassName('m-example');
+    var $examples = $$('.m-example');
 
     for(var i = 0; i < $examples.length; i++) {
         var $example = $examples[i];
@@ -439,7 +439,7 @@ var index = 0;
 <uploader url="/api/upload" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -448,7 +448,7 @@ var component = new RGUI.Component({
 <uploader title="上传文件" url="/api/upload" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -459,7 +459,7 @@ var component = new RGUI.Component({
 </uploader>
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -468,7 +468,7 @@ var component = new RGUI.Component({
 <uploader url="/api/upload" disabled />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -477,7 +477,7 @@ var component = new RGUI.Component({
 <uploader url="/api/upload" extensions="jpg,gif,png" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

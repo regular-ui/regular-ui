@@ -359,7 +359,7 @@ ins{
 	text-decoration:none;
 }
 pre,code,kbd,samp{
-	font-family:"YaHei consolas Hybrid","Consolas";
+	font-family:"YaHei Consolas Hybrid",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }
 abbr[title]{
 	cursor:help;
@@ -3766,7 +3766,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	cursor:default;
 }
 .m-tabs{
-	background:#fff;
 	-moz-border-radius:3px;
 	border-radius:3px;
 }
@@ -3802,6 +3801,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	border-color:transparent;
 }
 .m-tabs .tabs_bd{
+	background:#fff;
 	border-top:1px solid #f4f4f4;
 	padding:20px;
 	-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.15);

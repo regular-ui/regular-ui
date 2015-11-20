@@ -359,7 +359,7 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tabs
 (function() {
-    var $examples = document.getElementsByClassName('m-example');
+    var $examples = $$('.m-example');
 
     for(var i = 0; i < $examples.length; i++) {
         var $example = $examples[i];
@@ -414,7 +414,7 @@ var index = 0;
 <progress percent="36" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -426,7 +426,7 @@ var component = new RGUI.Component({
 <progress percent="100" state="error" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -439,7 +439,7 @@ var component = new RGUI.Component({
 <progress percent="100" size="xl" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -448,7 +448,7 @@ var component = new RGUI.Component({
 <progress percent="36" striped />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -457,7 +457,7 @@ var component = new RGUI.Component({
 <progress percent="72" state="error" striped active />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

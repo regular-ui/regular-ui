@@ -405,7 +405,7 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tabs
 (function() {
-    var $examples = document.getElementsByClassName('m-example');
+    var $examples = $$('.m-example');
 
     for(var i = 0; i < $examples.length; i++) {
         var $example = $examples[i];
@@ -461,7 +461,7 @@ var index = 0;
 <timePicker time="15:45" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -470,7 +470,7 @@ var component = new RGUI.Component({
 <timePicker disabled />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -479,7 +479,7 @@ var component = new RGUI.Component({
 <timePicker minTime="12:00" maxTime="14:45" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -490,7 +490,7 @@ var component = new RGUI.Component({
 <p>当前选择的时间为：{time}</p>
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -499,7 +499,7 @@ var component = new RGUI.Component({
 <timePicker on-change={console.log('on-change:', '$event.time:', $event.time)} />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

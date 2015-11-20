@@ -359,7 +359,7 @@ ins{
 	text-decoration:none;
 }
 pre,code,kbd,samp{
-	font-family:"YaHei consolas Hybrid","Consolas";
+	font-family:"YaHei Consolas Hybrid",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }
 abbr[title]{
 	cursor:help;

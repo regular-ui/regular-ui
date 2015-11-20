@@ -364,7 +364,7 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tabs
 (function() {
-    var $examples = document.getElementsByClassName('m-example');
+    var $examples = $$('.m-example');
 
     for(var i = 0; i < $examples.length; i++) {
         var $example = $examples[i];
@@ -419,7 +419,7 @@ var index = 0;
 <pager current="6" total="11" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -430,7 +430,7 @@ var component = new RGUI.Component({
 <pager current="6" total="11" position="right" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -439,7 +439,7 @@ var component = new RGUI.Component({
 <pager current="6" total="11" middle="3" side="1" />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -448,7 +448,7 @@ var component = new RGUI.Component({
 <pager current="6" total="11" disabled />
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

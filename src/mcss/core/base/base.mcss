@@ -97,7 +97,7 @@ small {}
 
 pre, code, kbd, samp {
     // - Consolas has a better baseline in running text compared to `Courier`
-    font-family: 'YaHei consolas Hybrid', 'Consolas';
+    font-family: 'YaHei Consolas Hybrid', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 code {}

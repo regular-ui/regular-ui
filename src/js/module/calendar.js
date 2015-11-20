@@ -11,6 +11,7 @@ var Component = require('../base/component.js');
 var template = require('text!./calendar.html');
 var _ = require('../base/_.js');
 
+var compatibility = require('../base/compatibility.js');
 var MS_OF_DAY = 24*3600*1000;
 
 /**
@@ -42,8 +43,11 @@ var Calendar = Component.extend({
 
         this.$watch('date', function(newValue, oldValue) {
             // 字符类型自动转为日期类型
-            if(typeof newValue === 'string')
+            if(typeof newValue === 'string') {
+                if(compatibility.isIE8)
+                    return this.data.date = compatibility.StringDate(newValue);
                 return this.data.date = new Date(newValue);
+            }
 
             // 如果newValue为空或非法日期， 则自动转到今天
             if(!newValue || newValue == 'Invalid Date')
@@ -77,8 +81,11 @@ var Calendar = Component.extend({
             if(!newValue)
                 return;
 
-            if(typeof newValue === 'string')
+            if(typeof newValue === 'string') {
+                if(compatibility.isIE8)
+                    return this.data.date = compatibility.StringDate(newValue);
                 return this.data.minDate = new Date(newValue);
+            }
 
             if(newValue == 'Invalid Date')
                 return this.data.minDate = null;
@@ -88,8 +95,11 @@ var Calendar = Component.extend({
             if(!newValue)
                 return;
 
-            if(typeof newValue === 'string')
+            if(typeof newValue === 'string') {
+                if(compatibility.isIE8)
+                    return this.data.date = compatibility.StringDate(newValue);
                 return this.data.maxDate = new Date(newValue);
+            }
 
             if(newValue == 'Invalid Date')
                 return this.data.maxDate = null;

@@ -391,7 +391,7 @@ var themeSelect = new RGUI.Select2({
 
 // 生成tabs
 (function() {
-    var $examples = document.getElementsByClassName('m-example');
+    var $examples = $$('.m-example');
 
     for(var i = 0; i < $examples.length; i++) {
         var $example = $examples[i];
@@ -446,7 +446,7 @@ var index = 0;
 <label>密码：<input2 type="password" maxlength=6 placeholder="请输入密码" autofocus /></label>
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
@@ -455,7 +455,7 @@ var component = new RGUI.Component({
 <label>速度：<input2 width="smw" value="340" unit="m/s" /></label>
     */})
 var component = new RGUI.Component({
-    template: template,
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
