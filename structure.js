@@ -44,7 +44,7 @@ module.exports = {
         /**
          * JS Base
          */
-        'ajax': {type: 'js', category: 'base', lowerName: 'ajax'},
+        'ajax': {type: 'js', category: 'base', lowerName: 'ajax', path: 'regular-ui-base/src/ajax'},
         /**
          * JS Unit
          */
@@ -100,7 +100,7 @@ module.exports = {
         'MarkEditor': {type: 'js', category: 'module', lowerName: 'markEditor'},
         /* 其他 */
         'Validation': {type: 'js', category: 'util', lowerName: 'validation'},
-        'Draggable': {type: 'js', category: 'util', lowerName: 'draggable', path: 'regular-ui-dragdrop/src/js/util/draggable'},
-        'Droppable': {type: 'js', category: 'util', lowerName: 'droppable', path: 'regular-ui-dragdrop/src/js/util/droppable'}
+        'Draggable': {type: 'js', category: 'util', lowerName: 'draggable', path: 'regular-ui-dragdrop/src/draggable'},
+        'Droppable': {type: 'js', category: 'util', lowerName: 'droppable', path: 'regular-ui-dragdrop/src/droppable'}
     }
 }

@@ -7,11 +7,11 @@
 
 'use strict';
 
-var Component = require('../base/component.js');
+var Component = require('regular-ui-base/src/component');
 var template = require('text!./modal.html');
-var _ = require('../base/_.js');
+var _ = require('regular-ui-base/src/_');
 
-var Draggable = require('regular-ui-dragdrop/src/js/util/draggable');
+var Draggable = require('regular-ui-dragdrop').Draggable;
 
 /**
  * @class Modal

@@ -103,7 +103,13 @@ function parse(filepath) {
         var basePath = content.match(new RegExp('var ' + baseClass + ' = require\\(\'(.+?)\'\\)'));
         if(basePath) {
             basePath = basePath[1];
-            var baseTokens = parse(path.join(filepath, '..', basePath));
+
+            if(basePath.indexOf('regular-ui') >= 0)
+                basePath = path.join(__dirname, '../node_modules', basePath + '.js');
+            else
+                basePath = path.join(filepath, '..', basePath);
+
+            var baseTokens = parse(basePath);
             baseTokens.forEach(function(token) {
                 if(token.type === 'method' || token.type === 'event') {
                     token.inherited = true;

@@ -9,7 +9,7 @@
 
 var Select2 = require('./select2.js');
 var template = require('text!./treeSelect.html');
-var _ = require('../base/_.js');
+var _ = require('regular-ui-base/src/_');
 var Treeview = require('../module/treeView.js');
 
 /**

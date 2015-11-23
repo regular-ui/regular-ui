@@ -7,15 +7,16 @@
 
 'use strict';
 
-var SourceComponent = require('../base/sourceComponent.js');
+var SourceComponent = require('regular-ui-base/src/sourceComponent');
 var template = require('text!./listView.html');
-var _ = require('../base/_.js');
+var _ = require('regular-ui-base/src/_');
 
-var Draggable = require('regular-ui-dragdrop/src/js/util/draggable');
-var Droppable = require('regular-ui-dragdrop/src/js/util/droppable');
+var Draggable = require('regular-ui-dragdrop').Draggable;
+var Droppable = require('regular-ui-dragdrop').Droppable;
 
 /**
  * @class ListView
+ * @extend SourceComponent
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容

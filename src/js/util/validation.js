@@ -7,8 +7,8 @@
 
 'use strict';
 
-var Component = require('../base/component.js');
-var _ = require('../base/_.js');
+var Component = require('regular-ui-base/src/component');
+var _ = require('regular-ui-base/src/_');
 var validator = require('validator');
 
 /**

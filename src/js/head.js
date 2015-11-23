@@ -8,6 +8,6 @@
 'use strict';
 
 exports.Regular = require('regularjs');
-exports.Component = require('./base/component.js');
-exports.SourceComponent = require('./base/sourceComponent.js');
-exports._ = require('./base/_.js');
+exports.Component = require('regular-ui-base/src/component');
+exports.SourceComponent = require('regular-ui-base/src/sourceComponent');
+exports._ = require('regular-ui-base/src/_');

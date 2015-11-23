@@ -6,10 +6,10 @@
  */
 
 var Dropdown = require('./dropdown.js');
-var SourceComponent = require('../base/sourceComponent.js');
+var SourceComponent = require('regular-ui-base/src/sourceComponent');
 var template = require('text!./menu.html');
 var hierarchicalTemplate = require('text!./menuList.html');
-var _ = require('../base/_.js');
+var _ = require('regular-ui-base/src/_');
 
 /**
  * @class  Menu

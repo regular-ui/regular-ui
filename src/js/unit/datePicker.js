@@ -7,11 +7,11 @@
 
 var Dropdown = require('./dropdown.js');
 var template = require('text!./datePicker.html');
-var _ = require('../base/_.js');
+var _ = require('regular-ui-base/src/_');
 
-var filter = require('../base/filter.js');
+var filter = require('regular-ui-base').filter;
 var Calendar = require('../module/calendar.js');
-var compatibility = require('../base/compatibility.js');
+var compatibility = require('regular-ui-base').compatibility;
 var MS_OF_DAY = 24*3600*1000;
 
 /**

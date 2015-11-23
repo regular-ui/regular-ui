@@ -9,7 +9,7 @@
 
 var CheckGroup = require('./checkGroup.js');
 var template = require('text!./check2Group.html');
-var _ = require('../base/_.js');
+var _ = require('regular-ui-base/src/_');
 var Check2 = require('./check2.js');
 
 /**

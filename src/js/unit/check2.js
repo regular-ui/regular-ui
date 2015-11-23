@@ -7,9 +7,9 @@
 
 'use strict';
 
-var Component = require('../base/component.js');
+var Component = require('regular-ui-base/src/component');
 var template = require('text!./check2.html');
-var _ = require('../base/_.js');
+var _ = require('regular-ui-base/src/_');
 
 /**
  * @class Check2

@@ -12,5 +12,10 @@ module.exports = {
             commonjs2: "regularjs"
         }
         //'marked': 'marked'
+    },
+    resolve: {
+        alias: {
+            'regular-ui-base': __dirname + '/node_modules/regular-ui-base'
+        }
     }
 }
