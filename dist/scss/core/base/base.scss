@@ -52,12 +52,10 @@ a:focus {
 h1, h2, h3, h4, h5, h6 {}
 
 @mixin hx-extend_size($number, $font-size, $line-height_: null) {
-
-h#{$number} {
-    font-size: $font-size;
-    @if($line-height_) {line-height: $line-height_;}
-}
-
+    h#{$number} {
+        font-size: $font-size;
+        @if($line-height_) {line-height: $line-height_;}
+    }
 }
 
 
@@ -99,7 +97,7 @@ small {}
 
 pre, code, kbd, samp {
     // - Consolas has a better baseline in running text compared to `Courier`
-    font-family: 'YaHei consolas Hybrid', 'Consolas';
+    font-family: 'YaHei Consolas Hybrid', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 code {}

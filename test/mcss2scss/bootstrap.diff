@@ -1,20 +1,24 @@
 0a1,2
 > @charset "UTF-8";
 > @import url("../base/font-awesome.css");
-273d274
+274d275
 < @import url("../base/font-awesome.css");
-385c386
+320c321
+< .u-message .message_close{color:#000000;filter:alpha(opacity=20);opacity:.2;}
+---
+> .u-message .message_close{color:black;filter:alpha(opacity=20);opacity:.2;}
+380c381
 < .m-navbar>li:hover>a{background:#334555;}
 ---
 > .m-navbar>li:hover>a{background:#334655;}
-533,538d533
+528,533d528
 < @-webkit-keyframes u-progress-striped{0%{background-position:0 0;}
 < 100%{background-position:40px 0;}}
 < @-moz-keyframes u-progress-striped{0%{background-position:0 0;}
 < 100%{background-position:40px 0;}}
 < @-o-keyframes u-progress-striped{0%{background-position:0 0;}
 < 100%{background-position:40px 0;}}
-613c608
-< .m-modal .modal_dialog .modal_hd .modal_title{font-size:18px;line-height:1.428571;}
+611c606
+< .m-modal .modal_dialog .modal_title{font-size:18px;line-height:1.428571;}
 ---
-> .m-modal .modal_dialog .modal_hd .modal_title{font-size:18px;line-height:1.42857;}
+> .m-modal .modal_dialog .modal_title{font-size:18px;line-height:1.42857;}

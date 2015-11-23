@@ -91,20 +91,10 @@ gulp.task('bower-clean', function() {
 gulp.task('bower-copy', function() {
     return all(
         gulp.src('./dist/**').pipe(gulp.dest('../regular-ui-bower')),
-        gulp.src('./src/js/**').pipe(gulp.dest('../regular-ui-bower/js-common')),
         gulp.src('./src/mcss/**').pipe(gulp.dest('../regular-ui-bower/mcss'))
     );
 });
 
-gulp.task('bower-js-amd', function() {
-    return all(
-        gulp.src('./src/js/**/*.html').pipe(gulp.dest('../regular-ui-bower/js-amd')),
-        gulp.src('./src/js/**/*.js')
-            .pipe(requireConvert())
-            .pipe(gulp.dest('../regular-ui-bower/js-amd'))
-    );
-});
-
 gulp.task('bower', function(done) {
-    sequence(['dist', 'bower-clean'], ['bower-copy', 'bower-js-amd'], done);
+    sequence(['dist', 'bower-clean'], ['bower-copy'], done);
 });

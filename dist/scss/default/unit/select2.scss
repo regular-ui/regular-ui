@@ -12,12 +12,13 @@
     width: 160px;
 
     .dropdown_hd {
-        height: $formctrl_height;
-        line-height: $formctrl_height - 2;
-        padding: 0 nth($formctrl_padding, 1 + 1);
-        background: $formctrl_background;
-        color: $formctrl_color;
-        @include border($formctrl_border);
+        height: $u-formctrl_height;
+        line-height: $u-formctrl_height - 2;
+        padding: 0 nth($u-formctrl_padding, 1 + 1);
+        background: $u-formctrl_background;
+        color: $u-formctrl_color;
+        @include border($u-formctrl_border);
+        @include border-radius($border-radius-base);
     }
 
     .dropdown_hd:hover {}
@@ -30,8 +31,8 @@
 /* Disabled */
 .u-select2.z-dis {
     .dropdown_hd {
-        background: $formctrl-disabled_background;
-        @include border($formctrl-disabled_border);
-        color: $formctrl-disabled_color;
+        background: $u-formctrl-disabled_background;
+        @include border($u-formctrl-disabled_border);
+        color: $u-formctrl-disabled_color;
     }
 }

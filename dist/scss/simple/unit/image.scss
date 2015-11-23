@@ -5,20 +5,13 @@
 
 @import "../../core/unit/image.scss";
 
-// Component:       `u-img`
-// ========================================================================
-
-.u-img {}
-
-
-
 // Border:
 // ========================================================================
 
 .u-img-border {
     padding: 4px;
-    @include border(#ddd);
-    background: #fff;
+    @include border($border-base);
+    background: white;
 }
 
 

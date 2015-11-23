@@ -19,11 +19,25 @@ if [ $char != "y" ];then
 fi
 
 echo ""
-echo "Starting to deploy and publish..."
+echo "Starting to pack and deploy..."
 echo ""
 
 gulp bower
 gulp page
+
+echo ""
+echo "Now please check distribution and pages."
+echo "--------------------------------"
+echo "Are you sure to continue? (y/n)"
+read char
+if [ $char != "y" ];then
+    exit 0
+fi
+
+echo ""
+echo "Starting to deploy and publish..."
+echo ""
+
 ./bin/version $version
 git add -A .
 git commit -m $version

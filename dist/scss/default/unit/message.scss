@@ -5,36 +5,32 @@
 
 @import "../../core/unit/message.scss";
 
-// Variables:
-// ========================================================================
-
-$u-message_color: #777;
-
-
-
 // Component:       `u-message`
 // ========================================================================
 
 .u-message {
-    padding: 10px 15px;
-    background: #f4f4f4;
-    color: $u-message_color;
-    @include border(fade_out($u-message_color, 1 - 0.3));
+    padding: 15px;
+    background: $background-base;
+    color: #777;
+    @include border($border-base);
+    @include border-radius($border-radius-base);
 
     .message_close {
-        color: fade_out($u-message_color, 1 - 0.75);
-        &:hover {
-            color: $u-message_color;
-        }
+        color: black;
+        @include opacity(.2);
+    }
+
+    .message_close:hover {
+        @include opacity(.5);
     }
 }
 
 
 
-// Color Extends:       `u-message-info`, `u-message-success`, `u-message-warning`, `u-message-error`
+// Color Extends:
 // ========================================================================
 
-@include u-message-extend_color(info, #ebf7fd, #2d7091);
-@include u-message-extend_color(success, #f2fae3, #659f13);
-@include u-message-extend_color(warning, #fffceb, #e28327);
-@include u-message-extend_color(error, #fff1f0, #d85030);
+@include u-message-extend_color(info, $brand-info, white, $brand-info-darker);
+@include u-message-extend_color(success, $brand-success, white, $brand-success-darker);
+@include u-message-extend_color(warning, $brand-warning, white, $brand-warning-darker);
+@include u-message-extend_color(error, $brand-error, white, $brand-error-darker);

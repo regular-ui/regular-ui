@@ -8,7 +8,7 @@
 // Variables:
 // ========================================================================
 
-$u-check2_box_size: 13px;
+$u-check2_box_size: 18px;
 
 
 
@@ -19,12 +19,12 @@ $u-check2_box_size: 13px;
     .check2_box {
         @include size($u-check2_box_size);
         line-height: $u-check2_box_size - 1;
-        background: #fff;
+        background: white;
         color: $brand-primary;
-        @include border(#aaa);
+        @include border($u-formctrl_border);
 
         .u-icon {
-            font-size: 13px;
+            font-size: 16px;
         }
     }
 }
@@ -32,8 +32,7 @@ $u-check2_box_size: 13px;
 /* Disabled */
 .u-check2.z-dis {
     .check2_box {
-        background: #eee;
-        color: #999;
-        @include border(#999);
+        color: $u-formctrl-disabled_background;
+        @include border($u-formctrl-disabled_background);
     }
 }

@@ -10,15 +10,16 @@
 
 .m-form {
     legend {
-        font-size: 16px;
-        border-bottom: 1px solid #ddd;
-        line-height: 30px;
+        font-size: $font-size-lg;
+        border-bottom: 1px solid $border-base;
+        line-height: $height-base;
         margin: 15px 0;
         color: #777;
     }
 
     > .u-formitem, fieldset > .u-formitem {
         @extend .u-formitem-block;
+        min-height: $height-base;
         margin-bottom: 1em;
     }
 }

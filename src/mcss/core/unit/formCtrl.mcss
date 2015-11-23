@@ -101,7 +101,7 @@ $u-formctrl-extend_width = ($name, $width) {
 // Color Extends:
 // ========================================================================
 
-$u-formctrl-extend_color = ($name, $background = null, $color, $border_) {
+$u-formctrl-extend_color = ($name, $background, $color, $border_) {
     .u-input.u-input-#{$name},
     .u-select.u-select-#{$name},
     .u-textarea.u-textarea-#{$name} {

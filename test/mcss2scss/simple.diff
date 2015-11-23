@@ -1,8 +1,12 @@
 0a1,2
 > @charset "UTF-8";
 > @import url("../base/font-awesome.css");
-161d162
+167d168
 < @import url("../base/font-awesome.css");
+213c214
+< .u-message .message_close{color:#000000;filter:alpha(opacity=20);opacity:.2;}
+---
+> .u-message .message_close{color:black;filter:alpha(opacity=20);opacity:.2;}
 402,407d402
 < @-webkit-keyframes u-progress-striped{0%{background-position:0 0;}
 < 100%{background-position:30px 0;}}

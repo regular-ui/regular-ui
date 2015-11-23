@@ -5,27 +5,22 @@
 
 @import "../../core/unit/text.scss";
 
-// Variables:
-// ========================================================================
-
-.u-text {}
-
-
-
 // Size Extends:
 // ========================================================================
 
+@include u-text-extend_size(xs, 10px, 12px);
 @include u-text-extend_size(sm, 12px, 16px);
-@include u-text-extend_size(lg, 18px, 24px);
+@include u-text-extend_size(lg, 20px, 24px);
+@include u-text-extend_size(xl, 24px, 32px);
 
 
 
 // Color Extends:
 // ========================================================================
 
-@include u-text-extend_color(primary, #2d7091);
-@include u-text-extend_color(success, #659f13);
-@include u-text-extend_color(warning, #e28327);
-@include u-text-extend_color(error, #d85030);
+@include u-text-extend_color(primary, $brand-primary);
+@include u-text-extend_color(success, $brand-success);
+@include u-text-extend_color(warning, $brand-warning);
+@include u-text-extend_color(error, $brand-error);
 @include u-text-extend_color(inverse, #fff);
 @include u-text-extend_color(muted, #999);

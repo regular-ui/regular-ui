@@ -1,12 +1,11 @@
-// Name:            ButtonGroup
-// Description:     按钮组
+// Name:            Textarea2
+// Description:     多行输入扩展
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-@import "../../core/unit/buttonGroup.scss";
 
-// Extends:
+
+// Component:       `u-textarea2`
 // ========================================================================
 
-@include u-btngroup-horizontal(1px);
-@include u-btngroup-vertical(1px);
+.u-textarea2 {}

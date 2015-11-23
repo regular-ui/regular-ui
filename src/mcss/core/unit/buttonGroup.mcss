@@ -56,7 +56,7 @@ $u-btngroup-horizontal = ($border-width = null) {
 // Extends:         `u-btn-vertical`
 // ========================================================================
 
-$u-btngroup-vertical = ($border-width) {
+$u-btngroup-vertical = ($border-width = null) {
     .u-btngroup-vertical {
         @if ($border-width) {
             > .u-btn + .u-btn {

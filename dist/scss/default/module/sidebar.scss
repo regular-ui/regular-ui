@@ -17,11 +17,11 @@
     }
 
     > li:hover > a {
-        background: #e8e8e8;
+        background: $brand-default-dark;
     }
     
     > li.z-crt > a {
-        background: #f0f0f0;
+        background: $background-base;
     }
     
     > li.sidebar_group {
@@ -31,6 +31,6 @@
 
     > li.sidebar_divider {
         margin: 8px 0;
-        border-top: 1px solid #e5e5e5;
+        border-top: 1px solid $brand-default-dark;
     }
 }

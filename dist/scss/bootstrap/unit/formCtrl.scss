@@ -15,65 +15,65 @@
 .u-select,
 .u-textarea {
     &::-webkit-input-placeholder {
-        color: $formctrl_placeholder_color;
+        color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
         opacity: 1;
     } &::-moz-placeholder {
-        color: $formctrl_placeholder_color;
+        color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
         opacity: 1;
     } &:-moz-placeholder {
-        color: $formctrl_placeholder_color;
+        color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
         opacity: 1;
     } &:-ms-placeholder {
-        color: $formctrl_placeholder_color;
+        color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
         opacity: 1;
     }
 
     // - Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports.
     // max-width: 100%;
-    padding: $formctrl_padding;
-    @include border($formctrl_border);
-    color: $formctrl_color;
-    background: $formctrl_background;
+    padding: $u-formctrl_padding;
+    @include border($u-formctrl_border);
+    color: $u-formctrl_color;
+    background: $u-formctrl_background;
     // - Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
     @include border-radius($border-radius-base);
     @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
     @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
 
     &:focus {
-        background: $formctrl-focus_background;
-        color: $formctrl-focus_color;
-        border-color: $formctrl-focus_border;
-        @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px fade_out($formctrl-focus_border, 1 - .6));
+        background: $u-formctrl-focus_background;
+        color: $u-formctrl-focus_color;
+        border-color: $u-formctrl-focus_border;
+        @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px fade_out($u-formctrl-focus_border, 1 - .6));
     }
 
     &:disabled {
-        @include border($formctrl-disabled_border);
-        background: $formctrl-disabled_background;
-        color: $formctrl-disabled_color;
+        @include border($u-formctrl-disabled_border);
+        background: $u-formctrl-disabled_background;
+        color: $u-formctrl-disabled_color;
 
         // &::-webkit-input-placeholder {
-        //     color:$formctrl-disabled_color;
+        //     color:$u-formctrl-disabled_color;
         // } &::-moz-placeholder {
-        //     color:$formctrl-disabled_color;
+        //     color:$u-formctrl-disabled_color;
         // } &:-moz-placeholder {
-        //     color:$formctrl-disabled_color;
+        //     color:$u-formctrl-disabled_color;
         // } &:-ms-placeholder {
-        //     color:$formctrl-disabled_color;
+        //     color:$u-formctrl-disabled_color;
         // }
     }
 }
 
 .u-input {
-    height: $formctrl_height;
+    height: $u-formctrl_height;
 }
 
 .u-select {
-    height: $formctrl_height;
-    min-width: $formctrl_min-width;
+    height: $u-formctrl_height;
+    min-width: $u-formctrl_min-width;
 }
 
 .u-textarea {
@@ -86,20 +86,20 @@
 // Size Extends:
 // ========================================================================
 
-@include formctrl-extend_size(sm, $formctrl-sm_padding, $formctrl-sm_height, $formctrl-sm_font-size, $border-radius-sm);
-@include formctrl-extend_size(lg, $formctrl-lg_padding, $formctrl-lg_height, $formctrl-lg_font-size, $border-radius-lg);
+@include u-formctrl-extend_size(sm, $u-formctrl-sm_padding, $u-formctrl-sm_height, $u-formctrl-sm_font-size, $border-radius-sm);
+@include u-formctrl-extend_size(lg, $u-formctrl-lg_padding, $u-formctrl-lg_height, $u-formctrl-lg_font-size, $border-radius-lg);
 
-@include formctrl-extend_width(xs, 40px);
-@include formctrl-extend_width(sm, 100px);
-@include formctrl-extend_width(lg, 200px);
-@include formctrl-extend_width(xl, 500px);
+@include u-formctrl-extend_width(xs, 40px);
+@include u-formctrl-extend_width(sm, 100px);
+@include u-formctrl-extend_width(lg, 200px);
+@include u-formctrl-extend_width(xl, 500px);
 
 
 
 // Color Extends:
 // ========================================================================
 
-@mixin formctrl-extend_color($name, $background, $color, $border_) {
+@mixin u-formctrl-extend_color($name, $background, $color, $border_) {
 
 .u-input.u-input-#{$name},
 .u-select.u-select-#{$name},
@@ -117,9 +117,9 @@
 
 }
 
-@include formctrl-extend_color(success, $state-success_background, $state-success_color, $state-success_color);
-@include formctrl-extend_color(warning, $state-warning_background, $state-warning_color, $state-warning_color);
-@include formctrl-extend_color(error, $state-error_background, $state-error_color, $state-error_color);
+@include u-formctrl-extend_color(success, $state-success_background, $state-success_color, $state-success_color);
+@include u-formctrl-extend_color(warning, $state-warning_background, $state-warning_color, $state-warning_color);
+@include u-formctrl-extend_color(error, $state-error_background, $state-error_color, $state-error_color);
 
 
 

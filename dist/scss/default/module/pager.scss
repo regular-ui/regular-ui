@@ -8,7 +8,7 @@
 // Variables:
 // ========================================================================
 
-$m-pager_li_a_size: 22px;
+$m-pager_li_a_size: 32px;
 
 
 
@@ -16,38 +16,55 @@ $m-pager_li_a_size: 22px;
 // ========================================================================
 
 .m-pager {
+    font-size: 12px;
+
     > li {
-        > a {
-            padding: 0 5px;
-            min-width: $m-pager_li_a_size - 5px*2;
+        > a, > span {
+            padding: 0 12px;
+            min-width: $m-pager_li_a_size - 12px*2;
             @include line-height($m-pager_li_a_size);
-            background: #eee;
-            color: #444;
+            color: $color-base;
+        }
+
+        > a {
+            background: #fafafa;
+            @include border($border-base);
         }
 
         > a:hover, > a:focus {
-            background: #f5f5f5;
-            color: #444;
+            background: #eee;
+            color: $brand-primary;
         }
 
         > a:active {
-            background: #ddd;
-            color: #444;
+            background: $brand-primary;
+            color: white;
+            border-color: $brand-primary;
         }
     }
 
     >li.z-crt > a {
         background: $brand-primary;
         color: white;
+        border-color: $brand-primary;
     }
 
     >li.z-dis > a {
-        background: $formctrl-disabled_background;
-        color: $formctrl-disabled_color;
+        background: white;
+        color: $u-formctrl-disabled_color;
+        border-color: $border-base;
     }
 
     > li + li {
-        margin-left: 5px;
+        margin-left: -1px;
+    }
+
+    > li:first-child > a {
+        @include border-radius($border-radius-base 0 0 $border-radius-base);
+    }
+
+    > li:last-child > a {
+        @include border-radius(0 $border-radius-base $border-radius-base 0);
     }
 }
 
@@ -55,8 +72,9 @@ $m-pager_li_a_size: 22px;
 .m-pager.z-dis {
     > li {
         > a {
-            background: $formctrl-disabled_background;
-            color: $formctrl-disabled_color;
+            background: white;
+            color: $u-formctrl-disabled_color;
+            border-color: $border-base;
         }
     }
 }

@@ -22,9 +22,7 @@
 // ========================================================================
 
 @mixin u-color-extend_color($name, $background) {
-
-.u-color-#{$name} {
-    background: $background;
-}
-
+    .u-color-#{$name} {
+        background: $background;
+    }
 }

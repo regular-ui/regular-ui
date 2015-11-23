@@ -5,5 +5,8 @@
 
 @import "../../core/unit/buttonGroup.scss";
 
-// Component:       `u-btngroup`
+// Extends:
 // ========================================================================
+
+@include u-btngroup-horizontal($border-width-base);
+@include u-btngroup-vertical($border-width-base);

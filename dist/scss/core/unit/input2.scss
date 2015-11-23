@@ -12,8 +12,7 @@
     position: relative;
 
     .input2_unit {
-        position: absolute;
-        top: - $formctrl_border-width-base;
-        right: nth($formctrl_padding, 1 + 1) + $formctrl_border-width-base;
+        position: relative;
+        right: 40px;
     }
 }

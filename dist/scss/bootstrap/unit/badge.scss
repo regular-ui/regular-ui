@@ -9,18 +9,12 @@
 // ========================================================================
 
 .u-badge {
-    padding: 3px 7px;
-    min-width: 10px;
+    padding: .2em .6em .3em;
+    font-size: 75%;
     line-height: 1;
-    font-size: $font-size-sm;
-    background: $gray-light;    
+    background: #aaa;
     color: white;
-    @include border-radius(10px);
-}
-
-/* Hover */
-a.u-badge:hover {
-    color: white;
+    @include border-radius(.25em);
 }
 
 
@@ -28,6 +22,7 @@ a.u-badge:hover {
 // Color Extends:
 // ========================================================================
 
+@include u-badge-extend_color(primary, $brand-primary);
 @include u-badge-extend_color(info, $brand-info);
 @include u-badge-extend_color(success, $brand-success);
 @include u-badge-extend_color(warning, $brand-warning);

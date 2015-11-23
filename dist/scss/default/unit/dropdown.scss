@@ -10,11 +10,11 @@
 
 .u-dropdown {
     .dropdown_bd {
-        min-width: $formctrl_min-width;
-        // margin-top: -1px;
+        min-width: $u-formctrl_min-width;
+        margin-top: 2px;
 
         li.dropdown_divider {
-            margin: 6px 0;
+            margin: 9px 0;
             padding: 0;
             height: 1px;
             background: #e5e5e5;

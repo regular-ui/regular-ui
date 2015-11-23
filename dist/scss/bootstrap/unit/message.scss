@@ -5,51 +5,30 @@
 
 @import "../../core/unit/message.scss";
 
-// Variables:
-// ========================================================================
-
-$u-message_color: #333;
-
-
-
 // Component:       `u-message`
 // ========================================================================
 
 .u-message {
     padding: 15px;
-    background: #f5f5f5;
-    color: $u-message_color;
+    background: $background-base;
+    color: $color-base;
+    @include border($border-base);
     @include border-radius($border-radius-base);
-    @include border(#ddd);
 
     .message_close {
-        color: fade_out($u-message_color, 1 - 0.75);
-        &:hover {
-            color: $u-message_color;
-        }
+        color: black;
+        @include opacity(.2);
+    }
+
+    .message_close:hover {
+        @include opacity(.5);
     }
 }
 
 
 
-// Color Extends:       `u-message-info`, `u-message-success`, `u-message-warning`, `u-message-error`
+// Color Extends:
 // ========================================================================
-
-@mixin u-message-extend_color($name, $background, $color: null, $border_: null) {
-    .u-message-#{$name} {
-        background: $background;
-        @if($color) {
-            color: $color;
-            .message_close {
-                color: fade_out($color, 1 - 0.75);
-                &:hover {
-                    color: $color;
-                }
-            }
-        }
-        @if($border_) {@include border($border_);}
-    }
-}
 
 @include u-message-extend_color(info, $state-info_background, $state-info_color, $state-info_border);
 @include u-message-extend_color(success, $state-success_background, $state-success_color, $state-success_border);

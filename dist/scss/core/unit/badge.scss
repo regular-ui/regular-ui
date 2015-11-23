@@ -9,7 +9,7 @@
 // ========================================================================
 
 .u-badge {
-    display: inline-block;
+    display: inline;
     font-weight: bold;
     text-align: center;
 }
@@ -24,11 +24,9 @@ a.u-badge {
 // ========================================================================
 
 @mixin u-badge-extend_color($name, $background) {
-
-.u-badge-#{$name} {
-    background: $background;
-}
-
+    .u-badge-#{$name} {
+        background: $background;
+    }
 }
 
 

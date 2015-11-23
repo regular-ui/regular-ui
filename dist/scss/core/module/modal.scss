@@ -28,26 +28,48 @@
     // transition: opacity 0.15s linear;
     // ? Deactivate browser history navigation in IE11
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
+    text-align: center;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
 
     .modal_dialog {
-        .modal_hd {
-            .modal_title {
-                margin: 0;
-            }
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
 
-            .modal_close {
-                float: right;
-                margin: -6px -4px 0 0;
+    .modal_hd {}
 
-                &:hover {}
-            }
-        }
+    .modal_title {
+        margin: 0;
+    }
 
-        .modal_bd {}
+    .modal_close {
+        float: right;
+        margin: -6px -4px 0 0;
 
-        .modal_ft {
-            .u-btn {}
-        }
+        &:hover {}
+    }
+
+    .modal_hd.z-draggable {
+        cursor: move;
+    }
+
+    // .modal_hd.z-dragging {
+    //     cursor: move;
+    //     cursor: -webkit-grabbing;
+    // }
+
+    .modal_bd {}
+
+    .modal_ft {
+        .u-btn {}
     }
 
     // - Phone landscape and smaller

@@ -31,18 +31,10 @@
 // Description:     颜色扩展
 // ========================================================================
 
-@mixin u-message-extend_color($name, $background, $color: null) {
+@mixin u-message-extend_color($name, $background, $color: null, $border_: null) {
     .u-message-#{$name} {
         background: $background;
-        @if($color) {
-            color: $color;
-            .message_close {
-                color: fade_out($color, 1 - 0.75);
-                &:hover {
-                    color: $color;
-                }
-            }
-        }
-        @include border(fade_out($color, 1 - 0.3));
+        @if($color) {color: $color;}
+        @if($border_) {@include border($border_);}
     }
 }

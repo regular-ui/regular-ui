@@ -22,34 +22,20 @@ $u-message_color: white;
     @include border-radius($border-radius-base);
 
     .message_close {
-        color: fade_out($u-message_color, 1 - 0.75);
-        &:hover {
-            color: $u-message_color;
-        }
+        color: inherit;
+    }
+
+    .message_close:hover {
+        @include opacity(.9);
     }
 }
 
 
 
-// Color Extends:       `u-message-info`, `u-message-success`, `u-message-warning`, `u-message-error`
+// Color Extends:
 // ========================================================================
 
-@mixin u-message-extend_color($name, $background, $color: null) {
-    .u-message-#{$name} {
-        background: $background;
-        @if($color) {
-            color: $color;
-            .message_close {
-                color: fade_out($color, 1 - 0.75);
-                &:hover {
-                    color: $color;
-                }
-            }
-        }
-    }
-}
-
-@include u-message-extend_color(info, $brand-secondary);
-@include u-message-extend_color(success, $brand-success);
-@include u-message-extend_color(warning, $brand-warning);
-@include u-message-extend_color(error, $brand-error);
+@include u-message-extend_color(info, $brand-secondary, white);
+@include u-message-extend_color(success, $brand-success, white);
+@include u-message-extend_color(warning, $brand-warning, white);
+@include u-message-extend_color(error, $brand-error, white);

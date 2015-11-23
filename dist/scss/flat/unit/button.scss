@@ -13,7 +13,7 @@
 .u-btn {
     padding: 0 15px;
     @include line-height(30px);
-    background: $gray;
+    background: $gray-light;
     color: $inverse;
     @include border-radius($border-radius-base);
     -webkit-font-smoothing: subpixel-antialiased;
@@ -23,14 +23,14 @@
 /* Hover */
 .u-btn:hover,
 .u-btn:focus {
-    background: mix($gray, white, 80%);
+    background: mix($gray-light, white, 80%);
     color: $inverse;
 }
 
 /* Active */
 .u-btn:active,
 .u-btn.z-act {
-    background: mix($gray, black, 85%);
+    background: mix($gray-light, black, 85%);
     color: fade_out($inverse, 1 - 0.75);
 }
 
@@ -40,9 +40,9 @@
 // ========================================================================
 
 @include u-btn-extend_size(xs, 6px, 18px, 12px, $border-radius-xs);
-@include u-btn-extend_size(sm, 9px, 25px, 13px, $border-radius-sm);
-@include u-btn-extend_size(lg, 19px, 45px, 17px, $border-radius-lg);
-@include u-btn-extend_size(xl, 20px, 53px, 22px, $border-radius-xl);
+@include u-btn-extend_size(sm, 8px, 25px, 14px, $border-radius-sm);
+@include u-btn-extend_size(lg, 18px, 40px, 16px, $border-radius-lg);
+@include u-btn-extend_size(xl, 22px, 54px, 22px, $border-radius-xl);
 
 
 
@@ -50,23 +50,21 @@
 // ========================================================================
 
 @mixin u-btn-extend_color($name, $background) {
+    .u-btn-#{$name} {
+        background: $background;
+    }
 
-.u-btn-#{$name} {
-    background: $background;
-}
+    /* Hover */
+    .u-btn-#{$name}:hover,
+    .u-btn-#{$name}:focus {
+        background: mix($background, white, 80%);
+    }
 
-/* Hover */
-.u-btn-#{$name}:hover,
-.u-btn-#{$name}:focus {
-    background: mix($background, white, 80%);
-}
-
-/* Active */
-.u-btn-#{$name}:active,
-.u-btn-#{$name}.z-act {
-    background: mix($background, black, 85%);
-}
-
+    /* Active */
+    .u-btn-#{$name}:active,
+    .u-btn-#{$name}.z-act {
+        background: mix($background, black, 85%);
+    }
 }
 
 @include u-btn-extend_color(primary, $brand-secondary);

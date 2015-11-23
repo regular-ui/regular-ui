@@ -8,8 +8,8 @@
 // Variables
 // ========================================================================
 
-$u-radio2_box_size: 12px;
-$u-radio2_u-icon_font-size: 8px;
+$u-radio2_box_size: 18px;
+$u-radio2_u-icon_font-size: 6px;
 
 
 
@@ -22,7 +22,7 @@ $u-radio2_u-icon_font-size: 8px;
         line-height: $u-radio2_box_size;
         background: white;
         color: $brand-primary;
-        @include border(#aaa);
+        @include border($u-formctrl_border);
         border-radius: $u-radio2_box_size;
 
         .u-icon {
@@ -39,8 +39,7 @@ $u-radio2_u-icon_font-size: 8px;
 /* Disabled */
 .u-radio2.z-dis {
     .radio2_box {
-        background: #eee;
-        color: #999;
-        @include border(#999);
+        color: $u-formctrl-disabled_background;
+        @include border($u-formctrl-disabled_background);
     }
 }

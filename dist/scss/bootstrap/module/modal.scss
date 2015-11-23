@@ -18,7 +18,6 @@ $m-modal_dialog_border: rgba(0, 0, 0, .2);
     background: fade_out(black, 1 - 0.6);
 
     .modal_dialog {
-        margin: 10% auto;
         width: 600px;
         background: white;
         @include border($m-modal_dialog_border); // #999
@@ -35,20 +34,20 @@ $m-modal_dialog_border: rgba(0, 0, 0, .2);
         .modal_hd {
             padding: 15px;
             border-bottom: 1px solid $m-modal_dialog_border;
+        }
 
-            .modal_title {
-                font-size: 18px;
-                line-height: $line-height-base;
-            }
+        .modal_title {
+            font-size: 18px;
+            line-height: $line-height-base;
+        }
 
-            .modal_close {
-                margin: -2px 0px 0 0;
-                font-size: 16px;
-                color: #bbb;
+        .modal_close {
+            margin: -2px 0px 0 0;
+            font-size: 16px;
+            color: #bbb;
 
-                &:hover {
-                    color: #888;
-                }
+            &:hover {
+                color: #888;
             }
         }
 

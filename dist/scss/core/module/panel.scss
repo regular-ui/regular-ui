@@ -22,15 +22,13 @@
 // ========================================================================
 
 @mixin m-panel-extend_color($name, $background, $color: null, $border_: null) {
-
-.m-panel-#{$name} {
-    @if($border_) {border-color: $border_;}
-
-    .panel_hd {
-        background: $background;
-        @if($color) {color: $color;}
+    .m-panel-#{$name} {
         @if($border_) {border-color: $border_;}
-    }
-}
 
+        .panel_hd {
+            background: $background;
+            @if($color) {color: $color;}
+            @if($border_) {border-color: $border_;}
+        }
+    }
 }

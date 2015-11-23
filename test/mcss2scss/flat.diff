@@ -5,9 +5,19 @@
 < pre{padding:8.333333px;font-size:13px;background:#f7f8f9;color:inherit;border:2px solid #e7e9ec;-moz-border-radius:6px;border-radius:6px;}
 ---
 > pre{padding:8.33333px;font-size:13px;background:#f7f8f9;color:inherit;border:2px solid #e7e9ec;-moz-border-radius:6px;border-radius:6px;}
-262d263
+264d265
 < @import url("../base/font-awesome.css");
-541,546d541
+338,341c339,342
+< .u-input::-webkit-input-placeholder,.u-select::-webkit-input-placeholder,.u-textarea::-webkit-input-placeholder{color:#b2bcc5;opacity:1;}
+< .u-input::-moz-placeholder,.u-select::-moz-placeholder,.u-textarea::-moz-placeholder{color:#b2bcc5;opacity:1;}
+< .u-input:-moz-placeholder,.u-select:-moz-placeholder,.u-textarea:-moz-placeholder{color:#b2bcc5;opacity:1;}
+< .u-input:-ms-placeholder,.u-select:-ms-placeholder,.u-textarea:-ms-placeholder{color:#b2bcc5;opacity:1;}
+---
+> .u-input::-webkit-input-placeholder,.u-select::-webkit-input-placeholder,.u-textarea::-webkit-input-placeholder{color:black;opacity:1;}
+> .u-input::-moz-placeholder,.u-select::-moz-placeholder,.u-textarea::-moz-placeholder{color:black;opacity:1;}
+> .u-input:-moz-placeholder,.u-select:-moz-placeholder,.u-textarea:-moz-placeholder{color:black;opacity:1;}
+> .u-input:-ms-placeholder,.u-select:-ms-placeholder,.u-textarea:-ms-placeholder{color:black;opacity:1;}
+545,550d545
 < @-webkit-keyframes u-progress-striped{0%{background-position:0 0;}
 < 100%{background-position:30px 0;}}
 < @-moz-keyframes u-progress-striped{0%{background-position:0 0;}

@@ -49,8 +49,8 @@ $m-pager_li_a_size: 32px;
     }
 
     >li.z-dis > a {
-        background: $formctrl-disabled_background;
-        color: $formctrl-disabled_color;
+        background: $u-formctrl-disabled_background;
+        color: $u-formctrl-disabled_color;
         border-color: #ddd;
     }
 
@@ -71,8 +71,8 @@ $m-pager_li_a_size: 32px;
 .m-pager.z-dis {
     > li {
         > a {
-            background: $formctrl-disabled_background;
-            color: $formctrl-disabled_color;
+            background: $u-formctrl-disabled_background;
+            color: $u-formctrl-disabled_color;
             border-color: #ddd;
         }
     }
