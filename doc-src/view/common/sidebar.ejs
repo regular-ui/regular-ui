@@ -8,10 +8,8 @@
         <li class="sidebar_group"><span><%= item.group %></span></li>
         <% } %>
         <li<% if(sidenav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.cnName %><small> <%= item.name %></small>
-        <% if(item.completed === true) { %>
-            <i class="u-icon u-icon-success-circle" title="功能和主题基本实现，文档比较完善"></i>
-        <% } else if(item.completed === false) { %>
-            <i class="u-icon u-icon-info-circle" title="功能部分实现，文档有待完善"></i>
+        <% if(false) { %>
+            <small><span class="u-badge u-badge-primary">BETA</span></small>
         <% } %>
         </a></li>
         <% }); %>

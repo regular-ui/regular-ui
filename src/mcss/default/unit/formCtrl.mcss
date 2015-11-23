@@ -20,6 +20,7 @@
     $border: $u-formctrl_border;
     color: $u-formctrl_color;
     background: $u-formctrl_background;
+    $border-radius: $border-radius-base;
     
     // -webkit-transition: all linear 0.2s;
     // transition: all linear 0.2s;

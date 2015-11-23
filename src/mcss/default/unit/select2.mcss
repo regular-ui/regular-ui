@@ -18,6 +18,7 @@
         background: $u-formctrl_background;
         color: $u-formctrl_color;
         $border: $u-formctrl_border;
+        $border-radius: $border-radius-base;
     }
 
     .dropdown_hd:hover {}

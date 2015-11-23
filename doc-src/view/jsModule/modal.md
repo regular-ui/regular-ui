@@ -59,15 +59,17 @@ var component = new RGUI.Component({
 });
 ```
 
+
+<!--
 #### 拖动
 
-<div class="m-example"></div>
+<!!div class="m-example"></div>
 
-```xml
+!!```xml
 <button class="u-btn u-btn-primary" on-click={this.showModal()}>Draggable</button>
 ```
 
-```javascript
+!!```javascript
 var component = new RGUI.Component({
     template: template,
     showModal: function() {
@@ -81,3 +83,4 @@ var component = new RGUI.Component({
     }
 });
 ```
+-->

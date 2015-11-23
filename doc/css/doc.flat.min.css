@@ -3728,7 +3728,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	-webkit-font-smoothing:antialiased;
 }
 .m-header h1{
-	font:48px "Roboto",sans-serif;
+	font:48px "Roboto","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 	margin:0;
 	margin-top:40px;
 	margin-left:20px;
@@ -3739,7 +3739,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	font-size:16px;
 }
 .m-header h2{
-	font:18px Helvetica,Arial,sans-serif;
+	font:18px Helvetica,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 }
 .m-footer{
 	padding:40px 0 80px;
@@ -5056,6 +5056,7 @@ html.z-modal,html.z-modal body{
 	padding:0 8px;
 	height:30px;
 	line-height:30px;
+	color:rgba(255,255,255,0.75);
 	border:none;
 	-moz-border-radius:0;
 	border-radius:0;

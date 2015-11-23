@@ -2945,6 +2945,8 @@ input.u-check:disabled,input.u-radio:disabled{
 	border:1px solid #d2d6de;
 	color:#555;
 	background:#fff;
+	-moz-border-radius:3px;
+	border-radius:3px;
 }
 .u-input::-webkit-input-placeholder,.u-select::-webkit-input-placeholder,.u-textarea::-webkit-input-placeholder{
 	color:#bbb;
@@ -3279,7 +3281,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	-webkit-font-smoothing:antialiased;
 }
 .m-header h1{
-	font:48px "Roboto",sans-serif;
+	font:48px "Roboto","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 	margin:0;
 	margin-top:40px;
 	margin-left:20px;
@@ -3290,7 +3292,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	font-size:16px;
 }
 .m-header h2{
-	font:18px Helvetica,Arial,sans-serif;
+	font:18px Helvetica,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 }
 .m-header{
 	background:#3c8dbc;
@@ -3552,6 +3554,8 @@ input.u-check:disabled,input.u-radio:disabled{
 	background:#fff;
 	color:#555;
 	border:1px solid #d2d6de;
+	-moz-border-radius:3px;
+	border-radius:3px;
 }
 .u-select2 .m-listview,.u-select2 .m-treeview{
 	max-height:200px;
@@ -4549,6 +4553,7 @@ html.z-modal,html.z-modal body{
 	padding:0 8px;
 	height:30px;
 	line-height:30px;
+	color:rgba(255,255,255,0.75);
 	border:none;
 	-moz-border-radius:0;
 	border-radius:0;

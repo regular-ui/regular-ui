@@ -21,7 +21,6 @@ var Draggable = require('regular-ui-dragdrop').Draggable;
  * @param {string=''}               options.data.content             => 对话框内容
  * @param {string|boolean=true}     options.data.okButton            => 是否显示确定按钮。值为`string`时显示该段文字。
  * @param {string|boolean=false}    options.data.cancelButton        => 是否显示取消按钮。值为`string`时显示该段文字。
- * @param {boolean=false}           options.data.draggable           => 是否可以拖拽对话框
  * @param {string=''}               options.data.class               => 补充class
  */
 var Modal = Component.extend({

@@ -16,7 +16,7 @@
     -webkit-font-smoothing: antialiased;
 
     h1 {
-        font: 48px "Roboto", sans-serif;
+        font: 48px "Roboto", $font-family-sans-serif;
         margin: 0;
         margin-top: 40px;
         margin-left: 20px;
@@ -29,6 +29,6 @@
     }
 
     h2 {
-        font: 18px Helvetica, Arial, sans-serif;
+        font: 18px Helvetica, $font-family-sans-serif;
     }
 }
