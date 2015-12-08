@@ -102,32 +102,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <h3 id="-">名词解释</h3>
 <ul>
-<li><p>继承自Regular的所有的类都叫 <strong>组件（Component）</strong> 。</p>
+<li><p>所有继承自Regular的类都叫 <strong>组件（Component）</strong> 。</p>
 </li>
 <li><p>Regular UI中的组件分为两类，<strong>元件（Unit）</strong> 和 <strong>模块（Module）</strong>。</p>
 </li>
 </ul>
-<h3 id="css-">CSS规范</h3>
-<p>Regular UI中所有组件的CSS样式都遵循<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>。</p>
-<h5 id="-">强调</h5>
-<ul>
-<li><p>HTML模板只用于表现组件的结构，因此不在模板标签中使用<code>f-</code>功能等样式，而用<code>@extend</code>方式在CSS中继承。</p>
-<p>如用：<code>&lt;div class=&quot;m-pager&quot;&gt;</code> + <code>.m-pager {@extend .f-wsn}</code>，而不用：<code>&lt;div class=&quot;m-pager f-wsn&quot;&gt;</code></p>
-</li>
-</ul>
-<h5 id="-">补充</h5>
-<ul>
-<li><p>为了防止组件内部类名的污染，并且为了好识别，使用<code>_</code>来做连字符。</p>
-<p>后代选择器的类名定义为组件名+<code>_</code>+后代选择器的含义。</p>
-<p>如用：<code>.m-tabs .tabs_hd</code>、<code>.m-calendar .calendar_hd</code>，而不用：<code>.m-tabs .hd</code>、<code>.m-calendar .hd</code></p>
-</li>
-<li><p>为了防止组件内部语义化标签的污染，使用<code>&gt;</code>来进行限制选择</p>
-<p>如用：<code>.m-list&gt;li</code>，而不用：<code>.m-list li</code></p>
-</li>
-</ul>
-<h3 id="js-">JS规范</h3>
-<p>Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。</p>
-<p>代码的注释遵循jsDoc的规范。</p>
 <h3 id="-">命名规范</h3>
 <table>
 <thead>
@@ -239,6 +218,103 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </tr>
 </tbody>
 </table>
+<h3 id="css-">CSS规范</h3>
+<p>Regular UI中所有组件的CSS样式都遵循<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>。</p>
+<h5 id="-">强调</h5>
+<ul>
+<li><p>HTML模板只用于表现组件的结构，因此不在模板标签中使用<code>f-</code>功能等样式，而用<code>@extend</code>方式在CSS中继承。</p>
+<p>如用：<code>&lt;div class=&quot;m-pager&quot;&gt;</code> + <code>.m-pager {@extend .f-wsn}</code>，而不用：<code>&lt;div class=&quot;m-pager f-wsn&quot;&gt;</code></p>
+</li>
+</ul>
+<h5 id="-">补充</h5>
+<ul>
+<li><p>为了防止组件内部类名的污染，并且为了好识别，使用<code>_</code>来做连字符。</p>
+<p>后代选择器的类名定义为组件名+<code>_</code>+后代选择器的含义。</p>
+<p>如用：<code>.m-tabs .tabs_hd</code>、<code>.m-calendar .calendar_hd</code>，而不用：<code>.m-tabs .hd</code>、<code>.m-calendar .hd</code></p>
+</li>
+<li><p>为了防止组件内部语义化标签的污染，使用<code>&gt;</code>来进行限制选择</p>
+<p>如用：<code>.m-list&gt;li</code>，而不用：<code>.m-list li</code></p>
+</li>
+</ul>
+<h3 id="js-">JS规范</h3>
+<p>Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。</p>
+<p>代码的注释遵循jsDoc的规范。</p>
+<h5 id="-">补充</h5>
+<ul>
+<li>组件中的私有方法开头加<code>_</code>，如：<code>_onItemChange($event)</code>、<code>_isCompleted()</code>。</li>
+</ul>
+<h3 id="regular-">Regular规范</h3>
+<h5 id="-">基本要点</h5>
+<ul>
+<li>每个组件必须在<code>config</code>中声明默认数据。</li>
+<li>使用<code>this.data</code>，放弃使用Regular中<code>config</code>或<code>init</code>中传入的<code>data</code>参数。</li>
+<li>数据操作放在config中处理，DOM操作放在<code>init</code>中处理，并且尽量不进行DOM操作。</li>
+</ul>
+<p>最佳实践：</p>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">Modal</span> <span class="cm-operator">=</span> <span class="cm-variable">Component</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;modal&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-comment">/* @protected */</span>
+    <span class="cm-property">config</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-variable">_</span>.<span class="cm-property">extend</span>(<span class="cm-keyword">this</span>.<span class="cm-property">data</span>, {
+            <span class="cm-property">title</span>: <span class="cm-string">&#39;提示&#39;</span>,
+            <span class="cm-property">content</span>: <span class="cm-string">&#39;&#39;</span>,
+            <span class="cm-property">okButton</span>: <span class="cm-atom">true</span>,
+            <span class="cm-property">cancelButton</span>: <span class="cm-atom">false</span>,
+            <span class="cm-property">draggable</span>: <span class="cm-atom">false</span>
+        });
+        <span class="cm-keyword">this</span>.<span class="cm-property">supr</span>();
+    },
+    <span class="cm-meta">...</span>
+    <span class="cm-comment">/* @public */</span>
+    <span class="cm-variable">ok</span>: <span class="cm-keyword">function</span>() {<span class="cm-meta">...</span>},
+    <span class="cm-comment">/* @private */</span>
+    <span class="cm-variable">_onDragStart</span>: <span class="cm-keyword">function</span>() {<span class="cm-meta">...</span>},
+    <span class="cm-meta">...</span>
+}
+</code></pre>
+<ul>
+<li><code>$update</code>仅在以下两种情况中使用：<ul>
+<li>组件内部异步回调函数中使用</li>
+<li>外部修改组件数据时使用</li>
+</ul>
+</li>
+<li>在满足功能的前提下，尽量不使用<code>$watch</code>。</li>
+<li>在不增加代码复杂度的前提下，尽量使用<code>filter</code>和<code>computed</code>。</li>
+<li><code>directive</code>仅用于简单的DOM操作，如：<code>r-autofocus</code>, <code>r-scroll</code>等，稍复杂的功能都使用组件来实现。</li>
+</ul>
+<h5 id="-">事件</h5>
+<ul>
+<li>事件命名使用全部小写，并且不加<code>on</code>，如：<code>dragend</code>, <code>itemselect</code>, <code>itemmouseup</code>, ...</li>
+<li>事件命名通常以<strong>对象</strong>+<strong>动作或状态</strong>的形式构成</li>
+<li>与事件对应的处理方法采用小驼峰，并且加<code>_on</code>，如：<code>_onDragEnd</code>, <code>_onItemSelect</code>, <code>_onItemMouseUp</code>, ...</li>
+<li>如果使用事件参数，事件参数必须为一个object对象</li>
+</ul>
+<pre class="lang-javascript"><code>{
+    <span class="cm-variable">source</span>: <span class="cm-keyword">this</span>,    <span class="cm-comment">// 触发事件的发起对象，通常为this</span>
+    <span class="cm-variable">origin</span>: <span class="cm-meta">...</span>,    <span class="cm-comment">// 触发事件的起始源，可选，如与drop事件相关的draggable</span>
+    <span class="cm-variable">target</span>: <span class="cm-variable">target</span>,    <span class="cm-comment">// 事件处理的目标对象</span>
+    <span class="cm-meta">...</span>    <span class="cm-comment">// 其他相关参数</span>
+}
+</code></pre>
+<h5 id="-">模板</h5>
+<ul>
+<li>模板尽量采用HTML5风格，除了<code>&lt; /&gt;</code><ul>
+<li>字符串加双引号</li>
+<li>bool属性不加<code>{true}</code>或<code>{false}</code></li>
+<li>数字属性不加双引号</li>
+<li>表达式用<code>{}</code>且不加双引号</li>
+</ul>
+</li>
+<li>每个组件都实现<code>class</code>扩展</li>
+</ul>
+<p>最佳实践：</p>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">progress</span> <span class="cm-attribute">percent</span>=<span class="cm-attribute">72</span> <span class="cm-attribute">state</span>=<span class="cm-string">&quot;error&quot;</span> <span class="cm-attribute">striped</span> <span class="cm-attribute">active</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pager</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-pager-custom&quot;</span> <span class="cm-attribute">current</span>=<span class="cm-attribute">6</span> <span class="cm-attribute">total</span>=<span class="cm-attribute">11</span> <span class="cm-attribute">on-nav</span>=<span class="cm-attribute">{this._onNav($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<!-- 不把所有的组件都封装成Regular组件 -->
+<hr>
+<p>参考：<a href="http://capasky.github.io/2015/08/09/regularjs-component-development-guide/">杨周智同学的文章</a></p>
 <h3 id="-">已使用的缩写</h3>
 <h5 id="-">组件名</h5>
 <ul>

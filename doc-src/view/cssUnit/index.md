@@ -1,4 +1,4 @@
-### CSS组件一览
+### CSS元件
 
 <p>
 <button class="u-btn">Default</button>

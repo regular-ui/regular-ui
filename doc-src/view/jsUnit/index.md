@@ -1,4 +1,4 @@
-### JS组件一览
+### JS元件
 
 <div class="m-example m-example-hidden"></div>
 

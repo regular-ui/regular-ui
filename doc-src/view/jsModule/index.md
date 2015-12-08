@@ -1,4 +1,4 @@
-### JS模块一览
+### JS模块
 
 <div class="m-example m-example-hidden"></div>
 
