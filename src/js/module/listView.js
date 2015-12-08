@@ -11,8 +11,8 @@ var SourceComponent = require('regular-ui-base/src/sourceComponent');
 var template = require('text!./listView.html');
 var _ = require('regular-ui-base/src/_');
 
-var Draggable = require('regular-ui-dragdrop').Draggable;
-var Droppable = require('regular-ui-dragdrop').Droppable;
+var Draggable = require('regular-ui-dragdrop/src/draggable');
+var Droppable = require('regular-ui-dragdrop/src/droppable');
 
 /**
  * @class ListView

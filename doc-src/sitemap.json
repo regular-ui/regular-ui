@@ -5,6 +5,7 @@
             "name": "Start",
             "lowerName": "start",
             "cnName": "开始使用",
+            "path": "start/quickstart.html",
             "children": [
                 {"name": "QuickStart", "lowerName": "quickStart", "cnName": "快速开始"},
                 {"name": "Developer", "lowerName": "developer", "cnName": "开发者"},
@@ -95,7 +96,7 @@
 
                 {"name": "Notify", "lowerName": "notify", "cnName": "通知", "group": "窗口类"},
                 {"name": "Modal", "lowerName": "modal", "cnName": "模态对话框", "group": "窗口类"},
-                {"name": "Window", "lowerName": "window", "cnName": "窗口", "group": "窗口类", "hidden": true},
+                {"name": "Window", "lowerName": "window", "cnName": "窗口", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "OffCanvas", "lowerName": "offCanvas", "cnName": "弹出式画布", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "SlideShow", "lowerName": "slideShow", "cnName": "幻灯片", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "Album", "lowerName": "album", "cnName": "相册", "group": "窗口类", "hidden": true, "new": true},
@@ -119,8 +120,8 @@
                 {"name": "VideoPlayer", "lowerName": "videoPlayer", "cnName": "视频播放器", "group": "播放器类", "hidden": true, "new": true},
 
                 {"name": "Validation", "lowerName": "validation", "cnName": "表单验证", "group": "其他", "beta": true},
-                {"name": "Draggable", "lowerName": "draggable", "cnName": "拖拽", "group": "其他", "hidden": true, "beta": true},
-                {"name": "Droppable", "lowerName": "droppable", "cnName": "放置", "group": "其他", "hidden": true, "beta": true}
+                {"name": "Draggable", "lowerName": "draggable", "cnName": "拖拽", "group": "其他", "beta": true},
+                {"name": "Droppable", "lowerName": "droppable", "cnName": "放置", "group": "其他", "beta": true}
             ]
         }
     ]

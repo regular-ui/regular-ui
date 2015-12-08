@@ -43,7 +43,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <ul class="m-navbar f-fr">
             
             
-            <li><a href="../start/index.html">开始使用</a></li>
+            <li><a href="../start/quickstart.html">开始使用</a></li>
             
             
             <li><a href="../cssunit/index.html">CSS元件</a></li>
@@ -157,6 +157,16 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
+        <li><a href="../jsmodule/draggable.html">拖拽<small> Draggable</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/droppable.html">放置<small> Droppable</small>
+        
+        </a></li>
+        
     </ul>
 </div><div class="g-mn">
     <article class="m-article">
@@ -207,30 +217,25 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
-<!--
-#### 拖动
+<h4 id="-">拖动</h4>
+<div class="m-example"></div>
 
-<!!div class="m-example"></div>
-
-!!```xml
-<button class="u-btn u-btn-primary" on-click={this.showModal()}>Draggable</button>
-```
-
-!!```javascript
-var component = new RGUI.Component({
-    template: template,
-    showModal: function() {
-        var modal = new RGUI.Modal({
-            data: {
-                title: 'Modal标题',
-                content: 'Modal内容',
-                draggable: true
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Draggable<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+        <span class="cm-keyword">var</span> <span class="cm-def">modal</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>({
+            <span class="cm-property">data</span>: {
+                <span class="cm-property">title</span>: <span class="cm-string">&#39;Modal标题&#39;</span>,
+                <span class="cm-property">content</span>: <span class="cm-string">&#39;Modal内容&#39;</span>,
+                <span class="cm-property">draggable</span>: <span class="cm-atom">true</span>
             }
         });
     }
 });
-```
--->
+</code></pre>
+
         <h3>API</h3>
 
 <h4>Class</h4>
@@ -590,6 +595,24 @@ var component = new RGUI.Component({
     template: template,
     showModal: function() {
         RGUI.Modal.confirm('Confirm内容');
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<button class="u-btn u-btn-primary" on-click={this.showModal()}>Draggable</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    showModal: function() {
+        var modal = new RGUI.Modal({
+            data: {
+                title: 'Modal标题',
+                content: 'Modal内容',
+                draggable: true
+            }
+        });
     }
 });
     component.$inject($$(".m-example")[index]);

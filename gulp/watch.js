@@ -42,22 +42,6 @@ gulp.task('doc-watch-jshint', function() {
         .pipe(jshint.reporter('default'));
 });
 
-// gulp.task('doc-watch-css', function() {
-//     var gulpCSS = function(theme) {
-//         // Should Merge
-//         return gulp.src('./doc-src/mcss/' + theme + '.mcss')
-//             .pipe(mcss({
-//                 pathes: ['./node_modules'],
-//                 importCSS: true
-//             }))
-//             .pipe(rename('doc.' + theme + '.min.css'))
-//             // .pipe(minifycss()) // watch的时候不压缩了
-//             .pipe(gulp.dest('./doc/css'));
-//     }
-    
-//     return structure.themes.map(gulpCSS).pop();
-// });
-
 // 分主题监听
 function doc_watch_css(event) {
     var themes = structure.themes.filter(function(theme) {

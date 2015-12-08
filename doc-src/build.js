@@ -67,7 +67,7 @@ function build(path, sitemap, template) {
 
     // 组织主导航数据
     sitemap.children.forEach(function(level1) {
-        level1.path = (level1.lowerName + '/index.html').toLowerCase();
+        level1.path = level1.path || (level1.lowerName + '/index.html').toLowerCase();
         data.mainnavs.push(level1);
     });
 
@@ -78,7 +78,7 @@ function build(path, sitemap, template) {
             data.sidenavs.forEach(function(item) {
                 if(item.lowerName === level[1])
                     data.current = item;
-                item.path = (level[0] + '/' + item.lowerName + '.html').toLowerCase();
+                item.path = item.path || (level[0] + '/' + item.lowerName + '.html').toLowerCase();
             });
             break;
         }

@@ -16,6 +16,7 @@
 
 .u-formitem-block {
     display: block;
+    $clearfix();
 
     .formitem_tt {
         display: block;

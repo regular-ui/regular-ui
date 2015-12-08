@@ -24,7 +24,7 @@ gulp.task('doc-clean', function() {
 });
 
 gulp.task('doc-copy', function() {
-    all(
+    return all(
         gulp.src('./doc-src/assets/**').pipe(gulp.dest('./doc')),
         gulp.src('./node_modules/font-awesome/fonts/**').pipe(gulp.dest('./doc/fonts')),
         gulp.src([

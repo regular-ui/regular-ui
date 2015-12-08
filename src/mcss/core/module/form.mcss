@@ -16,6 +16,7 @@
     }
 
     legend {
+        $box-sizing: border-box;
         // - Behave like block element
         width: 100%;
         // -  Remove padding

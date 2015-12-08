@@ -13,6 +13,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sequence = require('run-sequence');
+var all = require('gulp-all');
 var mcss = require('gulp_mcss');
 
 var structure = require('../structure.customized.js');

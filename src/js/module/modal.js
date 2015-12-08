@@ -11,7 +11,7 @@ var Component = require('regular-ui-base/src/component');
 var template = require('text!./modal.html');
 var _ = require('regular-ui-base/src/_');
 
-var Draggable = require('regular-ui-dragdrop').Draggable;
+var Draggable = require('regular-ui-dragdrop/src/draggable');
 
 /**
  * @class Modal
@@ -98,16 +98,11 @@ var Modal = Component.extend({
             this.ok();
     },
     _onDragStart: function($event) {
-        var dialog = this.$refs.modalDialog;
+        var dialog = $event.target;
         dialog.style.left = dialog.offsetLeft + 'px';
         dialog.style.top = dialog.offsetTop + 'px';
         dialog.style.zIndex = '1000';
         dialog.style.position = 'absolute';
-    },
-    _onDrag: function($event) {
-        var dialog = this.$refs.modalDialog;
-        dialog.style.left = dialog.offsetLeft + $event.movementX + 'px';
-        dialog.style.top = dialog.offsetTop + $event.movementY + 'px';
     }
 });
 

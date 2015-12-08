@@ -4,7 +4,7 @@
     <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
 </div>
 
-下载Regular UI并引入页面，有以下几种方式：
+下载Regular UI并在页面中引入，有以下几种方式：
 
 #### 直接在GitHub上下载最新发布
 
@@ -64,7 +64,7 @@ npm install regular-ui
 
 下面以在页面中添加日历组件（RGUI.Calendar）为例：
 
-#### 使用Regular模板添加组件
+#### 使用Regular模板创建组件
 
 创建一个HTML页面，添加如下代码：
 

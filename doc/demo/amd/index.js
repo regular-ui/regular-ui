@@ -1,8 +1,7 @@
 requirejs.config({
     baseUrl: '../../',
     paths: {
-        Regular: 'vendor/regular.min',
-        marked: 'vendor/marked.min'
+        Regular: 'vendor/regular.min'
     }
 });
 

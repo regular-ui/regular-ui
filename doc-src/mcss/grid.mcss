@@ -58,7 +58,7 @@
 
 .g-mn {
     margin-left: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 120px;
     width: 960px - 230px - 40px;
     float: right;
 }

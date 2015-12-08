@@ -59,12 +59,13 @@
 
     .modal_hd.z-draggable {
         cursor: move;
+        cursor: -webkit-grab;
     }
 
-    // .modal_hd.z-dragging {
-    //     cursor: move;
-    //     cursor: -webkit-grabbing;
-    // }
+    .z-dragging .modal_hd.z-draggable {
+        cursor: move;
+        cursor: -webkit-grabbing;
+    }
 
     .modal_bd {}
 

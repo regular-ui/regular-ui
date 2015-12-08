@@ -2,7 +2,7 @@
 
 本例中使用node+[webpack][WebPack]打包JS文件。
 
-首先安装WebPack CLI：
+首先确保安装了WebPack CLI：
 
 ```shell
 npm install webpack -g
@@ -14,7 +14,7 @@ npm install webpack -g
 npm install regular-ui
 ```
 
-#### 如果要一次性引入所有组件
+#### 一次性引入所有组件
 
 在`index.js`文件中添加：
 
@@ -32,7 +32,7 @@ webpack index.js bundle.js
 
 [Demo &gt;&gt;](../demo/common/index.html)
 
-#### 如果要单独引入某个组件
+#### 单独引入某个组件
 
 在`index.js`文件中添加：
 
@@ -43,10 +43,7 @@ new Calendar().$inject('#app');
 ```
 
 <div class="u-message u-message-warning">
-    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在打包时需要<code>require</code>有<code>text!</code>插件来引入模板。<br>
-    <ul>
-        <li>使用webpack打包时，先安装<code>npm install text-loader</code>。</li>
-    </ul>
+    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在打包时需要<code>require</code>有<code>text!</code>插件来引入模板。使用webpack打包时，先<code>npm install text-loader</code>即可。
 </div>
 
 然后打包：
@@ -73,8 +70,6 @@ webpack index.js bundle.js
 bower install regular-ui
 ```
 
-#### 如果要一次性引入所有组件
-
 <div class="u-message u-message-info">
     <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
 </div>
@@ -96,29 +91,55 @@ require(['js/regular-ui.min'], function(RGUI) {
 
 [Demo &gt;&gt;](../demo/amd/index.html)
 
-#### 如果要单独引入某个组件
+### 自定义打包组件
 
-```javascript
-requirejs.config({
-    baseUrl: 'bower_components/regular-ui/js-amd',
-    nodeIdCompat: true,
-    paths: {
-        Regular: 'vendor/regular.min',
-        text: '../../../text'
-    }
-});
+首先确保安装了gulp：
 
-require(['module/calendar'], function(Calendar) {
-    new Calendar().$inject('#app');
-});
+```shell
+npm install gulp -g
 ```
 
-<div class="u-message u-message-warning">
-    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：使用Require.js单独引入组件时，
-    <ul>
-        <li>需要开启<code>nodeIdCompat</code>。</li>
-        <li>需要<code>text!</code>插件来引入模板。</li>
-    </ul>
+然后在项目中安装Regular UI以及依赖包：
+
+```shell
+npm install regular-ui
+cd node_modules/regular-ui
+npm install
+```
+
+Regular UI目录下的`structure.js`是全部组件的配置。
+
+将`structure.js`复制为`structure.customized.js`：
+
+```shell
+cp structure.js structure.customized.js
+```
+
+然后打开后注释或者删除掉不需要的组件：
+
+```javascript
+    'Select2': {type: 'css+js', category: 'unit', lowerName: 'select2', requires: ['Dropdown']},
+    'Select2Group': {type: 'js', category: 'unit', lowerName: 'select2Group', requires: ['Select2']},
+    // 'TreeSelect': {type: 'js', category: 'unit', lowerName: 'treeSelect', requires: ['Select2', 'TreeView']},
+    'Suggest': {type: 'css+js', category: 'unit', lowerName: 'suggest', requires: ['Dropdown']},
+    // 'Uploader': {type: 'css+js', category: 'unit', lowerName: 'uploader'},
+```
+
+运行gulp命令：
+
+```shell
+gulp customize
+```
+
+最后在`./dist`目录中将会生成以下文件供使用：
+
+- `css/regular-ui.theme.customized.css`
+- `css/regular-ui.theme.customized.min.css`
+- `js/regular-ui.customized.js`
+- `js/regular-ui.customized.min.js`
+
+<div class="u-message u-message-info">
+    <i class="message_icon u-icon u-icon-info-circle"></i> TODO：后续会提供Web自定义打包服务。
 </div>
 
 
