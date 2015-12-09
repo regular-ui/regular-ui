@@ -6,7 +6,7 @@
 
 ### 命名规范
 
-| 组件名和类名       | 对象名             | 标签名               | CSS类名               |　JS文件名             |  CSS文件名              |
+| 组件名和类名       | 对象名             | 标签名               | CSS class            |　JS文件名             |  CSS文件名              |
 | ------------------ | ------------------ | -------------------- | --------------------- | --------------------- | ----------------------- |
 | 大驼峰             | 小驼峰             | 小驼峰               | 全小写                | 与标签名一致          | 与标签名一致            |
 | -                  | -                  | `<button>`            | `u-btn`                | -                     | `btn.mcss`               |
@@ -25,23 +25,35 @@
 
 Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com/standard/css-sort.html)。
 
-##### 强调
-
-- HTML模板只用于表现组件的结构，因此不在模板标签中使用`f-`功能等样式，而用`@extend`方式在CSS中继承。
-
-  如用：`<div class="m-pager">` + `.m-pager {@extend .f-wsn}`，而不用：`<div class="m-pager f-wsn">`
-
 ##### 补充
 
-- 为了防止组件内部类名的污染，并且为了好识别，使用`_`来做连字符。
-
-  后代选择器的类名定义为组件名+`_`+后代选择器的含义。
-
-  如用：`.m-tabs .tabs_hd`、`.m-calendar .calendar_hd`，而不用：`.m-tabs .hd`、`.m-calendar .hd`
-
-- 为了防止组件内部语义化标签的污染，使用`>`来进行限制选择
-
+- 为了防止组件内部class选择器的污染，并且为了好识别，使用`_`来做连字符。  
+  后代选择器的class定义为组件名+`_`+后代选择器的含义。  
+  如用：`.m-tabs .tabs_hd`, `.m-calendar .calendar_hd`，而不用：`.m-tabs .hd`, `.m-calendar .hd`
+- 为了防止组件内部语义化标签选择器的污染，使用`>`来进行限制选择。  
   如用：`.m-list>li`，而不用：`.m-list li`
+- 对于简单的HTML结构尽量使用标签选择器而不使用class选择器。  
+  如用：`.m-list>li`, `.m-crumb>li>a`，而不用：`.m-list .list_item`, `.m-crumb .crumb_a`
+
+### MCSS/SCSS规范
+
+##### 变量命名
+
+- 变量的命名必须有意义，能够使人直接读懂变量的含义，如`$brand-primary`, `$font-size-base`, `$u-radio_size`等。
+- 主题的主要色系以`$brand-`开头，并在`var.mcss`文件中声明，如`$brand-primary`, `$brand-info`等
+- 组件公有的变量以**CSS属性名**+**特性**，并在`var.mcss`文件中声明，如`$font-size-base`, `$height-sm`, `$background-darker`, ...
+- 组件私有的变量以**class**+'_'+**属性名**，仅在组件mcss文件中声明，如`$u-radio_size`, `$m-tabs_hd_li_margin`, ...
+- 常见状态：`default`, `primary`, `info`, `success`, `warning`, `error`, `disabled`, `muted`, ...
+- 大小分级：`xxs`, `xs`, `sm`, `base`, `lg`, `xl`, `xxl`, ...
+- 颜色分级：`darkest`, `darker`, `dark`, `base`, `light`, `lighter`, `lightest`, ...
+
+##### 强调
+
+- 尽量使用MASS库中的函数简化代码，如各种CSS3的前缀, `$size`, `$line-height`等。
+- HTML模板只用于表现组件的结构，因此不在模板标签中使用`f-`功能等样式，而用`@extend`方式在CSS中继承。  
+  如用：`<div class="m-pager">` + `.m-pager {@extend .f-wsn}`，而不用：`<div class="m-pager f-wsn">`
+- `@extend`方式只能继承自简单选择器。
+- 在可以用`@extend`的地方不使用mixin方式。
 
 ### JS规范
 
@@ -55,11 +67,11 @@ Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。
 
 ### Regular规范
 
-##### 基本要点
+##### 组件声明
 
 - 每个组件必须在`config`中声明默认数据。
 - 使用`this.data`，放弃使用Regular中`config`或`init`中传入的`data`参数。
-- 数据操作放在config中处理，DOM操作放在`init`中处理，并且尽量不进行DOM操作。
+- 数据操作放在`config`中处理，DOM操作放在`init`中处理，并且尽量不进行DOM操作。
 
 最佳实践：
 
@@ -87,6 +99,8 @@ var Modal = Component.extend({
 }
 ```
 
+##### 强调
+
 - `$update`仅在以下两种情况中使用：
     - 组件内部异步回调函数中使用
     - 外部修改组件数据时使用
@@ -96,10 +110,11 @@ var Modal = Component.extend({
 
 ##### 事件
 
-- 事件命名使用全部小写，并且不加`on`，如：`dragend`, `itemselect`, `itemmouseup`, ...
-- 事件命名通常以**对象**+**动作或状态**的形式构成
+- 事件命名使用全部小写，并且不加`on`，如：`change`, `dragend`, `itemselect`, `itemmouseup`, ...
+- 与组件整体相关的事件，以**动作或状态**的形式命名，如`change`, `dragend`, ...
+- 与组件局部相关的事件，以**对象**+**动作或状态**的形式命名，如：`itemselect`, `itemmouseup`, ...
 - 与事件对应的处理方法采用小驼峰，并且加`_on`，如：`_onDragEnd`, `_onItemSelect`, `_onItemMouseUp`, ...
-- 如果使用事件参数，事件参数必须为一个object对象
+- 如果使用事件参数，事件参数必须为一个object对象，并且遵循以下形式：
 
 ```javascript
 {
@@ -142,7 +157,7 @@ var Modal = Component.extend({
 - `breadCrumb` => `crumb`
 - `markdownEditor` => `markEditor`
 
-##### 类名
+##### class
 
 - `head` => `hd`
 - `body` => `bd`

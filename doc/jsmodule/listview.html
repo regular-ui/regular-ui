@@ -235,7 +235,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">itemTemplate</span>: <span class="cm-variable">RGUI</span>.<span class="cm-property">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
 <span class="cm-comment">&lt;div&gt;</span>
-<span class="cm-comment">    &lt;span class=&quot;number&quot;&gt;{item_index + 1}&lt;/span&gt;</span>
+<span class="cm-comment">    &lt;span class=&quot;number&quot;&gt;{item_index + 1}.&lt;/span&gt;</span>
 <span class="cm-comment">    &lt;span class=&quot;title&quot;&gt;{item.name}&lt;/span&gt;</span>
 <span class="cm-comment">    &lt;span class=&quot;hits f-fr&quot;&gt;{item.hits}&lt;/span&gt;</span>
 <span class="cm-comment">&lt;/div&gt;</span>
@@ -247,6 +247,22 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;cocos2dx游戏开发教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;鱼C课程&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">25112</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;MySQL数据库&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;LAMP兄弟连&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">18089</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;Arduino初级教程&#39;</span>, <span class="cm-property">org</span>: <span class="cm-string">&#39;硬件社&#39;</span>, <span class="cm-property">hits</span>: <span class="cm-number">16361</span>}
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">拖拽</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">dragdrop</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
         ]
     }
 });
@@ -533,7 +549,7 @@ var component = new RGUI.Component({
     template: template,
     itemTemplate: RGUI._.multiline(function(){/*
 <div>
-    <span class="number">{item_index + 1}</span>
+    <span class="number">{item_index + 1}.</span>
     <span class="title">{item.name}</span>
     <span class="hits f-fr">{item.hits}</span>
 </div>
@@ -545,6 +561,22 @@ var component = new RGUI.Component({
             {name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
             {name: 'MySQL数据库', org: 'LAMP兄弟连', hits: 18089},
             {name: 'Arduino初级教程', org: '硬件社', hits: 16361}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<listView source={source} dragdrop />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
         ]
     }
 });

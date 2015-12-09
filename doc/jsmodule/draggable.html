@@ -182,10 +182,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">移动自身</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">proxy</span>=<span class="cm-string">&quot;self&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">proxy</span>=<span class="cm-string">&quot;self&quot;</span> <span class="cm-attribute">direction</span>=<span class="cm-string">&quot;horizontal&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">proxy</span>=<span class="cm-string">&quot;self&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>自由<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">proxy</span>=<span class="cm-string">&quot;self&quot;</span> <span class="cm-attribute">direction</span>=<span class="cm-string">&quot;horizontal&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-info&quot;</span><span class="cm-tagcm-bracket">&gt;</span>水平<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">proxy</span>=<span class="cm-string">&quot;self&quot;</span> <span class="cm-attribute">direction</span>=<span class="cm-string">&quot;vertical&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-success&quot;</span><span class="cm-tagcm-bracket">&gt;</span>垂直<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<h4 id="-">修改图像</h4>
+<h4 id="-">修改代理</h4>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -215,9 +216,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.proxy</code></td><td class="f-wsn">string | Dragable.Proxy | function</td><td class="f-wsn"><code>&#39;auto&#39;</code></td><td class="f-tac">outer @=&gt; inner</td><td>拖拽时的图像。值为`auto`拖拽时，复制一个拖拽元素的图像（浏览器的默认设置），值为`empty`拖拽时不显示图像，可以用`&lt;draggable.proxy&gt;`自定义图像。也可以直接传入一个函数，要求返回{proxy: 图像元素, x: 横向偏移, y: 纵向偏移}。</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.effect</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>效果（与浏览器的effectAllowed一致）。可选的值有`none`、`uninitialized`、`all`、`copy`、`move`、`link`、`copyLink`、`copyMove`、`linkMove`。</td></tr>
+            <tr><td class="f-wsn"><code>data.proxy</code></td><td class="f-wsn">string | Dragable.Proxy | HTMLElement | function</td><td class="f-wsn"><code>&#39;clone&#39;</code></td><td class="f-tac">outer @=&gt; inner</td><td>拖拽代理，即拖拽时显示的元素。默认值为`clone`，拖拽时拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`&lt;draggable.proxy&gt;`自定义代理，或直接传入一个元素或函数。其他值表示不使用拖拽代理。</td></tr>
             
             <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>拖拽时需要传递的数据</td></tr>
             
@@ -339,8 +338,9 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<draggable proxy="self"><div class="u-color u-color-primary">拖我</div></draggable>
-<draggable proxy="self" direction="horizontal"><div class="u-color u-color-primary">拖我</div></draggable>
+<draggable proxy="self"><div class="u-color u-color-primary">自由</div></draggable>
+<draggable proxy="self" direction="horizontal"><div class="u-color u-color-info">水平</div></draggable>
+<draggable proxy="self" direction="vertical"><div class="u-color u-color-success">垂直</div></draggable>
     */})
 var component = new RGUI.Component({
     template: template

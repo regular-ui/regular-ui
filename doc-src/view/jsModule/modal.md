@@ -59,7 +59,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 拖动
+#### 拖拽
 
 <div class="m-example"></div>
 

@@ -39,7 +39,7 @@ var ListView = SourceComponent.extend({
             // @inherited source: [],
             selected: null,
             itemTemplate: null,
-            dragDrop: false
+            dragdrop: false
         });
         this.supr();
     },
@@ -62,28 +62,22 @@ var ListView = SourceComponent.extend({
             selected: item
         });
     },
-    _onDragEnter: function($event) {
-        if($event.data.root !== this.data.source)
-            $event.cancel = true;
+    _onDragEnter: function($event, item) {
+        // if($event.data.root !== this.data.source)
+        //     $event.cancel = true;
     },
-    _onDragOver: function($event) {
-        if($event.data.root !== this.data.source)
-            $event.cancel = true;
+    _onDragOver: function($event, item) {
+        // if($event.data.root !== this.data.source)
+        //     $event.cancel = true;
 
         var target = $event.target;
         _.dom.delClass(target, 'z-dragover-before');
         _.dom.delClass(target, 'z-dragover-after');
 
-        var dimension = _.dom.getDimension(target);
-        if($event.clientY < dimension.top + dimension.height/2)
+        if($event.ratioY < 0.5)
             _.dom.addClass(target, 'z-dragover-before');
         else
             _.dom.addClass(target, 'z-dragover-after');
-    },
-    _onDragLeave: function($event) {
-        // var target = $event.target;
-        // _.dom.delClass(target, 'z-dragover-before');
-        // _.dom.delClass(target, 'z-dragover-after');
     },
     _onDrop: function($event, item) {
         var target = $event.target;
@@ -91,31 +85,27 @@ var ListView = SourceComponent.extend({
         _.dom.delClass(target, 'z-dragover-after');
 
         if(item === $event.data.item)
-            return $event.stopPropagation();
-
-        var dimension = _.dom.getDimension(target);
+            return;
 
         var oldItem = $event.data.item;
         var oldIndex = this.data.source.indexOf(oldItem);
         this.data.source.splice(oldIndex, 1);
 
         var index = this.data.source.indexOf(item);
-        if($event.clientY >= dimension.top + dimension.height/2)
+        if($event.ratioY >= 0.5)
             index++;
         this.data.source.splice(index, 0, oldItem);
-
-        $event.stopPropagation();
     },
     _onDragOver2: function($event) {
         // if($event.data.root !== this.data.source)
         //     return $event.dataTransfer.dropEffect = 'none';
     },
     _onDrop2: function($event) {
-        console.log('drop2');
-        var oldItem = $event.data.item;
-        var oldIndex = this.data.source.indexOf(oldItem);
-        this.data.source.splice(oldIndex, 1);
-        this.data.source.push(oldItem);
+        // console.log('drop2');
+        // var oldItem = $event.data.item;
+        // var oldIndex = this.data.source.indexOf(oldItem);
+        // this.data.source.splice(oldIndex, 1);
+        // this.data.source.push(oldItem);
     }
 });
 

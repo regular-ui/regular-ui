@@ -1,8 +1,7 @@
-<droppable disabled={!dragDrop} on-dragenter={this._onDragEnter($event)} on-dragover={this._onDragOver2($event)} on-drop={this._onDrop2($event)}>
 <ul class="m-listview {class}" z-dis={disabled} r-hide={!visible}>
     {#list source as item}
-    <droppable disabled={!dragDrop} on-dragenter={this._onDragEnter($event)} on-dragover={this._onDragOver($event)} on-dragleave={this._onDragLeave($event)} on-drop={this._onDrop($event, item)}>
-    <draggable disabled={!dragDrop} data={ @({root: source, item: item, index: item_index}) }>
+    <droppable disabled={!dragdrop} on-dragenter={this._onDragEnter($event, item)} on-dragover={this._onDragOver($event, item)} on-drop={this._onDrop($event, item)}>
+    <draggable disabled={!dragdrop} data={ @({root: source, item: item, index: item_index}) }>
     <li title={item.name} z-sel={selected === item} z-dis={item.disabled} on-click={this.select(item)}>
         {#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}
     </li>
@@ -10,4 +9,3 @@
     </droppable>
     {/list}
 </ul>
-</droppable>

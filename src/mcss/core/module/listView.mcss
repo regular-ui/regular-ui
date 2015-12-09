@@ -40,34 +40,9 @@
         background: none;
     }
 
-
-    // .listview_droppable {
-    //     position: absolute;
-    //     left: 0;
-    //     right: 0;
-    //     z-index: 2;
-    //     // background: rgba(0, 0, 0, 0.2);
-    // }
-
-    // .listview_droppable-top {
-    //     top: 0;
-    //     height: 50%;
-
-    //     &.z-dragover {
-    //         border-top: 2px solid $brand-primary;
-    //         margin-top: -1px;
-    //     }
-    // }
-
-    // .listview_droppable-bottom {
-    //     bottom: 0;
-    //     height: 50%;
-
-    //     &.z-dragover {
-    //         border-bottom: 2px solid $brand-primary;
-    //         margin-bottom: -1px;
-    //     }
-    // }
+    > li.z-dragging {
+        opacity: 0.6;
+    }
 
     > li.z-dragover.z-dragover-before {
         &:before {

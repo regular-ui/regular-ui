@@ -79,7 +79,7 @@ var component = new RGUI.Component({
     template: template,
     itemTemplate: RGUI._.multiline(function(){/*
 <div>
-    <span class="number">{item_index + 1}</span>
+    <span class="number">{item_index + 1}.</span>
     <span class="title">{item.name}</span>
     <span class="hits f-fr">{item.hits}</span>
 </div>
@@ -91,6 +91,27 @@ var component = new RGUI.Component({
             {name: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112},
             {name: 'MySQL数据库', org: 'LAMP兄弟连', hits: 18089},
             {name: 'Arduino初级教程', org: '硬件社', hits: 16361}
+        ]
+    }
+});
+```
+
+#### 拖拽
+
+<div class="m-example"></div>
+
+```xml
+<listView source={source} dragdrop />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
         ]
     }
 });
