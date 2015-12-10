@@ -1,13 +1,17 @@
 0a1,2
 > @charset "UTF-8";
 > @import url("../base/font-awesome.css");
-180d181
+182d183
 < @import url("../base/font-awesome.css");
-226c227
+228c229
 < .u-message .message_close{color:#000000;filter:alpha(opacity=20);opacity:.2;}
 ---
 > .u-message .message_close{color:black;filter:alpha(opacity=20);opacity:.2;}
-421,426d421
+271c272
+< .u-formitem-block:before,.u-formitem-block:after,.m-form>.u-formitem:before,.m-form>.u-formitem:after,.m-form fieldset>.u-formitem:before,.m-form fieldset>.u-formitem:after{display:table;content:"";line-height:0;}
+---
+> .u-formitem-block:before,.m-form>.u-formitem:before,.m-form fieldset>.u-formitem:before,.u-formitem-block:after,.m-form>.u-formitem:after,.m-form fieldset>.u-formitem:after{display:table;content:"";line-height:0;}
+425,430d425
 < @-webkit-keyframes u-progress-striped{0%{background-position:0 0;}
 < 100%{background-position:40px 0;}}
 < @-moz-keyframes u-progress-striped{0%{background-position:0 0;}

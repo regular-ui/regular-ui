@@ -28,7 +28,7 @@ All documentations are generated in the directory of `./doc` by Gulp. You can re
 
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png)
 --- | --- | --- | --- | --- |
-Latest ✔ | Latest ✔ | untested | untested | untested |
+Latest ✔ | Latest ✔ | IE8+ | Latest ✔ | Latest ✔ |
 
 ## Develop
 
@@ -135,18 +135,34 @@ regular-ui
 
 ## Referenced Websites
 
+### Netease
 - [NEC](http://nec.netease.com)
 - [NEJ](http://nej.netease.com)
+
+### Based on jQuery
 - [Bootstrap](http://v3.bootcss.com)
-- [React-Bootstrap](http://react-bootstrap.github.io/components.html)
-- [Amaze UI](http://amazeui.org)
 - [UIkit](http://www.getuikit.net)
 - [Semantic UI](http://semantic-ui.com)
+- [Amaze UI](http://amazeui.org)
+- [Foundation](http://foundation.zurb.com)
+- [MaterializeCSS](http://materializecss.com)
+
+### Based on AngularJS
 - [Angular UI](https://angular-ui.github.io)
+- [LumX](http://ui.lumapps.com)
+- [Angular Material](https://material.angularjs.org)
+
+### Based on React
+- [React Bootstrap](http://react-bootstrap.github.io/components.html)
+- [Ant Design](http://ant.design)
+- [Material UI](http://www.material-ui.com)
+
+### Based on Web Component
+- [Polymer](https://www.polymer-project.org)
+
+### Others
 - [Kendo UI](http://demos.telerik.com/kendo-ui)
 - [ExtJS](http://docs.sencha.com/extjs/4.0.7)
-- [Android Developers](http://developer.android.com/index.html)
-- [C# WPF](http://www.wpf-tutorial.com)
 
 ## Versioning
 

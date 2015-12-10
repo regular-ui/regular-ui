@@ -341,7 +341,6 @@ a{
 	text-decoration:none;
 	cursor:pointer;
 	background:transparent;
-	color:#337ab7;
 }
 a:hover{
 	text-decoration:underline;
@@ -441,6 +440,9 @@ progress{
 }
 body{
 	color:#333;
+}
+a{
+	color:#337ab7;
 }
 a:hover{
 	color:#23527c;
@@ -971,7 +973,7 @@ body{
 .u-btn:disabled,.u-btn.z-dis,.u-dropdown.z-dis .dropdown_hd>.u-btn{
 	cursor:not-allowed;
 }
-.u-btn-block,.u-btngroup-vertical >.u-btn{
+.u-btn-block{
 	display:block;
 	width:100%;
 }
@@ -1139,6 +1141,10 @@ body{
 	border-top-left-radius:0;
 	-moz-border-bottom-left-radius:0;
 	border-bottom-left-radius:0;
+}
+.u-btngroup-vertical >.u-btn{
+	display:block;
+	width:100%;
 }
 .u-btngroup-vertical >.u-btn + .u-btn{
 	margin-top:-1px;
@@ -3468,6 +3474,15 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-formitem-block,.m-form >.u-formitem,.m-form fieldset>.u-formitem{
 	display:block;
+	*zoom:1;
+}
+.u-formitem-block:before,.u-formitem-block:after,.m-form >.u-formitem:before,.m-form >.u-formitem:after,.m-form fieldset>.u-formitem:before,.m-form fieldset>.u-formitem:after{
+	display:table;
+	content:"";
+	line-height:0;
+}
+.u-formitem-block:after,.m-form >.u-formitem:after,.m-form fieldset>.u-formitem:after{
+	clear:both;
 }
 .u-formitem-block .formitem_tt,.m-form >.u-formitem .formitem_tt,.m-form fieldset>.u-formitem .formitem_tt{
 	display:block;
@@ -3761,6 +3776,9 @@ input.u-check:disabled,input.u-radio:disabled{
 	padding:0;
 }
 .m-form legend{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
 	width:100%;
 	padding:0;
 	border:none;
@@ -4532,6 +4550,11 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .m-modal .modal_hd.z-draggable{
 	cursor:move;
+	cursor:-webkit-grab;
+}
+.m-modal .z-drag .modal_hd.z-draggable{
+	cursor:move;
+	cursor:-webkit-grabbing;
 }
 @media (max-width: 767px){
 	.m-modal .modal_dialog{
@@ -4595,15 +4618,6 @@ html.z-modal,html.z-modal body{
 	-ms-user-select:none;
 	user-select:none;
 }
-.m-listview.z-dragover:after{
-	content:"";
-	display:block;
-	position:relative;
-	z-index:1;
-	border-top:2px solid #337ab7;
-	top:-1px;
-	margin-bottom:-2px;
-}
 .m-listview >li{
 	cursor:pointer;
 	position:relative;
@@ -4611,26 +4625,6 @@ html.z-modal,html.z-modal body{
 .m-listview >li.z-dis{
 	cursor:not-allowed;
 	background:none;
-}
-.m-listview >li.z-dragover.z-dragover-before:before{
-	content:"";
-	display:block;
-	position:absolute;
-	left:0;
-	right:0;
-	z-index:2;
-	top:-1px;
-	border-top:2px solid #337ab7;
-}
-.m-listview >li.z-dragover.z-dragover-after:after{
-	content:"";
-	display:block;
-	position:absolute;
-	left:0;
-	right:0;
-	z-index:2;
-	bottom:-1px;
-	border-top:2px solid #337ab7;
 }
 .m-listview.z-dis >li{
 	cursor:not-allowed;
@@ -4672,6 +4666,33 @@ html.z-modal,html.z-modal body{
 .m-listview.z-dis >li{
 	background:#eee;
 	color:#777;
+}
+.m-listview.z-dragover.z-dragover-before:before,.m-listview.z-dragover.z-dragover-after:after{
+	content:"";
+	display:block;
+	position:relative;
+	z-index:1;
+	border-top:2px solid #337ab7;
+	top:-1px;
+	margin-bottom:-2px;
+}
+.m-listview >li.z-drag{
+	opacity:0.6;
+}
+.m-listview >li.z-dragover.z-dragover-before:before{
+	content:"";
+	display:block;
+	position:absolute;
+	left:0;
+	right:0;
+	z-index:2;
+	border-top:2px solid #337ab7;
+}
+.m-listview >li.z-dragover.z-dragover-before:before{
+	top:-1px;
+}
+.m-listview >li.z-dragover.z-dragover-after:after{
+	bottom:-1px;
 }
 .m-treeview{
 	-webkit-box-sizing:border-box;
@@ -4823,38 +4844,6 @@ html.z-modal,html.z-modal body{
 	color:#999;
 }
 .u-calendar.z-dis .calendar_item.z-sel{
-	background:#eee;
-	color:#999;
-}
-.m-editor{
-	border:1px solid #ddd;
-}
-.m-editor .editor_preview{
-	background:#fff;
-	border:none;
-	padding:22px;
-	min-height:160px;
-	max-height:240px;
-	overflow:auto;
-}
-.m-editor .editor_toolbar{
-	line-height:32px;
-	background:#f5f5f5;
-}
-.m-editor .editor_textarea{
-	display:block;
-	box-sizing:border-box;
-	width:100%;
-	padding:22px;
-	*padding:0;
-	border:none;
-	height:320px;
-	resize:none;
-}
-.m-editor .editor_textarea:focus{
-	outline:0;
-}
-.m-editor.z-dis .editor_textarea{
 	background:#eee;
 	color:#999;
 }

@@ -34,9 +34,7 @@ a.u-thumbnail:focus {
 // ========================================================================
 
 @mixin u-thumbnail-extend_size($name, $width) {
-
-.u-thumbnail-#{$name} {
-    width: $width;
-}
-
+    .u-thumbnail-#{$name} {
+        width: $width;
+    }
 }
