@@ -11,7 +11,7 @@ var Component = require('regular-ui-base/src/component');
 var template = require('text!./calendar.html');
 var _ = require('regular-ui-base/src/_');
 
-var compatibility = require('regular-ui-base').compatibility;
+var compatibility = require('regular-ui-base/src/compatibility');
 var MS_OF_DAY = 24*3600*1000;
 
 /**

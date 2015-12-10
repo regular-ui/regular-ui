@@ -11,10 +11,10 @@ module.exports = function(config) {
             {pattern: './dist/font/**', included: false, watched: false}
         ],
         preprocessors: {
-            './test/spec/**/*.js': ['common_js'],
             './test/spec/**/*.html': ['common_js'],
-            './src/js/**/*.js': ['common_js'],
-            './src/js/**/*.html': ['common_js']
+            './test/spec/**/*.js': ['common_js'],
+            './src/js/**/*.html': ['common_js'],
+            './src/js/**/*.js': ['common_js', 'coverage']
         },
         reporters: ['progress', 'coverage'],
         common_js: {

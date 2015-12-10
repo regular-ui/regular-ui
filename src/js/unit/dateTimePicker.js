@@ -13,7 +13,7 @@ var _ = require('regular-ui-base/src/_');
 var filter = require('regular-ui-base').filter;
 var Calendar = require('../module/calendar.js');
 var TimePicker = require('./timePicker.js');
-var compatibility = require('regular-ui-base').compatibility;
+var compatibility = require('regular-ui-base/src/compatibility');
 
 /**
  * @class DateTimePicker

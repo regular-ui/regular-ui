@@ -11,7 +11,7 @@ var _ = require('regular-ui-base/src/_');
 
 var filter = require('regular-ui-base').filter;
 var Calendar = require('../module/calendar.js');
-var compatibility = require('regular-ui-base').compatibility;
+var compatibility = require('regular-ui-base/src/compatibility');
 var MS_OF_DAY = 24*3600*1000;
 
 /**

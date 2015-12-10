@@ -9,7 +9,6 @@ To get started, check out http://regular-ui.github.io!
 
 [![Dependency Status][deps-badge]][deps]
 [![devDependency Status][dev-deps-badge]][dev-deps]
-[![peerDependency Status][peer-deps-badge]][peer-deps]
 
 ## Quick Start
 
@@ -55,6 +54,10 @@ npm install gulp -g
 Now, you can start to develop.
 
 Run `gulp` to watch and compile source files for developing anytime they are modified.
+
+Run `gulp all` to prepare CSS and JS index files include all components based on `./structure.js`.
+
+Run `gulp customize` to prepare CSS and JS index files include partial components based on `./structure.customized.js`.
 
 Run `gulp dist` to compile a distribution to `./dist` directory.
 
