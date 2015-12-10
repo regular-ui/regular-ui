@@ -68,7 +68,7 @@ describe('TimePicker', function() {
     });
 
     describe('initialized with wrong range where `minTime` > `maxTime`', function() {
-        it('should throw a TimeRangeException.', function() {
+        it('should throw a TimeRangeError.', function() {
             try {
                 var timePicker = new TimePicker({
                     data: {
@@ -77,7 +77,7 @@ describe('TimePicker', function() {
                     }
                 });
             } catch(e) {
-                expect(e).to.be.a(TimePicker.TimeRangeException);
+                expect(e).to.be.a(TimePicker.TimeRangeError);
             }
         });
     });

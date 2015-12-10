@@ -94,7 +94,7 @@ var Modal = Component.extend({
     /**
      * @private
      */
-    keyup: function($event) {
+    _onKeyUp: function($event) {
         if($event.which == 13)
             this.ok();
     },

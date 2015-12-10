@@ -118,7 +118,7 @@ describe('NumberInput', function() {
     });
 
     describe('initialized with wrong range where `min` > `max`', function() {
-        it('should throw a NumberRangeException.', function() {
+        it('should throw a NumberRangeError.', function() {
             try {
                 var numberInput = new NumberInput({
                     data: {
@@ -127,7 +127,7 @@ describe('NumberInput', function() {
                     }
                 });
             } catch(e) {
-                expect(e).to.be.a(NumberInput.NumberRangeException);
+                expect(e).to.be.a(NumberInput.NumberRangeError);
             }
         });
     });

@@ -65,9 +65,11 @@ var Notify = Component.extend({
 
         /**
          * @event show 弹出一个消息时触发
+         * @property {object} source 事件发起对象
          * @property {object} message 弹出的消息对象
          */
         this.$emit('show', {
+            source: this,
             message: message
         });
     },
@@ -83,9 +85,11 @@ var Notify = Component.extend({
         this.$update();
         /**
          * @event close 关闭某条消息时触发
+         * @property {object} source 事件发起对象
          * @property {object} message 关闭了的消息对象
          */
         this.$emit('close', {
+            source: this,
             message: message
         });
     },

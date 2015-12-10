@@ -50,9 +50,11 @@ var Check2 = Component.extend({
         this.data.checked = checked;
         /**
          * @event check 改变选中状态时触发
+         * @property {object} source 事件发起对象
          * @property {boolean} checked 选中状态
          */
         this.$emit('check', {
+            source: this,
             checked: checked
         });
     }

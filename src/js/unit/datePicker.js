@@ -71,9 +71,11 @@ var DatePicker = Dropdown.extend({
 
             /**
              * @event change 日期改变时触发
+             * @property {object} source 事件发起对象
              * @property {object} date 改变后的日期
              */
             this.$emit('change', {
+                source: this,
                 date: newValue
             });
         });
@@ -112,7 +114,7 @@ var DatePicker = Dropdown.extend({
 
             if(minDate && maxDate)
                 if(minDate/MS_OF_DAY>>0 > maxDate/MS_OF_DAY>>0)
-                    throw new Calendar.DateRangeException(minDate, maxDate);
+                    throw new Calendar.DateRangeError(minDate, maxDate);
 
             // 如果不为空并且超出日期范围，则设置为范围边界的日期
             if(this.data.date) {
@@ -136,21 +138,23 @@ var DatePicker = Dropdown.extend({
 
         /**
          * @event select 选择某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} date 当前选择项
          */
         this.$emit('select', {
+            source: this,
             date: date
         });
 
         this.toggle(false);
     },
     /**
-     * @method _input($event) 输入日期
+     * @method _onInput($event) 输入日期
      * @private
      * @param  {object} $event
      * @return {void}
      */
-    _input: function($event) {
+    _onInput: function($event) {
         var value = $event.target.value;
         var date = value ? new Date(value) : null;
 

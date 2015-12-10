@@ -70,9 +70,11 @@ var Calendar = Component.extend({
 
             /**
              * @event change 日期改变时触发
+             * @property {object} source 事件发起对象
              * @property {object} date 改变后的日期
              */
             this.$emit('change', {
+                source: this,
                 date: newValue
             });
         });
@@ -111,7 +113,7 @@ var Calendar = Component.extend({
 
             if(minDate && maxDate)
                 if(minDate/MS_OF_DAY>>0 > maxDate/MS_OF_DAY>>0)
-                    throw new Calendar.DateRangeException(minDate, maxDate);
+                    throw new Calendar.DateRangeError(minDate, maxDate);
             
             // 如果超出日期范围，则设置为范围边界的日期
             var isOutOfRange = this.isOutOfRange(this.data.date);
@@ -193,9 +195,11 @@ var Calendar = Component.extend({
 
         /**
          * @event select 选择某一个日期时触发
+         * @property {object} source 事件发起对象
          * @property {object} date 当前选择的日期
          */
         this.$emit('select', {
+            source: this,
             date: date
         });
     },
@@ -229,13 +233,12 @@ var Calendar = Component.extend({
     }
 });
 
-Calendar.DateRangeException = function(minDate, maxDate) {
-    this.type = 'DateRangeException';
+Calendar.DateRangeError = function(minDate, maxDate) {
+    this.name = 'DateRangeError';
     this.message = 'Wrong Date Range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + '!';
 }
 
-Calendar.DateRangeException.prototype.toString = function() {
-    return this.message;
-}
+Calendar.DateRangeError.prototype = Object.create(Error.prototype);
+Calendar.DateRangeError.constructor = Calendar.DateRangeError;
 
 module.exports = Calendar;

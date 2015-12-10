@@ -58,6 +58,11 @@ $u-btngroup-horizontal = ($border-width = null) {
 
 $u-btngroup-vertical = ($border-width = null) {
     .u-btngroup-vertical {
+        > .u-btn {
+            display: block;
+            width: 100%;
+        }
+
         @if ($border-width) {
             > .u-btn + .u-btn {
                 margin-top: -$border-width;
@@ -75,11 +80,5 @@ $u-btngroup-vertical = ($border-width = null) {
         > .u-btn:last-child:not(:first-child) {
             $border-radius: 0, top;
         }
-    }
-}
-
-.u-btngroup-vertical {
-    > .u-btn {
-        @extend .u-btn-block;
     }
 }

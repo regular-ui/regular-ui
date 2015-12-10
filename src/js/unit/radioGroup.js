@@ -52,9 +52,11 @@ var RadioGroup = SourceComponent.extend({
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
+            source: this,
             selected: item
         });
     }

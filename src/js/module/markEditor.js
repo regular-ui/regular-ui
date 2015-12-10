@@ -44,6 +44,9 @@ var MarkEditor = Component.extend({
             return marked(this.data.content);
         }
     },
+    /**
+     * @public
+     */
     bold: function() {
         if(this.data.readonly || this.data.disabled)
             return;
@@ -54,6 +57,9 @@ var MarkEditor = Component.extend({
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
+    /**
+     * @public
+     */
     italic: function() {
         if(this.data.readonly || this.data.disabled)
             return;
@@ -64,6 +70,9 @@ var MarkEditor = Component.extend({
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
+    /**
+     * @public
+     */
     quote: function() {
         if(this.data.readonly || this.data.disabled)
             return;
@@ -82,6 +91,9 @@ var MarkEditor = Component.extend({
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
+    /**
+     * @public
+     */
     ul: function() {
         if(this.data.readonly || this.data.disabled)
             return;
@@ -100,6 +112,9 @@ var MarkEditor = Component.extend({
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
+    /**
+     * @public
+     */
     ol: function() {
         if(this.data.readonly || this.data.disabled)
             return;
@@ -118,6 +133,9 @@ var MarkEditor = Component.extend({
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
+    /**
+     * @public
+     */
     link: function() {
         if(this.data.readonly || this.data.disabled)
             return;
@@ -128,12 +146,18 @@ var MarkEditor = Component.extend({
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
+    /**
+     * @public
+     */
     image: function() {
         if(this.data.readonly || this.data.disabled)
             return;
 
         this.$refs.uploader.upload();
     },
+    /**
+     * @public
+     */
     latex: function() {
         if(this.data.readonly || this.data.disabled)
             return;
@@ -144,16 +168,25 @@ var MarkEditor = Component.extend({
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
-    uploaderSuccess: function(data) {
+    /**
+     * @private
+     */
+    _onUploaderSuccess: function(data) {
         var rangeData = this.getCursorPosition();
         rangeData.text = '\n![](' + data.result + ')';
         this.setCursorPosition(rangeData);
         this.data.content = this.$refs.textarea.value;
         this.$update();
     },
-    uploaderError: function(e) {
+    /**
+     * @private
+     */
+    _onUploaderError: function(e) {
         Notify.error(e);
     },
+    /**
+     * @public
+     */
     getCursorPosition: function() {
         var textarea = this.$refs.textarea;
 
@@ -188,6 +221,9 @@ var MarkEditor = Component.extend({
 
         return rangeData;
     },
+    /**
+     * @public
+     */
     setCursorPosition: function(rangeData) {
         if(!rangeData)
             throw new Error('You must get cursor position first!');

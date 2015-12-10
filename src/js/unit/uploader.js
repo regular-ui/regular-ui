@@ -72,12 +72,19 @@ var Uploader = Component.extend({
                     message: this.extensionError()
                 });
         }
-
-        this.$emit('sending', this.data.data);
+        /**
+         * @event sending 发送前触发
+         * @property {object} source 事件发起对象
+         * @property {object} data 待发送的数据
+         */
+        this.$emit('sending', {
+            source: this,
+            data: this.data.data
+        });
 
         this.$refs.form.submit();
     },
-    cbUpload: function() {
+    _onLoad: function() {
         var iframe = this.$refs.iframe;
 
         var xml = {};
@@ -90,11 +97,20 @@ var Uploader = Component.extend({
                 xml.responseXML = iframe.contentDocument.document.XMLDocument?iframe.contentDocument.document.XMLDocument : iframe.contentDocument.document;
             }
         } catch(e) {
-            this.$emit('error', e);
+            /**
+             * @event error 上传错误时触发
+             * @property {object} source 事件发起对象
+             * @property {object} error 错误
+             */
+            this.$emit('error', {
+                source: this,
+                error: e
+            });
         }
 
         if(!xml.responseText)
             return this.$emit('error', {
+                source: this,
                 message: 'No responseText!'
             });
 
@@ -113,8 +129,24 @@ var Uploader = Component.extend({
             return data;
         }
 
-        this.$emit('success', uploadHttpData(xml, this.data.dataType));
-        this.$emit('complete', xml);
+        /**
+         * @event success 上传成功时触发
+         * @property {object} source 事件发起对象
+         * @property {object} data 返回的数据
+         */
+        this.$emit('success', {
+            source: this,
+            data: uploadHttpData(xml, this.data.dataType)
+        });
+        /**
+         * @event complete 上传完成时触发
+         * @property {object} source 事件发起对象
+         * @property {object} xml 返回的xml
+         */
+        this.$emit('complete', {
+            source: this,
+            xml: xml
+        });
 
         this.$refs.file.value = '';
     },

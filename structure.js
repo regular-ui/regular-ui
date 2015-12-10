@@ -95,7 +95,7 @@ module.exports = {
         /* 日期类 */
         'Calendar': {type: 'css+js', category: 'module', lowerName: 'calendar'},
         /* 编辑器类 */
-        'Editor': {type: 'css+js', category: 'module', lowerName: 'editor'},
+        // 'Editor': {type: 'css+js', category: 'module', lowerName: 'editor'},
         'HTMLEditor': {type: 'js', category: 'module', lowerName: 'htmlEditor'},
         'MarkEditor': {type: 'js', category: 'module', lowerName: 'markEditor'},
         /* 其他 */

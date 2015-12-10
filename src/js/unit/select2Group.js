@@ -46,10 +46,12 @@ var Select2Group = Component.extend({
         this.$watch('selected', function(newValue, oldValue) {
             /**
              * @event change 最后的选择项改变时触发
+             * @property {object} source 事件发起对象
              * @property {object} selected 最后的选择项
              * @property {object} selectedItems 所有的选择项
              */
             this.$emit('change', {
+                source: this,
                 selected: newValue,
                 selectedItems: this.data.selectedItems
             });
@@ -70,10 +72,12 @@ var Select2Group = Component.extend({
 
         /**
          * @event select 选择某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} selected 当前选择项
          * @property {object} level 当前选择的层级
          */
         this.$emit('select', {
+            source: this,
             selected: item,
             level: level
         });
@@ -81,7 +85,7 @@ var Select2Group = Component.extend({
     /**
      * @private
      */
-    change: function(item, index) {
+    _onChange: function(item, index) {
         if(index === this.data.depth - 1)
             this.data.selected = item;
 

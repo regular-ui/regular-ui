@@ -13,4 +13,4 @@
     </ul>
     <textarea class="editor_textarea" r-model={content} ref="textarea" maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}></textarea>
 </div>
-<uploader visible={false} url={imageUrl} extensions={extensions} ref="uploader" on-success={this.uploaderSuccess($event)} on-error={this.uploaderError($event)} />
+<uploader visible={false} url={imageUrl} extensions={extensions} ref="uploader" on-success={this._onUploaderSuccess($event)} on-error={this._onUploaderError($event)} />

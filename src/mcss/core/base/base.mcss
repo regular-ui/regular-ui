@@ -3,8 +3,7 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-//@base-margin-vertical:                          15px;
-//@base-list-padding-left:                        30px;
+
 
 // Base:
 // ========================================================================
@@ -31,7 +30,6 @@ a {
     cursor: pointer;
     // - Remove the gray background color from active links in IE 10.
     background: transparent;
-    color: $brand-primary;
 }
 
 a:hover {

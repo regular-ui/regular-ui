@@ -97,7 +97,7 @@ describe('DateTimePicker', function() {
     });
 
     describe('initialized with wrong range where `minDate` > `maxDate`', function() {
-        it('should throw a DateRangeException.', function() {
+        it('should throw a DateRangeError.', function() {
             try {
                 var dateTimePicker = new DateTimePicker({
                     data: {
@@ -106,7 +106,7 @@ describe('DateTimePicker', function() {
                     }
                 });
             } catch(e) {
-                expect(e).to.be.a(Calendar.DateRangeException);
+                expect(e).to.be.a(Calendar.DateRangeError);
             }
         });
     });

@@ -89,10 +89,12 @@ var MenuList = SourceComponent.extend({
         /**
          * @event toggle 展开或收起某一项时触发
          * @private
+         * @property {object} source 事件发起对象
          * @property {object} item 展开收起项
          * @property {boolean} open 展开还是收起
          */
         this.$ancestor.$emit('toggle', {
+            source: this,
             item: item,
             open: item.open
         });

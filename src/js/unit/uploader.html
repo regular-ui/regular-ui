@@ -12,5 +12,5 @@
         <input type="hidden" name={key} value={data[key]}>
         {/list}
     </form>
-    <iframe name="iframe{_id}" on-load={this.cbUpload()} ref="iframe" />
+    <iframe name="iframe{_id}" on-load={this._onLoad()} ref="iframe" />
 </div>

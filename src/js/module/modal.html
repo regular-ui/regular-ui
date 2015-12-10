@@ -1,4 +1,4 @@
-<div class="m-modal {class}" on-keyup={this.keyup($event)} r-hide={!visible}>
+<div class="m-modal {class}" on-keyup={this._onKeyUp($event)} r-hide={!visible}>
     <div class="modal_dialog" ref="modalDialog">
         <draggable disabled={!draggable} proxy={this.$refs.modalDialog} on-dragstart={this._onDragStart($event)}>
         <div class="modal_hd">

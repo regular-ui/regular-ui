@@ -56,9 +56,11 @@ var TreeView = SourceComponent.extend({
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
+            source: this,
             selected: item
         });
     },
@@ -76,10 +78,12 @@ var TreeView = SourceComponent.extend({
 
         /**
          * @event toggle 展开或收起某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} item 展开收起项
          * @property {boolean} open 展开还是收起
          */
         this.$emit('toggle', {
+            source: this,
             item: item,
             open: item.open
         });
@@ -140,6 +144,7 @@ var TreeViewList = SourceComponent.extend({
             this.$update('source', result);
 
             this.$emit('updateSource', {
+                source: this,
                 result: result
             });
         }.bind(this));

@@ -17,7 +17,9 @@ body {
 // A:
 // ========================================================================
 
-a {}
+a {
+    color: $brand-primary;
+}
 
 a:hover {
     color: l-adjust($brand-primary, -15%);

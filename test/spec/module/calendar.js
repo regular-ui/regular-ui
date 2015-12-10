@@ -287,7 +287,7 @@ describe('Calendar', function() {
     });
 
     describe('initialized with wrong range where `minDate` > `maxDate`', function() {
-        it('should throw a DateRangeException.', function() {
+        it('should throw a DateRangeError.', function() {
             try {
                 var calendar = new Calendar({
                     data: {
@@ -296,7 +296,7 @@ describe('Calendar', function() {
                     }
                 });
             } catch (e) {
-                expect(e).to.be.a(Calendar.DateRangeException);
+                expect(e).to.be.a(Calendar.DateRangeError);
             }
         });
     });

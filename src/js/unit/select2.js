@@ -50,9 +50,11 @@ var Select2 = Dropdown.extend({
 
             /**
              * @event change 选择项改变时触发
+             * @property {object} source 事件发起对象
              * @property {object} selected 改变后的选择项
              */
             this.$emit('change', {
+                source: this,
                 selected: newValue,
                 key: this.data.key,
                 value: this.data.value
@@ -109,9 +111,11 @@ var Select2 = Dropdown.extend({
         
         /**
          * @event select 选择某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
+            source: this,
             selected: item
         });
 

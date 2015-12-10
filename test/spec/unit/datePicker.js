@@ -26,10 +26,10 @@ describe('DatePicker', function() {
             });
         });
 
-        describe('#_input($event)', function() {
+        describe('#_onInput($event)', function() {
             it('should change `date` property and sync it to Calendar component if a valid date inputed.', function() {
                 var $event = {target: {value: '2012-12-21'} }
-                datePicker._input($event);
+                datePicker._onInput($event);
                 datePicker.$update();
 
                 expect(datePicker.data.date - new Date('2012-12-21')).to.be(0);
@@ -40,7 +40,7 @@ describe('DatePicker', function() {
                 var old_date = datePicker.data._date;
 
                 var $event = {target: {value: ''} }
-                datePicker._input($event);
+                datePicker._onInput($event);
                 datePicker.$update();
 
                 expect(datePicker.data.date).to.be(null);
@@ -52,7 +52,7 @@ describe('DatePicker', function() {
                 var old_date = datePicker.data._date;
 
                 var $event = {target: {value: 'abc'} }
-                datePicker._input($event);
+                datePicker._onInput($event);
                 datePicker.$update();
 
                 expect(datePicker.data.date).to.be(oldDate);
@@ -169,7 +169,7 @@ describe('DatePicker', function() {
     });
 
     describe('initialized with wrong range where `minDate` > `maxDate`', function() {
-        it('should throw a DateRangeException.', function() {
+        it('should throw a DateRangeError.', function() {
             try {
                 var datePicker = new DatePicker({
                     data: {
@@ -178,7 +178,7 @@ describe('DatePicker', function() {
                     }
                 });
             } catch(e) {
-                expect(e).to.be.a(Calendar.DateRangeException);
+                expect(e).to.be.a(Calendar.DateRangeError);
             }
         });
     });

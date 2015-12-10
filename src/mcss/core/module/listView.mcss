@@ -13,18 +13,6 @@
     $box-sizing: border-box;
     $user-select: none;
 
-    &.z-dragover {
-        &:after {
-            content: '';
-            display: block;
-            position: relative;
-            z-index: 1;
-            border-top: 2px solid $brand-primary;
-            top: -1px;
-            margin-bottom: -2px;
-        }
-    }
-
     > li {
         // @extend .f-toe;
         cursor: pointer;
@@ -38,36 +26,6 @@
     > li.z-dis {
         cursor: not-allowed;
         background: none;
-    }
-
-    > li.z-drag {
-        opacity: 0.6;
-    }
-
-    > li.z-dragover.z-dragover-before {
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            right: 0;
-            z-index: 2;
-            top: -1px;
-            border-top: 2px solid $brand-primary;   
-        }
-    }
-
-    > li.z-dragover.z-dragover-after {
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            right: 0;
-            z-index: 2;
-            bottom: -1px;
-            border-top: 2px solid $brand-primary;   
-        }
     }
 }
 

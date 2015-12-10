@@ -62,6 +62,7 @@ $brand-error-darker =                   #d73925;
 $brand-secondary =                      $brand-primary;
 
 /* Gray Colors */
+$gray-base = #777;
 
 /* Base Colors */
 $background-base = $brand-default;

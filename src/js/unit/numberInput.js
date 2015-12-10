@@ -52,16 +52,18 @@ var NumberInput = Input2.extend({
 
             /**
              * @event change 数值改变时触发
+             * @property {object} source 事件发起对象
              * @property {number} value 改变后的数值
              */
             this.$emit('change', {
+                source: this,
                 value: newValue
             });
         });
 
         this.$watch(['min', 'max'], function(min, max) {
             if(!isNaN(min) && !isNaN(max) && min - max > 0)
-                throw new NumberInput.NumberRangeException(min, max);
+                throw new NumberInput.NumberRangeError(min, max);
 
             // 如果超出数值范围，则设置为范围边界的数值
             var isOutOfRange = this.isOutOfRange(this.data.value);
@@ -115,12 +117,12 @@ var NumberInput = Input2.extend({
     }
 });
 
-NumberInput.NumberRangeException = function(min, max) {
-    this.type = 'NumberRangeException';
+NumberInput.NumberRangeError = function(min, max) {
+    this.type = 'NumberRangeError';
     this.message = 'Wrong Number Range where `min` is ' + min + ' and `max` is ' + max + '!';
 }
 
-NumberInput.NumberRangeException.prototype.toString = function() {
+NumberInput.NumberRangeError.prototype.toString = function() {
     return this.message;
 }
 

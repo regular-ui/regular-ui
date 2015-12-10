@@ -65,9 +65,11 @@ var Suggest = Dropdown.extend({
         //this.data.selected = item;
         /**
          * @event select 选择某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
+            source: this,
             selected: item
         });
         this.toggle(false);
@@ -86,9 +88,11 @@ var Suggest = Dropdown.extend({
 
         /**
          * @event toggle 展开或收起状态改变时触发
+         * @property {object} source 事件发起对象
          * @property {boolean} open 展开还是收起
          */
         this.$emit('toggle', {
+            source: this,
             open: open
         });
 
@@ -105,7 +109,7 @@ var Suggest = Dropdown.extend({
     /**
      * @private
      */
-    input: function($event) {
+    _onInput: function($event) {
         var value = this.data.value;
 
         if(value.length >= this.data.startLength) {
@@ -118,7 +122,7 @@ var Suggest = Dropdown.extend({
     /**
      * @private
      */
-    uninput: function($event) {
+    _onBlur: function($event) {
 
     },
     /**

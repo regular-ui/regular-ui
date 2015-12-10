@@ -77,9 +77,11 @@ var DateTimePicker = Dropdown.extend({
 
             /**
              * @event change 日期时间改变时触发
+             * @property {object} source 事件发起对象
              * @property {object} date 改变后的日期时间
              */
             this.$emit('change', {
+                source: this,
                 date: newValue
             });
         });
@@ -117,7 +119,7 @@ var DateTimePicker = Dropdown.extend({
                 return;
 
             if(minDate && maxDate && minDate - maxDate > 0)
-                    throw new Calendar.DateRangeException(minDate, maxDate);
+                    throw new Calendar.DateRangeError(minDate, maxDate);
 
             // 如果不为空并且超出日期范围，则设置为范围边界的日期
             if(this.data.date) {
@@ -128,11 +130,11 @@ var DateTimePicker = Dropdown.extend({
         });
     },
     /**
-     * @method _update(date, time) 日期或时间改变后更新日期时间
+     * @method _onDateTimeChange(date, time) 日期或时间改变后更新日期时间
      * @private
      * @return {void}
      */
-    _update: function(date, time) {
+    _onDateTimeChange: function(date, time) {
         if(!time)
             return this.data._time = '00:00';
 
@@ -157,12 +159,12 @@ var DateTimePicker = Dropdown.extend({
          */
     },
     /**
-     * @method _input($event) 输入日期
+     * @method _onInput($event) 输入日期
      * @private
      * @param  {object} $event
      * @return {void}
      */
-    _input: function($event) {
+    _onInput: function($event) {
         var value = $event.target.value;
         var date = value ? new Date(value) : null;
 

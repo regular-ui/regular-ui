@@ -41,7 +41,6 @@ exports.Modal = require("./module/modal.js");
 exports.ListView = require("./module/listView.js");
 exports.TreeView = require("./module/treeView.js");
 exports.Calendar = require("./module/calendar.js");
-exports.Editor = require("./module/editor.js");
 exports.HTMLEditor = require("./module/htmlEditor.js");
 exports.MarkEditor = require("./module/markEditor.js");
 exports.Validation = require("./util/validation.js");

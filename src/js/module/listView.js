@@ -56,20 +56,15 @@ var ListView = SourceComponent.extend({
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
+         * @property {object} source 事件发起对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
+            source: this,
             selected: item
         });
     },
-    _onDragEnter: function($event, item) {
-        // if($event.data.root !== this.data.source)
-        //     $event.cancel = true;
-    },
-    _onDragOver: function($event, item) {
-        // if($event.data.root !== this.data.source)
-        //     $event.cancel = true;
-
+    _onItemDragOver: function($event) {
         var target = $event.target;
         _.dom.delClass(target, 'z-dragover-before');
         _.dom.delClass(target, 'z-dragover-after');
@@ -79,7 +74,7 @@ var ListView = SourceComponent.extend({
         else
             _.dom.addClass(target, 'z-dragover-after');
     },
-    _onDrop: function($event, item) {
+    _onItemDrop: function($event, item) {
         var target = $event.target;
         _.dom.delClass(target, 'z-dragover-before');
         _.dom.delClass(target, 'z-dragover-after');
@@ -96,16 +91,33 @@ var ListView = SourceComponent.extend({
             index++;
         this.data.source.splice(index, 0, oldItem);
     },
-    _onDragOver2: function($event) {
-        // if($event.data.root !== this.data.source)
-        //     return $event.dataTransfer.dropEffect = 'none';
+    _onDragOver: function($event) {
+        var target = $event.target;
+        _.dom.delClass(target, 'z-dragover-before');
+        _.dom.delClass(target, 'z-dragover-after');
+
+        if($event.ratioY < 0.5)
+            _.dom.addClass(target, 'z-dragover-before');
+        else
+            _.dom.addClass(target, 'z-dragover-after');
     },
-    _onDrop2: function($event) {
-        // console.log('drop2');
-        // var oldItem = $event.data.item;
-        // var oldIndex = this.data.source.indexOf(oldItem);
-        // this.data.source.splice(oldIndex, 1);
-        // this.data.source.push(oldItem);
+    _onDragLeave: function($event) {
+        var target = $event.target;
+        _.dom.delClass(target, 'z-dragover-before');
+        _.dom.delClass(target, 'z-dragover-after');
+    },
+    _onDrop: function($event) {
+        var target = $event.target;
+        _.dom.delClass(target, 'z-dragover-before');
+        _.dom.delClass(target, 'z-dragover-after');
+
+        var oldItem = $event.data.item;
+        var oldIndex = this.data.source.indexOf(oldItem);
+        this.data.source.splice(oldIndex, 1);
+        if($event.ratioY < 0.5)
+            this.data.source.unshift(oldItem);
+        else
+            this.data.source.push(oldItem);
     }
 });
 

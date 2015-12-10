@@ -341,7 +341,6 @@ a{
 	text-decoration:none;
 	cursor:pointer;
 	background:transparent;
-	color:#3c8dbc;
 }
 a:hover{
 	text-decoration:underline;
@@ -469,6 +468,9 @@ h6{
 	font-size:12px;
 	line-height:18px;
 }
+a{
+	color:#3c8dbc;
+}
 hr{
 	border-top:1px solid #f4f4f4;
 }
@@ -545,7 +547,7 @@ pre{
 .u-btn:disabled,.u-btn.z-dis,.u-dropdown.z-dis .dropdown_hd>.u-btn{
 	cursor:not-allowed;
 }
-.u-btn-block,.u-btngroup-vertical >.u-btn{
+.u-btn-block{
 	display:block;
 	width:100%;
 }
@@ -728,6 +730,10 @@ pre{
 	border-top-left-radius:0;
 	-moz-border-bottom-left-radius:0;
 	border-bottom-left-radius:0;
+}
+.u-btngroup-vertical >.u-btn{
+	display:block;
+	width:100%;
 }
 .u-btngroup-vertical >.u-btn + .u-btn{
 	margin-top:-1px;
@@ -4113,15 +4119,6 @@ html.z-modal,html.z-modal body{
 	-ms-user-select:none;
 	user-select:none;
 }
-.m-listview.z-dragover:after{
-	content:"";
-	display:block;
-	position:relative;
-	z-index:1;
-	border-top:2px solid #3c8dbc;
-	top:-1px;
-	margin-bottom:-2px;
-}
 .m-listview >li{
 	cursor:pointer;
 	position:relative;
@@ -4129,29 +4126,6 @@ html.z-modal,html.z-modal body{
 .m-listview >li.z-dis{
 	cursor:not-allowed;
 	background:none;
-}
-.m-listview >li.z-drag{
-	opacity:0.6;
-}
-.m-listview >li.z-dragover.z-dragover-before:before{
-	content:"";
-	display:block;
-	position:absolute;
-	left:0;
-	right:0;
-	z-index:2;
-	top:-1px;
-	border-top:2px solid #3c8dbc;
-}
-.m-listview >li.z-dragover.z-dragover-after:after{
-	content:"";
-	display:block;
-	position:absolute;
-	left:0;
-	right:0;
-	z-index:2;
-	bottom:-1px;
-	border-top:2px solid #3c8dbc;
 }
 .m-listview.z-dis >li{
 	cursor:not-allowed;
@@ -4187,6 +4161,33 @@ html.z-modal,html.z-modal body{
 .m-listview.z-dis >li{
 	background:#eee;
 	color:#999;
+}
+.m-listview.z-dragover.z-dragover-before:before,.m-listview.z-dragover.z-dragover-after:after{
+	content:"";
+	display:block;
+	position:relative;
+	z-index:1;
+	border-top:2px solid #3c8dbc;
+	top:-1px;
+	margin-bottom:-2px;
+}
+.m-listview >li.z-drag{
+	opacity:0.6;
+}
+.m-listview >li.z-dragover.z-dragover-before:before{
+	content:"";
+	display:block;
+	position:absolute;
+	left:0;
+	right:0;
+	z-index:2;
+	border-top:2px solid #3c8dbc;
+}
+.m-listview >li.z-dragover.z-dragover-before:before{
+	top:-1px;
+}
+.m-listview >li.z-dragover.z-dragover-after:after{
+	bottom:-1px;
 }
 .m-treeview{
 	-webkit-box-sizing:border-box;
