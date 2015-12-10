@@ -8,16 +8,7 @@
 <draggable data="warning"><div class="u-color u-color-warning">拖我</div></draggable>
 <draggable data="error"><div class="u-color u-color-error">拖我</div></draggable>
 <p></p>
-<droppable data={dropData} on-drop={this._onDrop($event)}><div class="u-color u-color-{dropData || 'primary'}">放到这里</div></droppable>
-```
-
-```javascript
-var component = new RGUI.Component({
-    template: template,
-    _onDrop: function($event) {
-        console.log($event);
-    }
-});
+<droppable data={dropData}><div class="u-color u-color-{dropData || 'primary'}">放到这里</div></droppable>
 ```
 
 #### 列表排序

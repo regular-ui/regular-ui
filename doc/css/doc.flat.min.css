@@ -4534,7 +4534,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	cursor:move;
 	cursor:-webkit-grab;
 }
-.m-modal .z-dragging .modal_hd.z-draggable{
+.m-modal .z-drag .modal_hd.z-draggable{
 	cursor:move;
 	cursor:-webkit-grabbing;
 }
@@ -4617,7 +4617,7 @@ html.z-modal,html.z-modal body{
 	cursor:not-allowed;
 	background:none;
 }
-.m-listview >li.z-dragging{
+.m-listview >li.z-drag{
 	opacity:0.6;
 }
 .m-listview >li.z-dragover.z-dragover-before:before{

@@ -216,17 +216,51 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
             
-            <tr><td class="f-wsn"><code>data.proxy</code></td><td class="f-wsn">string | Dragable.Proxy | HTMLElement | function</td><td class="f-wsn"><code>&#39;clone&#39;</code></td><td class="f-tac">outer @=&gt; inner</td><td>拖拽代理，即拖拽时显示的元素。默认值为`clone`，拖拽时拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`&lt;draggable.proxy&gt;`自定义代理，或直接传入一个元素或函数。其他值表示不使用拖拽代理。</td></tr>
-            
             <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>拖拽时需要传递的数据</td></tr>
             
+            <tr><td class="f-wsn"><code>data.proxy</code></td><td class="f-wsn">string<br>Dragable.Proxy<br>Element<br>function</td><td class="f-wsn"><code>&#39;clone&#39;</code></td><td class="f-tac">outer @=&gt; inner</td><td>拖拽代理，即拖拽时显示的元素。默认值为`clone`，拖拽时拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`&lt;draggable.proxy&gt;`自定义代理，或直接传入一个元素或函数。其他值表示不使用拖拽代理。</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.direction</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;all&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>拖拽代理可以移动的方向，`all`为任意方向，`horizontal`为水平方向，`vertical`为垂直方向</td></tr>
+            
             <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;z-draggable&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>可拖拽时（即disabled=false）给元素附加此class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.dragClass</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;z-drag&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>拖拽该元素时给元素附加此class</td></tr>
             
         
     </tbody>
 </table>
 <div id="j-options"></div>
 
+
+    <h4>Methods</h4>
+    
+    
+    <h5>
+        
+        <div>draggable.cancel()</div>
+    </h5>
+    <p>取消拖拽操作</p>
+    <table>
+        <thead>
+            <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无返回值</td></tr>
+            
+        </tbody>
+    </table>
+    
 
 <div id="j-methods"></div>
 
@@ -236,6 +270,109 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 <div id="j-inheritedMethods"></div>
 
+
+    <h4>Events</h4>
+    
+    
+    <h5>draggable.$on('dragstart')</h5>
+    <p>拖拽开始时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象，为当前draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>target</code></td><td class="f-wsn">object</td><td class="f-wsn">事件目标对象，为拖拽代理元素</td></tr>
+                
+                <tr><td class="f-wsn"><code>origin</code></td><td class="f-wsn">object</td><td class="f-wsn">事件源，即拖拽源，为当前draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">拖拽时需要传递的数据</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针水平位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针垂直位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn">取消拖拽操作</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>draggable.$on('drag')</h5>
+    <p>正在拖拽时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象，为当前draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>target</code></td><td class="f-wsn">object</td><td class="f-wsn">事件目标对象，为拖拽代理元素</td></tr>
+                
+                <tr><td class="f-wsn"><code>origin</code></td><td class="f-wsn">object</td><td class="f-wsn">事件源，即拖拽源，为当前draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">拖拽时需要传递的数据</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针水平位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针垂直位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn">取消拖拽操作</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>draggable.$on('dragend')</h5>
+    <p>拖拽结束时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象，为当前draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>target</code></td><td class="f-wsn">object</td><td class="f-wsn">事件目标对象，为拖拽代理元素</td></tr>
+                
+                <tr><td class="f-wsn"><code>origin</code></td><td class="f-wsn">object</td><td class="f-wsn">事件源，即拖拽源，为当前draggable</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
 
 <div id="j-events"></div>
 

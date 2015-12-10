@@ -71,7 +71,7 @@ function parse(filepath) {
             if(cap2 = rule.param.exec(line)) {
                 token.params.push({
                     name: cap2[3].replace(/^options\./, ''),
-                    type: cap2[1].replace(/\|/g, ' | '),
+                    type: cap2[1].replace(/\|/g, '<br>'),
                     default_: cap2[2],
                     bindWay: cap2[4],
                     description: cap2[5]
@@ -81,7 +81,7 @@ function parse(filepath) {
             if(cap2 = rule.return_.exec(line)) {
                 token.return_ = {
                     name: cap2[2],
-                    type: cap2[1].replace(/\|/g, ' | '),
+                    type: cap2[1].replace(/\|/g, '<br>'),
                     description: cap2[3]
                 };
             }
@@ -89,7 +89,7 @@ function parse(filepath) {
             if(cap2 = rule.property.exec(line)) {
                 token.properties.push({
                     name: cap2[2],
-                    type: cap2[1].replace(/\|/g, ' | '),
+                    type: cap2[1].replace(/\|/g, '<br>'),
                     description: cap2[3]
                 });
             }

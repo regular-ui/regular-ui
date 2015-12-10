@@ -181,14 +181,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-warning&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">draggable</span> <span class="cm-attribute">data</span>=<span class="cm-string">&quot;error&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-error&quot;</span><span class="cm-tagcm-bracket">&gt;</span>拖我<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">draggable</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">droppable</span> <span class="cm-attribute">data</span>=<span class="cm-attribute">{dropData}</span> <span class="cm-attribute">on-drop</span>=<span class="cm-attribute">{this._onDrop($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-{dropData || &#39;primary&#39;}&quot;</span><span class="cm-tagcm-bracket">&gt;</span>放到这里<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">droppable</span><span class="cm-tagcm-bracket">&gt;</span>
-</code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">_onDrop</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
-        <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable-2">$event</span>);
-    }
-});
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">droppable</span> <span class="cm-attribute">data</span>=<span class="cm-attribute">{dropData}</span><span class="cm-tagcm-bracketcm-error">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-color u-color-{dropData || &#39;primary&#39;}&quot;</span><span class="cm-tagcm-bracket">&gt;</span>放到这里<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">droppable</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">列表排序</h4>
 <p><em>待完成……</em></p>
@@ -218,6 +211,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否禁用</td></tr>
             
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;z-droppable&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>可放置时（即disabled=false）给元素附加此class</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.dragOverClass</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;z-dragover&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>拖拽该元素上方时给元素附加此class</td></tr>
+            
         
     </tbody>
 </table>
@@ -232,6 +229,175 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 <div id="j-inheritedMethods"></div>
 
+
+    <h4>Events</h4>
+    
+    
+    <h5>droppable.$on('dragenter')</h5>
+    <p>拖拽进入该元素时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象，为当前droppable</td></tr>
+                
+                <tr><td class="f-wsn"><code>target</code></td><td class="f-wsn">object</td><td class="f-wsn">事件目标对象，为当前接收元素</td></tr>
+                
+                <tr><td class="f-wsn"><code>origin</code></td><td class="f-wsn">object</td><td class="f-wsn">事件源，即拖拽源，为拖拽的draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">拖拽时接收到的数据</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针水平位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针垂直位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn">取消拖拽操作</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>droppable.$on('dragleave')</h5>
+    <p>拖拽离开该元素时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象，为当前droppable</td></tr>
+                
+                <tr><td class="f-wsn"><code>target</code></td><td class="f-wsn">object</td><td class="f-wsn">事件目标对象，为当前接收元素</td></tr>
+                
+                <tr><td class="f-wsn"><code>origin</code></td><td class="f-wsn">object</td><td class="f-wsn">事件源，即拖拽源，为拖拽的draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">拖拽时接收到的数据</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针水平位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针垂直位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn">取消拖拽操作</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>droppable.$on('dragover')</h5>
+    <p>拖拽在该元素上方时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象，为当前droppable</td></tr>
+                
+                <tr><td class="f-wsn"><code>target</code></td><td class="f-wsn">object</td><td class="f-wsn">事件目标对象，为当前接收元素</td></tr>
+                
+                <tr><td class="f-wsn"><code>origin</code></td><td class="f-wsn">object</td><td class="f-wsn">事件源，即拖拽源，为拖拽的draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">拖拽时接收到的数据</td></tr>
+                
+                <tr><td class="f-wsn"><code>ratioX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于接收元素所占的长度比</td></tr>
+                
+                <tr><td class="f-wsn"><code>ratioY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于接收元素所占的高度比</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针水平位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针垂直位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>cancel</code></td><td class="f-wsn">function</td><td class="f-wsn">取消拖拽操作</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>droppable.$on('drop')</h5>
+    <p>拖拽放置时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象，为当前droppable</td></tr>
+                
+                <tr><td class="f-wsn"><code>target</code></td><td class="f-wsn">object</td><td class="f-wsn">事件目标对象，为当前接收元素</td></tr>
+                
+                <tr><td class="f-wsn"><code>origin</code></td><td class="f-wsn">object</td><td class="f-wsn">事件源，即拖拽源，为拖拽的draggable</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">拖拽时接收到的数据</td></tr>
+                
+                <tr><td class="f-wsn"><code>ratioX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于接收元素所占的长度比</td></tr>
+                
+                <tr><td class="f-wsn"><code>ratioY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于接收元素所占的高度比</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>screenY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于屏幕的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>clientY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于浏览器的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的水平位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>pageY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针相对于页面的垂直位置</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementX</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针水平位置相对于上次操作的偏移量</td></tr>
+                
+                <tr><td class="f-wsn"><code>movementY</code></td><td class="f-wsn">number</td><td class="f-wsn">鼠标指针垂直位置相对于上次操作的偏移量</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
 
 <div id="j-events"></div>
 
@@ -329,13 +495,10 @@ var index = 0;
 <draggable data="warning"><div class="u-color u-color-warning">拖我</div></draggable>
 <draggable data="error"><div class="u-color u-color-error">拖我</div></draggable>
 <p></p>
-<droppable data={dropData} on-drop={this._onDrop($event)}><div class="u-color u-color-{dropData || 'primary'}">放到这里</div></droppable>
+<droppable data={dropData}><div class="u-color u-color-{dropData || 'primary'}">放到这里</div></droppable>
     */})
 var component = new RGUI.Component({
-    template: template,
-    _onDrop: function($event) {
-        console.log($event);
-    }
+    template: template
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

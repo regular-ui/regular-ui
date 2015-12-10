@@ -62,7 +62,7 @@
         cursor: -webkit-grab;
     }
 
-    .z-dragging .modal_hd.z-draggable {
+    .z-drag .modal_hd.z-draggable {
         cursor: move;
         cursor: -webkit-grabbing;
     }

@@ -119,8 +119,8 @@ var Modal = Component.extend({
 ```javascript
 {
     source: this,    // 触发事件的发起对象，通常为this
-    origin: ...,    // 触发事件的起始源，可选，如与drop事件相关的draggable
     target: target,    // 事件处理的目标对象
+    origin: ...,    // 触发事件的起始源，可选，如与drop事件相关的draggable
     ...    // 其他相关参数
 }
 ```
@@ -142,10 +142,6 @@ var Modal = Component.extend({
 ```
 
 <!-- 不把所有的组件都封装成Regular组件 -->
-
-------
-
-参考：[杨周智同学的文章](http://capasky.github.io/2015/08/09/regularjs-component-development-guide/)
 
 ### 已使用的缩写
 

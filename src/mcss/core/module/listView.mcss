@@ -40,7 +40,7 @@
         background: none;
     }
 
-    > li.z-dragging {
+    > li.z-drag {
         opacity: 0.6;
     }
 
