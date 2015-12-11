@@ -86,6 +86,8 @@ var Uploader = Component.extend({
     },
     _onLoad: function() {
         var iframe = this.$refs.iframe;
+        if(!iframe.src)
+            return;
 
         var xml = {};
         try {

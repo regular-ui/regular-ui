@@ -54,3 +54,4 @@ $reset-normalize();
 @import "./simple/module/listView.mcss";
 @import "./simple/module/treeView.mcss";
 @import "./simple/module/calendar.mcss";
+@import "./simple/module/editor.mcss";

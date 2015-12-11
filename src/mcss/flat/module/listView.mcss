@@ -69,7 +69,7 @@
         opacity: 0.6;
     }
 
-    > li.z-dragover.z-dragover-before:before {
+    > li.z-dragover.z-dragover-before:before, > li.z-dragover.z-dragover-after:after {
         content: '';
         display: block;
         position: absolute;

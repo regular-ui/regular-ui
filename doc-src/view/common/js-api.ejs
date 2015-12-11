@@ -51,7 +51,7 @@
         </thead>
         <tbody>
             <% if(method.return_ && method.return_.type !== 'void') { %>
-                <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%= method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
+                <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%- method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
             <% } else { %>
                 <tr><td class="f-tac" colspan="4">无返回值</td></tr>
             <% } %>
@@ -88,7 +88,7 @@
         </thead>
         <tbody>
             <% if(method.return_ && method.return_.type !== 'void') { %>
-                <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%= method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
+                <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%- method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
             <% } else { %>
                 <tr><td class="f-tac" colspan="4">无返回值</td></tr>
             <% } %>
@@ -126,7 +126,7 @@
             </thead>
             <tbody>
                 <% if(method.return_ && method.return_.type !== 'void') { %>
-                    <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%= method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
+                    <tr><td class="f-wsn"><code><%= method.return_.name %></code></td><td class="f-wsn"><%- method.return_.type %></td><td colspan="2"><%= method.return_.description %></td></tr>
                 <% } else { %>
                     <tr><td class="f-tac" colspan="4">无返回值</td></tr>
                 <% } %>
@@ -155,7 +155,7 @@
         <tbody>
             <% if(event.properties.length) { %>
                 <% event.properties.forEach(function(property) { %>
-                <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
+                <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%- property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
                 <% }); %>
             <% } else { %>
                 <tr><td class="f-tac" colspan="4">无属性</td></tr>
@@ -180,7 +180,7 @@
             <tbody>
                 <% if(event.properties.length) { %>
                     <% event.properties.forEach(function(property) { %>
-                    <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%= property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
+                    <tr><td class="f-wsn"><code><%= property.name %></code></td><td class="f-wsn"><%- property.type %></td><td class="f-wsn"><%= property.description %></td></tr>
                     <% }); %>
                 <% } else { %>
                     <tr><td class="f-tac" colspan="4">无属性</td></tr>
