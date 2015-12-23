@@ -17,8 +17,10 @@ var _ = require('regular-ui-base/src/_');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
- * @param {object=null}             options.data.selected           <=  最后的选择项
- * @param {object[]=[]}             options.data.selectedItems      <=  所有的选择项
+ * @param {object}                  options.data.selected           <=  最后的选择项
+ * @param {object[]=[]}             options.data.selecteds          <=  所有的选择项
+ * @param {string[]|number[]=[]}    options.data.values             <=> 所有的选择值
+ * @param {string='id'}             options.data.key                 => 数据项的键
  * @param {string[]=[]}             options.data.placeholders        => 默认项的文字
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -37,8 +39,10 @@ var Select2Group = Component.extend({
             // @inherited source: [],
             depth: 1,
             sources: [],
-            selected: null,
-            selectedItems: [],
+            selected: undefined,
+            selecteds: [],
+            key: 'id',
+            values: [],
             placeholders: []
         });
         this.supr();
@@ -48,12 +52,16 @@ var Select2Group = Component.extend({
              * @event change 最后的选择项改变时触发
              * @property {object} source 事件发起对象
              * @property {object} selected 最后的选择项
-             * @property {object} selectedItems 所有的选择项
+             * @property {object} selecteds 所有的选择项
+             * @property {string} key 数据项的键
+             * @property {string[]|number[]} values 所有的选择值
              */
             this.$emit('change', {
                 source: this,
                 selected: newValue,
-                selectedItems: this.data.selectedItems
+                selecteds: this.data.selecteds,
+                key: this.data.key,
+                values: this.data.values
             });
         });
 
@@ -62,13 +70,16 @@ var Select2Group = Component.extend({
     /**
      * @private
      */
-    select: function(item, level) {
+    _onChange: function(item, level) {
         if(this.data.readonly || this.data.disabled || (item && (item.disabled || item.divider)))
             return;
 
         this.data.sources[level + 1] = item ? item.children : undefined;
         for(var i = level + 2; i < this.data.depth; i++)
             this.data.sources[i] = undefined;
+
+        if(level === this.data.depth - 1)
+            this.data.selected = item;
 
         /**
          * @event select 选择某一项时触发
@@ -79,18 +90,10 @@ var Select2Group = Component.extend({
         this.$emit('select', {
             source: this,
             selected: item,
+            selecteds: this.data.selecteds,
             level: level
         });
     },
-    /**
-     * @private
-     */
-    _onChange: function(item, index) {
-        if(index === this.data.depth - 1)
-            this.data.selected = item;
-
-        this.data.selectedItems[index] = item;
-    }
 });
 
 module.exports = Select2Group;

@@ -361,9 +361,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer &lt;=&gt; inner</td><td>当前选择项</td></tr>
             
-            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer &lt;=&gt; inner</td><td>当前选择值</td></tr>
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">string<br>number</td><td class="f-wsn"></td><td class="f-tac">outer &lt;=&gt; inner</td><td>当前选择值</td></tr>
             
-            <tr><td class="f-wsn"><code>data.key</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>&#39;id&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>数据项的键</td></tr>
+            <tr><td class="f-wsn"><code>data.key</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;id&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>数据项的键</td></tr>
             
             <tr><td class="f-wsn"><code>data.placeholder</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;请选择&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>默认项的文字，如果`placeholder`为空并且没有选择项时，将会自动选中第一项。</td></tr>
             
@@ -504,6 +504,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
                 
                 <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">改变后的选择项</td></tr>
+                
+                <tr><td class="f-wsn"><code>key</code></td><td class="f-wsn">string</td><td class="f-wsn">数据项的键</td></tr>
+                
+                <tr><td class="f-wsn"><code>value</code></td><td class="f-wsn">string<br>number</td><td class="f-wsn">改变后的选择值</td></tr>
                 
             
         </tbody>

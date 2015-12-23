@@ -128,12 +128,13 @@ Notify.show = function() {
  * @static
  * @public
  * @param  {string=''} text 消息内容
+ * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
  * @return {void}
  */
 var states = ['success', 'warning', 'info', 'error'];
 states.forEach(function(state) {
-    Notify[state] = function(text) {
-        Notify.show(text, state);
+    Notify[state] = function(text, duration) {
+        Notify.show(text, state, duration);
     }
 });
 /**

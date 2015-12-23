@@ -424,50 +424,60 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
-<!-- #### Test
+<h4 id="test">Test</h4>
+<div class="m-example"></div>
 
-<!- div class="m-example"></div>
-
-```! xml
-<select2Group source={source} />
-```
-
-```! javascript
-var component = new RGUI.Component({
-    template: template,
-    data: {
-        source: [
-            {name: '理学', children: [
-                {name: '物理学', children: [
-                    {name: '理论物理'},
-                    {name: '凝聚态物理'},
-                    {name: '材料物理'}
-                ]},
-                {name: '数学', children: [
-                    {name: '基础数学'},
-                    {name: '计算数学'},
-                    {name: '应用数学'}
-                ]},
-                {name: '化学'}
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">key</span>=<span class="cm-string">&quot;name&quot;</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this._onSelect($event)}</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;select2Group&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.setValues()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Set<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;北京&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;北京&#39;</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;A区&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;B区&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;C区&#39;</span>}
+                ]}
             ]},
-            {name: '工学', children: [
-                {name: '计算机科学与技术', children: [
-                    {name: '计算机系统结构'},
-                    {name: '计算机软件与理论'},
-                    {name: '计算机应用技术'}
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;上海&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;上海&#39;</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;D区&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;E区&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;F区&#39;</span>}
+                ]}
+            ]},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;浙江&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;杭州&#39;</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;滨江区&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;拱墅区&#39;</span>}
                 ]},
-                {name: '软件工程'},
-                {name: '机械工程', children: [
-                    {name: '机械制造及其自动化'},
-                    {name: '机械电子工程'},
-                    {name: '机械设计及理论'},
-                    {name: '车辆工程'}
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;宁波&#39;</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;xx区&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;xx区&#39;</span>}
                 ]}
             ]}
         ]
+    },
+    <span class="cm-property">_onSelect</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-keyword">if</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">level</span> <span class="cm-operator">===</span> <span class="cm-number">0</span>) {
+            <span class="cm-keyword">var</span> <span class="cm-def">selected</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">selected</span>;
+            <span class="cm-keyword">if</span>(<span class="cm-variable-2">selected</span> <span class="cm-operator">&amp;&amp;</span> (<span class="cm-variable-2">selected</span>.<span class="cm-property">name</span> <span class="cm-operator">===</span> <span class="cm-string">&#39;北京&#39;</span> <span class="cm-operator">||</span> <span class="cm-variable-2">selected</span>.<span class="cm-property">name</span> <span class="cm-operator">===</span> <span class="cm-string">&#39;上海&#39;</span>))
+                <span class="cm-variable-2">$event</span>.<span class="cm-property">source</span>.<span class="cm-property">data</span>.<span class="cm-property">placeholders</span>[<span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-string">&#39;&#39;</span>;
+            <span class="cm-keyword">else</span>
+                <span class="cm-variable-2">$event</span>.<span class="cm-property">source</span>.<span class="cm-property">data</span>.<span class="cm-property">placeholders</span>[<span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-atom">undefined</span>;
+        }
+    },
+    <span class="cm-property">setValues</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-keyword">var</span> <span class="cm-def">select2Group</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">select2Group</span>;
+        <span class="cm-variable-2">select2Group</span>.<span class="cm-property">data</span>.<span class="cm-property">values</span>[<span class="cm-number">0</span>] <span class="cm-operator">=</span> <span class="cm-string">&#39;北京&#39;</span>;
+        <span class="cm-variable-2">select2Group</span>.<span class="cm-property">data</span>.<span class="cm-property">values</span>[<span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-string">&#39;北京&#39;</span>;
+        <span class="cm-variable-2">select2Group</span>.<span class="cm-property">data</span>.<span class="cm-property">values</span>[<span class="cm-number">2</span>] <span class="cm-operator">=</span> <span class="cm-string">&#39;B区&#39;</span>;
     }
 });
-``` -->
+</code></pre>
+
         <h3>API</h3>
 
 <h4>Class</h4>
@@ -491,9 +501,13 @@ var component = new RGUI.Component({
             
             <tr><td class="f-wsn"><code>data.source[].name</code></td><td class="f-wsn">string</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>每项的内容</td></tr>
             
-            <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td class="f-tac">outer &lt;=  inner</td><td>最后的选择项</td></tr>
+            <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer &lt;=  inner</td><td>最后的选择项</td></tr>
             
-            <tr><td class="f-wsn"><code>data.selectedItems</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer &lt;=  inner</td><td>所有的选择项</td></tr>
+            <tr><td class="f-wsn"><code>data.selecteds</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer &lt;=  inner</td><td>所有的选择项</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.values</code></td><td class="f-wsn">string[]<br>number[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>所有的选择值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.key</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;id&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>数据项的键</td></tr>
             
             <tr><td class="f-wsn"><code>data.placeholders</code></td><td class="f-wsn">string[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer  =&gt; inner</td><td>默认项的文字</td></tr>
             
@@ -538,7 +552,11 @@ var component = new RGUI.Component({
                 
                 <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">最后的选择项</td></tr>
                 
-                <tr><td class="f-wsn"><code>selectedItems</code></td><td class="f-wsn">object</td><td class="f-wsn">所有的选择项</td></tr>
+                <tr><td class="f-wsn"><code>selecteds</code></td><td class="f-wsn">object</td><td class="f-wsn">所有的选择项</td></tr>
+                
+                <tr><td class="f-wsn"><code>key</code></td><td class="f-wsn">string</td><td class="f-wsn">数据项的键</td></tr>
+                
+                <tr><td class="f-wsn"><code>values</code></td><td class="f-wsn">string[]<br>number[]</td><td class="f-wsn">所有的选择值</td></tr>
                 
             
         </tbody>
@@ -875,6 +893,59 @@ var component = new RGUI.Component({
                 ]}
             ]}
         ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select2Group source={source} depth=3 key="name" on-select={this._onSelect($event)} ref="select2Group" />
+<button class="u-btn u-btn-primary" on-click={this.setValues()}>Set</button>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '北京', children: [
+                {name: '北京', children: [
+                    {name: 'A区'},
+                    {name: 'B区'},
+                    {name: 'C区'}
+                ]}
+            ]},
+            {name: '上海', children: [
+                {name: '上海', children: [
+                    {name: 'D区'},
+                    {name: 'E区'},
+                    {name: 'F区'}
+                ]}
+            ]},
+            {name: '浙江', children: [
+                {name: '杭州', children: [
+                    {name: '滨江区'},
+                    {name: '拱墅区'}
+                ]},
+                {name: '宁波', children: [
+                    {name: 'xx区'},
+                    {name: 'xx区'}
+                ]}
+            ]}
+        ]
+    },
+    _onSelect: function($event) {
+        if($event.level === 0) {
+            var selected = $event.selected;
+            if(selected && (selected.name === '北京' || selected.name === '上海'))
+                $event.source.data.placeholders[1] = '';
+            else
+                $event.source.data.placeholders[1] = undefined;
+        }
+    },
+    setValues: function($event) {
+        var select2Group = this.$refs.select2Group;
+        select2Group.data.values[0] = '北京';
+        select2Group.data.values[1] = '北京';
+        select2Group.data.values[2] = 'B区';
     }
 });
     component.$inject($$(".m-example")[index]);

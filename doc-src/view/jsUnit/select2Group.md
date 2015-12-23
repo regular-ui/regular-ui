@@ -257,47 +257,60 @@ var component = new RGUI.Component({
 });
 ```
 
-<!-- #### Test
+#### Test
 
-<!- div class="m-example"></div>
+<div class="m-example"></div>
 
-```! xml
-<select2Group source={source} />
+```xml
+<select2Group source={source} depth=3 key="name" on-select={this._onSelect($event)} ref="select2Group" />
+<button class="u-btn u-btn-primary" on-click={this.setValues()}>Set</button>
 ```
 
-```! javascript
+```javascript
 var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-            {name: '理学', children: [
-                {name: '物理学', children: [
-                    {name: '理论物理'},
-                    {name: '凝聚态物理'},
-                    {name: '材料物理'}
-                ]},
-                {name: '数学', children: [
-                    {name: '基础数学'},
-                    {name: '计算数学'},
-                    {name: '应用数学'}
-                ]},
-                {name: '化学'}
+            {name: '北京', children: [
+                {name: '北京', children: [
+                    {name: 'A区'},
+                    {name: 'B区'},
+                    {name: 'C区'}
+                ]}
             ]},
-            {name: '工学', children: [
-                {name: '计算机科学与技术', children: [
-                    {name: '计算机系统结构'},
-                    {name: '计算机软件与理论'},
-                    {name: '计算机应用技术'}
+            {name: '上海', children: [
+                {name: '上海', children: [
+                    {name: 'D区'},
+                    {name: 'E区'},
+                    {name: 'F区'}
+                ]}
+            ]},
+            {name: '浙江', children: [
+                {name: '杭州', children: [
+                    {name: '滨江区'},
+                    {name: '拱墅区'}
                 ]},
-                {name: '软件工程'},
-                {name: '机械工程', children: [
-                    {name: '机械制造及其自动化'},
-                    {name: '机械电子工程'},
-                    {name: '机械设计及理论'},
-                    {name: '车辆工程'}
+                {name: '宁波', children: [
+                    {name: 'xx区'},
+                    {name: 'xx区'}
                 ]}
             ]}
         ]
+    },
+    _onSelect: function($event) {
+        if($event.level === 0) {
+            var selected = $event.selected;
+            if(selected && (selected.name === '北京' || selected.name === '上海'))
+                $event.source.data.placeholders[1] = '';
+            else
+                $event.source.data.placeholders[1] = undefined;
+        }
+    },
+    setValues: function($event) {
+        var select2Group = this.$refs.select2Group;
+        select2Group.data.values[0] = '北京';
+        select2Group.data.values[1] = '北京';
+        select2Group.data.values[2] = 'B区';
     }
 });
-``` -->
+```

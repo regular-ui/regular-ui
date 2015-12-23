@@ -5,7 +5,7 @@
     </div>
     <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
         <ul class="m-listview">
-            {#if placeholder}<li z-sel={!selected} on-click={this.select(null)}>{placeholder}</li>{/if}
+            {#if placeholder}<li z-sel={!selected} on-click={this.select(undefined)}>{placeholder}</li>{/if}
             {#list source as item}
             <li z-sel={selected === item} z-dis={item.disabled} title={item.name} on-click={this.select(item)}>{item.name}</li>
             {/list}

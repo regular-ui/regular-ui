@@ -18,8 +18,8 @@ var _ = require('regular-ui-base/src/_');
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
  * @param {object}                  options.data.selected           <=> 当前选择项
- * @param {object}                  options.data.value              <=> 当前选择值
- * @param {object='id'}             options.data.key                 => 数据项的键
+ * @param {string|number}           options.data.value              <=> 当前选择值
+ * @param {string='id'}             options.data.key                 => 数据项的键
  * @param {string='请选择'}         options.data.placeholder         => 默认项的文字，如果`placeholder`为空并且没有选择项时，将会自动选中第一项。
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -52,6 +52,8 @@ var Select2 = Dropdown.extend({
              * @event change 选择项改变时触发
              * @property {object} source 事件发起对象
              * @property {object} selected 改变后的选择项
+             * @property {string} key 数据项的键
+             * @property {string|number} value 改变后的选择值
              */
             this.$emit('change', {
                 source: this,

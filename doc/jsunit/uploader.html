@@ -255,7 +255,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.name</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;file&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>上传文件的name</td></tr>
             
-            <tr><td class="f-wsn"><code>data.extensions</code></td><td class="f-wsn">string<br>string[]</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>可上传的扩展名，如果为空，则表示可上传任何文件类型</td></tr>
+            <tr><td class="f-wsn"><code>data.extensions</code></td><td class="f-wsn">string<br>string[]</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>可上传的扩展名。默认为空，表示可上传任意文件类型的文件；可以为字符串，多个扩展名用`,`隔开，如：&#39;png,jpg,gif&#39;；也可以为数组，如：[&#39;png&#39;, &#39;jpg&#39;, &#39;gif&#39;]。</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.maxSize</code></td><td class="f-wsn">string<br>number</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`。</td></tr>
             
             <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否禁用</td></tr>
             
@@ -309,6 +311,52 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Events</h4>
     
     
+    <h5>uploader.$on('error')</h5>
+    <p>上传错误时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                
+                <tr><td class="f-wsn"><code>name</code></td><td class="f-wsn">object</td><td class="f-wsn">ExtensionError</td></tr>
+                
+                <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">错误信息</td></tr>
+                
+                <tr><td class="f-wsn"><code>extensions</code></td><td class="f-wsn">object</td><td class="f-wsn">可上传的扩展名</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>uploader.$on('error')</h5>
+    <p>上传错误时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                
+                <tr><td class="f-wsn"><code>name</code></td><td class="f-wsn">object</td><td class="f-wsn">SizeError</td></tr>
+                
+                <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">错误信息</td></tr>
+                
+                <tr><td class="f-wsn"><code>maxSize</code></td><td class="f-wsn">object</td><td class="f-wsn">可上传的最大文件大小</td></tr>
+                
+                <tr><td class="f-wsn"><code>size</code></td><td class="f-wsn">object</td><td class="f-wsn">当前文件大小</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
     <h5>uploader.$on('sending')</h5>
     <p>发送前触发</p>
     <table>
@@ -338,25 +386,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
                 
-                <tr><td class="f-wsn"><code>error</code></td><td class="f-wsn">object</td><td class="f-wsn">错误</td></tr>
+                <tr><td class="f-wsn"><code>name</code></td><td class="f-wsn">object</td><td class="f-wsn">ResponseError</td></tr>
                 
-            
-        </tbody>
-    </table>
-    
-    
-    <h5>uploader.$on('success')</h5>
-    <p>上传成功时触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">返回的数据</td></tr>
+                <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">错误信息</td></tr>
                 
             
         </tbody>
@@ -375,6 +407,24 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
                 
                 <tr><td class="f-wsn"><code>xml</code></td><td class="f-wsn">object</td><td class="f-wsn">返回的xml</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
+    <h5>uploader.$on('success')</h5>
+    <p>上传成功时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">返回的数据</td></tr>
                 
             
         </tbody>

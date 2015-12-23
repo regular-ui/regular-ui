@@ -11,6 +11,12 @@ var Component = require('regular-ui-base/src/component');
 var template = require('text!./uploader.html');
 var _ = require('regular-ui-base/src/_');
 
+var SIZE_UNITS = {
+    'kB': 1000,
+    'MB': 1000*1000,
+    'GB': 1000*1000*1000
+}
+
 /**
  * @class Uploader
  * @extend Component
@@ -20,7 +26,8 @@ var _ = require('regular-ui-base/src/_');
  * @param {string='json'}           options.data.dataType            => 数据类型
  * @param {object}                  options.data.data                => 附加数据
  * @param {string='file'}           options.data.name                => 上传文件的name
- * @param {string|string[]=''}      options.data.extensions          => 可上传的扩展名，如果为空，则表示可上传任何文件类型
+ * @param {string|string[]=''}      options.data.extensions          => 可上传的扩展名。默认为空，表示可上传任意文件类型的文件；可以为字符串，多个扩展名用`,`隔开，如：'png,jpg,gif'；也可以为数组，如：['png', 'jpg', 'gif']。
+ * @param {string|number=''}        options.data.maxSize             => 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`。
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
  * @param {string=''}               options.data.class               => 补充class
@@ -40,6 +47,7 @@ var Uploader = Component.extend({
             data: {},
             name: 'file',
             extensions: null,
+            maxSize: '',
             _id: new Date().getTime()
         });
         this.supr();
@@ -53,25 +61,86 @@ var Uploader = Component.extend({
         if(!this.data.disabled)
             this.$refs.file.click();
     },
+    _checkExtensions: function(file) {
+        if(!this.data.extensions)
+            return true;
+
+        var fileName = file.name;
+        var ext = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase();
+
+        var extensions = this.data.extensions;
+        if(typeof extensions === 'string')
+            extensions = extensions.split(',');
+        
+        if(extensions.indexOf(ext) >= 0)
+            return true;
+
+        /**
+         * @event error 上传错误时触发
+         * @property {object} source 事件发起对象
+         * @property {object} name ExtensionError
+         * @property {object} message 错误信息
+         * @property {object} extensions 可上传的扩展名
+         */
+        this.$emit('error', {
+            source: this,
+            name: 'ExtensionError',
+            message: '只能上传' + extensions.join(', ')　+ '类型的文件！',
+            extensions: extensions
+        });
+
+        return false;
+    },
+    _checkSize: function(file) {
+        if(!this.data.maxSize && this.data.maxSize !== 0)
+            return true;
+
+        var maxSize;
+        if(!isNaN(this.data.maxSize))
+            maxSize = +this.data.maxSize;
+        else {
+            var unit = this.data.maxSize.slice(-2);
+            if(!SIZE_UNITS[unit])
+                throw new Error('Unknown unit!');
+
+            maxSize = this.data.maxSize.slice(0, -2)*SIZE_UNITS[unit];
+        }
+
+        if(file.size <= maxSize)
+            return true;
+
+        /**
+         * @event error 上传错误时触发
+         * @property {object} source 事件发起对象
+         * @property {object} name SizeError
+         * @property {object} message 错误信息
+         * @property {object} maxSize 可上传的最大文件大小
+         * @property {object} size 当前文件大小
+         */
+        this.$emit('error', {
+            source: this,
+            name: 'SizeError',
+            message: '文件大小超出！',
+            maxSize: this.data.maxSize,
+            size: file.size
+        });
+
+        return false;
+    },
     /**
-     * @method submit() 提交表单
+     * @method _submit() 提交表单
      * @private
      * @return {void}
      */
-    submit: function() {
-        if(this.data.extensions) {
-            var fileName = this.$refs.file.value;
-            var ext = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase();
+    _submit: function() {
+        var file = this.$refs.file.files ? this.$refs.file.files[0] : {
+            name: this.$refs.file.value,
+            size: 0
+        };
 
-            var extensions = this.data.extensions;
-            if(typeof extensions === 'string')
-                extensions = extensions.split(',');
-            
-            if(extensions.indexOf(ext) === -1)
-                return this.$emit('error', {
-                    message: this.extensionError()
-                });
-        }
+        if(!file || !this._checkExtensions(file) || !this._checkSize(file))
+            return;
+
         /**
          * @event sending 发送前触发
          * @property {object} source 事件发起对象
@@ -84,62 +153,38 @@ var Uploader = Component.extend({
 
         this.$refs.form.submit();
     },
+    _firstLoad: true,
     _onLoad: function() {
         var iframe = this.$refs.iframe;
-        if(!iframe.src)
+        if(!this.$refs.file.value)
             return;
 
         var xml = {};
-        try {
-            if(iframe.contentWindow) {
-                xml.responseText = iframe.contentWindow.document.body ? iframe.contentWindow.document.body.innerHTML : null;
-                xml.responseXML = iframe.contentWindow.document.XMLDocument ? iframe.contentWindow.document.XMLDocument : iframe.contentWindow.document;
-            } else if(iframe.contentDocument) {
-                xml.responseText = iframe.contentDocument.document.body?iframe.contentDocument.document.body.innerHTML : null;
-                xml.responseXML = iframe.contentDocument.document.XMLDocument?iframe.contentDocument.document.XMLDocument : iframe.contentDocument.document;
-            }
-        } catch(e) {
-            /**
-             * @event error 上传错误时触发
-             * @property {object} source 事件发起对象
-             * @property {object} error 错误
-             */
-            this.$emit('error', {
-                source: this,
-                error: e
-            });
+        if(iframe.contentWindow) {
+            xml.responseText = iframe.contentWindow.document.body ? iframe.contentWindow.document.body.innerHTML : null;
+            xml.responseXML = iframe.contentWindow.document.XMLDocument ? iframe.contentWindow.document.XMLDocument : iframe.contentWindow.document;
+        } else if(iframe.contentDocument) {
+            xml.responseText = iframe.contentDocument.document.body ? iframe.contentDocument.document.body.innerHTML : null;
+            xml.responseXML = iframe.contentDocument.document.XMLDocument ? iframe.contentDocument.document.XMLDocument : iframe.contentDocument.document;
         }
 
-        if(!xml.responseText)
-            return this.$emit('error', {
-                source: this,
-                message: 'No responseText!'
-            });
-
-        function uploadHttpData(r, type) {
-            var data = (type == 'xml' || !type) ? r.responseXML : r.responseText;
-            // If the type is 'script', eval it in global context
-            if (type === 'json') {
-                try {
-                    data = JSON.parse(data);
-                } catch (e) {
-                    var text = /<pre.*?>(.*?)<\/pre>/.exec(data);
-                    text = text ? text[1] : data;
-                    data = JSON.parse(text);
-                }
-            }
-            return data;
+        if(!xml.responseText) {
+            // if(this._firstLoad)
+            //     return this._firstLoad = false;
+            // else
+                /**
+                 * @event error 上传错误时触发
+                 * @property {object} source 事件发起对象
+                 * @property {object} name ResponseError
+                 * @property {object} message 错误信息
+                 */
+                return this.$emit('error', {
+                    source: this,
+                    name: 'ResponseError',
+                    message: 'No responseText!'
+                });
         }
 
-        /**
-         * @event success 上传成功时触发
-         * @property {object} source 事件发起对象
-         * @property {object} data 返回的数据
-         */
-        this.$emit('success', {
-            source: this,
-            data: uploadHttpData(xml, this.data.dataType)
-        });
         /**
          * @event complete 上传完成时触发
          * @property {object} source 事件发起对象
@@ -150,16 +195,43 @@ var Uploader = Component.extend({
             xml: xml
         });
 
+        /**
+         * @event success 上传成功时触发
+         * @property {object} source 事件发起对象
+         * @property {object} data 返回的数据
+         */
+        this.$emit('success', {
+            source: this,
+            data: this._parseData(xml, this.data.dataType)
+        });
+
         this.$refs.file.value = '';
     },
     /**
-     * @method extensionError() 返回错误
+     * @method _parseData(xml, type) 解析接收的数据
      * @private
-     * @return {string} string 错误
+     * @param  {object} xml 接收的xml
+     * @param  {object} type 数据类型
+     * @return {object|string} 解析后的数据
      */
-    extensionError:　function() {
-        return '只能上传' + this.data.extensions.join(', ')　+ '类型的文件！';
-    },
+    _parseData: function(xml, type) {
+        if(!type || type === 'xml')
+            return xml.responseXML;
+        else if (type === 'json') {
+            var data = xml.responseText;
+
+            try {
+                data = JSON.parse(data);
+            } catch (e) {
+                var text = /<pre.*?>(.*?)<\/pre>/.exec(data);
+                text = text ? text[1] : data;
+                data = JSON.parse(text);
+            }
+
+            return data;
+        } else
+            return xml.responseText;
+    }
 });
 
 module.exports = Uploader;
