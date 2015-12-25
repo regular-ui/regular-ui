@@ -55,9 +55,8 @@ var DatePicker = Dropdown.extend({
                 return this.data.date = new Date(newValue);
             }
 
-            // 如果newValue为非法日期，则置为空 
             if(newValue == 'Invalid Date' || newValue == 'NaN')
-                return this.data.date = null;
+                throw new TypeError('Invalid Date');
 
             // 如果不为空并且超出日期范围，则设置为范围边界的日期
             if(newValue) {
@@ -91,7 +90,7 @@ var DatePicker = Dropdown.extend({
             }
 
             if(newValue == 'Invalid Date' || newValue == 'NaN')
-                return this.data.minDate = null;
+                throw new TypeError('Invalid Date');
         });
 
         this.$watch('maxDate', function(newValue, oldValue) {
@@ -105,7 +104,7 @@ var DatePicker = Dropdown.extend({
             }
 
             if(newValue == 'Invalid Date' || newValue == 'NaN')
-                return this.data.maxDate = null;
+                throw new TypeError('Invalid Date');
         });
 
         this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {

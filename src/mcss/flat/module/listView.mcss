@@ -42,6 +42,13 @@
         background: none;
         color: fade($inverse, 0.6, true);
     }
+
+    > li.z-divider {
+        padding: 0;
+        height: 2px;
+        background: fade($inverse, 0.6, true);
+        overflow: hidden;
+    }
 }
 
 .m-listview.z-dis {

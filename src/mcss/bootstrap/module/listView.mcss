@@ -42,6 +42,14 @@
         background: $gray-lighter;
         color: $gray-light;
     }
+
+    > li.z-divider {
+        height: 1px;
+        margin: (($line-height-computed / 2) - 1) 0;
+        background: #e5e5e5;
+        padding: 0;
+        overflow: hidden;
+    }
 }
 
 .m-listview.z-dis {

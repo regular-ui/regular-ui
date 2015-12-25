@@ -30,6 +30,12 @@ describe('TimePicker', function() {
         });
     });
 
+    describe('initialized with invalid `time`', function() {
+        xit('should throw a TypeError.', function() {
+
+        });
+    });
+
     describe('initialized with `minTime` and `maxTime` params', function() {
         var timePicker = new TimePicker({
             data: {
@@ -79,6 +85,12 @@ describe('TimePicker', function() {
             } catch(e) {
                 expect(e).to.be.a(TimePicker.TimeRangeError);
             }
+        });
+    });
+
+    describe('initialized with invalid `minTime` or invalid `maxTime`', function() {
+        xit('should throw a TypeError.', function() {
+
         });
     });
 });

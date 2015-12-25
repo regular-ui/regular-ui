@@ -3871,13 +3871,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	background:none;
 	color:#777;
 }
-.u-dropdown .dropdown_bd .m-listview li.dropdown_divider{
-	height:1px;
-	margin:9px 0;
-	background:#e5e5e5;
-	padding:0;
-	overflow:hidden;
-}
 .u-menu .m-listview>li{
 	overflow:visible;
 }
@@ -4660,6 +4653,13 @@ html.z-modal,html.z-modal body{
 	background:#eee;
 	color:#777;
 }
+.m-listview >li.z-divider{
+	height:1px;
+	margin:9px 0;
+	background:#e5e5e5;
+	padding:0;
+	overflow:hidden;
+}
 .m-listview.z-dis{
 	background:#eee;
 }
@@ -4751,6 +4751,13 @@ html.z-modal,html.z-modal body{
 .m-treeview .treeview_itemname.z-dis{
 	background:none;
 	color:#999;
+}
+.m-treeview .treeview_itemname.z-divider{
+	height:1px;
+	margin:9px 0;
+	background:#e5e5e5;
+	padding:0;
+	overflow:hidden;
 }
 .m-treeview.z-dis{
 	background:#eee;

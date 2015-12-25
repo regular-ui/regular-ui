@@ -3,7 +3,7 @@
     {#list source as item}
     <droppable disabled={!dragdrop} on-dragover={this._onItemDragOver($event)} on-drop={this._onItemDrop($event, item)}>
     <draggable disabled={!dragdrop} data={ @({root: source, item: item, index: item_index}) }>
-    <li title={item.name} z-sel={selected === item} z-dis={item.disabled} on-click={this.select(item)}>
+    <li z-sel={selected === item} z-dis={item.disabled} z-divider={item.divider} title={item.name} on-click={this.select(item)}>
         {#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}
     </li>
     </draggable>

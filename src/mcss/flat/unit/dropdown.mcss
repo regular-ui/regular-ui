@@ -30,13 +30,6 @@
             -webkit-transform: rotate(360deg);
         }
 
-        li.dropdown_divider {
-            padding: 0;
-            height: 2px;
-            background: fade($inverse, 0.6, true);
-            overflow: hidden;
-        }
-
         .m-listview {
             min-width: $u-formctrl_min-width;
 

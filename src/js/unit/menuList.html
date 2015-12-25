@@ -1,6 +1,6 @@
 <ul class="m-listview menu_list" r-hide={!visible}>
     {#list source as item}
-    <li z-dis={item.disabled} r-class={ {'dropdown_divider': item.divider} }>
+    <li z-dis={item.disabled} z-divider={item.divider}>
         <div class="menu_item">
             {#if item.childrenCount || (item.children && item.children.length)}
             <i class="u-icon u-icon-caret-right"></i>

@@ -40,6 +40,14 @@
         background: none;
         color: $u-formctrl-disabled_color;
     }
+
+    .treeview_itemname.z-divider {
+        margin: 9px 0;
+        padding: 0;
+        height: 1px;
+        background: #e5e5e5;
+        overflow: hidden;
+    }
 }
 
 .m-treeview.z-dis {

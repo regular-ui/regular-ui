@@ -84,12 +84,12 @@ $u-formctrl_height = $height-base;
 $u-formctrl-sm_height = $height-sm;
 $u-formctrl-lg_height = $height-lg;
 
-$u-formctrl_width = 140px;
+$u-formctrl_width = 160px;
 
 $u-formctrl-sm_font-size = $font-size-sm;
 $u-formctrl-lg_font-size = $font-size-lg;
 
-$u-formctrl_min-width = 140px;
+$u-formctrl_min-width = 160px;
 
 /* Colors */
 $u-formctrl_background = white;

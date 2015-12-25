@@ -74,6 +74,28 @@ var component = new RGUI.Component({
 });
 ```
 
+#### 分隔线
+
+<div class="m-example"></div>
+
+```xml
+<select2 source={source} />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {divider: true},
+            {name: '选项3（禁用）', disabled: true}
+        ]
+    }
+});
+```
+
 #### 设置或取消默认项
 
 如果`placeholder`为空，刚开始将会自动选中第一项。

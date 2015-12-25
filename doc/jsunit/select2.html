@@ -255,6 +255,23 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
+<h4 id="-">分隔线</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">divider</span>: <span class="cm-atom">true</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3（禁用）&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>}
+        ]
+    }
+});
+</code></pre>
 <h4 id="-">设置或取消默认项</h4>
 <p>如果<code>placeholder</code>为空，刚开始将会自动选中第一项。</p>
 <div class="m-example"></div>
@@ -702,6 +719,23 @@ var component = new RGUI.Component({
         source: [
             {name: '选项1'},
             {name: '选项2'},
+            {name: '选项3（禁用）', disabled: true}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select2 source={source} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {divider: true},
             {name: '选项3（禁用）', disabled: true}
         ]
     }

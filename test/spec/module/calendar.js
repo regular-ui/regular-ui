@@ -77,6 +77,14 @@ describe('Calendar', function() {
 
                 expect(calendar.data.date - new Date('2016-02-29')).to.be(0);
             });
+
+            it('should throw a TypeError with an invalid number.', function() {
+                try {
+                    calendar.addMonth('test');
+                } catch(e) {
+                    expect(e).to.be.a(TypeError);
+                }
+            });
         });
 
         describe('#addYear(year)', function() {
@@ -100,6 +108,14 @@ describe('Calendar', function() {
                 calendar.$update();
 
                 expect(calendar.data.date - new Date('2013-02-28')).to.be(0);
+            });
+
+            it('should throw a TypeError with an invalid number.', function() {
+                try {
+                    calendar.addYear('test');
+                } catch(e) {
+                    expect(e).to.be.a(TypeError);
+                }
             });
         });
 
@@ -171,6 +187,20 @@ describe('Calendar', function() {
             calendar.$update();
 
             expect(calendar.data.date.toDateString()).to.be(today_7.toDateString());
+        });
+    });
+
+    describe('initialized with invalid `date`', function() {
+        it('should throw a TypeError.', function() {
+            try {
+                var calendar = new Calendar({
+                    data: {
+                        date: 'test'
+                    }
+                });
+            } catch (e) {
+                expect(e).to.be.a(TypeError);
+            }
         });
     });
 
@@ -297,6 +327,30 @@ describe('Calendar', function() {
                 });
             } catch (e) {
                 expect(e).to.be.a(Calendar.DateRangeError);
+            }
+        });
+    });
+
+    describe('initialized with invalid `minDate` or invalid `maxDate`', function() {
+        it('should throw a TypeError.', function() {
+            try {
+                var calendar = new Calendar({
+                    data: {
+                        minDate: 'test'
+                    }
+                });
+            } catch (e) {
+                expect(e).to.be.a(TypeError);
+            }
+
+            try {
+                var calendar = new Calendar({
+                    data: {
+                        maxDate: 'test'
+                    }
+                });
+            } catch (e) {
+                expect(e).to.be.a(TypeError);
             }
         });
     });

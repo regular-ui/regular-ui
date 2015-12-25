@@ -51,7 +51,7 @@ describe('DatePicker', function() {
                 var oldDate = datePicker.data.date;
                 var old_date = datePicker.data._date;
 
-                var $event = {target: {value: 'abc'} }
+                var $event = {target: {value: 'test'} }
                 datePicker._onInput($event);
                 datePicker.$update();
 
@@ -101,6 +101,20 @@ describe('DatePicker', function() {
             datePicker.$update();
 
             expect(datePicker.data.date.toDateString()).to.be(today_7.toDateString());
+        });
+    });
+
+    describe('initialized with invalid `date`', function() {
+        it('should throw a TypeError.', function() {
+            try {
+                var datePicker = new DatePicker({
+                    data: {
+                        date: 'test'
+                    }
+                });
+            } catch (e) {
+                expect(e).to.be.a(TypeError);
+            }
         });
     });
 
@@ -179,6 +193,30 @@ describe('DatePicker', function() {
                 });
             } catch(e) {
                 expect(e).to.be.a(Calendar.DateRangeError);
+            }
+        });
+    });
+
+    describe('initialized with invalid `minDate` or invalid `maxDate`', function() {
+        it('should throw a TypeError.', function() {
+            try {
+                var datePicker = new DatePicker({
+                    data: {
+                        minDate: 'test'
+                    }
+                });
+            } catch (e) {
+                expect(e).to.be.a(TypeError);
+            }
+
+            try {
+                var datePicker = new DatePicker({
+                    data: {
+                        maxDate: 'test'
+                    }
+                });
+            } catch (e) {
+                expect(e).to.be.a(TypeError);
             }
         });
     });

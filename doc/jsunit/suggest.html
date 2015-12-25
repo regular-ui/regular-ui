@@ -220,10 +220,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
-<h4 id="-">禁用组件</h4>
+<h4 id="-">禁用某一项，禁用组件</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -231,12 +232,12 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <span class="cm-property">source</span>: [
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;abandon&#39;</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;about&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;absent（禁用）&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;bread&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;break（禁用）&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;brief&#39;</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;calendar&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;cancel（禁用）&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
             {<span class="cm-property">name</span>: <span class="cm-string">&#39;column&#39;</span>}
         ]
     }
@@ -730,6 +731,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
+<suggest source={source} />
 <suggest source={source} disabled />
     */})
 var component = new RGUI.Component({
@@ -738,12 +740,12 @@ var component = new RGUI.Component({
         source: [
             {name: 'abandon'},
             {name: 'about'},
-            {name: 'absent'},
+            {name: 'absent（禁用）', disabled: true},
             {name: 'bread'},
-            {name: 'break'},
+            {name: 'break（禁用）', disabled: true},
             {name: 'brief'},
             {name: 'calendar'},
-            {name: 'cancel'},
+            {name: 'cancel（禁用）', disabled: true},
             {name: 'column'}
         ]
     }

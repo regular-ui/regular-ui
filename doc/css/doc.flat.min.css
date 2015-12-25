@@ -3806,12 +3806,6 @@ input.u-check:disabled,input.u-radio:disabled{
 	width:0px;
 	-webkit-transform:rotate(360deg);
 }
-.u-dropdown .dropdown_bd li.dropdown_divider{
-	padding:0;
-	height:2px;
-	background:rgba(255,255,255,0.6);
-	overflow:hidden;
-}
 .u-dropdown .dropdown_bd .m-listview{
 	min-width:160px;
 }
@@ -4645,6 +4639,12 @@ html.z-modal,html.z-modal body{
 	background:none;
 	color:rgba(255,255,255,0.6);
 }
+.m-listview >li.z-divider{
+	padding:0;
+	height:2px;
+	background:rgba(255,255,255,0.6);
+	overflow:hidden;
+}
 .m-listview.z-dis{
 	background:rgba(189,195,199,0.75);
 }
@@ -4747,6 +4747,12 @@ html.z-modal,html.z-modal body{
 .m-treeview .treeview_itemname.z-dis{
 	background:none;
 	color:rgba(255,255,255,0.6);
+}
+.m-treeview .treeview_itemname.z-divider{
+	padding:0;
+	height:2px;
+	background:rgba(255,255,255,0.6);
+	overflow:hidden;
 }
 .m-treeview li{
 	margin-top:3px;

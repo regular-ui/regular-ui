@@ -50,7 +50,7 @@ var ListView = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
-        if(this.data.readonly || this.data.disabled || item.disabled)
+        if(this.data.readonly || this.data.disabled || item.disabled || item.divider)
             return;
 
         this.data.selected = item;

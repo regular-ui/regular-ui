@@ -26,11 +26,12 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用组件
+#### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
 ```xml
+<suggest source={source} />
 <suggest source={source} disabled />
 ```
 
@@ -41,12 +42,12 @@ var component = new RGUI.Component({
         source: [
             {name: 'abandon'},
             {name: 'about'},
-            {name: 'absent'},
+            {name: 'absent（禁用）', disabled: true},
             {name: 'bread'},
-            {name: 'break'},
+            {name: 'break（禁用）', disabled: true},
             {name: 'brief'},
             {name: 'calendar'},
-            {name: 'cancel'},
+            {name: 'cancel（禁用）', disabled: true},
             {name: 'column'}
         ]
     }

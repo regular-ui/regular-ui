@@ -34,6 +34,14 @@
         background: none;
         color: $u-formctrl-disabled_color;
     }
+
+    > li.z-divider {
+        margin: 9px 0;
+        padding: 0;
+        height: 1px;
+        background: #e5e5e5;
+        overflow: hidden;
+    }
 }
 
 .m-listview.z-dis {

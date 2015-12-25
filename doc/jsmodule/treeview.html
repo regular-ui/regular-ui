@@ -183,48 +183,78 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">source</span>: [
-        {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">children</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">children</span>: [
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+                ]},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
             ]},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
-        ]},
-        {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>},
-        {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
-        ]}
-    ]
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
+            ]}
+        ]
     }
 });
 </code></pre>
-<h4 id="-">禁用组件</h4>
+<h4 id="-">禁用某一项，禁用组件</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">source</span>: [
-        {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">children</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">children</span>: [
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+                ]},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
             ]},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
-        ]},
-        {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>},
-        {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
-        ]}
-    ]
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>, <span class="cm-variable">disabled</span>: <span class="cm-atom">true</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
+            ]}
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">分隔线</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+                ]},
+                {<span class="cm-property">divider</span>: <span class="cm-atom">true</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
+            ]},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>, <span class="cm-variable">disabled</span>: <span class="cm-atom">true</span>},
+            {<span class="cm-variable">divider</span>: <span class="cm-atom">true</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
+            ]}
+        ]
     }
 });
 </code></pre>
@@ -548,48 +578,78 @@ var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-        {name: '节点1', children: [
-            {name: '节点1.1'},
-            {name: '节点1.2', children: [
-                {name: '节点1.2.1'},
-                {name: '节点1.2.2'}
+            {name: '节点1', children: [
+                {name: '节点1.1'},
+                {name: '节点1.2', children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
+                ]},
+                {name: '节点1.3'},
+                {name: '节点1.4'},
             ]},
-            {name: '节点1.3'},
-            {name: '节点1.4'},
-        ]},
-        {name: '节点2'},
-        {name: '节点3', children: [
-            {name: '节点3.1'},
-            {name: '节点3.2'}
-        ]}
-    ]
+            {name: '节点2'},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
+            ]}
+        ]
     }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
+<treeView source={source} />
 <treeView source={source} disabled />
     */})
 var component = new RGUI.Component({
     template: template,
     data: {
         source: [
-        {name: '节点1', children: [
-            {name: '节点1.1'},
-            {name: '节点1.2', children: [
-                {name: '节点1.2.1'},
-                {name: '节点1.2.2'}
+            {name: '节点1', children: [
+                {name: '节点1.1'},
+                {name: '节点1.2', disabled: true, children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
+                ]},
+                {name: '节点1.3', disabled: true},
+                {name: '节点1.4'},
             ]},
-            {name: '节点1.3'},
-            {name: '节点1.4'},
-        ]},
-        {name: '节点2'},
-        {name: '节点3', children: [
-            {name: '节点3.1'},
-            {name: '节点3.2'}
-        ]}
-    ]
+            {name: '节点2', disabled: true},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
+            ]}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<treeView source={source} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '节点1', children: [
+                {name: '节点1.1'},
+                {name: '节点1.2', disabled: true, children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
+                ]},
+                {divider: true},
+                {name: '节点1.3', disabled: true},
+                {name: '节点1.4'},
+            ]},
+            {name: '节点2', disabled: true},
+            {divider: true},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
+            ]}
+        ]
     }
 });
     component.$inject($$(".m-example")[index]);

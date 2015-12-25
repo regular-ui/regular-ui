@@ -45,7 +45,6 @@ var Select2 = Dropdown.extend({
         this.supr();
 
         this.$watch('selected', function(newValue, oldValue) {
-            // console.log('selected', newValue);
             this.data.value = newValue ? newValue[this.data.key] : newValue;
 
             /**
@@ -64,7 +63,6 @@ var Select2 = Dropdown.extend({
         });
 
         this.$watch('value', function(newValue, oldValue) {
-            // console.log('value', newValue);
             if(newValue === undefined || newValue === null)
                 return this.data.selected = newValue;
             else if(this.data.source) {
@@ -76,9 +74,8 @@ var Select2 = Dropdown.extend({
         });
 
         this.$watch('source', function(newValue, oldValue) {
-            // console.log('source', newValue);
             if(!newValue)
-                return this.data.selected = newValue;
+                throw new TypeError('`source` is not an Array!');
 
             if(newValue.length && (typeof newValue[0] === 'string' || typeof newValue[0] === 'number'))
                 return this.data.source = newValue.map(function(name, index) {

@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var Select2 = require('../../../src/js/unit/select2Group.js');
+var Select2Group = require('../../../src/js/unit/select2Group.js');
 
 describe('Select2Group', function() {
     describe('initialized', function() {
@@ -33,7 +33,7 @@ describe('Select2Group', function() {
             ]}
         ];
 
-        var select2Group = new Select2({
+        var select2Group = new Select2Group({
             data: {
                 source: source
             }

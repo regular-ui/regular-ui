@@ -81,6 +81,9 @@ var NumberInput = Input2.extend({
         if(this.data.readonly || this.data.disabled || !value)
             return;
 
+        if(isNaN(value))
+            throw new TypeError(value + ' is not a number!');
+
         return this.data.value += value;
     },
     /**
@@ -117,13 +120,11 @@ var NumberInput = Input2.extend({
     }
 });
 
-NumberInput.NumberRangeError = function(min, max) {
+var NumberRangeError = function(min, max) {
     this.type = 'NumberRangeError';
     this.message = 'Wrong Number Range where `min` is ' + min + ' and `max` is ' + max + '!';
 }
-
-NumberInput.NumberRangeError.prototype.toString = function() {
-    return this.message;
-}
+NumberRangeError.prototype = Object.create(RangeError.prototype);
+NumberInput.NumberRangeError = NumberRangeError.prototype.constructor = NumberRangeError;
 
 module.exports = NumberInput;

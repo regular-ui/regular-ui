@@ -2981,7 +2981,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	border:1px solid #d2d6de;
 }
 .u-input,.u-select{
-	width:140px;
+	width:160px;
 	height:34px;
 }
 .u-textarea{
@@ -3353,15 +3353,8 @@ input.u-check:disabled,input.u-radio:disabled{
 	display:block;
 }
 .u-dropdown .dropdown_bd{
-	min-width:140px;
+	min-width:160px;
 	margin-top:2px;
-}
-.u-dropdown .dropdown_bd li.dropdown_divider{
-	margin:9px 0;
-	padding:0;
-	height:1px;
-	background:#e5e5e5;
-	overflow:hidden;
 }
 .u-menu .m-listview>li{
 	overflow:visible;
@@ -3392,7 +3385,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	display:block;
 }
 .u-menu .menu_list{
-	min-width:140px;
+	min-width:160px;
 }
 .u-menu li>.menu_list{
 	margin-top:-6px;
@@ -4155,6 +4148,13 @@ html.z-modal,html.z-modal body{
 	background:none;
 	color:#999;
 }
+.m-listview >li.z-divider{
+	margin:9px 0;
+	padding:0;
+	height:1px;
+	background:#e5e5e5;
+	overflow:hidden;
+}
 .m-listview.z-dis{
 	background:#eee;
 }
@@ -4253,6 +4253,13 @@ html.z-modal,html.z-modal body{
 .m-treeview .treeview_itemname.z-dis{
 	background:none;
 	color:#999;
+}
+.m-treeview .treeview_itemname.z-divider{
+	margin:9px 0;
+	padding:0;
+	height:1px;
+	background:#e5e5e5;
+	overflow:hidden;
 }
 .m-treeview.z-dis{
 	background:#eee;

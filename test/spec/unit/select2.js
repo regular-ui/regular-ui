@@ -87,6 +87,15 @@ describe('Select2', function() {
 
             expect(select2.data.selected).to.be(undefined);
         });
+
+        it('should throw an TypeError when `source` is a false value.', function() {
+            try {
+                select2.data.source = null;
+                select2.$update();
+            } catch(e) {
+                expect(e).to.be.a(TypeError);
+            }
+        });
     });
 
     describe('initialized with `source` and `value`', function() {
@@ -136,6 +145,12 @@ describe('Select2', function() {
             {id: 3, name: '选项3'}
         ];
 
+        var newSource = [
+            {id: 1, name: '新选项1'},
+            {id: 2, name: '新选项2'},
+            {id: 3, name: '新选项3'}
+        ];
+
         var select2 = new Select2({
             data: {
                 value: 2
@@ -148,16 +163,28 @@ describe('Select2', function() {
         });
 
         it('should select correct item by `value` when `source` changed.', function() {
-            var newSource = [
-                {id: 1, name: '新选项1'},
-                {id: 2, name: '新选项2'},
-                {id: 3, name: '新选项3'}
-            ];
             select2.data.source = newSource;
             select2.$update();
 
             expect(select2.data.value).to.be(2);
             expect(select2.data.selected).to.be(newSource[1]);
+        });
+
+        it('should select correct item by `key` and `value`', function() {
+            select2.data.key = 'name';
+            select2.data.value = '新选项1';
+            select2.$update();
+
+            expect(select2.data.value).to.be('新选项1');
+            expect(select2.data.selected).to.be(newSource[0]);
+        });
+
+        it('should select `null` when `value` is `null`', function() {
+            select2.data.value = null;
+            select2.$update();
+
+            expect(select2.data.value).to.be(null);
+            expect(select2.data.selected).to.be(null);
         });
     });
 

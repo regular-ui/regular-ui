@@ -20,11 +20,12 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用组件
+#### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
 ```xml
+<listView source={source} />
 <listView source={source} disabled />
 ```
 
@@ -35,7 +36,29 @@ var component = new RGUI.Component({
         source: [
             {name: '选项1'},
             {name: '选项2'},
-            {name: '选项3'}
+            {name: '选项3（禁用）', disabled: true}
+        ]
+    }
+});
+```
+
+#### 分隔线
+
+<div class="m-example"></div>
+
+```xml
+<listView source={source} />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {divider: true},
+            {name: '选项3（禁用）', disabled: true}
         ]
     }
 });

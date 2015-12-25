@@ -49,9 +49,12 @@ var Calendar = Component.extend({
                 return this.data.date = new Date(newValue);
             }
 
-            // 如果newValue为空或非法日期， 则自动转到今天
-            if(!newValue || newValue == 'Invalid Date')
+            // 如果newValue为空， 则自动转到今天
+            if(!newValue)
                 return this.data.date = new Date((new Date/MS_OF_DAY>>0)*MS_OF_DAY);
+
+            if(newValue == 'Invalid Date')
+                throw new TypeError('Invalid Date');
 
             // 如果超出日期范围，则设置为范围边界的日期
             var isOutOfRange = this.isOutOfRange(newValue);
@@ -90,7 +93,7 @@ var Calendar = Component.extend({
             }
 
             if(newValue == 'Invalid Date')
-                return this.data.minDate = null;
+                throw new TypeError('Invalid Date');
         });
 
         this.$watch('maxDate', function(newValue, oldValue) {
@@ -104,7 +107,7 @@ var Calendar = Component.extend({
             }
 
             if(newValue == 'Invalid Date')
-                return this.data.maxDate = null;
+                throw new TypeError('Invalid Date');
         });
 
         this.$watch(['minDate', 'maxDate'], function(minDate, maxDate) {
@@ -154,6 +157,9 @@ var Calendar = Component.extend({
         if(this.data.readonly || this.data.disabled || !year)
             return;
 
+        if(isNaN(year))
+            throw new TypeError(year + ' is not a number!');
+
         var date = new Date(this.data.date);
         var oldMonth = date.getMonth();
         date.setFullYear(date.getFullYear() + year);
@@ -171,6 +177,9 @@ var Calendar = Component.extend({
     addMonth: function(month) {
         if(this.data.readonly || this.data.disabled || !month)
             return;
+
+        if(isNaN(month))
+            throw new TypeError(month + ' is not a number!');
 
         var date = new Date(this.data.date);
         var correctMonth = date.getMonth() + month;
@@ -233,12 +242,11 @@ var Calendar = Component.extend({
     }
 });
 
-Calendar.DateRangeError = function(minDate, maxDate) {
+var DateRangeError = function(minDate, maxDate) {
     this.name = 'DateRangeError';
     this.message = 'Wrong Date Range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + '!';
 }
-
-Calendar.DateRangeError.prototype = Object.create(Error.prototype);
-Calendar.DateRangeError.constructor = Calendar.DateRangeError;
+DateRangeError.prototype = Object.create(RangeError.prototype);
+Calendar.DateRangeError = DateRangeError.prototype.constructor = DateRangeError;
 
 module.exports = Calendar;

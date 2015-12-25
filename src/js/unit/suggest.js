@@ -60,9 +60,12 @@ var Suggest = Dropdown.extend({
      * @return {void}
      */
     select: function(item) {
-        this.$update('selected', item);
+        if(this.data.readonly || this.data.disabled || item.disabled || item.divider)
+            return;
+
+        this.data.selected = item;
         this.data.value = item.name;
-        //this.data.selected = item;
+
         /**
          * @event select 选择某一项时触发
          * @property {object} source 事件发起对象

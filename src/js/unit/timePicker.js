@@ -42,7 +42,7 @@ var TimePicker = Component.extend({
 
         this.$watch('time', function(newValue, oldValue) {
             if(!newValue)
-                throw new TimePicker.TimeFormatError(newValue);
+                throw new TypeError('Invalid Time');
 
             // 如果超出时间范围，则设置为范围边界的时间
             var isOutOfRange = this.isOutOfRange(newValue);
@@ -72,9 +72,9 @@ var TimePicker = Component.extend({
 
         this.$watch(['minTime', 'maxTime'], function(minTime, maxTime) {
             if(!minTime)
-                throw new TimePicker.TimeFormatError(minTime);
+                throw new TypeError('Invalid Time');
             if(!maxTime)
-                throw new TimePicker.TimeFormatError(maxTime);
+                throw new TypeError('Invalid Time');
 
             if(minTime > maxTime)
                     throw new TimePicker.TimeRangeError(minTime, maxTime);
@@ -100,20 +100,12 @@ var TimePicker = Component.extend({
     }
 });
 
-TimePicker.TimeFormatError = function(time) {
-    this.name = 'TimeFormatError';
-    this.message = 'Wrong Time Format: ' + time + '!';
-}
-
-TimePicker.TimeFormatError.prototype = Object.create(Error.prototype);
-TimePicker.TimeFormatError.constructor = TimePicker.TimeFormatError;
-
-TimePicker.TimeRangeError = function(minTime, maxTime) {
+var TimeRangeError = function(minTime, maxTime) {
     this.name = 'TimeRangeError';
     this.message = 'Wrong Time Range where `minTime` is ' + minTime + ' and `maxTime` is ' + maxTime + '!';
 }
 
-TimePicker.TimeRangeError.prototype = Object.create(Error.prototype);
-TimePicker.TimeRangeError.constructor = TimePicker.TimeRangeError;
+TimeRangeError.prototype = Object.create(Error.prototype);
+TimePicker.TimeRangeError = TimeRangeError.prototype.constructor = TimeRangeError;
 
 module.exports = TimePicker;

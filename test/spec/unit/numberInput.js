@@ -16,6 +16,14 @@ describe('NumberInput', function() {
 
                 expect(numberInput.data.value).to.be(5);
             });
+
+            it('should throw a TypeError with an invalid number.', function() {
+                try {
+                    numberInput.add('test');
+                } catch(e) {
+                    expect(e).to.be.a(TypeError);
+                }
+            });
         });
 
         describe('#isOutOfRange(date)', function() {
