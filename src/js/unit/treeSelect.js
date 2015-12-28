@@ -18,6 +18,8 @@ var Treeview = require('../module/treeView.js');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
+ * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
  * @param {object=null}             options.data.selected           <=> 当前选择项
  * @param {string='请选择'}         options.data.placeholder         => 默认项的文字
  * @param {boolean=false}           options.data.hierarchical       @=> 是否分级动态加载，需要service

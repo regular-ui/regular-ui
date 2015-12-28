@@ -17,6 +17,8 @@ var _ = require('regular-ui-base/src/_');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
+ * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
  * @param {object}                  options.data.selected           <=> 当前选择项
  * @param {string|number}           options.data.value              <=> 当前选择值
  * @param {string='id'}             options.data.key                 => 数据项的键
@@ -74,7 +76,10 @@ var Select2 = Dropdown.extend({
         });
 
         this.$watch('source', function(newValue, oldValue) {
-            if(!newValue)
+            if(newValue === undefined)
+                return this.data.selected = undefined;
+
+            if(!(newValue instanceof Array))
                 throw new TypeError('`source` is not an Array!');
 
             if(newValue.length && (typeof newValue[0] === 'string' || typeof newValue[0] === 'number'))

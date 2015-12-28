@@ -17,6 +17,7 @@ var _ = require('regular-ui-base/src/_');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
  * @param {object=null}             options.data.selected           <=> 当前选择项
  * @param {string=''}               options.data.value              <=> 文本框中的值
  * @param {string='请输入'}         options.data.placeholder         => 文本框的占位文字

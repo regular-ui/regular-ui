@@ -140,7 +140,7 @@ describe('Calendar', function() {
         describe('#on-change', function() {
             // 暂时没有好方法
             xit('should not emit if date is not changed.', function() {
-                calendar.$on('change', function() {
+                calendar.$once('change', function() {
                     expect().fail();
                 });
                 calendar.data.date = new Date();

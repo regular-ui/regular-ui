@@ -19,7 +19,7 @@ var _ = require('regular-ui-base/src/_');
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
  * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
- * @param {boolean=false}           options.data.source[].divider    => 设置此项分隔线
+ * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
  * @param {string=null}             options.data.itemTemplate       @=> 单项模板
  * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
  * @param {boolean=false}           options.data.disabled            => 是否禁用

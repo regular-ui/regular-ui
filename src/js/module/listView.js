@@ -20,6 +20,8 @@ var Droppable = require('regular-ui-dragdrop/src/droppable');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
+ * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
  * @param {object=null}             options.data.selected           <=> 当前选择项
  * @param {string=null}             options.data.itemTemplate       @=> 单项模板
  * @param {boolean=false}           options.data.readonly            => 是否只读

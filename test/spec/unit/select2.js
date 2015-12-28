@@ -88,7 +88,11 @@ describe('Select2', function() {
             expect(select2.data.selected).to.be(undefined);
         });
 
-        it('should throw an TypeError when `source` is a false value.', function() {
+        it('should throw an TypeError when `source` is not an Array.', function() {
+            select2.data.source = undefined;
+            select2.$update();
+            expect(select2.data.selected).to.be(undefined);
+
             try {
                 select2.data.source = null;
                 select2.$update();

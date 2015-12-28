@@ -167,8 +167,8 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<select2Group source={source} depth=3 selected={selected} />
-<p>当前的选择项：{selected ? selected.name : 'null'}</p>
+<select2Group source={source} depth=3 on-change={this._onChange($event)} />
+<p>当前的选择项：{selectedsText}</p>
 ```
 
 ```javascript
@@ -203,7 +203,16 @@ var component = new RGUI.Component({
                     {name: '车辆工程'}
                 ]}
             ]}
-        ]
+        ],
+        selecteds: []
+    },
+    _onChange: function($event) {
+        if($event.selected)
+            this.data.selectedsText = $event.selecteds.map(function(item) {
+                return item && item.name;
+            }).join(' > ');
+        else
+            this.data.selectedsText = '';
     }
 });
 ```
@@ -257,13 +266,14 @@ var component = new RGUI.Component({
 });
 ```
 
-#### Test
+#### 行政区（部分）示例
+
+该示例可以进行省市区三级的选择，并且处理了直辖市少一级的问题。
 
 <div class="m-example"></div>
 
 ```xml
 <select2Group source={source} depth=3 key="name" on-select={this._onSelect($event)} ref="select2Group" />
-<button class="u-btn u-btn-primary" on-click={this.setValues()}>Set</button>
 ```
 
 ```javascript
@@ -273,27 +283,36 @@ var component = new RGUI.Component({
         source: [
             {name: '北京', children: [
                 {name: '北京', children: [
-                    {name: 'A区'},
-                    {name: 'B区'},
-                    {name: 'C区'}
+                    {name: '东城区'},
+                    {name: '西城区'},
+                    {name: '海淀区'},
+                    {name: '朝阳区'},
+                    {name: '丰台区'}
                 ]}
             ]},
             {name: '上海', children: [
                 {name: '上海', children: [
-                    {name: 'D区'},
-                    {name: 'E区'},
-                    {name: 'F区'}
+                    {name: '黄浦区'},
+                    {name: '浦东新区'},
+                    {name: '徐汇区'},
+                    {name: '长宁区'}
                 ]}
             ]},
             {name: '浙江', children: [
                 {name: '杭州', children: [
-                    {name: '滨江区'},
-                    {name: '拱墅区'}
+                    {name: '上城区'},
+                    {name: '下城区'},
+                    {name: '江干区'},
+                    {name: '西湖区'},
+                    {name: '滨江区'}
                 ]},
                 {name: '宁波', children: [
-                    {name: 'xx区'},
-                    {name: 'xx区'}
+                    {name: '越城区'},
+                    {name: '柯桥区'},
+                    {name: '上虞区'}
                 ]}
+            ]},
+            {name: '绍兴', children: [
             ]}
         ]
     },
@@ -305,12 +324,6 @@ var component = new RGUI.Component({
             else
                 $event.source.data.placeholders[1] = undefined;
         }
-    },
-    setValues: function($event) {
-        var select2Group = this.$refs.select2Group;
-        select2Group.data.values[0] = '北京';
-        select2Group.data.values[1] = '北京';
-        select2Group.data.values[2] = 'B区';
     }
 });
 ```

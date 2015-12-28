@@ -35,8 +35,41 @@ describe('Select2Group', function() {
 
         var select2Group = new Select2Group({
             data: {
-                source: source
+                source: source,
+                depth: 3
             }
+        });
+
+        it('should change `sources`.', function() {
+            select2Group.data.selecteds[0] = source[0];
+            select2Group.$update();
+
+            expect(select2Group.data.sources[1]).to.be(source[0].children);
+        });
+
+        it('should change `selected`.', function() {
+            select2Group.data.selecteds[1] = source[0].children[1];
+            select2Group.data.selecteds[2] = source[0].children[1].children[2];
+            select2Group.$update();
+
+            expect(select2Group.data.selected).to.be(source[0].children[1].children[2]);
+        });
+
+        it('should clear `sources`.', function() {
+            select2Group.data.selecteds[0] = undefined;
+            select2Group.$update();
+
+            expect(select2Group.data.sources[1]).to.be(undefined);
+            expect(select2Group.data.sources[2]).to.be(undefined);
+            expect(select2Group.data.selected).to.be(undefined);
+        });
+
+        it('should select correct item by `key` and `values`.', function() {
+            select2Group.data.key = 'name';
+            select2Group.data.values = ['工学', '机械工程', '车辆工程'];
+            select2Group.$update();
+
+            expect(select2Group.data.selected).to.be(source[1].children[2].children[3]);
         });
     });
 });

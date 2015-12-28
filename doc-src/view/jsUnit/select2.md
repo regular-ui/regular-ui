@@ -150,7 +150,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<select2 source={source} selected={selected} value={value} /> 当前选择项：{selected ? selected.name : 'null'}，当前选择值：{value || 'null'}
+<select2 source={source} selected={selected} value={value} /> 当前选择项：{selected ? selected.name : 'undefined'}，当前选择值：{value || 'undefined'}
 ```
 
 ```javascript
