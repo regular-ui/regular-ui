@@ -11,6 +11,8 @@ var Component = require('regular-ui-base/src/component');
 var template = require('text!./uploader.html');
 var _ = require('regular-ui-base/src/_');
 
+var compatibility = require('regular-ui-base/src/compatibility');
+
 var SIZE_UNITS = {
     'kB': 1000,
     'MB': 1000*1000,
@@ -48,6 +50,7 @@ var Uploader = Component.extend({
             name: 'file',
             extensions: null,
             maxSize: '',
+            _sending: false,
             _id: new Date().getTime()
         });
         this.supr();
@@ -58,8 +61,10 @@ var Uploader = Component.extend({
      * @return {void}
      */
     upload: function() {
-        if(!this.data.disabled)
-            this.$refs.file.click();
+        if(this.data.disabled || this.data._sending)
+            return;
+
+        this.$refs.file.click();
     },
     _checkExtensions: function(file) {
         if(!this.data.extensions)
@@ -138,9 +143,10 @@ var Uploader = Component.extend({
             size: 0
         };
 
-        if(!file || !this._checkExtensions(file) || !this._checkSize(file))
+        if(!file || !file.name || !this._checkExtensions(file) || !this._checkSize(file))
             return;
 
+        this.data._sending = true;
         /**
          * @event sending 发送前触发
          * @property {object} source 事件发起对象
@@ -153,36 +159,35 @@ var Uploader = Component.extend({
 
         this.$refs.form.submit();
     },
-    _firstLoad: true,
     _onLoad: function() {
-        var iframe = this.$refs.iframe;
-        if(!this.$refs.file.value)
+        var $iframe = this.$refs.iframe;
+        var $file = this.$refs.file;
+
+        if(!this.data._sending)
             return;
+        this.data._sending = false;
 
         var xml = {};
-        if(iframe.contentWindow) {
-            xml.responseText = iframe.contentWindow.document.body ? iframe.contentWindow.document.body.innerHTML : null;
-            xml.responseXML = iframe.contentWindow.document.XMLDocument ? iframe.contentWindow.document.XMLDocument : iframe.contentWindow.document;
-        } else if(iframe.contentDocument) {
-            xml.responseText = iframe.contentDocument.document.body ? iframe.contentDocument.document.body.innerHTML : null;
-            xml.responseXML = iframe.contentDocument.document.XMLDocument ? iframe.contentDocument.document.XMLDocument : iframe.contentDocument.document;
+        if($iframe.contentWindow) {
+            xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerHTML : null;
+            xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
+        } else if($iframe.contentDocument) {
+            xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerHTML : null;
+            xml.responseXML = $iframe.contentDocument.document.XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
         }
 
         if(!xml.responseText) {
-            // if(this._firstLoad)
-            //     return this._firstLoad = false;
-            // else
-                /**
-                 * @event error 上传错误时触发
-                 * @property {object} source 事件发起对象
-                 * @property {object} name ResponseError
-                 * @property {object} message 错误信息
-                 */
-                return this.$emit('error', {
-                    source: this,
-                    name: 'ResponseError',
-                    message: 'No responseText!'
-                });
+            /**
+             * @event error 上传错误时触发
+             * @property {object} source 事件发起对象
+             * @property {object} name ResponseError
+             * @property {object} message 错误信息
+             */
+            return this.$emit('error', {
+                source: this,
+                name: 'ResponseError',
+                message: 'No responseText!'
+            });
         }
 
         /**
@@ -204,8 +209,6 @@ var Uploader = Component.extend({
             source: this,
             data: this._parseData(xml, this.data.dataType)
         });
-
-        this.$refs.file.value = '';
     },
     /**
      * @method _parseData(xml, type) 解析接收的数据

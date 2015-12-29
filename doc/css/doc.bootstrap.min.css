@@ -4107,6 +4107,21 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-uploader form,.u-uploader iframe{
 	display:none;
 }
+.u-uploader{
+	position:relative\0;
+	overflow:hidden\0;
+}
+.u-uploader form{
+	display:block\0;
+}
+.u-uploader input[type="file"]{
+	position:absolute\0;
+	top:0;
+	right:-5px;
+	font-size:100px;
+	opacity:0;
+	cursor:pointer;
+}
 .u-timepicker{
 	display:inline-block;
 }
