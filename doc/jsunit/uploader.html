@@ -201,29 +201,96 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span>
+    <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
+    <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">_onSuccess</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">success</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">data</span>);
+    },
+    <span class="cm-property">_onError</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">message</span>);
+    }
+});
+</code></pre>
+<div class="u-message u-message-warning">
+    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：在IE中实现上传功能时，需要将响应头的<code>Content-Type</code>设置为<code>text/plain</code>或<code>text/html</code>，而不能是<code>application/json</code>，否则IE会提示用户下载返回的数据。
+</div>
+
 <h4 id="-">修改标题</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;上传文件&quot;</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;上传文件&quot;</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span>
+    <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
+    <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">_onSuccess</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">success</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">data</span>);
+    },
+    <span class="cm-property">_onError</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">message</span>);
+    }
+});
 </code></pre>
 <h4 id="-">按钮自定义</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span> <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">i</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-icon u-icon-upload&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">i</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">_onSuccess</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">success</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">data</span>);
+    },
+    <span class="cm-property">_onError</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">message</span>);
+    }
+});
 </code></pre>
 <h4 id="-">禁用组件</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <h4 id="-">文件类型限制</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/api/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span>
+    <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
+    <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">_onSuccess</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">success</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">data</span>);
+    },
+    <span class="cm-property">_onError</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">message</span>);
+    }
+});
+</code></pre>
+<h4 id="-">文件大小限制</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">maxSize</span>=<span class="cm-string">&quot;10kB&quot;</span>
+    <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
+    <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">_onSuccess</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">success</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">data</span>);
+    },
+    <span class="cm-property">_onError</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
+        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">message</span>);
+    }
+});
 </code></pre>
 
         <h3>API</h3>
@@ -249,7 +316,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.url</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>上传路径</td></tr>
             
-            <tr><td class="f-wsn"><code>data.dataType</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;json&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>数据类型</td></tr>
+            <tr><td class="f-wsn"><code>data.dataType</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;json&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>数据类型。可以是：`text`、`xml`、`json`、`script`。</td></tr>
             
             <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer  =&gt; inner</td><td>附加数据</td></tr>
             
@@ -453,6 +520,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <!-- script src="../vendor/marked.min.js"></script -->
 <script src="../js/regular-ui.min.js"></script>
 <script>
+if(!('remove' in Element.prototype))
+    Element.prototype.remove = function() {
+        if(this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};
 
@@ -523,36 +597,58 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<uploader url="/api/upload" />
+<uploader url="/upload"
+    on-success={this._onSuccess($event)}
+    on-error={this._onError($event)} />
     */})
 var component = new RGUI.Component({
-    template: template
+    template: template,
+    _onSuccess: function($event) {
+        RGUI.Notify.success($event.data);
+    },
+    _onError: function($event) {
+        RGUI.Notify.error($event.message);
+    }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<uploader title="上传文件" url="/api/upload" />
+<uploader title="上传文件" url="/upload"
+    on-success={this._onSuccess($event)}
+    on-error={this._onError($event)} />
     */})
 var component = new RGUI.Component({
-    template: template
+    template: template,
+    _onSuccess: function($event) {
+        RGUI.Notify.success($event.data);
+    },
+    _onError: function($event) {
+        RGUI.Notify.error($event.message);
+    }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<uploader url="/api/upload">
+<uploader url="/upload" on-success={this._onSuccess($event)} on-error={this._onError($event)}>
     <a class="u-btn u-btn-primary">上传 <i class="u-icon u-icon-upload"></i></a>
 </uploader>
     */})
 var component = new RGUI.Component({
-    template: template
+    template: template,
+    _onSuccess: function($event) {
+        RGUI.Notify.success($event.data);
+    },
+    _onError: function($event) {
+        RGUI.Notify.error($event.message);
+    }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<uploader url="/api/upload" disabled />
+<uploader url="/upload" disabled />
     */})
 var component = new RGUI.Component({
     template: template
@@ -561,10 +657,35 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<uploader url="/api/upload" extensions="jpg,gif,png" />
+<uploader url="/upload" extensions="jpg,gif,png"
+    on-success={this._onSuccess($event)}
+    on-error={this._onError($event)} />
     */})
 var component = new RGUI.Component({
-    template: template
+    template: template,
+    _onSuccess: function($event) {
+        RGUI.Notify.success($event.data);
+    },
+    _onError: function($event) {
+        RGUI.Notify.error($event.message);
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<uploader url="/upload" maxSize="10kB"
+    on-success={this._onSuccess($event)}
+    on-error={this._onError($event)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    _onSuccess: function($event) {
+        RGUI.Notify.success($event.data);
+    },
+    _onError: function($event) {
+        RGUI.Notify.error($event.message);
+    }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

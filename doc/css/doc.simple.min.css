@@ -333,7 +333,7 @@ html{
 	-ms-text-size-adjust:100%;
 }
 body{
-	font:14px/1.6 "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	font:14px/1.6 "Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
 	background:#fff;
 	color:#333;
 }
@@ -3188,7 +3188,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	-webkit-font-smoothing:antialiased;
 }
 .m-header h1{
-	font:48px "Roboto","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	font:48px "Roboto","Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
 	margin:0;
 	margin-top:40px;
 	margin-left:20px;
@@ -3199,7 +3199,7 @@ input.u-check:disabled,input.u-radio:disabled{
 	font-size:16px;
 }
 .m-header h2{
-	font:18px Helvetica,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	font:18px Helvetica,"Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
 }
 .m-footer{
 	padding:40px 0 80px;

@@ -19,6 +19,7 @@
     "ui"
   ],
   "scripts": {
+    "start": "node ./server.js",
     "test": "./node_modules/karma/bin/karma start"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "codemirror-highlight": "^1.1.1",
     "ejs": "^2.3.4",
     "expect.js": "^0.3.1",
+    "express": "^4.13.3",
     "formidable": "^1.0.17",
     "gulp": "^3.9",
     "gulp-all": "^1.1.0",
