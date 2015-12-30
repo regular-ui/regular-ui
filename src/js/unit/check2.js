@@ -16,7 +16,7 @@ var _ = require('regular-ui-base/src/_');
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
  * @param {string=''}               options.data.name                => 多选按钮的文字
- * @param {object=null}             options.data.checked            <=> 多选按钮的选择状态
+ * @param {object=false}            options.data.checked            <=> 多选按钮的选择状态。`false`表示未选，`true`表示已选，`null`表示半选。
  * @param {boolean=false}           options.data.block               => 是否以block方式显示
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -36,6 +36,21 @@ var Check2 = Component.extend({
             block: false
         });
         this.supr();
+
+        this.$watch('checked', function(newValue, oldValue) {
+            if(oldValue === undefined)
+                return;
+
+            /**
+             * @event change 选中状态改变时触发
+             * @property {object} source 事件发起对象
+             * @property {object} date 改变后的选中状态
+             */
+            this.$emit('change', {
+                source: this,
+                checked: newValue
+            });
+        });
     },
     /**
      * @method check(checked) 改变选中状态
@@ -48,6 +63,7 @@ var Check2 = Component.extend({
             return;
 
         this.data.checked = checked;
+
         /**
          * @event check 改变选中状态时触发
          * @property {object} source 事件发起对象

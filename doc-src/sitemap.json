@@ -20,35 +20,35 @@
             "children": [
                 {"name": "Base", "lowerName": "base", "cnName": "基础"},
 
-                {"name": "Button", "lowerName": "button", "cnName": "按钮"},
-                {"name": "Icon", "lowerName": "icon", "cnName": "图标"},
+                {"name": "Button", "lowerName": "button", "cnName": "按钮", "stable": true},
+                {"name": "Icon", "lowerName": "icon", "cnName": "图标", "stable": true},
                 {"name": "Color", "lowerName": "color", "cnName": "色块"},
                 {"name": "Text", "lowerName": "text", "cnName": "文本"},
-                {"name": "Badge", "lowerName": "badge", "cnName": "徽章"},
-                {"name": "Message", "lowerName": "message", "cnName": "消息条"},
-                {"name": "Image", "lowerName": "image", "cnName": "图片"},
+                {"name": "Badge", "lowerName": "badge", "cnName": "徽章", "stable": true},
+                {"name": "Message", "lowerName": "message", "cnName": "消息条", "stable": true},
+                {"name": "Image", "lowerName": "image", "cnName": "图片", "stable": true},
                 {"name": "Thumbnail", "lowerName": "thumbnail", "cnName": "缩略图", "completed": false, "hidden": true},
-                {"name": "FormControl", "lowerName": "formCtrl", "cnName": "表单元素"},
-                {"name": "FormItem", "lowerName": "formItem", "cnName": "表单项", "hidden": true}
+                {"name": "FormControl", "lowerName": "formCtrl", "cnName": "表单元素", "stable": true},
+                {"name": "FormItem", "lowerName": "formItem", "cnName": "表单项", "hidden": true, "stable": true}
             ]
         }, {
             "name": "CSSModule",
             "lowerName": "cssModule",
             "cnName": "CSS模块",
             "children": [
-                {"name": "Navbar", "lowerName": "navbar", "cnName": "导航栏", "group": "导航类"},
-                {"name": "Sidebar", "lowerName": "sidebar", "cnName": "侧边栏", "group": "导航类"},
+                {"name": "Navbar", "lowerName": "navbar", "cnName": "导航栏", "group": "导航类", "stable": true},
+                {"name": "Sidebar", "lowerName": "sidebar", "cnName": "侧边栏", "group": "导航类", "stable": true},
                 {"name": "Toolbar", "lowerName": "toolbar", "cnName": "工具栏", "group": "导航类"},
-                {"name": "Crumb", "lowerName": "crumb", "cnName": "面包屑", "group": "导航类"},
+                {"name": "Crumb", "lowerName": "crumb", "cnName": "面包屑", "group": "导航类", "stable": true},
 
-                {"name": "Article", "lowerName": "article", "cnName": "文章", "group": "文章类"},
-                {"name": "Comment", "lowerName": "comment", "cnName": "评论", "group": "文章类"},
+                {"name": "Article", "lowerName": "article", "cnName": "文章", "group": "文章类", "stable": true},
+                {"name": "Comment", "lowerName": "comment", "cnName": "评论", "group": "文章类", "stable": true},
                 {"name": "Avatar", "lowerName": "avatar", "cnName": "头像", "group": "文章类", "hidden": true},
 
-                {"name": "List", "lowerName": "list", "cnName": "列表", "group": "布局类"},
-                {"name": "Table", "lowerName": "table", "cnName": "表格", "group": "布局类"},
-                {"name": "Panel", "lowerName": "panel", "cnName": "面板", "group": "布局类"},
-                {"name": "Form", "lowerName": "form", "cnName": "表单", "group": "布局类"},
+                {"name": "List", "lowerName": "list", "cnName": "列表", "group": "布局类", "stable": true},
+                {"name": "Table", "lowerName": "table", "cnName": "表格", "group": "布局类", "stable": true},
+                {"name": "Panel", "lowerName": "panel", "cnName": "面板", "group": "布局类", "stable": true},
+                {"name": "Form", "lowerName": "form", "cnName": "表单", "group": "布局类", "stable": true},
                 {"name": "Grid", "lowerName": "grid", "cnName": "网格", "group": "布局类", "hidden": true, "new": true}
             ]
         }, {
@@ -56,72 +56,73 @@
             "lowerName": "jsUnit",
             "cnName": "JS元件",
             "children": [
-                {"name": "Dropdown", "lowerName": "dropdown", "cnName": "下拉菜单", "group": "导航类"},
-                {"name": "Menu", "lowerName": "menu", "cnName": "多级菜单", "group": "导航类"},
+                {"name": "Dropdown", "lowerName": "dropdown", "cnName": "下拉菜单", "group": "导航类", "stable": true},
+                {"name": "Menu", "lowerName": "menu", "cnName": "多级菜单", "group": "导航类", "stable": true},
 
                 {"name": "Input2", "lowerName": "input2", "cnName": "输入扩展", "group": "表单类", "beta": true},
                 {"name": "TextArea2", "lowerName": "textarea2", "cnName": "多行输入扩展", "group": "表单类", "beta": true},
                 {"name": "NumberInput", "lowerName": "numberInput", "cnName": "数字输入", "group": "表单类"},
                 {"name": "TelInput", "lowerName": "telInput", "cnName": "电话输入", "group": "表单类", "hidden": true},
-                {"name": "Check2", "lowerName": "check2", "cnName": "多选按钮", "group": "表单类"},
-                {"name": "CheckGroup", "lowerName": "checkGroup", "cnName": "多选组", "group": "表单类"},
-                {"name": "RadioGroup", "lowerName": "radioGroup", "cnName": "单选组", "group": "表单类"},
-                {"name": "Select2", "lowerName": "select2", "cnName": "选择扩展", "group": "表单类"},
-                {"name": "Select2Group", "lowerName": "select2Group", "cnName": "多级选择", "group": "表单类"},
-                {"name": "TreeSelect", "lowerName": "treeSelect", "cnName": "树型选择", "group": "表单类"},
-                {"name": "Suggest", "lowerName": "suggest", "cnName": "自动提示", "group": "表单类"},
+                {"name": "Check2", "lowerName": "check2", "cnName": "多选按钮", "group": "表单类", "stable": true},
+                {"name": "CheckGroup", "lowerName": "checkGroup", "cnName": "多选组", "group": "表单类", "stable": true},
+                {"name": "RadioGroup", "lowerName": "radioGroup", "cnName": "单选组", "group": "表单类", "stable": true},
+                {"name": "Select2", "lowerName": "select2", "cnName": "选择扩展", "group": "表单类", "stable": true},
+                {"name": "Select2Group", "lowerName": "select2Group", "cnName": "多级选择", "group": "表单类", "stable": true},
+                {"name": "TreeSelect", "lowerName": "treeSelect", "cnName": "树型选择", "group": "表单类", "stable": true},
+                {"name": "Suggest", "lowerName": "suggest", "cnName": "自动提示", "group": "表单类", "stable": true},
                 {"name": "EmailSuggest", "lowerName": "emailSuggest", "cnName": "邮件输入", "group": "表单类", "hidden": true},
                 {"name": "Slider", "lowerName": "slider", "cnName": "滑动器", "group": "表单类", "hidden": true},
                 {"name": "ColorPicker", "lowerName": "colorPicker", "cnName": "颜色采集器", "group": "表单类", "hidden": true},
-                {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "表单类"},
+                {"name": "Uploader", "lowerName": "uploader", "cnName": "上传", "group": "表单类", "beta": true},
 
-                {"name": "DatePicker", "lowerName": "datePicker", "cnName": "日期选择", "group": "日期类"},
-                {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类"},
-                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类"},
+                {"name": "DatePicker", "lowerName": "datePicker", "cnName": "日期选择", "group": "日期类", "stable": true},
+                {"name": "TimePicker", "lowerName": "timePicker", "cnName": "时间选择", "group": "日期类", "stable": true},
+                {"name": "DateTimePicker", "lowerName": "dateTimePicker", "cnName": "日期时间选择", "group": "日期类", "stable": true},
 
                 {"name": "Tooltip", "lowerName": "tooltip", "cnName": "工具提示", "group": "其他", "hidden": true},
-                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "其他"},
-                {"name": "Loading", "lowerName": "loading", "cnName": "加载中", "group": "其他"},
-                {"name": "Gotop", "lowerName": "gotop", "cnName": "回到顶部", "group": "其他"}
+                {"name": "Progress", "lowerName": "progress", "cnName": "进度条", "group": "其他", "stable": true},
+                {"name": "Loading", "lowerName": "loading", "cnName": "加载中", "group": "其他", "stable": true},
+                {"name": "Gotop", "lowerName": "gotop", "cnName": "回到顶部", "group": "其他", "beta": true}
             ]
         }, {
             "name": "JSModule",
             "lowerName": "jsModule",
             "cnName": "JS模块",
             "children": [
-                {"name": "Tabs", "lowerName": "tabs", "cnName": "选项卡", "group": "导航类"},
-                {"name": "Collapse", "lowerName": "collapse", "cnName": "折叠面板", "group": "导航类"},
-                {"name": "Pager", "lowerName": "pager", "cnName": "分页器", "group": "导航类"},
+                {"name": "Tabs", "lowerName": "tabs", "cnName": "选项卡", "group": "导航类", "stable": true},
+                {"name": "Collapse", "lowerName": "collapse", "cnName": "折叠面板", "group": "导航类", "beta": true},
+                {"name": "Pager", "lowerName": "pager", "cnName": "分页器", "group": "导航类", "stable": true},
                 {"name": "Menubar", "lowerName": "menubar", "cnName": "菜单", "group": "导航类", "hidden": true},
 
-                {"name": "Notify", "lowerName": "notify", "cnName": "通知", "group": "窗口类"},
-                {"name": "Modal", "lowerName": "modal", "cnName": "模态对话框", "group": "窗口类"},
+                {"name": "Notify", "lowerName": "notify", "cnName": "通知", "group": "窗口类", "beta": true},
+                {"name": "Modal", "lowerName": "modal", "cnName": "模态对话框", "group": "窗口类", "stable": true},
                 {"name": "Window", "lowerName": "window", "cnName": "窗口", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "OffCanvas", "lowerName": "offCanvas", "cnName": "弹出式画布", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "SlideShow", "lowerName": "slideShow", "cnName": "幻灯片", "group": "窗口类", "hidden": true, "new": true},
                 {"name": "Album", "lowerName": "album", "cnName": "相册", "group": "窗口类", "hidden": true, "new": true},
 
-                {"name": "ListView", "lowerName": "listView", "cnName": "列表视图", "group": "数据类"},
+                {"name": "ListView", "lowerName": "listView", "cnName": "列表视图", "group": "数据类", "stable": true},
                 {"name": "GridView", "lowerName": "gridView", "cnName": "网格视图", "group": "数据类", "hidden": true, "completed": false},
                 {"name": "TreeView", "lowerName": "treeView", "cnName": "树型视图", "group": "数据类", "beta": true},
+                {"name": "MultiTreeView", "lowerName": "multiTreeView", "cnName": "多选树型视图", "group": "数据类", "new": true},
                 {"name": "TableView", "lowerName": "tableView", "cnName": "表格视图", "group": "数据类", "hidden": true, "completed": false},
 
-                {"name": "Calendar", "lowerName": "calendar", "cnName": "日历", "group": "日期类"},
+                {"name": "Calendar", "lowerName": "calendar", "cnName": "日历", "group": "日期类", "stable": true},
                 {"name": "Schedule", "lowerName": "schedule", "cnName": "日程", "group": "日期类", "hidden": true, "new": true},
 
                 {"name": "ImageUploader", "lowerName": "imageUploader", "cnName": "图片上传", "group": "上传类", "hidden": true, "new": true},
 
-                {"name": "Editor", "lowerName": "editor", "cnName": "编辑器", "group": "编辑器类", "hidden": true},
-                {"name": "HTMLEditor", "lowerName": "htmlEditor", "cnName": "HTML编辑器", "group": "编辑器类", "beta": true},
-                {"name": "MarkEditor", "lowerName": "markEditor", "cnName": "Markdown编辑器", "group": "编辑器类", "beta": true},
+                {"name": "Editor", "lowerName": "editor", "cnName": "编辑器", "group": "编辑器类", "hidden": true, "beta": true},
+                {"name": "HTMLEditor", "lowerName": "htmlEditor", "cnName": "HTML编辑器", "group": "编辑器类", "beta": true, "beta": true},
+                {"name": "MarkEditor", "lowerName": "markEditor", "cnName": "Markdown编辑器", "group": "编辑器类", "beta": true, "beta": true},
                 {"name": "RichEditor", "lowerName": "richEditor", "cnName": "富文本编辑器", "group": "编辑器类", "hidden": true, "new": true},
 
                 {"name": "AudioPlayer", "lowerName": "audioPlayer", "cnName": "音频播放器", "group": "播放器类", "hidden": true, "new": true},
                 {"name": "VideoPlayer", "lowerName": "videoPlayer", "cnName": "视频播放器", "group": "播放器类", "hidden": true, "new": true},
 
                 {"name": "Validation", "lowerName": "validation", "cnName": "表单验证", "group": "其他", "beta": true},
-                {"name": "Draggable", "lowerName": "draggable", "cnName": "拖拽", "group": "其他", "beta": true},
-                {"name": "Droppable", "lowerName": "droppable", "cnName": "放置", "group": "其他", "beta": true}
+                {"name": "Draggable", "lowerName": "draggable", "cnName": "拖拽", "group": "其他", "new": true},
+                {"name": "Droppable", "lowerName": "droppable", "cnName": "放置", "group": "其他", "new": true}
             ]
         }
     ]

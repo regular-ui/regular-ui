@@ -175,3 +175,39 @@ var component = new RGUI.Component({
     }
 });
 ```
+
+#### Test
+
+<div class="m-example"></div>
+
+```xml
+<treeView source={source} itemTemplate={@(this.itemTemplate)} />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    itemTemplate: RGUI._.multiline(function(){/*
+<check2 checked={item.checked} />
+<i class="u-icon {item.children ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}
+    */}),
+    data: {
+        source: [
+            {name: '节点1', children: [
+                {name: '节点1.1'},
+                {name: '节点1.2', children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
+                ]},
+                {name: '节点1.3'},
+                {name: '节点1.4'},
+            ]},
+            {name: '节点2'},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
+            ]}
+        ]
+    }
+});
+```

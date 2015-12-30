@@ -1,0 +1,27 @@
+$u-badge2_height = 9px;
+
+.u-badge2 {
+    display: inline-block;
+    float: right;
+    margin-top: 6px;
+    background: url('../img/badge2.png') no-repeat;
+    height: $u-badge2_height + 2px;
+}
+
+.u-badge2-stable {
+    background-position: 0 0;
+    background-color: $brand-primary;
+    width: 26px;
+}
+
+.u-badge2-beta {
+    background-color: $brand-warning;
+    background-position: 0 -9px;
+    width: 28px;
+}
+
+.u-badge2-new {
+    background-color: $brand-info;
+    background-position: 0 -18px;
+    width: 26px;
+}

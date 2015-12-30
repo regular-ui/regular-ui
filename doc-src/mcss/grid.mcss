@@ -10,7 +10,7 @@
 }
 
 .g-topc {
-    width: 960px;
+    width: 1000px;
     margin: 0 auto;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .g-hdc {
-    width: 960px;
+    width: 1000px;
     margin: 0 auto;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .g-bdc {
-    width: 960px;
+    width: 1000px;
     margin: 0 auto;
     padding: 40px;
 }
@@ -49,7 +49,7 @@
 }
 
 .g-sd {
-    width: 229px;
+    width: 249px;
     float: left;
     min-height: 400px;
     border-right: 1px solid #f4f4f4;
@@ -60,7 +60,7 @@
 .g-mn {
     margin-left: 40px;
     margin-bottom: 120px;
-    width: 960px - 230px - 40px;
+    width: 1000px - 250px - 40px;
     float: right;
 }
 

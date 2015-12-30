@@ -70,17 +70,23 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <li><a href="../jsmodule/tabs.html">选项卡<small> Tabs</small>
         
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
         </a></li>
         
         
         
         <li><a href="../jsmodule/collapse.html">折叠面板<small> Collapse</small>
         
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
         </a></li>
         
         
         
         <li><a href="../jsmodule/pager.html">分页器<small> Pager</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
         
         </a></li>
         
@@ -91,11 +97,15 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <li><a href="../jsmodule/notify.html">通知<small> Notify</small>
         
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
         </a></li>
         
         
         
         <li><a href="../jsmodule/modal.html">模态对话框<small> Modal</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
         
         </a></li>
         
@@ -109,12 +119,24 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <li><a href="../jsmodule/listview.html">列表视图<small> ListView</small>
         
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
         </a></li>
         
         
         
         
         <li class="z-crt"><a href="../jsmodule/treeview.html">树型视图<small> TreeView</small>
+        
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsmodule/multitreeview.html">多选树型视图<small> MultiTreeView</small>
+        
+            <span class="u-badge2 u-badge2-new" title="该组件最近刚添加到库中"></span>
         
         </a></li>
         
@@ -124,6 +146,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <li class="sidebar_group"><span>日期类</span></li>
         
         <li><a href="../jsmodule/calendar.html">日历<small> Calendar</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
         
         </a></li>
         
@@ -136,11 +160,15 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <li><a href="../jsmodule/htmleditor.html">HTML编辑器<small> HTMLEditor</small>
         
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
         </a></li>
         
         
         
         <li><a href="../jsmodule/markeditor.html">Markdown编辑器<small> MarkEditor</small>
+        
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
         
         </a></li>
         
@@ -153,17 +181,23 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <li><a href="../jsmodule/validation.html">表单验证<small> Validation</small>
         
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
         </a></li>
         
         
         
         <li><a href="../jsmodule/draggable.html">拖拽<small> Draggable</small>
         
+            <span class="u-badge2 u-badge2-new" title="该组件最近刚添加到库中"></span>
+        
         </a></li>
         
         
         
         <li><a href="../jsmodule/droppable.html">放置<small> Droppable</small>
+        
+            <span class="u-badge2 u-badge2-new" title="该组件最近刚添加到库中"></span>
         
         </a></li>
         
@@ -320,6 +354,37 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
+<h4 id="test">Test</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(this.itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">itemTemplate</span>: <span class="cm-variable">RGUI</span>.<span class="cm-property">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">&lt;check2 checked={item.checked} /&gt;</span>
+<span class="cm-comment">&lt;i class=&quot;u-icon {item.children ? (item.open ? &#39;u-icon-folder-open&#39; : &#39;u-icon-folder&#39;) : &#39;u-icon-file-text&#39;}&quot;&gt;&lt;/i&gt; {item.name}</span>
+<span class="cm-comment">    */</span>}),
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">children</span>: [
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">children</span>: [
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
+                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+                ]},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>},
+                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
+            ]},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
+                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
+            ]}
+        ]
+    }
+});
+</code></pre>
 
         <h3>API</h3>
 
@@ -397,31 +462,6 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         </tbody>
     </table>
     
-    
-    <h5>
-        <div class="u-text u-text-muted">@deprecated</div>
-        <div>treeView.$updateSource()</div>
-    </h5>
-    <p>从service中更新数据源</p>
-    <table>
-        <thead>
-            <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                <tr><td class="f-tac" colspan="4">无参数</td></tr>
-            
-        </tbody>
-        <thead>
-            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                <tr><td class="f-wsn"><code>this</code></td><td class="f-wsn">SourceComponent</td><td colspan="2"></td></tr>
-            
-        </tbody>
-    </table>
-    
 
 <div id="j-methods"></div>
 
@@ -434,9 +474,28 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
         <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del>treeView.$updateSource()</del></div>
+            <div class="u-text u-text-muted">@deprecated</div>
+            <div>treeView.$updateSource()</div>
         </h5>
+        <p>从service中更新数据源</p>
+        <table>
+            <thead>
+                <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                
+            </tbody>
+            <thead>
+                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-wsn"><code>this</code></td><td class="f-wsn">SourceComponent</td><td colspan="2"></td></tr>
+                
+            </tbody>
+        </table>
     
     
 
@@ -722,6 +781,37 @@ var component = new RGUI.Component({
                 success: success
             });
         }
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<treeView source={source} itemTemplate={@(this.itemTemplate)} />
+    */})
+var component = new RGUI.Component({
+    template: template,
+    itemTemplate: RGUI._.multiline(function(){/*
+<check2 checked={item.checked} />
+<i class="u-icon {item.children ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}
+    */}),
+    data: {
+        source: [
+            {name: '节点1', children: [
+                {name: '节点1.1'},
+                {name: '节点1.2', children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
+                ]},
+                {name: '节点1.3'},
+                {name: '节点1.4'},
+            ]},
+            {name: '节点2'},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
+            ]}
+        ]
     }
 });
     component.$inject($$(".m-example")[index]);

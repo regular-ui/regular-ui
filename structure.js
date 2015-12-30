@@ -91,6 +91,7 @@ module.exports = {
         'ListView': {type: 'css+js', category: 'module', lowerName: 'listView'},
         // @undone 'GridView': {type: 'css+js', category: 'module', lowerName: 'gridView'},
         'TreeView': {type: 'css+js', category: 'module', lowerName: 'treeView'},
+        'MultiTreeView': {type: 'css+js', category: 'module', lowerName: 'multiTreeView'},
         // @undone 'TableView': {type: 'css+js', category: 'module', lowerName: 'tableView'},
         /* 日期类 */
         'Calendar': {type: 'css+js', category: 'module', lowerName: 'calendar'},

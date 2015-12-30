@@ -4095,6 +4095,17 @@ html.z-modal,html.z-modal body{
 	background:none;
 	color:#999;
 }
+.m-multitreeview .treeview_list{
+	margin-left:3.4em;
+}
+.m-multitreeview .treeview_item >.u-icon{
+	left:-3em;
+}
+.m-multitreeview .treeview_item >.u-check2{
+	position:absolute;
+	left:-1.8em;
+	padding:3px 0;
+}
 .u-calendar{
 	text-align:center;
 	-webkit-user-select:none;
@@ -4452,7 +4463,7 @@ html.z-modal,html.z-modal body{
 	background:#122a38;
 }
 .g-topc{
-	width:960px;
+	width:1000px;
 	margin:0 auto;
 }
 .g-hd{
@@ -4461,7 +4472,7 @@ html.z-modal,html.z-modal body{
 	background:#f4f4f4;
 }
 .g-hdc{
-	width:960px;
+	width:1000px;
 	margin:0 auto;
 }
 .g-bd{
@@ -4471,7 +4482,7 @@ html.z-modal,html.z-modal body{
 	margin-top:0;
 }
 .g-bdc{
-	width:960px;
+	width:1000px;
 	margin:0 auto;
 	padding:40px;
 }
@@ -4479,7 +4490,7 @@ html.z-modal,html.z-modal body{
 	background:#eee;
 }
 .g-sd{
-	width:229px;
+	width:249px;
 	float:left;
 	min-height:400px;
 	border-right:1px solid #f4f4f4;
@@ -4489,7 +4500,7 @@ html.z-modal,html.z-modal body{
 .g-mn{
 	margin-left:40px;
 	margin-bottom:120px;
-	width:690px;
+	width:710px;
 	float:right;
 }
 .g-ft{
@@ -4583,4 +4594,26 @@ html.z-modal,html.z-modal body{
 }
 .cm-property{
 	color:#df9516;
+}
+.u-badge2{
+	display:inline-block;
+	float:right;
+	margin-top:6px;
+	background:url("../img/badge2.png") no-repeat;
+	height:11px;
+}
+.u-badge2-stable{
+	background-position:0 0;
+	background-color:#3c8dbc;
+	width:26px;
+}
+.u-badge2-beta{
+	background-color:#f39c12;
+	background-position:0 -9px;
+	width:28px;
+}
+.u-badge2-new{
+	background-color:#00c0ef;
+	background-position:0 -18px;
+	width:26px;
 }
