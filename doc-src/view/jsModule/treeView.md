@@ -98,6 +98,40 @@ var component = new RGUI.Component({
 });
 ```
 
+#### 多选
+
+<div class="m-example"></div>
+
+```xml
+<treeView source={source} multiple />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '节点1', children: [
+                {name: '节点1.1'},
+                {name: '节点1.2', disabled: true, children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
+                ]},
+                {divider: true},
+                {name: '节点1.3', disabled: true},
+                {name: '节点1.4'},
+            ]},
+            {name: '节点2', disabled: true},
+            {divider: true},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
+            ]}
+        ]
+    }
+});
+```
+
 #### 远程数据
 
 <div class="m-example"></div>
@@ -172,42 +206,6 @@ var component = new RGUI.Component({
                 success: success
             });
         }
-    }
-});
-```
-
-#### Test
-
-<div class="m-example"></div>
-
-```xml
-<treeView source={source} itemTemplate={@(this.itemTemplate)} />
-```
-
-```javascript
-var component = new RGUI.Component({
-    template: template,
-    itemTemplate: RGUI._.multiline(function(){/*
-<check2 checked={item.checked} />
-<i class="u-icon {item.children ? (item.open ? 'u-icon-folder-open' : 'u-icon-folder') : 'u-icon-file-text'}"></i> {item.name}
-    */}),
-    data: {
-        source: [
-            {name: '节点1', children: [
-                {name: '节点1.1'},
-                {name: '节点1.2', children: [
-                    {name: '节点1.2.1'},
-                    {name: '节点1.2.2'}
-                ]},
-                {name: '节点1.3'},
-                {name: '节点1.4'},
-            ]},
-            {name: '节点2'},
-            {name: '节点3', children: [
-                {name: '节点3.1'},
-                {name: '节点3.2'}
-            ]}
-        ]
     }
 });
 ```

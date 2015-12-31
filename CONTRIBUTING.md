@@ -24,6 +24,12 @@ If your patch **changes the API or fixes a bug** please use one of the following
 
 Use `[updated]` if dependency or dev-dependency has impact on the resulting code or API.
 
+If one commit contains multiple features, please use `; ` to delimit. For example:
+
+```
+[changed] r-class={z-sel...} => z-sel={...}; [changed] directive type check; [added] TextArea2
+```
+
 ## Docs
 
 Please update the docs with any API changes, the code and docs should always be in sync.

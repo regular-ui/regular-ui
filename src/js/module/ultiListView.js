@@ -22,7 +22,9 @@ var Droppable = require('regular-ui-dragdrop/src/droppable');
  * @param {string}                  options.data.source[].name       => 每项的内容
  * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
  * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
- * @param {object=null}             options.data.selected           <=> 当前选择项
+ * @param {boolean=false}           options.data.source[].selected   => 多选时此项是否选中
+ * @param {object=null}             options.data.selected           <=> 当前选择项。多选时无效。
+ * @param {boolean=false}           options.data.multiple            => 是否可以多选
  * @param {string=null}             options.data.itemTemplate       @=> 单项模板
  * @param {boolean=false}           options.data.dragdrop            => 是否开启拖放功能
  * @param {boolean=false}           options.data.readonly            => 是否只读

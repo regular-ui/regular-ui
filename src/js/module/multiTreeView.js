@@ -23,7 +23,10 @@ var MultiTreeViewList = require('./multiTreeViewList.js');
  * @param {boolean=false}           options.data.source[].checked    => 选中此项
  * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
  * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
- * @param {object=null}             options.data.selected           <=> 当前选择项
+ * @param {boolean=false}           options.data.source[].selected   => 多选时此项是否选中
+ * @param {object=null}             options.data.selected           <=> 当前选择项。多选时无效。
+ * @param {boolean=false}           options.data.multiple            => 是否可以多选
+ * @param {string=null}             options.data.itemTemplate       @=> 单项模板
  * @param {boolean=false}           options.data.hierarchical       @=> 是否分级动态加载，需要service
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用

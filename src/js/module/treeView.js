@@ -22,7 +22,10 @@ var TreeViewList = require('./treeViewList.js');
  * @param {boolean=false}           options.data.source[].open       => 此项为展开/收起状态
  * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
  * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
- * @param {object=null}             options.data.selected           <=> 当前选择项
+ * @param {boolean=false}           options.data.source[].selected   => 多选时此项是否选中
+ * @param {object=null}             options.data.selected           <=> 当前选择项。多选时无效。
+ * @param {boolean=false}           options.data.multiple            => 是否可以多选
+ * @param {string=null}             options.data.itemTemplate       @=> 单项模板
  * @param {boolean=false}           options.data.hierarchical       @=> 是否分级动态加载，需要service
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -56,6 +59,9 @@ var TreeView = SourceComponent.extend({
     select: function(item) {
         if(this.data.readonly || this.data.disabled || item.disabled || item.divider)
             return;
+
+        if(this.data.multiple)
+            return item.selected = !item.selected;
 
         this.data.selected = item;
         /**

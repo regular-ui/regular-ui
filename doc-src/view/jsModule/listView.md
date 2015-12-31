@@ -64,6 +64,30 @@ var component = new RGUI.Component({
 });
 ```
 
+#### 多选
+
+<div class="m-example"></div>
+
+```xml
+<listView source={source} multiple />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {divider: true},
+            {name: '选项3（禁用）', disabled: true},
+            {name: '选项4'},
+            {name: '选项5'}
+        ]
+    }
+});
+```
+
 #### 远程数据
 
 <div class="m-example"></div>
