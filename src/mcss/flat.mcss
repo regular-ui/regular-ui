@@ -52,6 +52,7 @@ $reset-normalize();
 @import "./flat/module/notify.mcss";
 @import "./flat/module/modal.mcss";
 @import "./flat/module/listView.mcss";
+@import "./core/module/ultiListView.mcss";
 @import "./flat/module/treeView.mcss";
 @import "./core/module/multiTreeView.mcss";
 @import "./flat/module/calendar.mcss";

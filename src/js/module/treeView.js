@@ -69,7 +69,7 @@ var TreeView = SourceComponent.extend({
         });
     },
     /**
-     * @method toggle(item, open) 展开/收起某一项
+     * @method toggle(item,open) 展开/收起某一项
      * @public
      * @param  {object} item 处理项
      * @param  {object} open 展开/收起状态。如果无此参数，则在两种状态之间切换。

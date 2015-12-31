@@ -118,24 +118,3 @@ var component = new RGUI.Component({
     }
 });
 ```
-
-#### 拖拽
-
-<div class="m-example"></div>
-
-```xml
-<listView source={source} dragdrop />
-```
-
-```javascript
-var component = new RGUI.Component({
-    template: template,
-    data: {
-        source: [
-            {name: '选项1'},
-            {name: '选项2'},
-            {name: '选项3'}
-        ]
-    }
-});
-```

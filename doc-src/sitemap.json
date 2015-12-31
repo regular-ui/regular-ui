@@ -102,6 +102,7 @@
                 {"name": "Album", "lowerName": "album", "cnName": "相册", "group": "窗口类", "hidden": true, "new": true},
 
                 {"name": "ListView", "lowerName": "listView", "cnName": "列表视图", "group": "数据类", "stable": true},
+                {"name": "UltiListView", "lowerName": "ultiListView", "cnName": "终极列表视图", "group": "数据类", "new": true},
                 {"name": "GridView", "lowerName": "gridView", "cnName": "网格视图", "group": "数据类", "hidden": true, "completed": false},
                 {"name": "TreeView", "lowerName": "treeView", "cnName": "树型视图", "group": "数据类", "beta": true},
                 {"name": "MultiTreeView", "lowerName": "multiTreeView", "cnName": "多选树型视图", "group": "数据类", "new": true},

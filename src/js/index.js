@@ -39,6 +39,7 @@ exports.Pager = require("./module/pager.js");
 exports.Notify = require("./module/notify.js");
 exports.Modal = require("./module/modal.js");
 exports.ListView = require("./module/listView.js");
+exports.UltiListView = require("./module/ultiListView.js");
 exports.TreeView = require("./module/treeView.js");
 exports.MultiTreeView = require("./module/multiTreeView.js");
 exports.Calendar = require("./module/calendar.js");

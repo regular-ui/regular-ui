@@ -89,9 +89,10 @@ module.exports = {
         'Modal': {type: 'css+js', category: 'module', lowerName: 'modal'},
         /* 数据类 */
         'ListView': {type: 'css+js', category: 'module', lowerName: 'listView'},
+        'UltiListView': {type: 'css+js', category: 'module', lowerName: 'ultiListView', requires: ['ListView', 'Draggable', 'Droppable']},
         // @undone 'GridView': {type: 'css+js', category: 'module', lowerName: 'gridView'},
         'TreeView': {type: 'css+js', category: 'module', lowerName: 'treeView'},
-        'MultiTreeView': {type: 'css+js', category: 'module', lowerName: 'multiTreeView'},
+        'MultiTreeView': {type: 'css+js', category: 'module', lowerName: 'multiTreeView', requires: ['TreeView', 'Check2']},
         // @undone 'TableView': {type: 'css+js', category: 'module', lowerName: 'tableView'},
         /* 日期类 */
         'Calendar': {type: 'css+js', category: 'module', lowerName: 'calendar'},

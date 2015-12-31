@@ -52,6 +52,7 @@ $reset-normalize();
 @import "./bootstrap/module/notify.mcss";
 @import "./bootstrap/module/modal.mcss";
 @import "./bootstrap/module/listView.mcss";
+@import "./core/module/ultiListView.mcss";
 @import "./bootstrap/module/treeView.mcss";
 @import "./core/module/multiTreeView.mcss";
 @import "./bootstrap/module/calendar.mcss";

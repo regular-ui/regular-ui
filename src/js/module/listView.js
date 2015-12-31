@@ -11,9 +11,6 @@ var SourceComponent = require('regular-ui-base/src/sourceComponent');
 var template = require('text!./listView.html');
 var _ = require('regular-ui-base/src/_');
 
-var Draggable = require('regular-ui-dragdrop/src/draggable');
-var Droppable = require('regular-ui-dragdrop/src/droppable');
-
 /**
  * @class ListView
  * @extend SourceComponent
@@ -40,8 +37,7 @@ var ListView = SourceComponent.extend({
         _.extend(this.data, {
             // @inherited source: [],
             selected: null,
-            itemTemplate: null,
-            dragdrop: false
+            itemTemplate: null
         });
         this.supr();
     },
@@ -65,61 +61,6 @@ var ListView = SourceComponent.extend({
             source: this,
             selected: item
         });
-    },
-    _onItemDragOver: function($event) {
-        var target = $event.target;
-        _.dom.delClass(target, 'z-dragover-before');
-        _.dom.delClass(target, 'z-dragover-after');
-
-        if($event.ratioY < 0.5)
-            _.dom.addClass(target, 'z-dragover-before');
-        else
-            _.dom.addClass(target, 'z-dragover-after');
-    },
-    _onItemDrop: function($event, item) {
-        var target = $event.target;
-        _.dom.delClass(target, 'z-dragover-before');
-        _.dom.delClass(target, 'z-dragover-after');
-
-        if(item === $event.data.item)
-            return;
-
-        var oldItem = $event.data.item;
-        var oldIndex = this.data.source.indexOf(oldItem);
-        this.data.source.splice(oldIndex, 1);
-
-        var index = this.data.source.indexOf(item);
-        if($event.ratioY >= 0.5)
-            index++;
-        this.data.source.splice(index, 0, oldItem);
-    },
-    _onDragOver: function($event) {
-        var target = $event.target;
-        _.dom.delClass(target, 'z-dragover-before');
-        _.dom.delClass(target, 'z-dragover-after');
-
-        if($event.ratioY < 0.5)
-            _.dom.addClass(target, 'z-dragover-before');
-        else
-            _.dom.addClass(target, 'z-dragover-after');
-    },
-    _onDragLeave: function($event) {
-        var target = $event.target;
-        _.dom.delClass(target, 'z-dragover-before');
-        _.dom.delClass(target, 'z-dragover-after');
-    },
-    _onDrop: function($event) {
-        var target = $event.target;
-        _.dom.delClass(target, 'z-dragover-before');
-        _.dom.delClass(target, 'z-dragover-after');
-
-        var oldItem = $event.data.item;
-        var oldIndex = this.data.source.indexOf(oldItem);
-        this.data.source.splice(oldIndex, 1);
-        if($event.ratioY < 0.5)
-            this.data.source.unshift(oldItem);
-        else
-            this.data.source.push(oldItem);
     }
 });
 
