@@ -5,6 +5,8 @@
  * ------------------------------------------------------------
  */
 
+'use strict';
+
 var SourceComponent = require('regular-ui-base/src/sourceComponent');
 var template = require('text!./dropdown.html');
 var _ = require('regular-ui-base/src/_');
@@ -40,15 +42,17 @@ var Dropdown = SourceComponent.extend({
         this.supr();
     },
     /**
-     * @method toggle(open) 在展开/收起状态之间切换
+     * @method toggle(open) 展开/收起
      * @public
-     * @param  {boolean} open 展开/收起
+     * @param  {boolean} open 展开/收起状态。如果无此参数，则在两种状态之间切换。
      * @return {void}
      */
     toggle: function(open) {
         if(this.data.disabled)
             return;
         
+        if(open === undefined)
+            open = !this.data.open;
         this.data.open = open;
 
         // 根据状态在Dropdown.opens列表中添加/删除管理项
@@ -75,7 +79,7 @@ var Dropdown = SourceComponent.extend({
      * @return {void}
      */
     select: function(item) {
-        if(this.data.disabled || (item && (item.disabled || item.divider)))
+        if(this.data.disabled || item.disabled || item.divider)
             return;
 
         /**

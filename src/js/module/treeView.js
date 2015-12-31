@@ -19,6 +19,7 @@ var TreeViewList = require('./treeViewList.js');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {boolean=false}           options.data.source[].open       => 此项为展开/收起状态
  * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
  * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
  * @param {object=null}             options.data.selected           <=> 当前选择项
@@ -68,27 +69,30 @@ var TreeView = SourceComponent.extend({
         });
     },
     /**
-     * @method toggle(item) 展开或收起某一项
-     * @private
-     * @param  {object} item 展开收起项
+     * @method toggle(item, open) 展开/收起某一项
+     * @public
+     * @param  {object} item 处理项
+     * @param  {object} open 展开/收起状态。如果无此参数，则在两种状态之间切换。
      * @return {void}
      */
-    toggle: function(item) {
+    toggle: function(item, open) {
         if(this.data.readonly || this.data.disabled || item.disabled || item.divider)
             return;
 
-        item.open = !item.open;
+        if(open === undefined)
+            open = !item.open;
+        item.open = open;
 
         /**
          * @event toggle 展开或收起某一项时触发
          * @property {object} source 事件发起对象
-         * @property {object} item 展开收起项
-         * @property {boolean} open 展开还是收起
+         * @property {object} item 处理项
+         * @property {boolean} open 展开/收起状态
          */
         this.$emit('toggle', {
             source: this,
             item: item,
-            open: item.open
+            open: open
         });
     }
 });

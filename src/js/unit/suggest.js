@@ -26,6 +26,8 @@ var _ = require('regular-ui-base/src/_');
  * @param {string='all'}            options.data.matchType           => 匹配方式，`all`表示匹配全局，`start`表示只匹配开头，`end`表示只匹配结尾
  * @param {boolean=false}           options.data.strict              => 是否为严格模式。当为严格模式时，`value`属性必须在source中选择，否则为空。
  * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
+ * @param {string=null}             options.data.itemTemplate       @=> 单项模板
+ * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -79,26 +81,18 @@ var Suggest = Dropdown.extend({
         this.toggle(false);
     },
     /**
-     * @method toggle(open)  在展开状态和收起状态之间切换
+     * @method toggle(open) 展开/收起
      * @public
-     * @param  {boolean} open 展开还是收起
+     * @param  {boolean} open 展开/收起状态。如果无此参数，则在两种状态之间切换。
      * @return {void}
      */
     toggle: function(open, _isInput) {
         if(this.data.readonly || this.data.disabled)
             return;
 
+        if(open === undefined)
+            open = !this.data.open;
         this.data.open = open;
-
-        /**
-         * @event toggle 展开或收起状态改变时触发
-         * @property {object} source 事件发起对象
-         * @property {boolean} open 展开还是收起
-         */
-        this.$emit('toggle', {
-            source: this,
-            open: open
-        });
 
         var index = Dropdown.opens.indexOf(this);
         if(open && index < 0)
@@ -109,6 +103,16 @@ var Suggest = Dropdown.extend({
             if(!_isInput && this.data.strict)
                this.data.value = this.data.selected ? this.data.selected.name : '';
         }
+
+        /**
+         * @event toggle  展开/收起时触发
+         * @property {object} source 事件发起对象
+         * @property {object} open 展开/收起状态
+         */
+        this.$emit('toggle', {
+            source: this,
+            open: open
+        });
     },
     /**
      * @private

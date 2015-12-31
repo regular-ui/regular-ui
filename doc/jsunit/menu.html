@@ -475,7 +475,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <div>menu.toggle(open)</div>
         </h5>
-        <p>在展开/收起状态之间切换</p>
+        <p>展开/收起</p>
         <table>
             <thead>
                 <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
@@ -483,7 +483,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <tbody>
                 
                     
-                    <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起</td></tr>
+                    <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>展开/收起状态。如果无此参数，则在两种状态之间切换。</td></tr>
                     
                 
             </tbody>
@@ -558,29 +558,6 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
-    
-    
-    <h5>menu.$on('toggle')</h5>
-    <p>展开或收起某一项时触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn">展开收起项</td></tr>
-                
-                <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">boolean</td><td class="f-wsn">展开还是收起</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-
 <div id="j-events"></div>
 
 
@@ -588,10 +565,22 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     
     
     
-        <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del>menu.$on('toggle')</del></div>
-        </h5>
+        <h5>menu.$on('toggle')</h5>
+        <p>展开/收起时触发</p>
+        <table>
+            <thead>
+                <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    
+                    <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                    
+                    <tr><td class="f-wsn"><code>open</code></td><td class="f-wsn">object</td><td class="f-wsn">展开/收起状态</td></tr>
+                    
+                
+            </tbody>
+        </table>
     
     
     

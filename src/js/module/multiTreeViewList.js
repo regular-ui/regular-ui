@@ -11,12 +11,20 @@ var TreeViewList = require('./treeViewList.js');
 var template = require('text!./multiTreeViewList.html');
 var _ = require('regular-ui-base/src/_');
 
+/**
+ * @class MultiTreeView
+ * @extend SourceComponent
+ * @private
+ */
 var MultiTreeViewList = TreeViewList.extend({
     name: 'multiTreeViewList',
     template: template,
+    /**
+     * @private
+     */
     _onItemCheckedChange: function($event, item) {
         item.checked = $event.checked;
-        
+
         if($event.checked !== null && item.children) {
             item.children.forEach(function(child) {
                 child.checked = $event.checked;
@@ -24,7 +32,7 @@ var MultiTreeViewList = TreeViewList.extend({
         }
 
         var parent = this.data.parent;
-        if(parent) {
+        if(parent && parent.checked !== item.checked) {    // 剪枝
             var checkedCount = 0;
             parent.children.forEach(function(child) {
                 if(child.checked)
@@ -40,6 +48,18 @@ var MultiTreeViewList = TreeViewList.extend({
             else
                 parent.checked = null;
         }
+
+        /**
+         * @event check 改变选中状态时触发
+         * @property {object} source 事件发起对象
+         * @property {object} item 处理项
+         * @property {boolean} checked 选中状态
+         */
+        this.$ancestor.$emit('check', {
+            source: this,
+            item: item,
+            checked: item.checked
+        });
     }
 });
 

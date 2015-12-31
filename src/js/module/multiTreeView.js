@@ -19,6 +19,8 @@ var MultiTreeViewList = require('./multiTreeViewList.js');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
+ * @param {boolean=false}           options.data.source[].open       => 此项为展开/收起状态
+ * @param {boolean=false}           options.data.source[].checked    => 选中此项
  * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
  * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
  * @param {object=null}             options.data.selected           <=> 当前选择项

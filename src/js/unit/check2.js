@@ -16,7 +16,7 @@ var _ = require('regular-ui-base/src/_');
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
  * @param {string=''}               options.data.name                => 多选按钮的文字
- * @param {object=false}            options.data.checked            <=> 多选按钮的选择状态。`false`表示未选，`true`表示已选，`null`表示半选。
+ * @param {boolean=false}           options.data.checked            <=> 多选按钮的选择状态。`false`表示未选，`true`表示已选，`null`表示半选。
  * @param {boolean=false}           options.data.block               => 是否以block方式显示
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -55,13 +55,15 @@ var Check2 = Component.extend({
     /**
      * @method check(checked) 改变选中状态
      * @public
-     * @param  {boolean} checked 选中状态
+     * @param  {boolean} checked 选中状态。则在true/false之间切换。
      * @return {void}
      */
     check: function(checked) {
         if(this.data.readonly || this.data.disabled)
             return;
 
+        if(checked === undefined)
+            checked = !this.data.checked;
         this.data.checked = checked;
 
         /**

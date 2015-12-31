@@ -11,6 +11,11 @@ var SourceComponent = require('regular-ui-base/src/sourceComponent');
 var template = require('text!./treeViewList.html');
 var _ = require('regular-ui-base/src/_');
 
+/**
+ * @class TreeView
+ * @extend SourceComponent
+ * @private
+ */
 var TreeViewList = SourceComponent.extend({
     name: 'treeViewList',
     template: template,
@@ -72,22 +77,16 @@ var TreeViewList = SourceComponent.extend({
         return this;
     },
     /**
-     * @method select(item) 选择某一项
-     * @private
-     * @param  {object} item 选择项
-     * @return {void}
+     * @note 移交$ancestor处理
      */
-    select: function(item) {
-        this.$ancestor.select(item);
+    select: function() {
+        this.$ancestor.select.apply(this.$ancestor, arguments);
     },
     /**
-     * @method toggle(item) 展开或收起某一项
-     * @private
-     * @param  {object} item 展开收起项
-     * @return {void}
+     * @note 移给$ancestor处理
      */
-    toggle: function(item) {
-        this.$ancestor.toggle(item);
+    toggle: function() {
+        this.$ancestor.toggle.apply(this.$ancestor, arguments);
     }
 });
 

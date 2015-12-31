@@ -278,7 +278,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.name</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>多选按钮的文字</td></tr>
             
-            <tr><td class="f-wsn"><code>data.checked</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>多选按钮的选择状态。`false`表示未选，`true`表示已选，`null`表示半选。</td></tr>
+            <tr><td class="f-wsn"><code>data.checked</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>多选按钮的选择状态。`false`表示未选，`true`表示已选，`null`表示半选。</td></tr>
             
             <tr><td class="f-wsn"><code>data.block</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否以block方式显示</td></tr>
             
@@ -311,7 +311,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <tbody>
             
                 
-                <tr><td class="f-wsn"><code>checked</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>选中状态</td></tr>
+                <tr><td class="f-wsn"><code>checked</code></td><td class="f-wsn">boolean</td><td class="f-wsn"></td><td>选中状态。则在true/false之间切换。</td></tr>
                 
             
         </tbody>
