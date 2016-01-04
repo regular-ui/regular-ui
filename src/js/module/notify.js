@@ -16,7 +16,8 @@ var _ = require('regular-ui-base/src/_');
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
  * @param {string='topcenter'}      options.data.position            => 通知的位置，可选参数：`topcenter`、`topleft`、`topright`、`bottomcenter`、`bottomleft`、`bottomright`、`static`
- * @param {number=2000}             options.data.duration            => 每条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+ * @param {number=2000}             options.data.duration            => 每条消息默认的停留毫秒数，如果为0，则表示消息常驻不消失。
+ * @param {boolean=false}           options.data.single              => 是否始终显示一条
  * @param {boolean=true}            options.data.visible             => 是否显示
  * @param {string=''}               options.data.class               => 补充class
  */
@@ -30,7 +31,8 @@ var Notify = Component.extend({
         _.extend(this.data, {
             messages: [],
             position: 'topcenter',
-            duration: 2000
+            duration: 2000,
+            single: false
         });
         this.supr();
     },
@@ -39,7 +41,8 @@ var Notify = Component.extend({
      */
     init: function() {
         this.supr();
-        // 证明不是内嵌组件
+
+        // 如果不是内嵌组件，则嵌入到document.body中
         if(this.$root === this)
             this.$inject(document.body);
     },
@@ -48,20 +51,35 @@ var Notify = Component.extend({
      * @public
      * @param  {string=''} text 消息内容
      * @param  {string=null} state 消息状态，可选参数：`info`、`success`、`warning`、`error`
-     * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+     * @param  {number=notify.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用notify默认的duration。
      * @return {void}
      */
     show: function(text, state, duration) {
         var message = {
             text: text,
             state: state,
-            duration: duration >= 0 ? duration : this.data.duration
+            duration: duration >= 0 ? +duration : +this.data.duration
         };
-        this.data.messages.unshift(message);
+        var messages = this.data.messages;
+
+        if(this.data.single && messages[0]) {
+            message = _.extend(messages[0], message, true);
+            message.counter++;
+        } else {
+            messages.unshift(message);
+            message.counter = 0;
+        }
+
         this.$update();
 
-        if(+message.duration)
-            this.$timeout(this.close.bind(this, message), +message.duration);
+        if(message.duration) {
+            setTimeout(function() {
+                if(!message.counter)
+                    this.close(message);
+                else
+                    message.counter--;
+            }.bind(this), message.duration);
+        }
 
         /**
          * @event show 弹出一个消息时触发
@@ -81,8 +99,11 @@ var Notify = Component.extend({
      */
     close: function(message) {
         var index = this.data.messages.indexOf(message);
+        if(index < 0)
+            return;
         this.data.messages.splice(index, 1);
         this.$update();
+
         /**
          * @event close 关闭某条消息时触发
          * @property {object} source 事件发起对象
@@ -99,10 +120,24 @@ var Notify = Component.extend({
      * @return {void}
      */
     closeAll: function() {
-        this.$update('messages', []);
+        this.data.messages = [];
+        this.$update();
     }
-}).use('$timeout');
+});
 
+var STATES = ['success', 'warning', 'info', 'error'];
+/**
+ * @method [info|success|warning|error](text[,duration]) 弹出特殊类型的消息。为show方法的简写方式。
+ * @public
+ * @param  {string=''} text 消息内容
+ * @param  {number=notify.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用notify默认的duration。
+ * @return {void}
+ */
+STATES.forEach(function(state) {
+    Notify.prototype[state] = function(text, duration) {
+        this.show(text, state, duration);
+    }
+});
 
 /**
  * 直接初始化一个实例
@@ -111,32 +146,25 @@ var Notify = Component.extend({
 var notify = new Notify();
 Notify.notify = notify;
 
+var METHODS = ['show', 'close', 'closeAll', 'success', 'warning', 'info', 'error'];
+Notify.METHODS = METHODS;
 /**
  * @method show(text[,state][,duration]) 弹出一个消息
  * @static
  * @public
  * @param  {string=''} text 消息内容
  * @param  {string=null} state 消息状态，可选参数：`info`、`success`、`warning`、`error`
- * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+ * @param  {number=notify.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用notify默认的duration。
  * @return {void}
  */
-Notify.show = function() {
-    notify.show.apply(notify, arguments);
-}
 /**
- * @method [info|success|warning|error](text) 弹出特殊类型的消息
+ * @method [info|success|warning|error](text[,duration]) 弹出特殊类型的消息。为show方法的简写方式。
  * @static
  * @public
  * @param  {string=''} text 消息内容
- * @param  {number=notify.duration} duration 该条消息的停留毫秒数，如果为0，则表示消息常驻不消失。
+ * @param  {number=notify.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用notify默认的duration。
  * @return {void}
  */
-var states = ['success', 'warning', 'info', 'error'];
-states.forEach(function(state) {
-    Notify[state] = function(text, duration) {
-        Notify.show(text, state, duration);
-    }
-});
 /**
  * @method close(message) 关闭某条消息
  * @static
@@ -144,17 +172,14 @@ states.forEach(function(state) {
  * @param  {object} message 需要关闭的消息对象
  * @return {void}
  */
-Notify.close = function() {
-    notify.close.apply(notify, arguments);
-}
 /**
  * @method closeAll() 关闭所有消息
  * @static
  * @public
  * @return {void}
  */
-Notify.closeAll = function() {
-    notify.closeAll.apply(notify, arguments);
-}
+METHODS.forEach(function(method) {
+    Notify[method] = notify[method].bind(notify);
+});
 
 module.exports = Notify;

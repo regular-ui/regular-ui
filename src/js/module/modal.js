@@ -45,7 +45,8 @@ var Modal = Component.extend({
      */
     init: function() {
         this.supr();
-        // 证明不是内嵌组件
+
+        // 如果不是内嵌组件，则嵌入到document.body中
         if(this.$root === this)
             this.$inject(document.body);
     },
@@ -116,7 +117,7 @@ var Modal = Component.extend({
  * @return {Modal} modal 返回该对话框
  */
 Modal.alert = function(content, title, okButton) {
-    var modal = new Modal({
+    var modal = new this({
         data: {
             content: content,
             title: title,
@@ -136,7 +137,7 @@ Modal.alert = function(content, title, okButton) {
  * @return {Modal} modal 返回该对话框
  */
 Modal.confirm = function(content, title, okButton, cancelButton) {
-    var modal = new Modal({
+    var modal = new this({
         data: {
             content: content,
             title: title,
@@ -147,5 +148,13 @@ Modal.confirm = function(content, title, okButton, cancelButton) {
     
     return modal;
 }
+
+// var oldExtend = Modal.extend;
+// Modal.extend = function() {
+//     var extended = oldExtend.apply(this, arguments);
+//     extended.alert = this.alert;
+//     extended.confirm = this.confirm;
+//     return extended;
+// }
 
 module.exports = Modal;

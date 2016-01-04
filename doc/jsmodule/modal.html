@@ -221,11 +221,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Modal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.show()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Modal<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+    <span class="cm-property">show</span>: <span class="cm-keyword">function</span>() {
         <span class="cm-keyword">var</span> <span class="cm-def">modal</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>({
             <span class="cm-property">data</span>: {
                 <span class="cm-property">title</span>: <span class="cm-string">&#39;Modal标题&#39;</span>,
@@ -238,11 +238,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="alert">Alert</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Alert<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-error&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.show()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Alert<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+    <span class="cm-property">show</span>: <span class="cm-keyword">function</span>() {
         <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">alert</span>(<span class="cm-string">&#39;Alert内容&#39;</span>);
     }
 });
@@ -250,11 +250,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="confirm">Confirm</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Confirm<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-success&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.show()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Confirm<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+    <span class="cm-property">show</span>: <span class="cm-keyword">function</span>() {
         <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>.<span class="cm-property">confirm</span>(<span class="cm-string">&#39;Confirm内容&#39;</span>);
     }
 });
@@ -262,11 +262,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">拖拽</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.showModal()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Draggable<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.show()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Draggable<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">showModal</span>: <span class="cm-keyword">function</span>() {
+    <span class="cm-property">show</span>: <span class="cm-keyword">function</span>() {
         <span class="cm-keyword">var</span> <span class="cm-def">modal</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Modal</span>({
             <span class="cm-property">data</span>: {
                 <span class="cm-property">title</span>: <span class="cm-string">&#39;Modal标题&#39;</span>,
@@ -611,11 +611,11 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<button class="u-btn u-btn-primary" on-click={this.showModal()}>Modal</button>
+<button class="u-btn u-btn-primary" on-click={this.show()}>Modal</button>
     */})
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         var modal = new RGUI.Modal({
             data: {
                 title: 'Modal标题',
@@ -628,11 +628,11 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<button class="u-btn u-btn-error" on-click={this.showModal()}>Alert</button>
+<button class="u-btn u-btn-error" on-click={this.show()}>Alert</button>
     */})
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         RGUI.Modal.alert('Alert内容');
     }
 });
@@ -640,11 +640,11 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<button class="u-btn u-btn-success" on-click={this.showModal()}>Confirm</button>
+<button class="u-btn u-btn-success" on-click={this.show()}>Confirm</button>
     */})
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         RGUI.Modal.confirm('Confirm内容');
     }
 });
@@ -652,11 +652,11 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<button class="u-btn u-btn-primary" on-click={this.showModal()}>Draggable</button>
+<button class="u-btn u-btn-primary" on-click={this.show()}>Draggable</button>
     */})
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         var modal = new RGUI.Modal({
             data: {
                 title: 'Modal标题',

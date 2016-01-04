@@ -1,4 +1,5 @@
 @import "../../src/mcss/default.mcss";
+@import "./function.mcss";
 @import "./module.mcss";
 @import "./grid.mcss";
 @import "./unit/codemirror.mcss";

@@ -6,13 +6,13 @@
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn u-btn-primary" on-click={this.showMessage()}>Notify</button>
+<button class="u-btn u-btn-primary" on-click={this.show()}>Notify</button>
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showMessage: function() {
+    show: function() {
         RGUI.Notify.show('This is a message.');
     }
 });
@@ -23,17 +23,17 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn u-btn-info" on-click={this.showMessage('info')}>Info</button>
-<button class="u-btn u-btn-success" on-click={this.showMessage('success')}>Success</button>
-<button class="u-btn u-btn-warning" on-click={this.showMessage('warning')}>Warning</button>
-<button class="u-btn u-btn-error" on-click={this.showMessage('error')}>Error</button>
+<button class="u-btn u-btn-info" on-click={this.show('info')}>Info</button>
+<button class="u-btn u-btn-success" on-click={this.show('success')}>Success</button>
+<button class="u-btn u-btn-warning" on-click={this.show('warning')}>Warning</button>
+<button class="u-btn u-btn-error" on-click={this.show('error')}>Error</button>
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showMessage: function(state) {
-        RGUI.Notify.show(state + ' message.', state);
+    show: function(state) {
+        RGUI.Notify[state](state + ' message.', state);
     }
 });
 ```
@@ -43,12 +43,12 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn" on-click={this.showMessage(0)}>Top Center</button>
-<button class="u-btn" on-click={this.showMessage(1)}>Top Left</button>
-<button class="u-btn" on-click={this.showMessage(2)}>Top Right</button>
-<button class="u-btn" on-click={this.showMessage(3)}>Bottom Center</button>
-<button class="u-btn" on-click={this.showMessage(4)}>Bottom Left</button>
-<button class="u-btn" on-click={this.showMessage(5)}>Bottom Right</button>
+<button class="u-btn" on-click={this.show(0)}>Top Center</button>
+<button class="u-btn" on-click={this.show(1)}>Top Left</button>
+<button class="u-btn" on-click={this.show(2)}>Top Right</button>
+<button class="u-btn" on-click={this.show(3)}>Bottom Center</button>
+<button class="u-btn" on-click={this.show(4)}>Bottom Left</button>
+<button class="u-btn" on-click={this.show(5)}>Bottom Right</button>
 ```
 
 ```javascript
@@ -64,7 +64,7 @@ var component = new RGUI.Component({
             new RGUI.Notify({data: {position: 'bottomright'} })
         ];
     },
-    showMessage: function(index) {
+    show: function(index) {
         var notify = this.notifies[index];
         notify.show('Position: ' + notify.data.position + '.');
     }
@@ -78,14 +78,14 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn u-btn-primary" on-click={this.showMessage()}>Static</button>
+<button class="u-btn u-btn-primary" on-click={this.show()}>Static</button>
 <notify ref="notify" position="static" duration="0" />
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showMessage: function() {
+    show: function() {
         this.$refs.notify.show('Static notify.');
     }
 });
@@ -98,17 +98,44 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn" on-click={this.showMessage(500)}>0.5s</button>
-<button class="u-btn" on-click={this.showMessage(1000)}>1s</button>
-<button class="u-btn" on-click={this.showMessage(2000)}>2s</button>
-<button class="u-btn" on-click={this.showMessage(0)}>常驻</button>
+<button class="u-btn" on-click={this.show(500)}>0.5s</button>
+<button class="u-btn" on-click={this.show(1000)}>1s</button>
+<button class="u-btn" on-click={this.show(2000)}>2s</button>
+<button class="u-btn" on-click={this.show(0)}>常驻</button>
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showMessage: function(duration) {
+    show: function(duration) {
         RGUI.Notify.show('Duration: ' + duration + ' ms.', null, duration);
+    }
+});
+```
+
+#### 始终显示一条
+
+将`single`设置为`true`，可以让`notify`始终只显示一条消息。
+
+<div class="m-example"></div>
+
+```xml
+<button class="u-btn u-btn-info" on-click={this.show('info')}>Info</button>
+<button class="u-btn u-btn-success" on-click={this.show('success')}>Success</button>
+<button class="u-btn u-btn-warning" on-click={this.show('warning')}>Warning</button>
+<button class="u-btn u-btn-error" on-click={this.show('error')}>Error</button>
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    config: function() {
+        this.notify = new RGUI.Notify({data: {single: true} });
+    },
+    number: 1,
+    show: function(state) {
+        this.notify[state]('Message ' + this.number + '.');
+        this.number++;
     }
 });
 ```

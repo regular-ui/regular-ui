@@ -3,6 +3,7 @@ $reset-normalize();
 
 @import "./core/base/function.mcss";
 @import "./core/base/helper.mcss";
+@import "./core/base/grid.mcss";
 @import "./simple/base/var.mcss";
 @import "./simple/base/base.mcss";
 @import "./simple/base/effect.mcss";

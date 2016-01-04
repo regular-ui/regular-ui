@@ -8,13 +8,13 @@
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn u-btn-primary" on-click={this.showModal()}>Modal</button>
+<button class="u-btn u-btn-primary" on-click={this.show()}>Modal</button>
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         var modal = new RGUI.Modal({
             data: {
                 title: 'Modal标题',
@@ -30,13 +30,13 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn u-btn-error" on-click={this.showModal()}>Alert</button>
+<button class="u-btn u-btn-error" on-click={this.show()}>Alert</button>
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         RGUI.Modal.alert('Alert内容');
     }
 });
@@ -47,13 +47,13 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn u-btn-success" on-click={this.showModal()}>Confirm</button>
+<button class="u-btn u-btn-success" on-click={this.show()}>Confirm</button>
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         RGUI.Modal.confirm('Confirm内容');
     }
 });
@@ -64,13 +64,13 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<button class="u-btn u-btn-primary" on-click={this.showModal()}>Draggable</button>
+<button class="u-btn u-btn-primary" on-click={this.show()}>Draggable</button>
 ```
 
 ```javascript
 var component = new RGUI.Component({
     template: template,
-    showModal: function() {
+    show: function() {
         var modal = new RGUI.Modal({
             data: {
                 title: 'Modal标题',

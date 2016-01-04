@@ -219,8 +219,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-tagcm-bracket">/&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">date</span>=<span class="cm-string">&quot;2008-08-08&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-row&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-col&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-tagcm-bracket">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-col&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">calendar</span> <span class="cm-attribute">date</span>=<span class="cm-string">&quot;2008-08-08&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h4 id="-">禁用组件</h4>
 <div class="m-example"></div>
@@ -594,8 +596,10 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<calendar />
-<calendar date="2008-08-08" />
+<div class="g-row">
+    <div class="g-col"><calendar /></div>
+    <div class="g-col"><calendar date="2008-08-08" /></div>
+</div>
     */})
 var component = new RGUI.Component({
     template: template

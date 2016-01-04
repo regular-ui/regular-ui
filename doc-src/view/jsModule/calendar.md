@@ -4,8 +4,10 @@
 <div class="m-example"></div>
 
 ```xml
-<calendar />
-<calendar date="2008-08-08" />
+<div class="g-row">
+    <div class="g-col"><calendar /></div>
+    <div class="g-col"><calendar date="2008-08-08" /></div>
+</div>
 ```
 
 #### 禁用组件

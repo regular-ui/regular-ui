@@ -49,7 +49,7 @@
                 {"name": "Table", "lowerName": "table", "cnName": "表格", "group": "布局类", "stable": true},
                 {"name": "Panel", "lowerName": "panel", "cnName": "面板", "group": "布局类", "stable": true},
                 {"name": "Form", "lowerName": "form", "cnName": "表单", "group": "布局类", "stable": true},
-                {"name": "Grid", "lowerName": "grid", "cnName": "网格", "group": "布局类", "hidden": true, "new": true}
+                {"name": "Grid", "lowerName": "grid", "cnName": "栅格", "group": "布局类", "new": true}
             ]
         }, {
             "name": "JSUnit",
