@@ -1,11 +1,3 @@
-.m-logo {
-    margin: 0;
-    display: inline-block;
-    overflow: hidden;
-    line-height: 60px;
-    margin-top: -2px;
-}
-
 .m-article {
 
     // >p {
@@ -218,6 +210,7 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
 #j-themeSelect {
     width: 34.63px;
     padding-left: 20px;
+    display: none;
 }
 
 .u-select2-theme {

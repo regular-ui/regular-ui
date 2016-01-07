@@ -51,6 +51,7 @@ function build(path, sitemap, template) {
         mainnavs: [],
         sidenavs: [],
         relativePath: '../',
+        isIndex: false,
         mainnav: level[0],
         sidenav: level[1],
         article: '',
@@ -61,6 +62,7 @@ function build(path, sitemap, template) {
 
     if(path === 'index') {
         data.relativePath = '';
+        data.isIndex = true;
         data.mainnav = null;
         data.sidenav = null;
     }

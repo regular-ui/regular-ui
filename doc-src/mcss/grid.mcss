@@ -1,6 +1,8 @@
+html, body {height: 100%;}
+
 // Grid
 .g-top {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -9,15 +11,20 @@
     background: $m-navbar_background;
 }
 
+.g-top-fixed {
+    position: fixed;
+}
+
 .g-topc {
     width: 1000px;
     margin: 0 auto;
 }
 
 .g-hd {
-    margin-top: $m-navbar_height;
-    height: 200px;
-    background: #f4f4f4;
+    $box-sizing: border-box;
+    padding-top: $m-navbar_height;
+    height: 100%;
+    background: $m-navbar_background;
 }
 
 .g-hdc {
@@ -25,13 +32,8 @@
     margin: 0 auto;
 }
 
-.g-bd {
+.g-top-fixed + .g-bd {
     margin-top: $m-navbar_height;
-    // margin-top: 40px;
-}
-
-.g-bd + .g-bd {
-    margin-top: 0;
 }
 
 .g-bdc {

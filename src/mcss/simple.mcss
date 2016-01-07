@@ -29,8 +29,6 @@ $reset-normalize();
 @import "./simple/module/table.mcss";
 @import "./simple/module/panel.mcss";
 @import "./simple/module/form.mcss";
-@import "./core/module/header.mcss";
-@import "./simple/module/footer.mcss";
 @import "./simple/unit/dropdown.mcss";
 @import "./simple/unit/menu.mcss";
 @import "./simple/unit/input2.mcss";

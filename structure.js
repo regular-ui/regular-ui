@@ -38,8 +38,6 @@ module.exports = {
         'Table': {type: 'css', category: 'module', lowerName: 'table'},
         'Panel': {type: 'css', category: 'module', lowerName: 'panel'},
         'Form': {type: 'css', category: 'module', lowerName: 'form'},
-        'Header': {type: 'css', category: 'module', lowerName: 'header'},
-        'Footer': {type: 'css', category: 'module', lowerName: 'footer'},
 
         /**
          * JS Base

@@ -37,9 +37,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </script>
 </head>
 <body>
-<div class="g-top">
+<div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="m-logo" href="<%= relativePath %>index.html"><img src="<%= relativePath %>img/logo-v1.0-long-48.png" /></a>
+        <a class="u-logo" href="<%= relativePath %>index.html"></a>
         <ul class="m-navbar f-fr">
             <% mainnavs.forEach(function(item) { %>
             <% if(item.hidden) return; %>

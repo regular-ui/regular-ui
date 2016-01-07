@@ -1,0 +1,13 @@
+.u-logo {
+    display: inline-block;
+    margin-left: 12px;
+    background: #4c9dcc url('../img/logo-v2.0-text.png') center center no-repeat;
+    width: 72px;
+    height: 76px;
+}
+
+.u-logo-index {
+    background: white url('../img/logo-v2.0-inverse-text.png') center center no-repeat;
+    width: 72px;
+    height: 144px;
+}

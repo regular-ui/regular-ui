@@ -23,7 +23,7 @@ function buildAll(callback) {
 
     // 遍历sitemap生成所有文档
     var level0 = sitemap;
-    build('index', sitemap, template);
+    // build('index', sitemap, template);
     level0.children.forEach(function(level1) {
         build(level1.lowerName + '/index', sitemap, template);
         level1.children.forEach(function(level2) {
