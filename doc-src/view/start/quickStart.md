@@ -8,7 +8,7 @@
 
 #### 直接在GitHub上下载最新发布
 
-<a class="u-btn u-btn-primary u-btn-lg" target="_blank" href="https://github.com/regular-ui/regular-ui-bower/releases/latest">下载Regular UI 0.1</a>
+<a class="u-btn u-btn-primary u-btn-lg" target="_blank" href="https://github.com/regular-ui/regular-ui/releases/latest">下载Regular UI 0.1</a>
 
 在HTML页面中添加以下代码：
 

@@ -5212,27 +5212,12 @@ html.z-modal,html.z-modal body{
 .m-example-hidden + .m-tabs,.m-example-hidden ~ pre{
 	display:none;
 }
-.m-part{
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
-	display:inline-block;
-	vertical-align:top;
-	width:33%;
-	padding:20px;
-}
-.m-part h2{
-	font-size:20px;
-	text-align:center;
-}
-.m-part p{
-	text-indent:2em;
-}
 .m-example + .m-tabs{
 	margin:1em 0;
 }
 html,body{
 	height:100%;
+	-webkit-font-smoothing:antialiased;
 }
 .g-top{
 	position:absolute;
@@ -5256,7 +5241,14 @@ html,body{
 	box-sizing:border-box;
 	padding-top:60px;
 	height:100%;
-	background:#34495e;
+	background-color:#4096c4;
+	background-image:-webkit-linear-gradient(top,#3c8dbc 10%,#449ecc);
+	background-image:-moz-linear-gradient(top,#3c8dbc 10%,#449ecc);
+	background-image:-ms-linear-gradient(top,#3c8dbc 10%,#449ecc);
+	background-image:-o-linear-gradient(top,#3c8dbc 10%,#449ecc);
+	background-image:linear-gradient(to bottom,#3c8dbc 10%,#449ecc);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c8dbc', endColorstr='#449ecc', GradientType=0) \9;
+	background-position:0 60px;
 }
 .g-hdc{
 	width:1000px;
@@ -5270,7 +5262,18 @@ html,body{
 	margin:0 auto;
 	padding:40px;
 }
-.g-bd-dark{
+.g-seg{
+	min-height:720px;
+}
+.g-segc{
+	width:900px;
+	margin:0 auto;
+	padding:100px 0;
+}
+.g-hd + .g-seg .g-segc{
+	padding:160px 0 100px;
+}
+.g-seg-dark{
 	background:#eee;
 }
 .g-sd{
@@ -5407,16 +5410,21 @@ html,body{
 	width:28px;
 }
 .u-logo{
-	display:inline-block;
+	display:block;
+	float:left;
 	margin-left:12px;
 	background:#4c9dcc url("../img/logo-v2.0-text.png") center center no-repeat;
 	width:72px;
-	height:76px;
+	height:72px;
+}
+.u-logo >h1{
+	display:none;
 }
 .u-logo-index{
-	background:#fff url("../img/logo-v2.0-inverse-text.png") center center no-repeat;
-	width:72px;
-	height:144px;
+	background:#fff url("../img/logo-v2.0-inverse-text.png") center -5px no-repeat;
+	width:92px;
+	height:192px;
+	margin-left:72px;
 }
 .m-sidebar >li .u-icon-success-circle{
 	color:#1abc9c;

@@ -1,4 +1,4 @@
-html, body {height: 100%;}
+html, body {height: 100%; -webkit-font-smoothing: antialiased;}
 
 // Grid
 .g-top {
@@ -24,13 +24,16 @@ html, body {height: 100%;}
     $box-sizing: border-box;
     padding-top: $m-navbar_height;
     height: 100%;
-    background: $m-navbar_background;
+    $linear-gradient: top, #3c8dbc 10%, #449ecc;
+    background-position: 0 $m-navbar_height;
 }
 
 .g-hdc {
     width: 1000px;
     margin: 0 auto;
 }
+
+.g-bd {}
 
 .g-top-fixed + .g-bd {
     margin-top: $m-navbar_height;
@@ -42,11 +45,21 @@ html, body {height: 100%;}
     padding: 40px;
 }
 
-.g-bdc-index {
-    // margin: 30px auto;
+.g-seg {
+    min-height: 720px;
 }
 
-.g-bd-dark {
+.g-segc {
+    width: 900px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+.g-hd + .g-seg .g-segc {
+    padding: 160px 0 100px;
+}
+
+.g-seg-dark {
     background: #eee;
 }
 

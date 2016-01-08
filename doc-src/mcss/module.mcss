@@ -343,25 +343,6 @@ $u-select2-theme-selected_bd_background = #39c1e6; //mix(#39c1e6, white, 90%); /
     display: none;
 }
 
-.m-part {
-    $box-sizing: border-box;
-    display: inline-block;
-    vertical-align: top;
-    width: 33%;
-    // margin: 25px 0 40px;
-    padding: 20px;
-    
-    h2 {
-        // margin-top: 15px;
-        font-size: 20px;
-        text-align: center;
-    }
-
-    p {
-        text-indent: 2em;
-    }
-}
-
 .m-example + .m-tabs {
     margin: 1em 0;
 }

@@ -2,6 +2,11 @@
 @import "./function.mcss";
 @import "./module.mcss";
 @import "./grid.mcss";
+
 @import "./unit/codemirror.mcss";
 @import "./unit/badge2.mcss";
 @import "./unit/logo.mcss";
+
+@import "./module/header.mcss";
+@import "./module/footer.mcss";
+@import "./module/part.mcss";
