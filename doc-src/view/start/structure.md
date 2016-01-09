@@ -1,6 +1,6 @@
 ### bower包目录结构
 
-#### `regular-ui-bower`根目录
+#### regular-ui-bower根目录
 
 ```
 regular-ui-bower
@@ -16,7 +16,7 @@ regular-ui-bower
 
 ### npm包目录结构
 
-#### `regular-ui`根目录
+#### regular-ui根目录
 
 ```
 regular-ui
@@ -36,7 +36,7 @@ regular-ui
 |-- webpack.config.js      # WebPack打包配置文件
 ```
 
-#### `regular-ui/src`目录
+#### regular-ui/src目录
 
 ```
 regular-ui

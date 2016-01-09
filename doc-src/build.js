@@ -42,8 +42,10 @@ var cssdoc = require('./cssdoc.js');
  */
 function build(path, sitemap, template) {
     var level = path.split('/');
-    if(path === 'index')
-        level = ['start', 'index'];
+    if(path === 'index' || level[1] === 'index')
+        return;
+    // if(path === 'index')
+    //     level = ['start', 'index'];
 
     // 组织模板数据
     var data = {
@@ -60,16 +62,17 @@ function build(path, sitemap, template) {
         current: null
     }
 
-    if(path === 'index') {
-        data.relativePath = '';
-        data.isIndex = true;
-        data.mainnav = null;
-        data.sidenav = null;
-    }
+    // if(path === 'index') {
+    //     data.relativePath = '';
+    //     data.isIndex = true;
+    //     data.mainnav = null;
+    //     data.sidenav = null;
+    // }
 
     // 组织主导航数据
     sitemap.children.forEach(function(level1) {
-        level1.path = level1.path || (level1.lowerName + '/index.html').toLowerCase();
+        level1.path = (level1.lowerName + '/' + level1.children[0].lowerName + '.html').toLowerCase();
+        // level1.path = level1.path || (level1.lowerName + '/index.html').toLowerCase();
         data.mainnavs.push(level1);
     });
 
@@ -80,7 +83,7 @@ function build(path, sitemap, template) {
             data.sidenavs.forEach(function(item) {
                 if(item.lowerName === level[1])
                     data.current = item;
-                item.path = item.path || (level[0] + '/' + item.lowerName + '.html').toLowerCase();
+                item.path = item.path || (data.relativePath + level[0] + '/' + item.lowerName + '.html').toLowerCase();
             });
             break;
         }

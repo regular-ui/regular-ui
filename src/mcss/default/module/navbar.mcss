@@ -21,7 +21,7 @@ $m-navbar_background = $brand-secondary;
     > li {
 
         > a, > span {
-            min-width: 112px;
+            min-width: 120px;
             // padding: 0 15px;
             $line-height: $m-navbar_height;
             color: rgba(255, 255, 255, 0.75);

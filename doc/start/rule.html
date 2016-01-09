@@ -46,16 +46,16 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <li class="z-crt"><a href="../start/quickstart.html">开始使用</a></li>
             
             
-            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            <li><a href="../cssunit/base.html">CSS元件</a></li>
             
             
-            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            <li><a href="../cssmodule/navbar.html">CSS模块</a></li>
             
             
-            <li><a href="../jsunit/index.html">JS元件</a></li>
+            <li><a href="../jsunit/dropdown.html">JS元件</a></li>
             
             
-            <li><a href="../jsmodule/index.html">JS模块</a></li>
+            <li><a href="../jsmodule/tabs.html">JS模块</a></li>
             
             <li id="j-themeSelect"></li>
         </ul>
@@ -72,7 +72,21 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li><a href="../start/developer.html">开发者<small> Developer</small>
+        <li><a href="../start/feature.html">特性<small> Feature</small>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="https://github.com/regular-ui/regular-ui/releases">更新日志<small> ChangeLog</small>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>开发者</span></li>
+        
+        <li><a href="../start/modular.html">模块化<small> Modular</small>
         
         </a></li>
         
@@ -88,26 +102,18 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         </a></li>
         
-        
-        
-        <li><a href="../start/todo.html">后续开发<small> Todo</small>
-        
-        </a></li>
-        
     </ul>
 </div><div class="g-mn">
     <article class="m-article">
         
         <h2>规范<small> Rule</small></h2>
         
-        <h3 id="-">名词解释</h3>
+        <h4 id="-">分类</h4>
 <ul>
-<li><p>所有继承自Regular的类都叫 <strong>组件（Component）</strong> 。</p>
-</li>
-<li><p>Regular UI中的组件分为两类，<strong>元件（Unit）</strong> 和 <strong>模块（Module）</strong>。</p>
-</li>
+<li>按照是否包含JS代码，Regular UI中的组件分为<strong>CSS组件</strong>和<strong>JS组件</strong>。</li>
+<li>按照<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>，Regular UI中的组件分为<strong>布局（Grid）</strong> 、<strong>元件（Unit）</strong>和 <strong>模块（Module）</strong>。</li>
 </ul>
-<h3 id="-">命名规范</h3>
+<h4 id="-">命名规范</h4>
 <table>
 <thead>
 <tr>
@@ -148,7 +154,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <td><code>DetailModal</code></td>
 <td><code>detailModal</code></td>
 <td><code>&lt;detailModal&gt;</code></td>
-<td><code>m-modal-detail</code></td>
+<td><code>m-detailmodal</code></td>
 <td><code>detailModal.js</code></td>
 <td><code>detailModal.mcss</code></td>
 </tr>
@@ -164,7 +170,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <td><code>MusicListView</code></td>
 <td><code>musicListView</code></td>
 <td><code>&lt;musicListView&gt;</code></td>
-<td><code>m-listview-music</code></td>
+<td><code>m-musiclistview</code></td>
 <td><code>musicListView.js</code></td>
 <td><code>musicListView.mcss</code></td>
 </tr>
@@ -180,7 +186,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <td><code>KnowledgeTreeView</code></td>
 <td><code>knowledgeTreeView</code></td>
 <td><code>&lt;knowledgeTreeView&gt;</code></td>
-<td><code>m-treeview-knowledge</code></td>
+<td><code>m-knowledgetreeview</code></td>
 <td><code>knowledgeTreeView.js</code></td>
 <td><code>knowledgeTreeView.mcss</code></td>
 </tr>
@@ -218,7 +224,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </tr>
 </tbody>
 </table>
-<h3 id="css-">CSS规范</h3>
+<h4 id="css-">CSS规范</h4>
 <p>Regular UI中所有组件的CSS样式都遵循<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>。</p>
 <h5 id="-">补充</h5>
 <ul>
@@ -226,7 +232,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <li>为了防止组件内部语义化标签选择器的污染，使用<code>&gt;</code>来进行限制选择。<br>如用：<code>.m-list&gt;li</code>，而不用：<code>.m-list li</code></li>
 <li>对于简单的HTML结构尽量使用标签选择器而不使用class选择器。<br>如用：<code>.m-list&gt;li</code>, <code>.m-crumb&gt;li&gt;a</code>，而不用：<code>.m-list .list_item</code>, <code>.m-crumb .crumb_a</code></li>
 </ul>
-<h3 id="mcss-scss-">MCSS/SCSS规范</h3>
+<h4 id="mcss-scss-">MCSS/SCSS规范</h4>
 <h5 id="-">变量命名</h5>
 <ul>
 <li>变量的命名必须有意义，能够使人直接读懂变量的含义，如<code>$brand-primary</code>, <code>$font-size-base</code>, <code>$u-radio_size</code>等。</li>
@@ -244,14 +250,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <li><code>@extend</code>方式只能继承自简单选择器。</li>
 <li>在可以用<code>@extend</code>的地方不使用mixin方式。</li>
 </ul>
-<h3 id="js-">JS规范</h3>
+<h4 id="js-">JS规范</h4>
 <p>Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。</p>
 <p>代码的注释遵循jsDoc的规范。</p>
 <h5 id="-">补充</h5>
 <ul>
 <li>组件中的私有方法开头加<code>_</code>，如：<code>_onItemChange($event)</code>、<code>_isCompleted()</code>。</li>
 </ul>
-<h3 id="regular-">Regular规范</h3>
+<h4 id="regular-">Regular规范</h4>
 <h5 id="-">组件声明</h5>
 <ul>
 <li>每个组件必须在<code>config</code>中声明默认数据。</li>
@@ -323,7 +329,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pager</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-pager-custom&quot;</span> <span class="cm-attribute">current</span>=<span class="cm-attribute">6</span> <span class="cm-attribute">total</span>=<span class="cm-attribute">11</span> <span class="cm-attribute">on-nav</span>=<span class="cm-attribute">{this._onNav($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <!-- 不把所有的组件都封装成Regular组件 -->
-<h3 id="-">已使用的缩写</h3>
+<h4 id="-">已使用的缩写</h4>
 <h5 id="-">组件名</h5>
 <ul>
 <li><code>button</code> =&gt; <code>btn</code></li>

@@ -1,11 +1,13 @@
 ### CommonJS
 
-本例中使用node+[webpack][WebPack]打包JS文件。
+#### 1. 安装
+
+本例中使用npm+[webpack][WebPack]打包JS文件。
 
 首先确保安装了WebPack CLI：
 
 ```shell
-npm install webpack -g
+npm install -g webpack
 ```
 
 然后在项目中安装Regular UI：
@@ -14,13 +16,14 @@ npm install webpack -g
 npm install regular-ui
 ```
 
-#### 一次性引入所有组件
+#### 2. 引入
+
+##### 一次性引入所有组件
 
 在`index.js`文件中添加：
 
 ```javascript
 var RGUI = require('regular-ui');
-
 new RGUI.Calendar().$inject('#app');
 ```
 
@@ -32,13 +35,12 @@ webpack index.js bundle.js
 
 [Demo &gt;&gt;](../demo/common/index.html)
 
-#### 单独引入某个组件
+##### 单独引入某个组件
 
 在`index.js`文件中添加：
 
 ```javascript
 var Calendar = require('regular-ui/src/calendar');
-
 new Calendar().$inject('#app');
 ```
 
@@ -56,6 +58,8 @@ webpack index.js bundle.js
 
 ### AMD
 
+#### 1. 安装
+
 本例中使用[RequireJS][RequireJS]加载Regular UI。
 
 首先在HTML的`<head>`中添加：
@@ -70,9 +74,7 @@ webpack index.js bundle.js
 bower install regular-ui
 ```
 
-<div class="u-message u-message-info">
-    <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
-</div>
+#### 2. 引入
 
 在`index.js`文件中添加：
 
@@ -91,12 +93,18 @@ require(['js/regular-ui.min'], function(RGUI) {
 
 [Demo &gt;&gt;](../demo/amd/index.html)
 
+<div class="u-message u-message-info">
+    <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
+</div>
+
 ### 自定义打包组件
+
+#### 1. 安装
 
 首先确保安装了gulp：
 
 ```shell
-npm install gulp -g
+npm install -g gulp
 ```
 
 然后在项目中安装Regular UI以及依赖包：
@@ -107,6 +115,8 @@ cd node_modules/regular-ui
 npm install
 ```
 
+#### 2. 配置
+
 Regular UI目录下的`structure.js`是全部组件的配置。
 
 将`structure.js`复制为`structure.customized.js`：
@@ -115,7 +125,7 @@ Regular UI目录下的`structure.js`是全部组件的配置。
 cp structure.js structure.customized.js
 ```
 
-然后打开后注释或者删除掉不需要的组件：
+然后打开后注释或者删除掉不需要的组件，如下：
 
 ```javascript
     'Select2': {type: 'css+js', category: 'unit', lowerName: 'select2', requires: ['Dropdown']},
@@ -124,6 +134,8 @@ cp structure.js structure.customized.js
     'Suggest': {type: 'css+js', category: 'unit', lowerName: 'suggest', requires: ['Dropdown']},
     // 'Uploader': {type: 'css+js', category: 'unit', lowerName: 'uploader'},
 ```
+
+#### 3. 打包
 
 运行gulp命令：
 

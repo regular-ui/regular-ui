@@ -28,10 +28,7 @@
     <h4>Methods</h4>
     <% methods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
-    <h5>
-        <% if(method.deprecated) { %><div class="u-text u-text-muted">@deprecated</div><% } %>
-        <div><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</div>
-    </h5>
+    <h5><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
     <p><%= method.description %></p>
     <table>
         <thead>
@@ -65,10 +62,7 @@
     <h4>Static Methods</h4>
     <% staticMethods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
-    <h5>
-        <% if(method.deprecated) { %><div class="u-text u-text-muted">@deprecated</div><% } %>
-        <div><%= class_.name %>.<%= method.name %>(<%= method.body %>)</div>
-    </h5>
+    <h5><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.name %>.<%= method.name %>(<%= method.body %>)</h5>
     <p><%= method.description %></p>
     <table>
         <thead>
@@ -103,10 +97,7 @@
     <% inheritedMethods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
     <% if(!method.overridden) { %>
-        <h5>
-            <% if(method.deprecated) { %><div class="u-text u-text-muted">@deprecated</div><% } %>
-            <div><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</div>
-        </h5>
+        <h5><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
         <p><%= method.description %></p>
         <table>
             <thead>
@@ -133,10 +124,7 @@
             </tbody>
         </table>
     <% } else { %>
-        <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</del></div>
-        </h5>
+        <h5><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</del></h5>
     <% } %>
     <% }); %>
 <% } %>
@@ -188,10 +176,7 @@
             </tbody>
         </table>
     <% } else { %>
-        <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del><%= class_.lowerName %>.$on('<%= event.name %>')</del></div>
-        </h5>
+        <h5><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.$on('<%= event.name %>')</del></h5>
     <% } %>
     <% }); %>
 <% } %>

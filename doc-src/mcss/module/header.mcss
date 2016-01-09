@@ -30,7 +30,6 @@
     }
 
     h2 {
-        padding-top: 166px;
         font: 32px Roboto, $font-family-sans-serif;
         font-weight: 300;
     }
@@ -51,6 +50,8 @@
 
     .header_bd {
         display: inline-block;
+        vertical-align: middle;
+        padding-bottom: 20px;
 
         .u-btn {
             > i {
@@ -132,13 +133,17 @@
         }
     }
 
+    .u-btn:hover {
+        background: white;
+        color: #777;
+        $box-shadow: 0 4px 8px 0 rgba(0,0,0,.22);
+    }
+
     .u-btn-primary {
         color: #449ECC;
     }
 
-    .u-btn:hover {
-        background: white;
+    .u-btn-primary:hover {
         color: $brand-primary;
-        $box-shadow: 0 4px 8px 0 rgba(0,0,0,.22);
     }
 }

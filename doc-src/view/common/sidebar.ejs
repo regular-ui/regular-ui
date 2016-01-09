@@ -7,7 +7,7 @@
             group = item.group; %>
         <li class="sidebar_group"><span><%= item.group %></span></li>
         <% } %>
-        <li<% if(sidenav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= relativePath + item.path %>"><%= item.cnName %><small> <%= item.name %></small>
+        <li<% if(sidenav === item.lowerName) { %> class="z-crt"<% } %>><a href="<%= item.path %>"><%= item.cnName %><small> <%= item.name %></small>
         <% if(item.stable) { %>
             <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
         <% } else if(item.beta) { %>

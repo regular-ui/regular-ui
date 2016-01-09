@@ -1,0 +1,140 @@
+.m-article {
+
+    // >p {
+    //     text-indent: 2em;
+    // }
+    
+    >li>p {
+        text-indent: 0;
+    }
+
+    // >ul {
+    //     padding-left: 2em;
+    //     margin: .5em 0;
+    // }
+
+    >h3 {
+        font-size: 20px;
+        // background-color: #F4F4F4;
+        color: #999;
+        padding: 0 60px;
+        margin: 80px -60px 10px;
+    }
+
+    >h4 {
+        font-size: 16px;
+        margin: 40px -60px 30px;
+        border-top: 1px solid #f4f4f4;
+        padding-top: 30px;
+        padding-left: 60px;
+        color: #3c8dbc;
+
+        // &:before {
+        //     //display: inline-block;
+        //     content: '';
+        //     border-left: 3px solid $brand-primary;
+        //     margin-right: 8px;
+        // }
+    }
+
+    >h3 + h4 {
+        margin-top: 10px;
+    }
+
+    >h5 {
+        font-size: 14px;
+        margin: 25px 0 10px;
+        margin-left: -9px;
+
+        &:before {
+            //display: inline-block;
+            content: '';
+            margin-right: 6px;
+            display: inline-block;
+            height: 4px;
+            width: 4px;
+            vertical-align: middle;
+            background: #3c8dbc;
+        }
+    }
+
+    >h6 {
+        font-size: 12px;
+        margin: .3em 0;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+    }
+
+    // >p {
+    //     margin: .5em 0;
+    // }
+
+    // img {
+    //     vertical-align: text-bottom;
+    // }
+
+    // code {
+    //     background: #f7f7f7;
+    //     border-radius: 3px;
+    //     border: 1px solid #e4e4e4;
+    //     padding: 0 3px;
+    //     color: #e74c3c;
+    //     margin: 0 2px;
+    // }
+
+    // pre {
+    //     margin: .5em 0;
+    //     padding: 6px 12px;
+    //     background: #f7f7f7;
+    //     border: 1px solid #f4f4f4;
+    //     border-radius: 3px;
+    //     word-break: break-word;
+    // }
+
+    // pre code {
+    //     background: none;
+    //     border: none;
+    //     color: #333;
+    //     padding: 0;
+    //     margin: 0;
+    // }
+
+    pre.lang-console {
+        background: #2e74ac;
+        border: none;
+    }
+
+    pre.lang-console code {
+        color: white;
+    }
+
+    // key {
+    //     background: #f7f7f7;
+    //     padding: 2px 3px;
+    //     margin: 0 3px;
+    //     box-shadow: 0 2px 2px #ccc;
+    //     font-size: 12px;
+    //     color: #e74c3c;
+    // }
+
+    >blockquote h6 {
+        margin: .5em 0 .3em;
+        text-indent: 2em;
+        color: #E74C3C;
+    }
+
+    >table {
+        margin: 0 auto;
+        width: 100%;
+        // word-break: break-all;
+    }
+
+    >table th, >table td {
+        border: 1px solid #f4f4f4;
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+
+}

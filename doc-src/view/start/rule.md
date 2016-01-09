@@ -1,29 +1,28 @@
-### 名词解释
+#### 分类
 
-- 所有继承自Regular的类都叫 **组件（Component）** 。
+- 按照是否包含JS代码，Regular UI中的组件分为**CSS组件**和**JS组件**。
+- 按照[NEC规范][NEC]，Regular UI中的组件分为**布局（Grid）** 、**元件（Unit）**和 **模块（Module）**。
 
-- Regular UI中的组件分为两类，**元件（Unit）** 和 **模块（Module）**。
+#### 命名规范
 
-### 命名规范
-
-| 组件名和类名       | 对象名             | 标签名               | CSS class            |　JS文件名             |  CSS文件名              |
+| 组件名和类名       | 对象名             | 标签名               | CSS class             |　JS文件名             |  CSS文件名              |
 | ------------------ | ------------------ | -------------------- | --------------------- | --------------------- | ----------------------- |
 | 大驼峰             | 小驼峰             | 小驼峰               | 全小写                | 与标签名一致          | 与标签名一致            |
 | -                  | -                  | `<button>`            | `u-btn`                | -                     | `btn.mcss`               |
 | `Modal`             | `modal`             | `<modal>`             | `m-modal`              | `modal.js`             | `modal.mcss`             |
-| `DetailModal`       | `detailModal`       | `<detailModal>`       | `m-modal-detail`       | `detailModal.js`       | `detailModal.mcss`       |
+| `DetailModal`       | `detailModal`       | `<detailModal>`       | `m-detailmodal`        | `detailModal.js`       | `detailModal.mcss`       |
 | `ListView`          | `listView`          | `<listView>`          | `m-listview`           | `listView.js`          | `listView.mcss`          |
-| `MusicListView`     | `musicListView`     | `<musicListView>`     | `m-listview-music`     | `musicListView.js`     | `musicListView.mcss`     |
+| `MusicListView`     | `musicListView`     | `<musicListView>`     | `m-musiclistview`      | `musicListView.js`     | `musicListView.mcss`     |
 | `TreeView`          | `treeView`          | `<treeView>`          | `m-treeview`           | `treeView.js`          | `treeView.mcss`          |
-| `KnowledgeTreeView` | `knowledgeTreeView` | `<knowledgeTreeView>` | `m-treeview-knowledge` | `knowledgeTreeView.js` | `knowledgeTreeView.mcss` |
+| `KnowledgeTreeView` | `knowledgeTreeView` | `<knowledgeTreeView>` | `m-knowledgetreeview`  | `knowledgeTreeView.js` | `knowledgeTreeView.mcss` |
 | `TreeViewList`      | `treeViewList`      | `<treeViewList>`      | `treeview_list`        | -                     | -                       |
 | `Calendar`          | `calendar`          | `<calendar>`          | `m-calendar`           | `calendar.js`          | `calendar.mcss`          |
 | `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`         | `datePicker.js`        | `datePicker.mcss`        |
 | `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`     | `dateTimePicker.js`    | `dateTimePicker.mcss`    |
 
-### CSS规范
+#### CSS规范
 
-Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com/standard/css-sort.html)。
+Regular UI中所有组件的CSS样式都遵循[NEC规范][NEC]。
 
 ##### 补充
 
@@ -35,7 +34,7 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com
 - 对于简单的HTML结构尽量使用标签选择器而不使用class选择器。  
   如用：`.m-list>li`, `.m-crumb>li>a`，而不用：`.m-list .list_item`, `.m-crumb .crumb_a`
 
-### MCSS/SCSS规范
+#### MCSS/SCSS规范
 
 ##### 变量命名
 
@@ -55,7 +54,7 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范](http://nec.netease.com
 - `@extend`方式只能继承自简单选择器。
 - 在可以用`@extend`的地方不使用mixin方式。
 
-### JS规范
+#### JS规范
 
 Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。
 
@@ -65,7 +64,7 @@ Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。
 
 - 组件中的私有方法开头加`_`，如：`_onItemChange($event)`、`_isCompleted()`。
 
-### Regular规范
+#### Regular规范
 
 ##### 组件声明
 
@@ -143,7 +142,7 @@ var Modal = Component.extend({
 
 <!-- 不把所有的组件都封装成Regular组件 -->
 
-### 已使用的缩写
+#### 已使用的缩写
 
 ##### 组件名
 
@@ -173,3 +172,7 @@ var Modal = Component.extend({
 - `medium` => `md`
 - `large` => `lg`
 - `extra large` => `xl`
+
+
+
+[NEC]: http://nec.netease.com/standard/css-sort.html

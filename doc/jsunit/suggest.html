@@ -46,16 +46,16 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <li><a href="../start/quickstart.html">开始使用</a></li>
             
             
-            <li><a href="../cssunit/index.html">CSS元件</a></li>
+            <li><a href="../cssunit/base.html">CSS元件</a></li>
             
             
-            <li><a href="../cssmodule/index.html">CSS模块</a></li>
+            <li><a href="../cssmodule/navbar.html">CSS模块</a></li>
             
             
-            <li class="z-crt"><a href="../jsunit/index.html">JS元件</a></li>
+            <li class="z-crt"><a href="../jsunit/dropdown.html">JS元件</a></li>
             
             
-            <li><a href="../jsmodule/index.html">JS模块</a></li>
+            <li><a href="../jsmodule/tabs.html">JS模块</a></li>
             
             <li id="j-themeSelect"></li>
         </ul>
@@ -492,10 +492,7 @@ var component = new RGUI.Component({
     <h4>Methods</h4>
     
     
-    <h5>
-        
-        <div>suggest.select(item)</div>
-    </h5>
+    <h5>suggest.select(item)</h5>
     <p>选择某一项</p>
     <table>
         <thead>
@@ -519,10 +516,7 @@ var component = new RGUI.Component({
     </table>
     
     
-    <h5>
-        
-        <div>suggest.toggle(open)</div>
-    </h5>
+    <h5>suggest.toggle(open)</h5>
     <p>展开/收起</p>
     <table>
         <thead>
@@ -556,26 +550,17 @@ var component = new RGUI.Component({
     
     
     
-        <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del>suggest.toggle(open)</del></div>
-        </h5>
+        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.toggle(open)</del></h5>
     
     
     
     
-        <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del>suggest.select(item)</del></div>
-        </h5>
+        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.select(item)</del></h5>
     
     
     
     
-        <h5>
-            <div class="u-text u-text-muted">@deprecated</div>
-            <div>suggest.$updateSource()</div>
-        </h5>
+        <h5><span class="u-text u-text-muted">@deprecated</span> suggest.$updateSource()</h5>
         <p>从service中更新数据源</p>
         <table>
             <thead>
@@ -647,18 +632,12 @@ var component = new RGUI.Component({
     
     
     
-        <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del>suggest.$on('toggle')</del></div>
-        </h5>
+        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.$on('toggle')</del></h5>
     
     
     
     
-        <h5>
-            <div class="u-text u-text-muted">@override</div>
-            <div><del>suggest.$on('select')</del></div>
-        </h5>
+        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.$on('select')</del></h5>
     
     
 

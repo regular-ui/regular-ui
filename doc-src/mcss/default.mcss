@@ -10,3 +10,4 @@
 @import "./module/header.mcss";
 @import "./module/footer.mcss";
 @import "./module/part.mcss";
+@import "./module/article.mcss";

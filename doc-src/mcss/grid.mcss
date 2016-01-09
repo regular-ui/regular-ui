@@ -1,5 +1,9 @@
 html, body {height: 100%; -webkit-font-smoothing: antialiased;}
 
+$g-xc_width = 1080px;
+$g-sd_width = 280px;
+$g-mn_padding = 60px;
+
 // Grid
 .g-top {
     position: absolute;
@@ -16,7 +20,7 @@ html, body {height: 100%; -webkit-font-smoothing: antialiased;}
 }
 
 .g-topc {
-    width: 1000px;
+    width: $g-xc_width;
     margin: 0 auto;
 }
 
@@ -29,7 +33,7 @@ html, body {height: 100%; -webkit-font-smoothing: antialiased;}
 }
 
 .g-hdc {
-    width: 1000px;
+    width: $g-xc_width;
     margin: 0 auto;
 }
 
@@ -40,9 +44,8 @@ html, body {height: 100%; -webkit-font-smoothing: antialiased;}
 }
 
 .g-bdc {
-    width: 1000px;
+    width: $g-xc_width;
     margin: 0 auto;
-    padding: 40px;
 }
 
 .g-seg {
@@ -64,23 +67,29 @@ html, body {height: 100%; -webkit-font-smoothing: antialiased;}
 }
 
 .g-sd {
-    width: 249px;
     float: left;
+    width: $g-sd_width - 1px;
     min-height: 400px;
-    border-right: 1px solid #f4f4f4;
     margin-bottom: 60px;
-    padding-top: 54px;
 }
 
 .g-mn {
-    margin-left: 40px;
-    margin-bottom: 120px;
-    width: 1000px - 250px - 40px;
     float: right;
+    padding-left: $g-mn_padding;
+    // padding-right: $g-mn_padding;
+    padding-bottom: 120px;
+    border-left: 1px solid #f4f4f4;
+    width: $g-xc_width - $g-sd_width - $g-mn_padding;
+}
+
+.g-sd > .m-sidebar {
+    margin: 60px 0;
+}
+
+.g-mn > .m-article {
+    margin: 60px 0;
 }
 
 .g-ft {
     clear: both;
-    height: 200px;
-    background: $m-navbar_background;
 }
