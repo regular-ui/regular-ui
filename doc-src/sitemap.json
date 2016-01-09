@@ -5,7 +5,6 @@
             "name": "Start",
             "lowerName": "start",
             "cnName": "开始使用",
-            "path": "start/quickstart.html",
             "children": [
                 {"name": "QuickStart", "lowerName": "quickStart", "cnName": "快速开始"},
                 {"name": "Feature", "lowerName": "feature", "cnName": "特性"},

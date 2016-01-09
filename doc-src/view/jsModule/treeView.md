@@ -36,8 +36,14 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<treeView source={source} />
-<treeView source={source} disabled />
+<div class="g-row">
+    <div class="g-col g-col-6">
+        <treeView source={source} />
+    </div>
+    <div class="g-col g-col-6">
+        <treeView source={source} disabled />
+    </div>
+</div>
 ```
 
 ```javascript

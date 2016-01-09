@@ -22,7 +22,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### `selected`, `value`和`key`
+#### selected, value和key
 
 `selected`表示当前选择项，`value`表示当前选择值。`key`表示数据项的键，默认为`'id'`。
 

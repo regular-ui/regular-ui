@@ -4926,9 +4926,6 @@ html.z-modal,html.z-modal body{
 .m-panel + .m-panel{
 	margin-top:10px;
 }
-.u-dropdown + .u-dropdown{
-	margin-left:20px;
-}
 .u-timepicker + .u-timepicker{
 	margin-left:20px;
 }
@@ -4950,6 +4947,11 @@ html.z-modal,html.z-modal body{
 }
 .m-sidebar >li .u-icon-info-circle{
 	color:#f39c12;
+}
+.m-sidebar .u-badge{
+	padding:2px 4px;
+	float:right;
+	margin:3px 0;
 }
 .treeview_itemname .u-icon{
 	font-size:14px;
@@ -5245,26 +5247,27 @@ html,body{
 	margin-top:6px;
 	background:url("../img/badge2.png") no-repeat;
 	height:11px;
+	border-radius:2px;
 }
 .u-badge2-stable{
 	background-position:0 0;
 	background-color:#3c8dbc;
-	width:28px;
+	width:26px;
 }
 .u-badge2-beta{
 	background-color:#f39c12;
 	background-position:0 -9px;
-	width:28px;
+	width:26px;
 }
 .u-badge2-new{
 	background-color:#00c0ef;
 	background-position:0 -18px;
-	width:26px;
+	width:24px;
 }
 .u-badge2-deprecated{
 	background-color:#dd4b39;
 	background-position:0 -27px;
-	width:28px;
+	width:26px;
 }
 .u-logo{
 	display:block;
@@ -5490,7 +5493,7 @@ html,body{
 	font-size:12px;
 	margin:0.3em 0;
 }
-.m-article ul,.m-article ol{
+.m-article >ul,.m-article >ol{
 	padding-left:20px;
 }
 .m-article pre.lang-console{

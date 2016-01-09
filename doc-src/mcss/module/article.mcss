@@ -1,19 +1,19 @@
 .m-article {
 
-    // >p {
+    // > p {
     //     text-indent: 2em;
     // }
     
-    >li>p {
+    > li > p {
         text-indent: 0;
     }
 
-    // >ul {
+    // > ul {
     //     padding-left: 2em;
     //     margin: .5em 0;
     // }
 
-    >h3 {
+    > h3 {
         font-size: 20px;
         // background-color: #F4F4F4;
         color: #999;
@@ -21,7 +21,7 @@
         margin: 80px -60px 10px;
     }
 
-    >h4 {
+    > h4 {
         font-size: 16px;
         margin: 40px -60px 30px;
         border-top: 1px solid #f4f4f4;
@@ -37,11 +37,11 @@
         // }
     }
 
-    >h3 + h4 {
+    > h3 + h4 {
         margin-top: 10px;
     }
 
-    >h5 {
+    > h5 {
         font-size: 14px;
         margin: 25px 0 10px;
         margin-left: -9px;
@@ -58,16 +58,16 @@
         }
     }
 
-    >h6 {
+    > h6 {
         font-size: 12px;
         margin: .3em 0;
     }
 
-    ul, ol {
+    > ul, > ol {
         padding-left: 20px;
     }
 
-    // >p {
+    // > p {
     //     margin: .5em 0;
     // }
 

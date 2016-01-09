@@ -25,8 +25,14 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<listView source={source} />
-<listView source={source} disabled />
+<div class="g-row">
+    <div class="g-col g-col-6">
+        <listView source={source} />
+    </div>
+    <div class="g-col g-col-6">
+        <listView source={source} disabled />
+    </div>
+</div>
 ```
 
 ```javascript

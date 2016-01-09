@@ -5,10 +5,10 @@
 
 ```xml
 <collapse>
-    <panel title="panel1">content1</panel>
-    <panel title="panel2" open>content2</panel>
-    <panel title="panel3">content3</panel>
-    <panel title="panel4">content4</panel>
+    <panel title="Panel1">Content1</panel>
+    <panel title="Panel2" open>Content2</panel>
+    <panel title="Panel3">Content3</panel>
+    <panel title="Panel4">Content4</panel>
 </collapse>
 ```
 
@@ -18,10 +18,10 @@
 
 ```xml
 <collapse accordion>
-    <panel title="panel1">content1</panel>
-    <panel title="panel2">content2</panel>
-    <panel title="panel3">content3</panel>
-    <panel title="panel4">content4</panel>
+    <panel title="Panel1">Content1</panel>
+    <panel title="Panel2">Content2</panel>
+    <panel title="Panel3">Content3</panel>
+    <panel title="Panel4">Content4</panel>
 </collapse>
 ```
 

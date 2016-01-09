@@ -3,13 +3,7 @@
 
 对`ul`或`ol`标签添加`.m-list`，将不显示默认的列表样式。
 
-<ul class="m-list">
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-</ul>
+<div class="m-example"></div>
 
 ```html
 <ul class="m-list">
@@ -23,13 +17,7 @@
 
 #### 分割线
 
-<ul class="m-list m-list-line">
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-</ul>
+<div class="m-example"></div>
 
 ```html
 <ul class="m-list m-list-line">
@@ -43,13 +31,7 @@
 
 #### Hover
 
-<ul class="m-list m-list-line m-list-hover">
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-</ul>
+<div class="m-example"></div>
 
 ```html
 <ul class="m-list m-list-line m-list-hover">
@@ -63,13 +45,7 @@
 
 #### 条纹
 
-<ul class="m-list m-list-line m-list-striped m-list-hover">
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-    <li>List Item</li>
-</ul>
+<div class="m-example"></div>
 
 ```html
 <ul class="m-list m-list-line m-list-striped m-list-hover">

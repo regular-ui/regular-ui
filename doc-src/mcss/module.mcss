@@ -14,9 +14,9 @@
     margin-top: 10px;
 }
 
-.u-dropdown + .u-dropdown {
-    margin-left: 20px;
-}
+// .u-dropdown + .u-dropdown {
+//     margin-left: 20px;
+// }
 
 .u-timepicker + .u-timepicker {
     margin-left: 20px;
@@ -48,6 +48,12 @@
 
     > li .u-icon-info-circle {
         @if($brand-warning) {color: $brand-warning;}
+    }
+
+    .u-badge {
+        padding: 2px 4px;
+        float: right;
+        margin: 3px 0;
     }
 }
 

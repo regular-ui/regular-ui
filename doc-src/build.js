@@ -84,6 +84,7 @@ function build(path, sitemap, template) {
                 if(item.lowerName === level[1])
                     data.current = item;
                 item.path = item.path || (data.relativePath + level[0] + '/' + item.lowerName + '.html').toLowerCase();
+                item.blank = /^http/.test(item.path);
             });
             break;
         }

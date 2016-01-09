@@ -5017,9 +5017,6 @@ html.z-modal,html.z-modal body{
 .m-panel + .m-panel{
 	margin-top:10px;
 }
-.u-dropdown + .u-dropdown{
-	margin-left:20px;
-}
 .u-timepicker + .u-timepicker{
 	margin-left:20px;
 }
@@ -5041,6 +5038,11 @@ html.z-modal,html.z-modal body{
 }
 .m-sidebar >li .u-icon-info-circle{
 	color:#f0ad4e;
+}
+.m-sidebar .u-badge{
+	padding:2px 4px;
+	float:right;
+	margin:3px 0;
 }
 .treeview_itemname .u-icon{
 	font-size:14px;
@@ -5336,26 +5338,27 @@ html,body{
 	margin-top:6px;
 	background:url("../img/badge2.png") no-repeat;
 	height:11px;
+	border-radius:2px;
 }
 .u-badge2-stable{
 	background-position:0 0;
 	background-color:#337ab7;
-	width:28px;
+	width:26px;
 }
 .u-badge2-beta{
 	background-color:#f0ad4e;
 	background-position:0 -9px;
-	width:28px;
+	width:26px;
 }
 .u-badge2-new{
 	background-color:#5bc0de;
 	background-position:0 -18px;
-	width:26px;
+	width:24px;
 }
 .u-badge2-deprecated{
 	background-color:#d9534f;
 	background-position:0 -27px;
-	width:28px;
+	width:26px;
 }
 .u-logo{
 	display:block;

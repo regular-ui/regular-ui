@@ -23,9 +23,13 @@
 <div class="m-example"></div>
 
 ```xml
-<calendar minDate={minDate} maxDate={maxDate} />
-<calendar minDate="2008-08-08" maxDate="2008-08-16" />
-<calendar ref="customCalendar" />
+<div class="g-row">
+    <div class="g-col"><calendar minDate={minDate} maxDate={maxDate} /></div>
+    <div class="g-col"><calendar minDate="2008-08-08" maxDate="2008-08-16" /></div>
+</div>
+<div class="g-row">
+    <div class="g-col"><calendar ref="customCalendar" /></div>
+</div>
 ```
 
 ```javascript
@@ -50,8 +54,10 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<calendar date={date} />
-<calendar date={date} />
+<div class="g-row">
+    <div class="g-col"><calendar date={date} /></div>
+    <div class="g-col"><calendar date={date} /></div>
+</div>
 <p>当前选择的日期为：{date | format: 'yyyy-MM-dd'}</p>
 ```
 

@@ -5,10 +5,10 @@
 
 ```xml
 <tabs>
-    <tab title="tab1">content1</tab>
-    <tab title="tab2">content2</tab>
-    <tab title="tab3">content3</tab>
-    <tab title="tab4">content4</tab>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2">Content2</tab>
+    <tab title="Tab3">Content3</tab>
+    <tab title="Tab4">Content4</tab>
 </tabs>
 ```
 
@@ -17,19 +17,24 @@
 <div class="m-example"></div>
 
 ```xml
-<tabs>
-    <tab title="tab1">content1</tab>
-    <tab title="tab2">content2</tab>
-    <tab title="tab3" disabled>content3</tab>
-    <tab title="tab4">content4</tab>
-</tabs>
-
-<tabs disabled>
-    <tab title="tab1">content1</tab>
-    <tab title="tab2">content2</tab>
-    <tab title="tab3">content3</tab>
-    <tab title="tab4">content4</tab>
-</tabs>
+<div class="g-row">
+    <div class="g-col g-col-6">
+        <tabs>
+            <tab title="Tab1">Content1</tab>
+            <tab title="Tab2">Content2</tab>
+            <tab title="Tab3" disabled>Content3</tab>
+            <tab title="Tab4">Content4</tab>
+        </tabs>
+    </div>
+    <div class="g-col g-col-6">
+        <tabs disabled>
+            <tab title="Tab1">Content1</tab>
+            <tab title="Tab2">Content2</tab>
+            <tab title="Tab3">Content3</tab>
+            <tab title="Tab4">Content4</tab>
+        </tabs>
+    </div>
+</div>
 ```
 
 ### 居中
@@ -38,10 +43,10 @@
 
 ```xml
 <tabs class="m-tabs-center">
-    <tab title="tab1">content1</tab>
-    <tab title="tab2">content2</tab>
-    <tab title="tab3">content3</tab>
-    <tab title="tab4">content4</tab>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2">Content2</tab>
+    <tab title="Tab3">Content3</tab>
+    <tab title="Tab4">Content4</tab>
 </tabs>
 ```
 
@@ -51,10 +56,10 @@
 
 ```xml
 <tabs class="m-tabs-left">
-    <tab title="tab1">content1</tab>
-    <tab title="tab2">content2</tab>
-    <tab title="tab3">content3</tab>
-    <tab title="tab4">content4</tab>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2">Content2</tab>
+    <tab title="Tab3">Content3</tab>
+    <tab title="Tab4">Content4</tab>
 </tabs>
 ```
 
@@ -64,9 +69,9 @@
 
 ```xml
 <tabs class="m-tabs-right">
-    <tab title="tab1">content1</tab>
-    <tab title="tab2">content2</tab>
-    <tab title="tab3">content3</tab>
-    <tab title="tab4">content4</tab>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2">Content2</tab>
+    <tab title="Tab3">Content3</tab>
+    <tab title="Tab4">Content4</tab>
 </tabs>
 ```
