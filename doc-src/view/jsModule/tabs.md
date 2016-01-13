@@ -12,7 +12,7 @@
 </tabs>
 ```
 
-### 禁用某一项，禁用组件
+#### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
@@ -37,7 +37,7 @@
 </div>
 ```
 
-### 居中
+#### 居中
 
 <div class="m-example"></div>
 
@@ -50,7 +50,7 @@
 </tabs>
 ```
 
-### 垂直居左
+#### 垂直居左
 
 <div class="m-example"></div>
 
@@ -63,7 +63,7 @@
 </tabs>
 ```
 
-### 垂直居右
+#### 垂直居右
 
 <div class="m-example"></div>
 
