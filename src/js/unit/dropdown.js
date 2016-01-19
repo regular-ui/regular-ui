@@ -104,7 +104,7 @@ var Dropdown = SourceComponent.extend({
 // 处理点击dropdown之外的地方后的收起事件。
 Dropdown.opens = [];
 
-_.dom.on(document.body, 'click', function(e) {
+_.dom.on(document, 'click', function(e) {
     Dropdown.opens.forEach(function(dropdown, index) {
         // 这个地方不能用stopPropagation来处理，因为展开一个dropdown的同时要收起其他dropdown
         var element = dropdown.$refs.element;
