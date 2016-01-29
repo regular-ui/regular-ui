@@ -3,5 +3,6 @@
         type={type} placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}
         r-model={value} on-change="change" {#if validating}on-keyup={this.validate(value, rules)}{/if}>
     {#if unit}<span class="input2_unit">{unit}</span>{/if}
+    {#if _eltIE9 && !value}<span class="input2_placeholder">{placeholder}</span>{/if}
 </label>
 {#if tip}<span class="u-tip u-tip-{state}">{tip}</span>{/if}

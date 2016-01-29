@@ -10,6 +10,8 @@ var template = require('text!./textarea2.html');
 var _ = require('regular-ui-base/src/_');
 var Validation = require('../util/validation.js');
 
+var bowser = require('bowser');
+
 /**
  * @class TextArea2
  * @extend Component
@@ -40,7 +42,8 @@ var TextArea2 = Component.extend({
             maxlength: undefined,
             rules: [],
             validating: false,
-            autofocus: false
+            autofocus: false,
+            _eltIE9: bowser.msie && bowser.version <= 9
         });
         this.supr();
 

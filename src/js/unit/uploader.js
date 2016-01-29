@@ -11,8 +11,6 @@ var Component = require('regular-ui-base/src/component');
 var template = require('text!./uploader.html');
 var _ = require('regular-ui-base/src/_');
 
-var compatibility = require('regular-ui-base/src/compatibility');
-
 var SIZE_UNITS = {
     'kB': 1000,
     'MB': 1000*1000,

@@ -3941,14 +3941,32 @@ input.u-check:disabled,input.u-radio:disabled{
 	color:inherit;
 }
 .u-input2{
+	display:inline-block;
 	position:relative;
 }
 .u-input2 .input2_unit{
 	position:relative;
 	right:40px;
 }
+.u-input2 .input2_placeholder{
+	position:absolute;
+	left:0;
+	top:0;
+	bottom:0;
+}
 .u-input2 + .u-tip{
 	margin-left:5px;
+}
+.u-textarea2{
+	display:inline-block;
+	position:relative;
+}
+.u-textarea2 .textarea2_placeholder{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
 }
 .u-numberinput{
 	display:inline-block;

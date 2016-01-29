@@ -13,7 +13,8 @@ var _ = require('regular-ui-base/src/_');
 var filter = require('regular-ui-base').filter;
 var Calendar = require('../module/calendar.js');
 var TimePicker = require('./timePicker.js');
-var compatibility = require('regular-ui-base/src/compatibility');
+var bowser = require('bowser');
+var polyfill = require('regular-ui-base/src/polyfill');
 
 /**
  * @class DateTimePicker
@@ -52,8 +53,8 @@ var DateTimePicker = Dropdown.extend({
         this.$watch('date', function(newValue, oldValue) {
             // 字符类型自动转为日期类型
             if(typeof newValue === 'string') {
-                if(compatibility.isIE8)
-                    return this.data.date = compatibility.StringDate(newValue);
+                if(bowser.msie && bowser.version <= 8)
+                    return this.data.date = polyfill.StringDate(newValue);
                 return this.data.date = new Date(newValue);
             }
 
@@ -90,8 +91,8 @@ var DateTimePicker = Dropdown.extend({
                 return;
 
             if(typeof newValue === 'string') {
-                if(compatibility.isIE8)
-                    return this.data.date = compatibility.StringDate(newValue);
+                if(bowser.msie && bowser.version <= 8)
+                    return this.data.date = polyfill.StringDate(newValue);
                 return this.data.minDate = new Date(newValue);
             }
 
@@ -104,8 +105,8 @@ var DateTimePicker = Dropdown.extend({
                 return;
 
             if(typeof newValue === 'string') {
-                if(compatibility.isIE8)
-                    return this.data.date = compatibility.StringDate(newValue);
+                if(bowser.msie && bowser.version <= 8)
+                    return this.data.date = polyfill.StringDate(newValue);
                 return this.data.maxDate = new Date(newValue);
             }
 

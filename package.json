@@ -23,6 +23,7 @@
     "test": "./node_modules/karma/bin/karma start"
   },
   "dependencies": {
+    "bowser": "^1.0.0",
     "font-awesome": "^4.4.0",
     "marked": "^0.3.5",
     "mass": "^0.1.0",

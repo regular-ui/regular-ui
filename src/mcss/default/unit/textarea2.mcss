@@ -3,20 +3,15 @@
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
-
+@import "../../core/unit/textarea2.mcss";
 
 // Component:       `u-textarea2`
 // ========================================================================
 
 .u-textarea2 {
-    display: inline-block;
-    position: relative;
-
     .textarea2_placeholder {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        color: $u-formctrl_placeholder_color;
+        padding: $u-formctrl_padding;
+        border-left: 1px solid transparent;
     }
 }

@@ -11,11 +11,11 @@ module.exports = {
             commonjs: "regularjs",
             commonjs2: "regularjs"
         }
-        //'marked': 'marked'
     },
     resolve: {
         alias: {
-            'regular-ui-base': __dirname + '/node_modules/regular-ui-base'
+            'regular-ui-base': __dirname + '/node_modules/regular-ui-base',
+            'bowser': __dirname + '/node_modules/bowser'
         }
     }
 }

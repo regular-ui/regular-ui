@@ -10,6 +10,8 @@ var template = require('text!./input2.html');
 var _ = require('regular-ui-base/src/_');
 var Validation = require('../util/validation.js');
 
+var bowser = require('bowser');
+
 /**
  * @class Input2
  * @extend Component
@@ -44,7 +46,8 @@ var Input2 = Component.extend({
             unit: '',
             rules: [],
             validating: false,
-            autofocus: false
+            autofocus: false,
+            _eltIE9: bowser.msie && bowser.version <= 9
         });
         this.supr();
 
