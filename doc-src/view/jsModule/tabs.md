@@ -75,3 +75,54 @@
     <tab title="Tab4">Content4</tab>
 </tabs>
 ```
+
+#### 标题模板自定义
+
+<div class="m-example"></div>
+
+```xml
+<tabs titleTemplate={@(this.titleTemplate)}>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2" mark={true}>Content2</tab>
+    <tab title="Tab3" mark={true}>Content3</tab>
+    <tab title="Tab4">Content4</tab>
+</tabs>
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    titleTemplate: RGUI._.multiline(function(){/*
+{item.data.title} {#if item.data.mark}<span class="u-text u-text-success"><i class="u-icon u-icon-check-circle"></i></span>{/if}
+    */})
+});
+```
+
+#### 事件
+
+请打开浏览器的控制台查看结果。
+
+<div class="m-example"></div>
+
+```xml
+<tabs on-select={console.log('on-select:', '$event.selected:', $event.selected)}
+      on-change={console.log('on-change:', '$event.selected:', $event.selected)}>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2">Content2</tab>
+    <tab title="Tab3">Content3</tab>
+    <tab title="Tab4">Content4</tab>
+</tabs>
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
+});
+```

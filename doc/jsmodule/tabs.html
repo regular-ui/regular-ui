@@ -278,6 +278,46 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabs</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
+<h4 id="-">标题模板自定义</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabs</span> <span class="cm-attribute">titleTemplate</span>=<span class="cm-attribute">{@(this.titleTemplate)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab2&quot;</span> <span class="cm-attribute">mark</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab3&quot;</span> <span class="cm-attribute">mark</span>=<span class="cm-attribute">{true}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabs</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">titleTemplate</span>: <span class="cm-variable">RGUI</span>.<span class="cm-property">_</span>.<span class="cm-property">multiline</span>(<span class="cm-keyword">function</span>(){<span class="cm-comment">/*</span>
+<span class="cm-comment">{item.data.title} {#if item.data.mark}&lt;span class=&quot;u-text u-text-success&quot;&gt;&lt;i class=&quot;u-icon u-icon-check-circle&quot;&gt;&lt;/i&gt;&lt;/span&gt;{/if}</span>
+<span class="cm-comment">    */</span>})
+});
+</code></pre>
+<h4 id="-">事件</h4>
+<p>请打开浏览器的控制台查看结果。</p>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tabs</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-select:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.selected:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.selected)}</span>
+      <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.selected:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.selected)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab1&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab2&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab3&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">tab</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;Tab4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>Content4<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tab</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">tabs</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">source</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项1&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项2&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;选项3&#39;</span>}
+        ]
+    }
+});
+</code></pre>
 
         <h3>API</h3>
 
@@ -297,6 +337,10 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
             
             <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"><code>null</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>当前选择卡</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.titleTemplate</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>null</code></td><td class="f-tac">outer @=&gt; inner</td><td>标题模板</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否只读</td></tr>
             
@@ -351,6 +395,24 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Events</h4>
     
     
+    <h5>tabs.$on('change')</h5>
+    <p>选项卡改变时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                
+                <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">改变后的选项卡</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+    
     <h5>tabs.$on('select')</h5>
     <p>选择某一项时触发</p>
     <table>
@@ -362,7 +424,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
                 
-                <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
+                <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择卡</td></tr>
                 
             
         </tbody>
@@ -544,6 +606,45 @@ var component = new RGUI.Component({
     */})
 var component = new RGUI.Component({
     template: template
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tabs titleTemplate={@(this.titleTemplate)}>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2" mark={true}>Content2</tab>
+    <tab title="Tab3" mark={true}>Content3</tab>
+    <tab title="Tab4">Content4</tab>
+</tabs>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    titleTemplate: RGUI._.multiline(function(){/*
+{item.data.title} {#if item.data.mark}<span class="u-text u-text-success"><i class="u-icon u-icon-check-circle"></i></span>{/if}
+    */})
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<tabs on-select={console.log('on-select:', '$event.selected:', $event.selected)}
+      on-change={console.log('on-change:', '$event.selected:', $event.selected)}>
+    <tab title="Tab1">Content1</tab>
+    <tab title="Tab2">Content2</tab>
+    <tab title="Tab3">Content3</tab>
+    <tab title="Tab4">Content4</tab>
+</tabs>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '选项1'},
+            {name: '选项2'},
+            {name: '选项3'}
+        ]
+    }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);

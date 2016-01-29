@@ -15,6 +15,8 @@ var _ = require('regular-ui-base/src/_');
  * @class Tabs
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
+ * @param {object=null}             options.data.selected           <=> 当前选择卡
+ * @param {string=null}             options.data.titleTemplate      @=> 标题模板
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -29,9 +31,22 @@ var Tabs = Component.extend({
     config: function() {
         _.extend(this.data, {
             tabs: [],
-            selected: null
+            selected: undefined,
+            titleTemplate: null
         });
         this.supr();
+
+        this.$watch('selected', function(newValue, oldValue) {
+            /**
+             * @event change 选项卡改变时触发
+             * @property {object} source 事件发起对象
+             * @property {object} selected 改变后的选项卡
+             */
+            this.$emit('change', {
+                source: this,
+                selected: newValue
+            });
+        });
     },
     /**
      * @method select(item) 选择某一项
@@ -47,7 +62,7 @@ var Tabs = Component.extend({
         /**
          * @event select 选择某一项时触发
          * @property {object} source 事件发起对象
-         * @property {object} selected 当前选择项
+         * @property {object} selected 当前选择卡
          */
         this.$emit('select', {
             source: this,
