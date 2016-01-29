@@ -11,6 +11,19 @@
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
+<!--[if lt IE9]> 
+<script> 
+(function() {
+    if (! 
+    /*@cc_on!@*/
+    0) return;
+    var e = 'abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video'.split(', ');
+    var i= e.length;
+    while (i--)
+        document.createElement(e[i]);
+})();
+</script>
+<![endif]-->
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
@@ -110,7 +123,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         <h3 id="commonjs">CommonJS</h3>
 <h4 id="1-">1. 安装</h4>
-<p>本例中使用npm+<a href="http://webpack.github.io">webpack</a>打包JS文件。</p>
+<p>Regular UI中使用npm+<a href="http://webpack.github.io">webpack</a>打包JS文件。</p>
 <p>首先确保安装了WebPack CLI：</p>
 <pre class="lang-shell"><code><span class="cm-builtin">npm</span> install <span class="cm-attribute">-g</span> webpack
 </code></pre>
@@ -133,7 +146,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <span class="cm-keyword">new</span> <span class="cm-variable">Calendar</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#app&#39;</span>);
 </code></pre>
 <div class="u-message u-message-warning">
-    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在打包时需要<code>require</code>有<code>text!</code>插件来引入模板。使用webpack打包时，先<code>npm install text-loader</code>即可。
+    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在WebPack打包时需要<code>text-loader</code>插件来引入模板：
+    先安装插件<code>npm install text-loader</code>，再在<code>webpack.config.js</code>中添加
+    <code>module: {
+        loaders: [
+            {test: /\.html$/, loader: &#39;text-loader&#39;}
+        ]
+    }</code>
 </div>
 
 <p>然后打包：</p>
@@ -142,7 +161,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <p><a href="../demo/common-multi/index.html">Demo &gt;&gt;</a></p>
 <h3 id="amd">AMD</h3>
 <h4 id="1-">1. 安装</h4>
-<p>本例中使用<a href="http://requirejs.org">RequireJS</a>加载Regular UI。</p>
+<p>使用<a href="http://requirejs.org">RequireJS</a>加载Regular UI。</p>
 <p>首先在HTML的<code>&lt;head&gt;</code>中添加：</p>
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">data-main</span>=<span class="cm-string">&quot;index.js&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;require.min.js&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>

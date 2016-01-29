@@ -81,5 +81,5 @@
 .u-btn.z-dis {
     background: fade_out($gray-light, 1 - 0.75);
     color: fade_out($inverse, 1 - 0.75);
-    opacity: .7;
+    @include opacity(.7);
 }

@@ -45,7 +45,7 @@ var Calendar = Component.extend({
         this.$watch('date', function(newValue, oldValue) {
             // 字符类型自动转为日期类型
             if(typeof newValue === 'string') {
-                if(bowser.msie && bowser.version <= 8)
+                if(bowser.msie && bowser.version <= 9)
                     return this.data.date = polyfill.StringDate(newValue);
                 return this.data.date = new Date(newValue);
             }
@@ -88,7 +88,7 @@ var Calendar = Component.extend({
                 return;
 
             if(typeof newValue === 'string') {
-                if(bowser.msie && bowser.version <= 8)
+                if(bowser.msie && bowser.version <= 9)
                     return this.data.date = polyfill.StringDate(newValue);
                 return this.data.minDate = new Date(newValue);
             }
@@ -102,7 +102,7 @@ var Calendar = Component.extend({
                 return;
 
             if(typeof newValue === 'string') {
-                if(bowser.msie && bowser.version <= 8)
+                if(bowser.msie && bowser.version <= 9)
                     return this.data.date = polyfill.StringDate(newValue);
                 return this.data.maxDate = new Date(newValue);
             }

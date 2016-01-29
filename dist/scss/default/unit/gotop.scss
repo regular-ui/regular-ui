@@ -17,9 +17,9 @@
 
     background: #eee;
     color: #444;
-    opacity: 0.6;
+    @include opacity(0.6);
 }
 
 .u-gotop:hover {
-    opacity: 0.9;
+    @include opacity(0.9);
 }

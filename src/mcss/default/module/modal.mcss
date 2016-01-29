@@ -18,7 +18,7 @@
         $box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
         // - Set style
         // - Slide-in transition
-        // opacity: 0;
+        // $opacity: 0;
         // -webkit-transform: translateY(-100px);
         // transform: translateY(-100px);
         // -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;

@@ -9,10 +9,18 @@
 // ========================================================================
 
 .u-input2 {
+    display: inline-block;
     position: relative;
 
     .input2_unit {
         position: relative;
         right: 40px;
+    }
+
+    .input2_placeholder {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
     }
 }

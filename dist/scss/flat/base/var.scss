@@ -119,7 +119,7 @@ $u-formctrl-disabled_background: mix($gray, white, 10%);;
 $u-formctrl-disabled_color: mix($gray, white, 40%);
 $u-formctrl-disabled_border: mix($gray, white, 40%);
 
-$u-formctrl_placeholder_color: desaturate(lighten($brand-primary, 45%),15%);
+$u-formctrl_placeholder_color: saturate(darken($brand-primary, 45%),15%);
 
 $u-formctrl_item_padding: 0 10px;
 $u-formctrl_item-hover_background: #eee;

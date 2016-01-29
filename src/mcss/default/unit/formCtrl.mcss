@@ -27,7 +27,7 @@
     $placeholder({
         color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
-        opacity: 1;
+        $opacity: 1;
     });
 
     &:focus {

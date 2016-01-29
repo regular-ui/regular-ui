@@ -8,7 +8,7 @@
 // Varibles:
 // ========================================================================
 
-$m-navbar_height: 60px;
+$m-navbar_height: 68px;
 $m-navbar_background: $brand-secondary;
 
 // Component:       `m-navbar`
@@ -21,9 +21,10 @@ $m-navbar_background: $brand-secondary;
     > li {
 
         > a, > span {
-            min-width: 108px;
+            min-width: 120px;
             // padding: 0 15px;
             @include line-height($m-navbar_height);
+            color: #cee3ee;
             color: rgba(255, 255, 255, 0.75);
             @include transition(color 0.3s);
         }
@@ -38,7 +39,7 @@ $m-navbar_background: $brand-secondary;
     }
 
     > li.z-crt > a {
-        height: 58px;
+        height: $m-navbar_height - 2px;
         border-bottom: 2px solid white;
         color: white;
         // background: $brand-primary;

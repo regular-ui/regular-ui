@@ -94,5 +94,5 @@ $u-btn-extend_color(error, $brand-error);
     background: #fff;
     color: #999;
     $border: #ccc;
-    opacity: .65;
+    $opacity: .65;
 }

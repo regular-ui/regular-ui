@@ -81,5 +81,5 @@ $u-btn-extend_color(inverse, $inverse);
 .u-btn.z-dis {
     background: fade($gray-light, 0.75, true);
     color: fade($inverse, 0.75, true);
-    opacity: .7;
+    $opacity: .7;
 }

@@ -17,19 +17,19 @@
     &::-webkit-input-placeholder {
         color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
-        opacity: 1;
+        @include opacity(1);
     } &::-moz-placeholder {
         color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
-        opacity: 1;
+        @include opacity(1);
     } &:-moz-placeholder {
         color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
-        opacity: 1;
+        @include opacity(1);
     } &:-ms-placeholder {
         color: $u-formctrl_placeholder_color;
         // - Removes placeholder transparency in Firefox.
-        opacity: 1;
+        @include opacity(1);
     }
 
     // - Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports.

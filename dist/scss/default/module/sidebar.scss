@@ -11,7 +11,7 @@
 .m-sidebar {
     > li {
         > a, > span {
-            padding: 2px 12px; // 5px 15px
+            padding: 4px 12px; // 5px 15px
             color: #555;
         }
     }
@@ -25,8 +25,9 @@
     }
     
     > li.sidebar_group {
+        margin-top: 20px;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 12px;
     }
 
     > li.sidebar_divider {

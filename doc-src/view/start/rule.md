@@ -117,8 +117,8 @@ var Modal = Component.extend({
 
 ```javascript
 {
-    source: this,    // 触发事件的发起对象，通常为this
-    target: target,    // 事件处理的目标对象
+    sender: this,    // 触发事件的发送对象，通常为this
+    target: target,    // 事件处理的目标元素
     origin: ...,    // 触发事件的起始源，可选，如与drop事件相关的draggable
     ...    // 其他相关参数
 }

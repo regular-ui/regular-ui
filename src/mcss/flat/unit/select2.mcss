@@ -41,6 +41,6 @@
     .dropdown_hd {
         background: fade($gray-light, 0.75, true);
         color: fade($inverse, 0.75, true);
-        opacity: .7;
+        $opacity: .7;
     }
 }

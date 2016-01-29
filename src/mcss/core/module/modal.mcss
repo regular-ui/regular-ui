@@ -23,7 +23,7 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     // // - Fade-in transition
-    // opacity: 0;
+    // $opacity: 0;
     // -webkit-transition: opacity 0.15s linear;
     // transition: opacity 0.15s linear;
     // ? Deactivate browser history navigation in IE11

@@ -2,7 +2,7 @@
 
 #### 1. 安装
 
-本例中使用npm+[webpack][WebPack]打包JS文件。
+Regular UI中使用npm+[webpack][WebPack]打包JS文件。
 
 首先确保安装了WebPack CLI：
 
@@ -45,7 +45,15 @@ new Calendar().$inject('#app');
 ```
 
 <div class="u-message u-message-warning">
-    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在打包时需要<code>require</code>有<code>text!</code>插件来引入模板。使用webpack打包时，先<code>npm install text-loader</code>即可。
+    <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：单独引入组件，在WebPack打包时需要`text-loader`插件来引入模板：
+    先安装插件`npm install text-loader`，再在`webpack.config.js`中添加
+    ```
+    module: {
+        loaders: [
+            {test: /\.html$/, loader: 'text-loader'}
+        ]
+    }
+    ```
 </div>
 
 然后打包：
@@ -60,7 +68,7 @@ webpack index.js bundle.js
 
 #### 1. 安装
 
-本例中使用[RequireJS][RequireJS]加载Regular UI。
+使用[RequireJS][RequireJS]加载Regular UI。
 
 首先在HTML的`<head>`中添加：
 

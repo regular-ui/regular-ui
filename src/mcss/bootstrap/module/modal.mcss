@@ -25,7 +25,7 @@ $m-modal_dialog_border = rgba(0, 0, 0, .2);
         $box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
         // - Set style
         // - Slide-in transition
-        // opacity: 0;
+        // $opacity: 0;
         // -webkit-transform: translateY(-100px);
         // transform: translateY(-100px);
         // -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;

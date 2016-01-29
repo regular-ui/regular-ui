@@ -5,6 +5,25 @@
 
 @import "../../core/base/effect.scss";
 
+@include fadeIn();
+@include fadeOut();
+@include bounceIn();
+@include bounceOut();
+@include fadeInX();
+@include fadeInY(-10px);
+@include fadeOutY(-10px);
+// @include flipInY();
+// @include flipOutY();
+@include pulse();
+// @include slideInX();
+// @include slideInY();
+// @include slideOutX();
+// @include slideOutY();
+
+.animated {
+    @include animation-duration(0.2s);
+}
+
 // Effects:
 // ========================================================================
 

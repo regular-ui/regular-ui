@@ -1,0 +1,43 @@
+// Name:            UltiListView
+// Description:     终极列表视图
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-ultilistview`
+// ========================================================================
+
+.m-ultilistview.z-dragover.z-dragover-before:before, .m-ultilistview.z-dragover.z-dragover-after:after {
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-top: 2px solid $brand-primary;
+    top: -1px;
+    margin-bottom: -2px;
+}
+
+.m-ultilistview {
+    > li.z-drag {
+        @include opacity(0.6);
+    }
+
+    > li.z-dragover.z-dragover-before:before, > li.z-dragover.z-dragover-after:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        border-top: 2px solid $brand-primary;
+    }
+    
+    > li.z-dragover.z-dragover-before:before {
+        top: -1px;
+    }
+
+    > li.z-dragover.z-dragover-after:after {
+        bottom: -1px;
+    }
+}

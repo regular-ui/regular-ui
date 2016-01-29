@@ -11,6 +11,19 @@
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" id="j-themeCSS">
+<!--[if lt IE9]> 
+<script> 
+(function() {
+    if (! 
+    /*@cc_on!@*/
+    0) return;
+    var e = 'abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video'.split(', ');
+    var i= e.length;
+    while (i--)
+        document.createElement(e[i]);
+})();
+</script>
+<![endif]-->
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
 var relativePath = '../';
@@ -307,8 +320,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <li>如果使用事件参数，事件参数必须为一个object对象，并且遵循以下形式：</li>
 </ul>
 <pre class="lang-javascript"><code>{
-    <span class="cm-variable">source</span>: <span class="cm-keyword">this</span>,    <span class="cm-comment">// 触发事件的发起对象，通常为this</span>
-    <span class="cm-variable">target</span>: <span class="cm-variable">target</span>,    <span class="cm-comment">// 事件处理的目标对象</span>
+    <span class="cm-variable">sender</span>: <span class="cm-keyword">this</span>,    <span class="cm-comment">// 触发事件的发送对象，通常为this</span>
+    <span class="cm-variable">target</span>: <span class="cm-variable">target</span>,    <span class="cm-comment">// 事件处理的目标元素</span>
     <span class="cm-variable">origin</span>: <span class="cm-meta">...</span>,    <span class="cm-comment">// 触发事件的起始源，可选，如与drop事件相关的draggable</span>
     <span class="cm-meta">...</span>    <span class="cm-comment">// 其他相关参数</span>
 }

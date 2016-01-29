@@ -15,3 +15,22 @@
         display: none;
     }
 }
+
+/* For IE9 */
+.u-uploader {
+    position: relative\0;
+    overflow: hidden\0;
+    
+    form {
+        display: block\0;
+    }
+
+    input[type="file"] {
+        position: absolute\0;
+        top: 0;
+        right: -5px;
+        font-size: 100px;
+        @include opacity(0);
+        cursor: pointer;
+    }
+}

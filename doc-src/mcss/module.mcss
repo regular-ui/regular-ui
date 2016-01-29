@@ -38,7 +38,7 @@
 .m-sidebar {
     > li {
         > a, > span {
-            small {font-size: 60%; color: #999;}
+            small {font-size: 12px; color: #999;}
         }
     }
 

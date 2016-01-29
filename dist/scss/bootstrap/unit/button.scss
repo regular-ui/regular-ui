@@ -94,5 +94,5 @@ $u-btn_border: $border-base;
     background: #fff;
     color: #999;
     @include border(#ccc);
-    opacity: .65;
+    @include opacity(.65);
 }

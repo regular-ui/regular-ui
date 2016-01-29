@@ -15,7 +15,7 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.html$/, loader: 'text-loader'}
-        ],
+        ]
     },
     resolve: {
         alias: {

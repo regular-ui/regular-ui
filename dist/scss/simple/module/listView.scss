@@ -1,5 +1,5 @@
-// Name:            ListBox
-// Description:     列表框
+// Name:            ListView
+// Description:     列表视图
 // Author:          sensen(rainforest92@126.com)
 // ========================================================================
 
@@ -31,6 +31,14 @@
         background: none;
         color: $u-formctrl-disabled_color;
     }
+
+    > li.z-divider {
+        margin: 6px 0;
+        padding: 0;
+        height: 1px;
+        background: #e5e5e5;
+        overflow: hidden;
+    }
 }
 
 .m-listview.z-dis {
@@ -39,39 +47,5 @@
     > li {
         background: $u-formctrl-disabled_background;
         color: $u-formctrl-disabled_color;
-    }
-}
-
-.m-listview.z-dragover.z-dragover-before:before, .m-listview.z-dragover.z-dragover-after:after {
-    content: '';
-    display: block;
-    position: relative;
-    z-index: 1;
-    border-top: 2px solid $brand-primary;
-    top: -1px;
-    margin-bottom: -2px;
-}
-
-.m-listview {
-    > li.z-drag {
-        opacity: 0.6;
-    }
-
-    > li.z-dragover.z-dragover-before:before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        z-index: 2;
-        border-top: 2px solid $brand-primary;
-    }
-    
-    > li.z-dragover.z-dragover-before:before {
-        top: -1px;
-    }
-
-    > li.z-dragover.z-dragover-after:after {
-        bottom: -1px;
     }
 }

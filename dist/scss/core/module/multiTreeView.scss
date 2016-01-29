@@ -1,0 +1,27 @@
+// Name:            MultiTreeView
+// Description:     多选树型视图
+// Author:          sensen(rainforest92@126.com)
+// ========================================================================
+
+
+
+// Component:       `m-multitreeview`
+// ========================================================================
+
+.m-multitreeview {
+    .treeview_list {
+        margin-left: 3.4em;
+    }
+
+    .treeview_item {
+        > .u-icon {
+            left: -3em;
+        }
+
+        > .u-check2 {
+            position: absolute;
+            left: -1.8em;
+            padding: 3px 0;
+        }
+    }
+}

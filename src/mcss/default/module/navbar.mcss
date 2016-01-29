@@ -24,6 +24,7 @@ $m-navbar_background = $brand-secondary;
             min-width: 120px;
             // padding: 0 15px;
             $line-height: $m-navbar_height;
+            color: #cee3ee;
             color: rgba(255, 255, 255, 0.75);
             $transition: color 0.3s;
         }

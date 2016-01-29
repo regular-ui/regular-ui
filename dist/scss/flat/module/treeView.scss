@@ -45,6 +45,13 @@
         color: fade_out($inverse, 1 - 0.6);
     }
 
+    .treeview_itemname.z-divider {
+        padding: 0;
+        height: 2px;
+        background: fade_out($inverse, 1 - 0.6);
+        overflow: hidden;
+    }
+
     li {
         margin-top: 3px;
     }

@@ -44,7 +44,7 @@
     background: #fff;
     @include border(#ccc);
 
-    opacity: .65;
+    @include opacity(.65);
     @include box-shadow(none);
 }
 
