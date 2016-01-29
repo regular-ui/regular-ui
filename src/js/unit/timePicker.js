@@ -6,7 +6,7 @@
  */
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./timePicker.html');
+var template = require('./timePicker.html');
 var _ = require('regular-ui-base/src/_');
 var NumberInput = require('./numberInput.js');
 
@@ -55,11 +55,11 @@ var TimePicker = Component.extend({
 
             /**
              * @event change 时间改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} time 改变后的时间
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 time: newValue
             });
         });

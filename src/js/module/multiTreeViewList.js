@@ -8,7 +8,7 @@
 'use strict';
 
 var TreeViewList = require('./treeViewList.js');
-var template = require('text!./multiTreeViewList.html');
+var template = require('./multiTreeViewList.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -51,12 +51,12 @@ var MultiTreeViewList = TreeViewList.extend({
 
         /**
          * @event check 改变选中状态时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} item 处理项
          * @property {boolean} checked 选中状态
          */
         this.$ancestor.$emit('check', {
-            source: this,
+            sender: this,
             item: item,
             checked: item.checked
         });

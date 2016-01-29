@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./calendar.html');
+var template = require('./calendar.html');
 var _ = require('regular-ui-base/src/_');
 
 var bowser = require('bowser');
@@ -74,11 +74,11 @@ var Calendar = Component.extend({
 
             /**
              * @event change 日期改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} date 改变后的日期
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 date: newValue
             });
         });
@@ -205,11 +205,11 @@ var Calendar = Component.extend({
 
         /**
          * @event select 选择某一个日期时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} date 当前选择的日期
          */
         this.$emit('select', {
-            source: this,
+            sender: this,
             date: date
         });
     },

@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./gotop.html');
+var template = require('./gotop.html');
 var _ = require('regular-ui-base/src/_');
 
 /**

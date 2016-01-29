@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./progress.html');
+var template = require('./progress.html');
 var _ = require('regular-ui-base/src/_');
 
 /**

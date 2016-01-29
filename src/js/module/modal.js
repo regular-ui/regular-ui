@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./modal.html');
+var template = require('./modal.html');
 var _ = require('regular-ui-base/src/_');
 
 var Draggable = require('regular-ui-dragdrop/src/draggable');
@@ -100,7 +100,7 @@ var Modal = Component.extend({
             this.ok();
     },
     _onDragStart: function($event) {
-        var dialog = $event.target;
+        var dialog = $event.proxy;
         dialog.style.left = dialog.offsetLeft + 'px';
         dialog.style.top = dialog.offsetTop + 'px';
         dialog.style.zIndex = '1000';

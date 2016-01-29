@@ -8,7 +8,7 @@
 'use strict';
 
 var Dropdown = require('./dropdown.js');
-var template = require('text!./menu.html');
+var template = require('./menu.html');
 var _ = require('regular-ui-base/src/_');
 
 var MenuList = require('./menuList.js')

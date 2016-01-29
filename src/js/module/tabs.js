@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./tabs.html');
+var template = require('./tabs.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -39,11 +39,11 @@ var Tabs = Component.extend({
         this.$watch('selected', function(newValue, oldValue) {
             /**
              * @event change 选项卡改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} selected 改变后的选项卡
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 selected: newValue
             });
         });
@@ -61,11 +61,11 @@ var Tabs = Component.extend({
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} selected 当前选择卡
          */
         this.$emit('select', {
-            source: this,
+            sender: this,
             selected: item
         });
     }

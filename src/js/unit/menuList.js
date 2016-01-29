@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('regular-ui-base/src/sourceComponent');
-var template = require('text!./menuList.html');
+var template = require('./menuList.html');
 var _ = require('regular-ui-base/src/_');
 
 /**

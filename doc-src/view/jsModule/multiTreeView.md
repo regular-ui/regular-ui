@@ -33,12 +33,12 @@ var component = new RGUI.Component({
 });
 ```
 
-#### Test
+<!--#### Test
 
-<div class="m-example"></div>
+<!--div class="m-example"></div>
 
 ```xml
-<multiTreeView source={source} />
+<!--multiTreeView source={source} />
 ```
 
 ```javascript
@@ -63,4 +63,4 @@ var component = new RGUI.Component({
         ]
     }
 });
-```
+``` -->

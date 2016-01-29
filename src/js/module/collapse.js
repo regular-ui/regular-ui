@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./collapse.html');
+var template = require('./collapse.html');
 var _ = require('regular-ui-base/src/_');
 
 var Panel = require('./panel.js');

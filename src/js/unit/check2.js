@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./check2.html');
+var template = require('./check2.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -43,11 +43,11 @@ var Check2 = Component.extend({
 
             /**
              * @event change 选中状态改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} date 改变后的选中状态
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 checked: newValue
             });
         });
@@ -68,11 +68,11 @@ var Check2 = Component.extend({
 
         /**
          * @event check 改变选中状态时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {boolean} checked 选中状态
          */
         this.$emit('check', {
-            source: this,
+            sender: this,
             checked: checked
         });
     }

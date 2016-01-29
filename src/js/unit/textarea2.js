@@ -6,7 +6,7 @@
  */
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./textarea2.html');
+var template = require('./textarea2.html');
 var _ = require('regular-ui-base/src/_');
 var Validation = require('../util/validation.js');
 

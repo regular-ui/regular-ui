@@ -8,7 +8,7 @@
 'use strict';
 
 var TreeView = require('./treeView.js');
-var template = require('text!./multiTreeView.html');
+var template = require('./multiTreeView.html');
 var _ = require('regular-ui-base/src/_');
 
 var MultiTreeViewList = require('./multiTreeViewList.js');

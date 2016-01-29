@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('regular-ui-base/src/sourceComponent');
-var template = require('text!./treeView.html');
+var template = require('./treeView.html');
 var _ = require('regular-ui-base/src/_');
 
 var TreeViewList = require('./treeViewList.js');
@@ -64,11 +64,11 @@ var TreeView = SourceComponent.extend({
         this.data.selected = item;
         /**
          * @event select 选择某一项时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
-            source: this,
+            sender: this,
             selected: item
         });
     },
@@ -89,12 +89,12 @@ var TreeView = SourceComponent.extend({
 
         /**
          * @event toggle 展开或收起某一项时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} item 处理项
          * @property {boolean} open 展开/收起状态
          */
         this.$emit('toggle', {
-            source: this,
+            sender: this,
             item: item,
             open: open
         });

@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./htmlEditor.html');
+var template = require('./htmlEditor.html');
 var _ = require('regular-ui-base/src/_');
 var Notify = require('./notify.js');
 

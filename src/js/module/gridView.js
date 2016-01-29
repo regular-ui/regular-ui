@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('regular-ui-base/src/sourceComponent');
-var template = require('text!./gridView.html');
+var template = require('./gridView.html');
 var _ = require('regular-ui-base/src/_');
 
 /**

@@ -8,7 +8,7 @@
 'use strict';
 
 var ListView = require('./listView.js');
-var template = require('text!./ultiListView.html');
+var template = require('./ultiListView.html');
 var _ = require('regular-ui-base/src/_');
 
 var Draggable = require('regular-ui-dragdrop/src/draggable');

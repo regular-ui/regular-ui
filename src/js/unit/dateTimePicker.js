@@ -7,7 +7,7 @@
 
 var Dropdown = require('./dropdown.js');
 var DatePicker = require('./datePicker.js');
-var template = require('text!./dateTimePicker.html');
+var template = require('./dateTimePicker.html');
 var _ = require('regular-ui-base/src/_');
 
 var filter = require('regular-ui-base').filter;
@@ -77,11 +77,11 @@ var DateTimePicker = Dropdown.extend({
 
             /**
              * @event change 日期时间改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} date 改变后的日期时间
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 date: newValue
             });
         });

@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./notify.html');
+var template = require('./notify.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -83,11 +83,11 @@ var Notify = Component.extend({
 
         /**
          * @event show 弹出一个消息时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} message 弹出的消息对象
          */
         this.$emit('show', {
-            source: this,
+            sender: this,
             message: message
         });
     },
@@ -106,11 +106,11 @@ var Notify = Component.extend({
 
         /**
          * @event close 关闭某条消息时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} message 关闭了的消息对象
          */
         this.$emit('close', {
-            source: this,
+            sender: this,
             message: message
         });
     },

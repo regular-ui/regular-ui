@@ -125,13 +125,6 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li><a href="../jsmodule/ultilistview.html" >终极列表视图<small> UltiListView</small>
-        
-            <span class="u-badge2 u-badge2-new" title="该组件最近刚添加到库中"></span>
-        
-        </a></li>
-        
-        
         
         
         <li><a href="../jsmodule/treeview.html" >树型视图<small> TreeView</small>
@@ -244,34 +237,37 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     }
 });
 </code></pre>
-<h4 id="test">Test</h4>
-<div class="m-example"></div>
+<!--#### Test
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">multiTreeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-</code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">data</span>: {
-        <span class="cm-property">source</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1&#39;</span>, <span class="cm-property">checked</span>: <span class="cm-atom">true</span>, <span class="cm-property">children</span>: [
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.1&#39;</span>, <span class="cm-property">checked</span>: <span class="cm-atom">true</span>},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2&#39;</span>, <span class="cm-property">disabled</span>: <span class="cm-atom">true</span>, <span class="cm-property">children</span>: [
-                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.1&#39;</span>},
-                    {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.2.2&#39;</span>}
+<!--div class="m-example"></div>
+
+```xml
+<!--multiTreeView source={source} />
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        source: [
+            {name: '节点1', checked: true, children: [
+                {name: '节点1.1', checked: true},
+                {name: '节点1.2', disabled: true, children: [
+                    {name: '节点1.2.1'},
+                    {name: '节点1.2.2'}
                 ]},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.3&#39;</span>},
-                {<span class="cm-property">name</span>: <span class="cm-string">&#39;节点1.4&#39;</span>},
+                {name: '节点1.3'},
+                {name: '节点1.4'},
             ]},
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点2&#39;</span>},
-            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3&#39;</span>, <span class="cm-variable">children</span>: [
-                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.1&#39;</span>},
-                {<span class="cm-variable">name</span>: <span class="cm-string">&#39;节点3.2&#39;</span>}
+            {name: '节点2'},
+            {name: '节点3', children: [
+                {name: '节点3.1'},
+                {name: '节点3.2'}
             ]}
         ]
     }
 });
-</code></pre>
-
+``` -->
         <h3>API</h3>
 
 <h4>Class</h4>
@@ -431,7 +427,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <tbody>
                 
                     
-                    <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                    <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
                     
                     <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
                     
@@ -451,7 +447,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <tbody>
                 
                     
-                    <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                    <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
                     
                     <tr><td class="f-wsn"><code>item</code></td><td class="f-wsn">object</td><td class="f-wsn">处理项</td></tr>
                     
@@ -567,33 +563,6 @@ var component = new RGUI.Component({
             {name: '节点1', children: [
                 {name: '节点1.1'},
                 {name: '节点1.2', children: [
-                    {name: '节点1.2.1'},
-                    {name: '节点1.2.2'}
-                ]},
-                {name: '节点1.3'},
-                {name: '节点1.4'},
-            ]},
-            {name: '节点2'},
-            {name: '节点3', children: [
-                {name: '节点3.1'},
-                {name: '节点3.2'}
-            ]}
-        ]
-    }
-});
-    component.$inject($$(".m-example")[index]);
-})(index++);
-(function(index) {
-    var template = RGUI._.multiline(function(){/*
-<multiTreeView source={source} />
-    */})
-var component = new RGUI.Component({
-    template: template,
-    data: {
-        source: [
-            {name: '节点1', checked: true, children: [
-                {name: '节点1.1', checked: true},
-                {name: '节点1.2', disabled: true, children: [
                     {name: '节点1.2.1'},
                     {name: '节点1.2.2'}
                 ]},

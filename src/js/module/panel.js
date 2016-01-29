@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./panel.html');
+var template = require('./panel.html');
 var _ = require('regular-ui-base/src/_');
 
 /**

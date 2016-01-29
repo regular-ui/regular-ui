@@ -8,7 +8,7 @@
 'use strict';
 
 var RadioGroup = require('./radioGroup.js');
-var template = require('text!./radio2Group.html');
+var template = require('./radio2Group.html');
 var _ = require('regular-ui-base/src/_');
 
 /**

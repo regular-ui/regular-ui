@@ -6,7 +6,7 @@
  */
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./pager.html');
+var template = require('./pager.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -81,11 +81,11 @@ var Pager = Component.extend({
         this.data.current = page;
         /**
          * @event select 选择某一页时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} current 当前选择页
          */
         this.$emit('select', {
-            source: this,
+            sender: this,
             current: this.data.current
         });
     }

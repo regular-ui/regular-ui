@@ -320,9 +320,9 @@ var component = new RGUI.Component({
         if($event.level === 0) {
             var selected = $event.selected;
             if(selected && (selected.name === '北京' || selected.name === '上海'))
-                $event.source.data.placeholders[1] = '';
+                $event.sender.data.placeholders[1] = '';
             else
-                $event.source.data.placeholders[1] = undefined;
+                $event.sender.data.placeholders[1] = undefined;
         }
     }
 });

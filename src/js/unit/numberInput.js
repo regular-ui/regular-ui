@@ -6,7 +6,7 @@
  */
 
 var Input2 = require('./input2.js');
-var template = require('text!./numberInput.html');
+var template = require('./numberInput.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -52,11 +52,11 @@ var NumberInput = Input2.extend({
 
             /**
              * @event change 数值改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {number} value 改变后的数值
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 value: newValue
             });
         });

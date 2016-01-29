@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('regular-ui-base/src/sourceComponent');
-var template = require('text!./checkGroup.html');
+var template = require('./checkGroup.html');
 var _ = require('regular-ui-base/src/_');
 
 /**

@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('regular-ui-base/src/sourceComponent');
-var template = require('text!./tableView.html');
+var template = require('./tableView.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -77,11 +77,11 @@ var TableView = SourceComponent.extend({
         }
         /**
          * @event sort 按照某个字段排序时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} field 排序字段
          */
         this.$emit('sort', {
-            source: this,
+            sender: this,
             field: field
         });
     }

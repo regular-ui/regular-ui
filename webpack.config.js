@@ -12,6 +12,11 @@ module.exports = {
             commonjs2: "regularjs"
         }
     },
+    module: {
+        loaders: [
+            {test: /\.html$/, loader: 'text-loader'}
+        ],
+    },
     resolve: {
         alias: {
             'regular-ui-base': __dirname + '/node_modules/regular-ui-base',

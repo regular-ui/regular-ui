@@ -8,7 +8,7 @@
 'use strict';
 
 var Dropdown = require('./dropdown.js');
-var template = require('text!./select2.html');
+var template = require('./select2.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -51,13 +51,13 @@ var Select2 = Dropdown.extend({
 
             /**
              * @event change 选择项改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} selected 改变后的选择项
              * @property {string} key 数据项的键
              * @property {string|number} value 改变后的选择值
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 selected: newValue,
                 key: this.data.key,
                 value: this.data.value
@@ -115,11 +115,11 @@ var Select2 = Dropdown.extend({
         
         /**
          * @event select 选择某一项时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
-            source: this,
+            sender: this,
             selected: item
         });
 

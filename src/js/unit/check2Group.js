@@ -8,7 +8,7 @@
 'use strict';
 
 var CheckGroup = require('./checkGroup.js');
-var template = require('text!./check2Group.html');
+var template = require('./check2Group.html');
 var _ = require('regular-ui-base/src/_');
 var Check2 = require('./check2.js');
 

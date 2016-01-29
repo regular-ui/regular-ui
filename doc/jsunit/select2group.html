@@ -518,9 +518,9 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <span class="cm-keyword">if</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">level</span> <span class="cm-operator">===</span> <span class="cm-number">0</span>) {
             <span class="cm-keyword">var</span> <span class="cm-def">selected</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">selected</span>;
             <span class="cm-keyword">if</span>(<span class="cm-variable-2">selected</span> <span class="cm-operator">&amp;&amp;</span> (<span class="cm-variable-2">selected</span>.<span class="cm-property">name</span> <span class="cm-operator">===</span> <span class="cm-string">&#39;北京&#39;</span> <span class="cm-operator">||</span> <span class="cm-variable-2">selected</span>.<span class="cm-property">name</span> <span class="cm-operator">===</span> <span class="cm-string">&#39;上海&#39;</span>))
-                <span class="cm-variable-2">$event</span>.<span class="cm-property">source</span>.<span class="cm-property">data</span>.<span class="cm-property">placeholders</span>[<span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-string">&#39;&#39;</span>;
+                <span class="cm-variable-2">$event</span>.<span class="cm-property">sender</span>.<span class="cm-property">data</span>.<span class="cm-property">placeholders</span>[<span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-string">&#39;&#39;</span>;
             <span class="cm-keyword">else</span>
-                <span class="cm-variable-2">$event</span>.<span class="cm-property">source</span>.<span class="cm-property">data</span>.<span class="cm-property">placeholders</span>[<span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-atom">undefined</span>;
+                <span class="cm-variable-2">$event</span>.<span class="cm-property">sender</span>.<span class="cm-property">data</span>.<span class="cm-property">placeholders</span>[<span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-atom">undefined</span>;
         }
     }
 });
@@ -602,7 +602,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <tbody>
             
                 
-                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
                 
                 <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">最后的选择项</td></tr>
                 
@@ -626,7 +626,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <tbody>
             
                 
-                <tr><td class="f-wsn"><code>source</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发起对象</td></tr>
+                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
                 
                 <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">当前选择项</td></tr>
                 
@@ -1013,9 +1013,9 @@ var component = new RGUI.Component({
         if($event.level === 0) {
             var selected = $event.selected;
             if(selected && (selected.name === '北京' || selected.name === '上海'))
-                $event.source.data.placeholders[1] = '';
+                $event.sender.data.placeholders[1] = '';
             else
-                $event.source.data.placeholders[1] = undefined;
+                $event.sender.data.placeholders[1] = undefined;
         }
     }
 });

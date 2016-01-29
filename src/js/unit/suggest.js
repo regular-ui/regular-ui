@@ -8,7 +8,7 @@
 'use strict';
 
 var Dropdown = require('./dropdown.js');
-var template = require('text!./suggest.html');
+var template = require('./suggest.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -71,11 +71,11 @@ var Suggest = Dropdown.extend({
 
         /**
          * @event select 选择某一项时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} selected 当前选择项
          */
         this.$emit('select', {
-            source: this,
+            sender: this,
             selected: item
         });
         this.toggle(false);
@@ -106,11 +106,11 @@ var Suggest = Dropdown.extend({
 
         /**
          * @event toggle  展开/收起时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} open 展开/收起状态
          */
         this.$emit('toggle', {
-            source: this,
+            sender: this,
             open: open
         });
     },

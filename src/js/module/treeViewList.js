@@ -8,7 +8,7 @@
 'use strict';
 
 var SourceComponent = require('regular-ui-base/src/sourceComponent');
-var template = require('text!./treeViewList.html');
+var template = require('./treeViewList.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -70,7 +70,7 @@ var TreeViewList = SourceComponent.extend({
             this.$update('source', result);
 
             this.$emit('updateSource', {
-                source: this,
+                sender: this,
                 result: result
             });
         }.bind(this));

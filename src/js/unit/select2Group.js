@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./select2Group.html');
+var template = require('./select2Group.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
@@ -53,14 +53,14 @@ var Select2Group = Component.extend({
         this.$watch('selected', function(newValue, oldValue) {
             /**
              * @event change 最后的选择项改变时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} selected 最后的选择项
              * @property {object} selecteds 所有的选择项
              * @property {string} key 数据项的键
              * @property {string[]|number[]} values 所有的选择值
              */
             this.$emit('change', {
-                source: this,
+                sender: this,
                 selected: newValue,
                 selecteds: this.data.selecteds,
                 key: this.data.key,
@@ -87,12 +87,12 @@ var Select2Group = Component.extend({
 
         /**
          * @event select 选择某一项时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} selected 当前选择项
          * @property {object} level 当前选择的层级
          */
         this.$emit('select', {
-            source: this,
+            sender: this,
             selected: item,
             selecteds: this.data.selecteds,
             level: level

@@ -8,7 +8,7 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('text!./uploader.html');
+var template = require('./uploader.html');
 var _ = require('regular-ui-base/src/_');
 
 var SIZE_UNITS = {
@@ -80,13 +80,13 @@ var Uploader = Component.extend({
 
         /**
          * @event error 上传错误时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} name ExtensionError
          * @property {object} message 错误信息
          * @property {object} extensions 可上传的扩展名
          */
         this.$emit('error', {
-            source: this,
+            sender: this,
             name: 'ExtensionError',
             message: '只能上传' + extensions.join(', ')　+ '类型的文件！',
             extensions: extensions
@@ -114,14 +114,14 @@ var Uploader = Component.extend({
 
         /**
          * @event error 上传错误时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} name SizeError
          * @property {object} message 错误信息
          * @property {object} maxSize 可上传的最大文件大小
          * @property {object} size 当前文件大小
          */
         this.$emit('error', {
-            source: this,
+            sender: this,
             name: 'SizeError',
             message: '文件大小超出限制！',
             maxSize: this.data.maxSize,
@@ -147,11 +147,11 @@ var Uploader = Component.extend({
         this.data._sending = true;
         /**
          * @event sending 发送前触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} data 待发送的数据
          */
         this.$emit('sending', {
-            source: this,
+            sender: this,
             data: this.data.data
         });
 
@@ -177,12 +177,12 @@ var Uploader = Component.extend({
         if(!xml.responseText) {
             /**
              * @event error 上传错误时触发
-             * @property {object} source 事件发起对象
+             * @property {object} sender 事件发送对象
              * @property {object} name ResponseError
              * @property {object} message 错误信息
              */
             return this.$emit('error', {
-                source: this,
+                sender: this,
                 name: 'ResponseError',
                 message: 'No responseText!'
             });
@@ -190,21 +190,21 @@ var Uploader = Component.extend({
 
         /**
          * @event complete 上传完成时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} xml 返回的xml
          */
         this.$emit('complete', {
-            source: this,
+            sender: this,
             xml: xml
         });
 
         /**
          * @event success 上传成功时触发
-         * @property {object} source 事件发起对象
+         * @property {object} sender 事件发送对象
          * @property {object} data 返回的数据
          */
         this.$emit('success', {
-            source: this,
+            sender: this,
             data: this._parseData(xml, this.data.dataType)
         });
     },
