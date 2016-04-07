@@ -20,6 +20,7 @@
 
         .u-icon {
             float: right;
+            width: auto;
         }
     }
 

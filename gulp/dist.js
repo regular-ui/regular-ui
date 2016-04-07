@@ -2,7 +2,6 @@ var gulp = require('gulp');
 
 var webpack = require('gulp-webpack');
 var webpackConfig = require('../webpack.config.js');
-var requireConvert = require('gulp-require-convert');
 var rm = require('gulp-rimraf');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');

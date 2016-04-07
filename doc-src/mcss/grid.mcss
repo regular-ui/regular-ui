@@ -69,7 +69,7 @@ $g-mn_padding = 60px;
 .g-sd {
     float: left;
     width: $g-sd_width - 1px;
-    min-height: 400px;
+    min-height: 600px;
     margin-bottom: 60px;
 }
 

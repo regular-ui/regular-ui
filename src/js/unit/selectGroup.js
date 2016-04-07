@@ -1,6 +1,6 @@
 /**
  * ------------------------------------------------------------
- * Select2Group 多级选择2
+ * SelectGroup 多级选择
  * @author   sensen(rainforest92@126.com)
  * ------------------------------------------------------------
  */
@@ -8,22 +8,19 @@
 'use strict';
 
 var Component = require('regular-ui-base/src/component');
-var template = require('./select2Group.html');
+var template = require('./selectGroup.html');
 var _ = require('regular-ui-base/src/_');
 
 /**
- * @class Select2Group
+ * @class SelectGroup
  * @extend Component
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
  * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
- * @param {boolean=false}           options.data.source[].divider    => 设置此项为分隔线
  * @param {number=1}                options.data.depth               => 层级数
  * @param {object}                  options.data.selected           <=  最后的选择项
- * @param {object[]=[]}             options.data.selecteds          <=> 所有的选择项
- * @param {string[]|number[]=[]}    options.data.values             <=> 所有的选择值
- * @param {string='id'}             options.data.key                 => 数据项的键
+ * @param {object[]=[]}             options.data.values    <=> 所有的选择项
  * @param {string[]=[]}             options.data.placeholders        => 默认项的文字
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -31,8 +28,8 @@ var _ = require('regular-ui-base/src/_');
  * @param {string=''}               options.data.class               => 补充class
  * @param {object}                  options.service                 @=> 数据服务
  */
-var Select2Group = Component.extend({
-    name: 'select2Group',
+var SelectGroup = Component.extend({
+    name: 'selectGroup',
     template: template,
     /**
      * @protected
@@ -43,8 +40,6 @@ var Select2Group = Component.extend({
             depth: 1,
             sources: [],
             selected: undefined,
-            selecteds: [],
-            key: 'id',
             values: [],
             placeholders: []
         });
@@ -55,15 +50,11 @@ var Select2Group = Component.extend({
              * @event change 最后的选择项改变时触发
              * @property {object} sender 事件发送对象
              * @property {object} selected 最后的选择项
-             * @property {object} selecteds 所有的选择项
-             * @property {string} key 数据项的键
-             * @property {string[]|number[]} values 所有的选择值
+             * @property {object} values 所有的选择项
              */
             this.$emit('change', {
                 sender: this,
                 selected: newValue,
-                selecteds: this.data.selecteds,
-                key: this.data.key,
                 values: this.data.values
             });
         });
@@ -73,14 +64,17 @@ var Select2Group = Component.extend({
     /**
      * @private
      */
-    _onChange: function(item, level) {
-        // 由内部<select2>控制
+    _onChange: function($event, level) {
+        var sources = this.data.sources;
+        var item = sources[level] && sources[level][$event.value];
+
+        // 由内部<select>控制
         // if(this.data.readonly || this.data.disabled || (item && (item.disabled || item.divider)))
         //     return;
 
-        this.data.sources[level + 1] = item ? item.children : undefined;
+        sources[level + 1] = item ? item.children : undefined;
         for(var i = level + 2; i < this.data.depth; i++)
-            this.data.sources[i] = undefined;
+            sources[i] = undefined;
 
         if(level === this.data.depth - 1)
             this.data.selected = item;
@@ -94,10 +88,10 @@ var Select2Group = Component.extend({
         this.$emit('select', {
             sender: this,
             selected: item,
-            selecteds: this.data.selecteds,
+            values: this.data.values,
             level: level
         });
-    },
+    }
 });
 
-module.exports = Select2Group;
+module.exports = SelectGroup;

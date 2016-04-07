@@ -117,7 +117,7 @@ function build(path, sitemap, template) {
         // 根据./view目录下的markdown文件生成文档
         var markdown = fs.readFileSync(mdPath) + '';
 
-        if(level[0].slice(0, 2) === 'js') {
+        if(level[0].slice(0, 2) === 'js' || level[0] === 'demo') {
             // 根据markdown文件中的示例代码直接生成js脚本
             data.script = premark.buildScript(markdown);
         } else {

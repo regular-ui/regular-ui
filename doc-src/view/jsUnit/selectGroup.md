@@ -1,10 +1,11 @@
 ### 示例
+
 #### 基本形式
 
 <div class="m-example"></div>
 
 ```xml
-<select2Group source={source} depth=3 />
+<selectGroup source={source} depth=3 />
 ```
 
 ```javascript
@@ -49,8 +50,8 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<p><select2Group source={source} depth=3 /></p>
-<p><select2Group source={source} depth=3 disabled /></p>
+<p><selectGroup source={source} depth=3 /></p>
+<p><selectGroup source={source} depth=3 disabled /></p>
 ```
 
 ```javascript
@@ -95,7 +96,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<select2Group source={source} depth=3 placeholders={['学科门类', '一级学科', '二级学科']} />
+<selectGroup source={source} depth=3 placeholders={['学科门类', '一级学科', '二级学科']} />
 ```
 
 ```javascript
@@ -139,36 +140,14 @@ var component = new RGUI.Component({
 
 *待完成……*
 
-<div class="m-example"></div>
-
-```xml
-<select2Group service={@(this.service)} depth=3 />
-```
-
-```javascript
-var component = new RGUI.Component({
-    template: template,
-    service: {
-        getList: function(params, success) {
-            RGUI.ajax.request({
-                url: '../data/tree3.json',
-                method: 'get',
-                type: 'json',
-                data: params,
-                success: success
-            });
-        }
-    }
-});
-```
-
 #### 数据绑定
 
 <div class="m-example"></div>
 
 ```xml
-<select2Group source={source} depth=3 on-select={this._onSelect($event)} />
+<selectGroup source={source} depth=3 on-select={this._onSelect($event)} />
 <p>当前的选择项：{selectedTexts}</p>
+<p>当前的选择值：{selectedValues}</p>
 ```
 
 ```javascript
@@ -207,12 +186,13 @@ var component = new RGUI.Component({
         selecteds: []
     },
     _onSelect: function($event) {
-        setTimeout(function() {
-            this.data.selectedTexts = $event.selecteds.map(function(item) {
-                return item && item.name;
-            }).join(' > ');
-            this.$update();
-        }.bind(this), 0);
+        this.data.selectedTexts = $event.values.map(function(index, level) {
+            var source = $event.sender.data.sources[level];
+            var item = source && source[index];
+            return item && item.name;
+        }).join(' > ');
+
+        this.data.selectedValues = $event.values.join(', ');
     }
 });
 ```
@@ -224,7 +204,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<select2Group source={source} depth=3
+<selectGroup source={source} depth=3
     on-select={console.log('on-select:', '$event:', $event)}
     on-change={console.log('on-change:', '$event:', $event)} />
 ```
@@ -273,7 +253,7 @@ var component = new RGUI.Component({
 <div class="m-example"></div>
 
 ```xml
-<select2Group source={source} depth=3 key="name" on-select={this._onSelect($event)} ref="select2Group" />
+<selectGroup source={source} depth=3 on-select={this._onSelect($event)} ref="selectGroup" />
 ```
 
 ```javascript

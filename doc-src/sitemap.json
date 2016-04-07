@@ -67,7 +67,8 @@
                 {"name": "CheckGroup", "lowerName": "checkGroup", "cnName": "多选组", "group": "表单类", "stable": true},
                 {"name": "RadioGroup", "lowerName": "radioGroup", "cnName": "单选组", "group": "表单类", "stable": true},
                 {"name": "Select2", "lowerName": "select2", "cnName": "选择扩展", "group": "表单类", "stable": true},
-                {"name": "Select2Group", "lowerName": "select2Group", "cnName": "多级选择", "group": "表单类", "stable": true},
+                {"name": "SelectGroup", "lowerName": "selectGroup", "cnName": "多级选择", "group": "表单类", "new": true},
+                {"name": "Select2Group", "lowerName": "select2Group", "cnName": "多级选择2", "group": "表单类", "stable": true},
                 {"name": "TreeSelect", "lowerName": "treeSelect", "cnName": "树型选择", "group": "表单类", "stable": true},
                 {"name": "Suggest", "lowerName": "suggest", "cnName": "自动提示", "group": "表单类", "stable": true},
                 {"name": "EmailSuggest", "lowerName": "emailSuggest", "cnName": "邮件输入", "group": "表单类", "hidden": true},
@@ -124,6 +125,13 @@
                 {"name": "Validation", "lowerName": "validation", "cnName": "表单验证", "group": "其他", "beta": true},
                 {"name": "Draggable", "lowerName": "draggable", "cnName": "拖拽", "group": "其他", "new": true},
                 {"name": "Droppable", "lowerName": "droppable", "cnName": "放置", "group": "其他", "new": true}
+            ]
+        }, {
+            "name": "Demo",
+            "lowerName": "demo",
+            "cnName": "Demo",
+            "children": [
+                {"name": "Validation1", "lowerName": "validation1", "cnName": "表单验证1", "group": "表单验证", "new": true}
             ]
         }
     ]

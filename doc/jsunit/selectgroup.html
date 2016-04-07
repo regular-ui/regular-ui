@@ -157,7 +157,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li><a href="../jsunit/selectgroup.html" >多级选择<small> SelectGroup</small>
+        <li class="z-crt"><a href="../jsunit/selectgroup.html" >多级选择<small> SelectGroup</small>
         
             <span class="u-badge2 u-badge2-new" title="该组件最近刚添加到库中"></span>
         
@@ -165,7 +165,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         
-        <li class="z-crt"><a href="../jsunit/select2group.html" >多级选择2<small> Select2Group</small>
+        <li><a href="../jsunit/select2group.html" >多级选择2<small> Select2Group</small>
         
             <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
         
@@ -255,13 +255,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>多级选择2<small> Select2Group</small></h2>
+        <h2>多级选择<small> SelectGroup</small></h2>
         
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectGroup</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -301,8 +301,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">禁用某一项，禁用组件</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectGroup</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectGroup</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -342,7 +342,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <h4 id="-">设置默认项</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">placeholders</span>=<span class="cm-attribute">{[</span><span class="cm-stringcm-error">&#39;学科门类&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;一级学科&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;二级学科&#39;</span><span class="cm-attribute">]}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectGroup</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">placeholders</span>=<span class="cm-attribute">{[</span><span class="cm-stringcm-error">&#39;学科门类&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;一级学科&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;二级学科&#39;</span><span class="cm-attribute">]}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -381,30 +381,12 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 </code></pre>
 <h4 id="-">远程数据</h4>
 <p><em>待完成……</em></p>
-<div class="m-example"></div>
-
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-</code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">service</span>: {
-        <span class="cm-property">getList</span>: <span class="cm-keyword">function</span>(<span class="cm-def">params</span>, <span class="cm-def">success</span>) {
-            <span class="cm-variable">RGUI</span>.<span class="cm-property">ajax</span>.<span class="cm-property">request</span>({
-                <span class="cm-property">url</span>: <span class="cm-string">&#39;../data/tree3.json&#39;</span>,
-                <span class="cm-property">method</span>: <span class="cm-string">&#39;get&#39;</span>,
-                <span class="cm-property">type</span>: <span class="cm-string">&#39;json&#39;</span>,
-                <span class="cm-property">data</span>: <span class="cm-variable-2">params</span>,
-                <span class="cm-property">success</span>: <span class="cm-variable-2">success</span>
-            });
-        }
-    }
-});
-</code></pre>
 <h4 id="-">数据绑定</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this._onSelect($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectGroup</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this._onSelect($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前的选择项：{selectedTexts}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前的选择值：{selectedValues}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -441,12 +423,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <span class="cm-property">selecteds</span>: []
     },
     <span class="cm-property">_onSelect</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
-        <span class="cm-variable">setTimeout</span>(<span class="cm-keyword">function</span>() {
-            <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">selectedTexts</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">selecteds</span>.<span class="cm-property">map</span>(<span class="cm-keyword">function</span>(<span class="cm-def">item</span>) {
-                <span class="cm-keyword">return</span> <span class="cm-variable-2">item</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable-2">item</span>.<span class="cm-property">name</span>;
-            }).<span class="cm-property">join</span>(<span class="cm-string">&#39; &gt; &#39;</span>);
-            <span class="cm-keyword">this</span>.<span class="cm-property">$update</span>();
-        }.<span class="cm-property">bind</span>(<span class="cm-keyword">this</span>), <span class="cm-number">0</span>);
+        <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">selectedTexts</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">values</span>.<span class="cm-property">map</span>(<span class="cm-keyword">function</span>(<span class="cm-def">index</span>, <span class="cm-def">level</span>) {
+            <span class="cm-keyword">var</span> <span class="cm-def">source</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">sender</span>.<span class="cm-property">data</span>.<span class="cm-property">sources</span>[<span class="cm-variable-2">level</span>];
+            <span class="cm-keyword">var</span> <span class="cm-def">item</span> <span class="cm-operator">=</span> <span class="cm-variable-2">source</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable-2">source</span>[<span class="cm-variable-2">index</span>];
+            <span class="cm-keyword">return</span> <span class="cm-variable-2">item</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable-2">item</span>.<span class="cm-property">name</span>;
+        }).<span class="cm-property">join</span>(<span class="cm-string">&#39; &gt; &#39;</span>);
+
+        <span class="cm-keyword">this</span>.<span class="cm-property">data</span>.<span class="cm-property">selectedValues</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$event</span>.<span class="cm-property">values</span>.<span class="cm-property">join</span>(<span class="cm-string">&#39;, &#39;</span>);
     }
 });
 </code></pre>
@@ -454,7 +437,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <p>请打开浏览器的控制台查看结果。</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectGroup</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span>
     <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-select:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event)}</span>
     <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
@@ -497,7 +480,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <p>该示例可以进行省市区三级的选择，并且处理了直辖市少一级的问题。</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2Group</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">key</span>=<span class="cm-string">&quot;name&quot;</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this._onSelect($event)}</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;select2Group&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">selectGroup</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">depth</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{this._onSelect($event)}</span> <span class="cm-attribute">ref</span>=<span class="cm-string">&quot;selectGroup&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -563,13 +546,13 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         <h3>API</h3>
 
 <h4>Class</h4>
-<h5>Select2Group</h5>
+<h5>SelectGroup</h5>
 <p>继承自<strong>Component</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
 <h4>Options</h4>
-<h5>new Select2Group()</h5>
+<h5>new SelectGroup()</h5>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -585,17 +568,11 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.source[].disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>禁用此项</td></tr>
             
-            <tr><td class="f-wsn"><code>data.source[].divider</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>设置此项为分隔线</td></tr>
-            
             <tr><td class="f-wsn"><code>data.depth</code></td><td class="f-wsn">number</td><td class="f-wsn"><code>1</code></td><td class="f-tac">outer  =&gt; inner</td><td>层级数</td></tr>
             
             <tr><td class="f-wsn"><code>data.selected</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outer &lt;=  inner</td><td>最后的选择项</td></tr>
             
-            <tr><td class="f-wsn"><code>data.selecteds</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>所有的选择项</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.values</code></td><td class="f-wsn">string[]<br>number[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>所有的选择值</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.key</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;id&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>数据项的键</td></tr>
+            <tr><td class="f-wsn"><code>data.values</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>所有的选择项</td></tr>
             
             <tr><td class="f-wsn"><code>data.placeholders</code></td><td class="f-wsn">string[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer  =&gt; inner</td><td>默认项的文字</td></tr>
             
@@ -627,7 +604,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <h4>Events</h4>
     
     
-    <h5>select2Group.$on('change')</h5>
+    <h5>selectGroup.$on('change')</h5>
     <p>最后的选择项改变时触发</p>
     <table>
         <thead>
@@ -640,18 +617,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
                 
                 <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">object</td><td class="f-wsn">最后的选择项</td></tr>
                 
-                <tr><td class="f-wsn"><code>selecteds</code></td><td class="f-wsn">object</td><td class="f-wsn">所有的选择项</td></tr>
-                
-                <tr><td class="f-wsn"><code>key</code></td><td class="f-wsn">string</td><td class="f-wsn">数据项的键</td></tr>
-                
-                <tr><td class="f-wsn"><code>values</code></td><td class="f-wsn">string[]<br>number[]</td><td class="f-wsn">所有的选择值</td></tr>
+                <tr><td class="f-wsn"><code>values</code></td><td class="f-wsn">object</td><td class="f-wsn">所有的选择项</td></tr>
                 
             
         </tbody>
     </table>
     
     
-    <h5>select2Group.$on('select')</h5>
+    <h5>selectGroup.$on('select')</h5>
     <p>选择某一项时触发</p>
     <table>
         <thead>
@@ -769,7 +742,7 @@ var themeSelect = new RGUI.Select2({
 var index = 0;
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2Group source={source} depth=3 />
+<selectGroup source={source} depth=3 />
     */})
 var component = new RGUI.Component({
     template: template,
@@ -809,8 +782,8 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<p><select2Group source={source} depth=3 /></p>
-<p><select2Group source={source} depth=3 disabled /></p>
+<p><selectGroup source={source} depth=3 /></p>
+<p><selectGroup source={source} depth=3 disabled /></p>
     */})
 var component = new RGUI.Component({
     template: template,
@@ -850,7 +823,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2Group source={source} depth=3 placeholders={['学科门类', '一级学科', '二级学科']} />
+<selectGroup source={source} depth=3 placeholders={['学科门类', '一级学科', '二级学科']} />
     */})
 var component = new RGUI.Component({
     template: template,
@@ -890,28 +863,9 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2Group service={@(this.service)} depth=3 />
-    */})
-var component = new RGUI.Component({
-    template: template,
-    service: {
-        getList: function(params, success) {
-            RGUI.ajax.request({
-                url: '../data/tree3.json',
-                method: 'get',
-                type: 'json',
-                data: params,
-                success: success
-            });
-        }
-    }
-});
-    component.$inject($$(".m-example")[index]);
-})(index++);
-(function(index) {
-    var template = RGUI._.multiline(function(){/*
-<select2Group source={source} depth=3 on-select={this._onSelect($event)} />
+<selectGroup source={source} depth=3 on-select={this._onSelect($event)} />
 <p>当前的选择项：{selectedTexts}</p>
+<p>当前的选择值：{selectedValues}</p>
     */})
 var component = new RGUI.Component({
     template: template,
@@ -948,19 +902,20 @@ var component = new RGUI.Component({
         selecteds: []
     },
     _onSelect: function($event) {
-        setTimeout(function() {
-            this.data.selectedTexts = $event.selecteds.map(function(item) {
-                return item && item.name;
-            }).join(' > ');
-            this.$update();
-        }.bind(this), 0);
+        this.data.selectedTexts = $event.values.map(function(index, level) {
+            var source = $event.sender.data.sources[level];
+            var item = source && source[index];
+            return item && item.name;
+        }).join(' > ');
+
+        this.data.selectedValues = $event.values.join(', ');
     }
 });
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2Group source={source} depth=3
+<selectGroup source={source} depth=3
     on-select={console.log('on-select:', '$event:', $event)}
     on-change={console.log('on-change:', '$event:', $event)} />
     */})
@@ -1002,7 +957,7 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<select2Group source={source} depth=3 key="name" on-select={this._onSelect($event)} ref="select2Group" />
+<selectGroup source={source} depth=3 on-select={this._onSelect($event)} ref="selectGroup" />
     */})
 var component = new RGUI.Component({
     template: template,

@@ -8,6 +8,7 @@ app.use(express.static('doc'));
 
 app.post('/upload', function(req, res) {
     var form = new formidable.IncomingForm();
+    form.uploadDir = '/Volumes/Home/yusen/tmp';
 
     form.parse(req, function(err, fields, files) {
         var file = files.file;
