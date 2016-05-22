@@ -24,6 +24,10 @@
         margin-left: 108px;
     }
 
+    .formitem_text {
+        line-height: $u-formctrl_height;
+    }
+
     // - 用于一些对齐的调整
     // .formitem_ct:before {
     //     content: '';

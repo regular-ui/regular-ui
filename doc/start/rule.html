@@ -10,11 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" id="j-themeCSS">
-<!--[if lt IE9]> 
-<script> 
+<link rel="stylesheet" href="../css/doc.default.min.css">
+<!--[if lt IE9]>
+<script>
 (function() {
-    if (! 
+    if (!
     /*@cc_on!@*/
     0) return;
     var e = 'abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video'.split(', ');
@@ -26,27 +26,27 @@
 <![endif]-->
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
-var relativePath = '../';
-var themes = [
-    {name: 'simple'},
-    {name: 'default'},
-    {name: 'flat'},
-    {name: 'bootstrap'}
-];
+// var relativePath = '../';
+// var themes = [
+//     {name: 'simple'},
+//     {name: 'default'},
+//     {name: 'flat'},
+//     {name: 'bootstrap'}
+// ];
 
-var selectedTheme;
-if(localStorage['selectedTheme']) {
-    for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === localStorage['selectedTheme']) {
-            selectedTheme = themes[i];
-            break;
-        }
-} else {
-    selectedTheme = themes[1];
-}
+// var selectedTheme;
+// if(localStorage['selectedTheme']) {
+//     for(var i = 0; i < themes.length; i++)
+//         if(themes[i].name === localStorage['selectedTheme']) {
+//             selectedTheme = themes[i];
+//             break;
+//         }
+// } else {
+//     selectedTheme = themes[1];
+// }
 
-var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+// var themeCSS = document.getElementById('j-themeCSS');
+// themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 </head>
 <body>
@@ -65,18 +65,19 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <li><a href="../cssmodule/navbar.html">CSS模块</a></li>
             
             
-            <li><a href="../jsunit/dropdown.html">JS元件</a></li>
+            <li><a href="../jsunit/toggle.html">JS元件</a></li>
             
             
             <li><a href="../jsmodule/tabs.html">JS模块</a></li>
             
             
-            <li><a href="../demo/validation1.html">Demo</a></li>
+            <li><a href="../demo/filter.html">常见示例</a></li>
             
             <li id="j-themeSelect"></li>
         </ul>
     </div>
-</div><div class="g-bd"><div class="g-bdc"><div class="g-sd">
+</div>
+<div class="g-bd"><div class="g-bdc"><div class="g-sd">
     <ul class="m-sidebar">
         
         
@@ -253,8 +254,8 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <ul>
 <li>变量的命名必须有意义，能够使人直接读懂变量的含义，如<code>$brand-primary</code>, <code>$font-size-base</code>, <code>$u-radio_size</code>等。</li>
 <li>主题的主要色系以<code>$brand-</code>开头，并在<code>var.mcss</code>文件中声明，如<code>$brand-primary</code>, <code>$brand-info</code>等</li>
-<li>组件公有的变量以<strong>CSS属性名</strong>+<strong>特性</strong>，并在<code>var.mcss</code>文件中声明，如<code>$font-size-base</code>, <code>$height-sm</code>, <code>$background-darker</code>, ...</li>
-<li>组件私有的变量以<strong>class</strong>+&#39;_&#39;+<strong>属性名</strong>，仅在组件mcss文件中声明，如<code>$u-radio_size</code>, <code>$m-tabs_hd_li_margin</code>, ...</li>
+<li>组件的公有变量以<strong>CSS属性名</strong>+<strong>特性</strong>，并在<code>var.mcss</code>文件中声明，如<code>$font-size-base</code>, <code>$height-sm</code>, <code>$background-darker</code>, ...</li>
+<li>组件的私有变量以<strong>class</strong>+&#39;_&#39;+<strong>属性名</strong>，仅在组件mcss文件中声明，如<code>$u-radio_size</code>, <code>$m-tabs_hd_li_margin</code>, ...</li>
 <li>常见状态：<code>default</code>, <code>primary</code>, <code>info</code>, <code>success</code>, <code>warning</code>, <code>error</code>, <code>disabled</code>, <code>muted</code>, ...</li>
 <li>大小分级：<code>xxs</code>, <code>xs</code>, <code>sm</code>, <code>base</code>, <code>lg</code>, <code>xl</code>, <code>xxl</code>, ...</li>
 <li>颜色分级：<code>darkest</code>, <code>darker</code>, <code>dark</code>, <code>base</code>, <code>light</code>, <code>lighter</code>, <code>lightest</code>, ...</li>
@@ -301,7 +302,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
     <span class="cm-comment">/* @private */</span>
     <span class="cm-variable">_onDragStart</span>: <span class="cm-keyword">function</span>() {<span class="cm-meta">...</span>},
     <span class="cm-meta">...</span>
-}
+});
 </code></pre>
 <h5 id="-">强调</h5>
 <ul>
@@ -404,18 +405,18 @@ if(!('remove' in Element.prototype))
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};
 
-var themeSelect = new RGUI.Select2({
-    data: {
-        source: themes,
-        selected: selectedTheme,
-        placeholder: null,
-        'class': 'u-select2-theme'
-    }
-}).$inject('#j-themeSelect')
-  .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
-    localStorage['selectedTheme'] = $event.selected.name;
-});
+// var themeSelect = new RGUI.Select2({
+//     data: {
+//         source: themes,
+//         selected: selectedTheme,
+//         placeholder: null,
+//         'class': 'u-select2-theme'
+//     }
+// }).$inject('#j-themeSelect')
+//   .$on('select', function($event) {
+//     themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+//     localStorage['selectedTheme'] = $event.selected.name;
+// });
 
 // 生成tabs
 (function() {
@@ -429,7 +430,7 @@ var themeSelect = new RGUI.Select2({
         var source = [];
 
         var $next = $example.nextElementSibling;
-        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' &&
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
                 source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;

@@ -23,7 +23,7 @@
 <div class="m-example"></div>
 
 ```xml
-<label>邮箱：<input2 rules={rules} maxlength=20 validating /></label>
+<label>邮箱：<input2 rules={rules} maxlength=20 /></label>
 ```
 
 ```javascript
@@ -32,7 +32,7 @@ var component = new RGUI.Component({
     data: {
         rules: [
             {type: 'isFilled', message: '请输入邮箱！'},
-            {type: 'isEmail', message: '请输入正确的邮箱！'}
+            {type: 'isEmail', on: 'keyup+blur', message: '请输入正确的邮箱！'}
         ]
     }
 });

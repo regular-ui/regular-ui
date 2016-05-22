@@ -47,7 +47,9 @@ module.exports = {
          * JS Unit
          */
         /* 导航类 */
+        'Overlay': {type: 'js', category: 'unit', lowerName: 'overlay'},
         'Dropdown': {type: 'css+js', category: 'unit', lowerName: 'dropdown', requires: ['ListView']},
+        'Dropdown2': {type: 'js', category: 'unit', lowerName: 'dropdown2', requires: ['Toggle', 'ListView']},
         'Menu': {type: 'css+js', category: 'unit', lowerName: 'menu', requires: ['Dropdown']},
         /* 表单类 */
         'Input2': {type: 'css+js', category: 'unit', lowerName: 'input2', requires: ['FormControl', 'Tip']},
@@ -62,6 +64,7 @@ module.exports = {
         'Radio2Group': {type: 'js', category: 'unit', lowerName: 'radio2Group', requires: ['RadioGroup']},
         'Select1': {type: 'js', category: 'unit', lowerName: 'select1'},
         'Select2': {type: 'css+js', category: 'unit', lowerName: 'select2', requires: ['Dropdown']},
+        'Select3': {type: 'js', category: 'unit', lowerName: 'select3', requires: ['Toggle']},
         'SelectGroup': {type: 'js', category: 'unit', lowerName: 'selectGroup', requires: ['Select1']},
         'Select2Group': {type: 'js', category: 'unit', lowerName: 'select2Group', requires: ['Select2']},
         'TreeSelect': {type: 'js', category: 'unit', lowerName: 'treeSelect', requires: ['Select2', 'TreeView']},
@@ -89,6 +92,7 @@ module.exports = {
         'Modal': {type: 'css+js', category: 'module', lowerName: 'modal'},
         /* 数据类 */
         'ListView': {type: 'css+js', category: 'module', lowerName: 'listView'},
+        'ListView2': {type: 'js', category: 'module', lowerName: 'listView2'},
         'UltiListView': {type: 'css+js', category: 'module', lowerName: 'ultiListView', requires: ['ListView', 'Draggable', 'Droppable']},
         // @undone 'GridView': {type: 'css+js', category: 'module', lowerName: 'gridView'},
         'TreeView': {type: 'css+js', category: 'module', lowerName: 'treeView'},

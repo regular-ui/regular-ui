@@ -23,7 +23,6 @@ var bowser = require('bowser');
  * @param {number}                  options.data.maxlength           => 文本框的最大长度
  * @param {string=''}               options.data.unit                => 单位
  * @param {object[]=[]}             options.data.rules               => 验证规则
- * @param {boolean=false}           options.data.validating          => 是否实时验证
  * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -45,7 +44,6 @@ var Input2 = Component.extend({
             maxlength: undefined,
             unit: '',
             rules: [],
-            validating: false,
             autofocus: false,
             _eltIE9: bowser.msie && bowser.version <= 9
         });
@@ -66,15 +64,53 @@ var Input2 = Component.extend({
      * @public
      * @return {object} result 结果
      */
-    validate: function() {
+    validate: function(on) {
         var value = this.data.value;
         var rules = this.data.rules;
+
+        var PRIORITY = {
+            'keyup': 2,
+            'blur': 1,
+            'submit': 0,
+            '': 0
+        }
+
+        on = on || '';
+        rules = rules.filter(function(rule) {
+            return (rule.on || '').indexOf(on) >= 0;
+        });
+
         var result = Validation.validate(value, rules);
         
-        this.data.state = result.success ? 'success' : 'error';
-        this.data.tip = result.message;
+        if(result.firstRule
+            && !(result.firstRule.silentOn === true || (typeof result.firstRule.silentOn === 'string' && result.firstRule.silentOn.indexOf(on) >= 0))) {
+                this.data.tip = result.firstRule.message;
+                this.data.state = 'error';
+        } else {
+            this.data.state = '';
+            this.data.tip = '';
+        }
+
+        // else if(PRIORITY[on] <= PRIORITY['blur'])
+        //     this.data.state = 'success';
+
+        this.$emit('validate', {
+            sender: this,
+            on: on,
+            result: result
+        });
 
         return result;
+    },
+    _onKeyUp: function($event) {
+        this.$emit('keyup', $event);
+
+        this.validate('keyup');
+    },
+    _onBlur: function($event) {
+        this.$emit('blur', $event);
+
+        this.validate('blur');
     }
 });
 

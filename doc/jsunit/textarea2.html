@@ -10,11 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" id="j-themeCSS">
-<!--[if lt IE9]> 
-<script> 
+<link rel="stylesheet" href="../css/doc.default.min.css">
+<!--[if lt IE9]>
+<script>
 (function() {
-    if (! 
+    if (!
     /*@cc_on!@*/
     0) return;
     var e = 'abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video'.split(', ');
@@ -26,27 +26,27 @@
 <![endif]-->
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
-var relativePath = '../';
-var themes = [
-    {name: 'simple'},
-    {name: 'default'},
-    {name: 'flat'},
-    {name: 'bootstrap'}
-];
+// var relativePath = '../';
+// var themes = [
+//     {name: 'simple'},
+//     {name: 'default'},
+//     {name: 'flat'},
+//     {name: 'bootstrap'}
+// ];
 
-var selectedTheme;
-if(localStorage['selectedTheme']) {
-    for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === localStorage['selectedTheme']) {
-            selectedTheme = themes[i];
-            break;
-        }
-} else {
-    selectedTheme = themes[1];
-}
+// var selectedTheme;
+// if(localStorage['selectedTheme']) {
+//     for(var i = 0; i < themes.length; i++)
+//         if(themes[i].name === localStorage['selectedTheme']) {
+//             selectedTheme = themes[i];
+//             break;
+//         }
+// } else {
+//     selectedTheme = themes[1];
+// }
 
-var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+// var themeCSS = document.getElementById('j-themeCSS');
+// themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 </head>
 <body>
@@ -65,19 +65,21 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <li><a href="../cssmodule/navbar.html">CSS模块</a></li>
             
             
-            <li class="z-crt"><a href="../jsunit/dropdown.html">JS元件</a></li>
+            <li class="z-crt"><a href="../jsunit/toggle.html">JS元件</a></li>
             
             
             <li><a href="../jsmodule/tabs.html">JS模块</a></li>
             
             
-            <li><a href="../demo/validation1.html">Demo</a></li>
+            <li><a href="../demo/filter.html">常见示例</a></li>
             
             <li id="j-themeSelect"></li>
         </ul>
     </div>
-</div><div class="g-bd"><div class="g-bdc"><div class="g-sd">
+</div>
+<div class="g-bd"><div class="g-bdc"><div class="g-sd">
     <ul class="m-sidebar">
+        
         
         
         
@@ -89,6 +91,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
         
         </a></li>
+        
         
         
         
@@ -150,6 +153,14 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
         
         
         <li><a href="../jsunit/select2.html" >选择扩展<small> Select2</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/select3.html" >选择扩展3<small> Select3</small>
         
             <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
         
@@ -284,7 +295,7 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 
 <h4>Class</h4>
 <h5>TextArea2</h5>
-<p>继承自<strong>Component</strong>。</p>
+<p>继承自<strong>Input2</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -309,8 +320,6 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
             
             <tr><td class="f-wsn"><code>data.rules</code></td><td class="f-wsn">object[]</td><td class="f-wsn"><code>[]</code></td><td class="f-tac">outer  =&gt; inner</td><td>验证规则</td></tr>
             
-            <tr><td class="f-wsn"><code>data.validating</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否实时验证</td></tr>
-            
             <tr><td class="f-wsn"><code>data.autofocus</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否自动获得焦点</td></tr>
             
             <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否只读</td></tr>
@@ -327,36 +336,38 @@ themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.cs
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
-    
-    
-    <h5>textArea2.validate()</h5>
-    <p>根据`rules`验证组件的值是否正确</p>
-    <table>
-        <thead>
-            <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                <tr><td class="f-tac" colspan="4">无参数</td></tr>
-            
-        </tbody>
-        <thead>
-            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">object</td><td colspan="2">结果</td></tr>
-            
-        </tbody>
-    </table>
-    
-
 <div id="j-methods"></div>
 
 
 <div id="j-staticMethods"></div>
 
+
+    <h4>Inherited Methods</h4>
+    
+    
+    
+        <h5>textArea2.validate()</h5>
+        <p>根据`rules`验证组件的值是否正确</p>
+        <table>
+            <thead>
+                <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-tac" colspan="4">无参数</td></tr>
+                
+            </tbody>
+            <thead>
+                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+            </thead>
+            <tbody>
+                
+                    <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">object</td><td colspan="2">结果</td></tr>
+                
+            </tbody>
+        </table>
+    
+    
 
 <div id="j-inheritedMethods"></div>
 
@@ -392,18 +403,18 @@ if(!('remove' in Element.prototype))
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};
 
-var themeSelect = new RGUI.Select2({
-    data: {
-        source: themes,
-        selected: selectedTheme,
-        placeholder: null,
-        'class': 'u-select2-theme'
-    }
-}).$inject('#j-themeSelect')
-  .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
-    localStorage['selectedTheme'] = $event.selected.name;
-});
+// var themeSelect = new RGUI.Select2({
+//     data: {
+//         source: themes,
+//         selected: selectedTheme,
+//         placeholder: null,
+//         'class': 'u-select2-theme'
+//     }
+// }).$inject('#j-themeSelect')
+//   .$on('select', function($event) {
+//     themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+//     localStorage['selectedTheme'] = $event.selected.name;
+// });
 
 // 生成tabs
 (function() {
@@ -417,7 +428,7 @@ var themeSelect = new RGUI.Select2({
         var source = [];
 
         var $next = $example.nextElementSibling;
-        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' &&
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
                 source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;

@@ -71,6 +71,8 @@ Validation.validate = function(value, rules) {
 
         if(rule.type === 'is')
             rule.success = rule.reg.test(value);
+        else if(rule.type === 'isNot')
+            rule.success = !rule.reg.test(value);
         else if(rule.type === 'isRequired')
             rule.success = !!validator.toString(value);
         else if(rule.type === 'isFilled')
@@ -90,10 +92,14 @@ Validation.validate = function(value, rules) {
         else if(rule.type === 'isLength')
             rule.success = validator.isLength(value, rule.min, rule.max);
         else
-            rule.success = rule.method(value);
+            rule.success = rule.method(value, rule);
+
+        rule.callback && rule.callback(value, rule);
 
         if(!rule.success && result.success) {
             result.success = false;
+            result.firstRule = rule;
+            // @deprecated
             result.message = rule.message;
         }
     });

@@ -24,18 +24,18 @@ if(!('remove' in Element.prototype))
 var _ = RGUI._;
 var $$ = function(selector){return document.querySelectorAll(selector)};
 
-var themeSelect = new RGUI.Select2({
-    data: {
-        source: themes,
-        selected: selectedTheme,
-        placeholder: null,
-        'class': 'u-select2-theme'
-    }
-}).$inject('#j-themeSelect')
-  .$on('select', function($event) {
-    themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
-    localStorage['selectedTheme'] = $event.selected.name;
-});
+// var themeSelect = new RGUI.Select2({
+//     data: {
+//         source: themes,
+//         selected: selectedTheme,
+//         placeholder: null,
+//         'class': 'u-select2-theme'
+//     }
+// }).$inject('#j-themeSelect')
+//   .$on('select', function($event) {
+//     themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+//     localStorage['selectedTheme'] = $event.selected.name;
+// });
 
 // 生成tabs
 (function() {
@@ -49,7 +49,7 @@ var themeSelect = new RGUI.Select2({
         var source = [];
 
         var $next = $example.nextElementSibling;
-        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' && 
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' &&
             if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
                 source.push({title: 'rgl', content: $next.outerHTML});
                 $prev = $next;

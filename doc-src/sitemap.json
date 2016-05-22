@@ -56,7 +56,9 @@
             "lowerName": "jsUnit",
             "cnName": "JS元件",
             "children": [
+                {"name": "Overlay", "lowerName": "overlay", "cnName": "漂浮层", "group": "导航类", "new": true, "hidden": true},
                 {"name": "Dropdown", "lowerName": "dropdown", "cnName": "下拉菜单", "group": "导航类", "stable": true},
+                {"name": "Dropdown2", "lowerName": "dropdown2", "cnName": "下拉菜单2", "group": "导航类", "hidden": true},
                 {"name": "Menu", "lowerName": "menu", "cnName": "多级菜单", "group": "导航类", "stable": true},
 
                 {"name": "Input2", "lowerName": "input2", "cnName": "输入扩展", "group": "表单类", "beta": true},
@@ -67,6 +69,7 @@
                 {"name": "CheckGroup", "lowerName": "checkGroup", "cnName": "多选组", "group": "表单类", "stable": true},
                 {"name": "RadioGroup", "lowerName": "radioGroup", "cnName": "单选组", "group": "表单类", "stable": true},
                 {"name": "Select2", "lowerName": "select2", "cnName": "选择扩展", "group": "表单类", "stable": true},
+                {"name": "Select3", "lowerName": "select3", "cnName": "选择扩展3", "group": "表单类", "stable": true},
                 {"name": "SelectGroup", "lowerName": "selectGroup", "cnName": "多级选择", "group": "表单类", "new": true},
                 {"name": "Select2Group", "lowerName": "select2Group", "cnName": "多级选择2", "group": "表单类", "stable": true},
                 {"name": "TreeSelect", "lowerName": "treeSelect", "cnName": "树型选择", "group": "表单类", "stable": true},
@@ -103,6 +106,7 @@
                 {"name": "Album", "lowerName": "album", "cnName": "相册", "group": "窗口类", "hidden": true, "new": true},
 
                 {"name": "ListView", "lowerName": "listView", "cnName": "列表视图", "group": "数据类", "stable": true},
+                {"name": "ListView2", "lowerName": "listView2", "cnName": "列表视图2", "group": "数据类", "new": true},
                 {"name": "UltiListView", "lowerName": "ultiListView", "cnName": "终极列表视图", "group": "数据类", "hidden": true, "new": true},
                 {"name": "GridView", "lowerName": "gridView", "cnName": "网格视图", "group": "数据类", "hidden": true, "completed": false},
                 {"name": "TreeView", "lowerName": "treeView", "cnName": "树型视图", "group": "数据类", "beta": true},
@@ -129,9 +133,12 @@
         }, {
             "name": "Demo",
             "lowerName": "demo",
-            "cnName": "Demo",
+            "cnName": "常见示例",
             "children": [
-                {"name": "Validation1", "lowerName": "validation1", "cnName": "表单验证1", "group": "表单验证", "new": true}
+                {"name": "Filter", "lowerName": "filter", "cnName": "过滤器", "group": "Regular技巧", "new": true},
+                {"name": "Computed", "lowerName": "computed", "cnName": "计算属性", "group": "Regular技巧", "new": true},
+
+                {"name": "Validation1", "lowerName": "validation1", "cnName": "表单验证演示", "group": "表单验证", "new": true}
             ]
         }
     ]

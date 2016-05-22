@@ -10,11 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" href="<%= relativePath %>img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="<%= relativePath %>img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" id="j-themeCSS">
-<!--[if lt IE9]> 
-<script> 
+<link rel="stylesheet" href="<%= relativePath %>css/doc.default.min.css">
+<!--[if lt IE9]>
+<script>
 (function() {
-    if (! 
+    if (!
     /*@cc_on!@*/
     0) return;
     var e = 'abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video'.split(', ');
@@ -26,27 +26,27 @@
 <![endif]-->
 <script>
 // 该段代码是选择主题用的，与渲染有关，所以必须放前面。
-var relativePath = '<%= relativePath %>';
-var themes = [
-    {name: 'simple'},
-    {name: 'default'},
-    {name: 'flat'},
-    {name: 'bootstrap'}
-];
+// var relativePath = '<%= relativePath %>';
+// var themes = [
+//     {name: 'simple'},
+//     {name: 'default'},
+//     {name: 'flat'},
+//     {name: 'bootstrap'}
+// ];
 
-var selectedTheme;
-if(localStorage['selectedTheme']) {
-    for(var i = 0; i < themes.length; i++)
-        if(themes[i].name === localStorage['selectedTheme']) {
-            selectedTheme = themes[i];
-            break;
-        }
-} else {
-    selectedTheme = themes[1];
-}
+// var selectedTheme;
+// if(localStorage['selectedTheme']) {
+//     for(var i = 0; i < themes.length; i++)
+//         if(themes[i].name === localStorage['selectedTheme']) {
+//             selectedTheme = themes[i];
+//             break;
+//         }
+// } else {
+//     selectedTheme = themes[1];
+// }
 
-var themeCSS = document.getElementById('j-themeCSS');
-themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+// var themeCSS = document.getElementById('j-themeCSS');
+// themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
 </script>
 </head>
 <body>

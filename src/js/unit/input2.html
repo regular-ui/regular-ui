@@ -1,7 +1,8 @@
 <label class="u-input2 {class}" r-hide={!visible}>
     <input class="u-input u-input-{state} u-input-{size} u-input-{width}"
-        type={type} placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}
-        r-model={value} on-change="change" {#if validating}on-keyup={this.validate(value, rules)}{/if}>
+        name={name} type={type} placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}
+        r-model={value}
+        on-keyup={this._onKeyUp($event)} on-blur={this._onBlur($event)} on-change="change">
     {#if unit}<span class="input2_unit">{unit}</span>{/if}
     {#if _eltIE9 && !value}<span class="input2_placeholder">{placeholder}</span>{/if}
 </label>

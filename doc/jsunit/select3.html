@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文档由doc-src自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="森森">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/doc.default.min.css">
+<!--[if lt IE9]>
+<script>
+(function() {
+    if (!
+    /*@cc_on!@*/
+    0) return;
+    var e = 'abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video'.split(', ');
+    var i= e.length;
+    while (i--)
+        document.createElement(e[i]);
+})();
+</script>
+<![endif]-->
+<script>
+// 该段代码是选择主题用的，与渲染有关，所以必须放前面。
+// var relativePath = '../';
+// var themes = [
+//     {name: 'simple'},
+//     {name: 'default'},
+//     {name: 'flat'},
+//     {name: 'bootstrap'}
+// ];
+
+// var selectedTheme;
+// if(localStorage['selectedTheme']) {
+//     for(var i = 0; i < themes.length; i++)
+//         if(themes[i].name === localStorage['selectedTheme']) {
+//             selectedTheme = themes[i];
+//             break;
+//         }
+// } else {
+//     selectedTheme = themes[1];
+// }
+
+// var themeCSS = document.getElementById('j-themeCSS');
+// themeCSS.href = window.relativePath + 'css/doc.' + selectedTheme.name + '.min.css';
+</script>
+</head>
+<body>
+<div class="g-top g-top-fixed">
+    <div class="g-topc">
+        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <ul class="m-navbar f-fr">
+            
+            
+            <li><a href="../start/quickstart.html">开始使用</a></li>
+            
+            
+            <li><a href="../cssunit/base.html">CSS元件</a></li>
+            
+            
+            <li><a href="../cssmodule/navbar.html">CSS模块</a></li>
+            
+            
+            <li class="z-crt"><a href="../jsunit/toggle.html">JS元件</a></li>
+            
+            
+            <li><a href="../jsmodule/tabs.html">JS模块</a></li>
+            
+            
+            <li><a href="../demo/filter.html">常见示例</a></li>
+            
+            <li id="j-themeSelect"></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd"><div class="g-bdc"><div class="g-sd">
+    <ul class="m-sidebar">
+        
+        
+        
+        
+        
+        <li class="sidebar_group"><span>导航类</span></li>
+        
+        <li><a href="../jsunit/dropdown.html" >下拉菜单<small> Dropdown</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        
+        <li><a href="../jsunit/menu.html" >多级菜单<small> Menu</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>表单类</span></li>
+        
+        <li><a href="../jsunit/input2.html" >输入扩展<small> Input2</small>
+        
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/textarea2.html" >多行输入扩展<small> TextArea2</small>
+        
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/numberinput.html" >数字输入<small> NumberInput</small>
+        
+        </a></li>
+        
+        
+        
+        
+        <li><a href="../jsunit/check2.html" >多选按钮<small> Check2</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/checkgroup.html" >多选组<small> CheckGroup</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/radiogroup.html" >单选组<small> RadioGroup</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/select2.html" >选择扩展<small> Select2</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li class="z-crt"><a href="../jsunit/select3.html" >选择扩展3<small> Select3</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/selectgroup.html" >多级选择<small> SelectGroup</small>
+        
+            <span class="u-badge2 u-badge2-new" title="该组件最近刚添加到库中"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/select2group.html" >多级选择2<small> Select2Group</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/treeselect.html" >树型选择<small> TreeSelect</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/suggest.html" >自动提示<small> Suggest</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        
+        
+        
+        <li><a href="../jsunit/uploader.html" >上传<small> Uploader</small>
+        
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li class="sidebar_group"><span>日期类</span></li>
+        
+        <li><a href="../jsunit/datepicker.html" >日期选择<small> DatePicker</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/timepicker.html" >时间选择<small> TimePicker</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/datetimepicker.html" >日期时间选择<small> DateTimePicker</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        
+        <li class="sidebar_group"><span>其他</span></li>
+        
+        <li><a href="../jsunit/progress.html" >进度条<small> Progress</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/loading.html" >加载中<small> Loading</small>
+        
+            <span class="u-badge2 u-badge2-stable" title="该组件目前已比较稳定"></span>
+        
+        </a></li>
+        
+        
+        
+        <li><a href="../jsunit/gotop.html" >回到顶部<small> Gotop</small>
+        
+            <span class="u-badge2 u-badge2-beta" title="该组件的部分功能还不太稳定"></span>
+        
+        </a></li>
+        
+    </ul>
+</div><div class="g-mn">
+    <article class="m-article">
+        
+        <h2>选择扩展3<small> Select3</small></h2>
+        
+        <h3 id="-">示例</h3>
+<h4 id="-">基本形式</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="value-selected">value和selected</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>请选择<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">1</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">3</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>请选择<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">1</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">禁用某一项，禁用组件</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3（禁用）<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3（禁用）<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">分隔线</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">divider</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3（禁用）<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">自定义</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list list as item}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{item}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;title&quot;</span><span class="cm-tagcm-bracket">&gt;</span>{item.language}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;hits f-fr&quot;</span><span class="cm-tagcm-bracket">&gt;</span>{item.ratings}%<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">list</span>: [
+            {<span class="cm-property">language</span>: <span class="cm-string">&#39;Java&#39;</span>, <span class="cm-property">ratings</span>: <span class="cm-number">20.9</span>},
+            {<span class="cm-property">language</span>: <span class="cm-string">&#39;C&#39;</span>, <span class="cm-property">ratings</span>: <span class="cm-number">13.2</span>},
+            {<span class="cm-property">language</span>: <span class="cm-string">&#39;C++&#39;</span>, <span class="cm-property">ratings</span>: <span class="cm-number">6.7</span>},
+            {<span class="cm-property">language</span>: <span class="cm-string">&#39;Python&#39;</span>, <span class="cm-property">ratings</span>: <span class="cm-number">3.8</span>},
+            {<span class="cm-property">language</span>: <span class="cm-string">&#39;JavaScript&#39;</span>, <span class="cm-property">ratings</span>: <span class="cm-number">2.3</span>}
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">数据绑定</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{value}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">1</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>当前选择值：{value + &#39;&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<h4 id="-">事件</h4>
+<p>请打开浏览器的控制台查看结果。</p>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select3</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{value}</span>
+    <span class="cm-attribute">on-toggle</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-toggle:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.open:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.open)}</span>
+    <span class="cm-attribute">on-select</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-select:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event)}</span>
+    <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.value:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.value)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">1</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">3</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select3</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+
+        <h3>API</h3>
+
+<h4>Class</h4>
+<h5>Select3</h5>
+<p>继承自<strong>Component</strong>。</p>
+<p></p>
+<div id="j-class"></div>
+
+<h4>Options</h4>
+<h5>new Select3()</h5>
+<table>
+    <thead>
+        <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
+    </thead>
+    <tbody>
+        
+            
+            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.value</code></td><td class="f-wsn">variable</td><td class="f-wsn"></td><td class="f-tac">outer &lt;=&gt; inner</td><td>当前选择值</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.open</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer &lt;=&gt; inner</td><td>当前为展开/收起状态</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.readonly</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否只读</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否禁用</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac">outer  =&gt; inner</td><td>是否显示</td></tr>
+            
+            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outer  =&gt; inner</td><td>补充class</td></tr>
+            
+        
+    </tbody>
+</table>
+<div id="j-options"></div>
+
+
+<div id="j-methods"></div>
+
+
+<div id="j-staticMethods"></div>
+
+
+<div id="j-inheritedMethods"></div>
+
+
+    <h4>Events</h4>
+    
+    
+    <h5>select3.$on('select')</h5>
+    <p>选择某一项时触发</p>
+    <table>
+        <thead>
+            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                
+                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
+                
+                <tr><td class="f-wsn"><code>selected</code></td><td class="f-wsn">Item</td><td class="f-wsn">当前选择项</td></tr>
+                
+            
+        </tbody>
+    </table>
+    
+
+<div id="j-events"></div>
+
+
+<div id="j-inheritedEvents"></div>
+    </article>
+</div></div></div><div class="g-ft">
+    <footer class="m-footer">
+        <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
+        <p>
+            <a href="https://github.com/regular-ui/regular-ui" target="_blank">GitHub</a> |
+            <a href="https://github.com/regular-ui/regular-ui/issues" target="_blank">Issues</a> |
+            <a href="https://github.com/regular-ui/regular-ui/releases" target="_blank">ChangeLog</a> |
+            <a href="https://github.com/regular-ui/regular-ui/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a>
+        </p>
+        <p>Licensed under <a href="https://github.com/regular-ui/regular-ui/blob/master/LICENSE" target="_blank">MIT license</a>.</p>
+    </footer>
+</div>
+<script src="../vendor/regular.min.js"></script>
+<!-- script src="../vendor/marked.min.js"></script -->
+<script src="../js/regular-ui.min.js"></script>
+<script>
+if(!('remove' in Element.prototype))
+    Element.prototype.remove = function() {
+        if(this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+
+var _ = RGUI._;
+var $$ = function(selector){return document.querySelectorAll(selector)};
+
+// var themeSelect = new RGUI.Select2({
+//     data: {
+//         source: themes,
+//         selected: selectedTheme,
+//         placeholder: null,
+//         'class': 'u-select2-theme'
+//     }
+// }).$inject('#j-themeSelect')
+//   .$on('select', function($event) {
+//     themeCSS.href = window.relativePath + 'css/doc.' + $event.selected.name + '.min.css';
+//     localStorage['selectedTheme'] = $event.selected.name;
+// });
+
+// 生成tabs
+(function() {
+    var $examples = $$('.m-example');
+
+    for(var i = 0; i < $examples.length; i++) {
+        var $example = $examples[i];
+        if(!$example)
+            break;
+
+        var source = [];
+
+        var $next = $example.nextElementSibling;
+        while($next && $next.className.indexOf('m-example') < 0) { // $next.tagName[0] !== 'H' &&
+            if($next.className === 'lang-xml' || $next.className === 'lang-rgl') {
+                source.push({title: 'rgl', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-html') {
+                source.push({title: 'html', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else if($next.className === 'lang-javascript') {
+                source.push({title: 'javascript', content: $next.outerHTML});
+                $prev = $next;
+                $next = $next.nextElementSibling;
+                $prev.remove();
+            } else
+                $next = $next.nextElementSibling;
+        }
+
+        if(!source.length)
+            continue;
+
+        new RGUI.Component({
+            template: RGUI._.multiline(function(){/*
+<tabs>
+    {#list source as item}
+    <tab title={item.title}><div r-html={item.content}></div></tab>
+    {/list}
+</tabs>
+            */}),
+            data: {
+                source: source
+            }
+        }).$inject($example, 'after');
+    }
+})();
+</script>
+<script>
+var index = 0;
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select3>
+    <item>选项1</item>
+    <item>选项2</item>
+    <item>选项3</item>
+</select3>
+    */})
+var component = new RGUI.Component({
+    template: template
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select3 value=2>
+    <item>请选择</item>
+    <item value=1>选项1</item>
+    <item value=2>选项2</item>
+    <item value=3>选项3</item>
+</select3>
+<select3>
+    <item>请选择</item>
+    <item value=1>选项1</item>
+    <item value=2>选项2</item>
+    <item value=3 selected>选项3</item>
+</select3>
+    */})
+var component = new RGUI.Component({
+    template: template
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select3>
+    <item>选项1</item>
+    <item>选项2</item>
+    <item disabled>选项3（禁用）</item>
+</select3>
+<select3 disabled>
+    <item>选项1</item>
+    <item>选项2</item>
+    <item disabled>选项3（禁用）</item>
+</select3>
+    */})
+var component = new RGUI.Component({
+    template: template
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select3>
+    <item>选项1</item>
+    <item>选项2</item>
+    <item divider />
+    <item disabled>选项3（禁用）</item>
+</select3>
+    */})
+var component = new RGUI.Component({
+    template: template
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select3>
+    {#list list as item}
+    <item value={item}>
+        <span class="title">{item.language}</span>
+        <span class="hits f-fr">{item.ratings}%</span>
+    </item>
+    {/list}
+</select3>
+    */})
+var component = new RGUI.Component({
+    template: template,
+    data: {
+        list: [
+            {language: 'Java', ratings: 20.9},
+            {language: 'C', ratings: 13.2},
+            {language: 'C++', ratings: 6.7},
+            {language: 'Python', ratings: 3.8},
+            {language: 'JavaScript', ratings: 2.3}
+        ]
+    }
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select3 value={value}>
+    <item value=1>选项1</item>
+    <item value=2>选项2</item>
+    <item value=3 selected>选项3</item>
+</select3>
+<div>当前选择值：{value + ''}</div>
+    */})
+var component = new RGUI.Component({
+    template: template
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function(index) {
+    var template = RGUI._.multiline(function(){/*
+<select3 value={value}
+    on-toggle={console.log('on-toggle:', '$event.open:', $event.open)}
+    on-select={console.log('on-select:', '$event:', $event)}
+    on-change={console.log('on-change:', '$event.value:', $event.value)}>
+    <item value=1>选项1</item>
+    <item value=2>选项2</item>
+    <item value=3 selected>选项3</item>
+</select3>
+    */})
+var component = new RGUI.Component({
+    template: template
+});
+    component.$inject($$(".m-example")[index]);
+})(index++);
+</script>
+</body>
+</html>
