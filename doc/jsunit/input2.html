@@ -277,7 +277,7 @@
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">rules</span>: [
-            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isFilled&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入邮箱！&#39;</span>},
+            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isFilled&#39;</span>, <span class="cm-property">on</span>: <span class="cm-string">&#39;blur&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入邮箱！&#39;</span>},
             {<span class="cm-property">type</span>: <span class="cm-string">&#39;isEmail&#39;</span>, <span class="cm-property">on</span>: <span class="cm-string">&#39;keyup+blur&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入正确的邮箱！&#39;</span>}
         ]
     }
@@ -489,7 +489,7 @@ var component = new RGUI.Component({
     template: template,
     data: {
         rules: [
-            {type: 'isFilled', message: '请输入邮箱！'},
+            {type: 'isFilled', on: 'blur', message: '请输入邮箱！'},
             {type: 'isEmail', on: 'keyup+blur', message: '请输入正确的邮箱！'}
         ]
     }

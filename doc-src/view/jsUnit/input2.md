@@ -31,7 +31,7 @@ var component = new RGUI.Component({
     template: template,
     data: {
         rules: [
-            {type: 'isFilled', message: '请输入邮箱！'},
+            {type: 'isFilled', on: 'blur', message: '请输入邮箱！'},
             {type: 'isEmail', on: 'keyup+blur', message: '请输入正确的邮箱！'}
         ]
     }

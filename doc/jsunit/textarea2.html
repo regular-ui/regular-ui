@@ -266,14 +266,14 @@
 <h4 id="-">验证</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>邮箱：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">textarea2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">20</span> <span class="cm-attribute">validating</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>邮箱：<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">textarea2</span> <span class="cm-attribute">rules</span>=<span class="cm-attribute">{rules}</span> <span class="cm-attribute">maxlength</span>=<span class="cm-attribute">20</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">rules</span>: [
-            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isFilled&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入邮箱！&#39;</span>},
-            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isEmail&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入正确的邮箱！&#39;</span>}
+            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isFilled&#39;</span>, <span class="cm-property">on</span>: <span class="cm-string">&#39;blur&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入邮箱！&#39;</span>},
+            {<span class="cm-property">type</span>: <span class="cm-string">&#39;isEmail&#39;</span>, <span class="cm-property">on</span>: <span class="cm-string">&#39;keyup+blur&#39;</span>, <span class="cm-property">message</span>: <span class="cm-string">&#39;请输入正确的邮箱！&#39;</span>}
         ]
     }
 });
@@ -283,7 +283,7 @@
 
 <h4>Class</h4>
 <h5>TextArea2</h5>
-<p>继承自<strong>Input2</strong>。</p>
+<p>继承自<strong>Component</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
@@ -324,38 +324,36 @@
 <div id="j-options"></div>
 
 
+    <h4>Methods</h4>
+    
+    
+    <h5>textArea2.validate()</h5>
+    <p>根据`rules`验证组件的值是否正确</p>
+    <table>
+        <thead>
+            <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">object</td><td colspan="2">结果</td></tr>
+            
+        </tbody>
+    </table>
+    
+
 <div id="j-methods"></div>
 
 
 <div id="j-staticMethods"></div>
 
-
-    <h4>Inherited Methods</h4>
-    
-    
-    
-        <h5>textArea2.validate()</h5>
-        <p>根据`rules`验证组件的值是否正确</p>
-        <table>
-            <thead>
-                <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
-            </thead>
-            <tbody>
-                
-                    <tr><td class="f-tac" colspan="4">无参数</td></tr>
-                
-            </tbody>
-            <thead>
-                <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
-            </thead>
-            <tbody>
-                
-                    <tr><td class="f-wsn"><code>result</code></td><td class="f-wsn">object</td><td colspan="2">结果</td></tr>
-                
-            </tbody>
-        </table>
-    
-    
 
 <div id="j-inheritedMethods"></div>
 
@@ -467,14 +465,14 @@ var component = new RGUI.Component({
 })(index++);
 (function(index) {
     var template = RGUI._.multiline(function(){/*
-<label>邮箱：<textarea2 rules={rules} maxlength=20 validating /></label>
+<label>邮箱：<textarea2 rules={rules} maxlength=20 /></label>
     */})
 var component = new RGUI.Component({
     template: template,
     data: {
         rules: [
-            {type: 'isFilled', message: '请输入邮箱！'},
-            {type: 'isEmail', message: '请输入正确的邮箱！'}
+            {type: 'isFilled', on: 'blur', message: '请输入邮箱！'},
+            {type: 'isEmail', on: 'keyup+blur', message: '请输入正确的邮箱！'}
         ]
     }
 });

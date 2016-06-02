@@ -1,3 +1,4 @@
+
 /**
  * ------------------------------------------------------------
  * Validation  表单验证
@@ -69,30 +70,36 @@ Validation.validate = function(value, rules) {
     rules.forEach(function(rule) {
         rule.success = true;
 
+        // if(rule.type === 'is')
+        //     rule.success = rule.option.test(value);
+        // else if(rule.type === 'isNot')
+        //     rule.success = !rule.options.test(value);
+        // else if(rule.type === 'isRequired')
+        //     rule.success = !!validator.toString(value);
+        // else if(rule.type === 'isFilled')
+        //     rule.success = !!validator.toString(value).trim();
+        // else if(rule.type === 'method')
+        //     rule.success = rule.method(value, rule);
+        // else
+        //     rule.success = validator[rule.type](value, rule.option);
+
+        // 为了兼容
         if(rule.type === 'is')
-            rule.success = rule.reg.test(value);
+            rule.success = (rule.option || rule.reg).test(value);
         else if(rule.type === 'isNot')
-            rule.success = !rule.reg.test(value);
+            rule.success = !(rule.option || rule.reg).test(value);
         else if(rule.type === 'isRequired')
             rule.success = !!validator.toString(value);
         else if(rule.type === 'isFilled')
             rule.success = !!validator.toString(value).trim();
-        else if(rule.type === 'isEmail')
-            rule.success = validator.isEmail(value);
-        else if(rule.type === 'isMobilePhone')
-            rule.success = validator.isMobilePhone(value, 'zh-CN');
-        else if(rule.type === 'isURL')
-            rule.success = validator.isURL(value);
         else if(rule.type === 'isNumber')
-            rule.success = validator.isInt(value);
-        else if(rule.type === 'isInt')
-            rule.success = validator.isInt(value);
-        else if(rule.type === 'isFloat')
-            rule.success = validator.isFloat(value);
+            rule.success = validator.isInt(value + '', rule.option);
         else if(rule.type === 'isLength')
-            rule.success = validator.isLength(value, rule.min, rule.max);
+            rule.success = validator.isLength(value + '', rule.option || {min: rule.min, max: rule.max});
+        else if(rule.type === 'method' || rule.method)
+            rule.success = (rule.option || rule.method)(value, rule);
         else
-            rule.success = rule.method(value, rule);
+            rule.success = validator[rule.type](value + '', rule.option);
 
         rule.callback && rule.callback(value, rule);
 

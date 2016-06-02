@@ -81,18 +81,19 @@ var Input2 = Component.extend({
         });
 
         var result = Validation.validate(value, rules);
-        
         if(result.firstRule
-            && !(result.firstRule.silentOn === true || (typeof result.firstRule.silentOn === 'string' && result.firstRule.silentOn.indexOf(on) >= 0))) {
+            && !(result.firstRule.silentOn === true || (typeof result.firstRule.silentOn === 'string' && result.firstRule.silentOn.indexOf(on) >= 0)))
                 this.data.tip = result.firstRule.message;
-                this.data.state = 'error';
-        } else {
-            this.data.state = '';
+        else
             this.data.tip = '';
-        }
 
+        // @TODO
+        if(!result.success)
+            this.data.state = 'error';
         // else if(PRIORITY[on] <= PRIORITY['blur'])
         //     this.data.state = 'success';
+        else
+            this.data.state = '';
 
         this.$emit('validate', {
             sender: this,
@@ -103,14 +104,12 @@ var Input2 = Component.extend({
         return result;
     },
     _onKeyUp: function($event) {
-        this.$emit('keyup', $event);
-
         this.validate('keyup');
+        this.$emit('keyup', $event);
     },
     _onBlur: function($event) {
-        this.$emit('blur', $event);
-
         this.validate('blur');
+        this.$emit('blur', $event);
     }
 });
 
