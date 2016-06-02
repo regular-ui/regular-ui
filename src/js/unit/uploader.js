@@ -167,10 +167,10 @@ var Uploader = Component.extend({
 
         var xml = {};
         if($iframe.contentWindow) {
-            xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerHTML : null;
+            xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
             xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
         } else if($iframe.contentDocument) {
-            xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerHTML : null;
+            xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerText : null;
             xml.responseXML = $iframe.contentDocument.document.XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
         }
 
@@ -222,10 +222,6 @@ var Uploader = Component.extend({
             return xml.responseXML;
         else if (type === 'json') {
             var data = xml.responseText;
-            var m = data.match(/<pre.*?>(.*?)<\/pre>/);
-            if(m)
-                data = m[1];
-
             try {
                 data = JSON.parse(data);
             } catch (e) {}
