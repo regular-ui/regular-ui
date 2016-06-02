@@ -82,6 +82,12 @@ $g-mn_padding = 60px;
     width: $g-xc_width - $g-sd_width - $g-mn_padding;
 }
 
+.g-mn-center {
+    float: none;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
 .g-sd > .m-sidebar {
     margin: 60px 0;
 }
