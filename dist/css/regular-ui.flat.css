@@ -4147,6 +4147,7 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-select2 .dropdown_hd .u-icon{
 	float:right;
+	width:auto;
 }
 .u-select2 .dropdown_bd{
 	clear:both;

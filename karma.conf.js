@@ -16,7 +16,7 @@ module.exports = function(config) {
             './src/js/**/*.html': ['common_js'],
             './src/js/**/*.js': ['common_js', 'coverage']
         },
-        reporters: ['progress', 'coverage'],
+        reporters: ['progress'],
         common_js: {
             transforms: {
                 'html-browserify': true
@@ -24,7 +24,7 @@ module.exports = function(config) {
         },
         coverageReporter: {
             dir: 'tmp/coverage',
-            type: 'html' 
+            type: 'html'
         }
     });
 };

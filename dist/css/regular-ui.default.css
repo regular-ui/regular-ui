@@ -3605,6 +3605,9 @@ input.u-check:disabled,input.u-radio:disabled{
 .u-formitem-block .formitem_ct,.m-form >.u-formitem .formitem_ct,.m-form fieldset>.u-formitem .formitem_ct{
 	margin-left:108px;
 }
+.u-formitem-block .formitem_text,.m-form >.u-formitem .formitem_text,.m-form fieldset>.u-formitem .formitem_text{
+	line-height:34px;
+}
 .u-formgroup >.u-formitem{
 	margin-right:2em;
 }
@@ -4073,6 +4076,7 @@ input.u-check:disabled,input.u-radio:disabled{
 }
 .u-select2 .dropdown_hd .u-icon{
 	float:right;
+	width:auto;
 }
 .u-select2 .dropdown_bd{
 	clear:both;

@@ -71,39 +71,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Dropdown = __webpack_require__(12);
 	exports.Menu = __webpack_require__(14);
 	exports.Input2 = __webpack_require__(18);
-	exports.TextArea2 = __webpack_require__(22);
-	exports.NumberInput = __webpack_require__(24);
-	exports.Check2 = __webpack_require__(26);
-	exports.CheckGroup = __webpack_require__(28);
-	exports.Check2Group = __webpack_require__(30);
-	exports.RadioGroup = __webpack_require__(32);
-	exports.Radio2Group = __webpack_require__(34);
-	exports.Select2 = __webpack_require__(36);
-	exports.Select2Group = __webpack_require__(38);
-	exports.TreeSelect = __webpack_require__(40);
-	exports.Suggest = __webpack_require__(46);
-	exports.Uploader = __webpack_require__(48);
-	exports.DatePicker = __webpack_require__(50);
-	exports.TimePicker = __webpack_require__(55);
-	exports.DateTimePicker = __webpack_require__(57);
-	exports.Progress = __webpack_require__(59);
-	exports.Loading = __webpack_require__(61);
-	exports.Gotop = __webpack_require__(63);
-	exports.Tabs = __webpack_require__(65);
-	exports.Collapse = __webpack_require__(67);
-	exports.Pager = __webpack_require__(71);
-	exports.Notify = __webpack_require__(73);
-	exports.Modal = __webpack_require__(75);
-	exports.ListView = __webpack_require__(79);
-	exports.UltiListView = __webpack_require__(81);
-	exports.TreeView = __webpack_require__(42);
-	exports.MultiTreeView = __webpack_require__(84);
-	exports.Calendar = __webpack_require__(53);
-	exports.HTMLEditor = __webpack_require__(88);
-	exports.MarkEditor = __webpack_require__(90);
+	exports.TextArea2 = __webpack_require__(84);
+	exports.NumberInput = __webpack_require__(86);
+	exports.Check2 = __webpack_require__(88);
+	exports.CheckGroup = __webpack_require__(90);
+	exports.Check2Group = __webpack_require__(92);
+	exports.RadioGroup = __webpack_require__(94);
+	exports.Radio2Group = __webpack_require__(96);
+	exports.Select1 = __webpack_require__(98);
+	exports.Select2 = __webpack_require__(100);
+	exports.SelectGroup = __webpack_require__(102);
+	exports.Select2Group = __webpack_require__(104);
+	exports.TreeSelect = __webpack_require__(106);
+	exports.Suggest = __webpack_require__(112);
+	exports.Uploader = __webpack_require__(114);
+	exports.DatePicker = __webpack_require__(116);
+	exports.TimePicker = __webpack_require__(121);
+	exports.DateTimePicker = __webpack_require__(123);
+	exports.Progress = __webpack_require__(125);
+	exports.Loading = __webpack_require__(127);
+	exports.Gotop = __webpack_require__(129);
+	exports.Tabs = __webpack_require__(131);
+	exports.Collapse = __webpack_require__(133);
+	exports.Pager = __webpack_require__(137);
+	exports.Notify = __webpack_require__(139);
+	exports.Modal = __webpack_require__(141);
+	exports.ListView = __webpack_require__(145);
+	exports.UltiListView = __webpack_require__(147);
+	exports.TreeView = __webpack_require__(108);
+	exports.MultiTreeView = __webpack_require__(150);
+	exports.Calendar = __webpack_require__(119);
+	exports.HTMLEditor = __webpack_require__(154);
+	exports.MarkEditor = __webpack_require__(156);
 	exports.Validation = __webpack_require__(20);
-	exports.Draggable = __webpack_require__(77);
-	exports.Droppable = __webpack_require__(83);
+	exports.Draggable = __webpack_require__(143);
+	exports.Droppable = __webpack_require__(149);
 
 /***/ },
 /* 1 */
@@ -370,10 +372,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  * Bowser - a browser detector
-	  * https://github.com/ded/bowser
-	  * MIT License | (c) Dustin Diaz 2015
-	  */
+	 * Bowser - a browser detector
+	 * https://github.com/ded/bowser
+	 * MIT License | (c) Dustin Diaz 2015
+	 */
 
 	!function (name, definition) {
 	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
@@ -401,18 +403,36 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
 	      , likeAndroid = /like android/i.test(ua)
 	      , android = !likeAndroid && /android/i.test(ua)
-	      , chromeBook = /CrOS/.test(ua)
+	      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
+	      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
+	      , chromeos = /CrOS/.test(ua)
+	      , silk = /silk/i.test(ua)
+	      , sailfish = /sailfish/i.test(ua)
+	      , tizen = /tizen/i.test(ua)
+	      , webos = /(web|hpw)os/i.test(ua)
+	      , windowsphone = /windows phone/i.test(ua)
+	      , windows = !windowsphone && /windows/i.test(ua)
+	      , mac = !iosdevice && !silk && /macintosh/i.test(ua)
+	      , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
 	      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
 	      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
 	      , tablet = /tablet/i.test(ua)
 	      , mobile = !tablet && /[^-]mobi/i.test(ua)
+	      , xbox = /xbox/i.test(ua)
 	      , result
 
-	    if (/opera|opr/i.test(ua)) {
+	    if (/opera|opr|opios/i.test(ua)) {
 	      result = {
 	        name: 'Opera'
 	      , opera: t
-	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/coast/i.test(ua)) {
+	      result = {
+	        name: 'Opera Coast'
+	        , coast: t
+	        , version: versionIdentifier || getFirstMatch(/(?:coast)[\s\/](\d+(\.\d+)?)/i)
 	      }
 	    }
 	    else if (/yabrowser/i.test(ua)) {
@@ -422,7 +442,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	      , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
 	      }
 	    }
-	    else if (/windows phone/i.test(ua)) {
+	    else if (/ucbrowser/i.test(ua)) {
+	      result = {
+	          name: 'UC Browser'
+	        , ucbrowser: t
+	        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/mxios/i.test(ua)) {
+	      result = {
+	        name: 'Maxthon'
+	        , maxthon: t
+	        , version: getFirstMatch(/(?:mxios)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/epiphany/i.test(ua)) {
+	      result = {
+	        name: 'Epiphany'
+	        , epiphany: t
+	        , version: getFirstMatch(/(?:epiphany)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/puffin/i.test(ua)) {
+	      result = {
+	        name: 'Puffin'
+	        , puffin: t
+	        , version: getFirstMatch(/(?:puffin)[\s\/](\d+(?:\.\d+)?)/i)
+	      }
+	    }
+	    else if (/sleipnir/i.test(ua)) {
+	      result = {
+	        name: 'Sleipnir'
+	        , sleipnir: t
+	        , version: getFirstMatch(/(?:sleipnir)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/k-meleon/i.test(ua)) {
+	      result = {
+	        name: 'K-Meleon'
+	        , kMeleon: t
+	        , version: getFirstMatch(/(?:k-meleon)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (windowsphone) {
 	      result = {
 	        name: 'Windows Phone'
 	      , windowsphone: t
@@ -442,9 +504,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      , msie: t
 	      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
 	      }
-	    } else if (chromeBook) {
+	    } else if (chromeos) {
 	      result = {
 	        name: 'Chrome'
+	      , chromeos: t
 	      , chromeBook: t
 	      , chrome: t
 	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
@@ -456,23 +519,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      , version: edgeVersion
 	      }
 	    }
-	    else if (/chrome|crios|crmo/i.test(ua)) {
+	    else if (/vivaldi/i.test(ua)) {
 	      result = {
-	        name: 'Chrome'
-	      , chrome: t
-	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	        name: 'Vivaldi'
+	        , vivaldi: t
+	        , version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
 	      }
 	    }
-	    else if (iosdevice) {
-	      result = {
-	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
-	      }
-	      // WTF: version is not part of user agent in web apps
-	      if (versionIdentifier) {
-	        result.version = versionIdentifier
-	      }
-	    }
-	    else if (/sailfish/i.test(ua)) {
+	    else if (sailfish) {
 	      result = {
 	        name: 'Sailfish'
 	      , sailfish: t
@@ -486,27 +540,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
 	      }
 	    }
-	    else if (/firefox|iceweasel/i.test(ua)) {
+	    else if (/firefox|iceweasel|fxios/i.test(ua)) {
 	      result = {
 	        name: 'Firefox'
 	      , firefox: t
-	      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+	      , version: getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.\d+)?)/i)
 	      }
 	      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
 	        result.firefoxos = t
 	      }
 	    }
-	    else if (/silk/i.test(ua)) {
+	    else if (silk) {
 	      result =  {
 	        name: 'Amazon Silk'
 	      , silk: t
 	      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (android) {
-	      result = {
-	        name: 'Android'
-	      , version: versionIdentifier
 	      }
 	    }
 	    else if (/phantom/i.test(ua)) {
@@ -516,6 +564,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
 	      }
 	    }
+	    else if (/slimerjs/i.test(ua)) {
+	      result = {
+	        name: 'SlimerJS'
+	        , slimer: t
+	        , version: getFirstMatch(/slimerjs\/(\d+(\.\d+)?)/i)
+	      }
+	    }
 	    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
 	      result = {
 	        name: 'BlackBerry'
@@ -523,7 +578,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
 	      }
 	    }
-	    else if (/(web|hpw)os/i.test(ua)) {
+	    else if (webos) {
 	      result = {
 	        name: 'WebOS'
 	      , webos: t
@@ -538,18 +593,63 @@ return /******/ (function(modules) { // webpackBootstrap
 	      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
 	      };
 	    }
-	    else if (/tizen/i.test(ua)) {
+	    else if (tizen) {
 	      result = {
 	        name: 'Tizen'
 	      , tizen: t
 	      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
 	      };
 	    }
-	    else if (/safari/i.test(ua)) {
+	    else if (/qupzilla/i.test(ua)) {
+	      result = {
+	        name: 'QupZilla'
+	        , qupzilla: t
+	        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
+	      }
+	    }
+	    else if (/chromium/i.test(ua)) {
+	      result = {
+	        name: 'Chromium'
+	        , chromium: t
+	        , version: getFirstMatch(/(?:chromium)[\s\/](\d+(?:\.\d+)?)/i) || versionIdentifier
+	      }
+	    }
+	    else if (/chrome|crios|crmo/i.test(ua)) {
+	      result = {
+	        name: 'Chrome'
+	        , chrome: t
+	        , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (android) {
+	      result = {
+	        name: 'Android'
+	        , version: versionIdentifier
+	      }
+	    }
+	    else if (/safari|applewebkit/i.test(ua)) {
 	      result = {
 	        name: 'Safari'
 	      , safari: t
-	      , version: versionIdentifier
+	      }
+	      if (versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    }
+	    else if (iosdevice) {
+	      result = {
+	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+	      }
+	      // WTF: version is not part of user agent in web apps
+	      if (versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    }
+	    else if(/googlebot/i.test(ua)) {
+	      result = {
+	        name: 'Googlebot'
+	      , googlebot: t
+	      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
 	      }
 	    }
 	    else {
@@ -561,8 +661,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    // set webkit or gecko flag for browsers based on these engines
 	    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
-	      result.name = result.name || "Webkit"
-	      result.webkit = t
+	      if (/(apple)?webkit\/537\.36/i.test(ua)) {
+	        result.name = result.name || "Blink"
+	        result.blink = t
+	      } else {
+	        result.name = result.name || "Webkit"
+	        result.webkit = t
+	      }
 	      if (!result.version && versionIdentifier) {
 	        result.version = versionIdentifier
 	      }
@@ -578,6 +683,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    } else if (iosdevice) {
 	      result[iosdevice] = t
 	      result.ios = t
+	    } else if (mac) {
+	      result.mac = t
+	    } else if (xbox) {
+	      result.xbox = t
+	    } else if (windows) {
+	      result.windows = t
+	    } else if (linux) {
+	      result.linux = t
 	    }
 
 	    // OS version extraction
@@ -604,9 +717,24 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    // device type extraction
 	    var osMajorVersion = osVersion.split('.')[0];
-	    if (tablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+	    if (
+	         tablet
+	      || nexusTablet
+	      || iosdevice == 'ipad'
+	      || (android && (osMajorVersion == 3 || (osMajorVersion >= 4 && !mobile)))
+	      || result.silk
+	    ) {
 	      result.tablet = t
-	    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || result.blackberry || result.webos || result.bada) {
+	    } else if (
+	         mobile
+	      || iosdevice == 'iphone'
+	      || iosdevice == 'ipod'
+	      || android
+	      || nexusMobile
+	      || result.blackberry
+	      || result.webos
+	      || result.bada
+	    ) {
 	      result.mobile = t
 	    }
 
@@ -615,6 +743,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (result.msedge ||
 	        (result.msie && result.version >= 10) ||
 	        (result.yandexbrowser && result.version >= 15) ||
+			    (result.vivaldi && result.version >= 1.0) ||
 	        (result.chrome && result.version >= 20) ||
 	        (result.firefox && result.version >= 20.0) ||
 	        (result.safari && result.version >= 6) ||
@@ -825,6 +954,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	rClassGenerator('z-crt');
 	rClassGenerator('z-sel');
 	rClassGenerator('z-chk');
+	rClassGenerator('z-act');
 	rClassGenerator('z-dis');
 	rClassGenerator('z-divider');
 
@@ -1940,7 +2070,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {number}                  options.data.maxlength           => 文本框的最大长度
 	 * @param {string=''}               options.data.unit                => 单位
 	 * @param {object[]=[]}             options.data.rules               => 验证规则
-	 * @param {boolean=false}           options.data.validating          => 是否实时验证
 	 * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
 	 * @param {boolean=false}           options.data.readonly            => 是否只读
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -1962,7 +2091,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            maxlength: undefined,
 	            unit: '',
 	            rules: [],
-	            validating: false,
 	            autofocus: false,
 	            _eltIE9: bowser.msie && bowser.version <= 9
 	        });
@@ -1983,30 +2111,69 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @public
 	     * @return {object} result 结果
 	     */
-	    validate: function() {
+	    validate: function(on) {
 	        var value = this.data.value;
 	        var rules = this.data.rules;
+
+	        var PRIORITY = {
+	            'keyup': 2,
+	            'blur': 1,
+	            'submit': 0,
+	            '': 0
+	        }
+
+	        on = on || '';
+	        rules = rules.filter(function(rule) {
+	            return (rule.on || '').indexOf(on) >= 0;
+	        });
+
 	        var result = Validation.validate(value, rules);
-	        
-	        this.data.state = result.success ? 'success' : 'error';
-	        this.data.tip = result.message;
+	        if(result.firstRule
+	            && !(result.firstRule.silentOn === true || (typeof result.firstRule.silentOn === 'string' && result.firstRule.silentOn.indexOf(on) >= 0)))
+	                this.data.tip = result.firstRule.message;
+	        else
+	            this.data.tip = '';
+
+	        // @TODO
+	        if(!result.success)
+	            this.data.state = 'error';
+	        // else if(PRIORITY[on] <= PRIORITY['blur'])
+	        //     this.data.state = 'success';
+	        else
+	            this.data.state = '';
+
+	        this.$emit('validate', {
+	            sender: this,
+	            on: on,
+	            result: result
+	        });
 
 	        return result;
+	    },
+	    _onKeyUp: function($event) {
+	        this.validate('keyup');
+	        this.$emit('keyup', $event);
+	    },
+	    _onBlur: function($event) {
+	        this.validate('blur');
+	        this.$emit('blur', $event);
 	    }
 	});
 
 	module.exports = Input2;
 
+
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-input2 {class}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{state} u-input-{size} u-input-{width}\"\n        type={type} placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}\n        r-model={value} on-change=\"change\" {#if validating}on-keyup={this.validate(value, rules)}{/if}>\n    {#if unit}<span class=\"input2_unit\">{unit}</span>{/if}\n    {#if _eltIE9 && !value}<span class=\"input2_placeholder\">{placeholder}</span>{/if}\n</label>\n{#if tip}<span class=\"u-tip u-tip-{state}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-input2 {class}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{state} u-input-{size} u-input-{width}\"\n        name={name} type={type} placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}\n        r-model={value}\n        on-keyup={this._onKeyUp($event)} on-blur={this._onBlur($event)} on-change=\"change\">\n    {#if unit}<span class=\"input2_unit\">{unit}</span>{/if}\n    {#if _eltIE9 && !value}<span class=\"input2_placeholder\">{placeholder}</span>{/if}\n    {#if tip}<span class=\"u-tip u-tip-{state}\">{tip}</span>{/if}\n</label>\n"
 
 /***/ },
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
+	
 	/**
 	 * ------------------------------------------------------------
 	 * Validation  表单验证
@@ -2078,31 +2245,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	    rules.forEach(function(rule) {
 	        rule.success = true;
 
+	        // if(rule.type === 'is')
+	        //     rule.success = rule.options.test(value);
+	        // else if(rule.type === 'isNot')
+	        //     rule.success = !rule.optionss.test(value);
+	        // else if(rule.type === 'isRequired')
+	        //     rule.success = !!validator.toString(value);
+	        // else if(rule.type === 'isFilled')
+	        //     rule.success = !!validator.toString(value).trim();
+	        // else if(rule.type === 'method')
+	        //     rule.success = rule.method(value, rule);
+	        // else
+	        //     rule.success = validator[rule.type](value, rule.options);
+
+	        // 为了兼容
 	        if(rule.type === 'is')
-	            rule.success = rule.reg.test(value);
+	            rule.success = (rule.options || rule.reg).test(value);
+	        else if(rule.type === 'isNot')
+	            rule.success = !(rule.options || rule.reg).test(value);
 	        else if(rule.type === 'isRequired')
 	            rule.success = !!validator.toString(value);
 	        else if(rule.type === 'isFilled')
 	            rule.success = !!validator.toString(value).trim();
-	        else if(rule.type === 'isEmail')
-	            rule.success = validator.isEmail(value);
-	        else if(rule.type === 'isMobilePhone')
-	            rule.success = validator.isMobilePhone(value, 'zh-CN');
-	        else if(rule.type === 'isURL')
-	            rule.success = validator.isURL(value);
 	        else if(rule.type === 'isNumber')
-	            rule.success = validator.isInt(value);
-	        else if(rule.type === 'isInt')
-	            rule.success = validator.isInt(value);
-	        else if(rule.type === 'isFloat')
-	            rule.success = validator.isFloat(value);
+	            rule.success = validator.isInt(value + '', rule.options);
 	        else if(rule.type === 'isLength')
-	            rule.success = validator.isLength(value, rule.min, rule.max);
+	            rule.success = validator.isLength(value + '', rule.options || {min: rule.min, max: rule.max});
+	        else if(rule.type === 'method' || rule.method)
+	            rule.success = (rule.options || rule.method)(value, rule);
 	        else
-	            rule.success = rule.method(value);
+	            rule.success = validator[rule.type](value + '', rule.options);
+
+	        rule.callback && rule.callback(value, rule);
 
 	        if(!rule.success && result.success) {
 	            result.success = false;
+	            result.firstRule = rule;
+	            // @deprecated
 	            result.message = rule.message;
 	        }
 	    });
@@ -2112,913 +2291,2509 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = Validation;
 
+
 /***/ },
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*!
-	 * Copyright (c) 2015 Chris O'Hara <cohara87@gmail.com>
-	 *
-	 * Permission is hereby granted, free of charge, to any person obtaining
-	 * a copy of this software and associated documentation files (the
-	 * "Software"), to deal in the Software without restriction, including
-	 * without limitation the rights to use, copy, modify, merge, publish,
-	 * distribute, sublicense, and/or sell copies of the Software, and to
-	 * permit persons to whom the Software is furnished to do so, subject to
-	 * the following conditions:
-	 *
-	 * The above copyright notice and this permission notice shall be
-	 * included in all copies or substantial portions of the Software.
-	 *
-	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-	 * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	 * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-	 * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-	 * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-	 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-	 * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-	 */
+	'use strict';
 
-	(function (name, definition) {
-	    if (true) {
-	        module.exports = definition();
-	    } else if (typeof define === 'function' && typeof define.amd === 'object') {
-	        define(definition);
-	    } else if (typeof define === 'function' && typeof define.petal === 'object') {
-	        define(name, [], definition);
-	    } else {
-	        this[name] = definition();
-	    }
-	})('validator', function (validator) {
-
-	    'use strict';
-
-	    validator = { version: '4.5.0' };
-
-	    var emailUserPart = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~]+$/i;
-	    var quotedEmailUser = /^([\s\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e]|(\\[\x01-\x09\x0b\x0c\x0d-\x7f]))*$/i;
-
-	    var emailUserUtf8Part = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+$/i;
-	    var quotedEmailUserUtf8 = /^([\s\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|(\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*$/i;
-
-	    var displayName = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~\.\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~\.\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF\s]*<(.+)>$/i;
-
-	    var creditCard = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
-
-	    var isin = /^[A-Z]{2}[0-9A-Z]{9}[0-9]$/;
-
-	    var isbn10Maybe = /^(?:[0-9]{9}X|[0-9]{10})$/
-	      , isbn13Maybe = /^(?:[0-9]{13})$/;
-
-	    var macAddress = /^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$/;
-
-	    var ipv4Maybe = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/
-	      , ipv6Block = /^[0-9A-F]{1,4}$/i;
-
-	    var uuid = {
-	        '3': /^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$/i
-	      , '4': /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-	      , '5': /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-	      , all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
-	    };
-
-	    var alpha = /^[A-Z]+$/i
-	      , alphanumeric = /^[0-9A-Z]+$/i
-	      , numeric = /^[-+]?[0-9]+$/
-	      , int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/
-	      , float = /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/
-	      , hexadecimal = /^[0-9A-F]+$/i
-	      , decimal = /^[-+]?([0-9]+|\.[0-9]+|[0-9]+\.[0-9]+)$/
-	      , hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
-
-	    var ascii = /^[\x00-\x7F]+$/
-	      , multibyte = /[^\x00-\x7F]/
-	      , fullWidth = /[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/
-	      , halfWidth = /[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
-
-	    var surrogatePair = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
-
-	    var base64 = /^(?:[A-Z0-9+\/]{4})*(?:[A-Z0-9+\/]{2}==|[A-Z0-9+\/]{3}=|[A-Z0-9+\/]{4})$/i;
-
-	    var phones = {
-	      'zh-CN': /^(\+?0?86\-?)?((13\d|14[57]|15[^4,\D]|17[678]|18\d)\d{8}|170[059]\d{7})$/,
-	      'zh-TW': /^(\+?886\-?|0)?9\d{8}$/,
-	      'en-ZA': /^(\+?27|0)\d{9}$/,
-	      'en-AU': /^(\+?61|0)4\d{8}$/,
-	      'en-HK': /^(\+?852\-?)?[569]\d{3}\-?\d{4}$/,
-	      'fr-FR': /^(\+?33|0)[67]\d{8}$/,
-	      'pt-PT': /^(\+351)?9[1236]\d{7}$/,
-	      'el-GR': /^(\+?30)?(69\d{8})$/,
-	      'en-GB': /^(\+?44|0)7\d{9}$/,
-	      'en-US': /^(\+?1)?[2-9]\d{2}[2-9](?!11)\d{6}$/,
-	      'en-ZM': /^(\+26)?09[567]\d{7}$/,
-	      'ru-RU': /^(\+?7|8)?9\d{9}$/,
-	      'nb-NO': /^(\+?47)?[49]\d{7}$/,
-	      'nn-NO': /^(\+?47)?[49]\d{7}$/,
-	      'vi-VN': /^(0|\+?84)?((1(2([0-9])|6([2-9])|88|99))|(9((?!5)[0-9])))([0-9]{7})$/,
-	      'en-NZ': /^(\+?64|0)2\d{7,9}$/,
-	      'en-IN': /^(\+?91|0)?[789]\d{9}$/
-	    };
-
-	    // from http://goo.gl/0ejHHW
-	    var iso8601 = /^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$/;
-
-	    validator.extend = function (name, fn) {
-	        validator[name] = function () {
-	            var args = Array.prototype.slice.call(arguments);
-	            args[0] = validator.toString(args[0]);
-	            return fn.apply(validator, args);
-	        };
-	    };
-
-	    //Right before exporting the validator object, pass each of the builtins
-	    //through extend() so that their first argument is coerced to a string
-	    validator.init = function () {
-	        for (var name in validator) {
-	            if (typeof validator[name] !== 'function' || name === 'toString' ||
-	                    name === 'toDate' || name === 'extend' || name === 'init') {
-	                continue;
-	            }
-	            validator.extend(name, validator[name]);
-	        }
-	    };
-
-	    validator.toString = function (input) {
-	        if (typeof input === 'object' && input !== null && input.toString) {
-	            input = input.toString();
-	        } else if (input === null || typeof input === 'undefined' || (isNaN(input) && !input.length)) {
-	            input = '';
-	        }
-	        return '' + input;
-	    };
-
-	    validator.toDate = function (date) {
-	        if (Object.prototype.toString.call(date) === '[object Date]') {
-	            return date;
-	        }
-	        date = Date.parse(date);
-	        return !isNaN(date) ? new Date(date) : null;
-	    };
-
-	    validator.toFloat = function (str) {
-	        return parseFloat(str);
-	    };
-
-	    validator.toInt = function (str, radix) {
-	        return parseInt(str, radix || 10);
-	    };
-
-	    validator.toBoolean = function (str, strict) {
-	        if (strict) {
-	            return str === '1' || str === 'true';
-	        }
-	        return str !== '0' && str !== 'false' && str !== '';
-	    };
-
-	    validator.equals = function (str, comparison) {
-	        return str === validator.toString(comparison);
-	    };
-
-	    validator.contains = function (str, elem) {
-	        return str.indexOf(validator.toString(elem)) >= 0;
-	    };
-
-	    validator.matches = function (str, pattern, modifiers) {
-	        if (Object.prototype.toString.call(pattern) !== '[object RegExp]') {
-	            pattern = new RegExp(pattern, modifiers);
-	        }
-	        return pattern.test(str);
-	    };
-
-	    var default_email_options = {
-	        allow_display_name: false,
-	        allow_utf8_local_part: true,
-	        require_tld: true
-	    };
-
-	    validator.isEmail = function (str, options) {
-	        options = merge(options, default_email_options);
-
-	        if (options.allow_display_name) {
-	            var display_email = str.match(displayName);
-	            if (display_email) {
-	                str = display_email[1];
-	            }
-	        }
-
-	        var parts = str.split('@')
-	          , domain = parts.pop()
-	          , user = parts.join('@');
-
-	        var lower_domain = domain.toLowerCase();
-	        if (lower_domain === 'gmail.com' || lower_domain === 'googlemail.com') {
-	            user = user.replace(/\./g, '').toLowerCase();
-	        }
-
-	        if (!validator.isByteLength(user, 0, 64) ||
-	                !validator.isByteLength(domain, 0, 256)) {
-	            return false;
-	        }
-
-	        if (!validator.isFQDN(domain, {require_tld: options.require_tld})) {
-	            return false;
-	        }
-
-	        if (user[0] === '"') {
-	            user = user.slice(1, user.length - 1);
-	            return options.allow_utf8_local_part ?
-	                quotedEmailUserUtf8.test(user) :
-	                quotedEmailUser.test(user);
-	        }
-
-	        var pattern = options.allow_utf8_local_part ?
-	            emailUserUtf8Part : emailUserPart;
-
-	        var user_parts = user.split('.');
-	        for (var i = 0; i < user_parts.length; i++) {
-	            if (!pattern.test(user_parts[i])) {
-	                return false;
-	            }
-	        }
-
-	        return true;
-	    };
-
-	    var default_url_options = {
-	        protocols: [ 'http', 'https', 'ftp' ]
-	      , require_tld: true
-	      , require_protocol: false
-	      , require_valid_protocol: true
-	      , allow_underscores: false
-	      , allow_trailing_dot: false
-	      , allow_protocol_relative_urls: false
-	    };
-
-	    validator.isURL = function (url, options) {
-	        if (!url || url.length >= 2083 || /\s/.test(url)) {
-	            return false;
-	        }
-	        if (url.indexOf('mailto:') === 0) {
-	            return false;
-	        }
-	        options = merge(options, default_url_options);
-	        var protocol, auth, host, hostname, port,
-	            port_str, split;
-	        split = url.split('://');
-	        if (split.length > 1) {
-	            protocol = split.shift();
-	            if (options.require_valid_protocol && options.protocols.indexOf(protocol) === -1) {
-	                return false;
-	            }
-	        } else if (options.require_protocol) {
-	            return false;
-	        }  else if (options.allow_protocol_relative_urls && url.substr(0, 2) === '//') {
-	            split[0] = url.substr(2);
-	        }
-	        url = split.join('://');
-	        split = url.split('#');
-	        url = split.shift();
-
-	        split = url.split('?');
-	        url = split.shift();
-
-	        split = url.split('/');
-	        url = split.shift();
-	        split = url.split('@');
-	        if (split.length > 1) {
-	            auth = split.shift();
-	            if (auth.indexOf(':') >= 0 && auth.split(':').length > 2) {
-	                return false;
-	            }
-	        }
-	        hostname = split.join('@');
-	        split = hostname.split(':');
-	        host = split.shift();
-	        if (split.length) {
-	            port_str = split.join(':');
-	            port = parseInt(port_str, 10);
-	            if (!/^[0-9]+$/.test(port_str) || port <= 0 || port > 65535) {
-	                return false;
-	            }
-	        }
-	        if (!validator.isIP(host) && !validator.isFQDN(host, options) &&
-	                host !== 'localhost') {
-	            return false;
-	        }
-	        if (options.host_whitelist &&
-	                options.host_whitelist.indexOf(host) === -1) {
-	            return false;
-	        }
-	        if (options.host_blacklist &&
-	                options.host_blacklist.indexOf(host) !== -1) {
-	            return false;
-	        }
-	        return true;
-	    };
-
-	    validator.isMACAddress = function (str) {
-	        return macAddress.test(str);
-	    };
-
-	    validator.isIP = function (str, version) {
-	        version = validator.toString(version);
-	        if (!version) {
-	            return validator.isIP(str, 4) || validator.isIP(str, 6);
-	        } else if (version === '4') {
-	            if (!ipv4Maybe.test(str)) {
-	                return false;
-	            }
-	            var parts = str.split('.').sort(function (a, b) {
-	                return a - b;
-	            });
-	            return parts[3] <= 255;
-	        } else if (version === '6') {
-	            var blocks = str.split(':');
-	            var foundOmissionBlock = false; // marker to indicate ::
-
-	            // At least some OS accept the last 32 bits of an IPv6 address
-	            // (i.e. 2 of the blocks) in IPv4 notation, and RFC 3493 says
-	            // that '::ffff:a.b.c.d' is valid for IPv4-mapped IPv6 addresses,
-	            // and '::a.b.c.d' is deprecated, but also valid.
-	            var foundIPv4TransitionBlock = validator.isIP(blocks[blocks.length - 1], 4);
-	            var expectedNumberOfBlocks = foundIPv4TransitionBlock ? 7 : 8;
-
-	            if (blocks.length > expectedNumberOfBlocks)
-	                return false;
-
-	            // initial or final ::
-	            if (str === '::') {
-	                return true;
-	            } else if (str.substr(0, 2) === '::') {
-	                blocks.shift();
-	                blocks.shift();
-	                foundOmissionBlock = true;
-	            } else if (str.substr(str.length - 2) === '::') {
-	                blocks.pop();
-	                blocks.pop();
-	                foundOmissionBlock = true;
-	            }
-
-	            for (var i = 0; i < blocks.length; ++i) {
-	                // test for a :: which can not be at the string start/end
-	                // since those cases have been handled above
-	                if (blocks[i] === '' && i > 0 && i < blocks.length -1) {
-	                    if (foundOmissionBlock)
-	                        return false; // multiple :: in address
-	                    foundOmissionBlock = true;
-	                } else if (foundIPv4TransitionBlock && i == blocks.length - 1) {
-	                    // it has been checked before that the last
-	                    // block is a valid IPv4 address
-	                } else if (!ipv6Block.test(blocks[i])) {
-	                    return false;
-	                }
-	            }
-
-	            if (foundOmissionBlock) {
-	                return blocks.length >= 1;
-	            } else {
-	                return blocks.length === expectedNumberOfBlocks;
-	            }
-	        }
-	        return false;
-	    };
-
-	    var default_fqdn_options = {
-	        require_tld: true
-	      , allow_underscores: false
-	      , allow_trailing_dot: false
-	    };
-
-	    validator.isFQDN = function (str, options) {
-	        options = merge(options, default_fqdn_options);
-
-	        /* Remove the optional trailing dot before checking validity */
-	        if (options.allow_trailing_dot && str[str.length - 1] === '.') {
-	            str = str.substring(0, str.length - 1);
-	        }
-	        var parts = str.split('.');
-	        if (options.require_tld) {
-	            var tld = parts.pop();
-	            if (!parts.length || !/^([a-z\u00a1-\uffff]{2,}|xn[a-z0-9-]{2,})$/i.test(tld)) {
-	                return false;
-	            }
-	        }
-	        for (var part, i = 0; i < parts.length; i++) {
-	            part = parts[i];
-	            if (options.allow_underscores) {
-	                if (part.indexOf('__') >= 0) {
-	                    return false;
-	                }
-	                part = part.replace(/_/g, '');
-	            }
-	            if (!/^[a-z\u00a1-\uffff0-9-]+$/i.test(part)) {
-	                return false;
-	            }
-	            if (/[\uff01-\uff5e]/.test(part)) {
-	                // disallow full-width chars
-	                return false;
-	            }
-	            if (part[0] === '-' || part[part.length - 1] === '-') {
-	                return false;
-	            }
-	            if (part.indexOf('---') >= 0 && part.slice(0, 4) !== 'xn--') {
-	                return false;
-	            }
-	        }
-	        return true;
-	    };
-
-	    validator.isBoolean = function(str) {
-	        return (['true', 'false', '1', '0'].indexOf(str) >= 0);
-	    };
-
-	    validator.isAlpha = function (str) {
-	        return alpha.test(str);
-	    };
-
-	    validator.isAlphanumeric = function (str) {
-	        return alphanumeric.test(str);
-	    };
-
-	    validator.isNumeric = function (str) {
-	        return numeric.test(str);
-	    };
-
-	    validator.isDecimal = function (str) {
-	        return str !== '' && decimal.test(str);
-	    };
-
-	    validator.isHexadecimal = function (str) {
-	        return hexadecimal.test(str);
-	    };
-
-	    validator.isHexColor = function (str) {
-	        return hexcolor.test(str);
-	    };
-
-	    validator.isLowercase = function (str) {
-	        return str === str.toLowerCase();
-	    };
-
-	    validator.isUppercase = function (str) {
-	        return str === str.toUpperCase();
-	    };
-
-	    validator.isInt = function (str, options) {
-	        options = options || {};
-	        return int.test(str) && (!options.hasOwnProperty('min') || str >= options.min) && (!options.hasOwnProperty('max') || str <= options.max);
-	    };
-
-	    validator.isFloat = function (str, options) {
-	        options = options || {};
-	        if (str === '' || str === '.') {
-	            return false;
-	        }
-	        return float.test(str) && (!options.hasOwnProperty('min') || str >= options.min) && (!options.hasOwnProperty('max') || str <= options.max);
-	    };
-
-	    validator.isDivisibleBy = function (str, num) {
-	        return validator.toFloat(str) % validator.toInt(num) === 0;
-	    };
-
-	    validator.isNull = function (str) {
-	        return str.length === 0;
-	    };
-
-	    validator.isLength = function (str, min, max) {
-	        var surrogatePairs = str.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g) || [];
-	        var len = str.length - surrogatePairs.length;
-	        return len >= min && (typeof max === 'undefined' || len <= max);
-	    };
-
-	    validator.isByteLength = function (str, min, max) {
-	        var len = encodeURI(str).split(/%..|./).length - 1;
-	        return len >= min && (typeof max === 'undefined' || len <= max);
-	    };
-
-	    validator.isUUID = function (str, version) {
-	        var pattern = uuid[version ? version : 'all'];
-	        return pattern && pattern.test(str);
-	    };
-
-	    function getTimezoneOffset(str) {
-	        var iso8601Parts = str.match(iso8601)
-	          , timezone, sign, hours, minutes;
-	        if (!iso8601Parts) {
-	            str = str.toLowerCase();
-	            timezone = str.match(/(?:\s|gmt\s*)(-|\+)(\d{1,4})(\s|$)/);
-	            if (!timezone) {
-	                return str.indexOf('gmt') !== -1 ? 0 : null;
-	            }
-	            sign = timezone[1];
-	            var offset = timezone[2];
-	            if (offset.length === 3) {
-	                offset = '0' + offset;
-	            }
-	            if (offset.length <= 2) {
-	                hours = 0;
-	                minutes = parseInt(offset);
-	            } else {
-	                hours = parseInt(offset.slice(0, 2));
-	                minutes = parseInt(offset.slice(2, 4));
-	            }
-	        } else {
-	            timezone = iso8601Parts[21];
-	            if (!timezone) {
-	                return null;
-	            }
-	            if (timezone === 'z' || timezone === 'Z') {
-	                return 0;
-	            }
-	            sign = iso8601Parts[22];
-	            if (timezone.indexOf(':') !== -1) {
-	                hours = parseInt(iso8601Parts[23]);
-	                minutes = parseInt(iso8601Parts[24]);
-	            } else {
-	                hours = 0;
-	                minutes = parseInt(iso8601Parts[23]);
-	            }
-	        }
-	        return (hours * 60 + minutes) * (sign === '-' ? 1 : -1);
-	    }
-
-	    validator.isDate = function (str) {
-	        var normalizedDate = new Date(Date.parse(str));
-	        if (isNaN(normalizedDate)) {
-	            return false;
-	        }
-
-	        // normalizedDate is in the user's timezone. Apply the input
-	        // timezone offset to the date so that the year and day match
-	        // the input
-	        var timezoneOffset = getTimezoneOffset(str);
-	        if (timezoneOffset !== null) {
-	            var timezoneDifference = normalizedDate.getTimezoneOffset() -
-	                timezoneOffset;
-	            normalizedDate = new Date(normalizedDate.getTime() +
-	                60000 * timezoneDifference);
-	        }
-
-	        var day = String(normalizedDate.getDate());
-	        var dayOrYear, dayOrYearMatches, year;
-	        //check for valid double digits that could be late days
-	        //check for all matches since a string like '12/23' is a valid date
-	        //ignore everything with nearby colons
-	        dayOrYearMatches = str.match(/(^|[^:\d])[23]\d([^:\d]|$)/g);
-	        if (!dayOrYearMatches) {
-	            return true;
-	        }
-	        dayOrYear = dayOrYearMatches.map(function(digitString) {
-	            return digitString.match(/\d+/g)[0];
-	        }).join('/');
-
-	        year = String(normalizedDate.getFullYear()).slice(-2);
-	        if (dayOrYear === day || dayOrYear === year) {
-	            return true;
-	        } else if ((dayOrYear === (day + '/' + year)) || (dayOrYear === (year + '/' + day))) {
-	            return true;
-	        }
-	        return false;
-	    };
-
-	    validator.isAfter = function (str, date) {
-	        var comparison = validator.toDate(date || new Date())
-	          , original = validator.toDate(str);
-	        return !!(original && comparison && original > comparison);
-	    };
-
-	    validator.isBefore = function (str, date) {
-	        var comparison = validator.toDate(date || new Date())
-	          , original = validator.toDate(str);
-	        return !!(original && comparison && original < comparison);
-	    };
-
-	    validator.isIn = function (str, options) {
-	        var i;
-	        if (Object.prototype.toString.call(options) === '[object Array]') {
-	            var array = [];
-	            for (i in options) {
-	                array[i] = validator.toString(options[i]);
-	            }
-	            return array.indexOf(str) >= 0;
-	        } else if (typeof options === 'object') {
-	            return options.hasOwnProperty(str);
-	        } else if (options && typeof options.indexOf === 'function') {
-	            return options.indexOf(str) >= 0;
-	        }
-	        return false;
-	    };
-
-	    validator.isWhitelisted = function (str, chars) {
-	        for (var i = str.length - 1; i >= 0; i--) {
-	            if (chars.indexOf(str[i]) === -1) {
-	                return false;
-	            }
-	        }
-
-	        return true;
-	    };
-
-	    validator.isCreditCard = function (str) {
-	        var sanitized = str.replace(/[^0-9]+/g, '');
-	        if (!creditCard.test(sanitized)) {
-	            return false;
-	        }
-	        var sum = 0, digit, tmpNum, shouldDouble;
-	        for (var i = sanitized.length - 1; i >= 0; i--) {
-	            digit = sanitized.substring(i, (i + 1));
-	            tmpNum = parseInt(digit, 10);
-	            if (shouldDouble) {
-	                tmpNum *= 2;
-	                if (tmpNum >= 10) {
-	                    sum += ((tmpNum % 10) + 1);
-	                } else {
-	                    sum += tmpNum;
-	                }
-	            } else {
-	                sum += tmpNum;
-	            }
-	            shouldDouble = !shouldDouble;
-	        }
-	        return !!((sum % 10) === 0 ? sanitized : false);
-	    };
-
-	    validator.isISIN = function (str) {
-	        if (!isin.test(str)) {
-	            return false;
-	        }
-
-	        var checksumStr = str.replace(/[A-Z]/g, function(character) {
-	            return parseInt(character, 36);
-	        });
-
-	        var sum = 0, digit, tmpNum, shouldDouble = true;
-	        for (var i = checksumStr.length - 2; i >= 0; i--) {
-	            digit = checksumStr.substring(i, (i + 1));
-	            tmpNum = parseInt(digit, 10);
-	            if (shouldDouble) {
-	                tmpNum *= 2;
-	                if (tmpNum >= 10) {
-	                    sum += tmpNum + 1;
-	                } else {
-	                    sum += tmpNum;
-	                }
-	            } else {
-	                sum += tmpNum;
-	            }
-	            shouldDouble = !shouldDouble;
-	        }
-
-	        return parseInt(str.substr(str.length - 1), 10) === (10000 - sum) % 10;
-	    };
-
-	    validator.isISBN = function (str, version) {
-	        version = validator.toString(version);
-	        if (!version) {
-	            return validator.isISBN(str, 10) || validator.isISBN(str, 13);
-	        }
-	        var sanitized = str.replace(/[\s-]+/g, '')
-	          , checksum = 0, i;
-	        if (version === '10') {
-	            if (!isbn10Maybe.test(sanitized)) {
-	                return false;
-	            }
-	            for (i = 0; i < 9; i++) {
-	                checksum += (i + 1) * sanitized.charAt(i);
-	            }
-	            if (sanitized.charAt(9) === 'X') {
-	                checksum += 10 * 10;
-	            } else {
-	                checksum += 10 * sanitized.charAt(9);
-	            }
-	            if ((checksum % 11) === 0) {
-	                return !!sanitized;
-	            }
-	        } else  if (version === '13') {
-	            if (!isbn13Maybe.test(sanitized)) {
-	                return false;
-	            }
-	            var factor = [ 1, 3 ];
-	            for (i = 0; i < 12; i++) {
-	                checksum += factor[i % 2] * sanitized.charAt(i);
-	            }
-	            if (sanitized.charAt(12) - ((10 - (checksum % 10)) % 10) === 0) {
-	                return !!sanitized;
-	            }
-	        }
-	        return false;
-	    };
-
-	    validator.isMobilePhone = function(str, locale) {
-	        if (locale in phones) {
-	            return phones[locale].test(str);
-	        }
-	        return false;
-	    };
-
-	    var default_currency_options = {
-	        symbol: '$'
-	      , require_symbol: false
-	      , allow_space_after_symbol: false
-	      , symbol_after_digits: false
-	      , allow_negatives: true
-	      , parens_for_negatives: false
-	      , negative_sign_before_digits: false
-	      , negative_sign_after_digits: false
-	      , allow_negative_sign_placeholder: false
-	      , thousands_separator: ','
-	      , decimal_separator: '.'
-	      , allow_space_after_digits: false
-	    };
-
-	    validator.isCurrency = function (str, options) {
-	        options = merge(options, default_currency_options);
-
-	        return currencyRegex(options).test(str);
-	    };
-
-	    validator.isJSON = function (str) {
-	        try {
-	            var obj = JSON.parse(str);
-	            return !!obj && typeof obj === 'object';
-	        } catch (e) {}
-	        return false;
-	    };
-
-	    validator.isMultibyte = function (str) {
-	        return multibyte.test(str);
-	    };
-
-	    validator.isAscii = function (str) {
-	        return ascii.test(str);
-	    };
-
-	    validator.isFullWidth = function (str) {
-	        return fullWidth.test(str);
-	    };
-
-	    validator.isHalfWidth = function (str) {
-	        return halfWidth.test(str);
-	    };
-
-	    validator.isVariableWidth = function (str) {
-	        return fullWidth.test(str) && halfWidth.test(str);
-	    };
-
-	    validator.isSurrogatePair = function (str) {
-	        return surrogatePair.test(str);
-	    };
-
-	    validator.isBase64 = function (str) {
-	        return base64.test(str);
-	    };
-
-	    validator.isMongoId = function (str) {
-	        return validator.isHexadecimal(str) && str.length === 24;
-	    };
-
-	    validator.isISO8601 = function (str) {
-	        return iso8601.test(str);
-	    };
-
-	    validator.ltrim = function (str, chars) {
-	        var pattern = chars ? new RegExp('^[' + chars + ']+', 'g') : /^\s+/g;
-	        return str.replace(pattern, '');
-	    };
-
-	    validator.rtrim = function (str, chars) {
-	        var pattern = chars ? new RegExp('[' + chars + ']+$', 'g') : /\s+$/g;
-	        return str.replace(pattern, '');
-	    };
-
-	    validator.trim = function (str, chars) {
-	        var pattern = chars ? new RegExp('^[' + chars + ']+|[' + chars + ']+$', 'g') : /^\s+|\s+$/g;
-	        return str.replace(pattern, '');
-	    };
-
-	    validator.escape = function (str) {
-	        return (str.replace(/&/g, '&amp;')
-	            .replace(/"/g, '&quot;')
-	            .replace(/'/g, '&#x27;')
-	            .replace(/</g, '&lt;')
-	            .replace(/>/g, '&gt;')
-	            .replace(/\//g, '&#x2F;')
-	            .replace(/\`/g, '&#96;'));
-	    };
-
-	    validator.stripLow = function (str, keep_new_lines) {
-	        var chars = keep_new_lines ? '\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F' : '\\x00-\\x1F\\x7F';
-	        return validator.blacklist(str, chars);
-	    };
-
-	    validator.whitelist = function (str, chars) {
-	        return str.replace(new RegExp('[^' + chars + ']+', 'g'), '');
-	    };
-
-	    validator.blacklist = function (str, chars) {
-	        return str.replace(new RegExp('[' + chars + ']+', 'g'), '');
-	    };
-
-	    var default_normalize_email_options = {
-	        lowercase: true,
-	        remove_dots: true,
-	        remove_extension: true
-	    };
-
-	    validator.normalizeEmail = function (email, options) {
-	        options = merge(options, default_normalize_email_options);
-	        if (!validator.isEmail(email)) {
-	            return false;
-	        }
-	        var parts = email.split('@', 2);
-	        parts[1] = parts[1].toLowerCase();
-	        if (parts[1] === 'gmail.com' || parts[1] === 'googlemail.com') {
-	            if (options.remove_extension) {
-	                parts[0] = parts[0].split('+')[0];
-	            }
-	            if (options.remove_dots) {
-	                parts[0] = parts[0].replace(/\./g, '');
-	            }
-	            if (!parts[0].length) {
-	                return false;
-	            }
-	            parts[0] = parts[0].toLowerCase();
-	            parts[1] = 'gmail.com';
-	        } else if (options.lowercase) {
-	            parts[0] = parts[0].toLowerCase();
-	        }
-	        return parts.join('@');
-	    };
-
-	    function merge(obj, defaults) {
-	        obj = obj || {};
-	        for (var key in defaults) {
-	            if (typeof obj[key] === 'undefined') {
-	                obj[key] = defaults[key];
-	            }
-	        }
-	        return obj;
-	    }
-
-	    function currencyRegex(options) {
-	        var symbol = '(\\' + options.symbol.replace(/\./g, '\\.') + ')' + (options.require_symbol ? '' : '?')
-	            , negative = '-?'
-	            , whole_dollar_amount_without_sep = '[1-9]\\d*'
-	            , whole_dollar_amount_with_sep = '[1-9]\\d{0,2}(\\' + options.thousands_separator + '\\d{3})*'
-	            , valid_whole_dollar_amounts = ['0', whole_dollar_amount_without_sep, whole_dollar_amount_with_sep]
-	            , whole_dollar_amount = '(' + valid_whole_dollar_amounts.join('|') + ')?'
-	            , decimal_amount = '(\\' + options.decimal_separator + '\\d{2})?';
-	        var pattern = whole_dollar_amount + decimal_amount;
-	        // default is negative sign before symbol, but there are two other options (besides parens)
-	        if (options.allow_negatives && !options.parens_for_negatives) {
-	            if (options.negative_sign_after_digits) {
-	                pattern += negative;
-	            }
-	            else if (options.negative_sign_before_digits) {
-	                pattern = negative + pattern;
-	            }
-	        }
-	        // South African Rand, for example, uses R 123 (space) and R-123 (no space)
-	        if (options.allow_negative_sign_placeholder) {
-	            pattern = '( (?!\\-))?' + pattern;
-	        }
-	        else if (options.allow_space_after_symbol) {
-	            pattern = ' ?' + pattern;
-	        }
-	        else if (options.allow_space_after_digits) {
-	            pattern += '( (?!$))?';
-	        }
-	        if (options.symbol_after_digits) {
-	            pattern += symbol;
-	        } else {
-	            pattern = symbol + pattern;
-	        }
-	        if (options.allow_negatives) {
-	            if (options.parens_for_negatives) {
-	                pattern = '(\\(' + pattern + '\\)|' + pattern + ')';
-	            }
-	            else if (!(options.negative_sign_before_digits || options.negative_sign_after_digits)) {
-	                pattern = negative + pattern;
-	            }
-	        }
-	        return new RegExp(
-	            '^' +
-	            // ensure there's a dollar and/or decimal amount, and that it doesn't start with a space or a negative sign followed by a space
-	            '(?!-? )(?=.*\\d)' +
-	            pattern +
-	            '$'
-	        );
-	    }
-
-	    validator.init();
-
-	    return validator;
-
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
+	var _toDate = __webpack_require__(22);
+
+	var _toDate2 = _interopRequireDefault(_toDate);
+
+	var _toFloat = __webpack_require__(24);
+
+	var _toFloat2 = _interopRequireDefault(_toFloat);
+
+	var _toInt = __webpack_require__(25);
+
+	var _toInt2 = _interopRequireDefault(_toInt);
+
+	var _toBoolean = __webpack_require__(26);
+
+	var _toBoolean2 = _interopRequireDefault(_toBoolean);
+
+	var _equals = __webpack_require__(27);
+
+	var _equals2 = _interopRequireDefault(_equals);
+
+	var _contains = __webpack_require__(28);
+
+	var _contains2 = _interopRequireDefault(_contains);
+
+	var _matches = __webpack_require__(30);
+
+	var _matches2 = _interopRequireDefault(_matches);
+
+	var _isEmail = __webpack_require__(31);
+
+	var _isEmail2 = _interopRequireDefault(_isEmail);
+
+	var _isURL = __webpack_require__(35);
+
+	var _isURL2 = _interopRequireDefault(_isURL);
+
+	var _isMACAddress = __webpack_require__(37);
+
+	var _isMACAddress2 = _interopRequireDefault(_isMACAddress);
+
+	var _isIP = __webpack_require__(36);
+
+	var _isIP2 = _interopRequireDefault(_isIP);
+
+	var _isFQDN = __webpack_require__(34);
+
+	var _isFQDN2 = _interopRequireDefault(_isFQDN);
+
+	var _isBoolean = __webpack_require__(38);
+
+	var _isBoolean2 = _interopRequireDefault(_isBoolean);
+
+	var _isAlpha = __webpack_require__(39);
+
+	var _isAlpha2 = _interopRequireDefault(_isAlpha);
+
+	var _isAlphanumeric = __webpack_require__(41);
+
+	var _isAlphanumeric2 = _interopRequireDefault(_isAlphanumeric);
+
+	var _isNumeric = __webpack_require__(42);
+
+	var _isNumeric2 = _interopRequireDefault(_isNumeric);
+
+	var _isLowercase = __webpack_require__(43);
+
+	var _isLowercase2 = _interopRequireDefault(_isLowercase);
+
+	var _isUppercase = __webpack_require__(44);
+
+	var _isUppercase2 = _interopRequireDefault(_isUppercase);
+
+	var _isAscii = __webpack_require__(45);
+
+	var _isAscii2 = _interopRequireDefault(_isAscii);
+
+	var _isFullWidth = __webpack_require__(46);
+
+	var _isFullWidth2 = _interopRequireDefault(_isFullWidth);
+
+	var _isHalfWidth = __webpack_require__(47);
+
+	var _isHalfWidth2 = _interopRequireDefault(_isHalfWidth);
+
+	var _isVariableWidth = __webpack_require__(48);
+
+	var _isVariableWidth2 = _interopRequireDefault(_isVariableWidth);
+
+	var _isMultibyte = __webpack_require__(49);
+
+	var _isMultibyte2 = _interopRequireDefault(_isMultibyte);
+
+	var _isSurrogatePair = __webpack_require__(50);
+
+	var _isSurrogatePair2 = _interopRequireDefault(_isSurrogatePair);
+
+	var _isInt = __webpack_require__(51);
+
+	var _isInt2 = _interopRequireDefault(_isInt);
+
+	var _isFloat = __webpack_require__(52);
+
+	var _isFloat2 = _interopRequireDefault(_isFloat);
+
+	var _isDecimal = __webpack_require__(53);
+
+	var _isDecimal2 = _interopRequireDefault(_isDecimal);
+
+	var _isHexadecimal = __webpack_require__(54);
+
+	var _isHexadecimal2 = _interopRequireDefault(_isHexadecimal);
+
+	var _isDivisibleBy = __webpack_require__(55);
+
+	var _isDivisibleBy2 = _interopRequireDefault(_isDivisibleBy);
+
+	var _isHexColor = __webpack_require__(56);
+
+	var _isHexColor2 = _interopRequireDefault(_isHexColor);
+
+	var _isJSON = __webpack_require__(57);
+
+	var _isJSON2 = _interopRequireDefault(_isJSON);
+
+	var _isNull = __webpack_require__(58);
+
+	var _isNull2 = _interopRequireDefault(_isNull);
+
+	var _isLength = __webpack_require__(59);
+
+	var _isLength2 = _interopRequireDefault(_isLength);
+
+	var _isByteLength = __webpack_require__(33);
+
+	var _isByteLength2 = _interopRequireDefault(_isByteLength);
+
+	var _isUUID = __webpack_require__(60);
+
+	var _isUUID2 = _interopRequireDefault(_isUUID);
+
+	var _isMongoId = __webpack_require__(61);
+
+	var _isMongoId2 = _interopRequireDefault(_isMongoId);
+
+	var _isDate = __webpack_require__(62);
+
+	var _isDate2 = _interopRequireDefault(_isDate);
+
+	var _isAfter = __webpack_require__(64);
+
+	var _isAfter2 = _interopRequireDefault(_isAfter);
+
+	var _isBefore = __webpack_require__(65);
+
+	var _isBefore2 = _interopRequireDefault(_isBefore);
+
+	var _isIn = __webpack_require__(66);
+
+	var _isIn2 = _interopRequireDefault(_isIn);
+
+	var _isCreditCard = __webpack_require__(67);
+
+	var _isCreditCard2 = _interopRequireDefault(_isCreditCard);
+
+	var _isISIN = __webpack_require__(68);
+
+	var _isISIN2 = _interopRequireDefault(_isISIN);
+
+	var _isISBN = __webpack_require__(69);
+
+	var _isISBN2 = _interopRequireDefault(_isISBN);
+
+	var _isMobilePhone = __webpack_require__(70);
+
+	var _isMobilePhone2 = _interopRequireDefault(_isMobilePhone);
+
+	var _isCurrency = __webpack_require__(71);
+
+	var _isCurrency2 = _interopRequireDefault(_isCurrency);
+
+	var _isISO = __webpack_require__(63);
+
+	var _isISO2 = _interopRequireDefault(_isISO);
+
+	var _isBase = __webpack_require__(72);
+
+	var _isBase2 = _interopRequireDefault(_isBase);
+
+	var _isDataURI = __webpack_require__(73);
+
+	var _isDataURI2 = _interopRequireDefault(_isDataURI);
+
+	var _ltrim = __webpack_require__(74);
+
+	var _ltrim2 = _interopRequireDefault(_ltrim);
+
+	var _rtrim = __webpack_require__(75);
+
+	var _rtrim2 = _interopRequireDefault(_rtrim);
+
+	var _trim = __webpack_require__(76);
+
+	var _trim2 = _interopRequireDefault(_trim);
+
+	var _escape = __webpack_require__(77);
+
+	var _escape2 = _interopRequireDefault(_escape);
+
+	var _unescape = __webpack_require__(78);
+
+	var _unescape2 = _interopRequireDefault(_unescape);
+
+	var _stripLow = __webpack_require__(79);
+
+	var _stripLow2 = _interopRequireDefault(_stripLow);
+
+	var _whitelist = __webpack_require__(81);
+
+	var _whitelist2 = _interopRequireDefault(_whitelist);
+
+	var _blacklist = __webpack_require__(80);
+
+	var _blacklist2 = _interopRequireDefault(_blacklist);
+
+	var _isWhitelisted = __webpack_require__(82);
+
+	var _isWhitelisted2 = _interopRequireDefault(_isWhitelisted);
+
+	var _normalizeEmail = __webpack_require__(83);
+
+	var _normalizeEmail2 = _interopRequireDefault(_normalizeEmail);
+
+	var _toString = __webpack_require__(29);
+
+	var _toString2 = _interopRequireDefault(_toString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var version = '5.3.0';
+
+	var validator = {
+	  version: version,
+	  toDate: _toDate2.default,
+	  toFloat: _toFloat2.default, toInt: _toInt2.default,
+	  toBoolean: _toBoolean2.default,
+	  equals: _equals2.default, contains: _contains2.default, matches: _matches2.default,
+	  isEmail: _isEmail2.default, isURL: _isURL2.default, isMACAddress: _isMACAddress2.default, isIP: _isIP2.default, isFQDN: _isFQDN2.default,
+	  isBoolean: _isBoolean2.default,
+	  isAlpha: _isAlpha2.default, isAlphanumeric: _isAlphanumeric2.default, isNumeric: _isNumeric2.default, isLowercase: _isLowercase2.default, isUppercase: _isUppercase2.default,
+	  isAscii: _isAscii2.default, isFullWidth: _isFullWidth2.default, isHalfWidth: _isHalfWidth2.default, isVariableWidth: _isVariableWidth2.default,
+	  isMultibyte: _isMultibyte2.default, isSurrogatePair: _isSurrogatePair2.default,
+	  isInt: _isInt2.default, isFloat: _isFloat2.default, isDecimal: _isDecimal2.default, isHexadecimal: _isHexadecimal2.default, isDivisibleBy: _isDivisibleBy2.default,
+	  isHexColor: _isHexColor2.default,
+	  isJSON: _isJSON2.default,
+	  isNull: _isNull2.default,
+	  isLength: _isLength2.default, isByteLength: _isByteLength2.default,
+	  isUUID: _isUUID2.default, isMongoId: _isMongoId2.default,
+	  isDate: _isDate2.default, isAfter: _isAfter2.default, isBefore: _isBefore2.default,
+	  isIn: _isIn2.default,
+	  isCreditCard: _isCreditCard2.default,
+	  isISIN: _isISIN2.default, isISBN: _isISBN2.default,
+	  isMobilePhone: _isMobilePhone2.default,
+	  isCurrency: _isCurrency2.default,
+	  isISO8601: _isISO2.default,
+	  isBase64: _isBase2.default, isDataURI: _isDataURI2.default,
+	  ltrim: _ltrim2.default, rtrim: _rtrim2.default, trim: _trim2.default,
+	  escape: _escape2.default, unescape: _unescape2.default, stripLow: _stripLow2.default,
+	  whitelist: _whitelist2.default, blacklist: _blacklist2.default,
+	  isWhitelisted: _isWhitelisted2.default,
+	  normalizeEmail: _normalizeEmail2.default,
+	  toString: _toString2.default
+	};
+
+	exports.default = validator;
+	module.exports = exports['default'];
 
 /***/ },
 /* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = toDate;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function toDate(date) {
+	  (0, _assertString2.default)(date);
+	  date = Date.parse(date);
+	  return !isNaN(date) ? new Date(date) : null;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = assertString;
+	function assertString(input) {
+	  if (typeof input !== 'string') {
+	    throw new TypeError('This library (validator.js) validates strings only');
+	  }
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = toFloat;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function toFloat(str) {
+	  (0, _assertString2.default)(str);
+	  return parseFloat(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = toInt;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function toInt(str, radix) {
+	  (0, _assertString2.default)(str);
+	  return parseInt(str, radix || 10);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = toBoolean;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function toBoolean(str, strict) {
+	  (0, _assertString2.default)(str);
+	  if (strict) {
+	    return str === '1' || str === 'true';
+	  }
+	  return str !== '0' && str !== 'false' && str !== '';
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = equals;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function equals(str, comparison) {
+	  (0, _assertString2.default)(str);
+	  return str === comparison;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = contains;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _toString = __webpack_require__(29);
+
+	var _toString2 = _interopRequireDefault(_toString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function contains(str, elem) {
+	  (0, _assertString2.default)(str);
+	  return str.indexOf((0, _toString2.default)(elem)) >= 0;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	exports.default = toString;
+	function toString(input) {
+	  if ((typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && input !== null) {
+	    if (typeof input.toString === 'function') {
+	      input = input.toString();
+	    } else {
+	      input = '[object Object]';
+	    }
+	  } else if (input === null || typeof input === 'undefined' || isNaN(input) && !input.length) {
+	    input = '';
+	  }
+	  return String(input);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = matches;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function matches(str, pattern, modifiers) {
+	  (0, _assertString2.default)(str);
+	  if (Object.prototype.toString.call(pattern) !== '[object RegExp]') {
+	    pattern = new RegExp(pattern, modifiers);
+	  }
+	  return pattern.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isEmail;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _merge = __webpack_require__(32);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _isByteLength = __webpack_require__(33);
+
+	var _isByteLength2 = _interopRequireDefault(_isByteLength);
+
+	var _isFQDN = __webpack_require__(34);
+
+	var _isFQDN2 = _interopRequireDefault(_isFQDN);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var default_email_options = {
+	  allow_display_name: false,
+	  allow_utf8_local_part: true,
+	  require_tld: true
+	};
+
+	/* eslint-disable max-len */
+	/* eslint-disable no-control-regex */
+	var displayName = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~\.\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~\.\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF\s]*<(.+)>$/i;
+	var emailUserPart = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~]+$/i;
+	var quotedEmailUser = /^([\s\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e]|(\\[\x01-\x09\x0b\x0c\x0d-\x7f]))*$/i;
+	var emailUserUtf8Part = /^[a-z\d!#\$%&'\*\+\-\/=\?\^_`{\|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+$/i;
+	var quotedEmailUserUtf8 = /^([\s\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|(\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*$/i;
+	/* eslint-enable max-len */
+	/* eslint-enable no-control-regex */
+
+	function isEmail(str, options) {
+	  (0, _assertString2.default)(str);
+	  options = (0, _merge2.default)(options, default_email_options);
+
+	  if (options.allow_display_name) {
+	    var display_email = str.match(displayName);
+	    if (display_email) {
+	      str = display_email[1];
+	    }
+	  }
+
+	  var parts = str.split('@');
+	  var domain = parts.pop();
+	  var user = parts.join('@');
+
+	  var lower_domain = domain.toLowerCase();
+	  if (lower_domain === 'gmail.com' || lower_domain === 'googlemail.com') {
+	    user = user.replace(/\./g, '').toLowerCase();
+	  }
+
+	  if (!(0, _isByteLength2.default)(user, { max: 64 }) || !(0, _isByteLength2.default)(domain, { max: 256 })) {
+	    return false;
+	  }
+
+	  if (!(0, _isFQDN2.default)(domain, { require_tld: options.require_tld })) {
+	    return false;
+	  }
+
+	  if (user[0] === '"') {
+	    user = user.slice(1, user.length - 1);
+	    return options.allow_utf8_local_part ? quotedEmailUserUtf8.test(user) : quotedEmailUser.test(user);
+	  }
+
+	  var pattern = options.allow_utf8_local_part ? emailUserUtf8Part : emailUserPart;
+
+	  var user_parts = user.split('.');
+	  for (var i = 0; i < user_parts.length; i++) {
+	    if (!pattern.test(user_parts[i])) {
+	      return false;
+	    }
+	  }
+
+	  return true;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = merge;
+	function merge() {
+	  var obj = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var defaults = arguments[1];
+
+	  for (var key in defaults) {
+	    if (typeof obj[key] === 'undefined') {
+	      obj[key] = defaults[key];
+	    }
+	  }
+	  return obj;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	exports.default = isByteLength;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable prefer-rest-params */
+	function isByteLength(str, options) {
+	  (0, _assertString2.default)(str);
+	  var min = void 0;
+	  var max = void 0;
+	  if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
+	    min = options.min || 0;
+	    max = options.max;
+	  } else {
+	    // backwards compatibility: isByteLength(str, min [, max])
+	    min = arguments[1];
+	    max = arguments[2];
+	  }
+	  var len = encodeURI(str).split(/%..|./).length - 1;
+	  return len >= min && (typeof max === 'undefined' || len <= max);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isFDQN;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _merge = __webpack_require__(32);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var default_fqdn_options = {
+	  require_tld: true,
+	  allow_underscores: false,
+	  allow_trailing_dot: false
+	};
+
+	function isFDQN(str, options) {
+	  (0, _assertString2.default)(str);
+	  options = (0, _merge2.default)(options, default_fqdn_options);
+
+	  /* Remove the optional trailing dot before checking validity */
+	  if (options.allow_trailing_dot && str[str.length - 1] === '.') {
+	    str = str.substring(0, str.length - 1);
+	  }
+	  var parts = str.split('.');
+	  if (options.require_tld) {
+	    var tld = parts.pop();
+	    if (!parts.length || !/^([a-z\u00a1-\uffff]{2,}|xn[a-z0-9-]{2,})$/i.test(tld)) {
+	      return false;
+	    }
+	  }
+	  for (var part, i = 0; i < parts.length; i++) {
+	    part = parts[i];
+	    if (options.allow_underscores) {
+	      part = part.replace(/_/g, '');
+	    }
+	    if (!/^[a-z\u00a1-\uffff0-9-]+$/i.test(part)) {
+	      return false;
+	    }
+	    if (/[\uff01-\uff5e]/.test(part)) {
+	      // disallow full-width chars
+	      return false;
+	    }
+	    if (part[0] === '-' || part[part.length - 1] === '-') {
+	      return false;
+	    }
+	  }
+	  return true;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isURL;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _isFQDN = __webpack_require__(34);
+
+	var _isFQDN2 = _interopRequireDefault(_isFQDN);
+
+	var _isIP = __webpack_require__(36);
+
+	var _isIP2 = _interopRequireDefault(_isIP);
+
+	var _merge = __webpack_require__(32);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var default_url_options = {
+	  protocols: ['http', 'https', 'ftp'],
+	  require_tld: true,
+	  require_protocol: false,
+	  require_valid_protocol: true,
+	  allow_underscores: false,
+	  allow_trailing_dot: false,
+	  allow_protocol_relative_urls: false
+	};
+
+	function isURL(url, options) {
+	  (0, _assertString2.default)(url);
+	  if (!url || url.length >= 2083 || /\s/.test(url)) {
+	    return false;
+	  }
+	  if (url.indexOf('mailto:') === 0) {
+	    return false;
+	  }
+	  options = (0, _merge2.default)(options, default_url_options);
+	  var protocol = void 0,
+	      auth = void 0,
+	      host = void 0,
+	      hostname = void 0,
+	      port = void 0,
+	      port_str = void 0,
+	      split = void 0;
+
+	  split = url.split('#');
+	  url = split.shift();
+
+	  split = url.split('?');
+	  url = split.shift();
+
+	  split = url.split('://');
+	  if (split.length > 1) {
+	    protocol = split.shift();
+	    if (options.require_valid_protocol && options.protocols.indexOf(protocol) === -1) {
+	      return false;
+	    }
+	  } else if (options.require_protocol) {
+	    return false;
+	  } else if (options.allow_protocol_relative_urls && url.substr(0, 2) === '//') {
+	    split[0] = url.substr(2);
+	  }
+	  url = split.join('://');
+
+	  split = url.split('/');
+	  url = split.shift();
+	  split = url.split('@');
+	  if (split.length > 1) {
+	    auth = split.shift();
+	    if (auth.indexOf(':') >= 0 && auth.split(':').length > 2) {
+	      return false;
+	    }
+	  }
+	  hostname = split.join('@');
+	  split = hostname.split(':');
+	  host = split.shift();
+	  if (split.length) {
+	    port_str = split.join(':');
+	    port = parseInt(port_str, 10);
+	    if (!/^[0-9]+$/.test(port_str) || port <= 0 || port > 65535) {
+	      return false;
+	    }
+	  }
+	  if (!(0, _isIP2.default)(host) && !(0, _isFQDN2.default)(host, options) && host !== 'localhost') {
+	    return false;
+	  }
+	  if (options.host_whitelist && options.host_whitelist.indexOf(host) === -1) {
+	    return false;
+	  }
+	  if (options.host_blacklist && options.host_blacklist.indexOf(host) !== -1) {
+	    return false;
+	  }
+	  return true;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isIP;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ipv4Maybe = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+	var ipv6Block = /^[0-9A-F]{1,4}$/i;
+
+	function isIP(str) {
+	  var version = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
+
+	  (0, _assertString2.default)(str);
+	  version = String(version);
+	  if (!version) {
+	    return isIP(str, 4) || isIP(str, 6);
+	  } else if (version === '4') {
+	    if (!ipv4Maybe.test(str)) {
+	      return false;
+	    }
+	    var parts = str.split('.').sort(function (a, b) {
+	      return a - b;
+	    });
+	    return parts[3] <= 255;
+	  } else if (version === '6') {
+	    var blocks = str.split(':');
+	    var foundOmissionBlock = false; // marker to indicate ::
+
+	    // At least some OS accept the last 32 bits of an IPv6 address
+	    // (i.e. 2 of the blocks) in IPv4 notation, and RFC 3493 says
+	    // that '::ffff:a.b.c.d' is valid for IPv4-mapped IPv6 addresses,
+	    // and '::a.b.c.d' is deprecated, but also valid.
+	    var foundIPv4TransitionBlock = isIP(blocks[blocks.length - 1], 4);
+	    var expectedNumberOfBlocks = foundIPv4TransitionBlock ? 7 : 8;
+
+	    if (blocks.length > expectedNumberOfBlocks) {
+	      return false;
+	    }
+	    // initial or final ::
+	    if (str === '::') {
+	      return true;
+	    } else if (str.substr(0, 2) === '::') {
+	      blocks.shift();
+	      blocks.shift();
+	      foundOmissionBlock = true;
+	    } else if (str.substr(str.length - 2) === '::') {
+	      blocks.pop();
+	      blocks.pop();
+	      foundOmissionBlock = true;
+	    }
+
+	    for (var i = 0; i < blocks.length; ++i) {
+	      // test for a :: which can not be at the string start/end
+	      // since those cases have been handled above
+	      if (blocks[i] === '' && i > 0 && i < blocks.length - 1) {
+	        if (foundOmissionBlock) {
+	          return false; // multiple :: in address
+	        }
+	        foundOmissionBlock = true;
+	      } else if (foundIPv4TransitionBlock && i === blocks.length - 1) {
+	        // it has been checked before that the last
+	        // block is a valid IPv4 address
+	      } else if (!ipv6Block.test(blocks[i])) {
+	          return false;
+	        }
+	    }
+	    if (foundOmissionBlock) {
+	      return blocks.length >= 1;
+	    }
+	    return blocks.length === expectedNumberOfBlocks;
+	  }
+	  return false;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isMACAddress;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var macAddress = /^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$/;
+
+	function isMACAddress(str) {
+	  (0, _assertString2.default)(str);
+	  return macAddress.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isBoolean;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isBoolean(str) {
+	  (0, _assertString2.default)(str);
+	  return ['true', 'false', '1', '0'].indexOf(str) >= 0;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isAlpha;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _alpha = __webpack_require__(40);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isAlpha(str) {
+	  var locale = arguments.length <= 1 || arguments[1] === undefined ? 'en-US' : arguments[1];
+
+	  (0, _assertString2.default)(str);
+	  if (locale in _alpha.alpha) {
+	    return _alpha.alpha[locale].test(str);
+	  }
+	  throw new Error('Invalid locale \'' + locale + '\'');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 40 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var alpha = exports.alpha = {
+	  'en-US': /^[A-Z]+$/i,
+	  'cs-CZ': /^[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$/i,
+	  'de-DE': /^[A-ZÄÖÜß]+$/i,
+	  'es-ES': /^[A-ZÁÉÍÑÓÚÜ]+$/i,
+	  'fr-FR': /^[A-ZÀÂÆÇÉÈÊËÏÎÔŒÙÛÜŸ]+$/i,
+	  'nl-NL': /^[A-ZÉËÏÓÖÜ]+$/i,
+	  'pl-PL': /^[A-ZĄĆĘŚŁŃÓŻŹ]+$/i,
+	  'pt-PT': /^[A-ZÃÁÀÂÇÉÊÍÕÓÔÚÜ]+$/i,
+	  'ru-RU': /^[А-ЯЁа-яё]+$/i,
+	  'tr-TR': /^[A-ZÇĞİıÖŞÜ]+$/i,
+	  ar: /^[ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/
+	};
+
+	var alphanumeric = exports.alphanumeric = {
+	  'en-US': /^[0-9A-Z]+$/i,
+	  'cs-CZ': /^[0-9A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$/i,
+	  'de-DE': /^[0-9A-ZÄÖÜß]+$/i,
+	  'es-ES': /^[0-9A-ZÁÉÍÑÓÚÜ]+$/i,
+	  'fr-FR': /^[0-9A-ZÀÂÆÇÉÈÊËÏÎÔŒÙÛÜŸ]+$/i,
+	  'nl-NL': /^[0-9A-ZÉËÏÓÖÜ]+$/i,
+	  'pl-PL': /^[0-9A-ZĄĆĘŚŁŃÓŻŹ]+$/i,
+	  'pt-PT': /^[0-9A-ZÃÁÀÂÇÉÊÍÕÓÔÚÜ]+$/i,
+	  'ru-RU': /^[0-9А-ЯЁа-яё]+$/i,
+	  'tr-TR': /^[0-9A-ZÇĞİıÖŞÜ]+$/i,
+	  ar: /^[٠١٢٣٤٥٦٧٨٩0-9ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/
+	};
+
+	var englishLocales = exports.englishLocales = ['AU', 'GB', 'HK', 'IN', 'NZ', 'ZA', 'ZM'];
+
+	for (var locale, i = 0; i < englishLocales.length; i++) {
+	  locale = 'en-' + englishLocales[i];
+	  alpha[locale] = alpha['en-US'];
+	  alphanumeric[locale] = alphanumeric['en-US'];
+	}
+
+	// Source: http://www.localeplanet.com/java/
+	var arabicLocales = exports.arabicLocales = ['AE', 'BH', 'DZ', 'EG', 'IQ', 'JO', 'KW', 'LB', 'LY', 'MA', 'QM', 'QA', 'SA', 'SD', 'SY', 'TN', 'YE'];
+
+	for (var _locale, _i = 0; _i < arabicLocales.length; _i++) {
+	  _locale = 'ar-' + arabicLocales[_i];
+	  alpha[_locale] = alpha.ar;
+	  alphanumeric[_locale] = alphanumeric.ar;
+	}
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isAlphanumeric;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _alpha = __webpack_require__(40);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isAlphanumeric(str) {
+	  var locale = arguments.length <= 1 || arguments[1] === undefined ? 'en-US' : arguments[1];
+
+	  (0, _assertString2.default)(str);
+	  if (locale in _alpha.alphanumeric) {
+	    return _alpha.alphanumeric[locale].test(str);
+	  }
+	  throw new Error('Invalid locale \'' + locale + '\'');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isNumeric;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var numeric = /^[-+]?[0-9]+$/;
+
+	function isNumeric(str) {
+	  (0, _assertString2.default)(str);
+	  return numeric.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isLowercase;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isLowercase(str) {
+	  (0, _assertString2.default)(str);
+	  return str === str.toLowerCase();
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isUppercase;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isUppercase(str) {
+	  (0, _assertString2.default)(str);
+	  return str === str.toUpperCase();
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isAscii;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable no-control-regex */
+	var ascii = /^[\x00-\x7F]+$/;
+	/* eslint-enable no-control-regex */
+
+	function isAscii(str) {
+	  (0, _assertString2.default)(str);
+	  return ascii.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.fullWidth = undefined;
+	exports.default = isFullWidth;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var fullWidth = exports.fullWidth = /[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
+
+	function isFullWidth(str) {
+	  (0, _assertString2.default)(str);
+	  return fullWidth.test(str);
+	}
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.halfWidth = undefined;
+	exports.default = isHalfWidth;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var halfWidth = exports.halfWidth = /[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
+
+	function isHalfWidth(str) {
+	  (0, _assertString2.default)(str);
+	  return halfWidth.test(str);
+	}
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isVariableWidth;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _isFullWidth = __webpack_require__(46);
+
+	var _isHalfWidth = __webpack_require__(47);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isVariableWidth(str) {
+	  (0, _assertString2.default)(str);
+	  return _isFullWidth.fullWidth.test(str) && _isHalfWidth.halfWidth.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isMultibyte;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable no-control-regex */
+	var multibyte = /[^\x00-\x7F]/;
+	/* eslint-enable no-control-regex */
+
+	function isMultibyte(str) {
+	  (0, _assertString2.default)(str);
+	  return multibyte.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isSurrogatePair;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var surrogatePair = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
+
+	function isSurrogatePair(str) {
+	  (0, _assertString2.default)(str);
+	  return surrogatePair.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isInt;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
+	var intLeadingZeroes = /^[-+]?[0-9]+$/;
+
+	function isInt(str, options) {
+	  (0, _assertString2.default)(str);
+	  options = options || {};
+
+	  // Get the regex to use for testing, based on whether
+	  // leading zeroes are allowed or not.
+	  var regex = options.hasOwnProperty('allow_leading_zeroes') && options.allow_leading_zeroes ? intLeadingZeroes : int;
+
+	  // Check min/max
+	  var minCheckPassed = !options.hasOwnProperty('min') || str >= options.min;
+	  var maxCheckPassed = !options.hasOwnProperty('max') || str <= options.max;
+
+	  return regex.test(str) && minCheckPassed && maxCheckPassed;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 52 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isFloat;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var float = /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/;
+
+	function isFloat(str, options) {
+	  (0, _assertString2.default)(str);
+	  options = options || {};
+	  if (str === '' || str === '.') {
+	    return false;
+	  }
+	  return float.test(str) && (!options.hasOwnProperty('min') || str >= options.min) && (!options.hasOwnProperty('max') || str <= options.max);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isDecimal;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var decimal = /^[-+]?([0-9]+|\.[0-9]+|[0-9]+\.[0-9]+)$/;
+
+	function isDecimal(str) {
+	  (0, _assertString2.default)(str);
+	  return str !== '' && decimal.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isHexadecimal;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var hexadecimal = /^[0-9A-F]+$/i;
+
+	function isHexadecimal(str) {
+	  (0, _assertString2.default)(str);
+	  return hexadecimal.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isDivisibleBy;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _toFloat = __webpack_require__(24);
+
+	var _toFloat2 = _interopRequireDefault(_toFloat);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isDivisibleBy(str, num) {
+	  (0, _assertString2.default)(str);
+	  return (0, _toFloat2.default)(str) % parseInt(num, 10) === 0;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isHexColor;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
+
+	function isHexColor(str) {
+	  (0, _assertString2.default)(str);
+	  return hexcolor.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	exports.default = isJSON;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isJSON(str) {
+	  (0, _assertString2.default)(str);
+	  try {
+	    var obj = JSON.parse(str);
+	    return !!obj && (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object';
+	  } catch (e) {/* ignore */}
+	  return false;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isNull;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isNull(str) {
+	  (0, _assertString2.default)(str);
+	  return str.length === 0;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	exports.default = isLength;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable prefer-rest-params */
+	function isLength(str, options) {
+	  (0, _assertString2.default)(str);
+	  var min = void 0;
+	  var max = void 0;
+	  if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
+	    min = options.min || 0;
+	    max = options.max;
+	  } else {
+	    // backwards compatibility: isLength(str, min [, max])
+	    min = arguments[1];
+	    max = arguments[2];
+	  }
+	  var surrogatePairs = str.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g) || [];
+	  var len = str.length - surrogatePairs.length;
+	  return len >= min && (typeof max === 'undefined' || len <= max);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isUUID;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var uuid = {
+	  3: /^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$/i,
+	  4: /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
+	  5: /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
+	  all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
+	};
+
+	function isUUID(str) {
+	  var version = arguments.length <= 1 || arguments[1] === undefined ? 'all' : arguments[1];
+
+	  (0, _assertString2.default)(str);
+	  var pattern = uuid[version];
+	  return pattern && pattern.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isMongoId;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _isHexadecimal = __webpack_require__(54);
+
+	var _isHexadecimal2 = _interopRequireDefault(_isHexadecimal);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isMongoId(str) {
+	  (0, _assertString2.default)(str);
+	  return (0, _isHexadecimal2.default)(str) && str.length === 24;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isDate;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _isISO = __webpack_require__(63);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function getTimezoneOffset(str) {
+	  var iso8601Parts = str.match(_isISO.iso8601);
+	  var timezone = void 0,
+	      sign = void 0,
+	      hours = void 0,
+	      minutes = void 0;
+	  if (!iso8601Parts) {
+	    str = str.toLowerCase();
+	    timezone = str.match(/(?:\s|gmt\s*)(-|\+)(\d{1,4})(\s|$)/);
+	    if (!timezone) {
+	      return str.indexOf('gmt') !== -1 ? 0 : null;
+	    }
+	    sign = timezone[1];
+	    var offset = timezone[2];
+	    if (offset.length === 3) {
+	      offset = '0' + offset;
+	    }
+	    if (offset.length <= 2) {
+	      hours = 0;
+	      minutes = parseInt(offset, 10);
+	    } else {
+	      hours = parseInt(offset.slice(0, 2), 10);
+	      minutes = parseInt(offset.slice(2, 4), 10);
+	    }
+	  } else {
+	    timezone = iso8601Parts[21];
+	    if (!timezone) {
+	      // if no hour/minute was provided, the date is GMT
+	      return !iso8601Parts[12] ? 0 : null;
+	    }
+	    if (timezone === 'z' || timezone === 'Z') {
+	      return 0;
+	    }
+	    sign = iso8601Parts[22];
+	    if (timezone.indexOf(':') !== -1) {
+	      hours = parseInt(iso8601Parts[23], 10);
+	      minutes = parseInt(iso8601Parts[24], 10);
+	    } else {
+	      hours = 0;
+	      minutes = parseInt(iso8601Parts[23], 10);
+	    }
+	  }
+	  return (hours * 60 + minutes) * (sign === '-' ? 1 : -1);
+	}
+
+	function isDate(str) {
+	  (0, _assertString2.default)(str);
+	  var normalizedDate = new Date(Date.parse(str));
+	  if (isNaN(normalizedDate)) {
+	    return false;
+	  }
+
+	  // normalizedDate is in the user's timezone. Apply the input
+	  // timezone offset to the date so that the year and day match
+	  // the input
+	  var timezoneOffset = getTimezoneOffset(str);
+	  if (timezoneOffset !== null) {
+	    var timezoneDifference = normalizedDate.getTimezoneOffset() - timezoneOffset;
+	    normalizedDate = new Date(normalizedDate.getTime() + 60000 * timezoneDifference);
+	  }
+
+	  var day = String(normalizedDate.getDate());
+	  var dayOrYear = void 0,
+	      dayOrYearMatches = void 0,
+	      year = void 0;
+	  // check for valid double digits that could be late days
+	  // check for all matches since a string like '12/23' is a valid date
+	  // ignore everything with nearby colons
+	  dayOrYearMatches = str.match(/(^|[^:\d])[23]\d([^:\d]|$)/g);
+	  if (!dayOrYearMatches) {
+	    return true;
+	  }
+	  dayOrYear = dayOrYearMatches.map(function (digitString) {
+	    return digitString.match(/\d+/g)[0];
+	  }).join('/');
+
+	  year = String(normalizedDate.getFullYear()).slice(-2);
+	  if (dayOrYear === day || dayOrYear === year) {
+	    return true;
+	  } else if (dayOrYear === '' + day / year || dayOrYear === '' + year / day) {
+	    return true;
+	  }
+	  return false;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.iso8601 = undefined;
+
+	exports.default = function (str) {
+	  (0, _assertString2.default)(str);
+	  return iso8601.test(str);
+	};
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable max-len */
+	// from http://goo.gl/0ejHHW
+	var iso8601 = exports.iso8601 = /^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$/;
+	/* eslint-enable max-len */
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isAfter;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _toDate = __webpack_require__(22);
+
+	var _toDate2 = _interopRequireDefault(_toDate);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isAfter(str) {
+	  var date = arguments.length <= 1 || arguments[1] === undefined ? String(new Date()) : arguments[1];
+
+	  (0, _assertString2.default)(str);
+	  var comparison = (0, _toDate2.default)(date);
+	  var original = (0, _toDate2.default)(str);
+	  return !!(original && comparison && original > comparison);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isBefore;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _toDate = __webpack_require__(22);
+
+	var _toDate2 = _interopRequireDefault(_toDate);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isBefore(str) {
+	  var date = arguments.length <= 1 || arguments[1] === undefined ? String(new Date()) : arguments[1];
+
+	  (0, _assertString2.default)(str);
+	  var comparison = (0, _toDate2.default)(date);
+	  var original = (0, _toDate2.default)(str);
+	  return !!(original && comparison && original < comparison);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	exports.default = isIn;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _toString = __webpack_require__(29);
+
+	var _toString2 = _interopRequireDefault(_toString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isIn(str, options) {
+	  (0, _assertString2.default)(str);
+	  var i = void 0;
+	  if (Object.prototype.toString.call(options) === '[object Array]') {
+	    var array = [];
+	    for (i in options) {
+	      if ({}.hasOwnProperty.call(options, i)) {
+	        array[i] = (0, _toString2.default)(options[i]);
+	      }
+	    }
+	    return array.indexOf(str) >= 0;
+	  } else if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
+	    return options.hasOwnProperty(str);
+	  } else if (options && typeof options.indexOf === 'function') {
+	    return options.indexOf(str) >= 0;
+	  }
+	  return false;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isCreditCard;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable max-len */
+	var creditCard = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
+	/* eslint-enable max-len */
+
+	function isCreditCard(str) {
+	  (0, _assertString2.default)(str);
+	  var sanitized = str.replace(/[^0-9]+/g, '');
+	  if (!creditCard.test(sanitized)) {
+	    return false;
+	  }
+	  var sum = 0;
+	  var digit = void 0;
+	  var tmpNum = void 0;
+	  var shouldDouble = void 0;
+	  for (var i = sanitized.length - 1; i >= 0; i--) {
+	    digit = sanitized.substring(i, i + 1);
+	    tmpNum = parseInt(digit, 10);
+	    if (shouldDouble) {
+	      tmpNum *= 2;
+	      if (tmpNum >= 10) {
+	        sum += tmpNum % 10 + 1;
+	      } else {
+	        sum += tmpNum;
+	      }
+	    } else {
+	      sum += tmpNum;
+	    }
+	    shouldDouble = !shouldDouble;
+	  }
+	  return !!(sum % 10 === 0 ? sanitized : false);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isISIN;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var isin = /^[A-Z]{2}[0-9A-Z]{9}[0-9]$/;
+
+	function isISIN(str) {
+	  (0, _assertString2.default)(str);
+	  if (!isin.test(str)) {
+	    return false;
+	  }
+
+	  var checksumStr = str.replace(/[A-Z]/g, function (character) {
+	    return parseInt(character, 36);
+	  });
+
+	  var sum = 0;
+	  var digit = void 0;
+	  var tmpNum = void 0;
+	  var shouldDouble = true;
+	  for (var i = checksumStr.length - 2; i >= 0; i--) {
+	    digit = checksumStr.substring(i, i + 1);
+	    tmpNum = parseInt(digit, 10);
+	    if (shouldDouble) {
+	      tmpNum *= 2;
+	      if (tmpNum >= 10) {
+	        sum += tmpNum + 1;
+	      } else {
+	        sum += tmpNum;
+	      }
+	    } else {
+	      sum += tmpNum;
+	    }
+	    shouldDouble = !shouldDouble;
+	  }
+
+	  return parseInt(str.substr(str.length - 1), 10) === (10000 - sum) % 10;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isISBN;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var isbn10Maybe = /^(?:[0-9]{9}X|[0-9]{10})$/;
+	var isbn13Maybe = /^(?:[0-9]{13})$/;
+	var factor = [1, 3];
+
+	function isISBN(str) {
+	  var version = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
+
+	  (0, _assertString2.default)(str);
+	  version = String(version);
+	  if (!version) {
+	    return isISBN(str, 10) || isISBN(str, 13);
+	  }
+	  var sanitized = str.replace(/[\s-]+/g, '');
+	  var checksum = 0;
+	  var i = void 0;
+	  if (version === '10') {
+	    if (!isbn10Maybe.test(sanitized)) {
+	      return false;
+	    }
+	    for (i = 0; i < 9; i++) {
+	      checksum += (i + 1) * sanitized.charAt(i);
+	    }
+	    if (sanitized.charAt(9) === 'X') {
+	      checksum += 10 * 10;
+	    } else {
+	      checksum += 10 * sanitized.charAt(9);
+	    }
+	    if (checksum % 11 === 0) {
+	      return !!sanitized;
+	    }
+	  } else if (version === '13') {
+	    if (!isbn13Maybe.test(sanitized)) {
+	      return false;
+	    }
+	    for (i = 0; i < 12; i++) {
+	      checksum += factor[i % 2] * sanitized.charAt(i);
+	    }
+	    if (sanitized.charAt(12) - (10 - checksum % 10) % 10 === 0) {
+	      return !!sanitized;
+	    }
+	  }
+	  return false;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isMobilePhone;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable max-len */
+	var phones = {
+	  'ar-SY': /^(!?(\+?963)|0)?9\d{8}$/,
+	  'en-US': /^(\+?1)?[2-9]\d{2}[2-9](?!11)\d{6}$/,
+	  'cs-CZ': /^(\+?420)? ?[1-9][0-9]{2} ?[0-9]{3} ?[0-9]{3}$/,
+	  'de-DE': /^(\+?49[ \.\-])?([\(]{1}[0-9]{1,6}[\)])?([0-9 \.\-\/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/,
+	  'el-GR': /^(\+?30)?(69\d{8})$/,
+	  'en-AU': /^(\+?61|0)4\d{8}$/,
+	  'en-GB': /^(\+?44|0)7\d{9}$/,
+	  'en-HK': /^(\+?852\-?)?[569]\d{3}\-?\d{4}$/,
+	  'en-IN': /^(\+?91|0)?[789]\d{9}$/,
+	  'en-NZ': /^(\+?64|0)2\d{7,9}$/,
+	  'en-ZA': /^(\+?27|0)\d{9}$/,
+	  'en-ZM': /^(\+?26)?09[567]\d{7}$/,
+	  'es-ES': /^(\+?34)?(6\d{1}|7[1234])\d{7}$/,
+	  'fi-FI': /^(\+?358|0)\s?(4(0|1|2|4|5)?|50)\s?(\d\s?){4,8}\d$/,
+	  'fr-FR': /^(\+?33|0)[67]\d{8}$/,
+	  'ms-MY': /^(\+?6?01){1}(([145]{1}(\-|\s)?\d{7,8})|([236789]{1}(\s|\-)?\d{7}))$/,
+	  'nb-NO': /^(\+?47)?[49]\d{7}$/,
+	  'nn-NO': /^(\+?47)?[49]\d{7}$/,
+	  'pt-BR': /^(\+?55|0)\-?[1-9]{2}\-?[2-9]{1}\d{3,4}\-?\d{4}$/,
+	  'pt-PT': /^(\+?351)?9[1236]\d{7}$/,
+	  'ru-RU': /^(\+?7|8)?9\d{9}$/,
+	  'tr-TR': /^(\+?90|0)?5\d{9}$/,
+	  'vi-VN': /^(\+?84|0)?((1(2([0-9])|6([2-9])|88|99))|(9((?!5)[0-9])))([0-9]{7})$/,
+	  'zh-CN': /^(\+?0?86\-?)?1[345789]\d{9}$/,
+	  'zh-TW': /^(\+?886\-?|0)?9\d{8}$/
+	};
+	/* eslint-enable max-len */
+
+	// aliases
+	phones['en-CA'] = phones['en-US'];
+
+	function isMobilePhone(str, locale) {
+	  (0, _assertString2.default)(str);
+	  if (locale in phones) {
+	    return phones[locale].test(str);
+	  }
+	  return false;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isCurrency;
+
+	var _merge = __webpack_require__(32);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function currencyRegex(options) {
+	  var symbol = '(\\' + options.symbol.replace(/\./g, '\\.') + ')' + (options.require_symbol ? '' : '?'),
+	      negative = '-?',
+	      whole_dollar_amount_without_sep = '[1-9]\\d*',
+	      whole_dollar_amount_with_sep = '[1-9]\\d{0,2}(\\' + options.thousands_separator + '\\d{3})*',
+	      valid_whole_dollar_amounts = ['0', whole_dollar_amount_without_sep, whole_dollar_amount_with_sep],
+	      whole_dollar_amount = '(' + valid_whole_dollar_amounts.join('|') + ')?',
+	      decimal_amount = '(\\' + options.decimal_separator + '\\d{2})?';
+	  var pattern = whole_dollar_amount + decimal_amount;
+
+	  // default is negative sign before symbol, but there are two other options (besides parens)
+	  if (options.allow_negatives && !options.parens_for_negatives) {
+	    if (options.negative_sign_after_digits) {
+	      pattern += negative;
+	    } else if (options.negative_sign_before_digits) {
+	      pattern = negative + pattern;
+	    }
+	  }
+
+	  // South African Rand, for example, uses R 123 (space) and R-123 (no space)
+	  if (options.allow_negative_sign_placeholder) {
+	    pattern = '( (?!\\-))?' + pattern;
+	  } else if (options.allow_space_after_symbol) {
+	    pattern = ' ?' + pattern;
+	  } else if (options.allow_space_after_digits) {
+	    pattern += '( (?!$))?';
+	  }
+
+	  if (options.symbol_after_digits) {
+	    pattern += symbol;
+	  } else {
+	    pattern = symbol + pattern;
+	  }
+
+	  if (options.allow_negatives) {
+	    if (options.parens_for_negatives) {
+	      pattern = '(\\(' + pattern + '\\)|' + pattern + ')';
+	    } else if (!(options.negative_sign_before_digits || options.negative_sign_after_digits)) {
+	      pattern = negative + pattern;
+	    }
+	  }
+
+	  /* eslint-disable prefer-template */
+	  return new RegExp('^' +
+	  // ensure there's a dollar and/or decimal amount, and that
+	  // it doesn't start with a space or a negative sign followed by a space
+	  '(?!-? )(?=.*\\d)' + pattern + '$');
+	  /* eslint-enable prefer-template */
+	}
+
+	var default_currency_options = {
+	  symbol: '$',
+	  require_symbol: false,
+	  allow_space_after_symbol: false,
+	  symbol_after_digits: false,
+	  allow_negatives: true,
+	  parens_for_negatives: false,
+	  negative_sign_before_digits: false,
+	  negative_sign_after_digits: false,
+	  allow_negative_sign_placeholder: false,
+	  thousands_separator: ',',
+	  decimal_separator: '.',
+	  allow_space_after_digits: false
+	};
+
+	function isCurrency(str, options) {
+	  (0, _assertString2.default)(str);
+	  options = (0, _merge2.default)(options, default_currency_options);
+	  return currencyRegex(options).test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isBase64;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var notBase64 = /[^A-Z0-9+\/=]/i;
+
+	function isBase64(str) {
+	  (0, _assertString2.default)(str);
+	  var len = str.length;
+	  if (!len || len % 4 !== 0 || notBase64.test(str)) {
+	    return false;
+	  }
+	  var firstPaddingChar = str.indexOf('=');
+	  return firstPaddingChar === -1 || firstPaddingChar === len - 1 || firstPaddingChar === len - 2 && str[len - 1] === '=';
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isDataURI;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var dataURI = /^\s*data:([a-z]+\/[a-z0-9\-\+]+(;[a-z\-]+\=[a-z0-9\-]+)?)?(;base64)?,[a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*$/i; // eslint-disable-line max-len
+
+	function isDataURI(str) {
+	  (0, _assertString2.default)(str);
+	  return dataURI.test(str);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = ltrim;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function ltrim(str, chars) {
+	  (0, _assertString2.default)(str);
+	  var pattern = chars ? new RegExp('^[' + chars + ']+', 'g') : /^\s+/g;
+	  return str.replace(pattern, '');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = rtrim;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function rtrim(str, chars) {
+	  (0, _assertString2.default)(str);
+	  var pattern = chars ? new RegExp('[' + chars + ']+$', 'g') : /\s+$/g;
+	  return str.replace(pattern, '');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = trim;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function trim(str, chars) {
+	  (0, _assertString2.default)(str);
+	  var pattern = chars ? new RegExp('^[' + chars + ']+|[' + chars + ']+$', 'g') : /^\s+|\s+$/g;
+	  return str.replace(pattern, '');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	      value: true
+	});
+	exports.default = escape;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function escape(str) {
+	      (0, _assertString2.default)(str);
+	      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, '&#x2F;').replace(/\`/g, '&#96;');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 78 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	      value: true
+	});
+	exports.default = unescape;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function unescape(str) {
+	      (0, _assertString2.default)(str);
+	      return str.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#x2F;/g, '\/').replace(/&#96;/g, '\`');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = stripLow;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	var _blacklist = __webpack_require__(80);
+
+	var _blacklist2 = _interopRequireDefault(_blacklist);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function stripLow(str, keep_new_lines) {
+	  (0, _assertString2.default)(str);
+	  var chars = keep_new_lines ? '\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F' : '\\x00-\\x1F\\x7F';
+	  return (0, _blacklist2.default)(str, chars);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = blacklist;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function blacklist(str, chars) {
+	  (0, _assertString2.default)(str);
+	  return str.replace(new RegExp('[' + chars + ']+', 'g'), '');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = whitelist;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function whitelist(str, chars) {
+	  (0, _assertString2.default)(str);
+	  return str.replace(new RegExp('[^' + chars + ']+', 'g'), '');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = isWhitelisted;
+
+	var _assertString = __webpack_require__(23);
+
+	var _assertString2 = _interopRequireDefault(_assertString);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function isWhitelisted(str, chars) {
+	  (0, _assertString2.default)(str);
+	  for (var i = str.length - 1; i >= 0; i--) {
+	    if (chars.indexOf(str[i]) === -1) {
+	      return false;
+	    }
+	  }
+	  return true;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = normalizeEmail;
+
+	var _isEmail = __webpack_require__(31);
+
+	var _isEmail2 = _interopRequireDefault(_isEmail);
+
+	var _merge = __webpack_require__(32);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var default_normalize_email_options = {
+	  lowercase: true,
+	  remove_dots: true,
+	  remove_extension: true
+	};
+
+	function normalizeEmail(email, options) {
+	  options = (0, _merge2.default)(options, default_normalize_email_options);
+	  if (!(0, _isEmail2.default)(email)) {
+	    return false;
+	  }
+	  var parts = email.split('@', 2);
+	  parts[1] = parts[1].toLowerCase();
+	  if (parts[1] === 'gmail.com' || parts[1] === 'googlemail.com') {
+	    if (options.remove_extension) {
+	      parts[0] = parts[0].split('+')[0];
+	    }
+	    if (options.remove_dots) {
+	      parts[0] = parts[0].replace(/\./g, '');
+	    }
+	    if (!parts[0].length) {
+	      return false;
+	    }
+	    parts[0] = parts[0].toLowerCase();
+	    parts[1] = 'gmail.com';
+	  } else if (options.lowercase) {
+	    parts[0] = parts[0].toLowerCase();
+	  }
+	  return parts.join('@');
+	}
+	module.exports = exports['default'];
+
+/***/ },
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3029,7 +4804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(23);
+	var template = __webpack_require__(85);
 	var _ = __webpack_require__(5);
 	var Validation = __webpack_require__(20);
 
@@ -3044,7 +4819,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {string=''}               options.data.state              <=> 文本框的状态
 	 * @param {number}                  options.data.maxlength           => 文本框的最大长度
 	 * @param {object[]=[]}             options.data.rules               => 验证规则
-	 * @param {boolean=false}           options.data.validating          => 是否实时验证
 	 * @param {boolean=false}           options.data.autofocus           => 是否自动获得焦点
 	 * @param {boolean=false}           options.data.readonly            => 是否只读
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -3064,7 +4838,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            state: '',
 	            maxlength: undefined,
 	            rules: [],
-	            validating: false,
 	            autofocus: false,
 	            _eltIE9: bowser.msie && bowser.version <= 9
 	        });
@@ -3085,28 +4858,66 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @public
 	     * @return {object} result 结果
 	     */
-	    validate: function() {
+	    validate: function(on) {
 	        var value = this.data.value;
 	        var rules = this.data.rules;
+
+	        var PRIORITY = {
+	            'keyup': 2,
+	            'blur': 1,
+	            'submit': 0,
+	            '': 0
+	        }
+
+	        on = on || '';
+	        rules = rules.filter(function(rule) {
+	            return rule.on.indexOf(on) >= 0;
+	        });
+
 	        var result = Validation.validate(value, rules);
-	        
-	        this.data.state = result.success ? 'success' : 'error';
-	        this.data.tip = result.message;
+	        if(result.firstRule
+	            && !(result.firstRule.silentOn === true || (typeof result.firstRule.silentOn === 'string' && result.firstRule.silentOn.indexOf(on) >= 0)))
+	                this.data.tip = result.firstRule.message;
+	        else
+	            this.data.tip = '';
+
+	        // @TODO
+	        if(!result.success)
+	            this.data.state = 'error';
+	        // else if(PRIORITY[on] <= PRIORITY['blur'])
+	        //     this.data.state = 'success';
+	        else
+	            this.data.state = '';
+
+	        this.$emit('validate', {
+	            sender: this,
+	            on: on,
+	            result: result
+	        });
 
 	        return result;
+	    },
+	    _onKeyUp: function($event) {
+	        this.validate('keyup');
+	        this.$emit('keyup', $event);
+	    },
+	    _onBlur: function($event) {
+	        this.validate('blur');
+	        this.$emit('blur', $event);
 	    }
 	});
 
 	module.exports = TextArea2;
 
+
 /***/ },
-/* 23 */
+/* 85 */
 /***/ function(module, exports) {
 
-	module.exports = "<label class=\"u-textarea2 {class}\" r-hide={!visible}>\n    <textarea class=\"u-textarea u-textarea-{state} u-textarea-{size} u-textarea-{width}\"\n        type={type} placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}\n        r-model={value} {#if validating}on-keyup={this.validate(value, rules)}{/if}></textarea>\n    {#if _eltIE9 && !value}<span class=\"textarea2_placeholder\">{placeholder}</span>{/if}\n</label>\n{#if tip}<span class=\"u-tip u-tip-{state}\">{tip}</span>{/if}"
+	module.exports = "<label class=\"u-textarea2 {class}\" r-hide={!visible}>\n    <textarea class=\"u-textarea u-textarea-{state} u-textarea-{size} u-textarea-{width}\"\n        name={name} type={type} placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}\n        r-model={value}\n        on-keyup={this._onKeyUp($event)} on-blur={this._onBlur($event)} on-change=\"change\"></textarea>\n    {#if _eltIE9 && !value}<span class=\"textarea2_placeholder\">{placeholder}</span>{/if}\n    {#if tip}<span class=\"u-tip u-tip-{state}\">{tip}</span>{/if}\n</label>\n"
 
 /***/ },
-/* 24 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3117,7 +4928,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Input2 = __webpack_require__(18);
-	var template = __webpack_require__(25);
+	var template = __webpack_require__(87);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -3241,13 +5052,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = NumberInput;
 
 /***/ },
-/* 25 */
+/* 87 */
 /***/ function(module, exports) {
 
 	module.exports = "<label class=\"u-input2 u-numberinput {class}\" r-hide={!visible}>\n    <input class=\"u-input u-input-{state}\" r-model={value | number} placeholder={placeholder} autofocus={autofocus} readonly={readonly} disabled={disabled}>\n    <a class=\"u-btn\" z-dis={disabled} on-click={this.add(1)}><i class=\"u-icon u-icon-caret-up\"></i></a>\n    <a class=\"u-btn\" z-dis={disabled} on-click={this.add(-1)}><i class=\"u-icon u-icon-caret-down\"></i></a>\n</label>\n{#if tip}<span class=\"u-tip u-tip-{type}\">{tip}</span>{/if}"
 
 /***/ },
-/* 26 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3260,7 +5071,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(27);
+	var template = __webpack_require__(89);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -3333,13 +5144,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Check2;
 
 /***/ },
-/* 27 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = "<label class=\"u-check2 {class}\" z-chk={checked} z-dis={disabled} r-class={ {'z-part': checked === null, 'u-check2-block': block} } r-hide={!visible} title={name} on-click={this.check()}><div class=\"check2_box\"><i class=\"u-icon u-icon-check\"></i></div> {name}</label>"
 
 /***/ },
-/* 28 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3352,7 +5163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(8);
-	var template = __webpack_require__(29);
+	var template = __webpack_require__(91);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -3386,13 +5197,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = CheckGroup;
 
 /***/ },
-/* 29 */
+/* 91 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {class}\" r-hide={!visible}>\n    {#list source as item}\n    <label class=\"u-check2\" title={item.name} z-dis={disabled} r-class={ {'u-check2-block': block} }><input type=\"checkbox\" class=\"u-check\" r-model={item.checked} disabled={disabled}> {item.name}</label>\n    {/list}\n</div>"
 
 /***/ },
-/* 30 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3404,10 +5215,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var CheckGroup = __webpack_require__(28);
-	var template = __webpack_require__(31);
+	var CheckGroup = __webpack_require__(90);
+	var template = __webpack_require__(93);
 	var _ = __webpack_require__(5);
-	var Check2 = __webpack_require__(26);
+	var Check2 = __webpack_require__(88);
 
 	/**
 	 * @class Check2Group
@@ -3430,13 +5241,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Check2Group;
 
 /***/ },
-/* 31 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {class}\" r-hide={!visible}>\n    {#list source as item}\n    <check2 name={item.name} checked={item.checked} disabled={disabled} block={block} />\n    {/list}\n</div>"
 
 /***/ },
-/* 32 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3449,7 +5260,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(8);
-	var template = __webpack_require__(33);
+	var template = __webpack_require__(95);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -3458,7 +5269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                     =  绑定属性
 	 * @param {object[]=[]}             options.data.source             <=> 数据源
 	 * @param {string}                  options.data.source[].name       => 每项的内容
-	 * @param {object=null}             options.data.seleced            <=> 当前选择项
+	 * @param {object=null}             options.data.selected           <=> 当前选择项
 	 * @param {boolean=false}           options.data.block               => 多行显示
 	 * @param {boolean=false}           options.data.readonly            => 是否只读
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -3505,14 +5316,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = RadioGroup;
 
+
 /***/ },
-/* 33 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {class}\" r-hide={!visible}>\n    {#list source as item}\n    <label class=\"u-radio2\" title={item.name} z-dis={disabled} r-class={ {'u-radio2-block': block} } on-click={this.select(item)}><input type=\"radio\" class=\"u-radio\" name={_radioGroupId} disabled={disabled}> {item.name}</label>\n    {/list}\n</div>"
 
 /***/ },
-/* 34 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3524,8 +5336,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var RadioGroup = __webpack_require__(32);
-	var template = __webpack_require__(35);
+	var RadioGroup = __webpack_require__(94);
+	var template = __webpack_require__(97);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -3550,13 +5362,114 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Radio2Group;
 
 /***/ },
-/* 35 */
+/* 97 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-unitgroup {class}\" r-hide={!visible}>\n    {#list source as item}\n    <label class=\"u-radio2\" title={item.name} z-sel={item === selected} z-dis={disabled} r-class={ {'u-radio2-block': block} } on-click={this.select(item)}><div class=\"radio2_box\"><i class=\"u-icon u-icon-radio\"></i></div> {item.name}</label>\n    {/list}\n</div>"
 
 /***/ },
-/* 36 */
+/* 98 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * Select1  选择扩展1
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var SourceComponent = __webpack_require__(8);
+	var template = __webpack_require__(99);
+	var _ = __webpack_require__(5);
+
+	/**
+	 * @class Select1
+	 * @extend SourceComponent
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {object[]=[]}             options.data.source             <=> 数据源
+	 * @param {string}                  options.data.source[].name       => 每项的内容
+	 * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
+	 * @param {string|number}           options.data.value              <=> 当前选择值
+	 * @param {string='请选择'}         options.data.placeholder         => 默认项的文字，如果`placeholder`为空并且没有选择项时，将会自动选中第一项。
+	 * @param {boolean=false}           options.data.readonly            => 是否只读
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 * @param {object}                  options.service                 @=> 数据服务
+	 */
+	var Select1 = SourceComponent.extend({
+	    name: 'select1',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            // @inherited source: [],
+	            selected: undefined,
+	            value: '',
+	            placeholder: '请选择'
+	        });
+	        this.supr();
+
+	        this.$watch('selected', function(newValue, oldValue) {
+	            // this.data.value = newValue ? newValue[this.data.key] : newValue;
+
+	            /**
+	             * @event change 选择项改变时触发
+	             * @property {object} sender 事件发送对象
+	             * @property {object} selected 改变后的选择项
+	             * @property {string|number} value 改变后的选择值
+	             */
+	            this.$emit('change', {
+	                sender: this,
+	                selected: newValue,
+	                value: this.data.value
+	            });
+	        });
+
+	        this.$watch('value', function(newValue, oldValue) {
+	            if(newValue === '' || newValue === undefined)
+	                return this.data.selected = undefined;
+
+	            if(this.data.source)
+	                this.data.selected = this.data.source[newValue];
+	        });
+
+	        this.$watch('source', function(newValue, oldValue) {
+	            if(newValue === undefined)
+	                return this.data.value = '';
+
+	            if(!(newValue instanceof Array))
+	                throw new TypeError('`source` is not an Array!');
+
+	            if(newValue.length && (typeof newValue[0] === 'string' || typeof newValue[0] === 'number'))
+	                return this.data.source = newValue.map(function(name, index) {
+	                    return {id: index, name: name};
+	                });
+
+	            // 当placeholder为空时，自动选择第一项
+	            if(!this.data.placeholder) {
+	                this.data.value = 0;
+	                this.data.selected = this.data.source[0];    // 手动更新
+	            } else
+	                this.data.value = '';
+	        });
+	    }
+	});
+
+	module.exports = Select1;
+
+/***/ },
+/* 99 */
+/***/ function(module, exports) {
+
+	module.exports = "<select class=\"u-select {class}\" r-model={value} readonly={readonly} disabled={disabled}>\n    {#if placeholder}<option value=\"\">{placeholder}</option>{/if}\n    {#list source as item}\n    <option value={item_index} disabled={item.disabled}>{item.name}</option>\n    {/list}\n</select>"
+
+/***/ },
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3569,7 +5482,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Dropdown = __webpack_require__(12);
-	var template = __webpack_require__(37);
+	var template = __webpack_require__(101);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -3628,7 +5541,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.$watch('value', function(newValue, oldValue) {
 	            if(newValue === undefined || newValue === null)
 	                return this.data.selected = newValue;
-	            else if(this.data.source) {
+	            
+	            if(this.data.source) {
 	                if(!this.data.selected || this.data.selected[this.data.key] !== newValue)
 	                    this.data.selected = this.data.source.find(function(item) {
 	                        return item[this.data.key] == newValue;
@@ -3657,9 +5571,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.data.selected = undefined;
 
 	            // 当placeholder为空时，自动选择第一项
-	            if(!this.data.placeholder && !this.data.selected) {
+	            if(!this.data.placeholder && !this.data.selected)
 	                this.data.selected = newValue[0];
-	            }
 	        });
 	    },
 	    /**
@@ -3685,24 +5598,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 
 	        this.toggle(false);
-	    },
+	    }
 	});
 
 	module.exports = Select2;
 
 /***/ },
-/* 37 */
+/* 101 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-select2 {class}\" z-dis={disabled} r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" title={selected ? selected.name : placeholder} on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#if placeholder}<li z-sel={!selected} on-click={this.select(undefined)}>{placeholder}</li>{/if}\n            {#list source as item}\n            <li z-sel={selected === item} z-dis={item.disabled} z-divider={item.divider} title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 38 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * ------------------------------------------------------------
-	 * Select2Group 多级选择
+	 * SelectGroup 多级选择
 	 * @author   sensen(rainforest92@126.com)
 	 * ------------------------------------------------------------
 	 */
@@ -3710,7 +5623,115 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(39);
+	var template = __webpack_require__(103);
+	var _ = __webpack_require__(5);
+
+	/**
+	 * @class SelectGroup
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {object[]=[]}             options.data.source             <=> 数据源
+	 * @param {string}                  options.data.source[].name       => 每项的内容
+	 * @param {boolean=false}           options.data.source[].disabled   => 禁用此项
+	 * @param {number=1}                options.data.depth               => 层级数
+	 * @param {object}                  options.data.selected           <=  最后的选择项
+	 * @param {object[]=[]}             options.data.values    <=> 所有的选择项
+	 * @param {string[]=[]}             options.data.placeholders        => 默认项的文字
+	 * @param {boolean=false}           options.data.readonly            => 是否只读
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 * @param {object}                  options.service                 @=> 数据服务
+	 */
+	var SelectGroup = Component.extend({
+	    name: 'selectGroup',
+	    template: template,
+	    /**
+	     * @protected
+	     */
+	    config: function() {
+	        _.extend(this.data, {
+	            // @inherited source: [],
+	            depth: 1,
+	            sources: [],
+	            selected: undefined,
+	            values: [],
+	            placeholders: []
+	        });
+	        this.supr();
+
+	        this.$watch('selected', function(newValue, oldValue) {
+	            /**
+	             * @event change 最后的选择项改变时触发
+	             * @property {object} sender 事件发送对象
+	             * @property {object} selected 最后的选择项
+	             * @property {object} values 所有的选择项
+	             */
+	            this.$emit('change', {
+	                sender: this,
+	                selected: newValue,
+	                values: this.data.values
+	            });
+	        });
+
+	        this.data.sources[0] = this.data.source;
+	    },
+	    /**
+	     * @private
+	     */
+	    _onChange: function($event, level) {
+	        var sources = this.data.sources;
+	        var item = sources[level] && sources[level][$event.value];
+
+	        // 由内部<select>控制
+	        // if(this.data.readonly || this.data.disabled || (item && (item.disabled || item.divider)))
+	        //     return;
+
+	        sources[level + 1] = item ? item.children : undefined;
+	        for(var i = level + 2; i < this.data.depth; i++)
+	            sources[i] = undefined;
+
+	        if(level === this.data.depth - 1)
+	            this.data.selected = item;
+
+	        /**
+	         * @event select 选择某一项时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} selected 当前选择项
+	         * @property {object} level 当前选择的层级
+	         */
+	        this.$emit('select', {
+	            sender: this,
+	            selected: item,
+	            values: this.data.values,
+	            level: level
+	        });
+	    }
+	});
+
+	module.exports = SelectGroup;
+
+/***/ },
+/* 103 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"u-selectgroup {class}\" r-hide={!visible}>\n    {#list 0..(depth - 1) as i}\n    <select1 source={sources[i]} value={values[i]} readonly={readonly} disabled={disabled} placeholder={placeholders[i]} on-change={this._onChange($event, i)} />\n    {/list}\n</div>"
+
+/***/ },
+/* 104 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * ------------------------------------------------------------
+	 * Select2Group 多级选择2
+	 * @author   sensen(rainforest92@126.com)
+	 * ------------------------------------------------------------
+	 */
+
+	'use strict';
+
+	var Component = __webpack_require__(2);
+	var template = __webpack_require__(105);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -3805,13 +5826,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Select2Group;
 
 /***/ },
-/* 39 */
+/* 105 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"u-select2Group {class}\" r-hide={!visible}>\n    {#list 0..(depth - 1) as i}\n    <select2 source={sources[i]} selected={selecteds[i]} key={key} value={values[i]} readonly={readonly} disabled={disabled} placeholder={placeholders[i] === '' ? '' : '请选择'} on-change={this._onChange($event.selected, i)} />\n    {/list}\n</div>"
+	module.exports = "<div class=\"u-select2group {class}\" r-hide={!visible}>\n    {#list 0..(depth - 1) as i}\n    <select2 source={sources[i]} selected={selecteds[i]} key={key} value={values[i]} readonly={readonly} disabled={disabled} placeholder={placeholders[i]} on-change={this._onChange($event.selected, i)} />\n    {/list}\n</div>"
 
 /***/ },
-/* 40 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3823,10 +5844,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var Select2 = __webpack_require__(36);
-	var template = __webpack_require__(41);
+	var Select2 = __webpack_require__(100);
+	var template = __webpack_require__(107);
 	var _ = __webpack_require__(5);
-	var Treeview = __webpack_require__(42);
+	var Treeview = __webpack_require__(108);
 
 	/**
 	 * @class TreeSelect
@@ -3864,13 +5885,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeSelect;
 
 /***/ },
-/* 41 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-select2 {class}\" z-dis={disabled} r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\" title={selected ? selected.name : placeholder} on-click={this.toggle(!open)}>\n        <i class=\"u-icon u-icon-caret-down\"></i>\n        <span>{selected ? selected.name : placeholder}</span>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <treeView source={source} hierarchical={hierarchical} service={service} on-select={this.select($event.selected)} />\n    </div>\n</div>"
 
 /***/ },
-/* 42 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3883,10 +5904,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(8);
-	var template = __webpack_require__(43);
+	var template = __webpack_require__(109);
 	var _ = __webpack_require__(5);
 
-	var TreeViewList = __webpack_require__(44);
+	var TreeViewList = __webpack_require__(110);
 
 	/**
 	 * @class TreeView
@@ -3979,13 +6000,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeView;
 
 /***/ },
-/* 43 */
+/* 109 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-treeview {class}\" z-dis={disabled} r-hide={!visible}>\n    <treeViewList source={source} visible />\n</div>"
 
 /***/ },
-/* 44 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3998,7 +6019,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(8);
-	var template = __webpack_require__(45);
+	var template = __webpack_require__(111);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -4083,13 +6104,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeViewList;
 
 /***/ },
-/* 45 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"treeview_list\" r-hide={!visible}>\n    {#list source as item}\n    <li>\n        <div class=\"treeview_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon\" r-class={ {'u-icon-caret-right': !item.open, 'u-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>\n            {/if}\n            <div class=\"treeview_itemname\" z-sel={this.$ancestor.data.multiple ? item.selected : this.$ancestor.data.selected === item} z-dis={item.disabled} title={item.name} z-divider={item.divider} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<treeViewList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
 
 /***/ },
-/* 46 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4102,7 +6123,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Dropdown = __webpack_require__(12);
-	var template = __webpack_require__(47);
+	var template = __webpack_require__(113);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -4254,13 +6275,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Suggest;
 
 /***/ },
-/* 47 */
+/* 113 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-suggest {class}\" z-dis={disabled} r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} maxlength={maxlength} autofocus={autofocus} r-model={value} on-focus={this._onInput($event)} on-keyup={this._onInput($event)} on-blur={this._onBlur($event)} ref=\"input\" readonly={readonly} disabled={disabled}>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <ul class=\"m-listview\">\n            {#list source as item}\n            {#if this.filter(item)}\n                <li z-dis={item.disabled} z-divider={item.divider} title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</li>\n            {/if}\n            {/list}\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 48 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4273,7 +6294,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(49);
+	var template = __webpack_require__(115);
 	var _ = __webpack_require__(5);
 
 	var SIZE_UNITS = {
@@ -4432,10 +6453,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var xml = {};
 	        if($iframe.contentWindow) {
-	            xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerHTML : null;
+	            xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
 	            xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
 	        } else if($iframe.contentDocument) {
-	            xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerHTML : null;
+	            xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerText : null;
 	            xml.responseXML = $iframe.contentDocument.document.XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
 	        }
 
@@ -4487,10 +6508,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return xml.responseXML;
 	        else if (type === 'json') {
 	            var data = xml.responseText;
-	            var m = data.match(/<pre.*?>(.*?)<\/pre>/);
-	            if(m)
-	                data = m[1];
-
 	            try {
 	                data = JSON.parse(data);
 	            } catch (e) {}
@@ -4506,13 +6523,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Uploader;
 
 /***/ },
-/* 49 */
+/* 115 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-uploader {class}\" r-hide={!visible}>\n    <div on-click={this.upload()}>\n        {#if this.$body}\n            {#inc this.$body}\n        {#else}\n            <a class=\"u-btn\">{title || '上传'}</a>\n        {/if}\n    </div>\n    <form method=\"POST\" action={url} target=\"iframe{_id}\" enctype={contentType} ref=\"form\">\n        {#if !_sending}\n        <!-- IE需要重置input[type=file] -->\n        <input type=\"file\" name={name} ref=\"file\" on-change={this._submit()}>\n        {/if}\n        {#list Object.keys(data) as key}\n        <input type=\"hidden\" name={key} value={data[key]}>\n        {/list}\n    </form>\n    <iframe name=\"iframe{_id}\" on-load={this._onLoad()} ref=\"iframe\" />\n</div>"
 
 /***/ },
-/* 50 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4523,11 +6540,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Dropdown = __webpack_require__(12);
-	var template = __webpack_require__(51);
+	var template = __webpack_require__(117);
 	var _ = __webpack_require__(5);
 
-	var filter = __webpack_require__(52).filter;
-	var Calendar = __webpack_require__(53);
+	var filter = __webpack_require__(118).filter;
+	var Calendar = __webpack_require__(119);
 	var bowser = __webpack_require__(4);
 	var polyfill = __webpack_require__(3);
 	var MS_OF_DAY = 24*3600*1000;
@@ -4570,6 +6587,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if(typeof newValue === 'string') {
 	                if(bowser.msie && bowser.version <= 9)
 	                    return this.data.date = polyfill.StringDate(newValue);
+	                return this.data.date = new Date(newValue);
+	            } else if(typeof newValue === 'number') {
 	                return this.data.date = new Date(newValue);
 	            }
 
@@ -4701,14 +6720,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = DatePicker;
 
+
 /***/ },
-/* 51 */
+/* 117 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-datepicker {class}\" z-dis={disabled} r-hide={!visible} ref=\"element\" on-blur={this.toggle(false)}>\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} ref=\"input\" autofocus={autofocus} readonly={readonly} disabled={disabled}\n            on-focus={this.toggle(true)} on-change={this._onInput($event)}>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />\n    </div>\n</div>"
 
 /***/ },
-/* 52 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {
@@ -4722,7 +6742,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 53 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4735,7 +6755,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(54);
+	var template = __webpack_require__(120);
 	var _ = __webpack_require__(5);
 
 	var bowser = __webpack_require__(4);
@@ -4774,6 +6794,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if(typeof newValue === 'string') {
 	                if(bowser.msie && bowser.version <= 9)
 	                    return this.data.date = polyfill.StringDate(newValue);
+	                return this.data.date = new Date(newValue);
+	            } else if(typeof newValue === 'number') {
 	                return this.data.date = new Date(newValue);
 	            }
 
@@ -4845,7 +6867,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if(minDate && maxDate)
 	                if(minDate/MS_OF_DAY>>0 > maxDate/MS_OF_DAY>>0)
 	                    throw new Calendar.DateRangeError(minDate, maxDate);
-	            
+
 	            // 如果超出日期范围，则设置为范围边界的日期
 	            var isOutOfRange = this.isOutOfRange(this.data.date);
 	            if(isOutOfRange)
@@ -4859,7 +6881,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    _update: function() {
 	        this.data._days = [];
-	        
+
 	        var date = this.data.date;
 	        var month = date.getMonth();
 	        var mfirst = new Date(date); mfirst.setDate(1);
@@ -4893,7 +6915,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        date.setFullYear(date.getFullYear() + year);
 	        if(date.getMonth() != oldMonth)
 	            date.setDate(0);
-	        
+
 	        return this.data.date = date;
 	    },
 	    /**
@@ -4915,7 +6937,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        // 如果跳月，则置为上一个月
 	        if((date.getMonth() - correctMonth)%12)
 	            date.setDate(0);
-	        
+
 	        return this.data.date = date;
 	    },
 	    /**
@@ -4979,14 +7001,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = Calendar;
 
+
 /***/ },
-/* 54 */
+/* 120 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-calendar {class}\" z-dis={disabled} r-hide={!visible}>\n    <div class=\"calendar_hd\">\n        <span class=\"calendar_prev\">\n            <span class=\"calendar_item\" on-click={this.addYear(-1)}><i class=\"u-icon u-icon-angle-double-left\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addMonth(-1)}><i class=\"u-icon u-icon-angle-left\"></i></span>\n        </span>\n        <span>{date | format: 'yyyy-MM'}</span>\n        <span class=\"calendar_next\">\n            <span class=\"calendar_item\" on-click={this.addMonth(1)}><i class=\"u-icon u-icon-angle-right\"></i></span>\n            <span class=\"calendar_item\" on-click={this.addYear(1)}><i class=\"u-icon u-icon-angle-double-right\"></i></span>\n        </span>\n    </div>\n    <div class=\"calendar_bd\">\n        <div class=\"calendar_week\"><span class=\"calendar_item\">日</span><span class=\"calendar_item\">一</span><span class=\"calendar_item\">二</span><span class=\"calendar_item\">三</span><span class=\"calendar_item\">四</span><span class=\"calendar_item\">五</span><span class=\"calendar_item\">六</span></div>\n        <div class=\"calendar_day\">{#list _days as day}<span class=\"calendar_item\" z-sel={date.toDateString() === day.toDateString()} z-dis={!!this.isOutOfRange(day)} r-class={ {'z-muted': date.getMonth() !== day.getMonth()} } on-click={this.select(day)}>{day | format: 'dd'}</span>{/list}</div>\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 55 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4997,9 +7020,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(56);
+	var template = __webpack_require__(122);
 	var _ = __webpack_require__(5);
-	var NumberInput = __webpack_require__(24);
+	var NumberInput = __webpack_require__(86);
 
 	/**
 	 * @class TimePicker
@@ -5102,13 +7125,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TimePicker;
 
 /***/ },
-/* 56 */
+/* 122 */
 /***/ function(module, exports) {
 
 	module.exports = "<span class=\"u-timepicker {class}\" r-hide={!visible}>\n\t<numberInput min=\"0\" max=\"23\" format=\"00\" value={hour} readonly={readonly} disabled={disabled} autofocus={autofocus} />\n\t<span>:</span>\n\t<numberInput min=\"0\" max=\"59\" format=\"00\" value={minute} readonly={readonly} disabled={disabled} />\n</span>"
 
 /***/ },
-/* 57 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5119,13 +7142,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Dropdown = __webpack_require__(12);
-	var DatePicker = __webpack_require__(50);
-	var template = __webpack_require__(58);
+	var DatePicker = __webpack_require__(116);
+	var template = __webpack_require__(124);
 	var _ = __webpack_require__(5);
 
-	var filter = __webpack_require__(52).filter;
-	var Calendar = __webpack_require__(53);
-	var TimePicker = __webpack_require__(55);
+	var filter = __webpack_require__(118).filter;
+	var Calendar = __webpack_require__(119);
+	var TimePicker = __webpack_require__(121);
 	var bowser = __webpack_require__(4);
 	var polyfill = __webpack_require__(3);
 
@@ -5149,7 +7172,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * @protected
 	     */
-	    config: function() {   
+	    config: function() {
 	        _.extend(this.data, {
 	            // @inherited source: [],
 	            // @inherited open: false,
@@ -5168,6 +7191,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if(typeof newValue === 'string') {
 	                if(bowser.msie && bowser.version <= 9)
 	                    return this.data.date = polyfill.StringDate(newValue);
+	                return this.data.date = new Date(newValue);
+	            } else if(typeof newValue === 'number') {
 	                return this.data.date = new Date(newValue);
 	            }
 
@@ -5301,14 +7326,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = DateTimePicker;
 
+
 /***/ },
-/* 58 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-dropdown u-datetimepicker {class}\" z-dis={disabled} r-hide={!visible} ref=\"element\">\n    <div class=\"dropdown_hd\">\n        <input class=\"u-input u-input-full\" placeholder={placeholder} value={date | format: 'yyyy-MM-dd HH:mm'} ref=\"input\" autofocus={autofocus} readonly={readonly} disabled={disabled}\n            on-focus={this.toggle(true)} on-change={this._onInput($event)}>\n    </div>\n    <div class=\"dropdown_bd\" r-show={open} r-animation=\"on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;\">\n        <calendar minDate={minDate} maxDate={maxDate} date={_date} on-select={this._onDateTimeChange($event.date, _time)}>\n            <timePicker time={_time} on-change={this._onDateTimeChange(_date, _time)} />\n        </calendar>\n    </div>\n</div>"
 
 /***/ },
-/* 59 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5321,7 +7347,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(60);
+	var template = __webpack_require__(126);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -5359,13 +7385,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Progress;
 
 /***/ },
-/* 60 */
+/* 126 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-progress u-progress-{@(size)} u-progress-{@(state)} {class}\" r-class={ {'u-progress-striped': striped, 'z-act': active} } r-hide={!visible}>\n    <div class=\"progress_bar\" style=\"width: {percent}%;\">{text ? (text === true ? percent + '%' : text) : ''}</div>\n</div>"
 
 /***/ },
-/* 61 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5378,7 +7404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(62);
+	var template = __webpack_require__(128);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -5467,13 +7493,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Loading;
 
 /***/ },
-/* 62 */
+/* 128 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"u-loading {class}\" r-class={ {'u-loading-static': static} } r-hide={!visible}>\n    {#if this.$body}\n        {#inc this.$body}\n    {#else}\n        <i class=\"u-icon u-icon-spinner u-icon-spin\"></i>\n    {/if}\n</div>"
 
 /***/ },
-/* 63 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5486,7 +7512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(64);
+	var template = __webpack_require__(130);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -5525,13 +7551,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Gotop;
 
 /***/ },
-/* 64 */
+/* 130 */
 /***/ function(module, exports) {
 
 	module.exports = "<a class=\"u-gotop u-gotop-{position} {class}\" r-hide={!visible} on-click={this.gotop()}>\n    {#if this.$body}\n        {#inc this.$body}\n    {#else}\n        <i class=\"u-icon u-icon-arrow-up\"></i>\n    {/if}\n</a>"
 
 /***/ },
-/* 65 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5544,7 +7570,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(66);
+	var template = __webpack_require__(132);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -5630,13 +7656,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Tabs;
 
 /***/ },
-/* 66 */
+/* 132 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-tabs {class}\" z-dis={disabled} r-hide={!visible}>\n    <ul class=\"tabs_hd\">\n        {#list tabs as item}\n        <li z-crt={item == selected} z-dis={item.data.disabled} on-click={this.select(item)}>{#if @(titleTemplate)}{#inc @(titleTemplate)}{#else}{item.data.title}{/if}</li>\n        {/list}\n    </ul>\n    <div class=\"tabs_bd\">\n        {#inc this.$body}\n    </div>\n</div>"
 
 /***/ },
-/* 67 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5649,10 +7675,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(68);
+	var template = __webpack_require__(134);
 	var _ = __webpack_require__(5);
 
-	var Panel = __webpack_require__(69);
+	var Panel = __webpack_require__(135);
 
 	/**
 	 * @class Collapse
@@ -5681,13 +7707,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Collapse;
 
 /***/ },
-/* 68 */
+/* 134 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-collapse {class}\" z-dis={disabled} r-hide={!visible}>\n    {#inc this.$body}\n</div>"
 
 /***/ },
-/* 69 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5700,7 +7726,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(70);
+	var template = __webpack_require__(136);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -5753,13 +7779,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Panel;
 
 /***/ },
-/* 70 */
+/* 136 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-panel {class}\" r-hide={!visible} z-dis={disabled}>\n    <div class=\"panel_hd\" on-click={this.toggle()}>{title}</div>\n    <div r-hide={!open} style=\"overflow: hidden\" r-animation=\"on: enter; class: animated slideInY; on: leave; class: animated slideOutY;\">\n        <div class=\"panel_bd\">\n            {#inc this.$body}\n        </div>\n    </div>\n</div>"
 
 /***/ },
-/* 71 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5770,7 +7796,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(72);
+	var template = __webpack_require__(138);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -5858,13 +7884,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Pager;
 
 /***/ },
-/* 72 */
+/* 138 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"m-pager m-pager-{@(position)} {class}\" z-dis={disabled} r-hide={!visible}>\n    <li class=\"pager_prev\" z-dis={current <= 1} on-click={this.select(current - 1)}><a>上一页</a></li>\n    {#if total - middle > side * 2 + 1}\n        {#list 1..side as i}\n        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _start > side + 1}<li><span>...</span></li>{/if}\n        {#list _start.._end as i}\n        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n        {#if _end < total - side}<li><span>...</span></li>{/if}\n        {#list (total - side + 1)..total as i}\n        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {#else}\n        {#list 1..total as i}\n        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>\n        {/list}\n    {/if}\n    <li class=\"pager_next\" z-dis={current >= total} on-click={this.select(current + 1)}><a>下一页</a></li>\n</ul>"
 
 /***/ },
-/* 73 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5877,7 +7903,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(74);
+	var template = __webpack_require__(140);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -6054,13 +8080,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Notify;
 
 /***/ },
-/* 74 */
+/* 140 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-notify m-notify-{position} {class}\" r-hide={!visible}>\n    {#list messages as message}\n    <div class=\"u-message u-message-{message.state}\" r-animation=\"on: enter; class: animated fadeIn fast; on: leave; class: animated fadeOut fast;\">\n        <a class=\"message_close\" on-click={this.close(message)}><i class=\"u-icon u-icon-close\"></i></a>\n        <i class=\"message_icon u-icon u-icon-{message.state}-circle\" r-hide={!message.state}></i>\n        {message.text}\n    </div>\n    {/list}\n</div>"
 
 /***/ },
-/* 75 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6073,10 +8099,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(76);
+	var template = __webpack_require__(142);
 	var _ = __webpack_require__(5);
 
-	var Draggable = __webpack_require__(77);
+	var Draggable = __webpack_require__(143);
 
 	/**
 	 * @class Modal
@@ -6084,6 +8110,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                     =  绑定属性 | Binding Properties
 	 * @param {string='提示'}           options.data.title               => 对话框标题 | Title of Dialog
 	 * @param {string=''}               options.data.content             => 对话框内容
+	 * @param {string=''}               options.data.contentTemplate     => 对话框内容模板，用于支持复杂内容的自定义。
 	 * @param {string|boolean=true}     options.data.okButton            => 是否显示确定按钮。值为`string`时显示该段文字。
 	 * @param {string|boolean=false}    options.data.cancelButton        => 是否显示取消按钮。值为`string`时显示该段文字。
 	 * @param {boolean=false}           options.data.draggable           => 是否可以拖拽对话框
@@ -6157,13 +8184,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.destroy();
 	    },
-	    /**
-	     * @private
-	     */
-	    _onKeyUp: function($event) {
-	        if($event.which == 13)
-	            this.ok();
-	    },
 	    _onDragStart: function($event) {
 	        var dialog = $event.proxy;
 	        dialog.style.left = dialog.offsetLeft + 'px';
@@ -6210,7 +8230,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            cancelButton: cancelButton || true
 	        }
 	    });
-	    
+
 	    return modal;
 	}
 
@@ -6224,14 +8244,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = Modal;
 
+
 /***/ },
-/* 76 */
+/* 142 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"m-modal {class}\" on-keyup={this._onKeyUp($event)} r-hide={!visible}>\n    <div class=\"modal_dialog\" ref=\"modalDialog\">\n        <draggable disabled={!draggable} proxy={this.$refs.modalDialog} on-dragstart={this._onDragStart($event)}>\n        <div class=\"modal_hd\">\n            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>\n            <h3 class=\"modal_title\">{title}</h3>\n        </div>\n        </draggable>\n        <div class=\"modal_bd\">\n            {#if contentTemplate}{#inc @(contentTemplate)}{#else}{content}{/if}\n        </div>\n        <div class=\"modal_ft\">\n            {#if okButton}\n            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)} r-autofocus>{okButton === true ? '确定' : okButton}</button>\n            {/if}\n            {#if cancelButton}\n            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>\n            {/if}\n        </div>\n    </div>\n</div>"
+	module.exports = "<div class=\"m-modal {class}\" r-hide={!visible}>\n    <div class=\"modal_dialog\" ref=\"modalDialog\">\n        <draggable disabled={!draggable} proxy={this.$refs.modalDialog} on-dragstart={this._onDragStart($event)}>\n        <div class=\"modal_hd\">\n            <a class=\"modal_close\" on-click={this.close(!cancelButton)}><i class=\"u-icon u-icon-close\"></i></a>\n            <h3 class=\"modal_title\">{title}</h3>\n        </div>\n        </draggable>\n        <div class=\"modal_bd\">\n            {#if contentTemplate}{#inc @(contentTemplate)}{#else}{content}{/if}\n        </div>\n        <div class=\"modal_ft\">\n            {#if okButton}\n            <button class=\"u-btn u-btn-primary\" on-click={this.close(true)} r-autofocus>{okButton === true ? '确定' : okButton}</button>\n            {/if}\n            {#if cancelButton}\n            <button class=\"u-btn\" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>\n            {/if}\n        </div>\n    </div>\n</div>"
 
 /***/ },
-/* 77 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6245,7 +8266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Component = __webpack_require__(2);
 	var _ = __webpack_require__(5);
-	var dragdrop = __webpack_require__(78);
+	var dragdrop = __webpack_require__(144);
 
 	/**
 	 * @class Draggable
@@ -6567,7 +8588,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Draggable;
 
 /***/ },
-/* 78 */
+/* 144 */
 /***/ function(module, exports) {
 
 	var dragdrop = {
@@ -6589,7 +8610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = dragdrop;
 
 /***/ },
-/* 79 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6602,7 +8623,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var SourceComponent = __webpack_require__(8);
-	var template = __webpack_require__(80);
+	var template = __webpack_require__(146);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -6667,13 +8688,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ListView;
 
 /***/ },
-/* 80 */
+/* 146 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"m-listview {class}\" z-dis={disabled} r-hide={!visible}>\n    {#list source as item}\n    <li z-sel={multiple ? item.selected : selected === item} z-dis={item.disabled} z-divider={item.divider} title={item.name} on-click={this.select(item)}>\n        {#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}\n    </li>\n    {/list}\n</ul>"
 
 /***/ },
-/* 81 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6685,12 +8706,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var ListView = __webpack_require__(79);
-	var template = __webpack_require__(82);
+	var ListView = __webpack_require__(145);
+	var template = __webpack_require__(148);
 	var _ = __webpack_require__(5);
 
-	var Draggable = __webpack_require__(77);
-	var Droppable = __webpack_require__(83);
+	var Draggable = __webpack_require__(143);
+	var Droppable = __webpack_require__(149);
 
 	/**
 	 * @class UltiListView
@@ -6786,13 +8807,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = UltiListView;
 
 /***/ },
-/* 82 */
+/* 148 */
 /***/ function(module, exports) {
 
 	module.exports = "<droppable disabled={!dragdrop} on-dragover={this._onDragOver($event)} on-dragleave={this._onDragLeave($event)} on-drop={this._onDrop($event, item)}>\n<ul class=\"m-listview m-ultilistview {class}\" z-dis={disabled} r-hide={!visible}>\n    {#list source as item}\n    <droppable disabled={!dragdrop} on-dragover={this._onItemDragOver($event)} on-drop={this._onItemDrop($event, item)}>\n    <draggable disabled={!dragdrop} data={ @({root: source, item: item, index: item_index}) }>\n    <li z-sel={multiple ? item.selected : selected === item} z-dis={item.disabled} z-divider={item.divider} title={item.name} on-click={this.select(item)}>\n        {#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}\n    </li>\n    </draggable>\n    </droppable>\n    {/list}\n</ul>\n</droppable>"
 
 /***/ },
-/* 83 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6806,7 +8827,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Component = __webpack_require__(2);
 	var _ = __webpack_require__(5);
-	var dragdrop = __webpack_require__(78);
+	var dragdrop = __webpack_require__(144);
 
 	/**
 	 * @class Droppable
@@ -7000,7 +9021,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Droppable;
 
 /***/ },
-/* 84 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7012,11 +9033,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var TreeView = __webpack_require__(42);
-	var template = __webpack_require__(85);
+	var TreeView = __webpack_require__(108);
+	var template = __webpack_require__(151);
 	var _ = __webpack_require__(5);
 
-	var MultiTreeViewList = __webpack_require__(86);
+	var MultiTreeViewList = __webpack_require__(152);
 
 	/**
 	 * @class MultiTreeView
@@ -7043,13 +9064,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 85 */
+/* 151 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-treeview m-multitreeview {class}\" z-dis={disabled} r-hide={!visible}>\n    <multiTreeViewList source={source} visible />\n</div>"
 
 /***/ },
-/* 86 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7061,8 +9082,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var TreeViewList = __webpack_require__(44);
-	var template = __webpack_require__(87);
+	var TreeViewList = __webpack_require__(110);
+	var template = __webpack_require__(153);
 	var _ = __webpack_require__(5);
 
 	/**
@@ -7120,13 +9141,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreeViewList;
 
 /***/ },
-/* 87 */
+/* 153 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"treeview_list\" r-hide={!visible}>\n    {#list source as item}\n    <li>\n        <div class=\"treeview_item\">\n            {#if item.childrenCount || (item.children && item.children.length)}\n            <i class=\"u-icon\" r-class={ {'u-icon-caret-right': !item.open, 'u-icon-caret-down': item.open}} on-click={this.toggle(item)}></i>\n            {/if}\n            {#if !item.divider}\n            <check2 checked={item.checked} disabled={item.disabled} on-change={this._onItemCheckedChange($event, item)} />\n            {/if}\n            <div class=\"treeview_itemname\" z-sel={this.$ancestor.data.multiple ? item.selected : this.$ancestor.data.selected === item} z-dis={item.disabled} title={item.name} z-divider={item.divider} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>\n        </div>\n        {#if item.childrenCount || (item.children && item.children.length)}<multiTreeViewList source={item.children} visible={item.open} parent={item} />{/if}\n    </li>\n    {/list}\n</ul>"
 
 /***/ },
-/* 88 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7139,9 +9160,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(89);
+	var template = __webpack_require__(155);
 	var _ = __webpack_require__(5);
-	var Notify = __webpack_require__(73);
+	var Notify = __webpack_require__(139);
 
 	/**
 	 * @class HTMLEditor
@@ -7374,13 +9395,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 89 */
+/* 155 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-editor {class}\" z-dis={disabled} r-hide={!visible}>\n    <div class=\"editor_preview\" r-html={html}></div>\n    <ul class=\"m-toolbar editor_toolbar\" z-dis={disabled}>\n        <li><a title=\"加粗\" on-click={this.bold()}><i class=\"u-icon u-icon-bold\"></i></a></li>\n        <li><a title=\"斜体\" on-click={this.italic()}><i class=\"u-icon u-icon-italic\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"引用\" on-click={this.quote()}><i class=\"u-icon u-icon-quote\"></i></a></li>\n        <li><a title=\"无序列表\" on-click={this.ul()}><i class=\"u-icon u-icon-list-ul\"></i></a></li>\n        <li><a title=\"有序列表\" on-click={this.ol()}><i class=\"u-icon u-icon-list-ol\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"链接\" on-click={this.link()}><i class=\"u-icon u-icon-link\"></i></a></li>\n        <li><a title=\"图片\" on-click={this.image()}><i class=\"u-icon u-icon-image\"></i></a></li>\n    </ul>\n    <textarea class=\"editor_textarea\" r-model={content} ref=\"textarea\" maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}></textarea>\n</div>\n<uploader visible={false} url={imageUrl} extensions={extensions} ref=\"uploader\" on-success={this._onUploaderSuccess($event)} on-error={this._onUploaderError($event)} />"
 
 /***/ },
-/* 90 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7393,10 +9414,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	var Component = __webpack_require__(2);
-	var template = __webpack_require__(91);
+	var template = __webpack_require__(157);
 	var _ = __webpack_require__(5);
-	var Notify = __webpack_require__(73);
-	var marked = __webpack_require__(92);
+	var Notify = __webpack_require__(139);
+	// var marked = require('marked');
 
 	/**
 	 * @class MarkEditor
@@ -7426,7 +9447,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    computed: {
 	        html: function() {
-	            return marked(this.data.content);
+	            return this.data.content;
+	            // return marked(this.data.content);
 	        }
 	    },
 	    /**
@@ -7546,7 +9568,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    latex: function() {
 	        if(this.data.readonly || this.data.disabled)
 	            return;
-	        
+
 	        var rangeData = this.getCursorPosition();
 	        rangeData.text = '$$a^2 + b^2 = c^2$$';
 	        this.setCursorPosition(rangeData);
@@ -7640,1302 +9662,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 91 */
+/* 157 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"m-editor {class}\" z-dis={disabled} r-hide={!visible}>\n    <div class=\"editor_preview\" r-html={html}></div>\n    <ul class=\"m-toolbar editor_toolbar\" z-dis={disabled}>\n        <li><a title=\"加粗\" on-click={this.bold()}><i class=\"u-icon u-icon-bold\"></i></a></li>\n        <li><a title=\"斜体\" on-click={this.italic()}><i class=\"u-icon u-icon-italic\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"引用\" on-click={this.quote()}><i class=\"u-icon u-icon-quote\"></i></a></li>\n        <li><a title=\"无序列表\" on-click={this.ul()}><i class=\"u-icon u-icon-list-ul\"></i></a></li>\n        <li><a title=\"有序列表\" on-click={this.ol()}><i class=\"u-icon u-icon-list-ol\"></i></a></li>\n        <li class=\"toolbar_divider\">|</li>\n        <li><a title=\"链接\" on-click={this.link()}><i class=\"u-icon u-icon-link\"></i></a></li>\n        <li><a title=\"图片\" on-click={this.image()}><i class=\"u-icon u-icon-image\"></i></a></li>\n        <li class=\"f-fr\"><a title=\"帮助\" href=\"http://www.jianshu.com/p/7bd23251da0a\" target=\"_blank\"><i class=\"u-icon u-icon-info\"></i></a></li>\n    </ul>\n    <textarea class=\"editor_textarea\" r-model={content} ref=\"textarea\" maxlength={maxlength} autofocus={autofocus} readonly={readonly} disabled={disabled}></textarea>\n</div>\n<uploader visible={false} url={imageUrl} extensions={extensions} ref=\"uploader\" on-success={this._onUploaderSuccess($event)} on-error={this._onUploaderError($event)} />"
-
-/***/ },
-/* 92 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/**
-	 * marked - a markdown parser
-	 * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
-	 * https://github.com/chjj/marked
-	 */
-
-	;(function() {
-
-	/**
-	 * Block-Level Grammar
-	 */
-
-	var block = {
-	  newline: /^\n+/,
-	  code: /^( {4}[^\n]+\n*)+/,
-	  fences: noop,
-	  hr: /^( *[-*_]){3,} *(?:\n+|$)/,
-	  heading: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/,
-	  nptable: noop,
-	  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
-	  blockquote: /^( *>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,
-	  list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
-	  html: /^ *(?:comment *(?:\n|\s*$)|closed *(?:\n{2,}|\s*$)|closing *(?:\n{2,}|\s*$))/,
-	  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
-	  table: noop,
-	  paragraph: /^((?:[^\n]+\n?(?!hr|heading|lheading|blockquote|tag|def))+)\n*/,
-	  text: /^[^\n]+/
-	};
-
-	block.bullet = /(?:[*+-]|\d+\.)/;
-	block.item = /^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;
-	block.item = replace(block.item, 'gm')
-	  (/bull/g, block.bullet)
-	  ();
-
-	block.list = replace(block.list)
-	  (/bull/g, block.bullet)
-	  ('hr', '\\n+(?=\\1?(?:[-*_] *){3,}(?:\\n+|$))')
-	  ('def', '\\n+(?=' + block.def.source + ')')
-	  ();
-
-	block.blockquote = replace(block.blockquote)
-	  ('def', block.def)
-	  ();
-
-	block._tag = '(?!(?:'
-	  + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
-	  + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
-	  + '|span|br|wbr|ins|del|img)\\b)\\w+(?!:/|[^\\w\\s@]*@)\\b';
-
-	block.html = replace(block.html)
-	  ('comment', /<!--[\s\S]*?-->/)
-	  ('closed', /<(tag)[\s\S]+?<\/\1>/)
-	  ('closing', /<tag(?:"[^"]*"|'[^']*'|[^'">])*?>/)
-	  (/tag/g, block._tag)
-	  ();
-
-	block.paragraph = replace(block.paragraph)
-	  ('hr', block.hr)
-	  ('heading', block.heading)
-	  ('lheading', block.lheading)
-	  ('blockquote', block.blockquote)
-	  ('tag', '<' + block._tag)
-	  ('def', block.def)
-	  ();
-
-	/**
-	 * Normal Block Grammar
-	 */
-
-	block.normal = merge({}, block);
-
-	/**
-	 * GFM Block Grammar
-	 */
-
-	block.gfm = merge({}, block.normal, {
-	  fences: /^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/,
-	  paragraph: /^/,
-	  heading: /^ *(#{1,6}) +([^\n]+?) *#* *(?:\n+|$)/
-	});
-
-	block.gfm.paragraph = replace(block.paragraph)
-	  ('(?!', '(?!'
-	    + block.gfm.fences.source.replace('\\1', '\\2') + '|'
-	    + block.list.source.replace('\\1', '\\3') + '|')
-	  ();
-
-	/**
-	 * GFM + Tables Block Grammar
-	 */
-
-	block.tables = merge({}, block.gfm, {
-	  nptable: /^ *(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*/,
-	  table: /^ *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/
-	});
-
-	/**
-	 * Block Lexer
-	 */
-
-	function Lexer(options) {
-	  this.tokens = [];
-	  this.tokens.links = {};
-	  this.options = options || marked.defaults;
-	  this.rules = block.normal;
-
-	  if (this.options.gfm) {
-	    if (this.options.tables) {
-	      this.rules = block.tables;
-	    } else {
-	      this.rules = block.gfm;
-	    }
-	  }
-	}
-
-	/**
-	 * Expose Block Rules
-	 */
-
-	Lexer.rules = block;
-
-	/**
-	 * Static Lex Method
-	 */
-
-	Lexer.lex = function(src, options) {
-	  var lexer = new Lexer(options);
-	  return lexer.lex(src);
-	};
-
-	/**
-	 * Preprocessing
-	 */
-
-	Lexer.prototype.lex = function(src) {
-	  src = src
-	    .replace(/\r\n|\r/g, '\n')
-	    .replace(/\t/g, '    ')
-	    .replace(/\u00a0/g, ' ')
-	    .replace(/\u2424/g, '\n');
-
-	  return this.token(src, true);
-	};
-
-	/**
-	 * Lexing
-	 */
-
-	Lexer.prototype.token = function(src, top, bq) {
-	  var src = src.replace(/^ +$/gm, '')
-	    , next
-	    , loose
-	    , cap
-	    , bull
-	    , b
-	    , item
-	    , space
-	    , i
-	    , l;
-
-	  while (src) {
-	    // newline
-	    if (cap = this.rules.newline.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      if (cap[0].length > 1) {
-	        this.tokens.push({
-	          type: 'space'
-	        });
-	      }
-	    }
-
-	    // code
-	    if (cap = this.rules.code.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      cap = cap[0].replace(/^ {4}/gm, '');
-	      this.tokens.push({
-	        type: 'code',
-	        text: !this.options.pedantic
-	          ? cap.replace(/\n+$/, '')
-	          : cap
-	      });
-	      continue;
-	    }
-
-	    // fences (gfm)
-	    if (cap = this.rules.fences.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      this.tokens.push({
-	        type: 'code',
-	        lang: cap[2],
-	        text: cap[3] || ''
-	      });
-	      continue;
-	    }
-
-	    // heading
-	    if (cap = this.rules.heading.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      this.tokens.push({
-	        type: 'heading',
-	        depth: cap[1].length,
-	        text: cap[2]
-	      });
-	      continue;
-	    }
-
-	    // table no leading pipe (gfm)
-	    if (top && (cap = this.rules.nptable.exec(src))) {
-	      src = src.substring(cap[0].length);
-
-	      item = {
-	        type: 'table',
-	        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
-	        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
-	        cells: cap[3].replace(/\n$/, '').split('\n')
-	      };
-
-	      for (i = 0; i < item.align.length; i++) {
-	        if (/^ *-+: *$/.test(item.align[i])) {
-	          item.align[i] = 'right';
-	        } else if (/^ *:-+: *$/.test(item.align[i])) {
-	          item.align[i] = 'center';
-	        } else if (/^ *:-+ *$/.test(item.align[i])) {
-	          item.align[i] = 'left';
-	        } else {
-	          item.align[i] = null;
-	        }
-	      }
-
-	      for (i = 0; i < item.cells.length; i++) {
-	        item.cells[i] = item.cells[i].split(/ *\| */);
-	      }
-
-	      this.tokens.push(item);
-
-	      continue;
-	    }
-
-	    // lheading
-	    if (cap = this.rules.lheading.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      this.tokens.push({
-	        type: 'heading',
-	        depth: cap[2] === '=' ? 1 : 2,
-	        text: cap[1]
-	      });
-	      continue;
-	    }
-
-	    // hr
-	    if (cap = this.rules.hr.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      this.tokens.push({
-	        type: 'hr'
-	      });
-	      continue;
-	    }
-
-	    // blockquote
-	    if (cap = this.rules.blockquote.exec(src)) {
-	      src = src.substring(cap[0].length);
-
-	      this.tokens.push({
-	        type: 'blockquote_start'
-	      });
-
-	      cap = cap[0].replace(/^ *> ?/gm, '');
-
-	      // Pass `top` to keep the current
-	      // "toplevel" state. This is exactly
-	      // how markdown.pl works.
-	      this.token(cap, top, true);
-
-	      this.tokens.push({
-	        type: 'blockquote_end'
-	      });
-
-	      continue;
-	    }
-
-	    // list
-	    if (cap = this.rules.list.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      bull = cap[2];
-
-	      this.tokens.push({
-	        type: 'list_start',
-	        ordered: bull.length > 1
-	      });
-
-	      // Get each top-level item.
-	      cap = cap[0].match(this.rules.item);
-
-	      next = false;
-	      l = cap.length;
-	      i = 0;
-
-	      for (; i < l; i++) {
-	        item = cap[i];
-
-	        // Remove the list item's bullet
-	        // so it is seen as the next token.
-	        space = item.length;
-	        item = item.replace(/^ *([*+-]|\d+\.) +/, '');
-
-	        // Outdent whatever the
-	        // list item contains. Hacky.
-	        if (~item.indexOf('\n ')) {
-	          space -= item.length;
-	          item = !this.options.pedantic
-	            ? item.replace(new RegExp('^ {1,' + space + '}', 'gm'), '')
-	            : item.replace(/^ {1,4}/gm, '');
-	        }
-
-	        // Determine whether the next list item belongs here.
-	        // Backpedal if it does not belong in this list.
-	        if (this.options.smartLists && i !== l - 1) {
-	          b = block.bullet.exec(cap[i + 1])[0];
-	          if (bull !== b && !(bull.length > 1 && b.length > 1)) {
-	            src = cap.slice(i + 1).join('\n') + src;
-	            i = l - 1;
-	          }
-	        }
-
-	        // Determine whether item is loose or not.
-	        // Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/
-	        // for discount behavior.
-	        loose = next || /\n\n(?!\s*$)/.test(item);
-	        if (i !== l - 1) {
-	          next = item.charAt(item.length - 1) === '\n';
-	          if (!loose) loose = next;
-	        }
-
-	        this.tokens.push({
-	          type: loose
-	            ? 'loose_item_start'
-	            : 'list_item_start'
-	        });
-
-	        // Recurse.
-	        this.token(item, false, bq);
-
-	        this.tokens.push({
-	          type: 'list_item_end'
-	        });
-	      }
-
-	      this.tokens.push({
-	        type: 'list_end'
-	      });
-
-	      continue;
-	    }
-
-	    // html
-	    if (cap = this.rules.html.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      this.tokens.push({
-	        type: this.options.sanitize
-	          ? 'paragraph'
-	          : 'html',
-	        pre: !this.options.sanitizer
-	          && (cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style'),
-	        text: cap[0]
-	      });
-	      continue;
-	    }
-
-	    // def
-	    if ((!bq && top) && (cap = this.rules.def.exec(src))) {
-	      src = src.substring(cap[0].length);
-	      this.tokens.links[cap[1].toLowerCase()] = {
-	        href: cap[2],
-	        title: cap[3]
-	      };
-	      continue;
-	    }
-
-	    // table (gfm)
-	    if (top && (cap = this.rules.table.exec(src))) {
-	      src = src.substring(cap[0].length);
-
-	      item = {
-	        type: 'table',
-	        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
-	        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
-	        cells: cap[3].replace(/(?: *\| *)?\n$/, '').split('\n')
-	      };
-
-	      for (i = 0; i < item.align.length; i++) {
-	        if (/^ *-+: *$/.test(item.align[i])) {
-	          item.align[i] = 'right';
-	        } else if (/^ *:-+: *$/.test(item.align[i])) {
-	          item.align[i] = 'center';
-	        } else if (/^ *:-+ *$/.test(item.align[i])) {
-	          item.align[i] = 'left';
-	        } else {
-	          item.align[i] = null;
-	        }
-	      }
-
-	      for (i = 0; i < item.cells.length; i++) {
-	        item.cells[i] = item.cells[i]
-	          .replace(/^ *\| *| *\| *$/g, '')
-	          .split(/ *\| */);
-	      }
-
-	      this.tokens.push(item);
-
-	      continue;
-	    }
-
-	    // top-level paragraph
-	    if (top && (cap = this.rules.paragraph.exec(src))) {
-	      src = src.substring(cap[0].length);
-	      this.tokens.push({
-	        type: 'paragraph',
-	        text: cap[1].charAt(cap[1].length - 1) === '\n'
-	          ? cap[1].slice(0, -1)
-	          : cap[1]
-	      });
-	      continue;
-	    }
-
-	    // text
-	    if (cap = this.rules.text.exec(src)) {
-	      // Top-level should never reach here.
-	      src = src.substring(cap[0].length);
-	      this.tokens.push({
-	        type: 'text',
-	        text: cap[0]
-	      });
-	      continue;
-	    }
-
-	    if (src) {
-	      throw new
-	        Error('Infinite loop on byte: ' + src.charCodeAt(0));
-	    }
-	  }
-
-	  return this.tokens;
-	};
-
-	/**
-	 * Inline-Level Grammar
-	 */
-
-	var inline = {
-	  escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
-	  autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
-	  url: noop,
-	  tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
-	  link: /^!?\[(inside)\]\(href\)/,
-	  reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
-	  nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
-	  strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
-	  em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-	  code: /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,
-	  br: /^ {2,}\n(?!\s*$)/,
-	  del: noop,
-	  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
-	};
-
-	inline._inside = /(?:\[[^\]]*\]|[^\[\]]|\](?=[^\[]*\]))*/;
-	inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
-
-	inline.link = replace(inline.link)
-	  ('inside', inline._inside)
-	  ('href', inline._href)
-	  ();
-
-	inline.reflink = replace(inline.reflink)
-	  ('inside', inline._inside)
-	  ();
-
-	/**
-	 * Normal Inline Grammar
-	 */
-
-	inline.normal = merge({}, inline);
-
-	/**
-	 * Pedantic Inline Grammar
-	 */
-
-	inline.pedantic = merge({}, inline.normal, {
-	  strong: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
-	  em: /^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/
-	});
-
-	/**
-	 * GFM Inline Grammar
-	 */
-
-	inline.gfm = merge({}, inline.normal, {
-	  escape: replace(inline.escape)('])', '~|])')(),
-	  url: /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,
-	  del: /^~~(?=\S)([\s\S]*?\S)~~/,
-	  text: replace(inline.text)
-	    (']|', '~]|')
-	    ('|', '|https?://|')
-	    ()
-	});
-
-	/**
-	 * GFM + Line Breaks Inline Grammar
-	 */
-
-	inline.breaks = merge({}, inline.gfm, {
-	  br: replace(inline.br)('{2,}', '*')(),
-	  text: replace(inline.gfm.text)('{2,}', '*')()
-	});
-
-	/**
-	 * Inline Lexer & Compiler
-	 */
-
-	function InlineLexer(links, options) {
-	  this.options = options || marked.defaults;
-	  this.links = links;
-	  this.rules = inline.normal;
-	  this.renderer = this.options.renderer || new Renderer;
-	  this.renderer.options = this.options;
-
-	  if (!this.links) {
-	    throw new
-	      Error('Tokens array requires a `links` property.');
-	  }
-
-	  if (this.options.gfm) {
-	    if (this.options.breaks) {
-	      this.rules = inline.breaks;
-	    } else {
-	      this.rules = inline.gfm;
-	    }
-	  } else if (this.options.pedantic) {
-	    this.rules = inline.pedantic;
-	  }
-	}
-
-	/**
-	 * Expose Inline Rules
-	 */
-
-	InlineLexer.rules = inline;
-
-	/**
-	 * Static Lexing/Compiling Method
-	 */
-
-	InlineLexer.output = function(src, links, options) {
-	  var inline = new InlineLexer(links, options);
-	  return inline.output(src);
-	};
-
-	/**
-	 * Lexing/Compiling
-	 */
-
-	InlineLexer.prototype.output = function(src) {
-	  var out = ''
-	    , link
-	    , text
-	    , href
-	    , cap;
-
-	  while (src) {
-	    // escape
-	    if (cap = this.rules.escape.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      out += cap[1];
-	      continue;
-	    }
-
-	    // autolink
-	    if (cap = this.rules.autolink.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      if (cap[2] === '@') {
-	        text = cap[1].charAt(6) === ':'
-	          ? this.mangle(cap[1].substring(7))
-	          : this.mangle(cap[1]);
-	        href = this.mangle('mailto:') + text;
-	      } else {
-	        text = escape(cap[1]);
-	        href = text;
-	      }
-	      out += this.renderer.link(href, null, text);
-	      continue;
-	    }
-
-	    // url (gfm)
-	    if (!this.inLink && (cap = this.rules.url.exec(src))) {
-	      src = src.substring(cap[0].length);
-	      text = escape(cap[1]);
-	      href = text;
-	      out += this.renderer.link(href, null, text);
-	      continue;
-	    }
-
-	    // tag
-	    if (cap = this.rules.tag.exec(src)) {
-	      if (!this.inLink && /^<a /i.test(cap[0])) {
-	        this.inLink = true;
-	      } else if (this.inLink && /^<\/a>/i.test(cap[0])) {
-	        this.inLink = false;
-	      }
-	      src = src.substring(cap[0].length);
-	      out += this.options.sanitize
-	        ? this.options.sanitizer
-	          ? this.options.sanitizer(cap[0])
-	          : escape(cap[0])
-	        : cap[0]
-	      continue;
-	    }
-
-	    // link
-	    if (cap = this.rules.link.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      this.inLink = true;
-	      out += this.outputLink(cap, {
-	        href: cap[2],
-	        title: cap[3]
-	      });
-	      this.inLink = false;
-	      continue;
-	    }
-
-	    // reflink, nolink
-	    if ((cap = this.rules.reflink.exec(src))
-	        || (cap = this.rules.nolink.exec(src))) {
-	      src = src.substring(cap[0].length);
-	      link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
-	      link = this.links[link.toLowerCase()];
-	      if (!link || !link.href) {
-	        out += cap[0].charAt(0);
-	        src = cap[0].substring(1) + src;
-	        continue;
-	      }
-	      this.inLink = true;
-	      out += this.outputLink(cap, link);
-	      this.inLink = false;
-	      continue;
-	    }
-
-	    // strong
-	    if (cap = this.rules.strong.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      out += this.renderer.strong(this.output(cap[2] || cap[1]));
-	      continue;
-	    }
-
-	    // em
-	    if (cap = this.rules.em.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      out += this.renderer.em(this.output(cap[2] || cap[1]));
-	      continue;
-	    }
-
-	    // code
-	    if (cap = this.rules.code.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      out += this.renderer.codespan(escape(cap[2], true));
-	      continue;
-	    }
-
-	    // br
-	    if (cap = this.rules.br.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      out += this.renderer.br();
-	      continue;
-	    }
-
-	    // del (gfm)
-	    if (cap = this.rules.del.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      out += this.renderer.del(this.output(cap[1]));
-	      continue;
-	    }
-
-	    // text
-	    if (cap = this.rules.text.exec(src)) {
-	      src = src.substring(cap[0].length);
-	      out += this.renderer.text(escape(this.smartypants(cap[0])));
-	      continue;
-	    }
-
-	    if (src) {
-	      throw new
-	        Error('Infinite loop on byte: ' + src.charCodeAt(0));
-	    }
-	  }
-
-	  return out;
-	};
-
-	/**
-	 * Compile Link
-	 */
-
-	InlineLexer.prototype.outputLink = function(cap, link) {
-	  var href = escape(link.href)
-	    , title = link.title ? escape(link.title) : null;
-
-	  return cap[0].charAt(0) !== '!'
-	    ? this.renderer.link(href, title, this.output(cap[1]))
-	    : this.renderer.image(href, title, escape(cap[1]));
-	};
-
-	/**
-	 * Smartypants Transformations
-	 */
-
-	InlineLexer.prototype.smartypants = function(text) {
-	  if (!this.options.smartypants) return text;
-	  return text
-	    // em-dashes
-	    .replace(/---/g, '\u2014')
-	    // en-dashes
-	    .replace(/--/g, '\u2013')
-	    // opening singles
-	    .replace(/(^|[-\u2014/(\[{"\s])'/g, '$1\u2018')
-	    // closing singles & apostrophes
-	    .replace(/'/g, '\u2019')
-	    // opening doubles
-	    .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, '$1\u201c')
-	    // closing doubles
-	    .replace(/"/g, '\u201d')
-	    // ellipses
-	    .replace(/\.{3}/g, '\u2026');
-	};
-
-	/**
-	 * Mangle Links
-	 */
-
-	InlineLexer.prototype.mangle = function(text) {
-	  if (!this.options.mangle) return text;
-	  var out = ''
-	    , l = text.length
-	    , i = 0
-	    , ch;
-
-	  for (; i < l; i++) {
-	    ch = text.charCodeAt(i);
-	    if (Math.random() > 0.5) {
-	      ch = 'x' + ch.toString(16);
-	    }
-	    out += '&#' + ch + ';';
-	  }
-
-	  return out;
-	};
-
-	/**
-	 * Renderer
-	 */
-
-	function Renderer(options) {
-	  this.options = options || {};
-	}
-
-	Renderer.prototype.code = function(code, lang, escaped) {
-	  if (this.options.highlight) {
-	    var out = this.options.highlight(code, lang);
-	    if (out != null && out !== code) {
-	      escaped = true;
-	      code = out;
-	    }
-	  }
-
-	  if (!lang) {
-	    return '<pre><code>'
-	      + (escaped ? code : escape(code, true))
-	      + '\n</code></pre>';
-	  }
-
-	  return '<pre><code class="'
-	    + this.options.langPrefix
-	    + escape(lang, true)
-	    + '">'
-	    + (escaped ? code : escape(code, true))
-	    + '\n</code></pre>\n';
-	};
-
-	Renderer.prototype.blockquote = function(quote) {
-	  return '<blockquote>\n' + quote + '</blockquote>\n';
-	};
-
-	Renderer.prototype.html = function(html) {
-	  return html;
-	};
-
-	Renderer.prototype.heading = function(text, level, raw) {
-	  return '<h'
-	    + level
-	    + ' id="'
-	    + this.options.headerPrefix
-	    + raw.toLowerCase().replace(/[^\w]+/g, '-')
-	    + '">'
-	    + text
-	    + '</h'
-	    + level
-	    + '>\n';
-	};
-
-	Renderer.prototype.hr = function() {
-	  return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
-	};
-
-	Renderer.prototype.list = function(body, ordered) {
-	  var type = ordered ? 'ol' : 'ul';
-	  return '<' + type + '>\n' + body + '</' + type + '>\n';
-	};
-
-	Renderer.prototype.listitem = function(text) {
-	  return '<li>' + text + '</li>\n';
-	};
-
-	Renderer.prototype.paragraph = function(text) {
-	  return '<p>' + text + '</p>\n';
-	};
-
-	Renderer.prototype.table = function(header, body) {
-	  return '<table>\n'
-	    + '<thead>\n'
-	    + header
-	    + '</thead>\n'
-	    + '<tbody>\n'
-	    + body
-	    + '</tbody>\n'
-	    + '</table>\n';
-	};
-
-	Renderer.prototype.tablerow = function(content) {
-	  return '<tr>\n' + content + '</tr>\n';
-	};
-
-	Renderer.prototype.tablecell = function(content, flags) {
-	  var type = flags.header ? 'th' : 'td';
-	  var tag = flags.align
-	    ? '<' + type + ' style="text-align:' + flags.align + '">'
-	    : '<' + type + '>';
-	  return tag + content + '</' + type + '>\n';
-	};
-
-	// span level renderer
-	Renderer.prototype.strong = function(text) {
-	  return '<strong>' + text + '</strong>';
-	};
-
-	Renderer.prototype.em = function(text) {
-	  return '<em>' + text + '</em>';
-	};
-
-	Renderer.prototype.codespan = function(text) {
-	  return '<code>' + text + '</code>';
-	};
-
-	Renderer.prototype.br = function() {
-	  return this.options.xhtml ? '<br/>' : '<br>';
-	};
-
-	Renderer.prototype.del = function(text) {
-	  return '<del>' + text + '</del>';
-	};
-
-	Renderer.prototype.link = function(href, title, text) {
-	  if (this.options.sanitize) {
-	    try {
-	      var prot = decodeURIComponent(unescape(href))
-	        .replace(/[^\w:]/g, '')
-	        .toLowerCase();
-	    } catch (e) {
-	      return '';
-	    }
-	    if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0) {
-	      return '';
-	    }
-	  }
-	  var out = '<a href="' + href + '"';
-	  if (title) {
-	    out += ' title="' + title + '"';
-	  }
-	  out += '>' + text + '</a>';
-	  return out;
-	};
-
-	Renderer.prototype.image = function(href, title, text) {
-	  var out = '<img src="' + href + '" alt="' + text + '"';
-	  if (title) {
-	    out += ' title="' + title + '"';
-	  }
-	  out += this.options.xhtml ? '/>' : '>';
-	  return out;
-	};
-
-	Renderer.prototype.text = function(text) {
-	  return text;
-	};
-
-	/**
-	 * Parsing & Compiling
-	 */
-
-	function Parser(options) {
-	  this.tokens = [];
-	  this.token = null;
-	  this.options = options || marked.defaults;
-	  this.options.renderer = this.options.renderer || new Renderer;
-	  this.renderer = this.options.renderer;
-	  this.renderer.options = this.options;
-	}
-
-	/**
-	 * Static Parse Method
-	 */
-
-	Parser.parse = function(src, options, renderer) {
-	  var parser = new Parser(options, renderer);
-	  return parser.parse(src);
-	};
-
-	/**
-	 * Parse Loop
-	 */
-
-	Parser.prototype.parse = function(src) {
-	  this.inline = new InlineLexer(src.links, this.options, this.renderer);
-	  this.tokens = src.reverse();
-
-	  var out = '';
-	  while (this.next()) {
-	    out += this.tok();
-	  }
-
-	  return out;
-	};
-
-	/**
-	 * Next Token
-	 */
-
-	Parser.prototype.next = function() {
-	  return this.token = this.tokens.pop();
-	};
-
-	/**
-	 * Preview Next Token
-	 */
-
-	Parser.prototype.peek = function() {
-	  return this.tokens[this.tokens.length - 1] || 0;
-	};
-
-	/**
-	 * Parse Text Tokens
-	 */
-
-	Parser.prototype.parseText = function() {
-	  var body = this.token.text;
-
-	  while (this.peek().type === 'text') {
-	    body += '\n' + this.next().text;
-	  }
-
-	  return this.inline.output(body);
-	};
-
-	/**
-	 * Parse Current Token
-	 */
-
-	Parser.prototype.tok = function() {
-	  switch (this.token.type) {
-	    case 'space': {
-	      return '';
-	    }
-	    case 'hr': {
-	      return this.renderer.hr();
-	    }
-	    case 'heading': {
-	      return this.renderer.heading(
-	        this.inline.output(this.token.text),
-	        this.token.depth,
-	        this.token.text);
-	    }
-	    case 'code': {
-	      return this.renderer.code(this.token.text,
-	        this.token.lang,
-	        this.token.escaped);
-	    }
-	    case 'table': {
-	      var header = ''
-	        , body = ''
-	        , i
-	        , row
-	        , cell
-	        , flags
-	        , j;
-
-	      // header
-	      cell = '';
-	      for (i = 0; i < this.token.header.length; i++) {
-	        flags = { header: true, align: this.token.align[i] };
-	        cell += this.renderer.tablecell(
-	          this.inline.output(this.token.header[i]),
-	          { header: true, align: this.token.align[i] }
-	        );
-	      }
-	      header += this.renderer.tablerow(cell);
-
-	      for (i = 0; i < this.token.cells.length; i++) {
-	        row = this.token.cells[i];
-
-	        cell = '';
-	        for (j = 0; j < row.length; j++) {
-	          cell += this.renderer.tablecell(
-	            this.inline.output(row[j]),
-	            { header: false, align: this.token.align[j] }
-	          );
-	        }
-
-	        body += this.renderer.tablerow(cell);
-	      }
-	      return this.renderer.table(header, body);
-	    }
-	    case 'blockquote_start': {
-	      var body = '';
-
-	      while (this.next().type !== 'blockquote_end') {
-	        body += this.tok();
-	      }
-
-	      return this.renderer.blockquote(body);
-	    }
-	    case 'list_start': {
-	      var body = ''
-	        , ordered = this.token.ordered;
-
-	      while (this.next().type !== 'list_end') {
-	        body += this.tok();
-	      }
-
-	      return this.renderer.list(body, ordered);
-	    }
-	    case 'list_item_start': {
-	      var body = '';
-
-	      while (this.next().type !== 'list_item_end') {
-	        body += this.token.type === 'text'
-	          ? this.parseText()
-	          : this.tok();
-	      }
-
-	      return this.renderer.listitem(body);
-	    }
-	    case 'loose_item_start': {
-	      var body = '';
-
-	      while (this.next().type !== 'list_item_end') {
-	        body += this.tok();
-	      }
-
-	      return this.renderer.listitem(body);
-	    }
-	    case 'html': {
-	      var html = !this.token.pre && !this.options.pedantic
-	        ? this.inline.output(this.token.text)
-	        : this.token.text;
-	      return this.renderer.html(html);
-	    }
-	    case 'paragraph': {
-	      return this.renderer.paragraph(this.inline.output(this.token.text));
-	    }
-	    case 'text': {
-	      return this.renderer.paragraph(this.parseText());
-	    }
-	  }
-	};
-
-	/**
-	 * Helpers
-	 */
-
-	function escape(html, encode) {
-	  return html
-	    .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-	    .replace(/</g, '&lt;')
-	    .replace(/>/g, '&gt;')
-	    .replace(/"/g, '&quot;')
-	    .replace(/'/g, '&#39;');
-	}
-
-	function unescape(html) {
-	  return html.replace(/&([#\w]+);/g, function(_, n) {
-	    n = n.toLowerCase();
-	    if (n === 'colon') return ':';
-	    if (n.charAt(0) === '#') {
-	      return n.charAt(1) === 'x'
-	        ? String.fromCharCode(parseInt(n.substring(2), 16))
-	        : String.fromCharCode(+n.substring(1));
-	    }
-	    return '';
-	  });
-	}
-
-	function replace(regex, opt) {
-	  regex = regex.source;
-	  opt = opt || '';
-	  return function self(name, val) {
-	    if (!name) return new RegExp(regex, opt);
-	    val = val.source || val;
-	    val = val.replace(/(^|[^\[])\^/g, '$1');
-	    regex = regex.replace(name, val);
-	    return self;
-	  };
-	}
-
-	function noop() {}
-	noop.exec = noop;
-
-	function merge(obj) {
-	  var i = 1
-	    , target
-	    , key;
-
-	  for (; i < arguments.length; i++) {
-	    target = arguments[i];
-	    for (key in target) {
-	      if (Object.prototype.hasOwnProperty.call(target, key)) {
-	        obj[key] = target[key];
-	      }
-	    }
-	  }
-
-	  return obj;
-	}
-
-
-	/**
-	 * Marked
-	 */
-
-	function marked(src, opt, callback) {
-	  if (callback || typeof opt === 'function') {
-	    if (!callback) {
-	      callback = opt;
-	      opt = null;
-	    }
-
-	    opt = merge({}, marked.defaults, opt || {});
-
-	    var highlight = opt.highlight
-	      , tokens
-	      , pending
-	      , i = 0;
-
-	    try {
-	      tokens = Lexer.lex(src, opt)
-	    } catch (e) {
-	      return callback(e);
-	    }
-
-	    pending = tokens.length;
-
-	    var done = function(err) {
-	      if (err) {
-	        opt.highlight = highlight;
-	        return callback(err);
-	      }
-
-	      var out;
-
-	      try {
-	        out = Parser.parse(tokens, opt);
-	      } catch (e) {
-	        err = e;
-	      }
-
-	      opt.highlight = highlight;
-
-	      return err
-	        ? callback(err)
-	        : callback(null, out);
-	    };
-
-	    if (!highlight || highlight.length < 3) {
-	      return done();
-	    }
-
-	    delete opt.highlight;
-
-	    if (!pending) return done();
-
-	    for (; i < tokens.length; i++) {
-	      (function(token) {
-	        if (token.type !== 'code') {
-	          return --pending || done();
-	        }
-	        return highlight(token.text, token.lang, function(err, code) {
-	          if (err) return done(err);
-	          if (code == null || code === token.text) {
-	            return --pending || done();
-	          }
-	          token.text = code;
-	          token.escaped = true;
-	          --pending || done();
-	        });
-	      })(tokens[i]);
-	    }
-
-	    return;
-	  }
-	  try {
-	    if (opt) opt = merge({}, marked.defaults, opt);
-	    return Parser.parse(Lexer.lex(src, opt), opt);
-	  } catch (e) {
-	    e.message += '\nPlease report this to https://github.com/chjj/marked.';
-	    if ((opt || marked.defaults).silent) {
-	      return '<p>An error occured:</p><pre>'
-	        + escape(e.message + '', true)
-	        + '</pre>';
-	    }
-	    throw e;
-	  }
-	}
-
-	/**
-	 * Options
-	 */
-
-	marked.options =
-	marked.setOptions = function(opt) {
-	  merge(marked.defaults, opt);
-	  return marked;
-	};
-
-	marked.defaults = {
-	  gfm: true,
-	  tables: true,
-	  breaks: false,
-	  pedantic: false,
-	  sanitize: false,
-	  sanitizer: null,
-	  mangle: true,
-	  smartLists: false,
-	  silent: false,
-	  highlight: null,
-	  langPrefix: 'lang-',
-	  smartypants: false,
-	  headerPrefix: '',
-	  renderer: new Renderer,
-	  xhtml: false
-	};
-
-	/**
-	 * Expose
-	 */
-
-	marked.Parser = Parser;
-	marked.parser = Parser.parse;
-
-	marked.Renderer = Renderer;
-
-	marked.Lexer = Lexer;
-	marked.lexer = Lexer.lex;
-
-	marked.InlineLexer = InlineLexer;
-	marked.inlineLexer = InlineLexer.output;
-
-	marked.parse = marked;
-
-	if (true) {
-	  module.exports = marked;
-	} else if (typeof define === 'function' && define.amd) {
-	  define(function() { return marked; });
-	} else {
-	  this.marked = marked;
-	}
-
-	}).call(function() {
-	  return this || (typeof window !== 'undefined' ? window : global);
-	}());
-
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }
 /******/ ])

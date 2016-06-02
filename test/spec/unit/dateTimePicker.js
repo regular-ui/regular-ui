@@ -80,7 +80,7 @@ describe('DateTimePicker', function() {
                 date: today_2
             }
         });
-        
+
         it('should sync `date` property to Calendar and TimePicker components.', function() {
             expect(dateTimePicker.data._date.toDateString()).to.be(dateTimePicker.data.date.toDateString());
             expect(dateTimePicker.data._time).to.be(dateTimePicker.data.date.toTimeString().slice(0, 5));
@@ -142,7 +142,7 @@ describe('DateTimePicker', function() {
                 maxDate: '2008-08-12 14:45'
             }
         });
-        
+
         it('should convert `minDate` and `maxDate` property from string-type to Date-type.', function() {
             expect(dateTimePicker.data.minDate).to.be.a(Date);
             expect(dateTimePicker.data.maxDate).to.be.a(Date);

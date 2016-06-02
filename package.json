@@ -1,7 +1,7 @@
 {
   "name": "regular-ui",
   "description": "Regular UI is a set of front-end components built with RegularJS.",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Sensen <rainforest92@126.com>",
   "main": "./dist/js/regular-ui.min.js",
   "repository": "regular-ui/regular-ui",
@@ -31,7 +31,7 @@
     "mcss2scss": "^v0.1.0",
     "regular-ui-base": "^0.1.0",
     "regular-ui-dragdrop": "^0.1.1",
-    "regularjs": "^0.4.4",
+    "regularjs": "0.4.3",
     "validator": "^5.3.0"
   },
   "devDependencies": {
