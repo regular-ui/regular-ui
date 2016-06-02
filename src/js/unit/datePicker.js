@@ -54,6 +54,8 @@ var DatePicker = Dropdown.extend({
                 if(bowser.msie && bowser.version <= 9)
                     return this.data.date = polyfill.StringDate(newValue);
                 return this.data.date = new Date(newValue);
+            } else if(typeof newValue === 'number') {
+                return this.data.date = new Date(newValue);
             }
 
             if(newValue == 'Invalid Date' || newValue == 'NaN')

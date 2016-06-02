@@ -17,7 +17,7 @@ var _ = require('regular-ui-base/src/_');
  * @param {object}                  options.data                     =  绑定属性
  * @param {object[]=[]}             options.data.source             <=> 数据源
  * @param {string}                  options.data.source[].name       => 每项的内容
- * @param {object=null}             options.data.seleced            <=> 当前选择项
+ * @param {object=null}             options.data.selected           <=> 当前选择项
  * @param {boolean=false}           options.data.block               => 多行显示
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用

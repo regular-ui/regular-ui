@@ -48,6 +48,8 @@ var Calendar = Component.extend({
                 if(bowser.msie && bowser.version <= 9)
                     return this.data.date = polyfill.StringDate(newValue);
                 return this.data.date = new Date(newValue);
+            } else if(typeof newValue === 'number') {
+                return this.data.date = new Date(newValue);
             }
 
             // 如果newValue为空， 则自动转到今天
@@ -118,7 +120,7 @@ var Calendar = Component.extend({
             if(minDate && maxDate)
                 if(minDate/MS_OF_DAY>>0 > maxDate/MS_OF_DAY>>0)
                     throw new Calendar.DateRangeError(minDate, maxDate);
-            
+
             // 如果超出日期范围，则设置为范围边界的日期
             var isOutOfRange = this.isOutOfRange(this.data.date);
             if(isOutOfRange)
@@ -132,7 +134,7 @@ var Calendar = Component.extend({
      */
     _update: function() {
         this.data._days = [];
-        
+
         var date = this.data.date;
         var month = date.getMonth();
         var mfirst = new Date(date); mfirst.setDate(1);
@@ -166,7 +168,7 @@ var Calendar = Component.extend({
         date.setFullYear(date.getFullYear() + year);
         if(date.getMonth() != oldMonth)
             date.setDate(0);
-        
+
         return this.data.date = date;
     },
     /**
@@ -188,7 +190,7 @@ var Calendar = Component.extend({
         // 如果跳月，则置为上一个月
         if((date.getMonth() - correctMonth)%12)
             date.setDate(0);
-        
+
         return this.data.date = date;
     },
     /**

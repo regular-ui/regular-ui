@@ -36,7 +36,7 @@ var DateTimePicker = Dropdown.extend({
     /**
      * @protected
      */
-    config: function() {   
+    config: function() {
         _.extend(this.data, {
             // @inherited source: [],
             // @inherited open: false,
@@ -55,6 +55,8 @@ var DateTimePicker = Dropdown.extend({
             if(typeof newValue === 'string') {
                 if(bowser.msie && bowser.version <= 9)
                     return this.data.date = polyfill.StringDate(newValue);
+                return this.data.date = new Date(newValue);
+            } else if(typeof newValue === 'number') {
                 return this.data.date = new Date(newValue);
             }
 
