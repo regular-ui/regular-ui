@@ -71,9 +71,9 @@ Validation.validate = function(value, rules) {
         rule.success = true;
 
         // if(rule.type === 'is')
-        //     rule.success = rule.option.test(value);
+        //     rule.success = rule.options.test(value);
         // else if(rule.type === 'isNot')
-        //     rule.success = !rule.options.test(value);
+        //     rule.success = !rule.optionss.test(value);
         // else if(rule.type === 'isRequired')
         //     rule.success = !!validator.toString(value);
         // else if(rule.type === 'isFilled')
@@ -81,25 +81,25 @@ Validation.validate = function(value, rules) {
         // else if(rule.type === 'method')
         //     rule.success = rule.method(value, rule);
         // else
-        //     rule.success = validator[rule.type](value, rule.option);
+        //     rule.success = validator[rule.type](value, rule.options);
 
         // 为了兼容
         if(rule.type === 'is')
-            rule.success = (rule.option || rule.reg).test(value);
+            rule.success = (rule.options || rule.reg).test(value);
         else if(rule.type === 'isNot')
-            rule.success = !(rule.option || rule.reg).test(value);
+            rule.success = !(rule.options || rule.reg).test(value);
         else if(rule.type === 'isRequired')
             rule.success = !!validator.toString(value);
         else if(rule.type === 'isFilled')
             rule.success = !!validator.toString(value).trim();
         else if(rule.type === 'isNumber')
-            rule.success = validator.isInt(value + '', rule.option);
+            rule.success = validator.isInt(value + '', rule.options);
         else if(rule.type === 'isLength')
-            rule.success = validator.isLength(value + '', rule.option || {min: rule.min, max: rule.max});
+            rule.success = validator.isLength(value + '', rule.options || {min: rule.min, max: rule.max});
         else if(rule.type === 'method' || rule.method)
-            rule.success = (rule.option || rule.method)(value, rule);
+            rule.success = (rule.options || rule.method)(value, rule);
         else
-            rule.success = validator[rule.type](value + '', rule.option);
+            rule.success = validator[rule.type](value + '', rule.options);
 
         rule.callback && rule.callback(value, rule);
 

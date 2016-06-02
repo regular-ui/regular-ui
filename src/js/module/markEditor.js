@@ -11,7 +11,7 @@ var Component = require('regular-ui-base/src/component');
 var template = require('./markEditor.html');
 var _ = require('regular-ui-base/src/_');
 var Notify = require('./notify.js');
-var marked = require('marked');
+// var marked = require('marked');
 
 /**
  * @class MarkEditor
@@ -41,7 +41,8 @@ var MarkEditor = Component.extend({
     },
     computed: {
         html: function() {
-            return marked(this.data.content);
+            return this.data.content;
+            // return marked(this.data.content);
         }
     },
     /**
@@ -161,7 +162,7 @@ var MarkEditor = Component.extend({
     latex: function() {
         if(this.data.readonly || this.data.disabled)
             return;
-        
+
         var rangeData = this.getCursorPosition();
         rangeData.text = '$$a^2 + b^2 = c^2$$';
         this.setCursorPosition(rangeData);

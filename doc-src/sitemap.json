@@ -115,8 +115,8 @@
                 {"name": "ImageUploader", "lowerName": "imageUploader", "cnName": "图片上传", "group": "上传类", "hidden": true, "new": true},
 
                 {"name": "Editor", "lowerName": "editor", "cnName": "编辑器", "group": "编辑器类", "hidden": true, "beta": true},
-                {"name": "HTMLEditor", "lowerName": "htmlEditor", "cnName": "HTML编辑器", "group": "编辑器类", "beta": true, "beta": true},
-                {"name": "MarkEditor", "lowerName": "markEditor", "cnName": "Markdown编辑器", "group": "编辑器类", "beta": true, "beta": true},
+                {"name": "HTMLEditor", "lowerName": "htmlEditor", "cnName": "HTML编辑器", "group": "编辑器类", "hidden": true, "beta": true, "beta": true},
+                {"name": "MarkEditor", "lowerName": "markEditor", "cnName": "Markdown编辑器", "group": "编辑器类", "hidden": true, "beta": true, "beta": true},
                 {"name": "RichEditor", "lowerName": "richEditor", "cnName": "富文本编辑器", "group": "编辑器类", "hidden": true, "new": true},
 
                 {"name": "AudioPlayer", "lowerName": "audioPlayer", "cnName": "音频播放器", "group": "播放器类", "hidden": true, "new": true},
@@ -135,7 +135,8 @@
                 {"name": "Filter", "lowerName": "filter", "cnName": "过滤器", "group": "Regular技巧", "new": true},
                 {"name": "Computed", "lowerName": "computed", "cnName": "计算属性", "group": "Regular技巧", "new": true},
 
-                {"name": "Validation1", "lowerName": "validation1", "cnName": "表单验证演示", "group": "表单验证", "new": true}
+                {"name": "Validation1", "lowerName": "validation1", "cnName": "表单验证演示", "group": "表单验证", "new": true},
+                {"name": "Validation2", "lowerName": "validation2", "cnName": "表单验证演示", "group": "表单验证", "new": true}
             ]
         }
     ]
