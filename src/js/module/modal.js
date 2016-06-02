@@ -92,13 +92,6 @@ var Modal = Component.extend({
 
         this.destroy();
     },
-    /**
-     * @private
-     */
-    _onKeyUp: function($event) {
-        if($event.which == 13)
-            this.ok();
-    },
     _onDragStart: function($event) {
         var dialog = $event.proxy;
         dialog.style.left = dialog.offsetLeft + 'px';
