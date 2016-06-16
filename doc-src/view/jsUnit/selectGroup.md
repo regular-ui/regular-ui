@@ -1,6 +1,6 @@
-### 示例
+## 示例
 
-#### 基本形式
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -45,7 +45,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用某一项，禁用组件
+### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
@@ -91,7 +91,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 设置默认项
+### 设置默认项
 
 <div class="m-example"></div>
 
@@ -136,11 +136,11 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 远程数据
+### 远程数据
 
 *待完成……*
 
-#### 数据绑定
+### 数据绑定
 
 <div class="m-example"></div>
 
@@ -197,7 +197,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 事件
+### 事件
 
 请打开浏览器的控制台查看结果。
 
@@ -246,7 +246,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 行政区（部分）示例
+### 行政区（部分）示例
 
 该示例可以进行省市区三级的选择，并且处理了直辖市少一级的问题。
 

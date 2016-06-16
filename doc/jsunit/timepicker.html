@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -254,49 +254,49 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>时间选择<small> TimePicker</small></h2>
+        <h1>时间选择<small> TimePicker</small></h1>
         
-        <h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+        <h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-string">&quot;15:45&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<h4 id="-">禁用组件</h4>
+<h3 id="-">禁用组件</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<h4 id="-">日期范围</h4>
+<h3 id="-">日期范围</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">minTime</span>=<span class="cm-string">&quot;12:00&quot;</span> <span class="cm-attribute">maxTime</span>=<span class="cm-string">&quot;14:45&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<h4 id="-">数据绑定</h4>
+<h3 id="-">数据绑定</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-attribute">{time}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">time</span>=<span class="cm-attribute">{time}</span> <span class="cm-attribute">minTime</span>=<span class="cm-string">&quot;18:00&quot;</span> <span class="cm-attribute">maxTime</span>=<span class="cm-string">&quot;19:30&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>当前选择的时间为：{time}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<h4 id="-">事件</h4>
+<h3 id="-">事件</h3>
 <p>请打开浏览器的控制台查看结果。</p>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">timePicker</span> <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.time:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.time)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 
-        <h3>API</h3>
+        <h2>API</h3>
 
-<h4>Class</h4>
-<h5>TimePicker</h5>
+<h3>Class</h3>
+<h4>TimePicker</h4>
 <p>继承自<strong>Component</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new TimePicker()</h5>
+<h3>Options</h3>
+<h4>new TimePicker()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -328,10 +328,10 @@
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>timePicker.isOutOfRange(time)</h5>
+    <h4>timePicker.isOutOfRange(time)</h4>
     <p>是否超出规定的时间范围</p>
     <table>
         <thead>
@@ -364,10 +364,10 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>timePicker.$on('change')</h5>
+    <h4>timePicker.$on('change')</h4>
     <p>时间改变时触发</p>
     <table>
         <thead>
@@ -389,8 +389,10 @@
 
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

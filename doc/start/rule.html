@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -121,14 +121,14 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>规范<small> Rule</small></h2>
+        <h1>规范<small> Rule</small></h1>
         
-        <h4 id="-">分类</h4>
+        <h3 id="-">分类</h3>
 <ul>
 <li>按照是否包含JS代码，Regular UI中的组件分为<strong>CSS组件</strong>和<strong>JS组件</strong>。</li>
 <li>按照<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>，Regular UI中的组件分为<strong>布局（Grid）</strong> 、<strong>元件（Unit）</strong>和 <strong>模块（Module）</strong>。</li>
 </ul>
-<h4 id="-">命名规范</h4>
+<h3 id="-">命名规范</h3>
 <table>
 <thead>
 <tr>
@@ -239,16 +239,16 @@
 </tr>
 </tbody>
 </table>
-<h4 id="css-">CSS规范</h4>
+<h3 id="css-">CSS规范</h3>
 <p>Regular UI中所有组件的CSS样式都遵循<a href="http://nec.netease.com/standard/css-sort.html">NEC规范</a>。</p>
-<h5 id="-">补充</h5>
+<h4 id="-">补充</h4>
 <ul>
 <li>为了防止组件内部class选择器的污染，并且为了好识别，使用<code>_</code>来做连字符。<br>后代选择器的class定义为组件名+<code>_</code>+后代选择器的含义。<br>如用：<code>.m-tabs .tabs_hd</code>, <code>.m-calendar .calendar_hd</code>，而不用：<code>.m-tabs .hd</code>, <code>.m-calendar .hd</code></li>
 <li>为了防止组件内部语义化标签选择器的污染，使用<code>&gt;</code>来进行限制选择。<br>如用：<code>.m-list&gt;li</code>，而不用：<code>.m-list li</code></li>
 <li>对于简单的HTML结构尽量使用标签选择器而不使用class选择器。<br>如用：<code>.m-list&gt;li</code>, <code>.m-crumb&gt;li&gt;a</code>，而不用：<code>.m-list .list_item</code>, <code>.m-crumb .crumb_a</code></li>
 </ul>
-<h4 id="mcss-scss-">MCSS/SCSS规范</h4>
-<h5 id="-">变量命名</h5>
+<h3 id="mcss-scss-">MCSS/SCSS规范</h3>
+<h4 id="-">变量命名</h4>
 <ul>
 <li>变量的命名必须有意义，能够使人直接读懂变量的含义，如<code>$brand-primary</code>, <code>$font-size-base</code>, <code>$u-radio_size</code>等。</li>
 <li>主题的主要色系以<code>$brand-</code>开头，并在<code>var.mcss</code>文件中声明，如<code>$brand-primary</code>, <code>$brand-info</code>等</li>
@@ -258,22 +258,22 @@
 <li>大小分级：<code>xxs</code>, <code>xs</code>, <code>sm</code>, <code>base</code>, <code>lg</code>, <code>xl</code>, <code>xxl</code>, ...</li>
 <li>颜色分级：<code>darkest</code>, <code>darker</code>, <code>dark</code>, <code>base</code>, <code>light</code>, <code>lighter</code>, <code>lightest</code>, ...</li>
 </ul>
-<h5 id="-">强调</h5>
+<h4 id="-">强调</h4>
 <ul>
 <li>尽量使用MASS库中的函数简化代码，如各种CSS3的前缀, <code>$size</code>, <code>$line-height</code>等。</li>
 <li>HTML模板只用于表现组件的结构，因此不在模板标签中使用<code>f-</code>功能等样式，而用<code>@extend</code>方式在CSS中继承。<br>如用：<code>&lt;div class=&quot;m-pager&quot;&gt;</code> + <code>.m-pager {@extend .f-wsn}</code>，而不用：<code>&lt;div class=&quot;m-pager f-wsn&quot;&gt;</code></li>
 <li><code>@extend</code>方式只能继承自简单选择器。</li>
 <li>在可以用<code>@extend</code>的地方不使用mixin方式。</li>
 </ul>
-<h4 id="js-">JS规范</h4>
+<h3 id="js-">JS规范</h3>
 <p>Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。</p>
 <p>代码的注释遵循jsDoc的规范。</p>
-<h5 id="-">补充</h5>
+<h4 id="-">补充</h4>
 <ul>
 <li>组件中的私有方法开头加<code>_</code>，如：<code>_onItemChange($event)</code>、<code>_isCompleted()</code>。</li>
 </ul>
-<h4 id="regular-">Regular规范</h4>
-<h5 id="-">组件声明</h5>
+<h3 id="regular-">Regular规范</h3>
+<h4 id="-">组件声明</h4>
 <ul>
 <li>每个组件必须在<code>config</code>中声明默认数据。</li>
 <li>使用<code>this.data</code>，放弃使用Regular中<code>config</code>或<code>init</code>中传入的<code>data</code>参数。</li>
@@ -302,7 +302,7 @@
     <span class="cm-meta">...</span>
 });
 </code></pre>
-<h5 id="-">强调</h5>
+<h4 id="-">强调</h4>
 <ul>
 <li><code>$update</code>仅在以下两种情况中使用：<ul>
 <li>组件内部异步回调函数中使用</li>
@@ -313,7 +313,7 @@
 <li>在不增加代码复杂度的前提下，尽量使用<code>filter</code>和<code>computed</code>。</li>
 <li><code>directive</code>仅用于简单的DOM操作，如：<code>r-autofocus</code>, <code>r-scroll</code>等，稍复杂的功能都使用组件来实现。</li>
 </ul>
-<h5 id="-">事件</h5>
+<h4 id="-">事件</h4>
 <ul>
 <li>事件命名使用全部小写，并且不加<code>on</code>，如：<code>change</code>, <code>dragend</code>, <code>itemselect</code>, <code>itemmouseup</code>, ...</li>
 <li>与组件整体相关的事件，以<strong>动作或状态</strong>的形式命名，如<code>change</code>, <code>dragend</code>, ...</li>
@@ -328,7 +328,7 @@
     <span class="cm-meta">...</span>    <span class="cm-comment">// 其他相关参数</span>
 }
 </code></pre>
-<h5 id="-">模板</h5>
+<h4 id="-">模板</h4>
 <ul>
 <li>模板尽量采用HTML5风格，除了<code>&lt; /&gt;</code><ul>
 <li>字符串加双引号</li>
@@ -344,8 +344,8 @@
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pager</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-pager-custom&quot;</span> <span class="cm-attribute">current</span>=<span class="cm-attribute">6</span> <span class="cm-attribute">total</span>=<span class="cm-attribute">11</span> <span class="cm-attribute">on-nav</span>=<span class="cm-attribute">{this._onNav($event)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 <!-- 不把所有的组件都封装成Regular组件 -->
-<h4 id="-">已使用的缩写</h4>
-<h5 id="-">组件名</h5>
+<h3 id="-">已使用的缩写</h3>
+<h4 id="-">组件名</h4>
 <ul>
 <li><code>button</code> =&gt; <code>btn</code></li>
 <li><code>image</code> =&gt; <code>img</code></li>
@@ -353,20 +353,20 @@
 <li><code>breadCrumb</code> =&gt; <code>crumb</code></li>
 <li><code>markdownEditor</code> =&gt; <code>markEditor</code></li>
 </ul>
-<h5 id="class">class</h5>
+<h4 id="class">class</h4>
 <ul>
 <li><code>head</code> =&gt; <code>hd</code></li>
 <li><code>body</code> =&gt; <code>bd</code></li>
 <li><code>foot</code> =&gt; <code>ft</code></li>
 </ul>
-<h5 id="-">状态名</h5>
+<h4 id="-">状态名</h4>
 <ul>
 <li><code>active</code> =&gt; <code>act</code></li>
 <li><code>disabled</code> =&gt; <code>dis</code></li>
 <li><code>current</code> =&gt; <code>crt</code></li>
 <li><code>selected</code> =&gt; <code>sel</code></li>
 </ul>
-<h5 id="-">扩展样式名</h5>
+<h4 id="-">扩展样式名</h4>
 <ul>
 <li><code>extra small</code> =&gt; <code>xs</code></li>
 <li><code>small</code> =&gt; <code>sm</code></li>
@@ -377,7 +377,8 @@
 
         
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

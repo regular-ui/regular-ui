@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -31,7 +31,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用组件
+### 禁用组件
 
 <div class="m-example"></div>
 
@@ -63,7 +63,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 远程数据
+### 远程数据
 
 <div class="m-example"></div>
 
@@ -88,7 +88,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 分级加载
+### 分级加载
 
 <div class="m-example"></div>
 

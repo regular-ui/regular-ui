@@ -116,7 +116,7 @@ function parse(filepath) {
                     tokens.push(token);
                 }
             });
-        }        
+        }
     }
 
     return tokens;

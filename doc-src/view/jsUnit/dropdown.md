@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -20,7 +20,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 修改标题
+### 修改标题
 
 <div class="m-example"></div>
 
@@ -41,7 +41,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用某一项，禁用组件
+### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
@@ -63,7 +63,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 分隔线
+### 分隔线
 
 <div class="m-example"></div>
 
@@ -85,7 +85,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 按钮自定义
+### 按钮自定义
 
 <div class="m-example"></div>
 
@@ -120,7 +120,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 单项模板自定义
+### 单项模板自定义
 
 <div class="m-example"></div>
 
@@ -144,7 +144,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 数据绑定
+### 数据绑定
 
 <div class="m-example"></div>
 
@@ -165,7 +165,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 事件
+### 事件
 
 请打开浏览器的控制台查看结果。
 

@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -254,10 +254,10 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>上传<small> Uploader</small></h2>
+        <h1>上传<small> Uploader</small></h1>
         
-        <h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+        <h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span>
@@ -278,7 +278,7 @@
     <i class="message_icon u-icon u-icon-warning-circle"></i> 注意：在IE中实现上传功能时，需要将响应头的<code>Content-Type</code>设置为<code>text/plain</code>或<code>text/html</code>，而不能是<code>application/json</code>，否则IE会提示用户下载返回的数据。
 </div>
 
-<h4 id="-">修改标题</h4>
+<h3 id="-">修改标题</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;上传文件&quot;</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span>
@@ -295,7 +295,7 @@
     }
 });
 </code></pre>
-<h4 id="-">按钮自定义</h4>
+<h3 id="-">按钮自定义</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span> <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
@@ -312,12 +312,12 @@
     }
 });
 </code></pre>
-<h4 id="-">禁用组件</h4>
+<h3 id="-">禁用组件</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<h4 id="-">文件类型限制</h4>
+<h3 id="-">文件类型限制</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span>
@@ -334,7 +334,7 @@
     }
 });
 </code></pre>
-<h4 id="-">文件大小限制</h4>
+<h3 id="-">文件大小限制</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">maxSize</span>=<span class="cm-string">&quot;10kB&quot;</span>
@@ -352,16 +352,16 @@
 });
 </code></pre>
 
-        <h3>API</h3>
+        <h2>API</h3>
 
-<h4>Class</h4>
-<h5>Uploader</h5>
+<h3>Class</h3>
+<h4>Uploader</h4>
 <p>继承自<strong>Component</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new Uploader()</h5>
+<h3>Options</h3>
+<h4>new Uploader()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -397,10 +397,10 @@
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>uploader.upload()</h5>
+    <h4>uploader.upload()</h4>
     <p>弹出文件对话框并且上传文件</p>
     <table>
         <thead>
@@ -431,10 +431,10 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>uploader.$on('error')</h5>
+    <h4>uploader.$on('error')</h4>
     <p>上传错误时触发</p>
     <table>
         <thead>
@@ -456,7 +456,7 @@
     </table>
     
     
-    <h5>uploader.$on('error')</h5>
+    <h4>uploader.$on('error')</h4>
     <p>上传错误时触发</p>
     <table>
         <thead>
@@ -480,7 +480,7 @@
     </table>
     
     
-    <h5>uploader.$on('sending')</h5>
+    <h4>uploader.$on('sending')</h4>
     <p>发送前触发</p>
     <table>
         <thead>
@@ -498,7 +498,7 @@
     </table>
     
     
-    <h5>uploader.$on('error')</h5>
+    <h4>uploader.$on('error')</h4>
     <p>上传错误时触发</p>
     <table>
         <thead>
@@ -518,7 +518,7 @@
     </table>
     
     
-    <h5>uploader.$on('complete')</h5>
+    <h4>uploader.$on('complete')</h4>
     <p>上传完成时触发</p>
     <table>
         <thead>
@@ -536,7 +536,7 @@
     </table>
     
     
-    <h5>uploader.$on('success')</h5>
+    <h4>uploader.$on('success')</h4>
     <p>上传成功时触发</p>
     <table>
         <thead>
@@ -558,8 +558,10 @@
 
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

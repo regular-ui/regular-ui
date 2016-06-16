@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -254,48 +254,48 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>数字输入<small> NumberInput</small></h2>
+        <h1>数字输入<small> NumberInput</small></h1>
         
-        <h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+        <h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-tagcm-bracket">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">6</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<h4 id="-">禁用组件</h4>
+<h3 id="-">禁用组件</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">disabled</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<h4 id="-">最大值和最小值</h4>
+<h3 id="-">最大值和最小值</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">min</span>=<span class="cm-attribute">5</span> <span class="cm-attribute">max</span>=<span class="cm-attribute">8</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<h4 id="-">数据绑定</h4>
+<h3 id="-">数据绑定</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{number}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{number}</span> <span class="cm-attribute">min</span>=<span class="cm-attribute">5</span> <span class="cm-attribute">max</span>=<span class="cm-attribute">12</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
-<h4 id="-">事件</h4>
+<h3 id="-">事件</h3>
 <p>请打开浏览器的控制台查看结果。</p>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">numberInput</span> <span class="cm-attribute">on-change</span>=<span class="cm-attribute">{console.log(</span><span class="cm-stringcm-error">&#39;on-change:&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;$event.value:&#39;</span><span class="cm-attribute">,</span> <span class="cm-attribute">$event.value)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
 </code></pre>
 
-        <h3>API</h3>
+        <h2>API</h3>
 
-<h4>Class</h4>
-<h5>NumberInput</h5>
+<h3>Class</h3>
+<h4>NumberInput</h4>
 <p>继承自<strong>Input2</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new NumberInput()</h5>
+<h3>Options</h3>
+<h4>new NumberInput()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -329,10 +329,10 @@
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>numberInput.add(value)</h5>
+    <h4>numberInput.add(value)</h4>
     <p>调整数值</p>
     <table>
         <thead>
@@ -356,7 +356,7 @@
     </table>
     
     
-    <h5>numberInput.isOutOfRange(value)</h5>
+    <h4>numberInput.isOutOfRange(value)</h4>
     <p>是否超出规定的数值范围</p>
     <table>
         <thead>
@@ -386,11 +386,11 @@
 <div id="j-staticMethods"></div>
 
 
-    <h4>Inherited Methods</h4>
+    <h3>Inherited Methods</h3>
     
     
     
-        <h5>numberInput.validate()</h5>
+        <h4>numberInput.validate()</h4>
         <p>根据`rules`验证组件的值是否正确</p>
         <table>
             <thead>
@@ -416,10 +416,10 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>numberInput.$on('change')</h5>
+    <h4>numberInput.$on('change')</h4>
     <p>数值改变时触发</p>
     <table>
         <thead>
@@ -441,8 +441,10 @@
 
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

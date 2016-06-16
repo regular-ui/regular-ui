@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -10,7 +10,7 @@
 </div>
 ```
 
-#### 禁用组件
+### 禁用组件
 
 <div class="m-example"></div>
 
@@ -18,7 +18,7 @@
 <calendar disabled />
 ```
 
-#### 日期范围
+### 日期范围
 
 <div class="m-example"></div>
 
@@ -49,7 +49,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 数据绑定
+### 数据绑定
 
 <div class="m-example"></div>
 
@@ -70,7 +70,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 事件
+### 事件
 
 请打开浏览器的控制台查看结果。
 

@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -121,10 +121,10 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>模块化<small> Modular</small></h2>
+        <h1>模块化<small> Modular</small></h1>
         
-        <h3 id="commonjs">CommonJS</h3>
-<h4 id="1-">1. 安装</h4>
+        <h2 id="commonjs">CommonJS</h2>
+<h3 id="1-">1. 安装</h3>
 <p>Regular UI中使用npm+<a href="http://webpack.github.io">webpack</a>打包JS文件。</p>
 <p>首先确保安装了WebPack CLI：</p>
 <pre class="lang-shell"><code><span class="cm-builtin">npm</span> install <span class="cm-attribute">-g</span> webpack
@@ -132,8 +132,8 @@
 <p>然后在项目中安装Regular UI：</p>
 <pre class="lang-shell"><code><span class="cm-builtin">npm</span> install regular-ui
 </code></pre>
-<h4 id="2-">2. 引入</h4>
-<h5 id="-">一次性引入所有组件</h5>
+<h3 id="2-">2. 引入</h3>
+<h4 id="-">一次性引入所有组件</h4>
 <p>在<code>index.js</code>文件中添加：</p>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">RGUI</span> <span class="cm-operator">=</span> <span class="cm-variable">require</span>(<span class="cm-string">&#39;regular-ui&#39;</span>);
 <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Calendar</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#app&#39;</span>);
@@ -142,7 +142,7 @@
 <pre class="lang-shell"><code>webpack index.js bundle.js
 </code></pre>
 <p><a href="../demo/common/index.html">Demo &gt;&gt;</a></p>
-<h5 id="-">单独引入某个组件</h5>
+<h4 id="-">单独引入某个组件</h4>
 <p>在<code>index.js</code>文件中添加：</p>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">Calendar</span> <span class="cm-operator">=</span> <span class="cm-variable">require</span>(<span class="cm-string">&#39;regular-ui/src/calendar&#39;</span>);
 <span class="cm-keyword">new</span> <span class="cm-variable">Calendar</span>().<span class="cm-property">$inject</span>(<span class="cm-string">&#39;#app&#39;</span>);
@@ -161,8 +161,8 @@
 <pre class="lang-shell"><code>webpack index.js bundle.js
 </code></pre>
 <p><a href="../demo/common-multi/index.html">Demo &gt;&gt;</a></p>
-<h3 id="amd">AMD</h3>
-<h4 id="1-">1. 安装</h4>
+<h2 id="amd">AMD</h2>
+<h3 id="1-">1. 安装</h3>
 <p>使用<a href="http://requirejs.org">RequireJS</a>加载Regular UI。</p>
 <p>首先在HTML的<code>&lt;head&gt;</code>中添加：</p>
 <pre class="lang-html"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">data-main</span>=<span class="cm-string">&quot;index.js&quot;</span> <span class="cm-attribute">src</span>=<span class="cm-string">&quot;require.min.js&quot;</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -170,7 +170,7 @@
 <p>使用Bower下载Regular UI：</p>
 <pre class="lang-shell"><code>bower install regular-ui
 </code></pre>
-<h4 id="2-">2. 引入</h4>
+<h3 id="2-">2. 引入</h3>
 <p>在<code>index.js</code>文件中添加：</p>
 <pre class="lang-javascript"><code><span class="cm-variable">requirejs</span>.<span class="cm-property">config</span>({
     <span class="cm-property">baseUrl</span>: <span class="cm-string">&#39;bower_components/regular-ui&#39;</span>,
@@ -188,8 +188,8 @@
     <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
 </div>
 
-<h3 id="-">自定义打包组件</h3>
-<h4 id="1-">1. 安装</h4>
+<h2 id="-">自定义打包组件</h2>
+<h3 id="1-">1. 安装</h3>
 <p>首先确保安装了gulp：</p>
 <pre class="lang-shell"><code><span class="cm-builtin">npm</span> install <span class="cm-attribute">-g</span> gulp
 </code></pre>
@@ -198,7 +198,7 @@
 <span class="cm-builtin">cd</span> node_modules/regular-ui
 <span class="cm-builtin">npm</span> install
 </code></pre>
-<h4 id="2-">2. 配置</h4>
+<h3 id="2-">2. 配置</h3>
 <p>Regular UI目录下的<code>structure.js</code>是全部组件的配置。</p>
 <p>将<code>structure.js</code>复制为<code>structure.customized.js</code>：</p>
 <pre class="lang-shell"><code><span class="cm-builtin">cp</span> structure.js structure.customized.js
@@ -210,7 +210,7 @@
     <span class="cm-string">&#39;Suggest&#39;</span>: {<span class="cm-variable">type</span>: <span class="cm-string">&#39;css+js&#39;</span>, <span class="cm-variable">category</span>: <span class="cm-string">&#39;unit&#39;</span>, <span class="cm-variable">lowerName</span>: <span class="cm-string">&#39;suggest&#39;</span>, <span class="cm-variable">requires</span>: [<span class="cm-string">&#39;Dropdown&#39;</span>]},
     <span class="cm-comment">// &#39;Uploader&#39;: {type: &#39;css+js&#39;, category: &#39;unit&#39;, lowerName: &#39;uploader&#39;},</span>
 </code></pre>
-<h4 id="3-">3. 打包</h4>
+<h3 id="3-">3. 打包</h3>
 <p>运行gulp命令：</p>
 <pre class="lang-shell"><code>gulp customize
 </code></pre>
@@ -230,7 +230,8 @@
 
         
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

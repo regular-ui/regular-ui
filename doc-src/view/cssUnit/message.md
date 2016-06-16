@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -7,7 +7,7 @@
 <div class="u-message">This is a message.</div>
 ```
 
-#### 颜色扩展
+### 颜色扩展
 
 <div class="m-example"></div>
 

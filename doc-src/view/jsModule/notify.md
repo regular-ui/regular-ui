@@ -1,7 +1,7 @@
 创建显示消息的通知，并且能自动淡出。类似Android中的Toast。
 
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -18,7 +18,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 状态扩展
+### 状态扩展
 
 <div class="m-example"></div>
 
@@ -38,7 +38,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 位置扩展
+### 位置扩展
 
 <div class="m-example"></div>
 
@@ -71,7 +71,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 嵌入文档流
+### 嵌入文档流
 
 上面的模式通知都是以`fixed`的形式固定在浏览器中，如果要将通知嵌入到文档流，先将`notify`注入到需要的位置，同时设置`notify`的`position="static"`。
 
@@ -91,7 +91,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 消息停留时间
+### 消息停留时间
 
 可以通过设置`notify`的`duration`参数设置所有消息的停留时间，也可以在`show`的时候单独设置该条消息的停留时间，单位为毫秒。
 
@@ -113,7 +113,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 始终显示一条
+### 始终显示一条
 
 将`single`设置为`true`，可以让`notify`始终只显示一条消息。
 

@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -16,7 +16,7 @@
 </table>
 ```
 
-#### Hover
+### Hover
 
 <div class="m-example"></div>
 
@@ -33,7 +33,7 @@
 </table>
 ```
 
-#### 条纹
+### 条纹
 
 <div class="m-example"></div>
 
@@ -50,6 +50,6 @@
 </table>
 ```
 
-#### 颜色扩展
+### 颜色扩展
 
 颜色扩展，*待完成……*

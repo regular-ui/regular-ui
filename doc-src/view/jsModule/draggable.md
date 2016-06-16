@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -7,7 +7,7 @@
 <draggable><div class="u-color u-color-primary">拖我</div></draggable>
 ```
 
-#### 移动自身
+### 移动自身
 
 <div class="m-example"></div>
 
@@ -17,7 +17,7 @@
 <draggable proxy="self" direction="vertical"><div class="u-color u-color-success">垂直</div></draggable>
 ```
 
-#### 修改代理
+### 修改代理
 
 <div class="m-example"></div>
 

@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -7,7 +7,7 @@
 <progress percent="36" />
 ```
 
-#### 颜色扩展
+### 颜色扩展
 
 <div class="m-example"></div>
 
@@ -18,7 +18,7 @@
 <progress percent="100" state="error" />
 ```
 
-#### 尺寸扩展
+### 尺寸扩展
 
 <div class="m-example"></div>
 
@@ -30,7 +30,7 @@
 <progress percent="100" size="xl" />
 ```
 
-#### 条纹
+### 条纹
 
 <div class="m-example"></div>
 
@@ -38,7 +38,7 @@
 <progress percent="36" striped />
 ```
 
-#### 条纹动画
+### 条纹动画
 
 <div class="m-example"></div>
 

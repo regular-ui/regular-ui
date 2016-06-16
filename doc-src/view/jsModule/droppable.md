@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -11,10 +11,10 @@
 <droppable data={dropData}><div class="u-color u-color-{dropData || 'primary'}">放到这里</div></droppable>
 ```
 
-#### 列表排序
+### 列表排序
 
 *待完成……*
 
-#### 拖放文件
+### 拖放文件
 
 *待完成……*

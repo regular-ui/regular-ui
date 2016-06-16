@@ -1,6 +1,6 @@
-### CommonJS
+## CommonJS
 
-#### 1. 安装
+### 1. 安装
 
 Regular UI中使用npm+[webpack][WebPack]打包JS文件。
 
@@ -16,9 +16,9 @@ npm install -g webpack
 npm install regular-ui
 ```
 
-#### 2. 引入
+### 2. 引入
 
-##### 一次性引入所有组件
+#### 一次性引入所有组件
 
 在`index.js`文件中添加：
 
@@ -35,7 +35,7 @@ webpack index.js bundle.js
 
 [Demo &gt;&gt;](../demo/common/index.html)
 
-##### 单独引入某个组件
+#### 单独引入某个组件
 
 在`index.js`文件中添加：
 
@@ -64,9 +64,9 @@ webpack index.js bundle.js
 
 [Demo &gt;&gt;](../demo/common-multi/index.html)
 
-### AMD
+## AMD
 
-#### 1. 安装
+### 1. 安装
 
 使用[RequireJS][RequireJS]加载Regular UI。
 
@@ -82,7 +82,7 @@ webpack index.js bundle.js
 bower install regular-ui
 ```
 
-#### 2. 引入
+### 2. 引入
 
 在`index.js`文件中添加：
 
@@ -105,9 +105,9 @@ require(['js/regular-ui.min'], function(RGUI) {
     <i class="message_icon u-icon u-icon-info-circle"></i> 提示：使用Regular UI要先引入Regular。
 </div>
 
-### 自定义打包组件
+## 自定义打包组件
 
-#### 1. 安装
+### 1. 安装
 
 首先确保安装了gulp：
 
@@ -123,7 +123,7 @@ cd node_modules/regular-ui
 npm install
 ```
 
-#### 2. 配置
+### 2. 配置
 
 Regular UI目录下的`structure.js`是全部组件的配置。
 
@@ -143,7 +143,7 @@ cp structure.js structure.customized.js
     // 'Uploader': {type: 'css+js', category: 'unit', lowerName: 'uploader'},
 ```
 
-#### 3. 打包
+### 3. 打包
 
 运行gulp命令：
 

@@ -1,5 +1,5 @@
-### 示例
-#### 大小扩展
+## 示例
+### 大小扩展
 
 <div class="m-example"></div>
 
@@ -11,7 +11,7 @@
 <span class="u-text u-text-xl">超大号文本</span>
 ```
 
-#### 颜色扩展
+### 颜色扩展
 
 <div class="m-example"></div>
 
@@ -25,7 +25,7 @@
 <span class="u-text u-text-muted">Muted</span>
 ```
 
-#### 加粗
+### 加粗
 
 <div class="m-example"></div>
 
@@ -33,7 +33,7 @@
 <div class="f-fwb">加粗文本</div>
 ```
 
-#### 文本对齐
+### 文本对齐
 
 <div class="m-example"></div>
 
@@ -44,7 +44,7 @@
 <div class="f-taj">两端对齐</div>
 ```
 
-#### 垂直对齐
+### 垂直对齐
 
 <div class="m-example"></div>
 
@@ -56,7 +56,7 @@
 
 *待完成……*
 
-#### 文本省略和换行
+### 文本省略和换行
 
 <div class="m-example"></div>
 

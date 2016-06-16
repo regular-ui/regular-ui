@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 对于`<input>`、`<select>`和`<textarea>`三个表单控件，可以使用`.u-input`、`.u-select`和`.u-textarea`来美化。
 
@@ -16,7 +16,7 @@
 <textarea class="u-textarea">这是一段文字。</textarea>
 ```
 
-#### 尺寸扩展
+### 尺寸扩展
 
 <div class="m-example"></div>
 
@@ -47,7 +47,7 @@
 </select>
 ```
 
-#### 宽度扩展
+### 宽度扩展
 
 <div class="m-example"></div>
 
@@ -57,7 +57,7 @@
 <input class="u-input u-input-lgw" value="Large Width">
 ```
 
-#### 颜色扩展
+### 颜色扩展
 
 <div class="m-example"></div>
 
@@ -67,7 +67,7 @@
 <input class="u-input u-input-error" value="Error" placeholder="请输入">
 ```
 
-#### 禁用
+### 禁用
 
 <div class="m-example"></div>
 
@@ -82,7 +82,7 @@
 <textarea class="u-textarea" disabled>Disabled</textarea>
 ```
 
-#### 白板
+### 白板
 
 添加`.u-*-blank`类可以使表单控件的样式特别简化。
 
@@ -99,7 +99,7 @@
 <textarea class="u-textarea u-textarea-blank">Blank</textarea>
 ```
 
-#### 表单项
+### 表单项
 
 Regular UI中将表单名称、表单控件和表单提示封装为一个表单项`.u-formitem`。
 
@@ -119,7 +119,7 @@ Regular UI中将表单名称、表单控件和表单提示封装为一个表单�
 
 <!--
 
-#### 表单组
+### 表单组
 
 <div class="m-example"></div>
 

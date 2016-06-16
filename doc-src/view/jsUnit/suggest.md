@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -26,7 +26,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用某一项，禁用组件
+### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
@@ -54,7 +54,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### Placeholder
+### Placeholder
 
 <div class="m-example"></div>
 
@@ -81,7 +81,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 开始提示长度
+### 开始提示长度
 
 当输入长度>=`startLength`属性后开始提示。
 
@@ -110,7 +110,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 匹配方式
+### 匹配方式
 
 <div class="m-example"></div>
 
@@ -139,7 +139,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 严格模式
+### 严格模式
 
 当为严格模式时，`value`属性必须在source中选择，否则为空。
 
@@ -169,7 +169,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 远程数据
+### 远程数据
 
 支持远程过滤。
 

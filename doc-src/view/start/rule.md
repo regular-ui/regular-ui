@@ -1,9 +1,9 @@
-#### 分类
+### 分类
 
 - 按照是否包含JS代码，Regular UI中的组件分为**CSS组件**和**JS组件**。
 - 按照[NEC规范][NEC]，Regular UI中的组件分为**布局（Grid）** 、**元件（Unit）**和 **模块（Module）**。
 
-#### 命名规范
+### 命名规范
 
 | 组件名和类名       | 对象名             | 标签名               | CSS class             |　JS文件名             |  CSS文件名              |
 | ------------------ | ------------------ | -------------------- | --------------------- | --------------------- | ----------------------- |
@@ -20,11 +20,11 @@
 | `DatePicker`        | `datePicker`        | `<datePicker>`        | `u-datepicker`         | `datePicker.js`        | `datePicker.mcss`        |
 | `DateTimePicker`    | `dateTimePicker`    | `<dateTimePicker>`    | `u-datetimepicker`     | `dateTimePicker.js`    | `dateTimePicker.mcss`    |
 
-#### CSS规范
+### CSS规范
 
 Regular UI中所有组件的CSS样式都遵循[NEC规范][NEC]。
 
-##### 补充
+#### 补充
 
 - 为了防止组件内部class选择器的污染，并且为了好识别，使用`_`来做连字符。  
   后代选择器的class定义为组件名+`_`+后代选择器的含义。  
@@ -34,9 +34,9 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范][NEC]。
 - 对于简单的HTML结构尽量使用标签选择器而不使用class选择器。  
   如用：`.m-list>li`, `.m-crumb>li>a`，而不用：`.m-list .list_item`, `.m-crumb .crumb_a`
 
-#### MCSS/SCSS规范
+### MCSS/SCSS规范
 
-##### 变量命名
+#### 变量命名
 
 - 变量的命名必须有意义，能够使人直接读懂变量的含义，如`$brand-primary`, `$font-size-base`, `$u-radio_size`等。
 - 主题的主要色系以`$brand-`开头，并在`var.mcss`文件中声明，如`$brand-primary`, `$brand-info`等
@@ -46,7 +46,7 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范][NEC]。
 - 大小分级：`xxs`, `xs`, `sm`, `base`, `lg`, `xl`, `xxl`, ...
 - 颜色分级：`darkest`, `darker`, `dark`, `base`, `light`, `lighter`, `lightest`, ...
 
-##### 强调
+#### 强调
 
 - 尽量使用MASS库中的函数简化代码，如各种CSS3的前缀, `$size`, `$line-height`等。
 - HTML模板只用于表现组件的结构，因此不在模板标签中使用`f-`功能等样式，而用`@extend`方式在CSS中继承。  
@@ -54,19 +54,19 @@ Regular UI中所有组件的CSS样式都遵循[NEC规范][NEC]。
 - `@extend`方式只能继承自简单选择器。
 - 在可以用`@extend`的地方不使用mixin方式。
 
-#### JS规范
+### JS规范
 
 Regular UI中所有组件的JS代码都遵循Google的JavaScript规范。
 
 代码的注释遵循jsDoc的规范。
 
-##### 补充
+#### 补充
 
 - 组件中的私有方法开头加`_`，如：`_onItemChange($event)`、`_isCompleted()`。
 
-#### Regular规范
+### Regular规范
 
-##### 组件声明
+#### 组件声明
 
 - 每个组件必须在`config`中声明默认数据。
 - 使用`this.data`，放弃使用Regular中`config`或`init`中传入的`data`参数。
@@ -98,7 +98,7 @@ var Modal = Component.extend({
 });
 ```
 
-##### 强调
+#### 强调
 
 - `$update`仅在以下两种情况中使用：
     - 组件内部异步回调函数中使用
@@ -107,7 +107,7 @@ var Modal = Component.extend({
 - 在不增加代码复杂度的前提下，尽量使用`filter`和`computed`。
 - `directive`仅用于简单的DOM操作，如：`r-autofocus`, `r-scroll`等，稍复杂的功能都使用组件来实现。
 
-##### 事件
+#### 事件
 
 - 事件命名使用全部小写，并且不加`on`，如：`change`, `dragend`, `itemselect`, `itemmouseup`, ...
 - 与组件整体相关的事件，以**动作或状态**的形式命名，如`change`, `dragend`, ...
@@ -124,7 +124,7 @@ var Modal = Component.extend({
 }
 ```
 
-##### 模板
+#### 模板
 
 - 模板尽量采用HTML5风格，除了`< />`
     - 字符串加双引号
@@ -142,9 +142,9 @@ var Modal = Component.extend({
 
 <!-- 不把所有的组件都封装成Regular组件 -->
 
-#### 已使用的缩写
+### 已使用的缩写
 
-##### 组件名
+#### 组件名
 
 - `button` => `btn`
 - `image` => `img`
@@ -152,20 +152,20 @@ var Modal = Component.extend({
 - `breadCrumb` => `crumb`
 - `markdownEditor` => `markEditor`
 
-##### class
+#### class
 
 - `head` => `hd`
 - `body` => `bd`
 - `foot` => `ft`
 
-##### 状态名
+#### 状态名
 
 - `active` => `act`
 - `disabled` => `dis`
 - `current` => `crt`
 - `selected` => `sel`
 
-##### 扩展样式名
+#### 扩展样式名
 
 - `extra small` => `xs`
 - `small` => `sm`

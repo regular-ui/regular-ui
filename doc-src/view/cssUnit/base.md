@@ -1,7 +1,7 @@
 Regular UI在[Normalize.css](http://necolas.github.com/normalize.css)的基础上优化了一些HTML元素的默认样式。
 
-### 示例
-#### 标题
+## 示例
+### 标题
 
 `<h1> - <h6>`标签保持了粗体，设置了边距。可以用`<small>`标签来添加小标题。
 
@@ -16,7 +16,7 @@ Regular UI在[Normalize.css](http://necolas.github.com/normalize.css)的基础�
 <h6>H6 标题6 <small>小标题6</small></h6>
 ```
 
-#### 段落
+### 段落
 
 <div class="m-example"></div>
 
@@ -25,7 +25,7 @@ Regular UI在[Normalize.css](http://necolas.github.com/normalize.css)的基础�
 <p>一直认为最好的心境，不是避开车水马龙，而是在心中修篱种菊。尘世的纷纷扰扰，总是会让人倦了累了，找一个清闲的午后，关上心灵窗子，隔绝人世的喧嚣，一杯茶，一本书，便是一段静谧的光阴。茶，可以品尝人生的百味；书，可以找回心灵的皈依。轻拥一米阳光入怀，和着书香，任流淌的心事，在季节中浅漾，生命就在这悠然的时光中婉约成一朵花。</p>
 ```
 
-#### 水平线
+### 水平线
 
 <div class="m-example"></div>
 
@@ -33,7 +33,7 @@ Regular UI在[Normalize.css](http://necolas.github.com/normalize.css)的基础�
 <hr>
 ```
 
-#### 链接
+### 链接
 
 设置`<a>`标签的默认颜色、hover效果和鼠标指针，使用`<a>`标签在有无`href`情况下的效果一致。
 
@@ -44,7 +44,7 @@ Regular UI在[Normalize.css](http://necolas.github.com/normalize.css)的基础�
 <a href="#">Link#</a>
 ```
 
-#### 特殊文本
+### 特殊文本
 
 <div class="m-example"></div>
 
@@ -63,7 +63,7 @@ Regular UI在[Normalize.css](http://necolas.github.com/normalize.css)的基础�
 <p><dfn>定义术语</dfn>使用`<dfn>`标签</p>
 ```
 
-#### 引用
+### 引用
 
 <div class="m-example"></div>
 
@@ -74,7 +74,7 @@ Regular UI在[Normalize.css](http://necolas.github.com/normalize.css)的基础�
 </blockquote>
 ```
 
-#### 代码块
+### 代码块
 
 <div class="m-example"></div>
 
@@ -93,7 +93,7 @@ factorial = (num) -&gt;
 
 <!-- <samp> -->
 
-#### 列表
+### 列表
 
 <div class="m-example"></div>
 
@@ -122,7 +122,7 @@ factorial = (num) -&gt;
 </ol>
 ```
 
-#### 描述列表
+### 描述列表
 
 <div class="m-example"></div>
 
@@ -137,7 +137,7 @@ factorial = (num) -&gt;
 </dl>
 ```
 
-#### 地址
+### 地址
 
 <div class="m-example"></div>
 
@@ -149,6 +149,6 @@ factorial = (num) -&gt;
 </address>
 ```
 
-#### 图片
+### 图片
 
 响应式图片，*待完成……*

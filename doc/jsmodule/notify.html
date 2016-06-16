@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -205,11 +205,11 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>通知<small> Notify</small></h2>
+        <h1>通知<small> Notify</small></h1>
         
         <p>创建显示消息的通知，并且能自动淡出。类似Android中的Toast。</p>
-<h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+<h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-primary&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.show()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Notify<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -221,7 +221,7 @@
     }
 });
 </code></pre>
-<h4 id="-">状态扩展</h4>
+<h3 id="-">状态扩展</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn u-btn-info&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.show(</span><span class="cm-stringcm-error">&#39;info&#39;</span><span class="cm-attribute">)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Info<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -236,7 +236,7 @@
     }
 });
 </code></pre>
-<h4 id="-">位置扩展</h4>
+<h3 id="-">位置扩展</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.show(0)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Top Center<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -264,7 +264,7 @@
     }
 });
 </code></pre>
-<h4 id="-">嵌入文档流</h4>
+<h3 id="-">嵌入文档流</h3>
 <p>上面的模式通知都是以<code>fixed</code>的形式固定在浏览器中，如果要将通知嵌入到文档流，先将<code>notify</code>注入到需要的位置，同时设置<code>notify</code>的<code>position=&quot;static&quot;</code>。</p>
 <div class="m-example"></div>
 
@@ -278,7 +278,7 @@
     }
 });
 </code></pre>
-<h4 id="-">消息停留时间</h4>
+<h3 id="-">消息停留时间</h3>
 <p>可以通过设置<code>notify</code>的<code>duration</code>参数设置所有消息的停留时间，也可以在<code>show</code>的时候单独设置该条消息的停留时间，单位为毫秒。</p>
 <div class="m-example"></div>
 
@@ -294,7 +294,7 @@
     }
 });
 </code></pre>
-<h4 id="-">始终显示一条</h4>
+<h3 id="-">始终显示一条</h3>
 <p>将<code>single</code>设置为<code>true</code>，可以让<code>notify</code>始终只显示一条消息。</p>
 <div class="m-example"></div>
 
@@ -316,16 +316,16 @@
 });
 </code></pre>
 
-        <h3>API</h3>
+        <h2>API</h3>
 
-<h4>Class</h4>
-<h5>Notify</h5>
+<h3>Class</h3>
+<h4>Notify</h4>
 <p>继承自<strong>Component</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new Notify()</h5>
+<h3>Options</h3>
+<h4>new Notify()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -351,10 +351,10 @@
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>notify.show(text[, state][, duration])</h5>
+    <h4>notify.show(text[, state][, duration])</h4>
     <p>弹出一个消息</p>
     <table>
         <thead>
@@ -382,7 +382,7 @@
     </table>
     
     
-    <h5>notify.close(message)</h5>
+    <h4>notify.close(message)</h4>
     <p>关闭某条消息</p>
     <table>
         <thead>
@@ -406,7 +406,7 @@
     </table>
     
     
-    <h5>notify.closeAll()</h5>
+    <h4>notify.closeAll()</h4>
     <p>关闭所有消息</p>
     <table>
         <thead>
@@ -428,7 +428,7 @@
     </table>
     
     
-    <h5>notify.[info|success|warning|error](text[, duration])</h5>
+    <h4>notify.[info|success|warning|error](text[, duration])</h4>
     <p>弹出特殊类型的消息。为show方法的简写方式。</p>
     <table>
         <thead>
@@ -457,10 +457,10 @@
 <div id="j-methods"></div>
 
 
-    <h4>Static Methods</h4>
+    <h3>Static Methods</h3>
     
     
-    <h5>Notify.show(text[, state][, duration])</h5>
+    <h4>Notify.show(text[, state][, duration])</h4>
     <p>弹出一个消息</p>
     <table>
         <thead>
@@ -488,7 +488,7 @@
     </table>
     
     
-    <h5>Notify.[info|success|warning|error](text[, duration])</h5>
+    <h4>Notify.[info|success|warning|error](text[, duration])</h4>
     <p>弹出特殊类型的消息。为show方法的简写方式。</p>
     <table>
         <thead>
@@ -514,7 +514,7 @@
     </table>
     
     
-    <h5>Notify.close(message)</h5>
+    <h4>Notify.close(message)</h4>
     <p>关闭某条消息</p>
     <table>
         <thead>
@@ -538,7 +538,7 @@
     </table>
     
     
-    <h5>Notify.closeAll()</h5>
+    <h4>Notify.closeAll()</h4>
     <p>关闭所有消息</p>
     <table>
         <thead>
@@ -566,10 +566,10 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>notify.$on('show')</h5>
+    <h4>notify.$on('show')</h4>
     <p>弹出一个消息时触发</p>
     <table>
         <thead>
@@ -587,7 +587,7 @@
     </table>
     
     
-    <h5>notify.$on('close')</h5>
+    <h4>notify.$on('close')</h4>
     <p>关闭某条消息时触发</p>
     <table>
         <thead>
@@ -609,8 +609,10 @@
 
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -8,7 +8,7 @@
 <timePicker time="15:45" />
 ```
 
-#### 禁用组件
+### 禁用组件
 
 <div class="m-example"></div>
 
@@ -16,7 +16,7 @@
 <timePicker disabled />
 ```
 
-#### 日期范围
+### 日期范围
 
 <div class="m-example"></div>
 
@@ -24,7 +24,7 @@
 <timePicker minTime="12:00" maxTime="14:45" />
 ```
 
-#### 数据绑定
+### 数据绑定
 
 <div class="m-example"></div>
 
@@ -34,7 +34,7 @@
 <p>当前选择的时间为：{time}</p>
 ```
 
-#### 事件
+### 事件
 
 请打开浏览器的控制台查看结果。
 

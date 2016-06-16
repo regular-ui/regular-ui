@@ -1,4 +1,4 @@
-### filter
+## filter
 
 <div class="m-example"></div>
 
@@ -6,7 +6,7 @@
 账户余额：{date | dateFormat}
 ```
 
-### computed
+## computed
 
 <div class="m-example"></div>
 

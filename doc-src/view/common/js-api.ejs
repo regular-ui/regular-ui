@@ -1,13 +1,13 @@
-<h3>API</h3>
+<h2>API</h3>
 
-<h4>Class</h4>
-<h5><%= class_.name %></h5>
+<h3>Class</h3>
+<h4><%= class_.name %></h4>
 <p>继承自<strong><%= class_.extend %></strong>。</p>
 <p><%= class_.description %></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new <%= class_.name %>()</h5>
+<h3>Options</h3>
+<h4>new <%= class_.name %>()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -25,10 +25,10 @@
 <div id="j-options"></div>
 
 <% if(methods.length) { %>
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     <% methods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
-    <h5><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
+    <h4><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h4>
     <p><%= method.description %></p>
     <table>
         <thead>
@@ -59,10 +59,10 @@
 <div id="j-methods"></div>
 
 <% if(staticMethods.length) { %>
-    <h4>Static Methods</h4>
+    <h3>Static Methods</h3>
     <% staticMethods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
-    <h5><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.name %>.<%= method.name %>(<%= method.body %>)</h5>
+    <h4><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.name %>.<%= method.name %>(<%= method.body %>)</h4>
     <p><%= method.description %></p>
     <table>
         <thead>
@@ -93,11 +93,11 @@
 <div id="j-staticMethods"></div>
 
 <% if(inheritedMethods.length) { %>
-    <h4>Inherited Methods</h4>
+    <h3>Inherited Methods</h3>
     <% inheritedMethods.forEach(function(method) { %>
     <% if(method.ignore) return; %>
     <% if(!method.overridden) { %>
-        <h5><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h5>
+        <h4><% if(method.deprecated) { %><span class="u-text u-text-muted">@deprecated</span> <% } %><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</h4>
         <p><%= method.description %></p>
         <table>
             <thead>
@@ -124,17 +124,17 @@
             </tbody>
         </table>
     <% } else { %>
-        <h5><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</del></h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.<%= method.name %>(<%= method.body %>)</del></h4>
     <% } %>
     <% }); %>
 <% } %>
 <div id="j-inheritedMethods"></div>
 
 <% if(events.length) { %>
-    <h4>Events</h4>
+    <h3>Events</h3>
     <% events.forEach(function(event) { %>
     <% if(event.ignore) return; %>
-    <h5><%= class_.lowerName %>.$on('<%= event.name %>')</h5>
+    <h4><%= class_.lowerName %>.$on('<%= event.name %>')</h4>
     <p><%= event.description %></p>
     <table>
         <thead>
@@ -155,11 +155,11 @@
 <div id="j-events"></div>
 
 <% if(inheritedEvents.length) { %>
-    <h4>Inherited Events</h4>
+    <h3>Inherited Events</h3>
     <% inheritedEvents.forEach(function(event) { %>
     <% if(event.ignore) return; %>
     <% if(!event.overridden) { %>
-        <h5><%= class_.lowerName %>.$on('<%= event.name %>')</h5>
+        <h4><%= class_.lowerName %>.$on('<%= event.name %>')</h4>
         <p><%= event.description %></p>
         <table>
             <thead>
@@ -176,7 +176,7 @@
             </tbody>
         </table>
     <% } else { %>
-        <h5><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.$on('<%= event.name %>')</del></h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del><%= class_.lowerName %>.$on('<%= event.name %>')</del></h4>
     <% } %>
     <% }); %>
 <% } %>

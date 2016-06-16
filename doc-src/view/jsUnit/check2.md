@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -7,7 +7,7 @@
 <check2 name="多选按钮" />
 ```
 
-#### 半选状态
+### 半选状态
 
 <div class="m-example"></div>
 
@@ -24,7 +24,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用组件
+### 禁用组件
 
 <div class="m-example"></div>
 

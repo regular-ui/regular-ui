@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -254,10 +254,10 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>选择扩展<small> Select2</small></h2>
+        <h1>选择扩展<small> Select2</small></h1>
         
-        <h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+        <h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{[</span><span class="cm-stringcm-error">&#39;简单选项1&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;简单选项2&#39;</span><span class="cm-attribute">,</span> <span class="cm-stringcm-error">&#39;简单选项3&#39;</span><span class="cm-attribute">]}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -274,7 +274,7 @@
     }
 });
 </code></pre>
-<h4 id="selected-value-key">selected, value和key</h4>
+<h3 id="selected-value-key">selected, value和key</h3>
 <p><code>selected</code>表示当前选择项，<code>value</code>表示当前选择值。<code>key</code>表示数据项的键，默认为<code>&#39;id&#39;</code>。</p>
 <p>它们三者的关系如下：<code>selected[key] == value</code>。其中<code>selected</code>和<code>value</code>是联动的，当一项变化时会同时改变另一项。</p>
 <div class="m-example"></div>
@@ -297,7 +297,7 @@
     }
 });
 </code></pre>
-<h4 id="-">禁用某一项，禁用组件</h4>
+<h3 id="-">禁用某一项，禁用组件</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -314,7 +314,7 @@
     }
 });
 </code></pre>
-<h4 id="-">分隔线</h4>
+<h3 id="-">分隔线</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -331,7 +331,7 @@
     }
 });
 </code></pre>
-<h4 id="-">设置或取消默认项</h4>
+<h3 id="-">设置或取消默认项</h3>
 <p>如果<code>placeholder</code>为空，刚开始将会自动选中第一项。</p>
 <div class="m-example"></div>
 
@@ -349,7 +349,7 @@
     }
 });
 </code></pre>
-<h4 id="-">远程数据</h4>
+<h3 id="-">远程数据</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-attribute">value</span>=<span class="cm-string">&quot;2&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
@@ -369,7 +369,7 @@
     }
 });
 </code></pre>
-<h4 id="-">数据绑定</h4>
+<h3 id="-">数据绑定</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select2</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{selected}</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{value}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span> 当前选择项：{selected ? selected.name : &#39;undefined&#39;}，当前选择值：{value || &#39;undefined&#39;}
@@ -385,7 +385,7 @@
     }
 });
 </code></pre>
-<h4 id="-">事件</h4>
+<h3 id="-">事件</h3>
 <p>请打开浏览器的控制台查看结果。</p>
 <div class="m-example"></div>
 
@@ -412,16 +412,17 @@
 ```! xml
 <select2 source={['很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项', '很长很高很长很高很长很高的选择项']} />
 ``` -->
-        <h3>API</h3>
 
-<h4>Class</h4>
-<h5>Select2</h5>
+        <h2>API</h3>
+
+<h3>Class</h3>
+<h4>Select2</h4>
 <p>继承自<strong>Dropdown</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new Select2()</h5>
+<h3>Options</h3>
+<h4>new Select2()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -463,10 +464,10 @@
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>select2.select(item)</h5>
+    <h4>select2.select(item)</h4>
     <p>选择某一项</p>
     <table>
         <thead>
@@ -496,11 +497,11 @@
 <div id="j-staticMethods"></div>
 
 
-    <h4>Inherited Methods</h4>
+    <h3>Inherited Methods</h3>
     
     
     
-        <h5>select2.toggle(open)</h5>
+        <h4>select2.toggle(open)</h4>
         <p>展开/收起</p>
         <table>
             <thead>
@@ -526,12 +527,12 @@
     
     
     
-        <h5><span class="u-text u-text-muted">@override</span> <del>select2.select(item)</del></h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del>select2.select(item)</del></h4>
     
     
     
     
-        <h5><span class="u-text u-text-muted">@deprecated</span> select2.$updateSource()</h5>
+        <h4><span class="u-text u-text-muted">@deprecated</span> select2.$updateSource()</h4>
         <p>从service中更新数据源</p>
         <table>
             <thead>
@@ -557,10 +558,10 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>select2.$on('change')</h5>
+    <h4>select2.$on('change')</h4>
     <p>选择项改变时触发</p>
     <table>
         <thead>
@@ -582,7 +583,7 @@
     </table>
     
     
-    <h5>select2.$on('select')</h5>
+    <h4>select2.$on('select')</h4>
     <p>选择某一项时触发</p>
     <table>
         <thead>
@@ -603,11 +604,11 @@
 <div id="j-events"></div>
 
 
-    <h4>Inherited Events</h4>
+    <h3>Inherited Events</h3>
     
     
     
-        <h5>select2.$on('toggle')</h5>
+        <h4>select2.$on('toggle')</h4>
         <p>展开/收起时触发</p>
         <table>
             <thead>
@@ -627,13 +628,15 @@
     
     
     
-        <h5><span class="u-text u-text-muted">@override</span> <del>select2.$on('select')</del></h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del>select2.$on('select')</del></h4>
     
     
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

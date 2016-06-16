@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 在`<button>`、`<a>`或`<input>`标签上使用`.u-btn`，三者样式完全一致。
 
@@ -13,7 +13,7 @@
 <input class="u-btn" type="submit" value="Submit">
 ```
 
-#### 颜色扩展
+### 颜色扩展
 
 <div class="m-example"></div>
 
@@ -26,7 +26,7 @@
 <button class="u-btn u-btn-error">Error</button>
 ```
 
-#### 尺寸扩展
+### 尺寸扩展
 
 <div class="m-example"></div>
 
@@ -46,7 +46,7 @@
 <button class="u-btn u-btn-primary u-btn-xl">Extra Large</button>
 ```
 
-#### 禁用
+### 禁用
 
 <div class="m-example"></div>
 
@@ -58,7 +58,7 @@
 <input class="u-btn u-btn-error" type="submit" value="Submit" disabled>
 ```
 
-#### 整行
+### 整行
 
 <div class="m-example"></div>
 
@@ -70,7 +70,7 @@
 <input class="u-btn u-btn-lg u-btn-block" type="button" value="Large Input">
 ```
 
-#### 按钮组
+### 按钮组
 
 <div class="m-example"></div>
 

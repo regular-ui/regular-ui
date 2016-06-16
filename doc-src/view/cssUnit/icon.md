@@ -1,8 +1,8 @@
 使用字体图标，可以很方便地在任何位置放置矢量图形。本主题的字体图标由[Font Awesome](http://fortawesome.github.com/Font-Awesome)提供。
 
-### 示例
+## 示例
 
-#### 基本形式
+### 基本形式
 
 鼠标悬浮到图标上有提示。
 
@@ -683,7 +683,7 @@
 <i class="u-icon u-icon-fonticons" title="u-icon u-icon-fonticons"></i>
 </p>
 
-#### 动画
+### 动画
 
 <div class="m-example"></div>
 
@@ -697,7 +697,7 @@
 </p>
 ```
 
-#### 旋转和翻转
+### 旋转和翻转
 
 <div class="m-example"></div>
 
@@ -712,7 +712,7 @@
 </p>
 ```
 
-#### 重叠
+### 重叠
 
 <div class="m-example"></div>
 

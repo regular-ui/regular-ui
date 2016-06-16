@@ -5,10 +5,7 @@
     background: #4c9dcc url('../img/logo-v2.0-text.png') center center no-repeat;
     width: 72px;
     height: 72px;
-
-    > h1 {
-        display: none;
-    }
+    font-size: 0;
 }
 
 .u-logo-index {

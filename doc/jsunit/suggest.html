@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -254,10 +254,10 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>自动提示<small> Suggest</small></h2>
+        <h1>自动提示<small> Suggest</small></h1>
         
-        <h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+        <h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -279,7 +279,7 @@
     }
 });
 </code></pre>
-<h4 id="-">禁用某一项，禁用组件</h4>
+<h3 id="-">禁用某一项，禁用组件</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -302,7 +302,7 @@
     }
 });
 </code></pre>
-<h4 id="placeholder">Placeholder</h4>
+<h3 id="placeholder">Placeholder</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;输入时会自动提示&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
@@ -324,7 +324,7 @@
     }
 });
 </code></pre>
-<h4 id="-">开始提示长度</h4>
+<h3 id="-">开始提示长度</h3>
 <p>当输入长度&gt;=<code>startLength</code>属性后开始提示。</p>
 <div class="m-example"></div>
 
@@ -347,7 +347,7 @@
     }
 });
 </code></pre>
-<h4 id="-">匹配方式</h4>
+<h3 id="-">匹配方式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">suggest</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">placeholder</span>=<span class="cm-string">&quot;匹配全局&quot;</span> <span class="cm-attribute">matchType</span>=<span class="cm-string">&quot;all&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
@@ -371,7 +371,7 @@
     }
 });
 </code></pre>
-<h4 id="-">严格模式</h4>
+<h3 id="-">严格模式</h3>
 <p>当为严格模式时，<code>value</code>属性必须在source中选择，否则为空。</p>
 <div class="m-example"></div>
 
@@ -395,7 +395,7 @@
     }
 });
 </code></pre>
-<h4 id="-">远程数据</h4>
+<h3 id="-">远程数据</h3>
 <p>支持远程过滤。</p>
 <div class="m-example"></div>
 
@@ -451,16 +451,17 @@ var component = new RGUI.Component({
     }
 });
 ``` -->
-        <h3>API</h3>
 
-<h4>Class</h4>
-<h5>Suggest</h5>
+        <h2>API</h3>
+
+<h3>Class</h3>
+<h4>Suggest</h4>
 <p>继承自<strong>Dropdown</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new Suggest()</h5>
+<h3>Options</h3>
+<h4>new Suggest()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -512,10 +513,10 @@ var component = new RGUI.Component({
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>suggest.select(item)</h5>
+    <h4>suggest.select(item)</h4>
     <p>选择某一项</p>
     <table>
         <thead>
@@ -539,7 +540,7 @@ var component = new RGUI.Component({
     </table>
     
     
-    <h5>suggest.toggle(open)</h5>
+    <h4>suggest.toggle(open)</h4>
     <p>展开/收起</p>
     <table>
         <thead>
@@ -569,21 +570,21 @@ var component = new RGUI.Component({
 <div id="j-staticMethods"></div>
 
 
-    <h4>Inherited Methods</h4>
+    <h3>Inherited Methods</h3>
     
     
     
-        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.toggle(open)</del></h5>
-    
-    
-    
-    
-        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.select(item)</del></h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del>suggest.toggle(open)</del></h4>
     
     
     
     
-        <h5><span class="u-text u-text-muted">@deprecated</span> suggest.$updateSource()</h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del>suggest.select(item)</del></h4>
+    
+    
+    
+    
+        <h4><span class="u-text u-text-muted">@deprecated</span> suggest.$updateSource()</h4>
         <p>从service中更新数据源</p>
         <table>
             <thead>
@@ -609,10 +610,10 @@ var component = new RGUI.Component({
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>suggest.$on('select')</h5>
+    <h4>suggest.$on('select')</h4>
     <p>选择某一项时触发</p>
     <table>
         <thead>
@@ -630,7 +631,7 @@ var component = new RGUI.Component({
     </table>
     
     
-    <h5>suggest.$on('toggle')</h5>
+    <h4>suggest.$on('toggle')</h4>
     <p>展开/收起时触发</p>
     <table>
         <thead>
@@ -651,22 +652,24 @@ var component = new RGUI.Component({
 <div id="j-events"></div>
 
 
-    <h4>Inherited Events</h4>
+    <h3>Inherited Events</h3>
     
     
     
-        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.$on('toggle')</del></h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del>suggest.$on('toggle')</del></h4>
     
     
     
     
-        <h5><span class="u-text u-text-muted">@override</span> <del>suggest.$on('select')</del></h5>
+        <h4><span class="u-text u-text-muted">@override</span> <del>suggest.$on('select')</del></h4>
     
     
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

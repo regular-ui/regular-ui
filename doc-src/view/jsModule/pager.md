@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -7,7 +7,7 @@
 <pager current=6 total=11 />
 ```
 
-#### 位置
+### 位置
 
 <div class="m-example"></div>
 
@@ -17,7 +17,7 @@
 <pager current=6 total=11 position="right" />
 ```
 
-#### 显示数目
+### 显示数目
 
 <div class="m-example"></div>
 
@@ -25,7 +25,7 @@
 <pager current=6 total=11 middle=3 side=1 />
 ```
 
-#### 禁用组件
+### 禁用组件
 
 <div class="m-example"></div>
 

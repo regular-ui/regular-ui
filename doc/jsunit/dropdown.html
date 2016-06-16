@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -254,10 +254,10 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>下拉菜单<small> Dropdown</small></h2>
+        <h1>下拉菜单<small> Dropdown</small></h1>
         
-        <h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+        <h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -273,7 +273,7 @@
     }
 });
 </code></pre>
-<h4 id="-">修改标题</h4>
+<h3 id="-">修改标题</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">title</span>=<span class="cm-string">&quot;修改标题&quot;</span> <span class="cm-tagcm-bracket">/&gt;</span>
@@ -289,7 +289,7 @@
     }
 });
 </code></pre>
-<h4 id="-">禁用某一项，禁用组件</h4>
+<h3 id="-">禁用某一项，禁用组件</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -306,7 +306,7 @@
     }
 });
 </code></pre>
-<h4 id="-">分隔线</h4>
+<h3 id="-">分隔线</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -323,7 +323,7 @@
     }
 });
 </code></pre>
-<h4 id="-">按钮自定义</h4>
+<h3 id="-">按钮自定义</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
@@ -353,7 +353,7 @@
     }
 });
 </code></pre>
-<h4 id="-">单项模板自定义</h4>
+<h3 id="-">单项模板自定义</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(this.itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -372,7 +372,7 @@
     }
 });
 </code></pre>
-<h4 id="-">数据绑定</h4>
+<h3 id="-">数据绑定</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">dropdown</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-attribute">open</span>=<span class="cm-attribute">{open}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span> 当前切换的状态：{open}
@@ -388,7 +388,7 @@
     }
 });
 </code></pre>
-<h4 id="-">事件</h4>
+<h3 id="-">事件</h3>
 <p>请打开浏览器的控制台查看结果。</p>
 <div class="m-example"></div>
 
@@ -408,16 +408,16 @@
 });
 </code></pre>
 
-        <h3>API</h3>
+        <h2>API</h3>
 
-<h4>Class</h4>
-<h5>Dropdown</h5>
+<h3>Class</h3>
+<h4>Dropdown</h4>
 <p>继承自<strong>SourceComponent</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new Dropdown()</h5>
+<h3>Options</h3>
+<h4>new Dropdown()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -455,10 +455,10 @@
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>dropdown.toggle(open)</h5>
+    <h4>dropdown.toggle(open)</h4>
     <p>展开/收起</p>
     <table>
         <thead>
@@ -482,7 +482,7 @@
     </table>
     
     
-    <h5>dropdown.select(item)</h5>
+    <h4>dropdown.select(item)</h4>
     <p>选择某一项</p>
     <table>
         <thead>
@@ -512,11 +512,11 @@
 <div id="j-staticMethods"></div>
 
 
-    <h4>Inherited Methods</h4>
+    <h3>Inherited Methods</h3>
     
     
     
-        <h5><span class="u-text u-text-muted">@deprecated</span> dropdown.$updateSource()</h5>
+        <h4><span class="u-text u-text-muted">@deprecated</span> dropdown.$updateSource()</h4>
         <p>从service中更新数据源</p>
         <table>
             <thead>
@@ -542,10 +542,10 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>dropdown.$on('toggle')</h5>
+    <h4>dropdown.$on('toggle')</h4>
     <p>展开/收起时触发</p>
     <table>
         <thead>
@@ -563,7 +563,7 @@
     </table>
     
     
-    <h5>dropdown.$on('select')</h5>
+    <h4>dropdown.$on('select')</h4>
     <p>选择某一项时触发</p>
     <table>
         <thead>
@@ -585,8 +585,10 @@
 
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

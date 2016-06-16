@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -19,7 +19,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 嵌入文档流
+### 嵌入文档流
 
 <div class="m-example"></div>
 
@@ -41,7 +41,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 自定义
+### 自定义
 
 <div class="m-example"></div>
 

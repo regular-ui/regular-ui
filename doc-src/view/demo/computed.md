@@ -1,4 +1,4 @@
-#### 单向计算属性
+### 单向计算属性
 
 <div class="m-example"></div>
 
@@ -49,7 +49,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 双向计算属性
+### 双向计算属性
 
 <div class="m-example"></div>
 

@@ -1,6 +1,6 @@
-### 示例
+## 示例
 
-#### 基本形式
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -22,7 +22,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### selected, value和key
+### selected, value和key
 
 `selected`表示当前选择项，`value`表示当前选择值。`key`表示数据项的键，默认为`'id'`。
 
@@ -52,7 +52,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 禁用某一项，禁用组件
+### 禁用某一项，禁用组件
 
 <div class="m-example"></div>
 
@@ -74,7 +74,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 分隔线
+### 分隔线
 
 <div class="m-example"></div>
 
@@ -96,7 +96,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 设置或取消默认项
+### 设置或取消默认项
 
 如果`placeholder`为空，刚开始将会自动选中第一项。
 
@@ -120,7 +120,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 远程数据
+### 远程数据
 
 <div class="m-example"></div>
 
@@ -145,7 +145,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 数据绑定
+### 数据绑定
 
 <div class="m-example"></div>
 
@@ -166,7 +166,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 事件
+### 事件
 
 请打开浏览器的控制台查看结果。
 

@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -119,10 +119,10 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>表单验证演示<small> Validation1</small></h2>
+        <h1>表单验证演示<small> Validation1</small></h1>
         
         <p>表单验证在网页中是一种很常见却不简单的交互过程。随着前端的发展，这种过程变得越来越复杂多样，传统的表单处理逻辑已经无法很好的满足交互需求。在这里对Regular UI处理各种表单验证进行一下简要疏理。尚不完善，待后续补充。</p>
-<h3 id="-">表单验证行为的有序性</h3>
+<h2 id="-">表单验证行为的有序性</h2>
 <p>许多经典的框架或类库会把某个表单控件的验证行为抽象成类似这样的结构：</p>
 <pre class="lang-javascript"><code>{<span class="cm-variable">required</span>:  <span class="cm-meta">...</span>, <span class="cm-variable">type</span>:  <span class="cm-meta">...</span>, <span class="cm-variable">min</span>:  <span class="cm-meta">...</span>, <span class="cm-variable">max</span>: <span class="cm-meta">...</span>, <span class="cm-variable">pattern</span>: <span class="cm-meta">...</span>, <span class="cm-variable">extend</span>: <span class="cm-meta">...</span>}
 </code></pre>
@@ -162,9 +162,9 @@
     }
 });
 </code></pre>
-<h3 id="-">表单验证行为的实时性</h3>
+<h2 id="-">表单验证行为的实时性</h2>
 <p>表单验证行为按照实时性通常可以分为三种：提交验证、失焦验证、实时验证。另外还有一种行为叫表单限制，不属于表单验证，但通常与之配合使用。</p>
-<h4 id="-">提交验证</h4>
+<h3 id="-">提交验证</h3>
 <p>点击表单提交按钮时才对表单中所有控件进行验证，通常对应submit按钮的<code>click</code>事件。在Regular UI的验证规则中，此种验证默认激活且一直激活，即无需设置<code>on</code>字段。下面的例子中，所有表单验证行为均为提交验证：</p>
 <div class="m-example"></div>
 
@@ -209,7 +209,7 @@
     }
 });
 </code></pre>
-<h4 id="-">失焦验证</h4>
+<h3 id="-">失焦验证</h3>
 <p>在表单控件失去焦点时对该控件进行验证，通常对应表单控件的<code>blur</code>事件。在Regular UI的验证规则中，<code>on</code>字段中包含<code>blur</code>可以激活此种验证。下面的例子中，所有表单验证行为均为失焦验证：</p>
 <div class="m-example"></div>
 
@@ -242,7 +242,7 @@
     }
 });
 </code></pre>
-<h4 id="-">实时验证</h4>
+<h3 id="-">实时验证</h3>
 <p>在表单控件的值实时改变时，对该控件进行验证，通常对应<code>&lt;input&gt;</code>控件的<code>keyup</code>或<code>input</code>事件，其他表单控件视情况而定。在Regular UI的验证规则中，<code>on</code>字段中包含<code>keyup</code>可以激活此种验证。当只激活实时验证时，失焦验证会跳过此规则并且覆盖原来的结果，因此我们通常采用实时与失焦叠加的方式<code>keyup+blur</code>。</p>
 <p>下面的例子中，对用户名长度和邮箱格式的判断为实时验证。其中邮箱验证没有采用实时与失焦叠加的方式，可以发现这种规则不合理。</p>
 <div class="m-example"></div>
@@ -276,7 +276,7 @@
     }
 });
 </code></pre>
-<h4 id="-">表单限制</h4>
+<h3 id="-">表单限制</h3>
 <p>在表单控件的值改变时，对该值限制在规定的长度或范围内，如<code>&lt;input&gt;</code>控件的部分<code>type</code>和<code>maxlength</code>的限制行为等：</p>
 <div class="m-example"></div>
 
@@ -301,9 +301,9 @@
     <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">form</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<h3 id="-">表单提交按钮的可点性</h3>
+<h2 id="-">表单提交按钮的可点性</h2>
 <p>表单提交按钮按照可点性来分，常见的且比较合理的有以下几种情况：始终可点、必填项有内容可点、必填项内容正确可点。</p>
-<h4 id="-">始终可点</h4>
+<h3 id="-">始终可点</h3>
 <p>表单提交按钮始终可点。表现为表单中所有控件的所有行为必须进行提交验证，可以适当采用失焦和实时验证加以辅助。</p>
 <div class="m-example"></div>
 
@@ -357,7 +357,7 @@
     }
 });
 </code></pre>
-<h4 id="-">必填项有内容可点</h4>
+<h3 id="-">必填项有内容可点</h3>
 <p>当表单中所有必填项有内容时，表单提交按钮才可点。表现为实时根据表单中必填项是否为空来判断提交按钮是否可点。这种情况下，通常采用三种验证相结合。</p>
 <div class="m-example"></div>
 
@@ -420,7 +420,7 @@
     }
 });
 </code></pre>
-<h4 id="-">所有项内容正确可点</h4>
+<h3 id="-">所有项内容正确可点</h3>
 <p>当表单中所有项内容均符合要求时，表单提交按钮才可点。表现为实时根据表单中控件的值来判断提交按钮是否可点。这种情况下，通常就不需要进行提交验证了。</p>
 <div class="m-example"></div>
 
@@ -486,7 +486,8 @@
 
         
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

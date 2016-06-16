@@ -2,8 +2,8 @@
 
 模态对话框通过遮罩层来阻止用户的其他行为。
 
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -25,7 +25,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### Alert
+### Alert
 
 <div class="m-example"></div>
 
@@ -42,7 +42,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### Confirm
+### Confirm
 
 <div class="m-example"></div>
 
@@ -59,7 +59,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 拖拽
+### 拖拽
 
 <div class="m-example"></div>
 

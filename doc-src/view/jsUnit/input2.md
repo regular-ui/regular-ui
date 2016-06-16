@@ -1,6 +1,6 @@
-### 示例
+## 示例
 
-#### 基本形式
+### 基本形式
 
 大部分属性的用法与`<input>`一致。
 
@@ -10,7 +10,7 @@
 <label>密码：<input2 type="password" maxlength=6 placeholder="请输入密码" autofocus /></label>
 ```
 
-#### 单位
+### 单位
 
 <div class="m-example"></div>
 
@@ -18,7 +18,7 @@
 <label>速度：<input2 width="smw" value="340" unit="m/s" /></label>
 ```
 
-#### 验证
+### 验证
 
 <div class="m-example"></div>
 

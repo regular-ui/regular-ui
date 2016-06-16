@@ -52,7 +52,7 @@
 <body>
 <div class="g-top g-top-fixed">
     <div class="g-topc">
-        <a class="u-logo" href="../index.html"><h1>Regular UI</h1></a>
+        <a class="u-logo" href="../index.html">Regular UI</a>
         <ul class="m-navbar f-fr">
             
             
@@ -205,10 +205,10 @@
 </div><div class="g-mn">
     <article class="m-article">
         
-        <h2>树型视图<small> TreeView</small></h2>
+        <h1>树型视图<small> TreeView</small></h1>
         
-        <h3 id="-">示例</h3>
-<h4 id="-">基本形式</h4>
+        <h2 id="-">示例</h2>
+<h3 id="-">基本形式</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -235,7 +235,7 @@
     }
 });
 </code></pre>
-<h4 id="-">禁用某一项，禁用组件</h4>
+<h3 id="-">禁用某一项，禁用组件</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-row&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -269,7 +269,7 @@
     }
 });
 </code></pre>
-<h4 id="-">分隔线</h4>
+<h3 id="-">分隔线</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">source</span>=<span class="cm-attribute">{source}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -298,7 +298,7 @@
     }
 });
 </code></pre>
-<h4 id="-">远程数据</h4>
+<h3 id="-">远程数据</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -318,7 +318,7 @@
     }
 });
 </code></pre>
-<h4 id="-">分级加载</h4>
+<h3 id="-">分级加载</h3>
 <p><em>待完成……</em></p>
 <div class="m-example"></div>
 
@@ -338,7 +338,7 @@
     }
 });
 </code></pre>
-<h4 id="-">单项模板自定义</h4>
+<h3 id="-">单项模板自定义</h3>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">treeView</span> <span class="cm-attribute">service</span>=<span class="cm-attribute">{@(this.service)}</span> <span class="cm-attribute">hierarchical</span> <span class="cm-attribute">itemTemplate</span>=<span class="cm-attribute">{@(this.itemTemplate)}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
@@ -361,16 +361,16 @@
 });
 </code></pre>
 
-        <h3>API</h3>
+        <h2>API</h3>
 
-<h4>Class</h4>
-<h5>TreeView</h5>
+<h3>Class</h3>
+<h4>TreeView</h4>
 <p>继承自<strong>SourceComponent</strong>。</p>
 <p></p>
 <div id="j-class"></div>
 
-<h4>Options</h4>
-<h5>new TreeView()</h5>
+<h3>Options</h3>
+<h4>new TreeView()</h4>
 <table>
     <thead>
         <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -412,10 +412,10 @@
 <div id="j-options"></div>
 
 
-    <h4>Methods</h4>
+    <h3>Methods</h3>
     
     
-    <h5>treeView.select(item)</h5>
+    <h4>treeView.select(item)</h4>
     <p>选择某一项</p>
     <table>
         <thead>
@@ -439,7 +439,7 @@
     </table>
     
     
-    <h5>treeView.toggle(item, open)</h5>
+    <h4>treeView.toggle(item, open)</h4>
     <p>展开/收起某一项</p>
     <table>
         <thead>
@@ -471,11 +471,11 @@
 <div id="j-staticMethods"></div>
 
 
-    <h4>Inherited Methods</h4>
+    <h3>Inherited Methods</h3>
     
     
     
-        <h5><span class="u-text u-text-muted">@deprecated</span> treeView.$updateSource()</h5>
+        <h4><span class="u-text u-text-muted">@deprecated</span> treeView.$updateSource()</h4>
         <p>从service中更新数据源</p>
         <table>
             <thead>
@@ -501,10 +501,10 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h4>Events</h4>
+    <h3>Events</h3>
     
     
-    <h5>treeView.$on('select')</h5>
+    <h4>treeView.$on('select')</h4>
     <p>选择某一项时触发</p>
     <table>
         <thead>
@@ -522,7 +522,7 @@
     </table>
     
     
-    <h5>treeView.$on('toggle')</h5>
+    <h4>treeView.$on('toggle')</h4>
     <p>展开或收起某一项时触发</p>
     <table>
         <thead>
@@ -546,8 +546,10 @@
 
 
 <div id="j-inheritedEvents"></div>
+
     </article>
-</div></div></div><div class="g-ft">
+</div>
+</div></div><div class="g-ft">
     <footer class="m-footer">
         <p><a href="../index.html" class="footer_logo"><img src="../img/logo-v2.0-bg-48.png" /></p>
         <p>

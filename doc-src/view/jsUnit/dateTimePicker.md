@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -8,7 +8,7 @@
 <dateTimePicker date="2012-12-21 12:21" />
 ```
 
-#### 禁用组件
+### 禁用组件
 
 <div class="m-example"></div>
 
@@ -16,7 +16,7 @@
 <dateTimePicker disabled />
 ```
 
-#### 日期范围
+### 日期范围
 
 <div class="m-example"></div>
 
@@ -35,7 +35,7 @@ var component = new RGUI.Component({
 });
 ```
 
-#### 数据绑定
+### 数据绑定
 
 <div class="m-example"></div>
 
@@ -45,7 +45,7 @@ var component = new RGUI.Component({
 <p>当前选择的日期为：{date | format: 'yyyy-MM-dd HH:mm'}</p>
 ```
 
-#### 事件
+### 事件
 
 请打开浏览器的控制台查看结果。
 

@@ -3,7 +3,7 @@
     // > p {
     //     text-indent: 2em;
     // }
-    
+
     > li > p {
         text-indent: 0;
     }
@@ -13,7 +13,12 @@
     //     margin: .5em 0;
     // }
 
-    > h3 {
+    > h1 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    > h2 {
         font-size: 20px;
         // background-color: #F4F4F4;
         color: #999;
@@ -21,7 +26,7 @@
         margin: 80px -60px 10px;
     }
 
-    > h4 {
+    > h3 {
         font-size: 16px;
         margin: 40px -60px 30px;
         border-top: 1px solid #f4f4f4;
@@ -37,11 +42,11 @@
         // }
     }
 
-    > h3 + h4 {
+    > h2 + h3 {
         margin-top: 10px;
     }
 
-    > h5 {
+    > h4 {
         font-size: 14px;
         margin: 25px 0 10px;
         margin-left: -9px;
@@ -58,7 +63,7 @@
         }
     }
 
-    > h6 {
+    > h5 {
         font-size: 12px;
         margin: .3em 0;
     }
