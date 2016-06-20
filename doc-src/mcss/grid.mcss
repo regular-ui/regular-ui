@@ -37,9 +37,7 @@ $g-mn_padding = 60px;
     margin: 0 auto;
 }
 
-.g-bd {}
-
-.g-top-fixed + .g-bd {
+.g-bd {
     margin-top: $m-navbar_height;
 }
 
