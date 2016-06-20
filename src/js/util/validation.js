@@ -73,7 +73,7 @@ Validation.validate = function(value, rules) {
         // if(rule.type === 'is')
         //     rule.success = rule.options.test(value);
         // else if(rule.type === 'isNot')
-        //     rule.success = !rule.optionss.test(value);
+        //     rule.success = !rule.options.test(value);
         // else if(rule.type === 'isRequired')
         //     rule.success = !!validator.toString(value);
         // else if(rule.type === 'isFilled')
