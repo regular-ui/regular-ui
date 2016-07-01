@@ -1,6 +1,0 @@
-@import "mass/mass/index.mcss";
-$reset-normalize();
-
-@import "./core/base/function.mcss";
-@import "./core/base/helper.mcss";
-@import "./core/base/grid.mcss";

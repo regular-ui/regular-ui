@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-subl "src/mcss/core/$1.mcss"
-subl "src/mcss/simple/$1.mcss"
-subl "src/mcss/default/$1.mcss"
-subl "src/mcss/flat/$1.mcss"
-subl "src/mcss/bootstrap/$1.mcss"

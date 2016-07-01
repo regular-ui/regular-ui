@@ -1,9 +1,9 @@
 {
   "name": "regular-ui",
   "description": "Regular UI is a set of front-end components built with RegularJS.",
-  "version": "0.1.8",
-  "author": "Sensen <rainforest92@126.com>",
-  "main": "./dist/js/regular-ui.min.js",
+  "version": "0.2.0",
+  "author": "Rainfore <rainforest92@126.com>",
+  "main": "./index.js",
   "repository": "regular-ui/regular-ui",
   "homepage": "http://regular-ui.github.io",
   "bugs": {
@@ -18,54 +18,16 @@
     "regular",
     "ui"
   ],
-  "scripts": {
-    "start": "node ./server.js",
-    "test": "./node_modules/karma/bin/karma start"
-  },
   "dependencies": {
-    "bowser": "^1.3.0",
-    "font-awesome": "^4.6.3",
-    "mass": "^0.1.0",
-    "mass2scss": "^v0.1.0",
-    "mcss": "^0.5.1",
-    "mcss2scss": "^v0.1.0",
-    "regular-ui-base": "^0.1.0",
-    "regular-ui-dragdrop": "^0.1.1",
-    "regularjs": "0.4.3",
-    "validator": "^5.3.0"
+    "rgui-base": "^0.2.0-alpha",
+    "rgui-listview": "regular-ui/ui-listview#master",
+    "rgui-overlay": "regular-ui/ui-overlay#master",
+    "rgui-select": "regular-ui/ui-select#master",
+    "rgui-modal": "^0.2.0-alpha",
+    "rgui-drag": "regular-ui/ui-drag#master",
+    "rgui-resizable": "regular-ui/ui-resizable#master"
   },
   "devDependencies": {
-    "codemirror-highlight": "^1.1.1",
-    "ejs": "^2.4.2",
-    "expect.js": "^0.3.1",
-    "express": "^4.13.4",
-    "formidable": "^1.0.17",
-    "gulp": "^3.9.1",
-    "gulp-all": "^1.1.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-karma": "0.0.5",
-    "gulp-minify-css": "^1.2.2",
-    "gulp-mocha": "^2.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-require-convert": "0.0.1",
-    "gulp-rimraf": "^0.2.0",
-    "gulp-sass": "^2.3.1",
-    "gulp-shell": "^0.5.2",
-    "gulp-uglify": "^1.5.3",
-    "gulp-util": "^3.0.7",
-    "gulp-webpack": "^1.5.0",
-    "gulp_mcss": "^0.2.0",
-    "html-browserify": "0.0.6",
-    "karma": "^0.13.22",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-common-js": "rainfore/karma-common-js",
-    "karma-coverage": "^0.5.3",
-    "karma-mocha": "^0.2.1",
-    "markextend": "0.0.2",
-    "mocha": "^2.5.3",
-    "run-sequence": "^1.2.1",
-    "text-loader": "0.0.1",
-    "through2": "^2.0.1",
-    "webpack": "^1.13.1"
+    "core-js": "^2.4.0"
   }
 }

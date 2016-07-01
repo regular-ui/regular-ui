@@ -1,6 +1,0 @@
-<select class="u-select {class}" r-model={value} readonly={readonly} disabled={disabled}>
-    {#if placeholder}<option value="">{placeholder}</option>{/if}
-    {#list source as item}
-    <option value={item_index} disabled={item.disabled}>{item.name}</option>
-    {/list}
-</select>

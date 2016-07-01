@@ -1,9 +1,0 @@
-<div class="u-dropdown u-datepicker {class}" z-dis={disabled} r-hide={!visible} ref="element" on-blur={this.toggle(false)}>
-    <div class="dropdown_hd">
-        <input class="u-input u-input-full" placeholder={placeholder} value={date | format: 'yyyy-MM-dd'} ref="input" autofocus={autofocus} readonly={readonly} disabled={disabled}
-            on-focus={this.toggle(true)} on-change={this._onInput($event)}>
-    </div>
-    <div class="dropdown_bd" r-show={open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
-        <calendar date={_date} minDate={minDate} maxDate={maxDate} on-select={this.select($event.date)} />
-    </div>
-</div>

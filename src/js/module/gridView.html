@@ -1,5 +1,0 @@
-<div class="m-gridview {class}" z-dis={disabled} r-hide={!visible}>
-    {#list source as item}
-    <div class="gridview_item" z-sel={selected === item}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>
-    {/list}
-</div>

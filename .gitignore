@@ -1,7 +1,9 @@
 node_modules
-tmp
-.sass-cache
-.DS_Store
 npm-debug.log
-
-*customized*
+.DS_Store
+.rgui-cache
+.sass-cache
+__*
+/tmp
+/doc
+/test-reports

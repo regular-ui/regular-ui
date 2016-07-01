@@ -1,8 +1,0 @@
-@import "../../src/mcss/bootstrap.mcss";
-@import "./function.mcss";
-@import "./module.mcss";
-@import "./grid.mcss";
-
-@import "./unit/codemirror.mcss";
-@import "./unit/badge2.mcss";
-@import "./unit/logo.mcss";

@@ -1,9 +1,0 @@
-// Name:            ButtonGroup
-// Description:     按钮组
-// Author:          sensen(rainforest92@126.com)
-// ========================================================================
-
-@import "../../core/unit/buttonGroup.mcss";
-
-// Component:       `u-btngroup`
-// ========================================================================
