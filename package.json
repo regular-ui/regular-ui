@@ -19,11 +19,11 @@
     "ui"
   ],
   "dependencies": {
-    "rgui-base": "^0.2.0-alpha",
+    "rgui-base": "0.2.0-alpha.1",
     "rgui-listview": "regular-ui/ui-listview#master",
     "rgui-overlay": "regular-ui/ui-overlay#master",
     "rgui-select": "regular-ui/ui-select#master",
-    "rgui-modal": "^0.2.0-alpha",
+    "rgui-modal": "0.2.0-alpha",
     "rgui-drag": "regular-ui/ui-drag#master",
     "rgui-resizable": "regular-ui/ui-resizable#master"
   },

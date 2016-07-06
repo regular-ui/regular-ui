@@ -1,0 +1,18 @@
+{
+    "name": "regular-ui",
+    "description": "Regular UI is a set of front-end components built with RegularJS.",
+    "author": "Rainfore <rainforest92@126.com>",
+    "homepage": "http://regular-ui.github.io",
+    "license": "MIT",
+    "keywords": ["regular", "ui"],
+    "main": [
+        "dist/js/regular-ui.min.js",
+        "dist/css/regular-ui.min.css"
+    ],
+    "ignore": [
+        "**/.*"
+    ],
+    "dependencies": {
+        "regularjs": "^0.4.3"
+    }
+}
