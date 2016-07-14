@@ -22,6 +22,7 @@
     "rgui-css-base": "regular-ui/css-base#master",
     "rgui-css-standard": "regular-ui/css-standard#master",
     "rgui-ui-base": "0.2.0-alpha.2",
+    "rgui-ui-calendar": "regular-ui/ui-calendar#master",
     "rgui-ui-drag": "regular-ui/ui-drag#master",
     "rgui-ui-listview": "regular-ui/ui-listview#master",
     "rgui-ui-modal": "0.2.0-alpha",

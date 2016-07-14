@@ -1,5 +1,6 @@
 export * from './polyfill';
 export * from 'rgui-ui-base';
+export * from 'rgui-ui-calendar';
 export * from 'rgui-ui-drag';
 export * from 'rgui-ui-listview';
 export * from 'rgui-ui-modal';

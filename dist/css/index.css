@@ -276,7 +276,7 @@ table{
 	word-wrap:break-word;
 	word-break:break-all;
 }
-.f-toe,.u-selectField .overlay_hd{
+.f-toe,.m-calendar .calendar_message,.u-selectField .overlay_hd{
 	overflow:hidden;
 	word-wrap:normal;
 	white-space:nowrap;
@@ -1113,6 +1113,22 @@ pre{
 	background:#dd4b39;
 	color:#fff;
 	border:1px solid #d73925;
+}
+.m-calendar .calendar_message{
+	box-sizing:border-box;
+	display:inline-block;
+	width:160px;
+	height:34px;
+	background:#f7f7f7;
+	border:1px solid #ddd;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	padding:6px 12px;
+	margin-bottom:1px;
+	vertical-align:middle;
+}
+.m-calendar .u-input{
+	display:block;
 }
 .m-listView{
 	-webkit-box-sizing:border-box;

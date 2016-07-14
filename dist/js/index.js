@@ -84,7 +84,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiDrag = __webpack_require__(81);
+	var _rguiUiCalendar = __webpack_require__(81);
+
+	Object.keys(_rguiUiCalendar).forEach(function (key) {
+	  if (key === "default") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _rguiUiCalendar[key];
+	    }
+	  });
+	});
+
+	var _rguiUiDrag = __webpack_require__(85);
 
 	Object.keys(_rguiUiDrag).forEach(function (key) {
 	  if (key === "default") return;
@@ -96,7 +108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiListview = __webpack_require__(86);
+	var _rguiUiListview = __webpack_require__(90);
 
 	Object.keys(_rguiUiListview).forEach(function (key) {
 	  if (key === "default") return;
@@ -108,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiModal = __webpack_require__(91);
+	var _rguiUiModal = __webpack_require__(95);
 
 	Object.keys(_rguiUiModal).forEach(function (key) {
 	  if (key === "default") return;
@@ -120,7 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiOverlay = __webpack_require__(94);
+	var _rguiUiOverlay = __webpack_require__(98);
 
 	Object.keys(_rguiUiOverlay).forEach(function (key) {
 	  if (key === "default") return;
@@ -132,7 +144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiResizable = __webpack_require__(97);
+	var _rguiUiResizable = __webpack_require__(101);
 
 	Object.keys(_rguiUiResizable).forEach(function (key) {
 	  if (key === "default") return;
@@ -144,7 +156,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiSelect = __webpack_require__(100);
+	var _rguiUiSelect = __webpack_require__(104);
 
 	Object.keys(_rguiUiSelect).forEach(function (key) {
 	  if (key === "default") return;
@@ -156,7 +168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiSlider = __webpack_require__(103);
+	var _rguiUiSlider = __webpack_require__(107);
 
 	Object.keys(_rguiUiSlider).forEach(function (key) {
 	  if (key === "default") return;
@@ -1676,25 +1688,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Movable = exports.Droppable = exports.Draggable = undefined;
+	exports.Calendar = undefined;
 
-	var _draggable = __webpack_require__(82);
+	var _calendar = __webpack_require__(82);
 
-	var _draggable2 = _interopRequireDefault(_draggable);
-
-	var _droppable = __webpack_require__(84);
-
-	var _droppable2 = _interopRequireDefault(_droppable);
-
-	var _movable = __webpack_require__(85);
-
-	var _movable2 = _interopRequireDefault(_movable);
+	var _calendar2 = _interopRequireDefault(_calendar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.Draggable = _draggable2.default;
-	exports.Droppable = _droppable2.default;
-	exports.Movable = _movable2.default;
+	exports.Calendar = _calendar2.default;
 
 /***/ },
 /* 82 */
@@ -1708,7 +1710,299 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _manager = __webpack_require__(83);
+	var _util = __webpack_require__(83);
+
+	var _util2 = _interopRequireDefault(_util);
+
+	var _index = __webpack_require__(84);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Calendar
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {Date|number|string=TODAY} options.data.date               <=> 当前选择的日期
+	 * @param {Date|number|string}      options.data.minDate             => 最小日期，如果为空则不限制
+	 * @param {Date|number|string}      options.data.maxDate             => 最大日期，如果为空则不限制
+	 * @param {boolean=false}           options.data.readonly            => 是否只读
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 */
+	var Calendar = _rguiUiBase.Component.extend({
+	    name: 'calendar',
+	    template: _index2.default,
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        var _this = this;
+
+	        this.data = Object.assign({
+	            date: _util2.default.clearTime(new Date()),
+	            minDate: undefined,
+	            maxDate: undefined,
+	            _days: []
+	        }, this.data);
+	        this.supr();
+
+	        this.$watch('date', function (newValue, oldValue) {
+	            // 时间戳或字符串自动转为日期类型
+	            if (typeof newValue === 'number') return _this.data.date = new Date(newValue);else if (typeof newValue === 'string') return _this.data.date = _util2.default.parseDate(newValue);
+
+	            if (!newValue || newValue + '' === 'Invalid Date') throw new TypeError('Invalid Date');
+
+	            // 如果超出日期范围，则设置为范围边界的日期
+	            var isOutOfRange = _this.isOutOfRange(newValue);
+	            if (isOutOfRange) {
+	                _this.data.date = isOutOfRange;
+
+	                // 防止第二次刷新同月
+	                _this._update();
+	                return;
+	            }
+
+	            if (!oldValue || !oldValue.getFullYear) _this._update();else if (newValue.getFullYear() !== oldValue.getFullYear() || newValue.getMonth() !== oldValue.getMonth()) _this._update();
+
+	            /**
+	             * @event change 日期改变时触发
+	             * @property {object} sender 事件发送对象
+	             * @property {object} date 改变后的日期
+	             */
+	            _this.$emit('change', {
+	                sender: _this,
+	                date: newValue
+	            });
+	        });
+
+	        this.$watch('minDate', function (newValue, oldValue) {
+	            if (!newValue) return;
+
+	            // 时间戳或字符串自动转为日期类型
+	            if (typeof newValue === 'number') return _this.data.minDate = new Date(newValue);else if (typeof newValue === 'string') return _this.data.minDate = _util2.default.parseDate(newValue);
+
+	            if (newValue + '' === 'Invalid Date') throw new TypeError('Invalid Date');
+	        });
+
+	        this.$watch('maxDate', function (newValue, oldValue) {
+	            if (!newValue) return;
+
+	            // 时间戳或字符串自动转为日期类型
+	            if (typeof newValue === 'number') return _this.data.maxDate = new Date(newValue);else if (typeof newValue === 'string') return _this.data.maxDate = _util2.default.parseDate(newValue);
+
+	            if (newValue + '' === 'Invalid Date') throw new TypeError('Invalid Date');
+	        });
+
+	        this.$watch(['minDate', 'maxDate'], function (minDate, maxDate) {
+	            if (!(minDate && minDate instanceof Date || maxDate && maxDate instanceof Date)) return;
+
+	            if (minDate && maxDate) {
+	                if (_util2.default.clearTime(minDate) > _util2.default.clearTime(maxDate)) throw new RangeError('Wrong Date Range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + '!');
+	            }
+
+	            // 如果超出日期范围，则设置为范围边界的日期
+	            var isOutOfRange = _this.isOutOfRange(_this.data.date);
+	            if (isOutOfRange) _this.data.date = isOutOfRange;
+	        });
+	    },
+
+	    /**
+	     * @method _update() 日期改变后更新日历
+	     * @private
+	     * @return {void}
+	     */
+	    _update: function _update() {
+	        this.data._days = [];
+
+	        var date = this.data.date;
+	        var month = date.getMonth();
+	        var mfirst = new Date(date);mfirst.setDate(1);
+	        var mfirstTime = +mfirst;
+	        var nfirst = new Date(mfirst);nfirst.setMonth(month + 1);nfirst.setDate(1);
+	        var nfirstTime = +nfirst;
+	        var lastTime = nfirstTime + ((7 - nfirst.getDay()) % 7 - 1) * _util2.default.MS_OF_DAY;
+	        var num = -mfirst.getDay();
+	        var tmpTime = void 0,
+	            tmp = void 0;
+	        do {
+	            tmpTime = mfirstTime + num++ * _util2.default.MS_OF_DAY;
+	            tmp = new Date(tmpTime);
+	            this.data._days.push(tmp);
+	        } while (tmpTime < lastTime);
+	    },
+
+	    /**
+	     * @method addYear(year) 调整年份
+	     * @public
+	     * @param  {number=0} year 加/减的年份
+	     * @return {Date} date 计算后的日期
+	     */
+	    addYear: function addYear(year) {
+	        if (this.data.readonly || this.data.disabled || !year) return;
+
+	        if (isNaN(year)) throw new TypeError(year + ' is not a number!');
+
+	        var date = new Date(this.data.date);
+	        var oldMonth = date.getMonth();
+	        date.setFullYear(date.getFullYear() + year);
+	        if (date.getMonth() !== oldMonth) date.setDate(0);
+
+	        return this.data.date = date;
+	    },
+
+	    /**
+	     * @method addMonth(month) 调整月份
+	     * @public
+	     * @param  {number=0} month 加/减的月份
+	     * @return {Date} date 计算后的日期
+	     */
+	    addMonth: function addMonth(month) {
+	        if (this.data.readonly || this.data.disabled || !month) return;
+
+	        if (isNaN(month)) throw new TypeError(month + ' is not a number!');
+
+	        var date = new Date(this.data.date);
+	        var correctMonth = date.getMonth() + month;
+	        date.setMonth(correctMonth);
+	        // 如果跳月，则置为上一个月
+	        if ((date.getMonth() - correctMonth) % 12) date.setDate(0);
+
+	        return this.data.date = date;
+	    },
+
+	    /**
+	     * @method select(date) 选择一个日期
+	     * @public
+	     * @param  {Date} date 选择的日期
+	     * @return {void}
+	     */
+	    select: function select(date) {
+	        if (this.data.readonly || this.data.disabled || this.isOutOfRange(date)) return;
+
+	        this.data.date = new Date(date);
+
+	        /**
+	         * @event select 选择某一个日期时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} date 当前选择的日期
+	         */
+	        this.$emit('select', {
+	            sender: this,
+	            date: date
+	        });
+	    },
+
+	    /**
+	     * @method goToday() 回到今天
+	     * @public
+	     * @return {void}
+	     */
+	    goToday: function goToday() {
+	        if (this.data.readonly || this.data.disabled) return;
+
+	        this.data.date = _util2.default.clearTime(new Date());
+	    },
+
+	    /**
+	     * @method isOutOfRange(date) 是否超出规定的日期范围
+	     * @public
+	     * @param {Date} date 待测的日期
+	     * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
+	     */
+	    isOutOfRange: function isOutOfRange(date) {
+	        var minDate = this.data.minDate;
+	        var maxDate = this.data.maxDate;
+
+	        if (minDate && typeof minDate === 'string' || maxDate && typeof maxDate === 'string') return;
+
+	        // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
+	        minDate = minDate && _util2.default.clearTime(minDate);
+	        maxDate = maxDate && _util2.default.clearTime(maxDate);
+
+	        // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
+	        return minDate && date < minDate && minDate || maxDate && date > maxDate && maxDate;
+	    }
+	});
+
+	exports.default = Calendar;
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	_rguiUiBase._.MS_OF_DAY = 24 * 3600 * 1000;
+
+	_rguiUiBase._.clearTime = function (date) {
+	    return new Date((date / _rguiUiBase._.MS_OF_DAY >> 0) * _rguiUiBase._.MS_OF_DAY);
+	};
+
+	// 处理IE8下的兼容性问题
+	_rguiUiBase._.parseDate = function (value) {
+	    return new Date(new Date(value.replace(/-/g, '/')) - new Date('1970/01/01'));
+	};
+
+	exports.default = _rguiUiBase._;
+
+/***/ },
+/* 84 */
+/***/ function(module, exports) {
+
+	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-calendar ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"calendar_hd"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_prev"}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['addYear']((-1))","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-angle-double-left"}],"children":[]}]},{"type":"text","text":"\n            "},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['addMonth']((-1))","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-angle-left"}],"children":[]}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"element","tag":"span","attrs":[],"children":[{"type":"expression","body":"(function(t){t = c._f_('dateFormat' ).get.call( c,t, 'yyyy-MM');return t})(c._sg_('date', d, e))","constant":false,"setbody":"c._ss_('date',(function(t){t = c._f_('dateFormat' ).set.call( c,t, 'yyyy-MM');return t})(p_),d, '=', 1)"}]},{"type":"text","text":"\n        "},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_next"}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['addMonth'](1)","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-angle-right"}],"children":[]}]},{"type":"text","text":"\n            "},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['addYear'](1)","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-angle-double-right"}],"children":[]}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"calendar_bd"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"calendar_week"}],"children":[{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"}],"children":[{"type":"text","text":"日"}]},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"}],"children":[{"type":"text","text":"一"}]},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"}],"children":[{"type":"text","text":"二"}]},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"}],"children":[{"type":"text","text":"三"}]},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"}],"children":[{"type":"text","text":"四"}]},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"}],"children":[{"type":"text","text":"五"}]},{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"}],"children":[{"type":"text","text":"六"}]}]},{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"calendar_day"}],"children":[{"type":"list","sequence":{"type":"expression","body":"c._sg_('_days', d, e)","constant":false,"setbody":"c._ss_('_days',p_,d, '=', 1)"},"alternate":[],"variable":"day","body":[{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"class","value":"calendar_item"},{"type":"attribute","name":"z-sel","value":{"type":"expression","body":"c._sg_('date', d, e)['toDateString']()===c._sg_('day', d, e)['toDateString']()","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"(!(!c['isOutOfRange'](c._sg_('day', d, e))))","constant":false,"setbody":false}},{"type":"attribute","name":"r-class","value":{"type":"expression","body":"{'z-muted':c._sg_('date', d, e)['getMonth']()!==c._sg_('day', d, e)['getMonth']()}","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select'](c._sg_('day', d, e))","constant":false,"setbody":false}}],"children":[{"type":"expression","body":"(function(t){t = c._f_('dateFormat' ).get.call( c,t, 'dd');return t})(c._sg_('day', d, e))","constant":false,"setbody":"c._ss_('day',(function(t){t = c._f_('dateFormat' ).set.call( c,t, 'dd');return t})(p_),d, '=', 1)"}]}]}]},{"type":"text","text":"\n        "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Movable = exports.Droppable = exports.Draggable = undefined;
+
+	var _draggable = __webpack_require__(86);
+
+	var _draggable2 = _interopRequireDefault(_draggable);
+
+	var _droppable = __webpack_require__(88);
+
+	var _droppable2 = _interopRequireDefault(_droppable);
+
+	var _movable = __webpack_require__(89);
+
+	var _movable2 = _interopRequireDefault(_movable);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Draggable = _draggable2.default;
+	exports.Droppable = _droppable2.default;
+	exports.Movable = _movable2.default;
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _manager = __webpack_require__(87);
 
 	var _manager2 = _interopRequireDefault(_manager);
 
@@ -2121,7 +2415,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Draggable;
 
 /***/ },
-/* 83 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2187,7 +2481,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = manager;
 
 /***/ },
-/* 84 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2198,7 +2492,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _manager = __webpack_require__(83);
+	var _manager = __webpack_require__(87);
 
 	var _manager2 = _interopRequireDefault(_manager);
 
@@ -2430,7 +2724,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Droppable;
 
 /***/ },
-/* 85 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2441,11 +2735,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-	var _draggable = __webpack_require__(82);
+	var _draggable = __webpack_require__(86);
 
 	var _draggable2 = _interopRequireDefault(_draggable);
 
-	var _manager = __webpack_require__(83);
+	var _manager = __webpack_require__(87);
 
 	var _manager2 = _interopRequireDefault(_manager);
 
@@ -2561,7 +2855,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Movable;
 
 /***/ },
-/* 86 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2571,11 +2865,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Item = exports.ListView = undefined;
 
-	var _listView = __webpack_require__(87);
+	var _listView = __webpack_require__(91);
 
 	var _listView2 = _interopRequireDefault(_listView);
 
-	var _item = __webpack_require__(89);
+	var _item = __webpack_require__(93);
 
 	var _item2 = _interopRequireDefault(_item);
 
@@ -2585,7 +2879,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Item = _item2.default;
 
 /***/ },
-/* 87 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2596,7 +2890,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(88);
+	var _index = __webpack_require__(92);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -2684,13 +2978,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = ListView;
 
 /***/ },
-/* 88 */
+/* 92 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"ul","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-listView ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 89 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2701,7 +2995,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(90);
+	var _index = __webpack_require__(94);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -2779,13 +3073,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Item;
 
 /***/ },
-/* 90 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"c._sg_('class', d, e)","constant":false,"setbody":"c._ss_('class',p_,d, '=', 1)"}},{"type":"attribute","name":"z-sel","value":{"type":"expression","body":"c._sg_('selected', d, e)","constant":false,"setbody":"c._ss_('selected',p_,d, '=', 1)"}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"z-divider","value":{"type":"expression","body":"c._sg_('divider', d, e)","constant":false,"setbody":"c._ss_('divider',p_,d, '=', 1)"}},{"type":"attribute","name":"title","value":{"type":"expression","body":"c._sg_('title', d, e)","constant":false,"setbody":"c._ss_('title',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select']()","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 91 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2795,7 +3089,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Modal = undefined;
 
-	var _modal = __webpack_require__(92);
+	var _modal = __webpack_require__(96);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -2804,7 +3098,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Modal = _modal2.default;
 
 /***/ },
-/* 92 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2815,7 +3109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(93);
+	var _index = __webpack_require__(97);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -2955,13 +3249,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Modal;
 
 /***/ },
-/* 93 */
+/* 97 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-modal ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_dialog"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_hd"}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"a","attrs":[{"type":"attribute","name":"class","value":"modal_close"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c._sg_('cancelButton', d, e)?c['cancel']():c['ok']()","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-close"}],"children":[]}]},{"type":"text","text":"\n            "},{"type":"element","tag":"h3","attrs":[{"type":"attribute","name":"class","value":"modal_title"}],"children":[{"type":"expression","body":"c._sg_('title', d, e)","constant":false,"setbody":"c._ss_('title',p_,d, '=', 1)"}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_bd"}],"children":[{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('contentTemplate', d, e)","constant":false,"setbody":"c._ss_('contentTemplate',p_,d, '=', 1)"},"consequent":[{"type":"template","content":{"type":"expression","body":"c._sg_('contentTemplate', d, e)","constant":false,"setbody":"c._ss_('contentTemplate',p_,d, '=', 1)","once":true}}],"alternate":[{"type":"expression","body":"c._sg_('content', d, e)","constant":false,"setbody":"c._ss_('content',p_,d, '=', 1)"}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_ft"}],"children":[{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('okButton', d, e)","constant":false,"setbody":"c._ss_('okButton',p_,d, '=', 1)"},"consequent":[{"type":"element","tag":"button","attrs":[{"type":"attribute","name":"class","value":"u-btn u-btn-primary"},{"type":"attribute","name":"r-autofocus"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['ok']()","constant":false,"setbody":false}}],"children":[{"type":"expression","body":"c._sg_('okButton', d, e)","constant":false,"setbody":"c._ss_('okButton',p_,d, '=', 1)"}]}],"alternate":[]},{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('cancelButton', d, e)","constant":false,"setbody":"c._ss_('cancelButton',p_,d, '=', 1)"},"consequent":[{"type":"element","tag":"button","attrs":[{"type":"attribute","name":"class","value":"u-btn"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['cancel']()","constant":false,"setbody":false}}],"children":[{"type":"expression","body":"c._sg_('cancelButton', d, e)","constant":false,"setbody":"c._ss_('cancelButton',p_,d, '=', 1)"}]}],"alternate":[]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 94 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2971,7 +3265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Overlay = undefined;
 
-	var _overlay = __webpack_require__(95);
+	var _overlay = __webpack_require__(99);
 
 	var _overlay2 = _interopRequireDefault(_overlay);
 
@@ -2980,7 +3274,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Overlay = _overlay2.default;
 
 /***/ },
-/* 95 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2991,7 +3285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(96);
+	var _index = __webpack_require__(100);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3086,13 +3380,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Overlay;
 
 /***/ },
-/* 96 */
+/* 100 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-overlay u-overlay-',c._sg_('direction', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"element"}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 97 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3102,7 +3396,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Resizable = undefined;
 
-	var _resizable = __webpack_require__(98);
+	var _resizable = __webpack_require__(102);
 
 	var _resizable2 = _interopRequireDefault(_resizable);
 
@@ -3111,7 +3405,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Resizable = _resizable2.default;
 
 /***/ },
-/* 98 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3124,7 +3418,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(99);
+	var _index = __webpack_require__(103);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3276,13 +3570,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Resizable;
 
 /***/ },
-/* 99 */
+/* 103 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-resizable m-resizable-',c._sg_('handleType', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"element"},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"style","value":{"type":"expression","body":"['left: ',c._sg_('left', d, e),'px; top: ',c._sg_('top', d, e),'px; width: ',c._sg_('width', d, e),'px; height: ',c._sg_('height', d, e),'px;'].join('')","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"list","sequence":{"type":"expression","body":"c._sg_('handles', d, e)","constant":false,"setbody":"c._ss_('handles',p_,d, '=', 1)"},"alternate":[],"variable":"handle","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"draggable","attrs":[{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"proxy","value":""},{"type":"attribute","name":"on-dragstart","value":{"type":"expression","body":"c['_onDragStart'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-drag","value":{"type":"expression","body":"c['_onDrag'](c._sg_('$event', d, e),c._sg_('handle', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['resizable_handle resizable_handle-',c._sg_('handle', d, e)].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 100 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3292,7 +3586,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.SelectField = undefined;
 
-	var _selectField = __webpack_require__(101);
+	var _selectField = __webpack_require__(105);
 
 	var _selectField2 = _interopRequireDefault(_selectField);
 
@@ -3301,7 +3595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.SelectField = _selectField2.default;
 
 /***/ },
-/* 101 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3312,7 +3606,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(102);
+	var _index = __webpack_require__(106);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3411,13 +3705,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = SelectField;
 
 /***/ },
-/* 102 */
+/* 106 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"overlay","attrs":[{"type":"attribute","name":"class","value":"u-selectField"},{"type":"attribute","name":"open","value":{"type":"expression","body":"c._sg_('open', d, e)","constant":false,"setbody":"c._ss_('open',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"visible","value":{"type":"expression","body":"c._sg_('visible', d, e)","constant":false,"setbody":"c._ss_('visible',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"overlay"},{"type":"attribute","name":"on-toggle","value":{"type":"expression","body":"c['_onToggle'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.head","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"span","attrs":[],"children":[{"type":"if","test":{"type":"expression","body":"c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c))))","constant":false,"setbody":"c._ss_('_selected',p_,c._sg_('data', c._sg_('listView', c._sg_('$refs', c))), '=', 0)"},"consequent":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))))","constant":false,"setbody":"c._ss_('$body',p_,c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))), '=', 0)"}},{"type":"text","text":"\n        "}],"alternate":[]}]},{"type":"text","text":"\n        "},{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-caret-down"}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.body","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"listView","attrs":[{"type":"attribute","name":"class","value":"m-listView-selectField"},{"type":"attribute","name":"_list","value":{"type":"expression","body":"c._sg_('_list', d, e)","constant":false,"setbody":"c._ss_('_list',p_,d, '=', 1)"}},{"type":"attribute","name":"_selected","value":{"type":"expression","body":"c._sg_('_selected', d, e)","constant":false,"setbody":"c._ss_('_selected',p_,d, '=', 1)"}},{"type":"attribute","name":"value","value":{"type":"expression","body":"c._sg_('value', d, e)","constant":false,"setbody":"c._ss_('value',p_,d, '=', 1)"}},{"type":"attribute","name":"readonly","value":{"type":"expression","body":"c._sg_('readonly', d, e)","constant":false,"setbody":"c._ss_('readonly',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"listView"},{"type":"attribute","name":"on-select","value":{"type":"expression","body":"c['_onSelect'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-change","value":{"type":"expression","body":"c['_onChange'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 103 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3427,7 +3721,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Slider = undefined;
 
-	var _slider = __webpack_require__(104);
+	var _slider = __webpack_require__(108);
 
 	var _slider2 = _interopRequireDefault(_slider);
 
@@ -3436,7 +3730,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Slider = _slider2.default;
 
 /***/ },
-/* 104 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3447,13 +3741,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(105);
+	var _index = __webpack_require__(109);
 
 	var _index2 = _interopRequireDefault(_index);
 
 	var _regularjs = __webpack_require__(77);
 
-	__webpack_require__(81);
+	__webpack_require__(85);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3513,7 +3807,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Slider;
 
 /***/ },
-/* 105 */
+/* 109 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"movable","attrs":[{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('readonly', d, e)||c._sg_('disabled', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"proxy","value":{"type":"expression","body":"c._sg_('handle', c._sg_('$refs', c))","constant":false,"setbody":"c._ss_('handle',p_,c._sg_('$refs', c), '=', 0)"}},{"type":"attribute","name":"axis","value":"horizontal"},{"type":"attribute","name":"range","value":"offsetParent"},{"type":"attribute","name":"rangeMode","value":"none"},{"type":"attribute","name":"on-drag","value":{"type":"expression","body":"c['_onDrag'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n"},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-slider ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-mousedown","value":{"type":"expression","body":"c['_onMouseDown'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_track"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_trail"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['width: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_handle"},{"type":"attribute","name":"ref","value":"handle"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['left: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n"}]},{"type":"text","text":"\n"}]}]

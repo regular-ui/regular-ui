@@ -1,5 +1,6 @@
 @import 'rgui-css-base/index.mcss';
 @import 'rgui-css-standard/index.mcss';
+@import 'rgui-ui-calendar/index.mcss';
 @import 'rgui-ui-listview/index.mcss';
 @import 'rgui-ui-modal/index.mcss';
 @import 'rgui-ui-overlay/index.mcss';
