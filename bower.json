@@ -6,8 +6,8 @@
     "license": "MIT",
     "keywords": ["regular", "ui"],
     "main": [
-        "dist/js/regular-ui.min.js",
-        "dist/css/regular-ui.min.css"
+        "dist/js/index.min.js",
+        "dist/css/index.min.css"
     ],
     "ignore": [
         "**/.*"

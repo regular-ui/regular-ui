@@ -72,86 +72,98 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiBase = __webpack_require__(75);
+	var _rguiUiBase = __webpack_require__(75);
 
-	Object.keys(_rguiBase).forEach(function (key) {
+	Object.keys(_rguiUiBase).forEach(function (key) {
 	  if (key === "default") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
-	      return _rguiBase[key];
+	      return _rguiUiBase[key];
 	    }
 	  });
 	});
 
-	var _rguiListview = __webpack_require__(81);
+	var _rguiUiDrag = __webpack_require__(81);
 
-	Object.keys(_rguiListview).forEach(function (key) {
+	Object.keys(_rguiUiDrag).forEach(function (key) {
 	  if (key === "default") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
-	      return _rguiListview[key];
+	      return _rguiUiDrag[key];
 	    }
 	  });
 	});
 
-	var _rguiOverlay = __webpack_require__(86);
+	var _rguiUiListview = __webpack_require__(86);
 
-	Object.keys(_rguiOverlay).forEach(function (key) {
+	Object.keys(_rguiUiListview).forEach(function (key) {
 	  if (key === "default") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
-	      return _rguiOverlay[key];
+	      return _rguiUiListview[key];
 	    }
 	  });
 	});
 
-	var _rguiSelect = __webpack_require__(89);
+	var _rguiUiModal = __webpack_require__(91);
 
-	Object.keys(_rguiSelect).forEach(function (key) {
+	Object.keys(_rguiUiModal).forEach(function (key) {
 	  if (key === "default") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
-	      return _rguiSelect[key];
+	      return _rguiUiModal[key];
 	    }
 	  });
 	});
 
-	var _rguiModal = __webpack_require__(92);
+	var _rguiUiOverlay = __webpack_require__(94);
 
-	Object.keys(_rguiModal).forEach(function (key) {
+	Object.keys(_rguiUiOverlay).forEach(function (key) {
 	  if (key === "default") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
-	      return _rguiModal[key];
+	      return _rguiUiOverlay[key];
 	    }
 	  });
 	});
 
-	var _rguiDrag = __webpack_require__(95);
+	var _rguiUiResizable = __webpack_require__(97);
 
-	Object.keys(_rguiDrag).forEach(function (key) {
+	Object.keys(_rguiUiResizable).forEach(function (key) {
 	  if (key === "default") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
-	      return _rguiDrag[key];
+	      return _rguiUiResizable[key];
 	    }
 	  });
 	});
 
-	var _rguiResizable = __webpack_require__(100);
+	var _rguiUiSelect = __webpack_require__(100);
 
-	Object.keys(_rguiResizable).forEach(function (key) {
+	Object.keys(_rguiUiSelect).forEach(function (key) {
 	  if (key === "default") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
-	      return _rguiResizable[key];
+	      return _rguiUiSelect[key];
+	    }
+	  });
+	});
+
+	var _rguiUiSlider = __webpack_require__(103);
+
+	Object.keys(_rguiUiSlider).forEach(function (key) {
+	  if (key === "default") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _rguiUiSlider[key];
 	    }
 	  });
 	});
@@ -1531,12 +1543,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	var filter = {};
 
 	filter.dateFormat = function () {
-	    function fix() {
+	    var fix = function fix() {
 	        var str = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
 
 	        str = str + '';
 	        return str.length <= 1 ? '0' + str : str;
-	    }
+	    };
 
 	    var MAPS = {
 	        yyyy: function yyyy(date) {
@@ -1558,6 +1570,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return fix(date.getSeconds());
 	        }
 	    };
+
 	    var trunk = new RegExp(Object.keys(MAPS).join('|'), 'g');
 
 	    return function (value) {
@@ -1592,8 +1605,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: true
 	});
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 	var _util = __webpack_require__(80);
 
 	var _util2 = _interopRequireDefault(_util);
@@ -1602,53 +1613,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var directive = {};
 
-	var rClassGenerator = function rClassGenerator(rClass) {
-	    directive[rClass] = function (elem, value) {
-	        if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.type === 'expression') this.$watch(value, function (newValue, oldValue) {
-	            _util2.default.dom[newValue ? 'addClass' : 'delClass'](elem, rClass);
-	        });else if (!!value || value === '') _util2.default.dom.addClass(elem, rClass);
-	    };
-	};
+	directive['z-crt'] = _util2.default.createBoolClassDirective('z-crt');
+	directive['z-sel'] = _util2.default.createBoolClassDirective('z-sel');
+	directive['z-chk'] = _util2.default.createBoolClassDirective('z-chk');
+	directive['z-dis'] = _util2.default.createBoolClassDirective('z-dis');
 
-	rClassGenerator('z-crt');
-	rClassGenerator('z-sel');
-	rClassGenerator('z-chk');
-	rClassGenerator('z-dis');
-	rClassGenerator('z-divider');
+	directive['r-show'] = _util2.default.createBoolDirective(function (elem, value) {
+	    elem.style.display = value ? 'block' : '';
+	});
 
-	directive['r-show'] = function (elem, value) {
-	    if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.type == 'expression') this.$watch(value, function (newValue, oldValue) {
-	        if (!newValue == !oldValue) return;
-
-	        if (typeof newValue === 'string') elem.style.display = newValue;else elem.style.display = newValue ? 'block' : '';
-	    });else if (!!value || value === '') {
-	        if (typeof value === 'string' && value !== '') elem.style.display = value;else elem.style.display = value ? 'block' : '';
-	    }
-	};
-
-	directive['r-autofocus'] = function (elem, value) {
-	    if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.type == 'expression') this.$watch(value, function (newValue, oldValue) {
-	        newValue && setTimeout(function () {
-	            return elem.focus();
-	        }, 0);
-	    });else if (!!value || value === '') setTimeout(function () {
+	directive['r-autofocus'] = _util2.default.createBoolDirective(function (elem, value) {
+	    value && setTimeout(function () {
 	        return elem.focus();
 	    }, 0);
-	};
-
-	directive['r-attr'] = function (elem, value) {
-	    var ATTRS = {
-	        'INPUT': ['autocomplete', 'autofocus', 'checked', 'disabled', 'max', 'maxlength', 'min', 'multiple', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'step', 'type'],
-	        'TEXTAREA': ['autofocus', 'disabled', 'maxlength', 'name', 'placeholder', 'readonly', 'required', 'wrap'],
-	        'SELECT': ['autofocus', 'disabled', 'multiple', 'name', 'required']
-	    };
-
-	    this.$watch(value, function (newValue, oldValue) {
-	        ATTRS[elem.tagName].forEach(function (attr) {
-	            return newValue[attr] && _util2.default.dom.attr(elem, attr, newValue[attr]);
-	        });
-	    }, true);
-	};
+	});
 
 	exports.default = directive;
 
@@ -1659,21 +1637,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _regularjs = __webpack_require__(77);
 
-	var _regularjs2 = _interopRequireDefault(_regularjs);
+	var _ = {};
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	_.createBoolDirective = function (func) {
+	    return function (elem, value) {
+	        var _this = this;
 
-	var util = {};
+	        if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.type === 'expression') {
+	            this.$watch(value, function (newValue, oldValue) {
+	                if (!newValue === !oldValue) return;
+	                func.call(_this, elem, newValue);
+	            });
+	        } else if (!!value || value === '') func.call(this, elem, true);
+	    };
+	};
 
-	util.noop = _regularjs2.default.util.noop;
-	util.dom = _regularjs2.default.dom;
+	_.createBoolClassDirective = function (boolClass) {
+	    return _.createBoolDirective(function (elem, value) {
+	        _regularjs.dom[value ? 'addClass' : 'delClass'](elem, boolClass);
+	    });
+	};
 
-	exports.default = util;
+	exports.default = _;
 
 /***/ },
 /* 81 */
@@ -1684,20 +1676,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Item = exports.ListView = undefined;
+	exports.Movable = exports.Droppable = exports.Draggable = undefined;
 
-	var _listView = __webpack_require__(82);
+	var _draggable = __webpack_require__(82);
 
-	var _listView2 = _interopRequireDefault(_listView);
+	var _draggable2 = _interopRequireDefault(_draggable);
 
-	var _item = __webpack_require__(84);
+	var _droppable = __webpack_require__(84);
 
-	var _item2 = _interopRequireDefault(_item);
+	var _droppable2 = _interopRequireDefault(_droppable);
+
+	var _movable = __webpack_require__(85);
+
+	var _movable2 = _interopRequireDefault(_movable);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.ListView = _listView2.default;
-	exports.Item = _item2.default;
+	exports.Draggable = _draggable2.default;
+	exports.Droppable = _droppable2.default;
+	exports.Movable = _movable2.default;
 
 /***/ },
 /* 82 */
@@ -1709,9 +1706,897 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: true
 	});
 
-	var _rguiBase = __webpack_require__(75);
+	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(83);
+	var _manager = __webpack_require__(83);
+
+	var _manager2 = _interopRequireDefault(_manager);
+
+	var _regularjs = __webpack_require__(77);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Draggable
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {string|Dragable.Proxy|Element|function='clone'}  options.data.proxy  @=> 拖拽代理，即拖拽时移动的元素。默认值为`clone`，拖拽时拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`<draggable.proxy>`自定义代理，或直接传入一个元素或函数。`''`表示不使用拖拽代理。
+	 * @param {var}                     options.data.value               => 拖拽时需要传递的值
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {string='z-draggable'}    options.data.class               => 可拖拽时（即disabled=false）给该元素附加此class
+	 * @param {string='z-dragSource'}   options.data.sourceClass         => 拖拽时给起始元素附加此class
+	 * @param {string='z-dragProxy'}    options.data.proxyClass          => 拖拽时给代理元素附加此class
+	 */
+	var Draggable = _rguiUiBase.Component.extend({
+	    name: 'draggable',
+	    template: '{#inc this.$body}',
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            proxy: 'clone',
+	            value: undefined,
+	            'class': 'z-draggable',
+	            sourceClass: 'z-dragSource',
+	            proxyClass: 'z-dragProxy'
+	        }, this.data);
+	        this.supr();
+
+	        this._onMouseDown = this._onMouseDown.bind(this);
+	        this._onMouseMove = this._onMouseMove.bind(this);
+	        this._onMouseUp = this._onMouseUp.bind(this);
+	        this.cancel = this.cancel.bind(this);
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    init: function init() {
+	        var _this = this;
+
+	        var inner = _regularjs.dom.element(this);
+	        _regularjs.dom.on(inner, 'mousedown', this._onMouseDown);
+	        this.supr();
+
+	        this.$watch('disabled', function (newValue) {
+	            return _regularjs.dom[newValue ? 'delClass' : 'addClass'](inner, _this.data['class']);
+	        });
+	    },
+
+	    /**
+	     * @method _getProxy() 获取拖拽代理
+	     * @private
+	     * @return {Element} 拖拽代理元素
+	     */
+	    _getProxy: function _getProxy() {
+	        var proxy = void 0;
+	        var source = _regularjs.dom.element(this);
+
+	        if (typeof this.data.proxy === 'function') proxy = this.data.proxy();else if (this.data.proxy instanceof Element) proxy = this.data.proxy;else if (this.data.proxy === 'self') proxy = source;else if (this.data.proxy === 'clone') {
+	            proxy = source.cloneNode(true);
+	            this._setProxyFixed(proxy, _regularjs.dom.getPosition(source));
+	            var size = _regularjs.dom.getSize(source);
+	            proxy.style.width = size.width + 'px';
+	            proxy.style.height = size.height + 'px';
+	            source.parentElement.appendChild(proxy);
+	        } else if (this.data.proxy instanceof Draggable.Proxy) {
+	            proxy = _regularjs.dom.element(this.data.proxy.$body());
+	            this._setProxyFixed(proxy, _regularjs.dom.getPosition(source));
+	            document.body.appendChild(proxy);
+	        }
+
+	        proxy && this._initProxy(proxy);
+	        return proxy;
+	    },
+
+	    /**
+	     * @method _setProxyFixed() 将拖拽代理的position设置fixed并设置初始位置
+	     * @param  {Element} proxy 拖拽代理元素
+	     * @param  {position=...} position 拖拽代理的初始位置
+	     * @private
+	     * @return {void}
+	     */
+	    _setProxyFixed: function _setProxyFixed(proxy) {
+	        var position = arguments.length <= 1 || arguments[1] === undefined ? { left: 0, top: 0 } : arguments[1];
+
+	        proxy.style.left = position.left + 'px';
+	        proxy.style.top = position.top + 'px';
+	        proxy.style.zIndex = '2000';
+	        proxy.style.position = 'fixed';
+	        proxy.style.display = '';
+	    },
+
+	    /**
+	     * @method _initProxy() 初始化拖拽代理
+	     * @private
+	     * @return {void}
+	     */
+	    _initProxy: function _initProxy(proxy) {
+	        // 如果position为static，则设置为relative，保证可以移动
+	        if (_regularjs.dom.getComputedStyle(proxy, 'position') === 'static') proxy.style.position = 'relative';
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onMouseDown: function _onMouseDown($event) {
+	        if (this.data.disabled) return;
+
+	        var e = $event.event;
+	        // 阻止浏览器的默认行为，特别是IE的选择行为
+	        $event.preventDefault();
+
+	        // 鼠标坐标从MouseDown开始算，防止出现第一次移动的误差
+	        Object.assign(_manager2.default, {
+	            screenX: e.screenX,
+	            screenY: e.screenY,
+	            clientX: e.clientX,
+	            clientY: e.clientY,
+	            pageX: e.pageX,
+	            pageY: e.pageY,
+	            startX: e.clientX,
+	            startY: e.clientY,
+	            dragX: 0,
+	            dragY: 0
+	        });
+
+	        _regularjs.dom.on(window, 'mousemove', this._onMouseMove);
+	        _regularjs.dom.on(window, 'mouseup', this._onMouseUp);
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onMouseMove: function _onMouseMove($event) {
+	        var e = $event.event;
+	        $event.preventDefault();
+
+	        Object.assign(_manager2.default, {
+	            screenX: e.screenX,
+	            screenY: e.screenY,
+	            clientX: e.clientX,
+	            clientY: e.clientY,
+	            pageX: e.pageX,
+	            pageY: e.pageY,
+	            dragX: e.clientX - _manager2.default.startX,
+	            dragY: e.clientY - _manager2.default.startY
+	        });
+
+	        if (_manager2.default.dragging === false) this._onMouseMoveStart(e);else this._onMouseMoving(e);
+	    },
+
+	    /**
+	     * @method _onMouseMoveStart(e) 处理第一次鼠标移动事件
+	     * @private
+	     * @param  {MouseEvent} e 鼠标事件
+	     * @return {void}
+	     */
+	    _onMouseMoveStart: function _onMouseMoveStart(e) {
+	        var proxy = this._getProxy();
+
+	        // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
+	        // 获取初始的left和top值
+	        var computedStyle = proxy ? _regularjs.dom.getComputedStyle(proxy) : {};
+	        if (!computedStyle.left || computedStyle.left === 'auto') computedStyle.left = '0px';
+	        if (!computedStyle.top || computedStyle.top === 'auto') computedStyle.top = '0px';
+
+	        Object.assign(_manager2.default, {
+	            dragging: true,
+	            proxy: proxy,
+	            value: this.data.value,
+	            startLeft: +computedStyle.left.slice(0, -2),
+	            startTop: +computedStyle.top.slice(0, -2),
+	            droppable: undefined
+	        });
+
+	        _manager2.default.left = _manager2.default.startLeft;
+	        _manager2.default.top = _manager2.default.startTop;
+
+	        this._dragStart();
+	    },
+
+	    /**
+	     * @method _onMouseMoveStart(e) 处理后续鼠标移动事件
+	     * @param  {MouseEvent} e 鼠标事件
+	     * @private
+	     * @return {void}
+	     */
+	    _onMouseMoving: function _onMouseMoving(e) {
+	        // 拖拽约束
+	        var next = this.restrict(_manager2.default);
+	        // 设置位置
+	        if (_manager2.default.proxy) {
+	            _manager2.default.proxy.style.left = next.left + 'px';
+	            _manager2.default.proxy.style.top = next.top + 'px';
+	        }
+	        // 更新当前位置
+	        _manager2.default.left = next.left;
+	        _manager2.default.top = next.top;
+
+	        this._drag();
+	        if (!_manager2.default.dragging) return;
+
+	        // for Droppable
+	        var pointElement = null;
+	        if (_manager2.default.proxy) {
+	            _manager2.default.proxy.style.display = 'none';
+	            pointElement = document.elementFromPoint(e.clientX, e.clientY);
+	            _manager2.default.proxy.style.display = '';
+	        } else pointElement = document.elementFromPoint(e.clientX, e.clientY);
+
+	        var pointDroppable = null;
+	        while (pointElement) {
+	            pointDroppable = _manager2.default.droppables.find(function (droppable) {
+	                return _regularjs.dom.element(droppable) === pointElement;
+	            });
+
+	            if (pointDroppable) break;else pointElement = pointElement.parentElement;
+	        }
+
+	        if (_manager2.default.droppable !== pointDroppable) {
+	            _manager2.default.droppable && _manager2.default.droppable._dragLeave(this);
+	            if (!_manager2.default.dragging) return;
+	            pointDroppable && pointDroppable._dragEnter(this);
+	            if (!_manager2.default.dragging) return;
+	            _manager2.default.droppable = pointDroppable;
+	        }
+
+	        // dragEnter之后也要dragOver
+	        pointDroppable && pointDroppable._dragOver(this);
+	    },
+
+	    /**
+	     * @method restrict(manager) 拖拽约束函数
+	     * @protected
+	     * @param  {params} 拖拽参数
+	     * @return {left, top} 拖拽代理元素计算后的left和top位置
+	     */
+	    restrict: function restrict(params) {
+	        return {
+	            left: params.startLeft + params.dragX,
+	            top: params.startTop + params.dragY
+	        };
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onMouseUp: function _onMouseUp($event) {
+	        if (_manager2.default.dragging) {
+	            _manager2.default.droppable && _manager2.default.droppable._drop(this);
+	            this.cancel();
+	        }
+
+	        _regularjs.dom.off(window, 'mousemove', this._onMouseMove);
+	        _regularjs.dom.off(window, 'mouseup', this._onMouseUp);
+	    },
+
+	    /**
+	     * @method cancel() 取消拖拽操作
+	     * @public
+	     * @return {void}
+	     */
+	    cancel: function cancel() {
+	        this._dragEnd();
+
+	        Object.assign(_manager2.default, {
+	            dragging: false,
+	            value: undefined,
+	            proxy: undefined,
+	            range: undefined,
+	            screenX: 0,
+	            screenY: 0,
+	            clientX: 0,
+	            clientY: 0,
+	            pageX: 0,
+	            pageY: 0,
+	            startX: 0,
+	            startY: 0,
+	            dragX: 0,
+	            dragY: 0,
+	            startLeft: 0,
+	            startTop: 0,
+	            left: 0,
+	            top: 0,
+	            droppable: undefined
+	        });
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragStart: function _dragStart() {
+	        var source = _regularjs.dom.element(this);
+	        _regularjs.dom.addClass(source, this.data.sourceClass);
+	        _manager2.default.proxy && _regularjs.dom.addClass(_manager2.default.proxy, this.data.proxyClass);
+
+	        /**
+	         * @event dragstart 拖拽开始时触发
+	         * @property {object} sender 事件发送对象，为当前draggable
+	         * @property {object} origin 拖拽源，为当前draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {var} value 拖拽时需要传递的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平坐标
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直坐标
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平坐标
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直坐标
+	         * @property {number} pageX 鼠标指针相对于页面的水平坐标
+	         * @property {number} pageY 鼠标指针相对于页面的垂直坐标
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragstart', Object.assign({
+	            sender: this,
+	            origin: this,
+	            source: source,
+	            cancel: this.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _drag: function _drag() {
+	        /**
+	         * @event drag 正在拖拽时触发
+	         * @property {object} sender 事件发送对象，为当前draggable
+	         * @property {object} origin 拖拽源，为当前draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {var} value 拖拽时需要传递的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平坐标
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直坐标
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平坐标
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直坐标
+	         * @property {number} pageX 鼠标指针相对于页面的水平坐标
+	         * @property {number} pageY 鼠标指针相对于页面的垂直坐标
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('drag', Object.assign({
+	            sender: this,
+	            origin: this,
+	            source: _regularjs.dom.element(this),
+	            cancel: this.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragEnd: function _dragEnd() {
+	        var source = this._watchers !== null ? _regularjs.dom.element(this) : null;
+	        source && _regularjs.dom.delClass(source, this.data.sourceClass);
+
+	        /**
+	         * @event dragend 拖拽结束时触发
+	         * @property {object} sender 事件发送对象，为当前draggable
+	         * @property {object} origin 拖拽源，为当前draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {var} value 拖拽时需要传递的值
+	         */
+	        this.$emit('dragend', Object.assign({
+	            sender: this,
+	            origin: this,
+	            source: source
+	        }, _manager2.default));
+
+	        if (_manager2.default.proxy) {
+	            if (this.data.proxy instanceof Draggable.Proxy || this.data.proxy === 'clone') _manager2.default.proxy.parentElement.removeChild(_manager2.default.proxy);
+
+	            _regularjs.dom.delClass(_manager2.default.proxy, this.data.proxyClass);
+	        }
+	    }
+	});
+
+	Draggable.Proxy = _rguiUiBase.Component.extend({
+	    name: 'draggable.proxy',
+	    /**
+	     * @protected
+	     */
+	    init: function init() {
+	        if (this.$outer instanceof Draggable) this.$outer.data.proxy = this;
+	    }
+	});
+
+	exports.default = Draggable;
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _regularjs = __webpack_require__(77);
+
+	Object.assign(_regularjs.dom, {
+	    getPosition: function getPosition(elem) {
+	        var doc = elem && elem.ownerDocument;
+	        var docElem = doc.documentElement;
+	        var body = doc.body;
+
+	        var box = elem.getBoundingClientRect ? elem.getBoundingClientRect() : { left: 0, top: 0 };
+
+	        var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+	        var clientTop = docElem.clientTop || body.clientTop || 0;
+
+	        return { left: box.left - clientLeft, top: box.top - clientTop };
+	    },
+	    getSize: function getSize(elem) {
+	        return { width: elem.clientWidth, height: elem.clientHeight };
+	    },
+	    getDimension: function getDimension(elem) {
+	        return Object.assign(this.getSize(elem), this.getPosition(elem));
+	    },
+	    isInRect: function isInRect(position, dimension) {
+	        if (!position || !dimension) return false;
+
+	        return position.left > dimension.left && position.left < dimension.left + dimension.width && position.top > dimension.top && position.top < dimension.top + dimension.height;
+	    },
+	    getComputedStyle: function getComputedStyle(elem, property) {
+	        var computedStyle = elem.currentStyle || window.getComputedStyle(elem, null);
+	        return property ? computedStyle[property] : computedStyle;
+	    }
+	});
+
+	var manager = {
+	    dragging: false,
+	    value: undefined,
+	    proxy: undefined,
+	    screenX: 0,
+	    screenY: 0,
+	    clientX: 0,
+	    clientY: 0,
+	    pageX: 0,
+	    pageY: 0,
+	    startX: 0,
+	    startY: 0,
+	    dragX: 0,
+	    dragY: 0,
+	    startLeft: 0,
+	    startTop: 0,
+	    dragLeft: 0,
+	    dragTop: 0,
+	    droppable: undefined,
+	    droppables: []
+	};
+
+	exports.default = manager;
+
+/***/ },
+/* 84 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _manager = __webpack_require__(83);
+
+	var _manager2 = _interopRequireDefault(_manager);
+
+	var _regularjs = __webpack_require__(77);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Droppable
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {var}                     options.data.value              <=  拖放后传递过来的值
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {string='z-droppable'}    options.data.class               => 可放置时（即disabled=false）给元素附加此class
+	 * @param {string='z-dragTarget'}   options.data.dragTarget          => 拖拽在该元素上方时给该元素附加此class
+	 */
+	var Droppable = _rguiUiBase.Component.extend({
+	    name: 'droppable',
+	    template: '{#inc this.$body}',
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            data: null,
+	            'class': 'z-droppable',
+	            dragTarget: 'z-dragTarget'
+	        }, this.data);
+	        this.supr();
+
+	        _manager2.default.droppables.push(this);
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    init: function init() {
+	        var _this = this;
+
+	        var inner = _regularjs.dom.element(this);
+	        this.$watch('disabled', function (newValue) {
+	            return _regularjs.dom[newValue ? 'delClass' : 'addClass'](inner, _this.data['class']);
+	        });
+	        this.supr();
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    destroy: function destroy() {
+	        _manager2.default.droppables.splice(_manager2.default.droppables.indexOf(this), 1);
+	        this.supr();
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragEnter: function _dragEnter(origin) {
+	        var element = _regularjs.dom.element(this);
+	        _regularjs.dom.addClass(element, this.data.dragTarget);
+
+	        /**
+	         * @event dragenter 拖拽进入该元素时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragenter', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            cancel: origin.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragLeave: function _dragLeave(origin) {
+	        var element = _regularjs.dom.element(this);
+	        _regularjs.dom.delClass(element, this.data.dragTarget);
+
+	        /**
+	         * @event dragleave 拖拽离开该元素时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragleave', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            cancel: origin.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragOver: function _dragOver(origin) {
+	        var element = _regularjs.dom.element(this);
+	        var dimension = _regularjs.dom.getDimension(element);
+
+	        /**
+	         * @event dragover 拖拽在该元素上方时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} ratioX 鼠标指针相对于接收元素所占的长度比
+	         * @property {number} ratioY 鼠标指针相对于接收元素所占的高度比
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragover', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            ratioX: (_manager2.default.clientX - dimension.left) / dimension.width,
+	            ratioY: (_manager2.default.clientY - dimension.top) / dimension.height,
+	            cancel: origin.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _drop: function _drop(origin) {
+	        var element = _regularjs.dom.element(this);
+	        _regularjs.dom.delClass(element, this.data.dragTarget);
+	        var dimension = _regularjs.dom.getDimension(element);
+
+	        this.data.value = origin.data.value;
+	        this.$update();
+
+	        /**
+	         * @event drop 拖拽放置时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} ratioX 鼠标指针相对于接收元素所占的长度比
+	         * @property {number} ratioY 鼠标指针相对于接收元素所占的高度比
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         */
+	        this.$emit('drop', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            ratioX: (_manager2.default.clientX - dimension.left) / dimension.width,
+	            ratioY: (_manager2.default.clientY - dimension.top) / dimension.height
+	        }, _manager2.default));
+	    }
+	});
+
+	exports.default = Droppable;
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _draggable = __webpack_require__(82);
+
+	var _draggable2 = _interopRequireDefault(_draggable);
+
+	var _manager = __webpack_require__(83);
+
+	var _manager2 = _interopRequireDefault(_manager);
+
+	var _regularjs = __webpack_require__(77);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Movable
+	 * @extend Draggable
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {string|Dragable.Proxy|Element|function='self'}  options.data.proxy  @=> 拖拽代理，即拖拽时移动的元素。默认值为`clone`，表示拖拽时会拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`<draggable.proxy>`自定义代理，或直接传入一个元素或函数。`''`表示不使用拖拽代理。
+	 * @param {string='both'}           options.data.axis                => 拖拽代理移动时限制的轴向，`both`表示可以在任意方向上移动，`horizontal`表示限制在水平方向上移动，`vertical`表示限制在垂直方向上移动。
+	 * @param {string|object|Element|function} options.data.range       @=> 拖拽范围。值可以为一个{left,top,right,bottom}格式的对象，表示代理元素移动的上下左右边界。当值为`offsetParent`，拖拽时代理元素限制在offsetParent中移动；当值为`parent`；当值为。也可以直接传入一个元素或函数。
+	 * @param {string=inside}           options.data.rangeMode           => 拖拽范围模式，默认为`inside`，表示在拖拽范围内移动，`none`表示代理元素的left,top直接按拖拽范围计算。
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {string='z-draggable'}    options.data.class               => 可拖拽时（即disabled=false）给该元素附加此class
+	 * @param {string='z-dragSource'}   options.data.sourceClass         => 拖拽时给起始元素附加此class
+	 * @param {string='z-dragProxy'}    options.data.proxyClass          => 拖拽时给代理元素附加此class
+	 */
+	var Movable = _draggable2.default.extend({
+	    name: 'movable',
+	    template: '{#inc this.$body}',
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            proxy: 'self',
+	            // value: undefined,
+	            // 'class': 'z-draggable',
+	            // sourceClass: 'z-dragSource',
+	            // proxyClass: 'z-dragProxy'
+	            axis: 'both',
+	            range: undefined,
+	            rangeMode: 'inside'
+	        }, // grid
+	        // snap
+	        this.data);
+	        this.supr();
+	    },
+
+	    /**
+	     * @method _getRange(proxy) 获取拖拽范围
+	     * @private
+	     * @param  {Element} proxy 拖拽代理元素
+	     * @return {Element} 拖拽范围元素
+	     */
+	    _getRange: function _getRange(proxy) {
+	        var range = void 0;
+
+	        if (_typeof(this.data.range) === 'object') range = this.data.range;else if (this.data.range === 'offsetParent') {
+	            var offsetParent = proxy.offsetParent;
+	            if (offsetParent) range = { left: 0, top: 0, right: offsetParent.offsetWidth, bottom: offsetParent.offsetHeight };else range = { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight };
+	        } else if (this.data.range === 'parent') {
+	            var parent = proxy.parentElement;
+	            if (_regularjs.dom.getComputedStyle(proxy, 'position') === 'fixed') {
+	                range = _regularjs.dom.getDimension(parent);
+	                range.right = range.left + range.width;
+	                range.bottom = range.top + range.height;
+	            }
+	        } else if (range instanceof Element) {
+	            //
+	        }
+
+	        if (range) {
+	            range.width = range.right - range.left;
+	            range.height = range.bottom - range.top;
+	        }
+
+	        return range;
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    _onMouseMoveStart: function _onMouseMoveStart(e) {
+	        this.supr(e);
+
+	        if (_manager2.default.proxy) _manager2.default.range = this._getRange(_manager2.default.proxy);
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    restrict: function restrict(params) {
+	        var next = this.supr(params);
+
+	        if (params.range) {
+	            if (this.data.rangeMode === 'none') {
+	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right);
+	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom);
+	            } else if (this.data.rangeMode === 'inside') {
+	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right - _manager2.default.proxy.offsetWidth);
+	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom - _manager2.default.proxy.offsetHeight);
+	            }
+	        }
+
+	        if (this.data.grid) {
+	            // @TODO
+	        }
+
+	        if (this.data.axis === 'vertical') next.left = params.startLeft;
+	        if (this.data.axis === 'horizontal') next.top = params.startTop;
+
+	        return next;
+	    }
+	});
+
+	exports.default = Movable;
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Item = exports.ListView = undefined;
+
+	var _listView = __webpack_require__(87);
+
+	var _listView2 = _interopRequireDefault(_listView);
+
+	var _item = __webpack_require__(89);
+
+	var _item2 = _interopRequireDefault(_item);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.ListView = _listView2.default;
+	exports.Item = _item2.default;
+
+/***/ },
+/* 87 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _index = __webpack_require__(88);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -1728,7 +2613,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {boolean=true}            options.data.visible             => 是否显示
 	 * @param {string=''}               options.data.class               => 补充class
 	 */
-	var ListView = _rguiBase.Component.extend({
+	var ListView = _rguiUiBase.Component.extend({
 	    name: 'listView',
 	    template: _index2.default,
 	    /**
@@ -1799,13 +2684,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = ListView;
 
 /***/ },
-/* 83 */
+/* 88 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"ul","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-listView ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 84 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1814,9 +2699,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: true
 	});
 
-	var _rguiBase = __webpack_require__(75);
+	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(85);
+	var _index = __webpack_require__(90);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -1834,7 +2719,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {boolean=true}            options.data.visible             => 是否显示
 	 * @param {string=''}               options.data.class               => 补充class
 	 */
-	var Item = _rguiBase.Component.extend({
+	var Item = _rguiUiBase.Component.extend({
 	    name: 'item',
 	    template: _index2.default,
 	    /**
@@ -1887,282 +2772,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	            sender: this
 	        });
 	    }
+	}).directive({
+	    'z-divider': _rguiUiBase._.createBoolClassDirective('z-divider')
 	});
 
 	exports.default = Item;
 
 /***/ },
-/* 85 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"c._sg_('class', d, e)","constant":false,"setbody":"c._ss_('class',p_,d, '=', 1)"}},{"type":"attribute","name":"z-sel","value":{"type":"expression","body":"c._sg_('selected', d, e)","constant":false,"setbody":"c._ss_('selected',p_,d, '=', 1)"}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"z-divider","value":{"type":"expression","body":"c._sg_('divider', d, e)","constant":false,"setbody":"c._ss_('divider',p_,d, '=', 1)"}},{"type":"attribute","name":"title","value":{"type":"expression","body":"c._sg_('title', d, e)","constant":false,"setbody":"c._ss_('title',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select']()","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 86 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Overlay = undefined;
-
-	var _overlay = __webpack_require__(87);
-
-	var _overlay2 = _interopRequireDefault(_overlay);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.Overlay = _overlay2.default;
-
-/***/ },
-/* 87 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _rguiBase = __webpack_require__(75);
-
-	var _index = __webpack_require__(88);
-
-	var _index2 = _interopRequireDefault(_index);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * @class Overlay
-	 * @extend Component
-	 * @param {object}                  options.data                     =  绑定属性
-	 * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
-	 * @param {boolean=false}           options.data.disabled            => 是否禁用
-	 * @param {boolean=true}            options.data.visible             => 是否显示
-	 * @param {string=''}               options.data.class               => 补充class
-	 */
-	var Overlay = _rguiBase.Component.extend({
-	    name: 'overlay',
-	    template: _index2.default,
-	    /**
-	     * @protected
-	     * @override
-	     */
-	    config: function config() {
-	        this.data = Object.assign({
-	            open: false,
-	            direction: 'bottomleft',
-	            animation: 'on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;'
-	        }, this.data);
-	        this.supr();
-	    },
-
-	    /**
-	     * @method toggle(open) 展开/收起
-	     * @public
-	     * @param  {boolean} open 展开/收起状态。如果无此参数，则在两种状态之间切换。
-	     * @return {void}
-	     */
-	    toggle: function toggle(open) {
-	        if (this.data.disabled) return;
-
-	        if (open === undefined) open = !this.data.open;
-	        this.data.open = open;
-
-	        // 根据状态在Overlay.opens列表中添加/删除管理项
-	        var index = Overlay.opens.indexOf(this);
-	        if (open && index < 0) Overlay.opens.push(this);else if (!open && index >= 0) Overlay.opens.splice(index, 1);
-
-	        /**
-	         * @event toggle  展开/收起时触发
-	         * @property {object} sender 事件发送对象
-	         * @property {object} open 展开/收起状态
-	         */
-	        this.$emit('toggle', {
-	            sender: this,
-	            open: open
-	        });
-	    },
-	    destroy: function destroy() {
-	        var index = Overlay.opens.indexOf(this);
-	        index >= 0 && Overlay.opens.splice(index, 1);
-	        this.supr();
-	    }
-	});
-
-	// 处理点击toggle之外的地方后的收起事件。
-	Overlay.opens = [];
-	_rguiBase._.dom.on(document, 'click', function (e) {
-	    Overlay.opens.forEach(function (overlay, index) {
-	        // 这个地方不能用stopPropagation来处理，因为展开一个overlay的同时要收起其他overlay
-	        var element = overlay.$refs.element;
-	        var element2 = e.target;
-	        while (element2) {
-	            if (element === element2) return;
-	            element2 = element2.parentElement;
-	        }
-	        overlay.toggle(false);
-	        overlay.$update();
-	    });
-	});
-
-	Overlay.Head = _rguiBase.Component.extend({
-	    name: 'overlay.head',
-	    template: '<div class="overlay_hd" on-click={this.$outer.toggle()}>{#inc this.$body}</div>'
-	});
-
-	Overlay.Body = _rguiBase.Component.extend({ //  r-animation={@(this.$outer.data.animation)}
-	    name: 'overlay.body',
-	    template: '<div class="overlay_bd" r-show={this.$outer.data.open}>{#inc this.$body}</div>'
-	});
-
-	exports.default = Overlay;
-
-/***/ },
-/* 88 */
-/***/ function(module, exports) {
-
-	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-overlay u-overlay-',c._sg_('direction', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"element"}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
-
-/***/ },
-/* 89 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.SelectField = undefined;
-
-	var _selectField = __webpack_require__(90);
-
-	var _selectField2 = _interopRequireDefault(_selectField);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.SelectField = _selectField2.default;
-
-/***/ },
-/* 90 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _rguiBase = __webpack_require__(75);
-
-	var _index = __webpack_require__(91);
-
-	var _index2 = _interopRequireDefault(_index);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * @class SelectField
-	 * @extend Component
-	 * @param {object}                  options.data                     =  绑定属性
-	 * @param {var}                     options.data.value              <=> 当前的选择值
-	 * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
-	 * @param {boolean=false}           options.data.readonly            => 是否只读
-	 * @param {boolean=false}           options.data.disabled            => 是否禁用
-	 * @param {boolean=true}            options.data.visible             => 是否显示
-	 * @param {string=''}               options.data.class               => 补充class
-	 */
-	var SelectField = _rguiBase.Component.extend({
-	  name: 'selectField',
-	  template: _index2.default,
-	  /**
-	   * @protected
-	   * @override
-	   */
-	  config: function config() {
-	    this.data = Object.assign({
-	      _list: [],
-	      _selected: undefined,
-	      value: undefined,
-	      placeholder: '请选择',
-	      open: undefined
-	    }, this.data);
-	    this.supr();
-	  },
-
-	  /**
-	   * @protected
-	   * @override
-	   */
-	  init: function init() {
-	    if (!this.data._selected) this.data._selected = this.data._list[0];
-	  },
-
-	  /**
-	   * @method select(item) 选择某一项
-	   * @public
-	   * @param  {Item} item 选择项
-	   * @return {void}
-	   */
-	  select: function select(item) {
-	    this.$refs.listView.select(item);
-	  },
-
-	  /**
-	   * @private
-	   */
-	  _onToggle: function _onToggle($event) {
-	    /**
-	     * @event toggle  展开/收起时触发
-	     * @property {object} sender 事件发送对象
-	     * @property {object} open 展开/收起状态
-	     */
-	    this.$emit('toggle', Object.assign($event, { sender: this }));
-	  },
-
-	  /**
-	   * @private
-	   */
-	  _onSelect: function _onSelect($event) {
-	    /**
-	     * @event select 选择某一项时触发
-	     * @property {object} sender 事件发送对象
-	     * @property {Item} selected 当前的选择项
-	     */
-	    this.$emit('select', {
-	      sender: this,
-	      selected: $event.selected
-	    });
-
-	    this.$refs.overlay.toggle(false);
-	  },
-
-	  /**
-	   * @private
-	   */
-	  _onChange: function _onChange($event) {
-	    /**
-	     * @event change 选择值改变时触发
-	     * @property {object} sender 事件发送对象
-	     * @property {Item} selected 改变后的选择项
-	     * @property {var} value 改变后的选择值
-	     */
-	    this.$emit('change', Object.assign($event, { sender: this }));
-	  }
-	});
-
-	exports.default = SelectField;
-
-/***/ },
 /* 91 */
-/***/ function(module, exports) {
-
-	module.exports =[{"type":"element","tag":"overlay","attrs":[{"type":"attribute","name":"class","value":"u-selectField"},{"type":"attribute","name":"open","value":{"type":"expression","body":"c._sg_('open', d, e)","constant":false,"setbody":"c._ss_('open',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"visible","value":{"type":"expression","body":"c._sg_('visible', d, e)","constant":false,"setbody":"c._ss_('visible',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"overlay"},{"type":"attribute","name":"on-toggle","value":{"type":"expression","body":"c['_onToggle'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.head","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"span","attrs":[],"children":[{"type":"if","test":{"type":"expression","body":"c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c))))","constant":false,"setbody":"c._ss_('_selected',p_,c._sg_('data', c._sg_('listView', c._sg_('$refs', c))), '=', 0)"},"consequent":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))))","constant":false,"setbody":"c._ss_('$body',p_,c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))), '=', 0)"}},{"type":"text","text":"\n        "}],"alternate":[]}]},{"type":"text","text":"\n        "},{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-caret-down"}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.body","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"listView","attrs":[{"type":"attribute","name":"class","value":"m-listView-selectField"},{"type":"attribute","name":"_list","value":{"type":"expression","body":"c._sg_('_list', d, e)","constant":false,"setbody":"c._ss_('_list',p_,d, '=', 1)"}},{"type":"attribute","name":"_selected","value":{"type":"expression","body":"c._sg_('_selected', d, e)","constant":false,"setbody":"c._ss_('_selected',p_,d, '=', 1)"}},{"type":"attribute","name":"value","value":{"type":"expression","body":"c._sg_('value', d, e)","constant":false,"setbody":"c._ss_('value',p_,d, '=', 1)"}},{"type":"attribute","name":"readonly","value":{"type":"expression","body":"c._sg_('readonly', d, e)","constant":false,"setbody":"c._ss_('readonly',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"listView"},{"type":"attribute","name":"on-select","value":{"type":"expression","body":"c['_onSelect'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-change","value":{"type":"expression","body":"c['_onChange'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
-
-/***/ },
-/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2172,7 +2795,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Modal = undefined;
 
-	var _modal = __webpack_require__(93);
+	var _modal = __webpack_require__(92);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -2181,7 +2804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Modal = _modal2.default;
 
 /***/ },
-/* 93 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2190,9 +2813,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: true
 	});
 
-	var _rguiBase = __webpack_require__(75);
+	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(94);
+	var _index = __webpack_require__(93);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -2209,7 +2832,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {string='取消'}           options.data.cancelButton        => 取消按钮的文字，如果为空则不显示。
 	 * @param {string=''}               options.data.class               => 补充class
 	 */
-	var Modal = _rguiBase.Component.extend({
+	var Modal = _rguiUiBase.Component.extend({
 	    name: 'modal',
 	    template: _index2.default,
 	    /**
@@ -2332,10 +2955,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Modal;
 
 /***/ },
-/* 94 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-modal ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_dialog"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_hd"}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"a","attrs":[{"type":"attribute","name":"class","value":"modal_close"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c._sg_('cancelButton', d, e)?c['cancel']():c['ok']()","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-close"}],"children":[]}]},{"type":"text","text":"\n            "},{"type":"element","tag":"h3","attrs":[{"type":"attribute","name":"class","value":"modal_title"}],"children":[{"type":"expression","body":"c._sg_('title', d, e)","constant":false,"setbody":"c._ss_('title',p_,d, '=', 1)"}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_bd"}],"children":[{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('contentTemplate', d, e)","constant":false,"setbody":"c._ss_('contentTemplate',p_,d, '=', 1)"},"consequent":[{"type":"template","content":{"type":"expression","body":"c._sg_('contentTemplate', d, e)","constant":false,"setbody":"c._ss_('contentTemplate',p_,d, '=', 1)","once":true}}],"alternate":[{"type":"expression","body":"c._sg_('content', d, e)","constant":false,"setbody":"c._ss_('content',p_,d, '=', 1)"}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_ft"}],"children":[{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('okButton', d, e)","constant":false,"setbody":"c._ss_('okButton',p_,d, '=', 1)"},"consequent":[{"type":"element","tag":"button","attrs":[{"type":"attribute","name":"class","value":"u-btn u-btn-primary"},{"type":"attribute","name":"r-autofocus"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['ok']()","constant":false,"setbody":false}}],"children":[{"type":"expression","body":"c._sg_('okButton', d, e)","constant":false,"setbody":"c._ss_('okButton',p_,d, '=', 1)"}]}],"alternate":[]},{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('cancelButton', d, e)","constant":false,"setbody":"c._ss_('cancelButton',p_,d, '=', 1)"},"consequent":[{"type":"element","tag":"button","attrs":[{"type":"attribute","name":"class","value":"u-btn"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['cancel']()","constant":false,"setbody":false}}],"children":[{"type":"expression","body":"c._sg_('cancelButton', d, e)","constant":false,"setbody":"c._ss_('cancelButton',p_,d, '=', 1)"}]}],"alternate":[]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Overlay = undefined;
+
+	var _overlay = __webpack_require__(95);
+
+	var _overlay2 = _interopRequireDefault(_overlay);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Overlay = _overlay2.default;
 
 /***/ },
 /* 95 */
@@ -2344,447 +2986,110 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Movable = exports.Droppable = exports.Draggable = undefined;
-
-	var _draggable = __webpack_require__(96);
-
-	var _draggable2 = _interopRequireDefault(_draggable);
-
-	var _droppable = __webpack_require__(98);
-
-	var _droppable2 = _interopRequireDefault(_droppable);
-
-	var _movable = __webpack_require__(99);
-
-	var _movable2 = _interopRequireDefault(_movable);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.Draggable = _draggable2.default;
-	exports.Droppable = _droppable2.default;
-	exports.Movable = _movable2.default;
-
-/***/ },
-/* 96 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
-	var _rguiBase = __webpack_require__(75);
+	var _rguiUiBase = __webpack_require__(75);
 
-	var _manager = __webpack_require__(97);
+	var _index = __webpack_require__(96);
 
-	var _manager2 = _interopRequireDefault(_manager);
+	var _index2 = _interopRequireDefault(_index);
+
+	var _regularjs = __webpack_require__(77);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-	 * @class Draggable
+	 * @class Overlay
 	 * @extend Component
 	 * @param {object}                  options.data                     =  绑定属性
-	 * @param {string|Dragable.Proxy|Element|function='clone'}  options.data.proxy  @=> 拖拽代理，即拖拽时移动的元素。默认值为`clone`，拖拽时拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`<draggable.proxy>`自定义代理，或直接传入一个元素或函数。`''`表示不使用拖拽代理。
-	 * @param {var}                     options.data.value               => 拖拽时需要传递的值
+	 * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
-	 * @param {string='z-draggable'}    options.data.class               => 可拖拽时（即disabled=false）给该元素附加此class
-	 * @param {string='z-dragSource'}   options.data.sourceClass         => 拖拽时给起始元素附加此class
-	 * @param {string='z-dragProxy'}    options.data.proxyClass          => 拖拽时给代理元素附加此class
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
 	 */
-	var Draggable = _rguiBase.Component.extend({
-	    name: 'draggable',
-	    template: '{#inc this.$body}',
+	var Overlay = _rguiUiBase.Component.extend({
+	    name: 'overlay',
+	    template: _index2.default,
 	    /**
 	     * @protected
 	     * @override
 	     */
 	    config: function config() {
 	        this.data = Object.assign({
-	            proxy: 'clone',
-	            value: undefined,
-	            'class': 'z-draggable',
-	            sourceClass: 'z-dragSource',
-	            proxyClass: 'z-dragProxy'
+	            open: false,
+	            direction: 'bottomleft',
+	            animation: 'on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;'
 	        }, this.data);
 	        this.supr();
-
-	        this._onMouseDown = this._onMouseDown.bind(this);
-	        this._onMouseMove = this._onMouseMove.bind(this);
-	        this._onMouseUp = this._onMouseUp.bind(this);
-	        this.cancel = this.cancel.bind(this);
 	    },
 
 	    /**
-	     * @protected
-	     * @override
-	     */
-	    init: function init() {
-	        var _this = this;
-
-	        var inner = _rguiBase._.dom.element(this);
-	        _rguiBase._.dom.on(inner, 'mousedown', this._onMouseDown);
-	        this.supr();
-
-	        this.$watch('disabled', function (newValue) {
-	            return _rguiBase._.dom[newValue ? 'delClass' : 'addClass'](inner, _this.data['class']);
-	        });
-	    },
-
-	    /**
-	     * @method _getProxy() 获取拖拽代理
-	     * @private
-	     * @return {Element} 拖拽代理元素
-	     */
-	    _getProxy: function _getProxy() {
-	        var proxy = void 0;
-	        var source = _rguiBase._.dom.element(this);
-
-	        if (typeof this.data.proxy === 'function') proxy = this.data.proxy();else if (this.data.proxy instanceof Element) proxy = this.data.proxy;else if (this.data.proxy === 'self') proxy = source;else if (this.data.proxy === 'clone') {
-	            proxy = source.cloneNode(true);
-	            this._setProxyFixed(proxy, _rguiBase._.dom.getPosition(source));
-	            var size = _rguiBase._.dom.getSize(source);
-	            proxy.style.width = size.width + 'px';
-	            proxy.style.height = size.height + 'px';
-	            source.parentElement.appendChild(proxy);
-	        } else if (this.data.proxy instanceof Draggable.Proxy) {
-	            proxy = _rguiBase._.dom.element(this.data.proxy.$body());
-	            this._setProxyFixed(proxy, _rguiBase._.dom.getPosition(source));
-	            document.body.appendChild(proxy);
-	        }
-
-	        proxy && this._initProxy(proxy);
-	        return proxy;
-	    },
-
-	    /**
-	     * @method _setProxyFixed() 将拖拽代理的position设置fixed并设置初始位置
-	     * @param  {Element} proxy 拖拽代理元素
-	     * @param  {position=...} position 拖拽代理的初始位置
-	     * @private
+	     * @method toggle(open) 展开/收起
+	     * @public
+	     * @param  {boolean} open 展开/收起状态。如果无此参数，则在两种状态之间切换。
 	     * @return {void}
 	     */
-	    _setProxyFixed: function _setProxyFixed(proxy) {
-	        var position = arguments.length <= 1 || arguments[1] === undefined ? { left: 0, top: 0 } : arguments[1];
-
-	        proxy.style.left = position.left + 'px';
-	        proxy.style.top = position.top + 'px';
-	        proxy.style.zIndex = '2000';
-	        proxy.style.position = 'fixed';
-	        proxy.style.display = '';
-	    },
-
-	    /**
-	     * @method _initProxy() 初始化拖拽代理
-	     * @private
-	     * @return {void}
-	     */
-	    _initProxy: function _initProxy(proxy) {
-	        // 如果position为static，则设置为relative，保证可以移动
-	        if (_rguiBase._.dom.getComputedStyle(proxy, 'position') === 'static') proxy.style.position = 'relative';
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _onMouseDown: function _onMouseDown($event) {
+	    toggle: function toggle(open) {
 	        if (this.data.disabled) return;
 
-	        var e = $event.event;
-	        // 阻止浏览器的默认行为，特别是IE的选择行为
-	        $event.preventDefault();
+	        if (open === undefined) open = !this.data.open;
+	        this.data.open = open;
 
-	        // 鼠标坐标从MouseDown开始算，防止出现第一次移动的误差
-	        Object.assign(_manager2.default, {
-	            screenX: e.screenX,
-	            screenY: e.screenY,
-	            clientX: e.clientX,
-	            clientY: e.clientY,
-	            pageX: e.pageX,
-	            pageY: e.pageY,
-	            startX: e.clientX,
-	            startY: e.clientY,
-	            dragX: 0,
-	            dragY: 0
-	        });
-
-	        _rguiBase._.dom.on(window, 'mousemove', this._onMouseMove);
-	        _rguiBase._.dom.on(window, 'mouseup', this._onMouseUp);
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _onMouseMove: function _onMouseMove($event) {
-	        var e = $event.event;
-	        $event.preventDefault();
-
-	        Object.assign(_manager2.default, {
-	            screenX: e.screenX,
-	            screenY: e.screenY,
-	            clientX: e.clientX,
-	            clientY: e.clientY,
-	            pageX: e.pageX,
-	            pageY: e.pageY,
-	            dragX: e.clientX - _manager2.default.startX,
-	            dragY: e.clientY - _manager2.default.startY
-	        });
-
-	        if (_manager2.default.dragging === false) this._onMouseMoveStart(e);else this._onMouseMoving(e);
-	    },
-
-	    /**
-	     * @method _onMouseMoveStart(e) 处理第一次鼠标移动事件
-	     * @private
-	     * @param  {MouseEvent} e 鼠标事件
-	     * @return {void}
-	     */
-	    _onMouseMoveStart: function _onMouseMoveStart(e) {
-	        var proxy = this._getProxy();
-
-	        // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
-	        // 获取初始的left和top值
-	        var computedStyle = proxy ? _rguiBase._.dom.getComputedStyle(proxy) : {};
-	        if (!computedStyle.left || computedStyle.left === 'auto') computedStyle.left = '0px';
-	        if (!computedStyle.top || computedStyle.top === 'auto') computedStyle.top = '0px';
-
-	        Object.assign(_manager2.default, {
-	            dragging: true,
-	            proxy: proxy,
-	            value: this.data.value,
-	            startLeft: +computedStyle.left.slice(0, -2),
-	            startTop: +computedStyle.top.slice(0, -2),
-	            droppable: undefined
-	        });
-
-	        _manager2.default.left = _manager2.default.startLeft;
-	        _manager2.default.top = _manager2.default.startTop;
-
-	        this._dragStart();
-	    },
-	    /**
-	     * @method _onMouseMoveStart(e) 处理后续鼠标移动事件
-	     * @param  {MouseEvent} e 鼠标事件
-	     * @private
-	     * @return {void}
-	     */
-	    _onMouseMoving: function _onMouseMoving(e) {
-	        // 拖拽约束
-	        var next = this.restrict(_manager2.default);
-	        // 设置位置
-	        if (_manager2.default.proxy) {
-	            _manager2.default.proxy.style.left = next.left + 'px';
-	            _manager2.default.proxy.style.top = next.top + 'px';
-	        }
-	        // 更新当前位置
-	        _manager2.default.left = next.left;
-	        _manager2.default.top = next.top;
-
-	        this._drag();
-	        if (!_manager2.default.dragging) return;
-
-	        // for Droppable
-	        var pointElement = null;
-	        if (_manager2.default.proxy) {
-	            _manager2.default.proxy.style.display = 'none';
-	            pointElement = document.elementFromPoint(e.clientX, e.clientY);
-	            _manager2.default.proxy.style.display = '';
-	        } else pointElement = document.elementFromPoint(e.clientX, e.clientY);
-
-	        var pointDroppable = null;
-	        while (pointElement) {
-	            pointDroppable = _manager2.default.droppables.find(function (droppable) {
-	                return _rguiBase._.dom.element(droppable) === pointElement;
-	            });
-
-	            if (pointDroppable) break;else pointElement = pointElement.parentElement;
-	        }
-
-	        if (_manager2.default.droppable !== pointDroppable) {
-	            _manager2.default.droppable && _manager2.default.droppable._dragLeave(this);
-	            if (!_manager2.default.dragging) return;
-	            pointDroppable && pointDroppable._dragEnter(this);
-	            if (!_manager2.default.dragging) return;
-	            _manager2.default.droppable = pointDroppable;
-	        }
-
-	        // dragEnter之后也要dragOver
-	        pointDroppable && pointDroppable._dragOver(this);
-	    },
-	    /**
-	     * @method restrict(manager) 拖拽约束函数
-	     * @protected
-	     * @param  {params} 拖拽参数
-	     * @return {left, top} 拖拽代理元素计算后的left和top位置
-	     */
-	    restrict: function restrict(params) {
-	        return {
-	            left: params.startLeft + params.dragX,
-	            top: params.startTop + params.dragY
-	        };
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _onMouseUp: function _onMouseUp($event) {
-	        if (_manager2.default.dragging) {
-	            _manager2.default.droppable && _manager2.default.droppable._drop(this);
-	            this.cancel();
-	        }
-
-	        _rguiBase._.dom.off(window, 'mousemove', this._onMouseMove);
-	        _rguiBase._.dom.off(window, 'mouseup', this._onMouseUp);
-	    },
-
-	    /**
-	     * @method cancel() 取消拖拽操作
-	     * @public
-	     * @return {void}
-	     */
-	    cancel: function cancel() {
-	        this._dragEnd();
-
-	        Object.assign(_manager2.default, {
-	            dragging: false,
-	            value: undefined,
-	            proxy: undefined,
-	            range: undefined,
-	            screenX: 0,
-	            screenY: 0,
-	            clientX: 0,
-	            clientY: 0,
-	            pageX: 0,
-	            pageY: 0,
-	            startX: 0,
-	            startY: 0,
-	            dragX: 0,
-	            dragY: 0,
-	            startLeft: 0,
-	            startTop: 0,
-	            left: 0,
-	            top: 0,
-	            droppable: undefined
-	        });
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _dragStart: function _dragStart() {
-	        var source = _rguiBase._.dom.element(this);
-	        _rguiBase._.dom.addClass(source, this.data.sourceClass);
-	        _manager2.default.proxy && _rguiBase._.dom.addClass(_manager2.default.proxy, this.data.proxyClass);
+	        // 根据状态在Overlay.opens列表中添加/删除管理项
+	        var index = Overlay.opens.indexOf(this);
+	        if (open && index < 0) Overlay.opens.push(this);else if (!open && index >= 0) Overlay.opens.splice(index, 1);
 
 	        /**
-	         * @event dragstart 拖拽开始时触发
-	         * @property {object} sender 事件发送对象，为当前draggable
-	         * @property {object} origin 拖拽源，为当前draggable
-	         * @property {object} source 拖拽起始元素
-	         * @property {object} proxy 拖拽代理元素
-	         * @property {var} value 拖拽时需要传递的值
-	         * @property {number} screenX 鼠标指针相对于屏幕的水平坐标
-	         * @property {number} screenY 鼠标指针相对于屏幕的垂直坐标
-	         * @property {number} clientX 鼠标指针相对于浏览器的水平坐标
-	         * @property {number} clientY 鼠标指针相对于浏览器的垂直坐标
-	         * @property {number} pageX 鼠标指针相对于页面的水平坐标
-	         * @property {number} pageY 鼠标指针相对于页面的垂直坐标
-	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
-	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
-	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
-	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
-	         * @property {number} startLeft 拖拽开始时代理元素的left值
-	         * @property {number} startTop 拖拽开始时代理元素的top值
-	         * @property {number} left 拖拽时代理元素的left值
-	         * @property {number} top 拖拽时代理元素的top值
-	         * @property {function} cancel 取消拖拽操作
+	         * @event toggle  展开/收起时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} open 展开/收起状态
 	         */
-	        this.$emit('dragstart', Object.assign({
+	        this.$emit('toggle', {
 	            sender: this,
-	            origin: this,
-	            source: source,
-	            cancel: this.cancel
-	        }, _manager2.default));
+	            open: open
+	        });
 	    },
-
-	    /**
-	     * @private
-	     */
-	    _drag: function _drag() {
-	        /**
-	         * @event drag 正在拖拽时触发
-	         * @property {object} sender 事件发送对象，为当前draggable
-	         * @property {object} origin 拖拽源，为当前draggable
-	         * @property {object} source 拖拽起始元素
-	         * @property {object} proxy 拖拽代理元素
-	         * @property {var} value 拖拽时需要传递的值
-	         * @property {number} screenX 鼠标指针相对于屏幕的水平坐标
-	         * @property {number} screenY 鼠标指针相对于屏幕的垂直坐标
-	         * @property {number} clientX 鼠标指针相对于浏览器的水平坐标
-	         * @property {number} clientY 鼠标指针相对于浏览器的垂直坐标
-	         * @property {number} pageX 鼠标指针相对于页面的水平坐标
-	         * @property {number} pageY 鼠标指针相对于页面的垂直坐标
-	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
-	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
-	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
-	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
-	         * @property {number} startLeft 拖拽开始时代理元素的left值
-	         * @property {number} startTop 拖拽开始时代理元素的top值
-	         * @property {number} left 拖拽时代理元素的left值
-	         * @property {number} top 拖拽时代理元素的top值
-	         * @property {function} cancel 取消拖拽操作
-	         */
-	        this.$emit('drag', Object.assign({
-	            sender: this,
-	            origin: this,
-	            source: _rguiBase._.dom.element(this),
-	            cancel: this.cancel
-	        }, _manager2.default));
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _dragEnd: function _dragEnd() {
-	        var source = this._watchers !== null ? _rguiBase._.dom.element(this) : null;
-	        source && _rguiBase._.dom.delClass(source, this.data.sourceClass);
-
-	        /**
-	         * @event dragend 拖拽结束时触发
-	         * @property {object} sender 事件发送对象，为当前draggable
-	         * @property {object} origin 拖拽源，为当前draggable
-	         * @property {object} source 拖拽起始元素
-	         * @property {object} proxy 拖拽代理元素
-	         * @property {var} value 拖拽时需要传递的值
-	         */
-	        this.$emit('dragend', Object.assign({
-	            sender: this,
-	            origin: this,
-	            source: source
-	        }, _manager2.default));
-
-	        if (_manager2.default.proxy) {
-	            if (this.data.proxy instanceof Draggable.Proxy || this.data.proxy === 'clone') _manager2.default.proxy.parentElement.removeChild(_manager2.default.proxy);
-
-	            _rguiBase._.dom.delClass(_manager2.default.proxy, this.data.proxyClass);
-	        }
+	    destroy: function destroy() {
+	        var index = Overlay.opens.indexOf(this);
+	        index >= 0 && Overlay.opens.splice(index, 1);
+	        this.supr();
 	    }
 	});
 
-	Draggable.Proxy = _rguiBase.Component.extend({
-	    name: 'draggable.proxy',
-	    /**
-	     * @protected
-	     */
-	    init: function init() {
-	        if (this.$outer instanceof Draggable) this.$outer.data.proxy = this;
-	    }
+	// 处理点击toggle之外的地方后的收起事件。
+	Overlay.opens = [];
+	_regularjs.dom.on(document, 'click', function (e) {
+	    Overlay.opens.forEach(function (overlay, index) {
+	        // 这个地方不能用stopPropagation来处理，因为展开一个overlay的同时要收起其他overlay
+	        var element = overlay.$refs.element;
+	        var element2 = e.target;
+	        while (element2) {
+	            if (element === element2) return;
+	            element2 = element2.parentElement;
+	        }
+	        overlay.toggle(false);
+	        overlay.$update();
+	    });
 	});
 
-	exports.default = Draggable;
+	Overlay.Head = _rguiUiBase.Component.extend({
+	    name: 'overlay.head',
+	    template: '<div class="overlay_hd" on-click={this.$outer.toggle()}>{#inc this.$body}</div>'
+	});
+
+	Overlay.Body = _rguiUiBase.Component.extend({ //  r-animation={@(this.$outer.data.animation)}
+	    name: 'overlay.body',
+	    template: '<div class="overlay_bd" r-show={this.$outer.data.open}>{#inc this.$body}</div>'
+	});
+
+	exports.default = Overlay;
+
+/***/ },
+/* 96 */
+/***/ function(module, exports) {
+
+	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-overlay u-overlay-',c._sg_('direction', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"element"}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
 /* 97 */
@@ -2793,64 +3098,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
+	exports.Resizable = undefined;
 
-	var _rguiBase = __webpack_require__(75);
+	var _resizable = __webpack_require__(98);
 
-	Object.assign(_rguiBase._.dom, {
-	    getPosition: function getPosition(elem) {
-	        var doc = elem && elem.ownerDocument,
-	            docElem = doc.documentElement,
-	            body = doc.body;
+	var _resizable2 = _interopRequireDefault(_resizable);
 
-	        var box = elem.getBoundingClientRect ? elem.getBoundingClientRect() : { left: 0, top: 0 };
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	        var clientLeft = docElem.clientLeft || body.clientLeft || 0;
-	        var clientTop = docElem.clientTop || body.clientTop || 0;
-
-	        return { left: box.left - clientLeft, top: box.top - clientTop };
-	    },
-	    getSize: function getSize(elem) {
-	        return { width: elem.clientWidth, height: elem.clientHeight };
-	    },
-	    getDimension: function getDimension(elem) {
-	        return Object.assign(this.getSize(elem), this.getPosition(elem));
-	    },
-	    isInRect: function isInRect(position, dimension) {
-	        if (!position || !dimension) return false;
-
-	        return position.left > dimension.left && position.left < dimension.left + dimension.width && position.top > dimension.top && position.top < dimension.top + dimension.height;
-	    },
-	    getComputedStyle: function getComputedStyle(elem, property) {
-	        var computedStyle = elem.currentStyle || window.getComputedStyle(elem, null);
-	        return property ? computedStyle[property] : computedStyle;
-	    }
-	});
-
-	var manager = {
-	    dragging: false,
-	    value: undefined,
-	    proxy: undefined,
-	    screenX: 0,
-	    screenY: 0,
-	    clientX: 0,
-	    clientY: 0,
-	    pageX: 0,
-	    pageY: 0,
-	    startX: 0,
-	    startY: 0,
-	    dragX: 0,
-	    dragY: 0,
-	    startLeft: 0,
-	    startTop: 0,
-	    dragLeft: 0,
-	    dragTop: 0,
-	    droppable: undefined,
-	    droppables: []
-	};
-
-	exports.default = manager;
+	exports.Resizable = _resizable2.default;
 
 /***/ },
 /* 98 */
@@ -2862,399 +3120,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: true
 	});
 
-	var _rguiBase = __webpack_require__(75);
-
-	var _manager = __webpack_require__(97);
-
-	var _manager2 = _interopRequireDefault(_manager);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * @class Droppable
-	 * @extend Component
-	 * @param {object}                  options.data                     =  绑定属性
-	 * @param {var}                     options.data.value              <=  拖放后传递过来的值
-	 * @param {boolean=false}           options.data.disabled            => 是否禁用
-	 * @param {string='z-droppable'}    options.data.class               => 可放置时（即disabled=false）给元素附加此class
-	 * @param {string='z-dragTarget'}   options.data.dragTarget          => 拖拽在该元素上方时给该元素附加此class
-	 */
-	var Droppable = _rguiBase.Component.extend({
-	    name: 'droppable',
-	    template: '{#inc this.$body}',
-	    /**
-	     * @protected
-	     * @override
-	     */
-	    config: function config() {
-	        this.data = Object.assign({
-	            data: null,
-	            'class': 'z-droppable',
-	            dragTarget: 'z-dragTarget'
-	        }, this.data);
-	        this.supr();
-
-	        _manager2.default.droppables.push(this);
-	    },
-
-	    /**
-	     * @protected
-	     * @override
-	     */
-	    init: function init() {
-	        var _this = this;
-
-	        var inner = _rguiBase._.dom.element(this);
-	        this.$watch('disabled', function (newValue) {
-	            return _rguiBase._.dom[newValue ? 'delClass' : 'addClass'](inner, _this.data['class']);
-	        });
-	        this.supr();
-	    },
-
-	    /**
-	     * @protected
-	     * @override
-	     */
-	    destroy: function destroy() {
-	        _manager2.default.droppables.splice(_manager2.default.droppables.indexOf(this), 1);
-	        this.supr();
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _dragEnter: function _dragEnter(origin) {
-	        var element = _rguiBase._.dom.element(this);
-	        _rguiBase._.dom.addClass(element, this.data.dragTarget);
-
-	        /**
-	         * @event dragenter 拖拽进入该元素时触发
-	         * @property {object} sender 事件发送对象，为当前droppable
-	         * @property {object} origin 拖拽源，为拖拽的draggable
-	         * @property {object} source 拖拽起始元素
-	         * @property {object} proxy 拖拽代理元素
-	         * @property {object} target 拖拽目标元素
-	         * @property {object} value 拖拽时接收到的值
-	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
-	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
-	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
-	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
-	         * @property {number} pageX 鼠标指针相对于页面的水平位置
-	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
-	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
-	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
-	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
-	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
-	         * @property {number} startLeft 拖拽开始时代理元素的left值
-	         * @property {number} startTop 拖拽开始时代理元素的top值
-	         * @property {number} left 拖拽时代理元素的left值
-	         * @property {number} top 拖拽时代理元素的top值
-	         * @property {function} cancel 取消拖拽操作
-	         */
-	        this.$emit('dragenter', Object.assign({
-	            sender: this,
-	            origin: origin,
-	            source: _rguiBase._.dom.element(origin),
-	            target: element,
-	            cancel: origin.cancel
-	        }, _manager2.default));
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _dragLeave: function _dragLeave(origin) {
-	        var element = _rguiBase._.dom.element(this);
-	        _rguiBase._.dom.delClass(element, this.data.dragTarget);
-
-	        /**
-	         * @event dragleave 拖拽离开该元素时触发
-	         * @property {object} sender 事件发送对象，为当前droppable
-	         * @property {object} origin 拖拽源，为拖拽的draggable
-	         * @property {object} source 拖拽起始元素
-	         * @property {object} proxy 拖拽代理元素
-	         * @property {object} target 拖拽目标元素
-	         * @property {object} value 拖拽时接收到的值
-	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
-	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
-	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
-	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
-	         * @property {number} pageX 鼠标指针相对于页面的水平位置
-	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
-	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
-	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
-	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
-	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
-	         * @property {number} startLeft 拖拽开始时代理元素的left值
-	         * @property {number} startTop 拖拽开始时代理元素的top值
-	         * @property {number} left 拖拽时代理元素的left值
-	         * @property {number} top 拖拽时代理元素的top值
-	         * @property {function} cancel 取消拖拽操作
-	         */
-	        this.$emit('dragleave', Object.assign({
-	            sender: this,
-	            origin: origin,
-	            source: _rguiBase._.dom.element(origin),
-	            target: element,
-	            cancel: origin.cancel
-	        }, _manager2.default));
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _dragOver: function _dragOver(origin) {
-	        var element = _rguiBase._.dom.element(this);
-	        var dimension = _rguiBase._.dom.getDimension(element);
-
-	        /**
-	         * @event dragover 拖拽在该元素上方时触发
-	         * @property {object} sender 事件发送对象，为当前droppable
-	         * @property {object} origin 拖拽源，为拖拽的draggable
-	         * @property {object} source 拖拽起始元素
-	         * @property {object} proxy 拖拽代理元素
-	         * @property {object} target 拖拽目标元素
-	         * @property {object} value 拖拽时接收到的值
-	         * @property {number} ratioX 鼠标指针相对于接收元素所占的长度比
-	         * @property {number} ratioY 鼠标指针相对于接收元素所占的高度比
-	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
-	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
-	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
-	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
-	         * @property {number} pageX 鼠标指针相对于页面的水平位置
-	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
-	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
-	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
-	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
-	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
-	         * @property {number} startLeft 拖拽开始时代理元素的left值
-	         * @property {number} startTop 拖拽开始时代理元素的top值
-	         * @property {number} left 拖拽时代理元素的left值
-	         * @property {number} top 拖拽时代理元素的top值
-	         * @property {function} cancel 取消拖拽操作
-	         */
-	        this.$emit('dragover', Object.assign({
-	            sender: this,
-	            origin: origin,
-	            source: _rguiBase._.dom.element(origin),
-	            target: element,
-	            ratioX: (_manager2.default.clientX - dimension.left) / dimension.width,
-	            ratioY: (_manager2.default.clientY - dimension.top) / dimension.height,
-	            cancel: origin.cancel
-	        }, _manager2.default));
-	    },
-
-	    /**
-	     * @private
-	     */
-	    _drop: function _drop(origin) {
-	        var element = _rguiBase._.dom.element(this);
-	        _rguiBase._.dom.delClass(element, this.data.dragTarget);
-	        var dimension = _rguiBase._.dom.getDimension(element);
-
-	        this.data.value = origin.data.value;
-	        this.$update();
-
-	        /**
-	         * @event drop 拖拽放置时触发
-	         * @property {object} sender 事件发送对象，为当前droppable
-	         * @property {object} origin 拖拽源，为拖拽的draggable
-	         * @property {object} source 拖拽起始元素
-	         * @property {object} proxy 拖拽代理元素
-	         * @property {object} target 拖拽目标元素
-	         * @property {object} value 拖拽时接收到的值
-	         * @property {number} ratioX 鼠标指针相对于接收元素所占的长度比
-	         * @property {number} ratioY 鼠标指针相对于接收元素所占的高度比
-	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
-	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
-	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
-	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
-	         * @property {number} pageX 鼠标指针相对于页面的水平位置
-	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
-	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
-	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
-	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
-	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
-	         * @property {number} startLeft 拖拽开始时代理元素的left值
-	         * @property {number} startTop 拖拽开始时代理元素的top值
-	         * @property {number} left 拖拽时代理元素的left值
-	         * @property {number} top 拖拽时代理元素的top值
-	         */
-	        this.$emit('drop', Object.assign({
-	            sender: this,
-	            origin: origin,
-	            source: _rguiBase._.dom.element(origin),
-	            target: element,
-	            ratioX: (_manager2.default.clientX - dimension.left) / dimension.width,
-	            ratioY: (_manager2.default.clientY - dimension.top) / dimension.height
-	        }, _manager2.default));
-	    }
-	});
-
-	exports.default = Droppable;
-
-/***/ },
-/* 99 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-	var _rguiBase = __webpack_require__(75);
+	var _rguiUiBase = __webpack_require__(75);
 
-	var _draggable = __webpack_require__(96);
-
-	var _draggable2 = _interopRequireDefault(_draggable);
-
-	var _manager = __webpack_require__(97);
-
-	var _manager2 = _interopRequireDefault(_manager);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * @class Movable
-	 * @extend Draggable
-	 * @param {object}                  options.data                     =  绑定属性
-	 * @param {string|Dragable.Proxy|Element|function='self'}  options.data.proxy  @=> 拖拽代理，即拖拽时移动的元素。默认值为`clone`，表示拖拽时会拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`<draggable.proxy>`自定义代理，或直接传入一个元素或函数。`''`表示不使用拖拽代理。
-	 * @param {string='both'}           options.data.axis                => 拖拽代理移动时限制的轴向，`both`表示可以在任意方向上移动，`horizontal`表示限制在水平方向上移动，`vertical`表示限制在垂直方向上移动。
-	 * @param {string|object|Element|function} options.data.range       @=> 拖拽范围。值可以为一个{left,top,right,bottom}格式的对象，表示代理元素移动的上下左右边界。当值为`offsetParent`，拖拽时代理元素限制在offsetParent中移动；当值为`parent`；当值为。也可以直接传入一个元素或函数。
-	 * @param {string=inside}           options.data.rangeMode           => 拖拽范围模式，默认为`inside`，表示在拖拽范围内移动，`none`表示代理元素的left,top直接按拖拽范围计算。
-	 * @param {boolean=false}           options.data.disabled            => 是否禁用
-	 * @param {string='z-draggable'}    options.data.class               => 可拖拽时（即disabled=false）给该元素附加此class
-	 * @param {string='z-dragSource'}   options.data.sourceClass         => 拖拽时给起始元素附加此class
-	 * @param {string='z-dragProxy'}    options.data.proxyClass          => 拖拽时给代理元素附加此class
-	 */
-	var Movable = _draggable2.default.extend({
-	    name: 'movable',
-	    template: '{#inc this.$body}',
-	    /**
-	     * @protected
-	     * @override
-	     */
-	    config: function config() {
-	        this.data = Object.assign({
-	            proxy: 'self',
-	            // value: undefined,
-	            // 'class': 'z-draggable',
-	            // sourceClass: 'z-dragSource',
-	            // proxyClass: 'z-dragProxy'
-	            axis: 'both',
-	            range: undefined,
-	            rangeMode: 'inside'
-	        }, // grid
-	        // snap
-	        this.data);
-	        this.supr();
-	    },
-
-	    /**
-	     * @method _getRange(proxy) 获取拖拽范围
-	     * @private
-	     * @param  {Element} proxy 拖拽代理元素
-	     * @return {Element} 拖拽范围元素
-	     */
-	    _getRange: function _getRange(proxy) {
-	        var range = void 0;
-
-	        if (_typeof(this.data.range) === 'object') range = this.data.range;else if (this.data.range === 'offsetParent') {
-	            var offsetParent = proxy.offsetParent;
-	            if (offsetParent) range = { left: 0, top: 0, right: offsetParent.offsetWidth, bottom: offsetParent.offsetHeight };else range = { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight };
-	        } else if (this.data.range === 'parent') {
-	            var parent = proxy.parentElement;
-	            if (_rguiBase._.dom.getComputedStyle(proxy, 'position') === 'fixed') {
-	                range = _rguiBase._.dom.getDimension(parent);
-	                range.right = range.left + range.width;
-	                range.bottom = range.top + range.height;
-	            }
-	        } else if (range instanceof Element) {
-	            //
-	        }
-
-	        if (range) {
-	            range.width = range.right - range.left;
-	            range.height = range.bottom - range.top;
-	        }
-
-	        return range;
-	    },
-
-	    /**
-	     * @protected
-	     * @override
-	     */
-	    _onMouseMoveStart: function _onMouseMoveStart(e) {
-	        this.supr(e);
-
-	        if (_manager2.default.proxy) _manager2.default.range = this._getRange(_manager2.default.proxy);
-	    },
-	    /**
-	     * @protected
-	     * @override
-	     */
-	    restrict: function restrict(params) {
-	        var next = this.supr(params);
-
-	        if (params.range) {
-	            if (this.data.rangeMode === 'none') {
-	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right);
-	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom);
-	            } else if (this.data.rangeMode === 'inside') {
-	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right - _manager2.default.proxy.offsetWidth);
-	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom - _manager2.default.proxy.offsetHeight);
-	            }
-	        }
-
-	        if (this.data.grid) {}
-
-	        if (this.data.axis === 'vertical') next.left = params.startLeft;
-	        if (this.data.axis === 'horizontal') next.top = params.startTop;
-
-	        return next;
-	    }
-	});
-
-	exports.default = Movable;
-
-/***/ },
-/* 100 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Resizable = undefined;
-
-	var _resizable = __webpack_require__(101);
-
-	var _resizable2 = _interopRequireDefault(_resizable);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.Resizable = _resizable2.default;
-
-/***/ },
-/* 101 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	var _rguiBase = __webpack_require__(75);
-
-	var _index = __webpack_require__(102);
+	var _index = __webpack_require__(99);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3285,7 +3155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
 	 * @param {string=''}               options.data.class               => 补充class
 	 */
-	var Resizable = _rguiBase.Component.extend({
+	var Resizable = _rguiUiBase.Component.extend({
 	    name: 'resizable',
 	    template: _index2.default,
 	    /**
@@ -3406,10 +3276,247 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Resizable;
 
 /***/ },
-/* 102 */
+/* 99 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-resizable m-resizable-',c._sg_('handleType', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"element"},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"style","value":{"type":"expression","body":"['left: ',c._sg_('left', d, e),'px; top: ',c._sg_('top', d, e),'px; width: ',c._sg_('width', d, e),'px; height: ',c._sg_('height', d, e),'px;'].join('')","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"list","sequence":{"type":"expression","body":"c._sg_('handles', d, e)","constant":false,"setbody":"c._ss_('handles',p_,d, '=', 1)"},"alternate":[],"variable":"handle","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"draggable","attrs":[{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"proxy","value":""},{"type":"attribute","name":"on-dragstart","value":{"type":"expression","body":"c['_onDragStart'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-drag","value":{"type":"expression","body":"c['_onDrag'](c._sg_('$event', d, e),c._sg_('handle', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['resizable_handle resizable_handle-',c._sg_('handle', d, e)].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
+
+/***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.SelectField = undefined;
+
+	var _selectField = __webpack_require__(101);
+
+	var _selectField2 = _interopRequireDefault(_selectField);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.SelectField = _selectField2.default;
+
+/***/ },
+/* 101 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _index = __webpack_require__(102);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class SelectField
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {var}                     options.data.value              <=> 当前的选择值
+	 * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
+	 * @param {boolean=false}           options.data.readonly            => 是否只读
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 */
+	var SelectField = _rguiUiBase.Component.extend({
+	  name: 'selectField',
+	  template: _index2.default,
+	  /**
+	   * @protected
+	   * @override
+	   */
+	  config: function config() {
+	    this.data = Object.assign({
+	      _list: [],
+	      _selected: undefined,
+	      value: undefined,
+	      placeholder: '请选择',
+	      open: undefined
+	    }, this.data);
+	    this.supr();
+	  },
+
+	  /**
+	   * @protected
+	   * @override
+	   */
+	  init: function init() {
+	    if (!this.data._selected) this.data._selected = this.data._list[0];
+	  },
+
+	  /**
+	   * @method select(item) 选择某一项
+	   * @public
+	   * @param  {Item} item 选择项
+	   * @return {void}
+	   */
+	  select: function select(item) {
+	    this.$refs.listView.select(item);
+	  },
+
+	  /**
+	   * @private
+	   */
+	  _onToggle: function _onToggle($event) {
+	    /**
+	     * @event toggle  展开/收起时触发
+	     * @property {object} sender 事件发送对象
+	     * @property {object} open 展开/收起状态
+	     */
+	    this.$emit('toggle', Object.assign($event, { sender: this }));
+	  },
+
+	  /**
+	   * @private
+	   */
+	  _onSelect: function _onSelect($event) {
+	    /**
+	     * @event select 选择某一项时触发
+	     * @property {object} sender 事件发送对象
+	     * @property {Item} selected 当前的选择项
+	     */
+	    this.$emit('select', {
+	      sender: this,
+	      selected: $event.selected
+	    });
+
+	    this.$refs.overlay.toggle(false);
+	  },
+
+	  /**
+	   * @private
+	   */
+	  _onChange: function _onChange($event) {
+	    /**
+	     * @event change 选择值改变时触发
+	     * @property {object} sender 事件发送对象
+	     * @property {Item} selected 改变后的选择项
+	     * @property {var} value 改变后的选择值
+	     */
+	    this.$emit('change', Object.assign($event, { sender: this }));
+	  }
+	});
+
+	exports.default = SelectField;
+
+/***/ },
+/* 102 */
+/***/ function(module, exports) {
+
+	module.exports =[{"type":"element","tag":"overlay","attrs":[{"type":"attribute","name":"class","value":"u-selectField"},{"type":"attribute","name":"open","value":{"type":"expression","body":"c._sg_('open', d, e)","constant":false,"setbody":"c._ss_('open',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"visible","value":{"type":"expression","body":"c._sg_('visible', d, e)","constant":false,"setbody":"c._ss_('visible',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"overlay"},{"type":"attribute","name":"on-toggle","value":{"type":"expression","body":"c['_onToggle'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.head","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"span","attrs":[],"children":[{"type":"if","test":{"type":"expression","body":"c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c))))","constant":false,"setbody":"c._ss_('_selected',p_,c._sg_('data', c._sg_('listView', c._sg_('$refs', c))), '=', 0)"},"consequent":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))))","constant":false,"setbody":"c._ss_('$body',p_,c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))), '=', 0)"}},{"type":"text","text":"\n        "}],"alternate":[]}]},{"type":"text","text":"\n        "},{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-caret-down"}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.body","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"listView","attrs":[{"type":"attribute","name":"class","value":"m-listView-selectField"},{"type":"attribute","name":"_list","value":{"type":"expression","body":"c._sg_('_list', d, e)","constant":false,"setbody":"c._ss_('_list',p_,d, '=', 1)"}},{"type":"attribute","name":"_selected","value":{"type":"expression","body":"c._sg_('_selected', d, e)","constant":false,"setbody":"c._ss_('_selected',p_,d, '=', 1)"}},{"type":"attribute","name":"value","value":{"type":"expression","body":"c._sg_('value', d, e)","constant":false,"setbody":"c._ss_('value',p_,d, '=', 1)"}},{"type":"attribute","name":"readonly","value":{"type":"expression","body":"c._sg_('readonly', d, e)","constant":false,"setbody":"c._ss_('readonly',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"listView"},{"type":"attribute","name":"on-select","value":{"type":"expression","body":"c['_onSelect'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-change","value":{"type":"expression","body":"c['_onChange'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
+
+/***/ },
+/* 103 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Slider = undefined;
+
+	var _slider = __webpack_require__(104);
+
+	var _slider2 = _interopRequireDefault(_slider);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Slider = _slider2.default;
+
+/***/ },
+/* 104 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _index = __webpack_require__(105);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	var _regularjs = __webpack_require__(77);
+
+	__webpack_require__(81);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Slider
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {string='Hello World'}    options.data.message            <=> 消息
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 */
+	var Slider = _rguiUiBase.Component.extend({
+	    name: 'slider',
+	    template: _index2.default,
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        var _this = this;
+
+	        this.data = Object.assign({
+	            percent: 0
+	        }, this.data);
+	        this.supr();
+
+	        this.$watch('percent', function (newValue, oldValue) {
+	            _this.$emit('change', {
+	                sender: _this,
+	                percent: newValue
+	            });
+	        });
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onMouseDown: function _onMouseDown($event) {
+	        if (this.data.readonly || this.data.disabled) return;
+
+	        var e = $event.event;
+	        var $handle = this.$refs.handle;
+	        var $parent = $handle.offsetParent;
+	        var position = _regularjs.dom.getPosition($parent);
+	        this.data.percent = (e.clientX - position.left) / $parent.offsetWidth * 100;
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onDrag: function _onDrag($event) {
+	        this.data.percent = $event.left / $event.range.right * 100;
+	    }
+	});
+
+	exports.default = Slider;
+
+/***/ },
+/* 105 */
+/***/ function(module, exports) {
+
+	module.exports =[{"type":"element","tag":"movable","attrs":[{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('readonly', d, e)||c._sg_('disabled', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"proxy","value":{"type":"expression","body":"c._sg_('handle', c._sg_('$refs', c))","constant":false,"setbody":"c._ss_('handle',p_,c._sg_('$refs', c), '=', 0)"}},{"type":"attribute","name":"axis","value":"horizontal"},{"type":"attribute","name":"range","value":"offsetParent"},{"type":"attribute","name":"rangeMode","value":"none"},{"type":"attribute","name":"on-drag","value":{"type":"expression","body":"c['_onDrag'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n"},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-slider ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-mousedown","value":{"type":"expression","body":"c['_onMouseDown'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_track"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_trail"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['width: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_handle"},{"type":"attribute","name":"ref","value":"handle"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['left: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n"}]},{"type":"text","text":"\n"}]}]
 
 /***/ }
 /******/ ])

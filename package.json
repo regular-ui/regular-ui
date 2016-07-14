@@ -19,13 +19,16 @@
     "ui"
   ],
   "dependencies": {
-    "rgui-base": "0.2.0-alpha.1",
-    "rgui-listview": "regular-ui/ui-listview#master",
-    "rgui-overlay": "regular-ui/ui-overlay#master",
-    "rgui-select": "regular-ui/ui-select#master",
-    "rgui-modal": "0.2.0-alpha",
-    "rgui-drag": "regular-ui/ui-drag#master",
-    "rgui-resizable": "regular-ui/ui-resizable#master"
+    "rgui-css-base": "regular-ui/css-base#master",
+    "rgui-css-standard": "regular-ui/css-standard#master",
+    "rgui-ui-base": "0.2.0-alpha.2",
+    "rgui-ui-drag": "regular-ui/ui-drag#master",
+    "rgui-ui-listview": "regular-ui/ui-listview#master",
+    "rgui-ui-modal": "0.2.0-alpha",
+    "rgui-ui-overlay": "regular-ui/ui-overlay#master",
+    "rgui-ui-resizable": "regular-ui/ui-resizable#master",
+    "rgui-ui-select": "regular-ui/ui-select#master",
+    "rgui-ui-slider": "regular-ui/ui-slider#master"
   },
   "devDependencies": {
     "core-js": "^2.4.0"
