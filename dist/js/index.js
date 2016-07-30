@@ -63,7 +63,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _polyfill = __webpack_require__(1);
 
 	Object.keys(_polyfill).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _rguiUiBase = __webpack_require__(75);
 
 	Object.keys(_rguiUiBase).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -87,7 +87,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _rguiUiCalendar = __webpack_require__(81);
 
 	Object.keys(_rguiUiCalendar).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -99,7 +99,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _rguiUiDrag = __webpack_require__(85);
 
 	Object.keys(_rguiUiDrag).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -108,10 +108,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiListview = __webpack_require__(90);
+	var _rguiUiListview = __webpack_require__(91);
 
 	Object.keys(_rguiUiListview).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -120,10 +120,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiModal = __webpack_require__(95);
+	var _rguiUiModal = __webpack_require__(96);
 
 	Object.keys(_rguiUiModal).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -132,10 +132,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiOverlay = __webpack_require__(98);
+	var _rguiUiOverlay = __webpack_require__(99);
 
 	Object.keys(_rguiUiOverlay).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -144,10 +144,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiResizable = __webpack_require__(101);
+	var _rguiUiPager = __webpack_require__(102);
+
+	Object.keys(_rguiUiPager).forEach(function (key) {
+	  if (key === "default" || key === "__esModule") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _rguiUiPager[key];
+	    }
+	  });
+	});
+
+	var _rguiUiResizable = __webpack_require__(105);
 
 	Object.keys(_rguiUiResizable).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -156,10 +168,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiSelect = __webpack_require__(104);
+	var _rguiUiSelect = __webpack_require__(108);
 
 	Object.keys(_rguiUiSelect).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -168,14 +180,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
-	var _rguiUiSlider = __webpack_require__(107);
+	var _rguiUiSlider = __webpack_require__(111);
 
 	Object.keys(_rguiUiSlider).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
 	      return _rguiUiSlider[key];
+	    }
+	  });
+	});
+
+	var _rguiUiTabs = __webpack_require__(120);
+
+	Object.keys(_rguiUiTabs).forEach(function (key) {
+	  if (key === "default" || key === "__esModule") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _rguiUiTabs[key];
+	    }
+	  });
+	});
+
+	var _rguiUiUploader = __webpack_require__(124);
+
+	Object.keys(_rguiUiUploader).forEach(function (key) {
+	  if (key === "default" || key === "__esModule") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _rguiUiUploader[key];
 	    }
 	  });
 	});
@@ -193,7 +229,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _from = __webpack_require__(2);
 
 	Object.keys(_from).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -205,7 +241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _find = __webpack_require__(54);
 
 	Object.keys(_find).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -217,7 +253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _assign = __webpack_require__(61);
 
 	Object.keys(_assign).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -229,7 +265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _includes = __webpack_require__(66);
 
 	Object.keys(_includes).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -241,7 +277,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _startsWith = __webpack_require__(71);
 
 	Object.keys(_startsWith).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -253,7 +289,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _endsWith = __webpack_require__(73);
 
 	Object.keys(_endsWith).forEach(function (key) {
-	  if (key === "default") return;
+	  if (key === "default" || key === "__esModule") return;
 	  Object.defineProperty(exports, key, {
 	    enumerable: true,
 	    get: function get() {
@@ -734,6 +770,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // Thrash, waste and sodomy: IE GC bug
 	  var iframe = __webpack_require__(19)('iframe')
 	    , i      = enumBugKeys.length
+	    , lt     = '<'
 	    , gt     = '>'
 	    , iframeDocument;
 	  iframe.style.display = 'none';
@@ -743,7 +780,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // html.removeChild(iframe);
 	  iframeDocument = iframe.contentWindow.document;
 	  iframeDocument.open();
-	  iframeDocument.write('<script>document.F=Object</script' + gt);
+	  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
 	  iframeDocument.close();
 	  createDict = iframeDocument.F;
 	  while(i--)delete createDict[PROTOTYPE][enumBugKeys[i]];
@@ -761,6 +798,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  } else result = createDict();
 	  return Properties === undefined ? result : dPs(result, Properties);
 	};
+
 
 /***/ },
 /* 30 */
@@ -1523,7 +1561,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * @protected
 	     */
-
 	    config: function config() {
 	        this.data = Object.assign({
 	            readonly: false,
@@ -1976,11 +2013,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _draggable2 = _interopRequireDefault(_draggable);
 
-	var _droppable = __webpack_require__(88);
+	var _droppable = __webpack_require__(89);
 
 	var _droppable2 = _interopRequireDefault(_droppable);
 
-	var _movable = __webpack_require__(89);
+	var _movable = __webpack_require__(90);
 
 	var _movable2 = _interopRequireDefault(_movable);
 
@@ -2098,7 +2135,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        proxy.style.left = position.left + 'px';
 	        proxy.style.top = position.top + 'px';
-	        proxy.style.zIndex = '2000';
+	        proxy.style.zIndex = '9999';
 	        proxy.style.position = 'fixed';
 	        proxy.style.display = '';
 	    },
@@ -2168,7 +2205,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param  {MouseEvent} e 鼠标事件
 	     * @return {void}
 	     */
-	    _onMouseMoveStart: function _onMouseMoveStart(e) {
+	    _onMouseMoveStart: function _onMouseMoveStart(e, override) {
 	        var proxy = this._getProxy();
 
 	        // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
@@ -2189,7 +2226,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _manager2.default.left = _manager2.default.startLeft;
 	        _manager2.default.top = _manager2.default.startTop;
 
-	        this._dragStart();
+	        !override && this._dragStart();
 	    },
 
 	    /**
@@ -2424,37 +2461,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: true
 	});
 
-	var _regularjs = __webpack_require__(77);
-
-	Object.assign(_regularjs.dom, {
-	    getPosition: function getPosition(elem) {
-	        var doc = elem && elem.ownerDocument;
-	        var docElem = doc.documentElement;
-	        var body = doc.body;
-
-	        var box = elem.getBoundingClientRect ? elem.getBoundingClientRect() : { left: 0, top: 0 };
-
-	        var clientLeft = docElem.clientLeft || body.clientLeft || 0;
-	        var clientTop = docElem.clientTop || body.clientTop || 0;
-
-	        return { left: box.left - clientLeft, top: box.top - clientTop };
-	    },
-	    getSize: function getSize(elem) {
-	        return { width: elem.clientWidth, height: elem.clientHeight };
-	    },
-	    getDimension: function getDimension(elem) {
-	        return Object.assign(this.getSize(elem), this.getPosition(elem));
-	    },
-	    isInRect: function isInRect(position, dimension) {
-	        if (!position || !dimension) return false;
-
-	        return position.left > dimension.left && position.left < dimension.left + dimension.width && position.top > dimension.top && position.top < dimension.top + dimension.height;
-	    },
-	    getComputedStyle: function getComputedStyle(elem, property) {
-	        var computedStyle = elem.currentStyle || window.getComputedStyle(elem, null);
-	        return property ? computedStyle[property] : computedStyle;
-	    }
-	});
+	__webpack_require__(88);
 
 	var manager = {
 	    dragging: false,
@@ -2482,6 +2489,52 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _regularjs = __webpack_require__(77);
+
+	Object.assign(_regularjs.dom, {
+	    getPosition: function getPosition(elem) {
+	        var doc = elem && elem.ownerDocument;
+	        var docElem = doc.documentElement;
+	        var body = doc.body;
+
+	        var box = elem.getBoundingClientRect ? elem.getBoundingClientRect() : { left: 0, top: 0 };
+
+	        var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+	        var clientTop = docElem.clientTop || body.clientTop || 0;
+
+	        return { left: box.left - clientLeft, top: box.top - clientTop };
+	    },
+	    getSize: function getSize(elem) {
+	        var mode = arguments.length <= 1 || arguments[1] === undefined ? 'outside' : arguments[1];
+
+	        if (mode === 'inside') return { width: elem.clientWidth, height: elem.clientHeight };else if (mode === 'center') return { width: (elem.clientWidth + elem.offsetWidth) / 2, height: (elem.offsetHeight + elem.clientHeight) / 2 };else if (mode === 'outside') return { width: elem.offsetWidth, height: elem.offsetHeight };
+	    },
+	    getDimension: function getDimension(elem, mode) {
+	        return Object.assign(this.getSize(elem, mode), this.getPosition(elem));
+	    },
+	    isInRect: function isInRect(position, dimension) {
+	        if (!position || !dimension) return false;
+
+	        return position.left > dimension.left && position.left < dimension.left + dimension.width && position.top > dimension.top && position.top < dimension.top + dimension.height;
+	    },
+	    getComputedStyle: function getComputedStyle(elem, property) {
+	        var computedStyle = elem.currentStyle || window.getComputedStyle(elem, null);
+	        return property ? computedStyle[property] : computedStyle;
+	    }
+	});
+
+	exports.default = _regularjs.dom;
+
+/***/ },
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2724,7 +2777,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Droppable;
 
 /***/ },
-/* 89 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2753,8 +2806,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                     =  绑定属性
 	 * @param {string|Dragable.Proxy|Element|function='self'}  options.data.proxy  @=> 拖拽代理，即拖拽时移动的元素。默认值为`clone`，表示拖拽时会拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`<draggable.proxy>`自定义代理，或直接传入一个元素或函数。`''`表示不使用拖拽代理。
 	 * @param {string='both'}           options.data.axis                => 拖拽代理移动时限制的轴向，`both`表示可以在任意方向上移动，`horizontal`表示限制在水平方向上移动，`vertical`表示限制在垂直方向上移动。
-	 * @param {string|object|Element|function} options.data.range       @=> 拖拽范围。值可以为一个{left,top,right,bottom}格式的对象，表示代理元素移动的上下左右边界。当值为`offsetParent`，拖拽时代理元素限制在offsetParent中移动；当值为`parent`；当值为。也可以直接传入一个元素或函数。
-	 * @param {string=inside}           options.data.rangeMode           => 拖拽范围模式，默认为`inside`，表示在拖拽范围内移动，`none`表示代理元素的left,top直接按拖拽范围计算。
+	 * @param {object={x:0,y:0}}        options.data.grid                => 拖拽代理移动时限制的网格。值为一个{x,y}格式的对象，表示水平方向和垂直方向网格的大小。
+	 * @param {string|object|function}  options.data.range              @=> 拖拽范围。值可以为一个{left,top,right,bottom}格式的对象，表示代理元素移动的上下左右边界，也可以传一个函数。当值为`offsetParent`，代理元素限制在offsetParent中移动，仅适用于`position`为`absolute`的情况；当值为`parent`；当值为`window`时，拖拽时代理元素限制在window中移动，仅适用于`position`为`fixed`的情况。
+	 * @param {string=inside}           options.data.rangeMode           => 拖拽范围模式，默认为`inside`，表示在拖拽范围内侧移动，`center`表示在拖拽范围边缘及内侧移动。
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
 	 * @param {string='z-draggable'}    options.data.class               => 可拖拽时（即disabled=false）给该元素附加此class
 	 * @param {string='z-dragSource'}   options.data.sourceClass         => 拖拽时给起始元素附加此class
@@ -2775,11 +2829,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // sourceClass: 'z-dragSource',
 	            // proxyClass: 'z-dragProxy'
 	            axis: 'both',
+	            grid: { x: 0, y: 0 },
 	            range: undefined,
 	            rangeMode: 'inside'
-	        }, // grid
-	        // snap
-	        this.data);
+	        }, this.data);
 	        this.supr();
 	    },
 
@@ -2792,36 +2845,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _getRange: function _getRange(proxy) {
 	        var range = void 0;
 
-	        if (_typeof(this.data.range) === 'object') range = this.data.range;else if (this.data.range === 'offsetParent') {
+	        if (_typeof(this.data.range) === 'object') range = this.data.range;else if (typeof this.data.range === 'function') range = this.data.range();else if (this.data.range === 'offsetParent') {
+	            if (_regularjs.dom.getComputedStyle(proxy, 'position') !== 'absolute') proxy.style.position = 'absolute';
+
 	            var offsetParent = proxy.offsetParent;
-	            if (offsetParent) range = { left: 0, top: 0, right: offsetParent.offsetWidth, bottom: offsetParent.offsetHeight };else range = { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight };
-	        } else if (this.data.range === 'parent') {
-	            var parent = proxy.parentElement;
-	            if (_regularjs.dom.getComputedStyle(proxy, 'position') === 'fixed') {
-	                range = _regularjs.dom.getDimension(parent);
-	                range.right = range.left + range.width;
-	                range.bottom = range.top + range.height;
-	            }
-	        } else if (range instanceof Element) {
-	            //
+	            range = Object.assign({ left: 0, top: 0 }, _regularjs.dom.getSize(offsetParent, this.data.rangeMode));
+	        } else if (this.data.range === 'window') {
+	            if (_regularjs.dom.getComputedStyle(proxy, 'position') !== 'fixed') proxy.style.position = 'fixed';
+
+	            range = { left: 0, top: 0, width: window.innerWidth, height: window.innerHeight };
 	        }
 
 	        if (range) {
-	            range.width = range.right - range.left;
-	            range.height = range.bottom - range.top;
+	            if (range.width !== undefined && range.height !== undefined) {
+	                range.right = range.left + range.width;
+	                range.bottom = range.top + range.height;
+	            } else if (range.right !== undefined && range.bottom !== undefined) {
+	                range.width = range.right - range.left;
+	                range.height = range.bottom - range.top;
+	            }
 	        }
 
 	        return range;
 	    },
 
 	    /**
-	     * @protected
+	     * @method _onMouseMoveStart(e) 处理第一次鼠标移动事件
+	     * @private
 	     * @override
+	     * @param  {MouseEvent} e 鼠标事件
+	     * @return {void}
 	     */
 	    _onMouseMoveStart: function _onMouseMoveStart(e) {
-	        this.supr(e);
-
+	        this.supr(e, true);
 	        if (_manager2.default.proxy) _manager2.default.range = this._getRange(_manager2.default.proxy);
+	        this._dragStart();
 	    },
 
 	    /**
@@ -2831,20 +2889,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	    restrict: function restrict(params) {
 	        var next = this.supr(params);
 
+	        // 范围约束
 	        if (params.range) {
-	            if (this.data.rangeMode === 'none') {
-	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right);
-	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom);
-	            } else if (this.data.rangeMode === 'inside') {
+	            if (this.data.rangeMode === 'inside') {
 	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right - _manager2.default.proxy.offsetWidth);
 	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom - _manager2.default.proxy.offsetHeight);
+	            } else if (this.data.rangeMode === 'center') {
+	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right);
+	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom);
+	            } else if (this.data.rangeMode === 'outside') {
+	                next.left = Math.min(Math.max(params.range.left - _manager2.default.proxy.offsetWidth, next.left), params.range.right);
+	                next.top = Math.min(Math.max(params.range.top - _manager2.default.proxy.offsetHeight, next.top), params.range.bottom);
 	            }
 	        }
 
-	        if (this.data.grid) {
-	            // @TODO
-	        }
+	        // 网格约束
+	        var grid = this.data.grid;
+	        grid.x && (next.left = Math.round(next.left / grid.x) * grid.x);
+	        grid.y && (next.top = Math.round(next.top / grid.y) * grid.y);
 
+	        // 轴向约束
 	        if (this.data.axis === 'vertical') next.left = params.startLeft;
 	        if (this.data.axis === 'horizontal') next.top = params.startTop;
 
@@ -2855,7 +2919,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Movable;
 
 /***/ },
-/* 90 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2865,11 +2929,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Item = exports.ListView = undefined;
 
-	var _listView = __webpack_require__(91);
+	var _listView = __webpack_require__(92);
 
 	var _listView2 = _interopRequireDefault(_listView);
 
-	var _item = __webpack_require__(93);
+	var _item = __webpack_require__(94);
 
 	var _item2 = _interopRequireDefault(_item);
 
@@ -2879,7 +2943,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Item = _item2.default;
 
 /***/ },
-/* 91 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2890,7 +2954,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(92);
+	var _index = __webpack_require__(93);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -2902,6 +2966,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {object}                  options.data                     =  绑定属性
 	 * @param {var}                     options.data.value              <=> 当前选择的值
 	 * @param {boolean=false}           options.data.multiple            => 是否可以多选
+	 * @param {boolean=false}           options.data.cancelable          => 是否可以取消选择
 	 * @param {boolean=false}           options.data.readonly            => 是否只读
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
 	 * @param {boolean=true}            options.data.visible             => 是否显示
@@ -2915,15 +2980,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @override
 	     */
 	    config: function config() {
-	        var _this = this;
-
 	        this.data = Object.assign({
 	            _list: [],
 	            _selected: undefined,
 	            value: undefined,
-	            multiple: false
+	            multiple: false,
+	            cancelable: false
 	        }, this.data);
 	        this.supr();
+	        this.watch();
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    watch: function watch() {
+	        var _this = this;
 
 	        this.$watch('value', function (newValue, oldValue) {
 	            if (!_this.data._selected || _this.data._selected.data.value !== newValue) _this.data._selected = _this.data._list.find(function (item) {
@@ -2961,16 +3034,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    select: function select(item) {
 	        if (this.data.readonly || this.data.disabled) return;
 
-	        if (this.data.multiple) item.data.selected = !item.data.selected;else this.data._selected = item;
+	        if (this.data.multiple) item.data.selected = !item.data.selected;else if (this.data.cancelable && this.data._selected === item) this.data._selected = undefined;else this.data._selected = item;
 
 	        /**
 	         * @event select 选择某一项时触发
 	         * @property {object} sender 事件发送对象
 	         * @property {Item} selected 当前选择项
+	         * @property {var} value 当前选择值
 	         */
 	        this.$emit('select', {
 	            sender: this,
-	            selected: item
+	            selected: item,
+	            value: item.data.value
 	        });
 	    }
 	});
@@ -2978,13 +3053,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = ListView;
 
 /***/ },
-/* 92 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"ul","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-listView ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 93 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2995,7 +3070,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(94);
+	var _index = __webpack_require__(95);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3032,6 +3107,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        // 没有$outer就直接报错
 	        this.$outer.data._list.push(this);
+
+	        // 多选时不使用`value`和`_selected`
+	        if (this.$outer.data.multiple) return;
+	        // 与$outer的value相等时自动设为选中
+	        if (this.data.value !== undefined && this.$outer.data.value === this.data.value) this.data.selected = true;
 	        // 初始化时选择selected为true的item
 	        if (this.data.selected) this.$outer.data._selected = this;
 	    },
@@ -3061,9 +3141,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * @event select 选择该项时触发
 	         * @property {object} sender 事件发送对象
+	         * @property {Item} selected 当前选择项
+	         * @property {var} value 当前选择值
 	         */
 	        this.$emit('select', {
-	            sender: this
+	            sender: this,
+	            selected: this,
+	            value: this.data.value
 	        });
 	    }
 	}).directive({
@@ -3073,13 +3157,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Item;
 
 /***/ },
-/* 94 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"c._sg_('class', d, e)","constant":false,"setbody":"c._ss_('class',p_,d, '=', 1)"}},{"type":"attribute","name":"z-sel","value":{"type":"expression","body":"c._sg_('selected', d, e)","constant":false,"setbody":"c._ss_('selected',p_,d, '=', 1)"}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"z-divider","value":{"type":"expression","body":"c._sg_('divider', d, e)","constant":false,"setbody":"c._ss_('divider',p_,d, '=', 1)"}},{"type":"attribute","name":"title","value":{"type":"expression","body":"c._sg_('title', d, e)","constant":false,"setbody":"c._ss_('title',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select']()","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 95 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3089,7 +3173,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Modal = undefined;
 
-	var _modal = __webpack_require__(96);
+	var _modal = __webpack_require__(97);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -3098,7 +3182,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Modal = _modal2.default;
 
 /***/ },
-/* 96 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3109,7 +3193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(97);
+	var _index = __webpack_require__(98);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3249,13 +3333,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Modal;
 
 /***/ },
-/* 97 */
+/* 98 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-modal ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_dialog"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_hd"}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"a","attrs":[{"type":"attribute","name":"class","value":"modal_close"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c._sg_('cancelButton', d, e)?c['cancel']():c['ok']()","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-close"}],"children":[]}]},{"type":"text","text":"\n            "},{"type":"element","tag":"h3","attrs":[{"type":"attribute","name":"class","value":"modal_title"}],"children":[{"type":"expression","body":"c._sg_('title', d, e)","constant":false,"setbody":"c._ss_('title',p_,d, '=', 1)"}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_bd"}],"children":[{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('contentTemplate', d, e)","constant":false,"setbody":"c._ss_('contentTemplate',p_,d, '=', 1)"},"consequent":[{"type":"template","content":{"type":"expression","body":"c._sg_('contentTemplate', d, e)","constant":false,"setbody":"c._ss_('contentTemplate',p_,d, '=', 1)","once":true}}],"alternate":[{"type":"expression","body":"c._sg_('content', d, e)","constant":false,"setbody":"c._ss_('content',p_,d, '=', 1)"}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"modal_ft"}],"children":[{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('okButton', d, e)","constant":false,"setbody":"c._ss_('okButton',p_,d, '=', 1)"},"consequent":[{"type":"element","tag":"button","attrs":[{"type":"attribute","name":"class","value":"u-btn u-btn-primary"},{"type":"attribute","name":"r-autofocus"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['ok']()","constant":false,"setbody":false}}],"children":[{"type":"expression","body":"c._sg_('okButton', d, e)","constant":false,"setbody":"c._ss_('okButton',p_,d, '=', 1)"}]}],"alternate":[]},{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('cancelButton', d, e)","constant":false,"setbody":"c._ss_('cancelButton',p_,d, '=', 1)"},"consequent":[{"type":"element","tag":"button","attrs":[{"type":"attribute","name":"class","value":"u-btn"},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['cancel']()","constant":false,"setbody":false}}],"children":[{"type":"expression","body":"c._sg_('cancelButton', d, e)","constant":false,"setbody":"c._ss_('cancelButton',p_,d, '=', 1)"}]}],"alternate":[]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 98 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3265,7 +3349,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Overlay = undefined;
 
-	var _overlay = __webpack_require__(99);
+	var _overlay = __webpack_require__(100);
 
 	var _overlay2 = _interopRequireDefault(_overlay);
 
@@ -3274,7 +3358,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Overlay = _overlay2.default;
 
 /***/ },
-/* 99 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3285,7 +3369,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(100);
+	var _index = __webpack_require__(101);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3380,13 +3464,160 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Overlay;
 
 /***/ },
-/* 100 */
+/* 101 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-overlay u-overlay-',c._sg_('direction', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"element"}],"children":[{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 101 */
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Pager = undefined;
+
+	var _pager = __webpack_require__(103);
+
+	var _pager2 = _interopRequireDefault(_pager);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Pager = _pager2.default;
+
+/***/ },
+/* 103 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _index = __webpack_require__(104);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Pager
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {number=1}                options.data.current            <=> 当前页
+	 * @param {total=11}                options.data.total               => 总页数
+	 * @param {string='center'}         options.data.position            => 分页的位置，可选参数：`center`、`left`、`right`
+	 * @param {middle=5}                options.data.middle              => 当页数较多时，中间显示的页数
+	 * @param {side=2}                  options.data.side                => 当页数较多时，两端显示的页数
+	 * @param {boolean=false}           options.data.readonly            => 是否只读
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 */
+	var Pager = _rguiUiBase.Component.extend({
+	    name: 'pager',
+	    template: _index2.default,
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            current: 1,
+	            total: 11,
+	            position: 'center',
+	            middle: 5,
+	            side: 2,
+	            _start: 1,
+	            _end: 5
+	        }, this.data);
+	        this.supr();
+	        this.watch();
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    watch: function watch() {
+	        var _this = this;
+
+	        this.$watch(['current', 'total'], function (current, total) {
+	            _this.data.current = current = +current;
+	            _this.data.total = total = +total;
+	            var show = _this.data.middle >> 1;
+	            var side = _this.data.side;
+
+	            _this.data._start = current - show;
+	            _this.data._end = current + show;
+	            if (_this.data._start < side + 1) _this.data._start = side + 1;
+	            if (_this.data._end > total - side) _this.data._end = total - side;
+	            if (current - _this.data._start < show) _this.data._end += _this.data._start - current + show;
+	            if (_this.data._end - current < show) _this.data._start += _this.data._end - current - show;
+	        });
+
+	        this.$watch(['middle', 'side'], function (middle, side) {
+	            _this.data.middle = +middle;
+	            _this.data.side = +side;
+	        });
+
+	        this.$watch('current', function (newValue, oldValue) {
+	            /**
+	             * @event change 选择值改变时触发
+	             * @property {object} sender 事件发送对象
+	             * @property {var} current 改变后的选择页
+	             */
+	            _this.$emit('change', {
+	                sender: _this,
+	                current: newValue
+	            });
+	        });
+	    },
+
+	    /**
+	     * @method select(page) 选择某一页
+	     * @public
+	     * @param  {object} page 选择页
+	     * @return {void}
+	     */
+	    select: function select(page) {
+	        if (this.data.readonly || this.data.disabled) return;
+
+	        page = +page;
+	        if (page < 1) return;
+	        if (page > this.data.total) return;
+	        if (page === this.data.current) return;
+
+	        this.data.current = page;
+
+	        /**
+	         * @event select 选择某一页时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} current 当前选择页
+	         */
+	        this.$emit('select', {
+	            sender: this,
+	            current: this.data.current
+	        });
+	    }
+	});
+
+	exports.default = Pager;
+
+/***/ },
+/* 104 */
+/***/ function(module, exports) {
+
+	module.exports =[{"type":"element","tag":"ul","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-pager m-pager-',c._sg_('position', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"class","value":"pager_prev"},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('current', d, e)<=1","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select'](c._sg_('current', d, e)-1)","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"a","attrs":[],"children":[{"type":"text","text":"上一页"}]}]},{"type":"text","text":"\n    "},{"type":"if","test":{"type":"expression","body":"c._sg_('total', d, e)-c._sg_('middle', d, e)>c._sg_('side', d, e)*2+1","constant":false,"setbody":false},"consequent":[{"type":"text","text":"\n        "},{"type":"list","sequence":{"type":"expression","body":"(function(start,end){var res = [],step=end>start?1:-1; for(var i = start; end>start?i <= end: i>=end; i=i+step){res.push(i); } return res })(1,c._sg_('side', d, e))","constant":false,"setbody":false},"alternate":[],"variable":"i","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"z-crt","value":{"type":"expression","body":"c._sg_('current', d, e)==c._sg_('i', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select'](c._sg_('i', d, e))","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"a","attrs":[],"children":[{"type":"expression","body":"c._sg_('i', d, e)","constant":false,"setbody":"c._ss_('i',p_,d, '=', 1)"}]}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"if","test":{"type":"expression","body":"c._sg_('_start', d, e)>c._sg_('side', d, e)+1","constant":false,"setbody":false},"consequent":[{"type":"element","tag":"li","attrs":[],"children":[{"type":"element","tag":"span","attrs":[],"children":[{"type":"text","text":"..."}]}]}],"alternate":[]},{"type":"text","text":"\n        "},{"type":"list","sequence":{"type":"expression","body":"(function(start,end){var res = [],step=end>start?1:-1; for(var i = start; end>start?i <= end: i>=end; i=i+step){res.push(i); } return res })(c._sg_('_start', d, e),c._sg_('_end', d, e))","constant":false,"setbody":false},"alternate":[],"variable":"i","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"z-crt","value":{"type":"expression","body":"c._sg_('current', d, e)==c._sg_('i', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select'](c._sg_('i', d, e))","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"a","attrs":[],"children":[{"type":"expression","body":"c._sg_('i', d, e)","constant":false,"setbody":"c._ss_('i',p_,d, '=', 1)"}]}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "},{"type":"if","test":{"type":"expression","body":"c._sg_('_end', d, e)<c._sg_('total', d, e)-c._sg_('side', d, e)","constant":false,"setbody":false},"consequent":[{"type":"element","tag":"li","attrs":[],"children":[{"type":"element","tag":"span","attrs":[],"children":[{"type":"text","text":"..."}]}]}],"alternate":[]},{"type":"text","text":"\n        "},{"type":"list","sequence":{"type":"expression","body":"(function(start,end){var res = [],step=end>start?1:-1; for(var i = start; end>start?i <= end: i>=end; i=i+step){res.push(i); } return res })((c._sg_('total', d, e)-c._sg_('side', d, e)+1),c._sg_('total', d, e))","constant":false,"setbody":false},"alternate":[],"variable":"i","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"z-crt","value":{"type":"expression","body":"c._sg_('current', d, e)==c._sg_('i', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select'](c._sg_('i', d, e))","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"a","attrs":[],"children":[{"type":"expression","body":"c._sg_('i', d, e)","constant":false,"setbody":"c._ss_('i',p_,d, '=', 1)"}]}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}],"alternate":[{"type":"text","text":"\n        "},{"type":"list","sequence":{"type":"expression","body":"(function(start,end){var res = [],step=end>start?1:-1; for(var i = start; end>start?i <= end: i>=end; i=i+step){res.push(i); } return res })(1,c._sg_('total', d, e))","constant":false,"setbody":false},"alternate":[],"variable":"i","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"z-crt","value":{"type":"expression","body":"c._sg_('current', d, e)==c._sg_('i', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select'](c._sg_('i', d, e))","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"a","attrs":[],"children":[{"type":"expression","body":"c._sg_('i', d, e)","constant":false,"setbody":"c._ss_('i',p_,d, '=', 1)"}]}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"class","value":"pager_next"},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('current', d, e)>=c._sg_('total', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['select'](c._sg_('current', d, e)+1)","constant":false,"setbody":false}}],"children":[{"type":"element","tag":"a","attrs":[],"children":[{"type":"text","text":"下一页"}]}]},{"type":"text","text":"\n"}]}]
+
+/***/ },
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3396,7 +3627,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Resizable = undefined;
 
-	var _resizable = __webpack_require__(102);
+	var _resizable = __webpack_require__(106);
 
 	var _resizable2 = _interopRequireDefault(_resizable);
 
@@ -3405,7 +3636,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Resizable = _resizable2.default;
 
 /***/ },
-/* 102 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3418,7 +3649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(103);
+	var _index = __webpack_require__(107);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3488,8 +3719,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        } else if (this.data.range === 'parent') {
 	            // range = proxy.parentElement;
 	        } else if (range instanceof Element) {
-	                //
-	            }
+	            //
+	        }
 
 	        if (range) {
 	            range.width = range.right - range.left;
@@ -3570,13 +3801,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Resizable;
 
 /***/ },
-/* 103 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-resizable m-resizable-',c._sg_('handleType', d, e),' ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"element"},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"style","value":{"type":"expression","body":"['left: ',c._sg_('left', d, e),'px; top: ',c._sg_('top', d, e),'px; width: ',c._sg_('width', d, e),'px; height: ',c._sg_('height', d, e),'px;'].join('')","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"list","sequence":{"type":"expression","body":"c._sg_('handles', d, e)","constant":false,"setbody":"c._ss_('handles',p_,d, '=', 1)"},"alternate":[],"variable":"handle","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"draggable","attrs":[{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"proxy","value":""},{"type":"attribute","name":"on-dragstart","value":{"type":"expression","body":"c['_onDragStart'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-drag","value":{"type":"expression","body":"c['_onDrag'](c._sg_('$event', d, e),c._sg_('handle', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['resizable_handle resizable_handle-',c._sg_('handle', d, e)].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 104 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3586,7 +3817,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.SelectField = undefined;
 
-	var _selectField = __webpack_require__(105);
+	var _selectField = __webpack_require__(109);
 
 	var _selectField2 = _interopRequireDefault(_selectField);
 
@@ -3595,7 +3826,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.SelectField = _selectField2.default;
 
 /***/ },
-/* 105 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3604,9 +3835,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _rguiUiBase = __webpack_require__(75);
+	var _rguiUiListview = __webpack_require__(91);
 
-	var _index = __webpack_require__(106);
+	var _index = __webpack_require__(110);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3614,7 +3845,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * @class SelectField
-	 * @extend Component
+	 * @extend ListView
 	 * @param {object}                  options.data                     =  绑定属性
 	 * @param {var}                     options.data.value              <=> 当前的选择值
 	 * @param {boolean=false}           options.data.open               <=> 当前为展开/收起状态
@@ -3623,7 +3854,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {boolean=true}            options.data.visible             => 是否显示
 	 * @param {string=''}               options.data.class               => 补充class
 	 */
-	var SelectField = _rguiUiBase.Component.extend({
+	var SelectField = _rguiUiListview.ListView.extend({
 	  name: 'selectField',
 	  template: _index2.default,
 	  /**
@@ -3632,13 +3863,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  config: function config() {
 	    this.data = Object.assign({
-	      _list: [],
-	      _selected: undefined,
-	      value: undefined,
-	      placeholder: '请选择',
+	      // @inherited _list: [],
+	      // @inherited _selected: undefined,
+	      // @inherited value: undefined,
 	      open: undefined
 	    }, this.data);
 	    this.supr();
+
+	    /**
+	     * @event change 选择值改变时触发
+	     * @property {object} sender 事件发送对象
+	     * @property {Item} selected 改变后的选择项
+	     * @property {var} value 改变后的选择值
+	     */
 	  },
 
 	  /**
@@ -3646,72 +3883,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @override
 	   */
 	  init: function init() {
+	    this.supr();
 	    if (!this.data._selected) this.data._selected = this.data._list[0];
 	  },
 
 	  /**
 	   * @method select(item) 选择某一项
 	   * @public
+	   * @override
 	   * @param  {Item} item 选择项
 	   * @return {void}
 	   */
 	  select: function select(item) {
-	    this.$refs.listView.select(item);
-	  },
-
-	  /**
-	   * @private
-	   */
-	  _onToggle: function _onToggle($event) {
-	    /**
-	     * @event toggle  展开/收起时触发
-	     * @property {object} sender 事件发送对象
-	     * @property {object} open 展开/收起状态
-	     */
-	    this.$emit('toggle', Object.assign($event, { sender: this }));
-	  },
-
-	  /**
-	   * @private
-	   */
-	  _onSelect: function _onSelect($event) {
 	    /**
 	     * @event select 选择某一项时触发
 	     * @property {object} sender 事件发送对象
-	     * @property {Item} selected 当前的选择项
+	     * @property {Item} selected 当前选择项
+	     * @property {var} value 当前选择值
 	     */
-	    this.$emit('select', {
-	      sender: this,
-	      selected: $event.selected
-	    });
-
+	    this.supr(item);
 	    this.$refs.overlay.toggle(false);
-	  },
-
-	  /**
-	   * @private
-	   */
-	  _onChange: function _onChange($event) {
-	    /**
-	     * @event change 选择值改变时触发
-	     * @property {object} sender 事件发送对象
-	     * @property {Item} selected 改变后的选择项
-	     * @property {var} value 改变后的选择值
-	     */
-	    this.$emit('change', Object.assign($event, { sender: this }));
 	  }
 	});
 
 	exports.default = SelectField;
 
 /***/ },
-/* 106 */
+/* 110 */
 /***/ function(module, exports) {
 
-	module.exports =[{"type":"element","tag":"overlay","attrs":[{"type":"attribute","name":"class","value":"u-selectField"},{"type":"attribute","name":"open","value":{"type":"expression","body":"c._sg_('open', d, e)","constant":false,"setbody":"c._ss_('open',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"visible","value":{"type":"expression","body":"c._sg_('visible', d, e)","constant":false,"setbody":"c._ss_('visible',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"overlay"},{"type":"attribute","name":"on-toggle","value":{"type":"expression","body":"c['_onToggle'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.head","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"span","attrs":[],"children":[{"type":"if","test":{"type":"expression","body":"c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c))))","constant":false,"setbody":"c._ss_('_selected',p_,c._sg_('data', c._sg_('listView', c._sg_('$refs', c))), '=', 0)"},"consequent":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))))","constant":false,"setbody":"c._ss_('$body',p_,c._sg_('_selected', c._sg_('data', c._sg_('listView', c._sg_('$refs', c)))), '=', 0)"}},{"type":"text","text":"\n        "}],"alternate":[]}]},{"type":"text","text":"\n        "},{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-caret-down"}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.body","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"listView","attrs":[{"type":"attribute","name":"class","value":"m-listView-selectField"},{"type":"attribute","name":"_list","value":{"type":"expression","body":"c._sg_('_list', d, e)","constant":false,"setbody":"c._ss_('_list',p_,d, '=', 1)"}},{"type":"attribute","name":"_selected","value":{"type":"expression","body":"c._sg_('_selected', d, e)","constant":false,"setbody":"c._ss_('_selected',p_,d, '=', 1)"}},{"type":"attribute","name":"value","value":{"type":"expression","body":"c._sg_('value', d, e)","constant":false,"setbody":"c._ss_('value',p_,d, '=', 1)"}},{"type":"attribute","name":"readonly","value":{"type":"expression","body":"c._sg_('readonly', d, e)","constant":false,"setbody":"c._ss_('readonly',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"listView"},{"type":"attribute","name":"on-select","value":{"type":"expression","body":"c['_onSelect'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-change","value":{"type":"expression","body":"c['_onChange'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
+	module.exports =[{"type":"element","tag":"overlay","attrs":[{"type":"attribute","name":"ref","value":"overlay"},{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-selectField ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"open","value":{"type":"expression","body":"c._sg_('open', d, e)","constant":false,"setbody":"c._ss_('open',p_,d, '=', 1)"}},{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"visible","value":{"type":"expression","body":"c._sg_('visible', d, e)","constant":false,"setbody":"c._ss_('visible',p_,d, '=', 1)"}},{"type":"attribute","name":"on-toggle","value":"toggle"}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.head","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"if","test":{"type":"expression","body":"c._sg_('_selected', d, e)","constant":false,"setbody":"c._ss_('_selected',p_,d, '=', 1)"},"consequent":[{"type":"element","tag":"span","attrs":[{"type":"attribute","name":"title","value":{"type":"expression","body":"c._sg_('title', c._sg_('data', c._sg_('_selected', d, e)))","constant":false,"setbody":"c._ss_('title',p_,c._sg_('data', c._sg_('_selected', d, e)), '=', 0)"}}],"children":[{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c._sg_('_selected', d, e))","constant":false,"setbody":"c._ss_('$body',p_,c._sg_('_selected', d, e), '=', 0)"}}]}],"alternate":[]},{"type":"text","text":"\n        "},{"type":"element","tag":"i","attrs":[{"type":"attribute","name":"class","value":"u-icon u-icon-caret-down"}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"overlay.body","attrs":[],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"ul","attrs":[{"type":"attribute","name":"class","value":"m-listView selectField_listView"}],"children":[{"type":"text","text":"\n            "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
 
 /***/ },
-/* 107 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3721,7 +3925,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Slider = undefined;
 
-	var _slider = __webpack_require__(108);
+	var _slider = __webpack_require__(112);
 
 	var _slider2 = _interopRequireDefault(_slider);
 
@@ -3730,7 +3934,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Slider = _slider2.default;
 
 /***/ },
-/* 108 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3741,13 +3945,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rguiUiBase = __webpack_require__(75);
 
-	var _index = __webpack_require__(109);
+	var _index = __webpack_require__(113);
 
 	var _index2 = _interopRequireDefault(_index);
 
 	var _regularjs = __webpack_require__(77);
 
-	__webpack_require__(85);
+	__webpack_require__(114);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3755,7 +3959,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @class Slider
 	 * @extend Component
 	 * @param {object}                  options.data                     =  绑定属性
-	 * @param {string='Hello World'}    options.data.message            <=> 消息
+	 * @param {number=0}                options.data.value              <=> 数值
+	 * @param {number=0}                options.data.min                <=> 最小值
+	 * @param {number=100}              options.data.max                <=> 最大值
+	 * @param {number=0}                options.data.step               <=> 间隔
+	 * @param {boolean=false}           options.data.readonly            => 是否只读
 	 * @param {boolean=false}           options.data.disabled            => 是否禁用
 	 * @param {boolean=true}            options.data.visible             => 是否显示
 	 * @param {string=''}               options.data.class               => 补充class
@@ -3771,18 +3979,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this = this;
 
 	        this.data = Object.assign({
-	            percent: 0
+	            value: 0,
+	            min: 0,
+	            max: 100,
+	            step: 0,
+	            _grid: { x: 0, y: 0 }
 	        }, this.data);
 	        this.supr();
 
-	        this.$watch('percent', function (newValue, oldValue) {
+	        this.$watch('value', function (newValue, oldValue) {
 	            _this.$emit('change', {
 	                sender: _this,
-	                percent: newValue
+	                value: newValue
 	            });
 	        });
 	    },
 
+	    computed: {
+	        percent: {
+	            get: function get() {
+	                return (this.data.value - this.data.min) / (this.data.max - this.data.min) * 100;
+	            },
+	            set: function set(percent) {
+	                var value = +this.data.min + (this.data.max - this.data.min) * percent / 100;
+	                if (this.data.step) value = Math.round(value / this.data.step) * this.data.step;
+	                this.data.value = value;
+	            }
+	        }
+	    },
 	    /**
 	     * @private
 	     */
@@ -3792,25 +4016,1378 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var e = $event.event;
 	        var $handle = this.$refs.handle;
 	        var $parent = $handle.offsetParent;
-	        var position = _regularjs.dom.getPosition($parent);
-	        this.data.percent = (e.clientX - position.left) / $parent.offsetWidth * 100;
+	        var dimension = _regularjs.dom.getDimension($parent, 'center');
+
+	        this.$set('percent', (e.clientX - dimension.left) / dimension.width * 100);
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onDragStart: function _onDragStart($event) {
+	        this.data._grid.x = this.data.step / (this.data.max - this.data.min) * $event.range.width;
 	    },
 
 	    /**
 	     * @private
 	     */
 	    _onDrag: function _onDrag($event) {
-	        this.data.percent = $event.left / $event.range.right * 100;
+	        this.$set('percent', $event.left / $event.range.width * 100);
 	    }
 	});
 
 	exports.default = Slider;
 
 /***/ },
-/* 109 */
+/* 113 */
 /***/ function(module, exports) {
 
-	module.exports =[{"type":"element","tag":"movable","attrs":[{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('readonly', d, e)||c._sg_('disabled', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"proxy","value":{"type":"expression","body":"c._sg_('handle', c._sg_('$refs', c))","constant":false,"setbody":"c._ss_('handle',p_,c._sg_('$refs', c), '=', 0)"}},{"type":"attribute","name":"axis","value":"horizontal"},{"type":"attribute","name":"range","value":"offsetParent"},{"type":"attribute","name":"rangeMode","value":"none"},{"type":"attribute","name":"on-drag","value":{"type":"expression","body":"c['_onDrag'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n"},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-slider ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-mousedown","value":{"type":"expression","body":"c['_onMouseDown'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_track"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_trail"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['width: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_handle"},{"type":"attribute","name":"ref","value":"handle"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['left: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n"}]},{"type":"text","text":"\n"}]}]
+	module.exports =[{"type":"element","tag":"movable","attrs":[{"type":"attribute","name":"disabled","value":{"type":"expression","body":"c._sg_('readonly', d, e)||c._sg_('disabled', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"proxy","value":{"type":"expression","body":"c._sg_('handle', c._sg_('$refs', c))","constant":false,"setbody":"c._ss_('handle',p_,c._sg_('$refs', c), '=', 0)"}},{"type":"attribute","name":"axis","value":"horizontal"},{"type":"attribute","name":"grid","value":{"type":"expression","body":"c._sg_('_grid', d, e)","constant":false,"setbody":"c._ss_('_grid',p_,d, '=', 1)"}},{"type":"attribute","name":"range","value":"offsetParent"},{"type":"attribute","name":"rangeMode","value":"center"},{"type":"attribute","name":"on-dragstart","value":{"type":"expression","body":"c['_onDragStart'](c._sg_('$event', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-drag","value":{"type":"expression","body":"c['_onDrag'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n"},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-slider ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}},{"type":"attribute","name":"on-mousedown","value":{"type":"expression","body":"c['_onMouseDown'](c._sg_('$event', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_track"}],"children":[{"type":"text","text":"\n        "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_trail"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['width: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"slider_handle"},{"type":"attribute","name":"ref","value":"handle"},{"type":"attribute","name":"style","value":{"type":"expression","body":"['left: ',c._sg_('percent', d, e),'%'].join('')","constant":false,"setbody":false}}],"children":[]},{"type":"text","text":"\n"}]},{"type":"text","text":"\n"}]}]
+
+/***/ },
+/* 114 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Movable = exports.Droppable = exports.Draggable = undefined;
+
+	var _draggable = __webpack_require__(115);
+
+	var _draggable2 = _interopRequireDefault(_draggable);
+
+	var _droppable = __webpack_require__(118);
+
+	var _droppable2 = _interopRequireDefault(_droppable);
+
+	var _movable = __webpack_require__(119);
+
+	var _movable2 = _interopRequireDefault(_movable);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Draggable = _draggable2.default;
+	exports.Droppable = _droppable2.default;
+	exports.Movable = _movable2.default;
+
+/***/ },
+/* 115 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _manager = __webpack_require__(116);
+
+	var _manager2 = _interopRequireDefault(_manager);
+
+	var _regularjs = __webpack_require__(77);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Draggable
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {string|Dragable.Proxy|Element|function='clone'}  options.data.proxy  @=> 拖拽代理，即拖拽时移动的元素。默认值为`clone`，拖拽时拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`<draggable.proxy>`自定义代理，或直接传入一个元素或函数。`''`表示不使用拖拽代理。
+	 * @param {var}                     options.data.value               => 拖拽时需要传递的值
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {string='z-draggable'}    options.data.class               => 可拖拽时（即disabled=false）给该元素附加此class
+	 * @param {string='z-dragSource'}   options.data.sourceClass         => 拖拽时给起始元素附加此class
+	 * @param {string='z-dragProxy'}    options.data.proxyClass          => 拖拽时给代理元素附加此class
+	 */
+	var Draggable = _rguiUiBase.Component.extend({
+	    name: 'draggable',
+	    template: '{#inc this.$body}',
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            proxy: 'clone',
+	            value: undefined,
+	            'class': 'z-draggable',
+	            sourceClass: 'z-dragSource',
+	            proxyClass: 'z-dragProxy'
+	        }, this.data);
+	        this.supr();
+
+	        this._onMouseDown = this._onMouseDown.bind(this);
+	        this._onMouseMove = this._onMouseMove.bind(this);
+	        this._onMouseUp = this._onMouseUp.bind(this);
+	        this.cancel = this.cancel.bind(this);
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    init: function init() {
+	        var _this = this;
+
+	        var inner = _regularjs.dom.element(this);
+	        _regularjs.dom.on(inner, 'mousedown', this._onMouseDown);
+	        this.supr();
+
+	        this.$watch('disabled', function (newValue) {
+	            return _regularjs.dom[newValue ? 'delClass' : 'addClass'](inner, _this.data['class']);
+	        });
+	    },
+
+	    /**
+	     * @method _getProxy() 获取拖拽代理
+	     * @private
+	     * @return {Element} 拖拽代理元素
+	     */
+	    _getProxy: function _getProxy() {
+	        var proxy = void 0;
+	        var source = _regularjs.dom.element(this);
+
+	        if (typeof this.data.proxy === 'function') proxy = this.data.proxy();else if (this.data.proxy instanceof Element) proxy = this.data.proxy;else if (this.data.proxy === 'self') proxy = source;else if (this.data.proxy === 'clone') {
+	            proxy = source.cloneNode(true);
+	            this._setProxyFixed(proxy, _regularjs.dom.getPosition(source));
+	            var size = _regularjs.dom.getSize(source);
+	            proxy.style.width = size.width + 'px';
+	            proxy.style.height = size.height + 'px';
+	            source.parentElement.appendChild(proxy);
+	        } else if (this.data.proxy instanceof Draggable.Proxy) {
+	            proxy = _regularjs.dom.element(this.data.proxy.$body());
+	            this._setProxyFixed(proxy, _regularjs.dom.getPosition(source));
+	            document.body.appendChild(proxy);
+	        }
+
+	        proxy && this._initProxy(proxy);
+	        return proxy;
+	    },
+
+	    /**
+	     * @method _setProxyFixed() 将拖拽代理的position设置fixed并设置初始位置
+	     * @param  {Element} proxy 拖拽代理元素
+	     * @param  {position=...} position 拖拽代理的初始位置
+	     * @private
+	     * @return {void}
+	     */
+	    _setProxyFixed: function _setProxyFixed(proxy) {
+	        var position = arguments.length <= 1 || arguments[1] === undefined ? { left: 0, top: 0 } : arguments[1];
+
+	        proxy.style.left = position.left + 'px';
+	        proxy.style.top = position.top + 'px';
+	        proxy.style.zIndex = '9999';
+	        proxy.style.position = 'fixed';
+	        proxy.style.display = '';
+	    },
+
+	    /**
+	     * @method _initProxy() 初始化拖拽代理
+	     * @private
+	     * @return {void}
+	     */
+	    _initProxy: function _initProxy(proxy) {
+	        // 如果position为static，则设置为relative，保证可以移动
+	        if (_regularjs.dom.getComputedStyle(proxy, 'position') === 'static') proxy.style.position = 'relative';
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onMouseDown: function _onMouseDown($event) {
+	        if (this.data.disabled) return;
+
+	        var e = $event.event;
+	        // 阻止浏览器的默认行为，特别是IE的选择行为
+	        $event.preventDefault();
+
+	        // 鼠标坐标从MouseDown开始算，防止出现第一次移动的误差
+	        Object.assign(_manager2.default, {
+	            screenX: e.screenX,
+	            screenY: e.screenY,
+	            clientX: e.clientX,
+	            clientY: e.clientY,
+	            pageX: e.pageX,
+	            pageY: e.pageY,
+	            startX: e.clientX,
+	            startY: e.clientY,
+	            dragX: 0,
+	            dragY: 0
+	        });
+
+	        _regularjs.dom.on(window, 'mousemove', this._onMouseMove);
+	        _regularjs.dom.on(window, 'mouseup', this._onMouseUp);
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onMouseMove: function _onMouseMove($event) {
+	        var e = $event.event;
+	        $event.preventDefault();
+
+	        Object.assign(_manager2.default, {
+	            screenX: e.screenX,
+	            screenY: e.screenY,
+	            clientX: e.clientX,
+	            clientY: e.clientY,
+	            pageX: e.pageX,
+	            pageY: e.pageY,
+	            dragX: e.clientX - _manager2.default.startX,
+	            dragY: e.clientY - _manager2.default.startY
+	        });
+
+	        if (_manager2.default.dragging === false) this._onMouseMoveStart(e);else this._onMouseMoving(e);
+	    },
+
+	    /**
+	     * @method _onMouseMoveStart(e) 处理第一次鼠标移动事件
+	     * @private
+	     * @param  {MouseEvent} e 鼠标事件
+	     * @return {void}
+	     */
+	    _onMouseMoveStart: function _onMouseMoveStart(e, override) {
+	        var proxy = this._getProxy();
+
+	        // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
+	        // 获取初始的left和top值
+	        var computedStyle = proxy ? _regularjs.dom.getComputedStyle(proxy) : {};
+	        if (!computedStyle.left || computedStyle.left === 'auto') computedStyle.left = '0px';
+	        if (!computedStyle.top || computedStyle.top === 'auto') computedStyle.top = '0px';
+
+	        Object.assign(_manager2.default, {
+	            dragging: true,
+	            proxy: proxy,
+	            value: this.data.value,
+	            startLeft: +computedStyle.left.slice(0, -2),
+	            startTop: +computedStyle.top.slice(0, -2),
+	            droppable: undefined
+	        });
+
+	        _manager2.default.left = _manager2.default.startLeft;
+	        _manager2.default.top = _manager2.default.startTop;
+
+	        !override && this._dragStart();
+	    },
+
+	    /**
+	     * @method _onMouseMoveStart(e) 处理后续鼠标移动事件
+	     * @param  {MouseEvent} e 鼠标事件
+	     * @private
+	     * @return {void}
+	     */
+	    _onMouseMoving: function _onMouseMoving(e) {
+	        // 拖拽约束
+	        var next = this.restrict(_manager2.default);
+	        // 设置位置
+	        if (_manager2.default.proxy) {
+	            _manager2.default.proxy.style.left = next.left + 'px';
+	            _manager2.default.proxy.style.top = next.top + 'px';
+	        }
+	        // 更新当前位置
+	        _manager2.default.left = next.left;
+	        _manager2.default.top = next.top;
+
+	        this._drag();
+	        if (!_manager2.default.dragging) return;
+
+	        // for Droppable
+	        var pointElement = null;
+	        if (_manager2.default.proxy) {
+	            _manager2.default.proxy.style.display = 'none';
+	            pointElement = document.elementFromPoint(e.clientX, e.clientY);
+	            _manager2.default.proxy.style.display = '';
+	        } else pointElement = document.elementFromPoint(e.clientX, e.clientY);
+
+	        var pointDroppable = null;
+	        while (pointElement) {
+	            pointDroppable = _manager2.default.droppables.find(function (droppable) {
+	                return _regularjs.dom.element(droppable) === pointElement;
+	            });
+
+	            if (pointDroppable) break;else pointElement = pointElement.parentElement;
+	        }
+
+	        if (_manager2.default.droppable !== pointDroppable) {
+	            _manager2.default.droppable && _manager2.default.droppable._dragLeave(this);
+	            if (!_manager2.default.dragging) return;
+	            pointDroppable && pointDroppable._dragEnter(this);
+	            if (!_manager2.default.dragging) return;
+	            _manager2.default.droppable = pointDroppable;
+	        }
+
+	        // dragEnter之后也要dragOver
+	        pointDroppable && pointDroppable._dragOver(this);
+	    },
+
+	    /**
+	     * @method restrict(manager) 拖拽约束函数
+	     * @protected
+	     * @param  {params} 拖拽参数
+	     * @return {left, top} 拖拽代理元素计算后的left和top位置
+	     */
+	    restrict: function restrict(params) {
+	        return {
+	            left: params.startLeft + params.dragX,
+	            top: params.startTop + params.dragY
+	        };
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _onMouseUp: function _onMouseUp($event) {
+	        if (_manager2.default.dragging) {
+	            _manager2.default.droppable && _manager2.default.droppable._drop(this);
+	            this.cancel();
+	        }
+
+	        _regularjs.dom.off(window, 'mousemove', this._onMouseMove);
+	        _regularjs.dom.off(window, 'mouseup', this._onMouseUp);
+	    },
+
+	    /**
+	     * @method cancel() 取消拖拽操作
+	     * @public
+	     * @return {void}
+	     */
+	    cancel: function cancel() {
+	        this._dragEnd();
+
+	        Object.assign(_manager2.default, {
+	            dragging: false,
+	            value: undefined,
+	            proxy: undefined,
+	            range: undefined,
+	            screenX: 0,
+	            screenY: 0,
+	            clientX: 0,
+	            clientY: 0,
+	            pageX: 0,
+	            pageY: 0,
+	            startX: 0,
+	            startY: 0,
+	            dragX: 0,
+	            dragY: 0,
+	            startLeft: 0,
+	            startTop: 0,
+	            left: 0,
+	            top: 0,
+	            droppable: undefined
+	        });
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragStart: function _dragStart() {
+	        var source = _regularjs.dom.element(this);
+	        _regularjs.dom.addClass(source, this.data.sourceClass);
+	        _manager2.default.proxy && _regularjs.dom.addClass(_manager2.default.proxy, this.data.proxyClass);
+
+	        /**
+	         * @event dragstart 拖拽开始时触发
+	         * @property {object} sender 事件发送对象，为当前draggable
+	         * @property {object} origin 拖拽源，为当前draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {var} value 拖拽时需要传递的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平坐标
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直坐标
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平坐标
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直坐标
+	         * @property {number} pageX 鼠标指针相对于页面的水平坐标
+	         * @property {number} pageY 鼠标指针相对于页面的垂直坐标
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragstart', Object.assign({
+	            sender: this,
+	            origin: this,
+	            source: source,
+	            cancel: this.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _drag: function _drag() {
+	        /**
+	         * @event drag 正在拖拽时触发
+	         * @property {object} sender 事件发送对象，为当前draggable
+	         * @property {object} origin 拖拽源，为当前draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {var} value 拖拽时需要传递的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平坐标
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直坐标
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平坐标
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直坐标
+	         * @property {number} pageX 鼠标指针相对于页面的水平坐标
+	         * @property {number} pageY 鼠标指针相对于页面的垂直坐标
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('drag', Object.assign({
+	            sender: this,
+	            origin: this,
+	            source: _regularjs.dom.element(this),
+	            cancel: this.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragEnd: function _dragEnd() {
+	        var source = this._watchers !== null ? _regularjs.dom.element(this) : null;
+	        source && _regularjs.dom.delClass(source, this.data.sourceClass);
+
+	        /**
+	         * @event dragend 拖拽结束时触发
+	         * @property {object} sender 事件发送对象，为当前draggable
+	         * @property {object} origin 拖拽源，为当前draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {var} value 拖拽时需要传递的值
+	         */
+	        this.$emit('dragend', Object.assign({
+	            sender: this,
+	            origin: this,
+	            source: source
+	        }, _manager2.default));
+
+	        if (_manager2.default.proxy) {
+	            if (this.data.proxy instanceof Draggable.Proxy || this.data.proxy === 'clone') _manager2.default.proxy.parentElement.removeChild(_manager2.default.proxy);
+
+	            _regularjs.dom.delClass(_manager2.default.proxy, this.data.proxyClass);
+	        }
+	    }
+	});
+
+	Draggable.Proxy = _rguiUiBase.Component.extend({
+	    name: 'draggable.proxy',
+	    /**
+	     * @protected
+	     */
+	    init: function init() {
+	        if (this.$outer instanceof Draggable) this.$outer.data.proxy = this;
+	    }
+	});
+
+	exports.default = Draggable;
+
+/***/ },
+/* 116 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	__webpack_require__(117);
+
+	var manager = {
+	    dragging: false,
+	    value: undefined,
+	    proxy: undefined,
+	    screenX: 0,
+	    screenY: 0,
+	    clientX: 0,
+	    clientY: 0,
+	    pageX: 0,
+	    pageY: 0,
+	    startX: 0,
+	    startY: 0,
+	    dragX: 0,
+	    dragY: 0,
+	    startLeft: 0,
+	    startTop: 0,
+	    dragLeft: 0,
+	    dragTop: 0,
+	    droppable: undefined,
+	    droppables: []
+	};
+
+	exports.default = manager;
+
+/***/ },
+/* 117 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _regularjs = __webpack_require__(77);
+
+	Object.assign(_regularjs.dom, {
+	    getPosition: function getPosition(elem) {
+	        var doc = elem && elem.ownerDocument;
+	        var docElem = doc.documentElement;
+	        var body = doc.body;
+
+	        var box = elem.getBoundingClientRect ? elem.getBoundingClientRect() : { left: 0, top: 0 };
+
+	        var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+	        var clientTop = docElem.clientTop || body.clientTop || 0;
+
+	        return { left: box.left - clientLeft, top: box.top - clientTop };
+	    },
+	    getSize: function getSize(elem) {
+	        var mode = arguments.length <= 1 || arguments[1] === undefined ? 'outside' : arguments[1];
+
+	        if (mode === 'inside') return { width: elem.clientWidth, height: elem.clientHeight };else if (mode === 'center') return { width: (elem.clientWidth + elem.offsetWidth) / 2, height: (elem.offsetHeight + elem.clientHeight) / 2 };else if (mode === 'outside') return { width: elem.offsetWidth, height: elem.offsetHeight };
+	    },
+	    getDimension: function getDimension(elem, mode) {
+	        return Object.assign(this.getSize(elem, mode), this.getPosition(elem));
+	    },
+	    isInRect: function isInRect(position, dimension) {
+	        if (!position || !dimension) return false;
+
+	        return position.left > dimension.left && position.left < dimension.left + dimension.width && position.top > dimension.top && position.top < dimension.top + dimension.height;
+	    },
+	    getComputedStyle: function getComputedStyle(elem, property) {
+	        var computedStyle = elem.currentStyle || window.getComputedStyle(elem, null);
+	        return property ? computedStyle[property] : computedStyle;
+	    }
+	});
+
+	exports.default = _regularjs.dom;
+
+/***/ },
+/* 118 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _manager = __webpack_require__(116);
+
+	var _manager2 = _interopRequireDefault(_manager);
+
+	var _regularjs = __webpack_require__(77);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Droppable
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {var}                     options.data.value              <=  拖放后传递过来的值
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {string='z-droppable'}    options.data.class               => 可放置时（即disabled=false）给元素附加此class
+	 * @param {string='z-dragTarget'}   options.data.dragTarget          => 拖拽在该元素上方时给该元素附加此class
+	 */
+	var Droppable = _rguiUiBase.Component.extend({
+	    name: 'droppable',
+	    template: '{#inc this.$body}',
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            data: null,
+	            'class': 'z-droppable',
+	            dragTarget: 'z-dragTarget'
+	        }, this.data);
+	        this.supr();
+
+	        _manager2.default.droppables.push(this);
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    init: function init() {
+	        var _this = this;
+
+	        var inner = _regularjs.dom.element(this);
+	        this.$watch('disabled', function (newValue) {
+	            return _regularjs.dom[newValue ? 'delClass' : 'addClass'](inner, _this.data['class']);
+	        });
+	        this.supr();
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    destroy: function destroy() {
+	        _manager2.default.droppables.splice(_manager2.default.droppables.indexOf(this), 1);
+	        this.supr();
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragEnter: function _dragEnter(origin) {
+	        var element = _regularjs.dom.element(this);
+	        _regularjs.dom.addClass(element, this.data.dragTarget);
+
+	        /**
+	         * @event dragenter 拖拽进入该元素时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragenter', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            cancel: origin.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragLeave: function _dragLeave(origin) {
+	        var element = _regularjs.dom.element(this);
+	        _regularjs.dom.delClass(element, this.data.dragTarget);
+
+	        /**
+	         * @event dragleave 拖拽离开该元素时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragleave', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            cancel: origin.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _dragOver: function _dragOver(origin) {
+	        var element = _regularjs.dom.element(this);
+	        var dimension = _regularjs.dom.getDimension(element);
+
+	        /**
+	         * @event dragover 拖拽在该元素上方时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} ratioX 鼠标指针相对于接收元素所占的长度比
+	         * @property {number} ratioY 鼠标指针相对于接收元素所占的高度比
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         * @property {function} cancel 取消拖拽操作
+	         */
+	        this.$emit('dragover', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            ratioX: (_manager2.default.clientX - dimension.left) / dimension.width,
+	            ratioY: (_manager2.default.clientY - dimension.top) / dimension.height,
+	            cancel: origin.cancel
+	        }, _manager2.default));
+	    },
+
+	    /**
+	     * @private
+	     */
+	    _drop: function _drop(origin) {
+	        var element = _regularjs.dom.element(this);
+	        _regularjs.dom.delClass(element, this.data.dragTarget);
+	        var dimension = _regularjs.dom.getDimension(element);
+
+	        this.data.value = origin.data.value;
+	        this.$update();
+
+	        /**
+	         * @event drop 拖拽放置时触发
+	         * @property {object} sender 事件发送对象，为当前droppable
+	         * @property {object} origin 拖拽源，为拖拽的draggable
+	         * @property {object} source 拖拽起始元素
+	         * @property {object} proxy 拖拽代理元素
+	         * @property {object} target 拖拽目标元素
+	         * @property {object} value 拖拽时接收到的值
+	         * @property {number} ratioX 鼠标指针相对于接收元素所占的长度比
+	         * @property {number} ratioY 鼠标指针相对于接收元素所占的高度比
+	         * @property {number} screenX 鼠标指针相对于屏幕的水平位置
+	         * @property {number} screenY 鼠标指针相对于屏幕的垂直位置
+	         * @property {number} clientX 鼠标指针相对于浏览器的水平位置
+	         * @property {number} clientY 鼠标指针相对于浏览器的垂直位置
+	         * @property {number} pageX 鼠标指针相对于页面的水平位置
+	         * @property {number} pageY 鼠标指针相对于页面的垂直位置
+	         * @property {number} startX 拖拽开始时鼠标指针的水平坐标
+	         * @property {number} startY 拖拽开始时鼠标指针的垂直坐标
+	         * @property {number} dragX 拖拽时鼠标指针相对于起始坐标的水平位移
+	         * @property {number} dragY 拖拽时鼠标指针相对于起始坐标的垂直位移
+	         * @property {number} startLeft 拖拽开始时代理元素的left值
+	         * @property {number} startTop 拖拽开始时代理元素的top值
+	         * @property {number} left 拖拽时代理元素的left值
+	         * @property {number} top 拖拽时代理元素的top值
+	         */
+	        this.$emit('drop', Object.assign({
+	            sender: this,
+	            origin: origin,
+	            source: _regularjs.dom.element(origin),
+	            target: element,
+	            ratioX: (_manager2.default.clientX - dimension.left) / dimension.width,
+	            ratioY: (_manager2.default.clientY - dimension.top) / dimension.height
+	        }, _manager2.default));
+	    }
+	});
+
+	exports.default = Droppable;
+
+/***/ },
+/* 119 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _draggable = __webpack_require__(115);
+
+	var _draggable2 = _interopRequireDefault(_draggable);
+
+	var _manager = __webpack_require__(116);
+
+	var _manager2 = _interopRequireDefault(_manager);
+
+	var _regularjs = __webpack_require__(77);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Movable
+	 * @extend Draggable
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {string|Dragable.Proxy|Element|function='self'}  options.data.proxy  @=> 拖拽代理，即拖拽时移动的元素。默认值为`clone`，表示拖拽时会拖起自身的一个拷贝；当值为`self`，拖拽时直接拖起自身。也可以用`<draggable.proxy>`自定义代理，或直接传入一个元素或函数。`''`表示不使用拖拽代理。
+	 * @param {string='both'}           options.data.axis                => 拖拽代理移动时限制的轴向，`both`表示可以在任意方向上移动，`horizontal`表示限制在水平方向上移动，`vertical`表示限制在垂直方向上移动。
+	 * @param {object={x:0,y:0}}        options.data.grid                => 拖拽代理移动时限制的网格。值为一个{x,y}格式的对象，表示水平方向和垂直方向网格的大小。
+	 * @param {string|object|function}  options.data.range              @=> 拖拽范围。值可以为一个{left,top,right,bottom}格式的对象，表示代理元素移动的上下左右边界，也可以传一个函数。当值为`offsetParent`，代理元素限制在offsetParent中移动，仅适用于`position`为`absolute`的情况；当值为`parent`；当值为`window`时，拖拽时代理元素限制在window中移动，仅适用于`position`为`fixed`的情况。
+	 * @param {string=inside}           options.data.rangeMode           => 拖拽范围模式，默认为`inside`，表示在拖拽范围内侧移动，`center`表示在拖拽范围边缘及内侧移动。
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {string='z-draggable'}    options.data.class               => 可拖拽时（即disabled=false）给该元素附加此class
+	 * @param {string='z-dragSource'}   options.data.sourceClass         => 拖拽时给起始元素附加此class
+	 * @param {string='z-dragProxy'}    options.data.proxyClass          => 拖拽时给代理元素附加此class
+	 */
+	var Movable = _draggable2.default.extend({
+	    name: 'movable',
+	    template: '{#inc this.$body}',
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            proxy: 'self',
+	            // value: undefined,
+	            // 'class': 'z-draggable',
+	            // sourceClass: 'z-dragSource',
+	            // proxyClass: 'z-dragProxy'
+	            axis: 'both',
+	            grid: { x: 0, y: 0 },
+	            range: undefined,
+	            rangeMode: 'inside'
+	        }, this.data);
+	        this.supr();
+	    },
+
+	    /**
+	     * @method _getRange(proxy) 获取拖拽范围
+	     * @private
+	     * @param  {Element} proxy 拖拽代理元素
+	     * @return {Element} 拖拽范围元素
+	     */
+	    _getRange: function _getRange(proxy) {
+	        var range = void 0;
+
+	        if (_typeof(this.data.range) === 'object') range = this.data.range;else if (typeof this.data.range === 'function') range = this.data.range();else if (this.data.range === 'offsetParent') {
+	            if (_regularjs.dom.getComputedStyle(proxy, 'position') !== 'absolute') proxy.style.position = 'absolute';
+
+	            var offsetParent = proxy.offsetParent;
+	            range = Object.assign({ left: 0, top: 0 }, _regularjs.dom.getSize(offsetParent, this.data.rangeMode));
+	        } else if (this.data.range === 'window') {
+	            if (_regularjs.dom.getComputedStyle(proxy, 'position') !== 'fixed') proxy.style.position = 'fixed';
+
+	            range = { left: 0, top: 0, width: window.innerWidth, height: window.innerHeight };
+	        }
+
+	        if (range) {
+	            if (range.width !== undefined && range.height !== undefined) {
+	                range.right = range.left + range.width;
+	                range.bottom = range.top + range.height;
+	            } else if (range.right !== undefined && range.bottom !== undefined) {
+	                range.width = range.right - range.left;
+	                range.height = range.bottom - range.top;
+	            }
+	        }
+
+	        return range;
+	    },
+
+	    /**
+	     * @method _onMouseMoveStart(e) 处理第一次鼠标移动事件
+	     * @private
+	     * @override
+	     * @param  {MouseEvent} e 鼠标事件
+	     * @return {void}
+	     */
+	    _onMouseMoveStart: function _onMouseMoveStart(e) {
+	        this.supr(e, true);
+	        if (_manager2.default.proxy) _manager2.default.range = this._getRange(_manager2.default.proxy);
+	        this._dragStart();
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    restrict: function restrict(params) {
+	        var next = this.supr(params);
+
+	        // 范围约束
+	        if (params.range) {
+	            if (this.data.rangeMode === 'inside') {
+	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right - _manager2.default.proxy.offsetWidth);
+	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom - _manager2.default.proxy.offsetHeight);
+	            } else if (this.data.rangeMode === 'center') {
+	                next.left = Math.min(Math.max(params.range.left, next.left), params.range.right);
+	                next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom);
+	            } else if (this.data.rangeMode === 'outside') {
+	                next.left = Math.min(Math.max(params.range.left - _manager2.default.proxy.offsetWidth, next.left), params.range.right);
+	                next.top = Math.min(Math.max(params.range.top - _manager2.default.proxy.offsetHeight, next.top), params.range.bottom);
+	            }
+	        }
+
+	        // 网格约束
+	        var grid = this.data.grid;
+	        grid.x && (next.left = Math.round(next.left / grid.x) * grid.x);
+	        grid.y && (next.top = Math.round(next.top / grid.y) * grid.y);
+
+	        // 轴向约束
+	        if (this.data.axis === 'vertical') next.left = params.startLeft;
+	        if (this.data.axis === 'horizontal') next.top = params.startTop;
+
+	        return next;
+	    }
+	});
+
+	exports.default = Movable;
+
+/***/ },
+/* 120 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Tab = exports.Tabs = undefined;
+
+	var _tabs = __webpack_require__(121);
+
+	var _tabs2 = _interopRequireDefault(_tabs);
+
+	var _tab = __webpack_require__(123);
+
+	var _tab2 = _interopRequireDefault(_tab);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Tabs = _tabs2.default;
+	exports.Tab = _tab2.default;
+
+/***/ },
+/* 121 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiListview = __webpack_require__(91);
+
+	var _index = __webpack_require__(122);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @class Tabs
+	 * @extend ListView
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {object=null}             options.data.selected           <=> 当前选择卡
+	 * @param {string=null}             options.data.titleTemplate      @=> 标题模板
+	 * @param {boolean=false}           options.data.readonly            => 是否只读
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 */
+	var Tabs = _rguiUiListview.ListView.extend({
+	    name: 'tabs',
+	    template: _index2.default,
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            // @inherited _list: [],
+	            // @inherited _selected: undefined,
+	            current: 0,
+	            titleTemplate: undefined
+	        }, this.data);
+	        this.supr();
+	    },
+
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    watch: function watch() {
+	        var _this = this;
+
+	        this.$watch('current', function (newValue, oldValue) {
+	            if (!_this.data._selected) _this.data._selected = _this.data._list[newValue];
+
+	            /**
+	             * @event change 选择值改变时触发
+	             * @property {object} sender 事件发送对象
+	             * @property {Item} selected 改变后的选择项
+	             * @property {var} current 当前项索引
+	             */
+	            _this.$emit('change', {
+	                sender: _this,
+	                selected: _this.data._selected,
+	                current: newValue
+	            });
+	        });
+
+	        this.$watch('_selected', function (newValue, oldValue) {
+	            // 设置current
+	            _this.data.current = newValue ? _this.data._list.indexOf(newValue) : newValue;
+	        });
+	    }
+	});
+
+	exports.default = Tabs;
+
+/***/ },
+/* 122 */
+/***/ function(module, exports) {
+
+	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['m-tabs ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"ul","attrs":[{"type":"attribute","name":"class","value":"tabs_hd"}],"children":[{"type":"text","text":"\n        "},{"type":"list","sequence":{"type":"expression","body":"c._sg_('_list', d, e)","constant":false,"setbody":"c._ss_('_list',p_,d, '=', 1)"},"alternate":[],"variable":"item","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"li","attrs":[{"type":"attribute","name":"z-crt","value":{"type":"expression","body":"c._sg_('item', d, e)===c._sg_('_selected', d, e)","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', c._sg_('data', c._sg_('item', d, e)))","constant":false,"setbody":"c._ss_('disabled',p_,c._sg_('data', c._sg_('item', d, e)), '=', 0)"}},{"type":"attribute","name":"title","value":{"type":"expression","body":"c._sg_('title', c._sg_('data', c._sg_('item', d, e)))","constant":false,"setbody":"c._ss_('title',p_,c._sg_('data', c._sg_('item', d, e)), '=', 0)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', c._sg_('data', c._sg_('item', d, e))))","constant":false,"setbody":false}},{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c._sg_('item', d, e)['select']()","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n            "},{"type":"if","test":{"type":"expression","body":"c._sg_('titleTemplate', d, e)","constant":false,"setbody":"c._ss_('titleTemplate',p_,d, '=', 1)","once":true},"consequent":[{"type":"text","text":"\n                "},{"type":"template","content":{"type":"expression","body":"c._sg_('titleTemplate', d, e)","constant":false,"setbody":"c._ss_('titleTemplate',p_,d, '=', 1)","once":true}},{"type":"text","text":"\n            "}],"alternate":[{"type":"text","text":"\n                "},{"type":"expression","body":"c._sg_('title', c._sg_('data', c._sg_('item', d, e)))","constant":false,"setbody":"c._ss_('title',p_,c._sg_('data', c._sg_('item', d, e)), '=', 0)"},{"type":"text","text":"\n            "}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":"tabs_bd"}],"children":[{"type":"text","text":"\n        "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n"}]}]
+
+/***/ },
+/* 123 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiListview = __webpack_require__(91);
+
+	/**
+	 * @class Tab
+	 * @extend Item
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {boolean=false}           options.data.selected           <=> 该项是否被选中
+	 * @param {string=''}               options.data.title               => 该项的工具提示
+	 * @param {boolean=false}           options.data.disabled            => 禁用该项
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 */
+	var Tab = _rguiUiListview.Item.extend({
+	    name: 'tab',
+	    template: '<div r-hide={this.$outer.data.selected !== this}>{#inc this.$body}</div>',
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            // @inherited selected: false,
+	            // @inherited disabled: false,
+	            title: ''
+	        }, this.data);
+	        this.supr();
+	    }
+	});
+
+	exports.default = Tab;
+
+/***/ },
+/* 124 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Uploader = undefined;
+
+	var _uploader = __webpack_require__(125);
+
+	var _uploader2 = _interopRequireDefault(_uploader);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Uploader = _uploader2.default;
+
+/***/ },
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _rguiUiBase = __webpack_require__(75);
+
+	var _index = __webpack_require__(126);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SIZE_UNITS = {
+	    kB: 1000,
+	    MB: Math.pow(1000, 2),
+	    GB: Math.pow(1000, 3),
+	    TB: Math.pow(1000, 4)
+	};
+
+	/**
+	 * @class Uploader
+	 * @extend Component
+	 * @param {object}                  options.data                     =  绑定属性
+	 * @param {string=''}               options.data.url                 => 上传路径
+	 * @param {string='json'}           options.data.dataType            => 接收数据类型。可以是：`text`、`xml`、`json`。
+	 * @param {object}                  options.data.data                => 附加数据
+	 * @param {string='file'}           options.data.name                => 上传文件的name
+	 * @param {string|string[]=''}      options.data.extensions          => 可上传的扩展名。默认为空，表示可上传任意文件类型的文件；可以为字符串，多个扩展名用`,`隔开，如：'png,jpg,gif'；也可以为数组，如：['png', 'jpg', 'gif']。
+	 * @param {string|number=''}        options.data.maxSize             => 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`。
+	 * @param {boolean=false}           options.data.sending            <=  是否正在上传
+	 * @param {boolean=false}           options.data.disabled            => 是否禁用
+	 * @param {boolean=true}            options.data.visible             => 是否显示
+	 * @param {string=''}               options.data.class               => 补充class
+	 */
+	var Uploader = _rguiUiBase.Component.extend({
+	    name: 'uploader',
+	    template: _index2.default,
+	    /**
+	     * @protected
+	     * @override
+	     */
+	    config: function config() {
+	        this.data = Object.assign({
+	            url: '',
+	            contentType: 'multipart/form-data',
+	            dataType: 'json',
+	            data: {},
+	            name: 'file',
+	            extensions: null,
+	            maxSize: '',
+	            sending: false,
+	            _id: new Date().getTime()
+	        }, this.data);
+	        this.supr();
+	    },
+
+	    /**
+	     * @method upload() 弹出文件对话框并且上传文件
+	     * @public
+	     * @return {void}
+	     */
+	    upload: function upload() {
+	        if (this.data.disabled || this.data.sending) return;
+
+	        this.$refs.file.click();
+	    },
+
+	    /**
+	     * @method _checkExtensions(file) 检查扩展名
+	     * @private
+	     * @param  {File} file 文件对象
+	     * @return {boolean} 返回是否通过验证
+	     */
+	    _checkExtensions: function _checkExtensions(file) {
+	        if (!this.data.extensions) return true;
+
+	        var fileName = file.name;
+	        var extName = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase();
+
+	        var extensions = this.data.extensions;
+	        if (typeof extensions === 'string') extensions = extensions.split(',');
+
+	        if (extensions.includes(extName)) return true;
+
+	        /**
+	         * @event error 上传错误时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} name ExtensionError
+	         * @property {object} message 错误信息
+	         * @property {object} extensions 可上传的扩展名
+	         */
+	        this.$emit('error', {
+	            sender: this,
+	            name: 'ExtensionError',
+	            message: '只能上传' + extensions.join(', ') + '类型的文件！',
+	            extensions: extensions
+	        });
+
+	        return false;
+	    },
+
+	    /**
+	     * @method _checkSize(file) 检查文件大小
+	     * @private
+	     * @param  {File} file 文件对象
+	     * @return {boolean} 返回是否通过验证
+	     */
+	    _checkSize: function _checkSize(file) {
+	        if (!this.data.maxSize && this.data.maxSize !== 0) return true;
+
+	        var maxSize = void 0;
+	        if (!isNaN(this.data.maxSize)) maxSize = +this.data.maxSize;else {
+	            var unit = this.data.maxSize.slice(-2);
+	            if (!SIZE_UNITS[unit]) throw new Error('Unknown unit!');
+
+	            maxSize = this.data.maxSize.slice(0, -2) * SIZE_UNITS[unit];
+	        }
+
+	        if (file.size <= maxSize) return true;
+
+	        /**
+	         * @event error 上传错误时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} name SizeError
+	         * @property {object} message 错误信息
+	         * @property {object} maxSize 可上传的最大文件大小
+	         * @property {object} size 当前文件大小
+	         */
+	        this.$emit('error', {
+	            sender: this,
+	            name: 'SizeError',
+	            message: '文件大小超出限制！',
+	            maxSize: this.data.maxSize,
+	            size: file.size
+	        });
+
+	        return false;
+	    },
+
+	    /**
+	     * @method _submit() 提交表单
+	     * @private
+	     * @return {void}
+	     */
+	    _submit: function _submit() {
+	        var file = this.$refs.file.files ? this.$refs.file.files[0] : {
+	            name: this.$refs.file.value,
+	            size: 0
+	        };
+
+	        if (!file || !file.name || !this._checkExtensions(file) || !this._checkSize(file)) return;
+
+	        this.data.sending = true;
+	        /**
+	         * @event sending 发送前触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} data 待发送的数据
+	         */
+	        this.$emit('sending', {
+	            sender: this,
+	            data: this.data.data
+	        });
+
+	        this.$refs.form.submit();
+	    },
+
+	    /**
+	     * @method _onLoad() 接收数据回调
+	     * @private
+	     * @return {void}
+	     */
+	    _onLoad: function _onLoad() {
+	        var $iframe = this.$refs.iframe;
+
+	        if (!this.data.sending) return;
+	        this.data.sending = false;
+
+	        var xml = {};
+	        if ($iframe.contentWindow) {
+	            xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
+	            xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
+	        } else if ($iframe.contentDocument) {
+	            xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerText : null;
+	            xml.responseXML = $iframe.contentDocument.document.XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
+	        }
+
+	        if (!xml.responseText) {
+	            /**
+	             * @event error 上传错误时触发
+	             * @property {object} sender 事件发送对象
+	             * @property {object} name ResponseError
+	             * @property {object} message 错误信息
+	             */
+	            return this.$emit('error', {
+	                sender: this,
+	                name: 'ResponseError',
+	                message: 'No responseText!'
+	            });
+	        }
+
+	        /**
+	         * @event complete 上传完成时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} xml 返回的xml
+	         */
+	        this.$emit('complete', {
+	            sender: this,
+	            xml: xml
+	        });
+
+	        /**
+	         * @event success 上传成功时触发
+	         * @property {object} sender 事件发送对象
+	         * @property {object} data 返回的数据
+	         */
+	        this.$emit('success', {
+	            sender: this,
+	            data: this._parseData(xml, this.data.dataType)
+	        });
+	    },
+
+	    /**
+	     * @method _parseData(xml, type) 解析接收的数据
+	     * @private
+	     * @param  {object} xml 接收的xml
+	     * @param  {object} type 数据类型
+	     * @return {object|string} 解析后的数据
+	     */
+	    _parseData: function _parseData(xml, type) {
+	        if (type === 'text') return xml.responseText;else if (type === 'xml') return xml.responseXML;else if (type === 'json') {
+	            var data = xml.responseText;
+	            try {
+	                data = JSON.parse(data);
+	            } catch (e) {}
+
+	            return data;
+	            // danger，暂时不开启
+	            // } else if (type === 'script')
+	            //     return eval(xml.responseText);
+	        } else return xml.responseText;
+	    }
+	});
+
+	exports.default = Uploader;
+
+/***/ },
+/* 126 */
+/***/ function(module, exports) {
+
+	module.exports =[{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"class","value":{"type":"expression","body":"['u-uploader ',c._sg_('class', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"z-dis","value":{"type":"expression","body":"c._sg_('disabled', d, e)","constant":false,"setbody":"c._ss_('disabled',p_,d, '=', 1)"}},{"type":"attribute","name":"r-hide","value":{"type":"expression","body":"(!c._sg_('visible', d, e))","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n    "},{"type":"element","tag":"div","attrs":[{"type":"attribute","name":"on-click","value":{"type":"expression","body":"c['upload']()","constant":false,"setbody":false}}],"children":[{"type":"text","text":"\n        "},{"type":"template","content":{"type":"expression","body":"c._sg_('$body', c)","constant":false,"setbody":"c._ss_('$body',p_,c, '=', 0)"}},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"form","attrs":[{"type":"attribute","name":"method","value":"POST"},{"type":"attribute","name":"action","value":{"type":"expression","body":"c._sg_('url', d, e)","constant":false,"setbody":"c._ss_('url',p_,d, '=', 1)"}},{"type":"attribute","name":"target","value":{"type":"expression","body":"['iframe',c._sg_('_id', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"enctype","value":{"type":"expression","body":"c._sg_('contentType', d, e)","constant":false,"setbody":"c._ss_('contentType',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"form"}],"children":[{"type":"text","text":"\n        "},{"type":"if","test":{"type":"expression","body":"(!c._sg_('sending', d, e))","constant":false,"setbody":false},"consequent":[{"type":"text","text":"\n        \n        "},{"type":"element","tag":"input","attrs":[{"type":"attribute","name":"type","value":"file"},{"type":"attribute","name":"name","value":{"type":"expression","body":"c._sg_('name', d, e)","constant":false,"setbody":"c._ss_('name',p_,d, '=', 1)"}},{"type":"attribute","name":"ref","value":"file"},{"type":"attribute","name":"on-change","value":{"type":"expression","body":"c['_submit']()","constant":false,"setbody":false}}]},{"type":"text","text":"\n        "}],"alternate":[]},{"type":"text","text":"\n        "},{"type":"list","sequence":{"type":"expression","body":"Object['keys'](c._sg_('data', d, e))","constant":false,"setbody":false},"alternate":[],"variable":"key","body":[{"type":"text","text":"\n        "},{"type":"element","tag":"input","attrs":[{"type":"attribute","name":"type","value":"hidden"},{"type":"attribute","name":"name","value":{"type":"expression","body":"c._sg_('key', d, e)","constant":false,"setbody":"c._ss_('key',p_,d, '=', 1)"}},{"type":"attribute","name":"value","value":{"type":"expression","body":"c._sg_(c._sg_('key', d, e), c._sg_('data', d, e))","constant":false,"setbody":"c._ss_(c._sg_('key', d, e),p_,c._sg_('data', d, e), '=', 0)"}}]},{"type":"text","text":"\n        "}]},{"type":"text","text":"\n    "}]},{"type":"text","text":"\n    "},{"type":"element","tag":"iframe","attrs":[{"type":"attribute","name":"name","value":{"type":"expression","body":"['iframe',c._sg_('_id', d, e)].join('')","constant":false,"setbody":false}},{"type":"attribute","name":"on-load","value":{"type":"expression","body":"c['_onLoad']()","constant":false,"setbody":false}},{"type":"attribute","name":"ref","value":"iframe"}]},{"type":"text","text":"\n"}]}]
 
 /***/ }
 /******/ ])

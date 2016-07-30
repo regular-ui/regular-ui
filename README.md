@@ -1,6 +1,6 @@
 # Regular UI
 
-Regular UI is a set of front-end components built with [RegularJS][RegularJS].
+Regular UI is a set of front-end components built with [RegularJS](https://github.com/regularjs/regular).
 
 To get started, check out http://regular-ui.github.io/v0.2/start/overview.html
 
@@ -12,7 +12,7 @@ Regular UI v0.2 is still under development, following options to get it:
 
 ## Documentation
 
-You can read them on [GitHub Page][documentation].
+You can read them on [GitHub Page](http://regular-ui.github.io/v0.2).
 
 ## Browser Support
 
@@ -22,7 +22,19 @@ You can read them on [GitHub Page][documentation].
 
 ## Develop
 
-You should download `rgui-tools` to develop, see the [README.md][rgui-tools] of `rgui-tools` for more details.
+We use `rgui-tools` for developing components. Check out the [Developer Tools](https://github.com/regular-ui/rgui-tools) for more detail.
+
+## Versioning
+
+Regular UI is maintained by using the [Semantic Versioning Specification (SemVer)](http://semver.org).
+
+## Contributing
+
+See the [contributing guidelines](https://github.com/regular-ui/regular-ui/blob/next/CONTRIBUTING.md) for details.
+
+## Copyright and License
+
+Code released under the MIT license. 
 
 ## Referenced Websites
 
@@ -54,24 +66,3 @@ You should download `rgui-tools` to develop, see the [README.md][rgui-tools] of 
 ### Others
 - [Kendo UI](http://demos.telerik.com/kendo-ui)
 - [ExtJS](http://docs.sencha.com/extjs/4.0.7)
-
-## Versioning
-
-Regular UI is maintained by using the [Semantic Versioning Specification (SemVer)][SemVer].
-
-## Contributing
-
-See the [contributing guidelines][contributing] for details.
-
-## Copyright and License
-
-Code released under the MIT license. 
-
-------
-
-[documentation]: http://regular-ui.github.io/v0.2/
-[rgui-tools]: https://github.com/regular-ui/rgui-tools
-[contributing]: https://github.com/regular-ui/regular-ui/blob/master/CONTRIBUTING.md
-
-[RegularJS]: https://github.com/regularjs/regular
-[SemVer]: http://semver.org

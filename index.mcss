@@ -4,6 +4,9 @@
 @import 'rgui-ui-listview/index.mcss';
 @import 'rgui-ui-modal/index.mcss';
 @import 'rgui-ui-overlay/index.mcss';
+@import 'rgui-ui-pager/index.mcss';
 @import 'rgui-ui-resizable/index.mcss';
 @import 'rgui-ui-select/index.mcss';
 @import 'rgui-ui-slider/index.mcss';
+@import 'rgui-ui-tabs/index.mcss';
+@import 'rgui-ui-uploader/index.mcss';
