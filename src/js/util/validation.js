@@ -10,7 +10,7 @@
 
 var Component = require('regular-ui-base/src/component');
 var _ = require('regular-ui-base/src/_');
-var validator = require('validator');
+var validator = require('validator/validator.js');
 
 /**
  * @class Validation
