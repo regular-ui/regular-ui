@@ -1,10 +1,13 @@
 {
   "name": "regular-ui",
   "description": "Regular UI is a set of front-end components built with RegularJS.",
-  "version": "0.2.0",
+  "version": "0.2.0-alpha",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": ["shhider <shhider@163.com>"],
   "main": "./index.js",
+  "scripts": {
+    "dist": "rgui-tools dist -O --output regular-ui"
+  },
   "repository": "regular-ui/regular-ui",
   "homepage": "http://regular-ui.github.io",
   "bugs": {"url": "http://github.com/regular-ui/regular-ui/issues"},
@@ -14,20 +17,23 @@
   "dependencies": {
     "rgui-css-base": "regular-ui/css-base#master",
     "rgui-css-standard": "regular-ui/css-standard#master",
-    "rgui-ui-base": "0.2.0-alpha.2",
+    "rgui-ui-base": "^0.2.0-alpha.5",
     "rgui-ui-calendar": "regular-ui/ui-calendar#master",
-    "rgui-ui-drag": "regular-ui/ui-drag#master",
-    "rgui-ui-listview": "0.2.0-alpha",
-    "rgui-ui-modal": "0.2.0-alpha",
-    "rgui-ui-overlay": "regular-ui/ui-overlay#master",
-    "rgui-ui-pager": "0.2.0-alpha",
+    "rgui-ui-drag": "^0.2.0-alpha.1",
+    "rgui-ui-listview": "^0.2.0-alpha.1",
+    "rgui-ui-modal": "^0.2.0-alpha.2",
+    "rgui-ui-overlay": "^0.2.0-alpha.1",
+    "rgui-ui-pager": "^0.2.0-alpha.1",
     "rgui-ui-resizable": "regular-ui/ui-resizable#master",
-    "rgui-ui-select": "regular-ui/ui-select#master",
+    "rgui-ui-select": "^0.2.0-alpha.1",
     "rgui-ui-slider": "regular-ui/ui-slider#master",
-    "rgui-ui-tabs": "regular-ui/ui-tabs#master",
+    "rgui-ui-tabs": "^0.2.0-alpha.1",
     "rgui-ui-uploader": "regular-ui/ui-uploader#master"
   },
   "devDependencies": {
     "core-js": "^2.4.0"
+  },
+  "peerDependencies": {
+    "regularjs": "^0.4.3"
   }
 }

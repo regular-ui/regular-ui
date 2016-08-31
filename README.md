@@ -12,7 +12,7 @@ Regular UI v0.2 is still under development, following options to get it:
 
 ## Documentation
 
-You can read them on [GitHub Page](http://regular-ui.github.io/v0.2).
+You can read them on the [GitHub Page](http://regular-ui.github.io/v0.2).
 
 ## Browser Support
 
@@ -30,7 +30,7 @@ Regular UI is maintained by using the [Semantic Versioning Specification (SemVer
 
 ## Contributing
 
-See the [contributing guidelines](https://github.com/regular-ui/regular-ui/blob/next/CONTRIBUTING.md) for details.
+See the [Contributing Guidelines](https://github.com/regular-ui/regular-ui/blob/next/CONTRIBUTING.md) for details.
 
 ## Copyright and License
 
