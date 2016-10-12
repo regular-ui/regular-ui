@@ -50,14 +50,16 @@ var DatePicker = Dropdown.extend({
 
         this.$watch('date', function(newValue, oldValue) {
             // 字符类型自动转为日期类型
-            if(typeof newValue === 'string') {
-                if(bowser.msie && bowser.version <= 9)
-                    return this.data.date = polyfill.StringDate(newValue);
-                return this.data.date = new Date(newValue);
-            } else if(typeof newValue === 'number') {
-                return this.data.date = new Date(newValue);
+            // FIXME 如果没有这个if，当newValue为空字符串时，会进入下面的判断，最终会报Invalid Date的错误
+            if(newValue){
+                if(typeof newValue === 'string') {
+                    if(bowser.msie && bowser.version <= 9)
+                        return this.data.date = polyfill.StringDate(newValue);
+                    return this.data.date = new Date(newValue);
+                } else if(typeof newValue === 'number') {
+                    return this.data.date = new Date(newValue);
+                }
             }
-
             if(newValue == 'Invalid Date' || newValue == 'NaN')
                 throw new TypeError('Invalid Date');
 

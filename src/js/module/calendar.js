@@ -11,6 +11,8 @@ var Component = require('regular-ui-base/src/component');
 var template = require('./calendar.html');
 var _ = require('regular-ui-base/src/_');
 
+var filter = require('regular-ui-base').filter;
+
 var bowser = require('bowser');
 var polyfill = require('regular-ui-base/src/polyfill');
 var MS_OF_DAY = 24*3600*1000;
@@ -212,7 +214,7 @@ var Calendar = Component.extend({
          */
         this.$emit('select', {
             sender: this,
-            date: date
+            date: filter.format(date, 'yyyy-MM-dd')
         });
     },
     /**
